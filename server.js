@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
 
 app.post("/", async (req, res) => {
   var url = await getDirectUrl(req.body.url)
-  res.json(info.formats)
+  res.json(url)
   // if(url){
   //   res.render('index', {message:0, url});
   // } else {
