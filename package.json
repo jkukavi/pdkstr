@@ -16,7 +16,5 @@
     "helmet": "^4.0.0",
     "ytdl-core": "^3.2.1"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.4"
-  }
+  "devDependencies": {}
 }
