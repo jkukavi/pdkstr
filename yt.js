@@ -7,7 +7,7 @@ module.exports = async function getDirectUrl(url){
     var id = getVideoIdFromUrl(url)
     let info = await ytdl.getInfo(id);
     let format = ytdl.chooseFormat(info.formats, { 
-                                    quality: 'lowestaudio', 
+                                    quality: 'lowest', 
                                     filter:"audioonly" });
                                     
     return format.url;
