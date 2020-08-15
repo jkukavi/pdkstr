@@ -6,11 +6,12 @@ module.exports = async function getDirectUrl(url){
     try{
     var id = getVideoIdFromUrl(url)
     let info = await ytdl.getInfo(id);
-    let format = ytdl.chooseFormat(info.formats, { 
-                                    quality: 'lowest', 
-                                    filter:"audioonly" });
+    return info.formats;
+    // let format = ytdl.chooseFormat(info.formats, { 
+    //                                 quality: 'lowest', 
+    //                                 filter:"audioonly" });
                                     
-    return format.url;
+    // return format.url;
     } catch {
         return false;
     }
