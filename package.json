@@ -9,7 +9,8 @@
   },
   "engines": {
     "node": "13.13.0",
-    "yarn": "1.22.4"
+    "yarn": "1.22.4",
+    "npm": "6.14.4"
   },
   "keywords": [],
   "author": "",
