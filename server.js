@@ -20,11 +20,12 @@ app.get("/", (req, res) => {
 
 app.post("/", async (req, res) => {
   var url = await getDirectUrl(req.body.url)
-  if(url){
-    res.render('index', {message:0, url});
-  } else {
-    res.render('index', {message: "Url Not Found.", url:0})
-  }
+  res.json(info.formats)
+  // if(url){
+  //   res.render('index', {message:0, url});
+  // } else {
+  //   res.render('index', {message: "Url Not Found.", url:0})
+  // }
 } )
 
 console.log("server started 3000")
