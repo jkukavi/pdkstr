@@ -6,6 +6,7 @@ var bodyParser = require('body-parser')
 
 const dir = `${__dirname}/public/`;
 
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
