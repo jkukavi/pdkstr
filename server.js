@@ -13,19 +13,9 @@ app.use(
 );
 
 // Serve the static files from the React app
+app.use(helmet());
 
 app.use(express.static("client/build"));
-
-app.use(
-  helmet.contentSecurityPolicy({
-    directives: {
-      defaultSrc: ["'self'"],
-      scriptSrc: ["'self'"],
-      styleSrc: ["'self'"],
-      fontSrc: ["'self'"],
-    },
-  })
-);
 
 app.post("/url", async (req, res) => {
   console.log("hit");
