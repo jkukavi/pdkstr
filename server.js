@@ -16,18 +16,14 @@ app.use(
 );
 
 app.use(helmet());
-app.set("view engine", "ejs");
 
-app.get("/", (req, res) => {
-  res.render("index", { message: 0, url: 0 });
-});
-
-app.post("/", async (req, res) => {
-  var url = await getDirectUrl(req.body.url);
-  if (url) {
-    res.render("index", { message: 0, url });
+app.post("/url", async (req, res) => {
+  const url = req.body.url;
+  var directUrl = await getDirectUrl(url);
+  if (directUrl) {
+    res.status(200).json({ directUrl });
   } else {
-    res.render("index", { message: "Url Not Found.", url: 0 });
+    res.status(400).json({ message: "Direct url not found" });
   }
 });
 
