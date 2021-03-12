@@ -4,7 +4,20 @@ const app = express();
 const helmet = require("helmet");
 const { getDirectUrl, searchYoutube } = require("./ytFunctions.js");
 
-app.use(helmet());
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "example.com"],
+      "img-src": [
+        "'self'",
+        "i.ytimg.com",
+        "yt3.ggpht.com",
+        "hips.hearstapps.com",
+      ],
+    },
+  })
+);
 //proba
 app.use(bodyParser.json());
 app.use(
