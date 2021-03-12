@@ -1,37 +1,67 @@
 import React, { useState } from "react";
 import "./App.css";
 import axios from "axios";
+import loadingGif from "./giphy.webp";
+import playIcon from "./playicon.png";
 
-const imgLoc =
+const defaultPuppyImg =
   "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*";
 
 function App() {
-  const [url, setUrl] = useState("");
   const [directUrl, setDirectUrl] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [searchString, setSearchString] = useState("");
+  const [searchArray, setSearchArray] = useState([]);
 
-  const getDirectUrl = async () => {
+  const getDirectUrl = async (url) => {
     setDirectUrl(null);
+    setLoading(true);
     try {
       const response = await axios.post("/url", {
         url,
       });
       const { directUrl } = response.data;
       setDirectUrl(directUrl);
-    } catch (e) {}
+    } catch (e) {
+      prompt("some error happened");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const searchYoutube = async (event) => {
+    event.preventDefault();
+    setSearchArray([]);
+    setLoading(true);
+    try {
+      const response = await axios.post("/search", {
+        searchString,
+      });
+      const searchResultsArray = response.data.searchResultsArray;
+      setSearchArray(searchResultsArray);
+    } catch (e) {
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleInput = (e) => {
-    setUrl(e.target.value);
+    setSearchString(e.target.value);
     console.log(e.target.value);
   };
   return (
     <>
       <div class="container">
-        <div class="form">
-          <input class="input" value={url} onChange={handleInput}></input>
-          <button class="button" onClick={() => getDirectUrl()}>
-            Send Url
+        <form class="form">
+          <input
+            class="input"
+            value={searchString}
+            onChange={handleInput}
+          ></input>
+          <button class="button" onClick={searchYoutube}>
+            Search
           </button>
+
           {directUrl && (
             <div style={{ margin: "2rem 1rem 0rem" }}>
               <audio controls>
@@ -39,17 +69,53 @@ function App() {
               </audio>
             </div>
           )}
+          {loading && (
+            <div className="loading">
+              <img src={loadingGif} alt="loading" />
+            </div>
+          )}
           <div className="cardContainer">
-            {[0, 0, 0, 0, 0, 0, 0].map(() => (
-              <div className="card">
-                <div className="thumbnail">
-                  <img src={imgLoc} className="thumbnail" alt="thumbnail" />
+            {searchArray.map(({ url, title, bestThumbnail, author, views }) => {
+              return (
+                <div className="card">
+                  <div className="thumbnail">
+                    <img
+                      src={bestThumbnail?.url || defaultPuppyImg}
+                      className="thumbnail"
+                      alt="thumbnail"
+                    />
+                  </div>
+                  <div className="descContainer">
+                    <p className="desc title">{title}</p>
+                    <div className="channelDesc">
+                      <div
+                        className="authorThumbnail"
+                        style={{
+                          backgroundImage: `url(${
+                            author?.bestAvatar?.url || defaultPuppyImg
+                          })`,
+                        }}
+                      />
+                      <p className="desc channelName">
+                        {author?.name || "Name not found"}
+                      </p>
+                    </div>
+                    <p className="desc">
+                      Views: {views || "Views not available"}
+                    </p>
+                    <div className="controlsContainer">
+                      <img
+                        src={playIcon}
+                        onClick={() => getDirectUrl(url)}
+                        alt="playButton"
+                      />
+                    </div>
+                  </div>
                 </div>
-                <div className="desc">Title: bla bla Desc: bla bla</div>
-              </div>
-            ))}
+              );
+            })}
           </div>
-        </div>
+        </form>
       </div>
     </>
   );
