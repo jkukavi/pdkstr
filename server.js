@@ -15,6 +15,7 @@ app.use(
         "yt3.ggpht.com",
         "hips.hearstapps.com",
       ],
+      "media-src": ["*.googlevideo.com"],
     },
   })
 );
