@@ -1,11 +1,8 @@
 const express = require("express");
-var bodyParser = require("body-parser");
-
+const bodyParser = require("body-parser");
 const app = express();
 const helmet = require("helmet");
 const { getDirectUrl, searchYoutube } = require("./ytFunctions.js");
-
-const dir = `${__dirname}/public/`;
 
 //proba
 app.use(bodyParser.json());
@@ -15,7 +12,20 @@ app.use(
   })
 );
 
-app.use(helmet());
+// Serve the static files from the React app
+
+app.use(express.static("client/build"));
+
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'"],
+      styleSrc: ["'self'"],
+      fontSrc: ["'self'"],
+    },
+  })
+);
 
 app.post("/url", async (req, res) => {
   console.log("hit");
@@ -38,10 +48,6 @@ app.post("/search", async (req, res) => {
     res.status(400).json({ message: "No results" });
   }
 });
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
 
 console.log("server started 8080");
 app.listen(process.env.PORT || 8080);
