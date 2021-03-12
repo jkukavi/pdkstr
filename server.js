@@ -4,6 +4,7 @@ const app = express();
 const helmet = require("helmet");
 const { getDirectUrl, searchYoutube } = require("./ytFunctions.js");
 
+app.use(helmet());
 //proba
 app.use(bodyParser.json());
 app.use(
@@ -13,7 +14,6 @@ app.use(
 );
 
 // Serve the static files from the React app
-app.use(helmet());
 
 app.use(express.static("client/build"));
 
