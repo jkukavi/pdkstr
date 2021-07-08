@@ -75,45 +75,52 @@ function App() {
             </div>
           )}
           <div className="cardContainer">
-            {searchArray.map(({ url, title, bestThumbnail, author, views }) => {
-              return (
-                <div className="card">
-                  <div className="thumbnail">
-                    <img
-                      src={bestThumbnail?.url || defaultPuppyImg}
-                      className="thumbnail"
-                      alt="thumbnail"
-                    />
-                  </div>
-                  <div className="descContainer">
-                    <p className="desc title">{title}</p>
-                    <div className="channelDesc">
-                      <div
-                        className="authorThumbnail"
-                        style={{
-                          backgroundImage: `url(${
-                            author?.bestAvatar?.url || defaultPuppyImg
-                          })`,
-                        }}
-                      />
-                      <p className="desc channelName">
-                        {author?.name || "Name not found"}
-                      </p>
-                    </div>
-                    <p className="desc">
-                      Views: {views || "Views not available"}
-                    </p>
-                    <div className="controlsContainer">
+            {searchArray
+              .filter(({ type }) => type === "video")
+              .map(({ url, title, thumbnails, author, views }) => {
+                console.log(searchArray);
+                return (
+                  <div className="card">
+                    <div className="thumbnail">
                       <img
-                        src={playIcon}
-                        onClick={() => getDirectUrl(url)}
-                        alt="playButton"
+                        src={
+                          thumbnails
+                            ? thumbnails[thumbnails.length - 1]?.url
+                            : defaultPuppyImg
+                        }
+                        className="thumbnail"
+                        alt="thumbnail"
                       />
                     </div>
+                    <div className="descContainer">
+                      <p className="desc title">{title}</p>
+                      <div className="channelDesc">
+                        <div
+                          className="authorThumbnail"
+                          style={{
+                            backgroundImage: `url(${
+                              author?.bestAvatar?.url || defaultPuppyImg
+                            })`,
+                          }}
+                        />
+                        <p className="desc channelName">
+                          {author?.name || "Name not found"}
+                        </p>
+                      </div>
+                      <p className="desc">
+                        Views: {views || "Views not available"}
+                      </p>
+                      <div className="controlsContainer">
+                        <img
+                          src={playIcon}
+                          onClick={() => getDirectUrl(url)}
+                          alt="playButton"
+                        />
+                      </div>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
           </div>
         </form>
       </div>
