@@ -1,5 +1,6 @@
 const ytdl = require("ytdl-core");
 const ytsr = require("ytsr");
+const ytpl = require("ytpl");
 
 const searchYoutube = async (searchString) => {
   const searchResults = await ytsr(searchString, { limit: 20 });
@@ -22,11 +23,18 @@ const getDirectUrl = async (url) => {
 };
 
 const getVideoIdFromUrl = (text) => {
-  var re = /https?:\/\/(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube(?:-nocookie)?\.com\S*?[^\w\s-])([\w-]{11})(?=[^\w-]|$)(?![?=&+%\w.-]*(?:['"][^<>]*>|<\/a>))[?=&+%\w.-]*/gi;
+  var re =
+    /https?:\/\/(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube(?:-nocookie)?\.com\S*?[^\w\s-])([\w-]{11})(?=[^\w-]|$)(?![?=&+%\w.-]*(?:['"][^<>]*>|<\/a>))[?=&+%\w.-]*/gi;
   return text.replace(re, "$1");
+};
+
+const getPlaylistVideos = async (playlistUrl) => {
+  const result = await ytpl(playlistUrl, { pages: 1 });
+  return result.items;
 };
 
 module.exports = {
   getDirectUrl,
   searchYoutube,
+  getPlaylistVideos,
 };

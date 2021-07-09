@@ -2,7 +2,11 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const helmet = require("helmet");
-const { getDirectUrl, searchYoutube } = require("./ytFunctions.js");
+const {
+  getDirectUrl,
+  searchYoutube,
+  getPlaylistVideos,
+} = require("./ytFunctions.js");
 
 app.use(
   helmet.contentSecurityPolicy({
@@ -32,7 +36,6 @@ app.use(
 app.use(express.static("client/build"));
 
 app.post("/url", async (req, res) => {
-  console.log("hit");
   const url = req.body.url;
   var directUrl = await getDirectUrl(url);
   if (directUrl) {
@@ -43,9 +46,18 @@ app.post("/url", async (req, res) => {
 });
 
 app.post("/search", async (req, res) => {
-  console.log("hitsearch");
   const { searchString } = req.body;
   var searchResultsArray = await searchYoutube(searchString);
+  if (searchResultsArray) {
+    res.status(200).json({ searchResultsArray });
+  } else {
+    res.status(400).json({ message: "No results" });
+  }
+});
+
+app.post("/playlist", async (req, res) => {
+  const { playlistUrl } = req.body;
+  var searchResultsArray = await getPlaylistVideos(playlistUrl);
   if (searchResultsArray) {
     res.status(200).json({ searchResultsArray });
   } else {

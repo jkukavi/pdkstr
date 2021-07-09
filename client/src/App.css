@@ -25,7 +25,7 @@ audio {
   direction: column;
   align-content: space-between;
   width: 100vw;
-  max-width: 1010px;
+  max-width: 1120px;
   min-height: 100vh;
   background-color: #4b36d0;
   margin: auto;
@@ -86,15 +86,21 @@ button:active {
   text-decoration: underline;
 }
 
+.audioContainer {
+  margin: 2rem 1rem 0rem;
+  height: 3rem;
+}
+
 .loading {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 3rem;
 }
 
 .loading img {
-  height: 10rem;
-  width: 10rem;
+  height: 3rem;
+  width: 3rem;
   border-radius: 50%;
   margin-top: 1rem;
 }
@@ -137,20 +143,22 @@ a:active {
 }
 
 .card {
-  width: 100%;
-  margin: 0rem 0rem 2rem;
+  width: 16.6rem;
+  margin: 0 0.3rem 1rem;
   padding: 0.3rem;
   display: flex;
-  justify-content: flex-start;
+  flex-flow: column nowrap;
   background-color: brown;
   filter: drop-shadow(1px 2px 2px rgb(68, 68, 68));
   transition: transform 0.3s;
   border-radius: 3px;
-  flex-wrap: wrap;
 }
 
 .cardContainer {
-  margin: 2rem 2rem 0rem;
+  margin: 2rem 0.3rem 0rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .card:hover {
@@ -159,6 +167,7 @@ a:active {
 }
 
 .card .thumbnail {
+  cursor: pointer;
   height: 12rem;
   width: 16rem;
   border-radius: 5px;
@@ -169,8 +178,6 @@ a:active {
 }
 
 .descContainer {
-  margin-left: 2rem;
-  max-width: 15rem;
 }
 
 .desc.title {
@@ -178,15 +185,18 @@ a:active {
 }
 
 .desc.channelName {
+  font-size: 0.8rem;
   font-weight: 700;
 }
 
 .channelDesc {
+  margin-right: 0.5rem;
   display: flex;
   align-items: center;
 }
 
 .authorThumbnail {
+  cursor: pointer;
   height: 2rem;
   width: 2rem;
   border-radius: 50%;
