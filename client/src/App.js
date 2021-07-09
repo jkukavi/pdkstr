@@ -172,7 +172,12 @@ function App() {
                     </div>
                   ) : (
                     <div className="card">
-                      <div className="thumbnail">
+                      <div
+                        className="thumbnail"
+                        onClick={(event) => {
+                          getPlaylistVideos(event, url);
+                        }}
+                      >
                         <img
                           src={bestAvatar.url || defaultPuppyImg}
                           className="thumbnail"
