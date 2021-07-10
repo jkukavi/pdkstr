@@ -121,6 +121,11 @@ button:active {
   border-radius: 50%;
 }
 
+.audioControls {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .controlsContainer {
 }
 

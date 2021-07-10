@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./App.css";
 import axios from "axios";
 import loadingGif from "./giphy.webp";
-import playIcon from "./playicon.png";
+import replay5 from "./icons/replay5.png";
+import replay10 from "./icons/replay10.png";
+import replay30 from "./icons/replay30.png";
+import forward5 from "./icons/forward5.png";
+import forward10 from "./icons/forward10.png";
+import forward30 from "./icons/forward30.png";
 
 const defaultPuppyImg =
   "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*";
@@ -14,6 +19,12 @@ function App() {
   const [searchString, setSearchString] = useState("");
   const [searchArray, setSearchArray] = useState([]);
   const [viewingChannel, setViewingChannel] = useState(false);
+  const audioPlayerRef = useRef();
+
+  const replay = (time) => () => {
+    const audioPlayer = audioPlayerRef.current;
+    audioPlayer.currentTime = audioPlayer.currentTime + time;
+  };
 
   const getDirectUrl = async (url) => {
     setDirectUrl(null);
@@ -194,7 +205,28 @@ function App() {
           <div className="audioContainer">
             {directUrl && (
               <div className="audioPlayer">
-                <audio controls>
+                <div className="audioControls">
+                  <div className="audioButton" onClick={replay(-5)}>
+                    <img src={replay5} alt="loading" />
+                  </div>
+                  <div className="audioButton" onClick={replay(-10)}>
+                    <img src={replay10} alt="loading" />
+                  </div>
+                  <div className="audioButton" onClick={replay(-30)}>
+                    <img src={replay30} alt="loading" />
+                  </div>
+                  <div className="audioButton" onClick={replay(5)}>
+                    <img src={forward5} alt="loading" />
+                  </div>
+                  <div className="audioButton" onClick={replay(10)}>
+                    <img src={forward10} alt="loading" />
+                  </div>
+                  <div className="audioButton" onClick={replay(30)}>
+                    <img src={forward30} alt="loading" />
+                  </div>
+                </div>
+
+                <audio ref={audioPlayerRef} controls>
                   <source src={directUrl} type="audio/webm" />
                 </audio>
               </div>
