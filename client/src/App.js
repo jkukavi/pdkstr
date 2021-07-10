@@ -9,14 +9,15 @@ const defaultPuppyImg =
 
 function App() {
   const [directUrl, setDirectUrl] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [audioLoading, setAudioLoading] = useState(false);
+  const [arrayLoading, setArrayLoading] = useState(false);
   const [searchString, setSearchString] = useState("");
   const [searchArray, setSearchArray] = useState([]);
   const [viewingChannel, setViewingChannel] = useState(false);
 
   const getDirectUrl = async (url) => {
     setDirectUrl(null);
-    setLoading(true);
+    setAudioLoading(true);
     try {
       const response = await axios.post("/url", {
         url,
@@ -26,7 +27,7 @@ function App() {
     } catch (e) {
       prompt("some error happened");
     } finally {
-      setLoading(false);
+      setAudioLoading(false);
     }
   };
 
@@ -34,7 +35,7 @@ function App() {
     console.log("search");
     event.preventDefault();
     setSearchArray([]);
-    setLoading(true);
+    setArrayLoading(true);
     setViewingChannel(false);
     try {
       const response = await axios.post("/search", {
@@ -45,14 +46,14 @@ function App() {
       setViewingChannel(false);
     } catch (e) {
     } finally {
-      setLoading(false);
+      setArrayLoading(false);
     }
   };
 
   const getPlaylistVideos = async (event, playlistUrl) => {
     event.preventDefault();
     setSearchArray([]);
-    setLoading(true);
+    setArrayLoading(true);
     try {
       const response = await axios.post("/playlist", {
         playlistUrl,
@@ -62,7 +63,7 @@ function App() {
       setSearchArray(searchResultsArray);
     } catch (e) {
     } finally {
-      setLoading(false);
+      setArrayLoading(false);
     }
   };
 
@@ -82,18 +83,6 @@ function App() {
           <button class="button" onClick={searchYoutube}>
             Search
           </button>
-          <div className="audioContainer">
-            {directUrl && (
-              <audio controls>
-                <source src={directUrl} type="audio/webm" />
-              </audio>
-            )}
-            {loading && (
-              <div className="loading">
-                <img src={loadingGif} alt="loading" />
-              </div>
-            )}
-          </div>
           {viewingChannel && (
             <p
               style={{
@@ -106,6 +95,11 @@ function App() {
             </p>
           )}
           <div className="cardContainer">
+            {arrayLoading && (
+              <div className="loading array">
+                <img src={loadingGif} alt="loading" />
+              </div>
+            )}
             {searchArray
               .filter(
                 ({ type }) =>
@@ -196,6 +190,22 @@ function App() {
               )}
           </div>
         </form>
+        {(directUrl || audioLoading) && (
+          <div className="audioContainer">
+            {directUrl && (
+              <div className="audioPlayer">
+                <audio controls>
+                  <source src={directUrl} type="audio/webm" />
+                </audio>
+              </div>
+            )}
+            {audioLoading && (
+              <div className="loading">
+                <img src={loadingGif} alt="loading" />
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </>
   );
