@@ -206,14 +206,14 @@ function App() {
             {directUrl && (
               <div className="audioPlayer">
                 <div className="audioControls">
-                  <div className="audioButton" onClick={replay(-5)}>
-                    <img src={replay5} alt="loading" />
+                  <div className="audioButton" onClick={replay(-30)}>
+                    <img src={replay30} alt="loading" />
                   </div>
                   <div className="audioButton" onClick={replay(-10)}>
                     <img src={replay10} alt="loading" />
                   </div>
-                  <div className="audioButton" onClick={replay(-30)}>
-                    <img src={replay30} alt="loading" />
+                  <div className="audioButton" onClick={replay(-5)}>
+                    <img src={replay5} alt="loading" />
                   </div>
                   <div className="audioButton" onClick={replay(5)}>
                     <img src={forward5} alt="loading" />
