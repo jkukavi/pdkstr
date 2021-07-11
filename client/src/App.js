@@ -165,9 +165,9 @@ function App() {
                                   })`,
                                 }}
                               />
-                              <p className="desc channelName">
-                                {author?.name || "Name not found"}
-                              </p>
+                              <div className="desc channelName">
+                                <p>{author?.name || "Name not found"}</p>
+                              </div>
                             </div>
                             <p className="desc">
                               Views: {views || "Views not available"}

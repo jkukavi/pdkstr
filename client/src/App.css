@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding-left: calc(100vw - 100%);
 }
 
 p {
@@ -24,7 +25,6 @@ audio {
   display: flex;
   direction: column;
   align-content: space-between;
-  width: 100vw;
   max-width: 1120px;
   min-height: 100vh;
   background-color: #4b36d0;
@@ -47,8 +47,8 @@ audio {
 }
 
 .button {
-  background-color: rgb(255 124 0);
-  box-shadow: 0 5px 0 darkred;
+  background-color: #ffad42;
+  box-shadow: 0px 4px 1px 0px #050505;
   color: rgb(0, 0, 0);
   padding: 0.5em 0.75em;
   position: relative;
@@ -61,15 +61,15 @@ audio {
   margin-top: 2rem;
   color: black;
   font-size: 2rem;
+  transition: transform 0.2s;
 }
 
 button:hover {
-  background-color: #ce0606;
   cursor: pointer;
 }
 
 button:active {
-  box-shadow: none;
+  box-shadow: 0px -1px 0px 0px #050505;
   top: 5px;
 }
 
@@ -186,7 +186,7 @@ a:active {
   width: 16.6rem;
   margin: 0 0.3rem 1rem;
   padding: 0.3rem;
-  background-color: #c73d3d;
+  background-color: #d08d36;
   box-shadow: 1px 1px 1px 1px rgb(27 27 27);
   transition: transform 0.3s, box-shadow 0.3s;
   border-radius: 3px;
@@ -219,12 +219,14 @@ a:active {
 }
 
 .desc.title {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .desc.channelName {
+  max-width: 10rem;
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 600;
+  color: rgb(55 55 55);
 }
 
 .channelDesc {
