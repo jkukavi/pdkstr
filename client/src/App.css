@@ -124,6 +124,7 @@ button:active {
 .audioControls {
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 0.5rem;
 }
 
 .controlsContainer {

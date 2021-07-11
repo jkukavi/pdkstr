@@ -13,12 +13,7 @@ app.use(
     directives: {
       defaultSrc: ["'self'"],
       scriptSrc: ["'self'", "example.com"],
-      imgSrc: [
-        "'self' data:",
-        "i.ytimg.com",
-        "yt3.ggpht.com",
-        "hips.hearstapps.com",
-      ],
+      imgSrc: ["'self'", "i.ytimg.com", "yt3.ggpht.com", "hips.hearstapps.com"],
       "media-src": ["*.googlevideo.com"],
     },
   })
