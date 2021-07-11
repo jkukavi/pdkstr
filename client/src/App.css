@@ -122,8 +122,10 @@ button:active {
 }
 
 .audioControls {
+  max-width: 24rem;
+  margin: auto;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   margin-bottom: 0.5rem;
 }
 
