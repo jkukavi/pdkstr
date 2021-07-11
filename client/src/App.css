@@ -96,6 +96,22 @@ button:active {
   background-color: #48adff66;
   box-shadow: 0px 2px 9px 0px rgb(27 27 27);
   backdrop-filter: blur(3.7px);
+  transition: bottom 0.3s;
+}
+
+.closed {
+  bottom: -9rem;
+}
+
+.audioButton {
+  cursor: pointer;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
 }
 
 .loading {
@@ -170,12 +186,15 @@ a:active {
   width: 16.6rem;
   margin: 0 0.3rem 1rem;
   padding: 0.3rem;
-  display: flex;
-  flex-flow: column nowrap;
-  background-color: brown;
-  filter: drop-shadow(1px 2px 2px rgb(68, 68, 68));
-  transition: transform 0.3s;
+  background-color: #c73d3d;
+  box-shadow: 1px 1px 1px 1px rgb(27 27 27);
+  transition: transform 0.3s, box-shadow 0.3s;
   border-radius: 3px;
+}
+
+.card:hover {
+  transform: scale(1.015);
+  box-shadow: 1px 1px 4px 1px rgb(27 27 27 / 78%);
 }
 
 .cardContainer {
@@ -183,11 +202,6 @@ a:active {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
-
-.card:hover {
-  transform: scale(1.015);
-  filter: drop-shadow(5px 5px 15px rgb(68, 68, 68));
 }
 
 .card .thumbnail {
