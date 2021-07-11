@@ -177,7 +177,7 @@ function App() {
                       </div>
                     </div>
                   ) : (
-                    <div className="card">
+                    <div className="card channel">
                       <div
                         className="thumbnail"
                         onClick={(event) => {
