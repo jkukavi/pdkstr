@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import "./App.css";
 import axios from "axios";
 import loadingGif from "./giphy.webp";
-import replay5 from "./replay5.png";
+import replay5 from "./icons/replay5.png";
 import replay10 from "./icons/replay10.png";
 import replay30 from "./icons/replay30.png";
 import forward5 from "./icons/forward5.png";

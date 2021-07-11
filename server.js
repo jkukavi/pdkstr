@@ -13,8 +13,8 @@ app.use(
     directives: {
       defaultSrc: ["'self'"],
       scriptSrc: ["'self'", "example.com"],
-      "img-src": [
-        "'self'",
+      imgSrc: [
+        "'self' data:",
         "i.ytimg.com",
         "yt3.ggpht.com",
         "hips.hearstapps.com",
