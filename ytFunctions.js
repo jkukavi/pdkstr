@@ -8,18 +8,14 @@ const searchYoutube = async (searchString) => {
 };
 
 const getDirectUrl = async (url) => {
-  try {
-    var id = getVideoIdFromUrl(url);
-    let info = await ytdl.getInfo(id);
-    let format = ytdl.chooseFormat(info.formats, {
-      quality: "lowest",
-      filter: "audioonly",
-    });
+  var id = getVideoIdFromUrl(url);
+  let info = await ytdl.getInfo(id);
+  let format = ytdl.chooseFormat(info.formats, {
+    quality: "lowest",
+    filter: "audioonly",
+  });
 
-    return format.url;
-  } catch {
-    return false;
-  }
+  return format.url;
 };
 
 const getVideoIdFromUrl = (text) => {

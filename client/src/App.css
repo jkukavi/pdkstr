@@ -183,6 +183,7 @@ a:active {
 }
 
 .card {
+  will-change: transform;
   width: 16.6rem;
   height: 22rem;
   margin: 0 0.3rem 1rem;

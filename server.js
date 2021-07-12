@@ -32,11 +32,16 @@ app.use(express.static("client/build"));
 
 app.post("/url", async (req, res) => {
   const url = req.body.url;
-  var directUrl = await getDirectUrl(url);
-  if (directUrl) {
-    res.status(200).json({ directUrl });
-  } else {
+  try {
+    var directUrl = await getDirectUrl(url);
+    if (directUrl) {
+      res.status(200).json({ directUrl });
+    } else {
+      res.status(400).json({ message: "Direct url not found" });
+    }
+  } catch (error) {
     res.status(400).json({ message: "Direct url not found" });
+    console.log(JSON.stringify(error, null, 2));
   }
 });
 
