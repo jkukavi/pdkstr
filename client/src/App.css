@@ -2,12 +2,7 @@ body {
   margin: 0;
   padding-left: calc(100vw - 100%);
   background: rgb(75, 54, 208);
-  background: linear-gradient(
-    90deg,
-    rgba(75, 54, 208, 1) 0%,
-    rgba(152, 54, 208, 1) 44%,
-    rgb(241 161 43) 84%
-  );
+  background: linear-gradient(90deg, #4b36d0, #5536d0 66%, rgb(92 43 241) 101%);
 }
 
 p {
