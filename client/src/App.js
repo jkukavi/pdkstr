@@ -17,6 +17,7 @@ function App() {
   const [directUrl, setDirectUrl] = useState(null);
   const [audioLoading, setAudioLoading] = useState(false);
   const [arrayLoading, setArrayLoading] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   const [searchString, setSearchString] = useState("");
   const [searchArray, setSearchArray] = useState([]);
   const [viewingChannel, setViewingChannel] = useState(false);
@@ -44,7 +45,6 @@ function App() {
   };
 
   const searchYoutube = async (event) => {
-    console.log("search");
     event.preventDefault();
     setSearchArray([]);
     setArrayLoading(true);
@@ -81,18 +81,17 @@ function App() {
 
   const handleInput = (e) => {
     setSearchString(e.target.value);
-    console.log(e.target.value);
   };
   return (
     <>
-      <div class="container">
-        <form class="form">
+      <div className="container">
+        <form className="form">
           <input
-            class="input"
+            className="input"
             value={searchString}
             onChange={handleInput}
           ></input>
-          <button class="button" onClick={searchYoutube}>
+          <button className="button" onClick={searchYoutube}>
             Search
           </button>
           {viewingChannel && (
@@ -118,19 +117,22 @@ function App() {
                   type === "video" || type === "channel" || !!viewingChannel
               )
               .map(
-                ({
-                  url,
-                  title,
-                  thumbnails,
-                  author,
-                  views,
-                  type,
-                  bestAvatar,
-                  name,
-                  subscribers,
-                }) => {
+                (
+                  {
+                    url,
+                    title,
+                    thumbnails,
+                    author,
+                    views,
+                    type,
+                    bestAvatar,
+                    name,
+                    subscribers,
+                  },
+                  i
+                ) => {
                   return type === "video" || viewingChannel ? (
-                    <div className="card">
+                    <div className="card" key={i}>
                       <div
                         onClick={() => getDirectUrl(url)}
                         className="thumbnail"
@@ -181,7 +183,7 @@ function App() {
                       </div>
                     </div>
                   ) : (
-                    <div className="card channel">
+                    <div className="card channel" key={i}>
                       <div
                         className="thumbnail"
                         onClick={(event) => {
@@ -206,48 +208,50 @@ function App() {
               )}
           </div>
         </form>
-
-        <div
-          className={`audioContainer ${
-            directUrl || audioLoading ? "" : "closed"
-          }`}
-        >
-          {directUrl && (
-            <div className="audioPlayer">
-              <div className="audioControls">
-                <div className="audioButton" onClick={replay(-30)}>
-                  <img src={replay30} alt="loading" />
-                </div>
-                <div className="audioButton" onClick={replay(-10)}>
-                  <img src={replay10} alt="loading" />
-                </div>
-                <div className="audioButton" onClick={replay(-5)}>
-                  <img src={replay5} alt="loading" />
-                </div>
-                <div className="audioButton" onClick={replay(5)}>
-                  <img src={forward5} alt="loading" />
-                </div>
-                <div className="audioButton" onClick={replay(10)}>
-                  <img src={forward10} alt="loading" />
-                </div>
-                <div className="audioButton" onClick={replay(30)}>
-                  <img src={forward30} alt="loading" />
-                </div>
+      </div>
+      <div
+        className={`audioContainer ${
+          directUrl || audioLoading ? "" : "closed"
+        } ${expanded ? "opened" : ""}`}
+      >
+        {directUrl && (
+          <div className="audioPlayer">
+            <div className="audioControls">
+              <div className="audioButton" onClick={replay(-30)}>
+                <img src={replay30} alt="loading" />
               </div>
-              <audio ref={audioPlayerRef} controls>
-                <source src={directUrl} type="audio/webm" />
-              </audio>
-              <div className="audioButton close">
-                <img src={chevron} alt="loading" />
+              <div className="audioButton" onClick={replay(-10)}>
+                <img src={replay10} alt="loading" />
+              </div>
+              <div className="audioButton" onClick={replay(-5)}>
+                <img src={replay5} alt="loading" />
+              </div>
+              <div className="audioButton" onClick={replay(5)}>
+                <img src={forward5} alt="loading" />
+              </div>
+              <div className="audioButton" onClick={replay(10)}>
+                <img src={forward10} alt="loading" />
+              </div>
+              <div className="audioButton" onClick={replay(30)}>
+                <img src={forward30} alt="loading" />
               </div>
             </div>
-          )}
-          {audioLoading && (
-            <div className="loading">
-              <img src={loadingGif} alt="loading" />
+            <audio ref={audioPlayerRef} controls>
+              <source src={directUrl} type="audio/webm" />
+            </audio>
+            <div
+              className={`audioButton close ${expanded ? "expanded" : ""}`}
+              onClick={() => setExpanded(!expanded)}
+            >
+              <img src={chevron} alt="loading" />
             </div>
-          )}
-        </div>
+          </div>
+        )}
+        {audioLoading && (
+          <div className="loading">
+            <img src={loadingGif} alt="loading" />
+          </div>
+        )}
       </div>
     </>
   );
