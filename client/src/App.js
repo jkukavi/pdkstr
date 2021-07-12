@@ -145,7 +145,11 @@ function App() {
                           alt="thumbnail"
                         />
                       </div>
-                      <p className="desc title">{title}</p>
+                      <p className="desc title">
+                        {`${title.substring(0, 40)}${
+                          title.length > 40 ? "..." : ""
+                        }`}
+                      </p>
                       <div className="descContainer">
                         {!viewingChannel && (
                           <>
