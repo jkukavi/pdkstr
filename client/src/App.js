@@ -82,6 +82,28 @@ function App() {
   const handleInput = (e) => {
     setSearchString(e.target.value);
   };
+
+  const rounded = (num) => Math.round((num + Number.EPSILON) * 100) / 100;
+
+  const getViewsString = (stringNumber) => {
+    const num = Number(stringNumber);
+    const million = 1000 * 1000;
+    const thousand = 1000;
+    const billion = 1000 * 1000 * 1000;
+
+    if (num > billion) {
+      const billions = rounded(num / billion);
+      return `${billions}B`;
+    } else if (num > million) {
+      const millions = rounded(num / million);
+      return `${millions}M`;
+    } else if (num > thousand) {
+      const thousands = rounded(num / thousand);
+      return `${thousands}K`;
+    } else {
+      return num;
+    }
+  };
   return (
     <>
       <div className="container">
@@ -122,6 +144,8 @@ function App() {
                     url,
                     title,
                     thumbnails,
+                    duration,
+                    uploadedAt,
                     author,
                     views,
                     type,
@@ -147,12 +171,13 @@ function App() {
                           alt="thumbnail"
                         />
                       </div>
-                      <p className="desc title">
-                        {`${title.substring(0, 40)}${
-                          title.length > 40 ? "..." : ""
-                        }`}
-                      </p>
+
                       <div className="descContainer">
+                        <p className="desc title">
+                          {`${title.substring(0, 40)}${
+                            title.length > 40 ? "..." : ""
+                          }`}
+                        </p>
                         {!viewingChannel && (
                           <>
                             <div className="channelDesc">
@@ -175,9 +200,21 @@ function App() {
                                 <p>{author?.name || "Name not found"}</p>
                               </div>
                             </div>
-                            <p className="desc">
-                              Views: {views || "Views not available"}
-                            </p>
+                            <div className="metadata">
+                              <p className="desc">
+                                {views
+                                  ? `${getViewsString(views)} views`
+                                  : "Views not available"}
+                              </p>
+                              •
+                              <p className="desc">
+                                {duration || "Duration not available"}
+                              </p>
+                              •
+                              <p className="desc">
+                                {uploadedAt || "Uploaded date not available"}
+                              </p>
+                            </div>
                           </>
                         )}
                       </div>
@@ -199,7 +236,7 @@ function App() {
                       <div className="descContainer">
                         <p className="desc title">{name}</p>
                         <p className="desc">
-                          Subscribers: {subscribers || "Views not available"}
+                          {subscribers || "Views not available"}
                         </p>
                       </div>
                     </div>

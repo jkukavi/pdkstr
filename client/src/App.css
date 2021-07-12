@@ -29,7 +29,7 @@ audio {
   align-content: space-between;
   max-width: 1120px;
   min-height: 100vh;
-  /* background-color: #4b36d0; */
+  padding-bottom: 10rem;
   margin: auto;
 }
 
@@ -219,7 +219,7 @@ a:active {
 .card {
   will-change: transform;
   width: 16.6rem;
-  height: 22rem;
+  height: 20.6rem;
   margin: 0 0.3rem 1rem;
   padding: 0.3rem;
   background-color: rgb(199, 61, 61);
@@ -235,6 +235,7 @@ a:active {
 }
 
 .card.channel {
+  display: block;
   background-color: #f1a12b;
   align-items: center;
 }
@@ -243,7 +244,7 @@ a:active {
   width: 14rem;
   height: 14rem;
   border-radius: 50%;
-  margin: 1rem auto 0;
+  margin: 0.5rem auto 0;
 }
 
 .card.channel .descContainer {
@@ -275,6 +276,7 @@ a:active {
 }
 
 .descContainer {
+  padding: 0 0.6rem 0;
 }
 
 .desc.title {
@@ -291,6 +293,16 @@ a:active {
   margin-right: 0.5rem;
   display: flex;
   align-items: center;
+}
+
+.descContainer .metadata {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.metadata p {
+  font-size: 0.9rem;
 }
 
 .authorThumbnail {
