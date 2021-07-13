@@ -104,6 +104,13 @@ button:active {
   backdrop-filter: blur(2px);
 }
 
+.audioPlayerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+}
+
 .closed {
   transform: translateY(0vh);
 }
@@ -127,7 +134,7 @@ button:active {
   100% {
     transform: translateY(-100vh);
     box-shadow: 0px 2px 9px 0px rgb(27 27 27);
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(30px);
   }
 }
 
@@ -289,10 +296,28 @@ a:active {
   font-weight: 600;
 }
 
+.channelDescAndPlaylist {
+  display: flex;
+  justify-content: space-between;
+}
+
 .channelDesc {
   margin-right: 0.5rem;
   display: flex;
   align-items: center;
+}
+
+.addToPlaylistIcon {
+  transition: background-color 0.2s, transform 0.2s;
+  border-radius: 3px;
+  cursor: pointer;
+  width: 33px;
+  height: 33px;
+}
+
+.addToPlaylistIcon:hover {
+  background-color: #ddd;
+  transform: scale(1.1);
 }
 
 .descContainer .metadata {
@@ -302,7 +327,10 @@ a:active {
 }
 
 .metadata p {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .authorThumbnail {
@@ -313,4 +341,36 @@ a:active {
   background-position: center;
   background-size: contain;
   margin-right: 0.5rem;
+}
+
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 85%;
+  margin: 1rem auto 0;
+}
+
+#customers td,
+#customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+}
+
+#customers tbody tr {
+  background-color: #ff000000;
+  transition: background-color 0.05s;
+}
+
+#customers tbody tr:hover {
+  cursor: pointer;
+  background-color: #ff00003b;
+}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
 }

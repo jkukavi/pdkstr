@@ -9,6 +9,7 @@ import forward5 from "./icons/forward5.png";
 import forward10 from "./icons/forward10.png";
 import forward30 from "./icons/forward30.png";
 import chevron from "./icons/chevron.png";
+import playlistIcon from "./icons/playlist.png";
 
 const defaultPuppyImg =
   "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*";
@@ -22,6 +23,7 @@ function App() {
   const [searchArray, setSearchArray] = useState([]);
   const [viewingChannel, setViewingChannel] = useState(false);
   const audioPlayerRef = useRef();
+  const [playlist, setPlaylist] = useState([]);
 
   const replay = (time) => () => {
     const audioPlayer = audioPlayerRef.current;
@@ -104,6 +106,11 @@ function App() {
       return num;
     }
   };
+
+  const addToPlaylist = (video) => {
+    setPlaylist([...playlist, video]);
+  };
+
   return (
     <>
       <div className="container">
@@ -138,48 +145,43 @@ function App() {
                 ({ type }) =>
                   type === "video" || type === "channel" || !!viewingChannel
               )
-              .map(
-                (
-                  {
-                    url,
-                    title,
-                    thumbnails,
-                    duration,
-                    uploadedAt,
-                    author,
-                    views,
-                    type,
-                    bestAvatar,
-                    name,
-                    subscribers,
-                  },
-                  i
-                ) => {
-                  return type === "video" || viewingChannel ? (
-                    <div className="card" key={i}>
-                      <div
-                        onClick={() => getDirectUrl(url)}
-                        className="thumbnail"
-                      >
-                        <img
-                          src={
-                            thumbnails
-                              ? thumbnails[thumbnails.length - 1]?.url
-                              : defaultPuppyImg
-                          }
-                          className="thumbnail"
-                          alt="thumbnail"
-                        />
-                      </div>
+              .map((item, i) => {
+                const {
+                  url,
+                  title,
+                  thumbnails,
+                  duration,
+                  uploadedAt,
+                  author,
+                  views,
+                  type,
+                  bestAvatar,
+                  name,
+                  subscribers,
+                } = item;
 
-                      <div className="descContainer">
-                        <p className="desc title">
-                          {`${title.substring(0, 40)}${
-                            title.length > 40 ? "..." : ""
-                          }`}
-                        </p>
-                        {!viewingChannel && (
-                          <>
+                return type === "video" || viewingChannel ? (
+                  <div className="card" key={i}>
+                    <div
+                      onClick={() => getDirectUrl(url)}
+                      className="thumbnail"
+                    >
+                      <img
+                        src={thumbnails ? thumbnails[0]?.url : defaultPuppyImg}
+                        className="thumbnail"
+                        alt="thumbnail"
+                      />
+                    </div>
+
+                    <div className="descContainer">
+                      <p className="desc title">
+                        {`${title.substring(0, 40)}${
+                          title.length > 40 ? "..." : ""
+                        }`}
+                      </p>
+                      {!viewingChannel && (
+                        <>
+                          <div className="channelDescAndPlaylist">
                             <div className="channelDesc">
                               <div
                                 className="authorThumbnail"
@@ -200,49 +202,56 @@ function App() {
                                 <p>{author?.name || "Name not found"}</p>
                               </div>
                             </div>
-                            <div className="metadata">
-                              <p className="desc">
-                                {views
-                                  ? `${getViewsString(views)} views`
-                                  : "Views not available"}
-                              </p>
-                              •
-                              <p className="desc">
-                                {duration || "Duration not available"}
-                              </p>
-                              •
-                              <p className="desc">
-                                {uploadedAt || "Uploaded date not available"}
-                              </p>
+                            <div
+                              className="addToPlaylistIcon"
+                              onClick={() => addToPlaylist(item)}
+                            >
+                              <img src={playlistIcon} alt="loading"></img>
                             </div>
-                          </>
-                        )}
-                      </div>
+                          </div>
+
+                          <div className="metadata">
+                            <p className="desc">
+                              {views
+                                ? `${getViewsString(views)} views`
+                                : "Views not available"}
+                            </p>
+                            •
+                            <p className="desc">
+                              {duration || "Duration not available"}
+                            </p>
+                            •
+                            <p className="desc">
+                              {uploadedAt || "Uploaded date not available"}
+                            </p>
+                          </div>
+                        </>
+                      )}
                     </div>
-                  ) : (
-                    <div className="card channel" key={i}>
-                      <div
+                  </div>
+                ) : (
+                  <div className="card channel" key={i}>
+                    <div
+                      className="thumbnail"
+                      onClick={(event) => {
+                        getPlaylistVideos(event, url);
+                      }}
+                    >
+                      <img
+                        src={bestAvatar.url || defaultPuppyImg}
                         className="thumbnail"
-                        onClick={(event) => {
-                          getPlaylistVideos(event, url);
-                        }}
-                      >
-                        <img
-                          src={bestAvatar.url || defaultPuppyImg}
-                          className="thumbnail"
-                          alt="thumbnail"
-                        />
-                      </div>
-                      <div className="descContainer">
-                        <p className="desc title">{name}</p>
-                        <p className="desc">
-                          {subscribers || "Views not available"}
-                        </p>
-                      </div>
+                        alt="thumbnail"
+                      />
                     </div>
-                  );
-                }
-              )}
+                    <div className="descContainer">
+                      <p className="desc title">{name}</p>
+                      <p className="desc">
+                        {subscribers || "Views not available"}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
           </div>
         </form>
       </div>
@@ -251,44 +260,67 @@ function App() {
           directUrl || audioLoading ? "" : "closed"
         } ${expanded ? "opened" : ""}`}
       >
-        {directUrl && (
-          <div className="audioPlayer">
-            <div className="audioControls">
-              <div className="audioButton" onClick={replay(-30)}>
-                <img src={replay30} alt="loading" />
-              </div>
-              <div className="audioButton" onClick={replay(-10)}>
-                <img src={replay10} alt="loading" />
-              </div>
-              <div className="audioButton" onClick={replay(-5)}>
-                <img src={replay5} alt="loading" />
-              </div>
-              <div className="audioButton" onClick={replay(5)}>
-                <img src={forward5} alt="loading" />
-              </div>
-              <div className="audioButton" onClick={replay(10)}>
-                <img src={forward10} alt="loading" />
-              </div>
-              <div className="audioButton" onClick={replay(30)}>
-                <img src={forward30} alt="loading" />
-              </div>
+        <div className="audioPlayer">
+          <div className="audioControls">
+            <div className="audioButton" onClick={replay(-30)}>
+              <img src={replay30} alt="loading" />
             </div>
-            <audio ref={audioPlayerRef} controls>
-              <source src={directUrl} type="audio/webm" />
-            </audio>
-            <div
-              className={`audioButton close ${expanded ? "expanded" : ""}`}
-              onClick={() => setExpanded(!expanded)}
-            >
-              <img src={chevron} alt="loading" />
+            <div className="audioButton" onClick={replay(-10)}>
+              <img src={replay10} alt="loading" />
+            </div>
+            <div className="audioButton" onClick={replay(-5)}>
+              <img src={replay5} alt="loading" />
+            </div>
+            <div className="audioButton" onClick={replay(5)}>
+              <img src={forward5} alt="loading" />
+            </div>
+            <div className="audioButton" onClick={replay(10)}>
+              <img src={forward10} alt="loading" />
+            </div>
+            <div className="audioButton" onClick={replay(30)}>
+              <img src={forward30} alt="loading" />
             </div>
           </div>
-        )}
-        {audioLoading && (
-          <div className="loading">
-            <img src={loadingGif} alt="loading" />
+          <div className="audioPlayerContainer">
+            {audioLoading ? (
+              <div className="loading">
+                <img src={loadingGif} alt="loading" />
+              </div>
+            ) : (
+              <audio ref={audioPlayerRef} controls autoPlay>
+                <source src={directUrl} type="audio/webm" />
+              </audio>
+            )}
           </div>
-        )}
+          <div
+            className={`audioButton close ${expanded ? "expanded" : ""}`}
+            onClick={() => setExpanded(!expanded)}
+          >
+            <img src={chevron} alt="loading" />
+          </div>
+          <table id="customers">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Duration</th>
+                <th>Views</th>
+                <th>Uploaded at</th>
+              </tr>
+            </thead>
+            <tbody>
+              {playlist.map((video, index) => (
+                <tr onClick={() => getDirectUrl(video.url)}>
+                  <td>{index + 1}</td>
+                  <td>{video.title}</td>
+                  <td>{video.duration}</td>
+                  <td>{getViewsString(video.views)}</td>
+                  <td>{video.uploadedAt}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </>
   );
