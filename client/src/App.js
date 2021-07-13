@@ -134,7 +134,7 @@ function App() {
             </p>
           )}
           <div className="cardContainer">
-            {true && (
+            {arrayLoading && (
               <div className="loading array">
                 <div className="loader" />
               </div>
