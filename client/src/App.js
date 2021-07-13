@@ -281,7 +281,7 @@ function App() {
             </div>
           </div>
           <div className="audioPlayerContainer">
-            {true ? (
+            {audioLoading ? (
               <div className="loading audio">
                 <div className="miniloader" />
               </div>
