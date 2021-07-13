@@ -281,7 +281,7 @@ function App() {
             </div>
           </div>
           <div className="audioPlayerContainer">
-            {audioLoading ? (
+            {true ? (
               <div className="loading audio">
                 <div className="miniloader" />
               </div>
@@ -315,12 +315,15 @@ function App() {
                     <p>{index}</p>
                   </td>
                   <td>
-                    <div className={"playlist title"}>
-                      <p>{video.title}</p>
-                    </div>
-                    <div className={"playlist metadata"}>
-                      <p>{getViewsString(video.views)}</p>•
-                      <p>{video.duration}</p>•<p>{video.uploadedAt}</p>
+                    <div className="tableRowInfo">
+                      <div className={"playlist title"}>
+                        <p>{video.title}</p>
+                      </div>
+                      <div className={"playlist metadata"}>
+                        <p>{video.author?.name}</p>•
+                        <p>{getViewsString(video.views)}</p>•
+                        <p>{video.duration}</p>•<p>{video.uploadedAt}</p>
+                      </div>
                     </div>
                   </td>
                 </tr>

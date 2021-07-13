@@ -20,7 +20,6 @@ p {
 
 audio {
   width: 100%;
-  filter: drop-shadow(1px 2px 2px rgb(68, 68, 68));
 }
 
 .container {
@@ -99,12 +98,7 @@ button:active {
   z-index: 1;
   padding: 1rem 1rem;
   padding-right: calc(2rem - 100vw + 100%);
-  background: linear-gradient(
-    90deg,
-    rgb(199 61 61),
-    #321d88 66%,
-    rgb(245 184 12) 101%
-  );
+  background: linear-gradient(90deg, #3f3dc4, #5e3dc4 66%, #3f3dc4 101%);
   transform: translateY(-8rem);
   box-shadow: 0px 2px 9px 0px rgb(27 27 27);
   transition: transform 1s;
@@ -115,6 +109,7 @@ button:active {
   align-items: center;
   justify-content: center;
   height: 4rem;
+  filter: drop-shadow(2px 3px 0px black);
 }
 
 .closed {
@@ -180,7 +175,7 @@ button:active {
   width: 4rem;
   height: 4rem;
   animation: spin 1.4s linear infinite;
-  filter: drop-shadow(1px 1px 1px black);
+  filter: drop-shadow(0.4px 0.5px 0.5px #2d2d3c);
 }
 
 /* Safari */
@@ -382,11 +377,14 @@ a:active {
   border-collapse: collapse;
   width: 85%;
   margin: 1rem auto 0;
+  background: #2d2d3c;
+  box-shadow: 2px 2px 1px 0px black;
+  color: #a7a6a6;
 }
 
 #customers td,
 #customers th {
-  border: 1px solid #ddd;
+  border: 1px solid #000;
   padding: 8px;
 }
 
@@ -394,19 +392,27 @@ a:active {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  margin: 0;
 }
 
 #customers tr:nth-child(even) {
 }
 
 #customers tbody tr {
-  background-color: #ff000000;
-  transition: background-color 0.05s;
+  cursor: pointer;
+  transition: background-color 0.6s;
+}
+
+.tableRowInfo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 76vw;
 }
 
 #customers tbody tr:hover {
-  cursor: pointer;
-  background-color: #ff00003b;
+  background-color: #94641b;
+  color: rgb(0 0 0);
 }
 
 #customers th {
@@ -416,11 +422,15 @@ a:active {
 }
 
 .playlist.title {
+  margin-right: 1rem;
+  width: 45%;
+  min-width: 14rem;
 }
 
 .playlist.metadata {
   display: flex;
-  width: 35%;
+  width: 37%;
+  min-width: 15.5rem;
   justify-content: space-around;
   align-items: center;
 }
