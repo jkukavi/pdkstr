@@ -101,7 +101,6 @@ button:active {
   background-color: #48adff66;
   transform: translateY(-8rem);
   box-shadow: 0px 2px 9px 0px rgb(27 27 27);
-  backdrop-filter: blur(2px);
 }
 
 .audioPlayerContainer {
@@ -136,7 +135,13 @@ button:active {
     backdrop-filter: none;
   }
   100% {
-    background-color: #4530fd;
+    background: linear-gradient(
+      90deg,
+      #4b36d0,
+      #5536d0 66%,
+      rgb(92 43 241) 101%
+    );
+
     transform: translateY(-100vh);
     box-shadow: 0px 2px 9px 0px rgb(27 27 27);
   }
