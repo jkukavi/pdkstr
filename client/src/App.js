@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import "./App.css";
 import axios from "axios";
-import loadingGif from "./giphy.webp";
 import replay5 from "./icons/replay5.png";
 import replay10 from "./icons/replay10.png";
 import replay30 from "./icons/replay30.png";
@@ -137,7 +136,7 @@ function App() {
           <div className="cardContainer">
             {arrayLoading && (
               <div className="loading array">
-                <img src={loadingGif} alt="loading" />
+                <div className="loader" />
               </div>
             )}
             {searchArray
@@ -246,7 +245,7 @@ function App() {
                     <div className="descContainer">
                       <p className="desc title">{name}</p>
                       <p className="desc">
-                        {subscribers || "Views not available"}
+                        {subscribers || "Subscribers not available"}
                       </p>
                     </div>
                   </div>
@@ -283,8 +282,8 @@ function App() {
           </div>
           <div className="audioPlayerContainer">
             {audioLoading ? (
-              <div className="loading">
-                <img src={loadingGif} alt="loading" />
+              <div className="loading audio">
+                <div className="loader mini" />
               </div>
             ) : (
               <audio ref={audioPlayerRef} controls autoPlay>
@@ -301,21 +300,29 @@ function App() {
           <table id="customers">
             <thead>
               <tr>
-                <th>#</th>
-                <th>Title</th>
-                <th>Duration</th>
-                <th>Views</th>
-                <th>Uploaded at</th>
+                <th>
+                  <p>{"#"}</p>
+                </th>
+                <th>
+                  <p>{"Title & metadata"}</p>
+                </th>
               </tr>
             </thead>
             <tbody>
               {playlist.map((video, index) => (
                 <tr onClick={() => getDirectUrl(video.url)}>
-                  <td>{index + 1}</td>
-                  <td>{video.title}</td>
-                  <td>{video.duration}</td>
-                  <td>{getViewsString(video.views)}</td>
-                  <td>{video.uploadedAt}</td>
+                  <td>
+                    <p>{index}</p>
+                  </td>
+                  <td>
+                    <div className={"playlist title"}>
+                      <p>{video.title}</p>
+                    </div>
+                    <div className={"playlist metadata"}>
+                      <p>{getViewsString(video.views)}</p>•
+                      <p>{video.duration}</p>•<p>{video.uploadedAt}</p>
+                    </div>
+                  </td>
                 </tr>
               ))}
             </tbody>
