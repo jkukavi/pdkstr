@@ -283,7 +283,7 @@ function App() {
           <div className="audioPlayerContainer">
             {audioLoading ? (
               <div className="loading audio">
-                <div className="loader mini" />
+                <div className="miniloader" />
               </div>
             ) : (
               <audio ref={audioPlayerRef} controls autoPlay>
