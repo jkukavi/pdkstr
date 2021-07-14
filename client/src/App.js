@@ -280,6 +280,12 @@ function App() {
             <div className="audioButton" onClick={replay(30)}>
               <img src={forward30} alt="loading" />
             </div>
+            <div
+              className={`audioButton close ${expanded ? "expanded" : ""}`}
+              onClick={() => setExpanded(!expanded)}
+            >
+              <img src={chevron} alt="loading" />
+            </div>
           </div>
           <div className="audioPlayerContainer">
             {audioLoading ? (
@@ -292,12 +298,7 @@ function App() {
               </audio>
             )}
           </div>
-          <div
-            className={`audioButton close ${expanded ? "expanded" : ""}`}
-            onClick={() => setExpanded(!expanded)}
-          >
-            <img src={chevron} alt="loading" />
-          </div>
+
           <table id="customers">
             <thead>
               <tr>
