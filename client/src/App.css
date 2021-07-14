@@ -38,7 +38,8 @@ audio {
 }
 
 .input {
-  margin: 2rem auto 2rem;
+  margin: 2rem 0 2rem 50%;
+  transform: translate(-50%);
   width: 80vw;
   display: block;
   border-radius: 8px;
@@ -457,6 +458,11 @@ a:active {
 }
 
 #customers tbody tr:hover {
+  background-color: #94641b;
+  color: rgb(0 0 0);
+}
+
+.videoActive {
   background-color: #94641b;
   color: rgb(0 0 0);
 }
