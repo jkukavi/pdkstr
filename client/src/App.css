@@ -415,7 +415,7 @@ a:active {
   opacity: 1;
 }
 
-#customers tr:hover .playButton::after {
+#customers tr .playButton::after {
   background-color: #a7a6a6;
   border-radius: 50%;
   content: "";
@@ -462,9 +462,13 @@ a:active {
   color: rgb(0 0 0);
 }
 
-.videoActive {
+.activeVideo {
   background-color: #94641b;
   color: rgb(0 0 0);
+}
+
+#customers .activeVideo .playButton {
+  opacity: 1;
 }
 
 #customers th {

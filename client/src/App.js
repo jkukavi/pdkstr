@@ -24,6 +24,7 @@ function App() {
   const [viewingChannel, setViewingChannel] = useState(false);
   const audioPlayerRef = useRef();
   const [playlist, setPlaylist] = useState([]);
+  const [activeVideo, setActiveVideo] = useState(null);
 
   const replay = (time) => () => {
     const audioPlayer = audioPlayerRef.current;
@@ -163,7 +164,10 @@ function App() {
                 return type === "video" || viewingChannel ? (
                   <div className="card" key={i}>
                     <div
-                      onClick={() => getDirectUrl(url)}
+                      onClick={() => {
+                        getDirectUrl(url);
+                        setActiveVideo(null);
+                      }}
                       className="thumbnail"
                     >
                       <img
@@ -314,7 +318,13 @@ function App() {
             </thead>
             <tbody>
               {playlist.map((video, index) => (
-                <tr onClick={() => getDirectUrl(video.url)}>
+                <tr
+                  className={`${activeVideo === index ? "activeVideo" : ""}`}
+                  onClick={() => {
+                    getDirectUrl(video.url);
+                    setActiveVideo(index);
+                  }}
+                >
                   <td>
                     <div className="indexContainer">
                       <span className="index">{index}</span>
