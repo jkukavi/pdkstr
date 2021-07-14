@@ -25,6 +25,7 @@ function App() {
   const audioPlayerRef = useRef();
   const [playlist, setPlaylist] = useState([]);
   const [activeVideo, setActiveVideo] = useState(null);
+  const [listeningTo, setListeningTo] = useState(null);
 
   const replay = (time) => () => {
     const audioPlayer = audioPlayerRef.current;
@@ -167,6 +168,7 @@ function App() {
                       onClick={() => {
                         getDirectUrl(url);
                         setActiveVideo(null);
+                        setListeningTo(item);
                       }}
                       className="thumbnail"
                     >
@@ -291,6 +293,16 @@ function App() {
               <img src={chevron} alt="loading" />
             </div>
           </div>
+          {listeningTo && (
+            <div className="currentlyPlaying">
+              <p>
+                <span>Currently playing:</span>{" "}
+                <span style={{ fontStyle: "italic", fontWeight: 600 }}>
+                  {listeningTo.title}
+                </span>
+              </p>
+            </div>
+          )}
           <div className="audioPlayerContainer">
             {audioLoading ? (
               <div className="loading audio">
@@ -323,6 +335,7 @@ function App() {
                   onClick={() => {
                     getDirectUrl(video.url);
                     setActiveVideo(index);
+                    setListeningTo(video);
                   }}
                 >
                   <td>
