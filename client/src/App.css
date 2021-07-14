@@ -45,12 +45,12 @@ audio {
   height: 3rem;
   font-size: 1.4rem;
   padding-left: 12px;
-  box-shadow: 2px 2px 1px black;
+  filter: drop-shadow(1px 1px 1px black);
 }
 
 .button {
   background-color: #ffad42;
-  box-shadow: 0px 2px 1px 0px #050505;
+  filter: drop-shadow(1px 1px 1px black);
   color: rgb(0, 0, 0);
   padding: 0.5em 0.75em;
   position: relative;
@@ -386,6 +386,7 @@ a:active {
 #customers th {
   border: 1px solid #000;
   padding: 8px;
+  position: relative;
 }
 
 #customers p {
@@ -393,6 +394,51 @@ a:active {
   white-space: nowrap;
   text-overflow: ellipsis;
   margin: 0;
+}
+
+#customers .index {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#customers .indexContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+#customers tr:hover .playButton {
+  opacity: 1;
+}
+
+#customers tr:hover .playButton::after {
+  background-color: #a7a6a6;
+  border-radius: 50%;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  filter: drop-shadow(1px 1px 1px black);
+}
+
+#customers .playButton img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+#customers .playButton {
+  opacity: 0;
+  position: relative;
+  height: 20px;
+  width: 20px;
 }
 
 #customers tr:nth-child(even) {

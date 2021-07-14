@@ -9,6 +9,7 @@ import forward10 from "./icons/forward10.png";
 import forward30 from "./icons/forward30.png";
 import chevron from "./icons/chevron.png";
 import playlistIcon from "./icons/playlist.png";
+import playButton from "./icons/playButton.png";
 
 const defaultPuppyImg =
   "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*";
@@ -301,7 +302,9 @@ function App() {
             <thead>
               <tr>
                 <th>
-                  <p>{"#"}</p>
+                  <div className="indexContainer">
+                    <span>{"#"}</span>
+                  </div>
                 </th>
                 <th>
                   <p>{"Title & metadata"}</p>
@@ -312,7 +315,14 @@ function App() {
               {playlist.map((video, index) => (
                 <tr onClick={() => getDirectUrl(video.url)}>
                   <td>
-                    <p>{index}</p>
+                    <div className="indexContainer">
+                      <span className="index">{index}</span>
+                      <div className="playButton">
+                        <span>
+                          <img src={playButton} alt="X" />
+                        </span>
+                      </div>
+                    </div>
                   </td>
                   <td>
                     <div className="tableRowInfo">
