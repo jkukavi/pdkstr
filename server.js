@@ -6,6 +6,7 @@ const {
   getDirectUrl,
   searchYoutube,
   getPlaylistVideos,
+  getVideoInfo,
 } = require("./ytFunctions.js");
 
 app.use(
@@ -41,6 +42,17 @@ app.post("/url", async (req, res) => {
     }
   } catch (error) {
     res.status(400).json({ message: "Direct url not found" });
+    console.log(JSON.stringify(error, null, 2));
+  }
+});
+
+app.post("/info", async (req, res) => {
+  const { id } = req.body;
+  try {
+    const videoInfo = await getVideoInfo(id);
+    res.status(200).json(videoInfo);
+  } catch (error) {
+    res.status(400).json({ message: "summin fked up lol" });
     console.log(JSON.stringify(error, null, 2));
   }
 });

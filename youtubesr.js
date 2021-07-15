@@ -1,8 +1,11 @@
 const YouTube = require("youtube-sr").default;
 const fs = require("fs");
 
-YouTube.getPlaylist(
-  "https://www.youtube.com/playlist?list=UUgiz3Pm3FBhDyy3g_fP5OVA"
-)
-  .then(console.log) // all parsable videos
-  .catch(console.error);
+async function search() {
+  const item = await YouTube.getVideo(
+    "https://www.youtube.com/watch?v=zYl4H_EbepU"
+  );
+  fs.writeFileSync("sr.json", JSON.stringify(item, null, 2));
+}
+
+search();

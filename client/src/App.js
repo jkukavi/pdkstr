@@ -1,6 +1,10 @@
-import React, { useState, useRef } from "react";
-import "./App.css";
+import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
+import qs from "query-string";
+
+import "./App.css";
+
 import replay5 from "./icons/replay5.png";
 import replay10 from "./icons/replay10.png";
 import replay30 from "./icons/replay30.png";
@@ -26,6 +30,17 @@ function App() {
   const [playlist, setPlaylist] = useState([]);
   const [activeVideo, setActiveVideo] = useState(null);
   const [listeningTo, setListeningTo] = useState(null);
+  const [info, setInfo] = useState(null);
+
+  const location = useLocation();
+  const [alert, setAlert] = useState(qs.parse(location.search));
+
+  useEffect(() => {
+    if (!!location.search) {
+      getInfo(qs.parse(location.search).id);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const replay = (time) => () => {
     const audioPlayer = audioPlayerRef.current;
@@ -42,7 +57,20 @@ function App() {
       const { directUrl } = response.data;
       setDirectUrl(directUrl);
     } catch (e) {
-      prompt("some error happened");
+      window.alert("some error happened, please kontakt the dev team");
+    } finally {
+      setAudioLoading(false);
+    }
+  };
+
+  const getInfo = async (id) => {
+    try {
+      const response = await axios.post("/info", {
+        id,
+      });
+      setInfo(response.data);
+    } catch (e) {
+      window.alert("some error happened, please kontakt the dev team");
     } finally {
       setAudioLoading(false);
     }
@@ -116,6 +144,34 @@ function App() {
   return (
     <>
       <div className="container">
+        {!!location.search && (
+          <div className={`alertBox ${alert ? "appear" : ""}`}>
+            <div className="alert">
+              <p>
+                Hello there man, somebody sent you a song you need to check!
+              </p>
+              {info ? (
+                <span className="alertMessage">{info.title}</span>
+              ) : (
+                <div className="loading audio">
+                  <div className="miniloader" />
+                </div>
+              )}
+
+              <button
+                className="button small"
+                onClick={() => {
+                  getDirectUrl(info.url);
+                  setListeningTo(info);
+                  setAlert(null);
+                }}
+              >
+                Let it hit the speakers!
+              </button>
+            </div>
+          </div>
+        )}
+
         <form className="form">
           <input
             className="input"
@@ -171,14 +227,16 @@ function App() {
                         setListeningTo(item);
                       }}
                       className="thumbnail"
-                    >
-                      <img
-                        src={thumbnails ? thumbnails[0]?.url : defaultPuppyImg}
-                        className="thumbnail"
-                        alt="thumbnail"
-                      />
-                    </div>
-
+                      style={{
+                        background: `url(${
+                          thumbnails
+                            ? thumbnails[thumbnails.length - 1]?.url
+                            : defaultPuppyImg
+                        })`,
+                        backgroundPosition: "center",
+                        backgroundSize: "cover",
+                      }}
+                    />
                     <div className="descContainer">
                       <p className="desc title">
                         {`${title.substring(0, 40)}${
@@ -262,11 +320,11 @@ function App() {
         </form>
       </div>
       <div
-        className={`audioContainer ${
-          directUrl || audioLoading ? "" : "closed"
-        } ${expanded ? "opened" : ""}`}
+        className={`audioShelf ${directUrl || audioLoading ? "" : "closed"} ${
+          expanded ? "opened" : ""
+        }`}
       >
-        <div className="audioPlayer">
+        <div className="audioPlayerContainer">
           <div className="audioControls">
             <div className="audioButton" onClick={replay(-30)}>
               <img src={replay30} alt="loading" />
@@ -293,6 +351,7 @@ function App() {
               <img src={chevron} alt="loading" />
             </div>
           </div>
+
           {listeningTo && (
             <div className="currentlyPlaying">
               <p>
@@ -303,7 +362,7 @@ function App() {
               </p>
             </div>
           )}
-          <div className="audioPlayerContainer">
+          <div className="audioPlayer">
             {audioLoading ? (
               <div className="loading audio">
                 <div className="miniloader" />
@@ -314,57 +373,57 @@ function App() {
               </audio>
             )}
           </div>
-
-          <table id="customers">
-            <thead>
-              <tr>
-                <th>
-                  <div className="indexContainer">
-                    <span>{"#"}</span>
-                  </div>
-                </th>
-                <th>
-                  <p>{"Title & metadata"}</p>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {playlist.map((video, index) => (
-                <tr
-                  className={`${activeVideo === index ? "activeVideo" : ""}`}
-                  onClick={() => {
-                    getDirectUrl(video.url);
-                    setActiveVideo(index);
-                    setListeningTo(video);
-                  }}
-                >
-                  <td>
-                    <div className="indexContainer">
-                      <span className="index">{index}</span>
-                      <div className="playButton">
-                        <span>
-                          <img src={playButton} alt="X" />
-                        </span>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="tableRowInfo">
-                      <div className={"playlist title"}>
-                        <p>{video.title}</p>
-                      </div>
-                      <div className={"playlist metadata"}>
-                        <p>{video.author?.name}</p>•
-                        <p>{getViewsString(video.views)}</p>•
-                        <p>{video.duration}</p>•<p>{video.uploadedAt}</p>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
         </div>
+
+        <table id="customers">
+          <thead>
+            <tr>
+              <th>
+                <div className="indexContainer">
+                  <span>{"#"}</span>
+                </div>
+              </th>
+              <th>
+                <p>{"Title & metadata"}</p>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {playlist.map((video, index) => (
+              <tr
+                className={`${activeVideo === index ? "activeVideo" : ""}`}
+                onClick={() => {
+                  getDirectUrl(video.url);
+                  setActiveVideo(index);
+                  setListeningTo(video);
+                }}
+              >
+                <td>
+                  <div className="indexContainer">
+                    <span className="index">{index}</span>
+                    <div className="playButton">
+                      <span>
+                        <img src={playButton} alt="X" />
+                      </span>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div className="tableRowInfo">
+                    <div className={"playlist title"}>
+                      <p>{video.title}</p>
+                    </div>
+                    <div className={"playlist metadata"}>
+                      <p>{video.author?.name}</p>•
+                      <p>{getViewsString(video.views)}</p>•
+                      <p>{video.duration}</p>•<p>{video.uploadedAt}</p>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </>
   );
