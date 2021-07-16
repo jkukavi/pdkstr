@@ -346,6 +346,7 @@ function App() {
             <div className="audioButton" onClick={replay(30)}>
               <img src={forward30} alt="loading" />
             </div>
+            <div style={{ borderLeft: "1px solid black" }}></div>
             <div
               className="audioButton"
               onClick={() => {
