@@ -4,7 +4,7 @@ html {
 
 body {
   margin: 0;
-  padding-left: calc(100vw - 100%);
+  /* padding-left: calc(100vw - 100%); */
   background: rgb(75, 54, 208);
   background: linear-gradient(90deg, #4b36d0, #5536d0 66%, rgb(92 43 241) 101%);
   overflow-x: hidden;
@@ -156,10 +156,10 @@ button:active.small {
 .audioShelf {
   will-change: transform;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: fixed;
   left: 0;
-  bottom: -100vh;
+  bottom: -100%;
   z-index: 1;
   padding: 1rem 1rem;
   padding-right: calc(2rem - 100vw + 100%);
@@ -182,12 +182,12 @@ button:active.small {
 }
 
 .closed {
-  transform: translateY(0vh);
+  transform: translateY(0);
 }
 
 .opened {
   box-shadow: none;
-  transform: translateY(-100vh);
+  transform: translateY(-100%);
 }
 
 .audioButton.close.expanded {
