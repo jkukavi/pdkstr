@@ -166,6 +166,13 @@ button:active {
 
 .audioButton {
   cursor: pointer;
+  height: 32px;
+  width: 32px;
+}
+
+.audioButton img {
+  width: 100%;
+  height: 100%;
 }
 
 .close {
@@ -410,6 +417,7 @@ a:active {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  max-width: 33%;
 }
 
 .authorThumbnail {

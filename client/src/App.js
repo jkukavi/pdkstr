@@ -3,6 +3,7 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 import qs from "query-string";
 
+import copyToClipboard from "./copyToClipboard";
 import "./App.css";
 
 import replay5 from "./icons/replay5.png";
@@ -14,6 +15,7 @@ import forward30 from "./icons/forward30.png";
 import chevron from "./icons/chevron.png";
 import playlistIcon from "./icons/playlist.png";
 import playButton from "./icons/playButton.png";
+import share from "./icons/share.png";
 
 const defaultPuppyImg =
   "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*";
@@ -344,6 +346,18 @@ function App() {
             <div className="audioButton" onClick={replay(30)}>
               <img src={forward30} alt="loading" />
             </div>
+            <div
+              className="audioButton"
+              onClick={() => {
+                copyToClipboard(
+                  `podkaster2.herokuapp.com?id=${listeningTo.id}`
+                );
+                window.alert("Copied to clipboard!");
+              }}
+            >
+              <img src={share} alt="loading" />
+            </div>
+
             <div
               className={`audioButton close ${expanded ? "expanded" : ""}`}
               onClick={() => setExpanded(!expanded)}
