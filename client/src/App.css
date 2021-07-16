@@ -1,3 +1,7 @@
+html {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   padding-left: calc(100vw - 100%);
@@ -31,13 +35,14 @@ audio {
   min-height: 100vh;
   padding-bottom: 10rem;
   margin: auto;
+  position: relative;
 }
 
 .alertBox {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(200%);
+  transform: translate(100vw);
   transition: transform 1s ease-in-out;
   background: #2d2d3c;
   box-shadow: 5px 5px 9px 0px black;
