@@ -63,6 +63,14 @@ audio {
   transform: translate(-50%);
 }
 
+.alertMessageContainer {
+  display: flex;
+  min-height: 5rem;
+  height: fit-content;
+  align-items: center;
+  justify-content: center;
+}
+
 .searchBoxContainer {
   position: fixed;
   top: 0;
@@ -114,14 +122,21 @@ audio {
   padding: 0.2rem 0.5rem;
   font-size: 1.1rem;
   text-transform: none;
+  height: 2.2rem;
+  color: #c5c5c5;
+  margin-top: 0.6rem;
+  background-color: orange;
+  font-weight: bold;
+  box-shadow: 2px 2px 1px black;
+  color: #050505;
 }
 
 button:hover {
   cursor: pointer;
 }
 
-button:active {
-  box-shadow: 0px -1px 0px 0px #050505;
+button:active.small {
+  box-shadow: -2px -1px 1px 1px #050505;
   top: 5px;
 }
 

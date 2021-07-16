@@ -153,13 +153,15 @@ function App() {
               <p>
                 Hello there man, somebody sent you a song you need to check!
               </p>
-              {info ? (
-                <span className="alertMessage">{info.title}</span>
-              ) : (
-                <div className="loading audio">
-                  <div className="miniloader" />
-                </div>
-              )}
+              <div className="alertMessageContainer">
+                {info ? (
+                  <span className="alertMessage">{info.title}</span>
+                ) : (
+                  <div className="loading audio">
+                    <div className="miniloader" />
+                  </div>
+                )}
+              </div>
 
               <button
                 className="button small"
@@ -353,7 +355,7 @@ function App() {
               className="audioButton"
               onClick={() => {
                 copyToClipboard(
-                  `podkaster2.herokuapp.com?id=${listeningTo.id}`
+                  `https://podkaster2.herokuapp.com?id=${listeningTo.id}`
                 );
                 window.alert("Copied to clipboard!");
               }}
