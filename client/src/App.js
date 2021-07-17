@@ -355,7 +355,11 @@ function App() {
               className="audioButton"
               onClick={() => {
                 copyToClipboard(
-                  `https://podkaster2.herokuapp.com?id=${listeningTo.id}`
+                  `${
+                    process.env.NODE_ENV === "production"
+                      ? "https://podkaster2.herokuapp.com"
+                      : "localhost:3000"
+                  }?id=${listeningTo.id}`
                 );
                 window.alert("Copied to clipboard!");
               }}

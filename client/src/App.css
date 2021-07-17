@@ -40,7 +40,7 @@ audio {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(100vw);
+  transform: translate(100vw, -50%);
   transition: transform 1s ease-in-out;
   background: #2d2d3c;
   box-shadow: 5px 5px 9px 0px black;
@@ -60,7 +60,7 @@ audio {
 }
 
 .alertBox.appear {
-  transform: translate(-50%);
+  transform: translate(-50%, -50%);
 }
 
 .alertMessageContainer {
@@ -88,7 +88,6 @@ audio {
 .searchBox {
   display: flex;
   height: 2.5rem;
-  width: 90%;
 }
 
 .input {
@@ -106,8 +105,9 @@ audio {
   background-color: #3d3d3d;
   height: 100%;
   padding: 0 1rem 0;
-  transition: transform 0.2s;
   border: 1px solid rgb(82, 82, 82);
+  display: flex;
+  align-items: center;
 }
 
 .button img {
@@ -127,8 +127,9 @@ audio {
   margin-top: 0.6rem;
   background-color: orange;
   font-weight: bold;
-  box-shadow: 2px 2px 1px black;
+  box-shadow: 1px 1px 0px 1px black;
   color: #050505;
+  transition: transform 0.1s, box-shadow 0.1s;
 }
 
 button:hover {
@@ -136,8 +137,9 @@ button:hover {
 }
 
 button:active.small {
-  box-shadow: -2px -1px 1px 1px #050505;
+  box-shadow: -1px -1px 0px 0px #000000;
   top: 5px;
+  transform: translate(1px, 1px);
 }
 
 .message {
