@@ -149,31 +149,27 @@ function App() {
       <div className="container">
         {!!location.search && (
           <div className={`alertBox ${alert ? "appear" : ""}`}>
-            <div className="alert">
-              <p>
-                Hello there man, somebody sent you a song you need to check!
-              </p>
-              <div className="alertMessageContainer">
-                {info ? (
-                  <span className="alertMessage">{info.title}</span>
-                ) : (
-                  <div className="loading audio">
-                    <div className="miniloader" />
-                  </div>
-                )}
-              </div>
-
-              <button
-                className="button small"
-                onClick={() => {
-                  getDirectUrl(info.url);
-                  setListeningTo(info);
-                  setAlert(null);
-                }}
-              >
-                Let it hit the speakers!
-              </button>
+            <p>Hello there man, somebody sent you a song you need to check!</p>
+            <div className="alertMessageContainer">
+              {info ? (
+                <span className="alertMessage">{info.title}</span>
+              ) : (
+                <div className="loading audio">
+                  <div className="miniloader" />
+                </div>
+              )}
             </div>
+
+            <button
+              className="button small"
+              onClick={() => {
+                getDirectUrl(info.url);
+                setListeningTo(info);
+                setAlert(null);
+              }}
+            >
+              Let it hit the speakers!
+            </button>
           </div>
         )}
         <div className="searchBoxContainer">
