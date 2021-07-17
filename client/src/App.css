@@ -36,6 +36,46 @@ audio {
   position: relative;
 }
 
+.notificationsContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translate(0, 100%);
+  padding-top: 0.5rem;
+}
+
+.notification {
+  will-change: transform;
+  font-size: 1rem;
+  overflow: hidden;
+  background-color: #343434;
+  color: #c9c9c9;
+  padding: 0.4rem;
+  margin: 0.5rem 0;
+  max-width: 80%;
+  animation: notify 2s forwards;
+  box-shadow: 2px 2px 2px 0px black;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  transform: translate(0);
+}
+
+@keyframes notify {
+  0% {
+    transform: translate(-100vw);
+  }
+  20% {
+    transform: translate(0.5rem);
+  }
+  80% {
+    transform: translate(0.5rem);
+  }
+  100% {
+    transform: translate(-100vw);
+  }
+}
+
 .alertBox {
   position: absolute;
   top: 50%;
@@ -69,16 +109,20 @@ audio {
   justify-content: center;
 }
 
-.searchBoxContainer {
+.searchBoxFixedContainer {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  z-index: 1;
+}
+
+.searchBoxContainer {
+  position: relative;
   background-color: #343434;
   padding: 0.5rem 0 0.5rem;
   display: flex;
   justify-content: center;
-  z-index: 1;
   border-bottom: 1px solid #6b6b6b;
   box-shadow: 0px 1px 3px 0px #000000;
 }
