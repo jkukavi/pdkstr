@@ -171,7 +171,7 @@ function App() {
               onClick={() => {
                 getDirectUrl(info.url);
                 setListeningTo(info);
-                notify(info.title);
+                notify(`Listening to: ${info.title}`);
                 setAlert(null);
               }}
             >
@@ -244,7 +244,7 @@ function App() {
                       getDirectUrl(url);
                       setActiveVideo(null);
                       setListeningTo(item);
-                      notify(item.title);
+                      notify(`Listening to: ${item.title}`);
                     }}
                     className="thumbnail"
                     style={{
@@ -287,7 +287,10 @@ function App() {
                           </div>
                           <div
                             className="addToPlaylistIcon"
-                            onClick={() => addToPlaylist(item)}
+                            onClick={() => {
+                              addToPlaylist(item);
+                              notify("Added to playlist");
+                            }}
                           >
                             <img src={playlistIcon} alt="loading"></img>
                           </div>
@@ -373,7 +376,7 @@ function App() {
                       : "localhost:3000"
                   }?id=${listeningTo.id}`
                 );
-                window.alert("Copied to clipboard!");
+                notify("Copied to clipboard!");
               }}
             >
               <img src={share} alt="loading" />

@@ -16,6 +16,8 @@ app.use(
       scriptSrc: ["'self'", "example.com"],
       imgSrc: ["'self'", "i.ytimg.com", "yt3.ggpht.com", "hips.hearstapps.com"],
       "media-src": ["*.googlevideo.com"],
+      "font-src": ["fonts.googleapis.com", "fonts.gstatic.com"],
+      "style-src-elem": ["'self'", "fonts.googleapis.com", "fonts.gstatic.com"],
     },
   })
 );
