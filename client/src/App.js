@@ -19,6 +19,8 @@ import playButton from "./icons/playButton.png";
 import share from "./icons/share.png";
 import magnifier from "./icons/magnifier.png";
 
+let preventBlur = false;
+
 const defaultPuppyImg =
   "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*";
 
@@ -188,6 +190,8 @@ function App() {
     []
   );
 
+  const input = useRef();
+
   return (
     <>
       <div className="container">
@@ -224,19 +228,39 @@ function App() {
                 <Notification notification={notification} />
               ))}
             </div>
-
             <form className="searchBox">
               <input
                 className="input"
                 value={searchString}
                 onChange={handleInput}
-                list="suggestions"
+                ref={input}
+                onBlur={() => {
+                  console.log(preventBlur);
+                  if (!preventBlur) setSuggestions([]);
+                }}
               ></input>
-              <datalist id="suggestions">
-                {suggestions.map((suggestionString) => (
-                  <option>{suggestionString}</option>
-                ))}
-              </datalist>
+
+              {!!suggestions.length && (
+                <div className="suggestionsContainer">
+                  {suggestions.map((suggestionString) => (
+                    <div
+                      className="suggestion"
+                      onMouseDown={(e) => {
+                        preventBlur = true;
+                      }}
+                      onMouseUp={(e) => {
+                        // eslint-disable-next-line no-unused-vars
+                        preventBlur = false;
+                        setSearchString(suggestionString);
+                        setSuggestions([]);
+                      }}
+                    >
+                      {suggestionString}
+                    </div>
+                  ))}
+                </div>
+              )}
+
               <button className="button" onClick={searchYoutube}>
                 <img src={magnifier} alt="alt" />
               </button>
