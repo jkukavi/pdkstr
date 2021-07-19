@@ -51,10 +51,19 @@ function App() {
   const [activeVideo, setActiveVideo] = useState(null);
   const [listeningTo, setListeningTo] = useState(null);
   const [info, setInfo] = useState(null);
-  const [suggestions, setSuggestions] = useState([]);
+  const [suggestions, setSuggestions] = useState({ show: false, array: [] });
 
   const location = useLocation();
   const [alert, setAlert] = useState(qs.parse(location.search));
+
+  useEffect(() => {
+    window.addEventListener("mouseup", () => {
+      if (preventBlur) {
+        preventBlur = false;
+        setSuggestions((suggestions) => ({ ...suggestions, show: false }));
+      }
+    });
+  }, []);
 
   useEffect(() => {
     if (!!location.search) {
@@ -97,14 +106,16 @@ function App() {
     }
   };
 
-  const searchYoutube = async (event) => {
+  const searchYoutube = async (event, newSearchString) => {
     event.preventDefault();
     setSearchArray([]);
+    setSuggestions({ ...suggestions, show: false });
     setArrayLoading(true);
     setViewingChannel(false);
+    console.log(searchString);
     try {
       const response = await axios.post("/search", {
-        searchString,
+        searchString: newSearchString || searchString,
       });
       const searchResultsArray = response.data.searchResultsArray;
       setSearchArray(searchResultsArray);
@@ -169,7 +180,7 @@ function App() {
 
   const getSuggestions = async (string) => {
     if (!string) {
-      setSuggestions([]);
+      setSuggestions({ show: false, array: [] });
       return;
     }
     try {
@@ -177,7 +188,7 @@ function App() {
         searchString: string,
       });
       const { suggestionsArray } = response.data;
-      setSuggestions(suggestionsArray);
+      setSuggestions({ show: true, array: suggestionsArray });
     } catch (e) {
       window.alert("some error happened, please kontakt the dev team");
     } finally {
@@ -186,15 +197,19 @@ function App() {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedGetSuggestions = useCallback(
-    debounce(getSuggestions, 500),
+    debounce(getSuggestions, 200),
     []
   );
 
   const input = useRef();
+  const searchForm = useRef();
 
   return (
     <>
       <div className="container">
+        {/* <pre>
+          {JSON.stringify({ searchString, suggestions, preventBlur }, null, 2)}
+        </pre> */}
         {!!location.search && (
           <div className={`alertBox ${alert ? "appear" : ""}`}>
             <p>Hello there man, somebody sent you a song you need to check!</p>
@@ -228,21 +243,33 @@ function App() {
                 <Notification notification={notification} />
               ))}
             </div>
-            <form className="searchBox">
+            <form
+              className="searchBox"
+              name="searchForm"
+              ref={searchForm}
+              onSubmit={searchYoutube}
+            >
               <input
                 className="input"
                 value={searchString}
                 onChange={handleInput}
                 ref={input}
+                onClick={() => {
+                  setSuggestions({ ...suggestions, show: true });
+                }}
+                onFocus={() => {
+                  setSuggestions({ ...suggestions, show: true });
+                }}
                 onBlur={() => {
                   console.log(preventBlur);
-                  if (!preventBlur) setSuggestions([]);
+                  if (!preventBlur)
+                    setSuggestions({ ...suggestions, show: false });
                 }}
               ></input>
 
-              {!!suggestions.length && (
+              {suggestions.show && !!suggestions.array.length && (
                 <div className="suggestionsContainer">
-                  {suggestions.map((suggestionString) => (
+                  {suggestions.array.map((suggestionString) => (
                     <div
                       className="suggestion"
                       onMouseDown={(e) => {
@@ -252,7 +279,7 @@ function App() {
                         // eslint-disable-next-line no-unused-vars
                         preventBlur = false;
                         setSearchString(suggestionString);
-                        setSuggestions([]);
+                        if (!preventBlur) searchYoutube(e, suggestionString);
                       }}
                     >
                       {suggestionString}
@@ -260,8 +287,7 @@ function App() {
                   ))}
                 </div>
               )}
-
-              <button className="button" onClick={searchYoutube}>
+              <button className="button" type="submit">
                 <img src={magnifier} alt="alt" />
               </button>
             </form>
