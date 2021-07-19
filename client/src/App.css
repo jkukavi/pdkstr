@@ -54,7 +54,7 @@ audio {
   margin: 0.5rem 0;
   width: fit-content;
   max-width: 80vw;
-  animation: notify 2s;
+  animation: notify 2s forwards;
   box-shadow: 2px 2px 2px 0px black;
   z-index: 1;
   display: flex;
