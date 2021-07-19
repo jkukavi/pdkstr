@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import qs from "query-string";
@@ -22,6 +22,19 @@ import magnifier from "./icons/magnifier.png";
 const defaultPuppyImg =
   "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*";
 
+const debounce = (func, wait) => {
+  var timeout;
+  return function (arg) {
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+    timeout = setTimeout(() => {
+      timeout = null;
+      func(arg);
+    }, wait);
+  };
+};
+
 function App() {
   const [directUrl, setDirectUrl] = useState(null);
   const [audioLoading, setAudioLoading] = useState(false);
@@ -36,6 +49,7 @@ function App() {
   const [activeVideo, setActiveVideo] = useState(null);
   const [listeningTo, setListeningTo] = useState(null);
   const [info, setInfo] = useState(null);
+  const [suggestions, setSuggestions] = useState([]);
 
   const location = useLocation();
   const [alert, setAlert] = useState(qs.parse(location.search));
@@ -118,6 +132,7 @@ function App() {
 
   const handleInput = (e) => {
     setSearchString(e.target.value);
+    debouncedGetSuggestions(e.target.value.toString());
   };
 
   const rounded = (num) => Math.round((num + Number.EPSILON) * 100) / 100;
@@ -149,6 +164,29 @@ function App() {
   const notify = (newNotification) => {
     setNotifications([...notifications, newNotification]);
   };
+
+  const getSuggestions = async (string) => {
+    if (!string) {
+      setSuggestions([]);
+      return;
+    }
+    try {
+      const response = await axios.post("/suggestions", {
+        searchString: string,
+      });
+      const { suggestionsArray } = response.data;
+      setSuggestions(suggestionsArray);
+    } catch (e) {
+      window.alert("some error happened, please kontakt the dev team");
+    } finally {
+    }
+  };
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const debouncedGetSuggestions = useCallback(
+    debounce(getSuggestions, 500),
+    []
+  );
 
   return (
     <>
@@ -192,7 +230,13 @@ function App() {
                 className="input"
                 value={searchString}
                 onChange={handleInput}
+                list="suggestions"
               ></input>
+              <datalist id="suggestions">
+                {suggestions.map((suggestionString) => (
+                  <option>{suggestionString}</option>
+                ))}
+              </datalist>
               <button className="button" onClick={searchYoutube}>
                 <img src={magnifier} alt="alt" />
               </button>

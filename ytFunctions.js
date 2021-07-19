@@ -18,6 +18,11 @@ const getVideoInfo = async (id) => {
   return videoInfo;
 };
 
+const getSuggestions = async (searchString) => {
+  const suggestionsArray = await youtubesr.getSuggestions(searchString);
+  return suggestionsArray;
+};
+
 const getDirectUrl = async (url) => {
   var id = getVideoIdFromUrl(url);
   let info = await ytdl.getInfo(id, {
@@ -50,4 +55,5 @@ module.exports = {
   searchYoutube,
   getPlaylistVideos,
   getVideoInfo,
+  getSuggestions,
 };
