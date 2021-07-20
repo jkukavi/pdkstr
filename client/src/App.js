@@ -3,6 +3,7 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 import qs from "query-string";
 
+import recognizeAndStartSearch from "./speechRecognition";
 import copyToClipboard from "./copyToClipboard";
 import Notification from "./components/Notification";
 import "./App.css";
@@ -14,10 +15,12 @@ import forward5 from "./icons/forward5.png";
 import forward10 from "./icons/forward10.png";
 import forward30 from "./icons/forward30.png";
 import chevron from "./icons/chevron.png";
-import playlistIcon from "./icons/playlist.png";
+import addToQueueIcon from "./icons/addToQueue.png";
+import menuVertical from "./icons/menuVertical.png";
 import playButton from "./icons/playButton.png";
 import share from "./icons/share.png";
 import magnifier from "./icons/magnifier.png";
+import microphone from "./icons/microphone.png";
 
 let preventBlur = false;
 
@@ -107,7 +110,8 @@ function App() {
   };
 
   const searchYoutube = async (event, newSearchString) => {
-    event.preventDefault();
+    if (event?.preventDefault) event.preventDefault();
+    if (searchString === "" && newSearchString === "") return;
     setSearchArray([]);
     setSuggestions({ ...suggestions, show: false });
     setArrayLoading(true);
@@ -170,7 +174,7 @@ function App() {
     }
   };
 
-  const addToPlaylist = (video) => {
+  const addToQueue = (video) => {
     setPlaylist([...playlist, video]);
   };
 
@@ -204,12 +208,18 @@ function App() {
   const input = useRef();
   const searchForm = useRef();
 
+  const startSearch = (recognizedString) => {
+    setSearchString(recognizedString);
+    searchYoutube(null, recognizedString);
+  };
+
   return (
     <>
       <div className="container">
         {/* <pre>
           {JSON.stringify({ searchString, suggestions, preventBlur }, null, 2)}
         </pre> */}
+
         {!!location.search && (
           <div className={`alertBox ${alert ? "appear" : ""}`}>
             <p>Hello there man, somebody sent you a song you need to check!</p>
@@ -290,6 +300,12 @@ function App() {
               <button className="button" type="submit">
                 <img src={magnifier} alt="alt" />
               </button>
+              <div
+                className="button microphone"
+                onClick={recognizeAndStartSearch(startSearch)}
+              >
+                <img src={microphone} alt="alt" />
+              </div>
             </form>
           </div>
         </div>
@@ -379,14 +395,22 @@ function App() {
                               <p>{author?.name || "Name not found"}</p>
                             </div>
                           </div>
-                          <div
-                            className="addToPlaylistIcon"
-                            onClick={() => {
-                              addToPlaylist(item);
-                              notify("Added to playlist");
-                            }}
-                          >
-                            <img src={playlistIcon} alt="loading"></img>
+                          <div style={{ display: "flex" }}>
+                            <div
+                              className="addToPlaylistIcon"
+                              onClick={() => {
+                                addToQueue(item);
+                                notify("Added to playing queue");
+                              }}
+                            >
+                              <img src={addToQueueIcon} alt="loading"></img>
+                            </div>
+                            <div
+                              className="addToPlaylistIcon"
+                              onClick={() => {}}
+                            >
+                              <img src={menuVertical} alt="loading"></img>
+                            </div>
                           </div>
                         </div>
 
