@@ -20,7 +20,10 @@ const getVideoInfo = async (id) => {
 
 const getSuggestions = async (searchString) => {
   const suggestionsArray = await youtubesr.getSuggestions(searchString);
-  return suggestionsArray;
+  const cleanedSuggestionsArray = suggestionsArray.map((suggestion) =>
+    suggestion.replace("\\u0027", "'")
+  );
+  return cleanedSuggestionsArray;
 };
 
 const getDirectUrl = async (url) => {
