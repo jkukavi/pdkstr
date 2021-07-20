@@ -302,7 +302,7 @@ function App() {
               </button>
               <div
                 className="button microphone"
-                onClick={recognizeAndStartSearch(startSearch)}
+                onClick={recognizeAndStartSearch(startSearch, notify)}
               >
                 <img src={microphone} alt="alt" />
               </div>

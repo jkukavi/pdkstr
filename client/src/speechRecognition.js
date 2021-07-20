@@ -2,13 +2,14 @@ var SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
 var recognition = new SpeechRecognition();
 var startSearch;
+var notify;
 
 recognition.onstart = function () {
-  console.log("started Listening");
+  notify("Listening...");
 };
 
 recognition.onspeechend = function () {
-  console.log("stopped listening");
+  notify("Stopped listening.");
   recognition.stop();
 };
 
@@ -16,20 +17,17 @@ recognition.onspeechend = function () {
 recognition.onresult = function (event) {
   var transcript = event.results[0][0].transcript;
   var confidence = event.results[0][0].confidence;
-  console.log(confidence);
-  if (confidence < 0.85) {
-    window.speechSynthesis.speak(
-      new SpeechSynthesisUtterance(
-        "Stop fucking mumbling and repeat yourself clearly bro"
-      )
-    );
+  notify(`Transcribed: "${transcript}" with confidence ${confidence * 100}%`);
+  if (confidence < 0.75) {
+    window.speechSynthesis.speak(new SpeechSynthesisUtterance("Stop mumbling"));
   } else {
     startSearch(transcript);
   }
 };
 
-const recognizeAndStartSearch = (currentStartSearch) => {
+const recognizeAndStartSearch = (currentStartSearch, currentNotify) => {
   startSearch = currentStartSearch;
+  notify = currentNotify;
   return () => {
     recognition.start();
   };
