@@ -40,6 +40,39 @@ const debounce = (func, wait) => {
   };
 };
 
+function throttle(callback, limit) {
+  let waiting = false;
+  let finalTimeout = false;
+  return function (...args) {
+    if (!waiting) {
+      clearTimeout(finalTimeout);
+      callback();
+      waiting = true;
+      setTimeout(function () {
+        waiting = false;
+      }, limit);
+    } else {
+      clearTimeout(finalTimeout);
+      finalTimeout = setTimeout(callback, limit / 2);
+    }
+  };
+}
+
+const checkScroll = (setScrollingDown) => {
+  let oldScroll = 0;
+
+  return () => {
+    if (window.scrollY > oldScroll) {
+      console.log("down");
+      setScrollingDown(true);
+    } else {
+      console.log("up");
+      setScrollingDown(false);
+    }
+    oldScroll = window.scrollY;
+  };
+};
+
 function App() {
   const [directUrl, setDirectUrl] = useState(null);
   const [audioLoading, setAudioLoading] = useState(false);
@@ -55,9 +88,17 @@ function App() {
   const [listeningTo, setListeningTo] = useState(null);
   const [info, setInfo] = useState(null);
   const [suggestions, setSuggestions] = useState({ show: false, array: [] });
+  const [scrollingDown, setScrollingDown] = useState(false);
 
   const location = useLocation();
   const [alert, setAlert] = useState(qs.parse(location.search));
+
+  useEffect(() => {
+    window.addEventListener(
+      "scroll",
+      throttle(checkScroll(setScrollingDown), 1000)
+    );
+  }, []);
 
   useEffect(() => {
     window.addEventListener("mouseup", () => {
@@ -215,10 +256,21 @@ function App() {
 
   return (
     <>
-      <div className="container">
-        {/* <pre>
-          {JSON.stringify({ searchString, suggestions, preventBlur }, null, 2)}
-        </pre> */}
+      <div className="container" id="kontenjer">
+        {process.env.NODE_ENV === "development" && (
+          <>
+            {/* <pre>
+              {JSON.stringify(
+                { searchString, suggestions, preventBlur },
+                null,
+                2
+              )}
+            </pre> */}
+            <pre style={{ position: "fixed", left: 0, top: "5rem" }}>
+              {scrollingDown.toString()}
+            </pre>
+          </>
+        )}
 
         {!!location.search && (
           <div className={`alertBox ${alert ? "appear" : ""}`}>
@@ -247,7 +299,9 @@ function App() {
           </div>
         )}
         <div className="searchBoxFixedContainer">
-          <div className="searchBoxContainer">
+          <div
+            className={`searchBoxContainer ${scrollingDown ? "collapsed" : ""}`}
+          >
             <div className="notificationsContainer">
               {notifications.map((notification) => (
                 <Notification notification={notification} />
@@ -459,9 +513,9 @@ function App() {
         </div>
       </div>
       <div
-        className={`audioShelf ${directUrl || audioLoading ? "" : "closed"} ${
-          expanded ? "opened" : ""
-        }`}
+        className={`audioShelf ${
+          (directUrl || audioLoading) && !scrollingDown ? "" : "closed"
+        } ${expanded ? "opened" : ""}`}
       >
         <div className="audioPlayerContainer">
           <div className="audioControls">
@@ -494,7 +548,7 @@ function App() {
                       : "localhost:3000"
                   }?id=${listeningTo.id}`
                 );
-                notify("Copied to clipboard!");
+                notify("Sharing link copied to clipboard!");
               }}
             >
               <img src={share} alt="loading" />

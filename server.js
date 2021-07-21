@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const helmet = require("helmet");
+const fs = require("fs");
 const {
   getDirectUrl,
   searchYoutube,
@@ -69,6 +70,12 @@ app.post("/suggestions", async (req, res) => {
     res.status(400).json({ message: "summin fked" });
     console.log(JSON.stringify(error, null, 2));
   }
+});
+
+app.post("/console", async (req, res) => {
+  const { object } = req.body;
+  console.log("incoming object");
+  fs.writeFileSync("log.JSON", JSON.stringify(object, null, 2));
 });
 
 app.post("/search", async (req, res) => {
