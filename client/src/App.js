@@ -96,7 +96,7 @@ function App() {
   useEffect(() => {
     window.addEventListener(
       "scroll",
-      throttle(checkScroll(setScrollingDown), 1000)
+      throttle(checkScroll(setScrollingDown), 500)
     );
   }, []);
 
