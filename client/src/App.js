@@ -20,6 +20,8 @@ import menuVertical from "./icons/menuVertical.png";
 import playButton from "./icons/playButton.png";
 import share from "./icons/share.png";
 import magnifier from "./icons/magnifier.png";
+import history from "./icons/history.png";
+import library from "./icons/library.png";
 import microphone from "./icons/microphone.png";
 
 let preventBlur = false;
@@ -512,11 +514,32 @@ function App() {
             })}
         </div>
       </div>
+      <div className="bottomMenu">
+        <div className="icon">
+          <img src={history} alt="alt"></img>
+        </div>
+        <div className="icon active">
+          <img src={magnifier} alt="alt"></img>
+        </div>
+        <div className="icon">
+          <img src={library} alt="alt"></img>
+        </div>
+      </div>
       <div
         className={`audioShelf ${
           (directUrl || audioLoading) && !scrollingDown ? "" : "closed"
         } ${expanded ? "opened" : ""}`}
       >
+        {listeningTo && (
+          <div className="currentlyPlaying">
+            <p>
+              <span>Currently playing:</span>{" "}
+              <span style={{ fontStyle: "italic", fontWeight: 600 }}>
+                {listeningTo.title}
+              </span>
+            </p>
+          </div>
+        )}
         <div className="audioPlayerContainer">
           <div className="audioControls">
             <div className="audioButton" onClick={replay(-30)}>
@@ -564,16 +587,6 @@ function App() {
             )}
           </div>
 
-          {listeningTo && (
-            <div className="currentlyPlaying">
-              <p>
-                <span>Currently playing:</span>{" "}
-                <span style={{ fontStyle: "italic", fontWeight: 600 }}>
-                  {listeningTo.title}
-                </span>
-              </p>
-            </div>
-          )}
           <div className="audioPlayer">
             {audioLoading ? (
               <div className="loading audio">
