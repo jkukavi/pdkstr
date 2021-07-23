@@ -3,6 +3,7 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 import qs from "query-string";
 
+import storage from "./localStorage";
 import recognizeAndStartSearch from "./speechRecognition";
 import copyToClipboard from "./copyToClipboard";
 import Notification from "./components/Notification";
@@ -91,9 +92,19 @@ function App() {
   const [info, setInfo] = useState(null);
   const [suggestions, setSuggestions] = useState({ show: false, array: [] });
   const [scrollingDown, setScrollingDown] = useState(false);
+  const [browsingHistory, setBrowsingHistory] = useState(null);
 
   const location = useLocation();
   const [alert, setAlert] = useState(qs.parse(location.search));
+
+  const listHistory = () => {
+    const history = storage.get();
+    setBrowsingHistory(history);
+  };
+
+  const addToHistory = (item) => {
+    storage.add(item);
+  };
 
   useEffect(() => {
     window.addEventListener(
@@ -258,7 +269,72 @@ function App() {
 
   return (
     <>
-      <div className="container" id="kontenjer">
+      <div className="searchBoxFixedContainer">
+        <div
+          className={`searchBoxContainer ${scrollingDown ? "collapsed" : ""}`}
+        >
+          <div className="notificationsContainer">
+            {notifications.map((notification) => (
+              <Notification notification={notification} />
+            ))}
+          </div>
+          <form
+            className="searchBox"
+            name="searchForm"
+            ref={searchForm}
+            onSubmit={searchYoutube}
+          >
+            <input
+              className="input"
+              value={searchString}
+              onChange={handleInput}
+              ref={input}
+              onClick={() => {
+                setSuggestions({ ...suggestions, show: true });
+              }}
+              onFocus={() => {
+                setSuggestions({ ...suggestions, show: true });
+              }}
+              onBlur={() => {
+                console.log(preventBlur);
+                if (!preventBlur)
+                  setSuggestions({ ...suggestions, show: false });
+              }}
+            ></input>
+
+            {suggestions.show && !!suggestions.array.length && (
+              <div className="suggestionsContainer">
+                {suggestions.array.map((suggestionString) => (
+                  <div
+                    className="suggestion"
+                    onMouseDown={(e) => {
+                      preventBlur = true;
+                    }}
+                    onMouseUp={(e) => {
+                      // eslint-disable-next-line no-unused-vars
+                      preventBlur = false;
+                      setSearchString(suggestionString);
+                      if (!preventBlur) searchYoutube(e, suggestionString);
+                    }}
+                  >
+                    {suggestionString}
+                  </div>
+                ))}
+              </div>
+            )}
+            <button className="button" type="submit">
+              <img src={magnifier} alt="alt" />
+            </button>
+            <div
+              className="button microphone"
+              onClick={recognizeAndStartSearch(startSearch, notify)}
+            >
+              <img src={microphone} alt="alt" />
+            </div>
+          </form>
+        </div>
+      </div>
+      <div className="container">
         {process.env.NODE_ENV === "development" && (
           <>
             {/* <pre>
@@ -272,6 +348,58 @@ function App() {
               {scrollingDown.toString()}
             </pre>
           </>
+        )}
+
+        {browsingHistory && (
+          <table id="customers">
+            <thead>
+              <tr>
+                <th>
+                  <div className="indexContainer">
+                    <span>{"#"}</span>
+                  </div>
+                </th>
+                <th>
+                  <p>{"Title & metadata"}</p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {browsingHistory.map((video, index) => (
+                <tr
+                  className={`${activeVideo === index ? "activeVideo" : ""}`}
+                  onClick={() => {
+                    getDirectUrl(video.url);
+                    setActiveVideo(index);
+                    setListeningTo(video);
+                  }}
+                >
+                  <td>
+                    <div className="indexContainer">
+                      <span className="index">{index}</span>
+                      <div className="playButton">
+                        <span>
+                          <img src={playButton} alt="X" />
+                        </span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="tableRowInfo">
+                      <div className={"playlist title"}>
+                        <p>{video.title}</p>
+                      </div>
+                      <div className={"playlist metadata"}>
+                        <p>{video.author?.name}</p>•
+                        <p>{getViewsString(video.views)}</p>•
+                        <p>{video.duration}</p>•<p>{video.uploadedAt}</p>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         )}
 
         {!!location.search && (
@@ -300,71 +428,6 @@ function App() {
             </button>
           </div>
         )}
-        <div className="searchBoxFixedContainer">
-          <div
-            className={`searchBoxContainer ${scrollingDown ? "collapsed" : ""}`}
-          >
-            <div className="notificationsContainer">
-              {notifications.map((notification) => (
-                <Notification notification={notification} />
-              ))}
-            </div>
-            <form
-              className="searchBox"
-              name="searchForm"
-              ref={searchForm}
-              onSubmit={searchYoutube}
-            >
-              <input
-                className="input"
-                value={searchString}
-                onChange={handleInput}
-                ref={input}
-                onClick={() => {
-                  setSuggestions({ ...suggestions, show: true });
-                }}
-                onFocus={() => {
-                  setSuggestions({ ...suggestions, show: true });
-                }}
-                onBlur={() => {
-                  console.log(preventBlur);
-                  if (!preventBlur)
-                    setSuggestions({ ...suggestions, show: false });
-                }}
-              ></input>
-
-              {suggestions.show && !!suggestions.array.length && (
-                <div className="suggestionsContainer">
-                  {suggestions.array.map((suggestionString) => (
-                    <div
-                      className="suggestion"
-                      onMouseDown={(e) => {
-                        preventBlur = true;
-                      }}
-                      onMouseUp={(e) => {
-                        // eslint-disable-next-line no-unused-vars
-                        preventBlur = false;
-                        setSearchString(suggestionString);
-                        if (!preventBlur) searchYoutube(e, suggestionString);
-                      }}
-                    >
-                      {suggestionString}
-                    </div>
-                  ))}
-                </div>
-              )}
-              <button className="button" type="submit">
-                <img src={magnifier} alt="alt" />
-              </button>
-              <div
-                className="button microphone"
-                onClick={recognizeAndStartSearch(startSearch, notify)}
-              >
-                <img src={microphone} alt="alt" />
-              </div>
-            </form>
-          </div>
-        </div>
 
         {viewingChannel && (
           <p
@@ -410,6 +473,7 @@ function App() {
                       getDirectUrl(url);
                       setActiveVideo(null);
                       setListeningTo(item);
+                      addToHistory(item);
                       notify(`Listening to: ${item.title}`);
                     }}
                     className="thumbnail"
@@ -515,7 +579,12 @@ function App() {
         </div>
       </div>
       <div className="bottomMenu">
-        <div className="icon">
+        <div
+          className="icon"
+          onClick={() => {
+            listHistory();
+          }}
+        >
           <img src={history} alt="alt"></img>
         </div>
         <div className="icon active">
