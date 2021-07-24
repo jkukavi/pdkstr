@@ -112,7 +112,6 @@ const Cards = ({
                             className="addToPlaylistIcon"
                             onClick={() => {
                               addToQueue(item);
-                              notify("Added to playing queue");
                             }}
                           >
                             <img src={playingQueue} alt="loading"></img>

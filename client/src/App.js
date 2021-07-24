@@ -165,12 +165,22 @@ function App() {
     }
   };
 
-  const addToQueue = (video) => {
-    setPlaylist([...playlist, video]);
+  const addToQueue = (item) => {
+    if (playlist.length === 0) {
+      getDirectUrl(item.url);
+      setActiveVideo(null);
+      setListeningTo(item);
+      addToHistory(item);
+      setTimeout(() => {
+        notify(`Listening to: ${item.title}`);
+      }, 500);
+    }
+    setPlaylist([...playlist, item]);
+    notify("Added to playing queue");
   };
 
   const notify = (newNotification) => {
-    setNotifications([...notifications, newNotification]);
+    setNotifications((notifications) => [...notifications, newNotification]);
   };
 
   const getSuggestions = async (string) => {
