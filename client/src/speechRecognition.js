@@ -1,5 +1,9 @@
+function Nothing() {
+  this.start = () => {};
+}
+
 var SpeechRecognition =
-  window.SpeechRecognition || window.webkitSpeechRecognition;
+  window.SpeechRecognition || window.webkitSpeechRecognition || Nothing;
 var recognition = new SpeechRecognition();
 var startSearch;
 var notify;
