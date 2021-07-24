@@ -34,10 +34,8 @@ const checkScroll = (setScrollingDown) => {
 
   return () => {
     if (window.scrollY > oldScroll) {
-      console.log("down");
       setScrollingDown(true);
     } else {
-      console.log("up");
       setScrollingDown(false);
     }
     oldScroll = window.scrollY;

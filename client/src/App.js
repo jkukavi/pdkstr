@@ -14,12 +14,17 @@ import BottomMenu from "./components/BottomMenu";
 import AudioShelf from "./components/AudioShelf";
 import Table from "./components/Table";
 import ShareAlert from "./components/ShareAlert";
+import PrintScreen from "./components/PrintScreen";
 
 import magnifier from "./icons/magnifier.png";
 import history from "./icons/history.png";
 import library from "./icons/library.png";
 
 let preventBlur = false;
+
+window.addEventListener("scroll", () => {
+  console.log("hello");
+});
 
 function App() {
   const [page, setPage] = useState(menu.SEARCH);
@@ -74,6 +79,7 @@ function App() {
   const getDirectUrl = async (url) => {
     setDirectUrl(null);
     setAudioLoading(true);
+    setScrollingDown(false);
     try {
       const response = await axios.post("/url", {
         url,
@@ -216,6 +222,9 @@ function App() {
 
   return (
     <>
+      <PrintScreen>
+        {JSON.stringify({ audioLoading, directUrl, scrollingDown }, null, 2)}
+      </PrintScreen>
       <SearchBox
         scrollingDown={scrollingDown || page !== menu.SEARCH}
         searchForm={searchForm}
