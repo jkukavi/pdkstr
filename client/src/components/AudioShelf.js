@@ -33,19 +33,19 @@ const AudioShelf = ({
   audioPlayerRef,
   getDirectUrl,
 }) => {
-  const handleError = () => {
-    if (window.confirm("Should I try proxying?")) {
-      const encodedDirectUrl = encodeURIComponent(directUrl);
-      const proxyUrl = `/proxy/${encodedDirectUrl}`;
-      setAudioLoading(true);
-      setTimeout(() => {
-        setAudioLoading(false);
-        setDirectUrl(proxyUrl);
-      }, 1000);
-    } else {
-      //nothing
-    }
-  };
+  // const handleError = () => {
+  //   if (window.confirm("Should I try proxying?")) {
+  //     const encodedDirectUrl = encodeURIComponent(directUrl);
+  //     const proxyUrl = `/proxy/${encodedDirectUrl}`;
+  //     setAudioLoading(true);
+  //     setTimeout(() => {
+  //       setAudioLoading(false);
+  //       setDirectUrl(proxyUrl);
+  //     }, 1000);
+  //   } else {
+  //     //nothing
+  //   }
+  // };
   return (
     <div
       className={`audioShelf ${
@@ -118,11 +118,15 @@ const AudioShelf = ({
             directUrl && (
               <audio
                 ref={audioPlayerRef}
-                onError={handleError}
+                // onError={handleError}
                 controls
                 autoPlay
               >
                 <source src={directUrl} type="audio/webm" />
+                <source
+                  src={`/proxy/${encodeURIComponent(directUrl)}`}
+                  type="audio/webm"
+                />
               </audio>
             )
           )}
