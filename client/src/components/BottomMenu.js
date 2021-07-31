@@ -7,6 +7,7 @@ const BottomMenu = ({
   setPage,
   listHistory,
   history,
+  listFavourites,
   magnifier,
   library,
 }) => {
@@ -32,6 +33,7 @@ const BottomMenu = ({
       <div
         className={`icon ${page === menu.LIBRARY ? "active" : ""}`}
         onClick={() => {
+          listFavourites();
           setPage(menu.LIBRARY);
         }}
       >

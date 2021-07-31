@@ -1,5 +1,8 @@
 node_modules/
 data.json
 test.js
+.env
+env.JSON
+lab/
 
 node_modules

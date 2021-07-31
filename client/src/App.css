@@ -612,7 +612,7 @@ a:active {
 #customers {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  width: 100vw;
   margin-bottom: 2.5rem;
   background: #2d2d3c;
   box-shadow: 2px 2px 1px 0px black;
@@ -686,12 +686,7 @@ a:active {
   transition: background-color 0.6s;
 }
 
-.tableRowInfo {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 76vw;
-}
+
 
 #customers tbody tr:hover {
   background-color: #94641b;
@@ -713,16 +708,45 @@ a:active {
   text-align: left;
 }
 
+.tableRowInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 76vw;
+}
+
 .playlist.title {
   margin-right: 1rem;
-  width: 60%;
+  width: 30%;
   min-width: 14rem;
 }
 
 .playlist.metadata {
   display: flex;
-  width: 37%;
+  width: 30%;
   min-width: 15.5rem;
   justify-content: space-around;
   align-items: center;
 }
+
+.playlist.icons {
+  display:flex;
+}
+
+.playlist.icons .icon{
+  width: 20px;
+  height: 
+  20px;
+}
+
+.playlist.icons .icon:hover {
+  filter: drop-shadow(0px 0px 4px #ef2929);
+}
+
+.playlist.icons .icon img{
+  width: 100%;
+  height: 100%;
+}
+
+

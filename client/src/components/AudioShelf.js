@@ -107,16 +107,23 @@ const AudioShelf = ({
         </div>
       </div>
       {!!playlist.length && (
-        <Table
-          tableTitle="Playing queue"
-          notify={notify}
-          tableArray={playlist}
-          activeVideo={activeVideo}
-          getDirectUrl={getDirectUrl}
-          setActiveVideo={setActiveVideo}
-          setListeningTo={setListeningTo}
-          getViewsString={getViewsString}
-        />
+        <div
+          style={{
+            marginLeft: "calc(50% - 0.5rem)",
+            transform: "translate(-100%)",
+          }}
+        >
+          <Table
+            tableTitle="Playing queue"
+            notify={notify}
+            tableArray={playlist}
+            activeVideo={activeVideo}
+            getDirectUrl={getDirectUrl}
+            setActiveVideo={setActiveVideo}
+            setListeningTo={setListeningTo}
+            getViewsString={getViewsString}
+          />
+        </div>
       )}
     </div>
   );

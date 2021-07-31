@@ -43,19 +43,30 @@ function App() {
   const [suggestions, setSuggestions] = useState({ show: false, array: [] });
   const [scrollingDown, setScrollingDown] = useState(false);
   const [browsingHistory, setBrowsingHistory] = useState(null);
+  const [favourites, setFavourites] = useState(null)
   const location = useLocation();
   const [alert, setAlert] = useState(qs.parse(location.search));
 
   const audioPlayerRef = useRef();
 
   const listHistory = () => {
-    const history = storage.get();
+    const history = storage.get("history");
     setBrowsingHistory(history);
   };
 
+  const listFavourites = () => {
+    const fetchedFavourites = storage.get("favourites");
+    setFavourites(fetchedFavourites)
+  }
+
   const addToHistory = (item) => {
-    storage.add(item);
+    storage.add("history", item);
   };
+
+  const addToFavourites = (item) => {
+    notify("Added To Favourites");
+    storage.add("favourites", item)
+  }
 
   useEffect(() => {
     window.addEventListener(
@@ -222,9 +233,9 @@ function App() {
 
   return (
     <>
-      <PrintScreen>
+      {/* <PrintScreen>
         {JSON.stringify({ audioLoading, directUrl, scrollingDown }, null, 2)}
-      </PrintScreen>
+      </PrintScreen> */}
       <SearchBox
         scrollingDown={scrollingDown || page !== menu.SEARCH}
         searchForm={searchForm}
@@ -264,12 +275,26 @@ function App() {
             setActiveVideo={setActiveVideo}
             setListeningTo={setListeningTo}
             addToHistory={addToHistory}
+            addToFavourites={addToFavourites}
             notify={notify}
             getPlaylistVideos={getPlaylistVideos}
             addToQueue={addToQueue}
             getViewsString={getViewsString}
           />
         </div>
+      )}
+
+      {page === menu.LIBRARY && (
+          <Table
+          tableTitle="Favourites"
+          notify={notify}
+          tableArray={favourites}
+          activeVideo={activeVideo}
+          getDirectUrl={getDirectUrl}
+          setActiveVideo={setActiveVideo}
+          setListeningTo={setListeningTo}
+          getViewsString={getViewsString}
+        />
       )}
 
       {!!location.search && (
@@ -288,6 +313,7 @@ function App() {
         page={page}
         setPage={setPage}
         listHistory={listHistory}
+        listFavourites={listFavourites}
         history={history}
         magnifier={magnifier}
         library={library}

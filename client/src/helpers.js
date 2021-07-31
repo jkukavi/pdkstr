@@ -44,19 +44,19 @@ const checkScroll = (setScrollingDown) => {
 
 const localStorage = window.localStorage;
 
-const get = () => {
-  return JSON.parse(localStorage.getItem("history")) || [];
+const get = (name) => {
+  return JSON.parse(localStorage.getItem(name)) || [];
 };
 
-const add = (item) => {
-  let oldHistory = JSON.parse(localStorage.getItem("history") || "[]");
-  oldHistory.splice(0, 0, item);
-  localStorage.setItem("history", JSON.stringify(oldHistory));
-  return oldHistory;
+const add = (name, item) => {
+  let oldData = JSON.parse(localStorage.getItem(name) || "[]");
+  oldData.splice(0, 0, item);
+  localStorage.setItem(name, JSON.stringify(oldData));
+  return oldData;
 };
 
-const clean = () => {
-  localStorage.removeItem("history");
+const clean = (name) => {
+  localStorage.removeItem(name);
 };
 
 const storage = { get, add, clean };

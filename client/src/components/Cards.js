@@ -1,7 +1,7 @@
 import React from "react";
 
 import playingQueue from "../icons/playingQueue.png";
-import menuVertical from "../icons/menuVertical.png";
+import star from "../icons/star.png";
 
 const defaultPuppyImg =
   "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*";
@@ -14,6 +14,7 @@ const Cards = ({
   setActiveVideo,
   setListeningTo,
   addToHistory,
+  addToFavourites,
   notify,
   getPlaylistVideos,
   addToQueue,
@@ -116,8 +117,8 @@ const Cards = ({
                           >
                             <img src={playingQueue} alt="loading"></img>
                           </div>
-                          <div className="addToPlaylistIcon" onClick={() => {}}>
-                            <img src={menuVertical} alt="loading"></img>
+                          <div className="addToPlaylistIcon" onClick={() => {addToFavourites(item);}}>
+                            <img src={star} alt="loading"></img>
                           </div>
                         </div>
                       </div>
