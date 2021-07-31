@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const app = express();
 const helmet = require("helmet");
 const path = require("path");
-const https = require("https");
+const { https } = require("follow-redirects");
 const fs = require("fs");
 const {
   getDirectUrl,
