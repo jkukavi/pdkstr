@@ -14,7 +14,7 @@ import BottomMenu from "./components/BottomMenu";
 import AudioShelf from "./components/AudioShelf";
 import Table from "./components/Table";
 import ShareAlert from "./components/ShareAlert";
-import PrintScreen from "./components/PrintScreen";
+// import PrintScreen from "./components/PrintScreen";
 
 import magnifier from "./icons/magnifier.png";
 import history from "./icons/history.png";
@@ -43,7 +43,7 @@ function App() {
   const [suggestions, setSuggestions] = useState({ show: false, array: [] });
   const [scrollingDown, setScrollingDown] = useState(false);
   const [browsingHistory, setBrowsingHistory] = useState(null);
-  const [favourites, setFavourites] = useState(null)
+  const [favourites, setFavourites] = useState(null);
   const location = useLocation();
   const [alert, setAlert] = useState(qs.parse(location.search));
 
@@ -56,8 +56,8 @@ function App() {
 
   const listFavourites = () => {
     const fetchedFavourites = storage.get("favourites");
-    setFavourites(fetchedFavourites)
-  }
+    setFavourites(fetchedFavourites);
+  };
 
   const addToHistory = (item) => {
     storage.add("history", item);
@@ -65,8 +65,8 @@ function App() {
 
   const addToFavourites = (item) => {
     notify("Added To Favourites");
-    storage.add("favourites", item)
-  }
+    storage.add("favourites", item);
+  };
 
   useEffect(() => {
     window.addEventListener(
@@ -285,7 +285,7 @@ function App() {
       )}
 
       {page === menu.LIBRARY && (
-          <Table
+        <Table
           tableTitle="Favourites"
           notify={notify}
           tableArray={favourites}
@@ -328,6 +328,8 @@ function App() {
         notify={notify}
         expanded={expanded}
         setExpanded={setExpanded}
+        setAudioLoading={setAudioLoading}
+        setDirectUrl={setDirectUrl}
         playlist={playlist}
         setListeningTo={setListeningTo}
         activeVideo={activeVideo}

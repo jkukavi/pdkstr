@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import copyToClipboard from "../copyToClipboard";
 
@@ -23,6 +23,8 @@ const AudioShelf = ({
   notify,
   expanded,
   setExpanded,
+  setAudioLoading,
+  setDirectUrl,
   playlist,
   setListeningTo,
   activeVideo,
@@ -33,9 +35,15 @@ const AudioShelf = ({
 }) => {
   const handleError = () => {
     if (window.confirm("Should I try proxying?")) {
-      //dosth
+      const encodedDirectUrl = encodeURIComponent(directUrl);
+      const proxyUrl = `/proxy/${encodedDirectUrl}`;
+      setAudioLoading(true);
+      setTimeout(() => {
+        setAudioLoading(false);
+        setDirectUrl(proxyUrl);
+      }, 1000);
     } else {
-      //donth
+      //nothing
     }
   };
   return (

@@ -2,6 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const helmet = require("helmet");
+const path = require("path");
+const https = require("https");
 const fs = require("fs");
 const {
   getDirectUrl,
@@ -17,7 +19,7 @@ app.use(
       defaultSrc: ["'self'"],
       scriptSrc: ["'self'", "example.com"],
       imgSrc: ["'self'", "i.ytimg.com", "yt3.ggpht.com", "hips.hearstapps.com"],
-      "media-src": ["*.googlevideo.com"],
+      "media-src": ["'self'", "*.googlevideo.com"],
       "font-src": ["fonts.googleapis.com", "fonts.gstatic.com"],
       "style-src-elem": ["'self'", "fonts.googleapis.com", "fonts.gstatic.com"],
     },
@@ -97,6 +99,27 @@ app.post("/playlist", async (req, res) => {
     res.status(400).json({ message: "No results" });
   }
 });
+
+app.get("/proxy/:url", (req, res) => {
+  const { url } = req.params;
+  if (req.headers.range && domain(url) === "googlevideo") {
+    https.get(url, { headers: { range: req.headers.range } }, (res2) => {
+      res.writeHead(res2.statusCode, res2.statusMessage, res2.headers);
+      res2.pipe(res);
+    });
+  } else {
+    res.end();
+  }
+});
+
+const domain = (url) => {
+  const { hostname } = new URL(url);
+  return hostname.split(".")[1];
+};
+
+// app.get("/proba", (req, res) => {
+//   res.sendFile(path.join(__dirname, "index.html"));
+// });
 
 console.log("server started 8080");
 app.listen(process.env.PORT || 8080);
