@@ -1,3 +1,5 @@
+import speak from "./speak";
+
 function Nothing() {
   this.start = () => {};
 }
@@ -23,7 +25,7 @@ recognition.onresult = function (event) {
   var confidence = event.results[0][0].confidence;
   notify(`Transcribed: "${transcript}" with confidence ${confidence * 100}%`);
   if (confidence < 0.75) {
-    window.speechSynthesis.speak(new SpeechSynthesisUtterance("Stop mumbling"));
+    speak("Stop mumbling.");
   } else {
     startSearch(transcript);
   }

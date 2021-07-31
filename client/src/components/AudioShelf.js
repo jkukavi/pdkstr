@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import copyToClipboard from "../copyToClipboard";
 
@@ -31,6 +31,13 @@ const AudioShelf = ({
   audioPlayerRef,
   getDirectUrl,
 }) => {
+  const handleError = () => {
+    if (window.confirm("Should I try proxying?")) {
+      //dosth
+    } else {
+      //donth
+    }
+  };
   return (
     <div
       className={`audioShelf ${
@@ -100,9 +107,16 @@ const AudioShelf = ({
               <div className="miniloader" />
             </div>
           ) : (
-            <audio ref={audioPlayerRef} controls autoPlay>
-              <source src={directUrl} type="audio/webm" />
-            </audio>
+            directUrl && (
+              <audio
+                ref={audioPlayerRef}
+                onError={handleError}
+                controls
+                autoPlay
+              >
+                <source src={directUrl} type="audio/webm" />
+              </audio>
+            )
           )}
         </div>
       </div>
