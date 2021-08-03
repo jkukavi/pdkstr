@@ -4,5 +4,6 @@ test.js
 .env
 env.JSON
 lab/
+scdl-testovi
 
 node_modules
