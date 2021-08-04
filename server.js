@@ -13,6 +13,8 @@ const {
   getSuggestions,
 } = require("./ytFunctions.js");
 
+const soundcloud = require("./scFunctions");
+
 app.use(
   helmet.contentSecurityPolicy({
     directives: {
@@ -100,6 +102,18 @@ app.post("/playlist", async (req, res) => {
   }
 });
 
+app.post("/soundcloud/tracks", async (req, res) => {
+  const { searchString } = req.body;
+  const tracksArray = await soundcloud.getTracks(searchString, 10);
+  res.status(200).json({ tracksArray });
+});
+
+app.post("/soundcloud/url", async (req, res) => {
+  const { url } = req.body;
+  const directUrl = await soundcloud.getDirectUrl(url);
+  res.status(200).json({ directUrl });
+});
+
 app.get("/proxy/:url", (req, res) => {
   const { url } = req.params;
   if (req.headers.range && domain(url) === "googlevideo") {
@@ -116,10 +130,6 @@ const domain = (url) => {
   const { hostname } = new URL(url);
   return hostname.split(".")[1];
 };
-
-// app.get("/proba", (req, res) => {
-//   res.sendFile(path.join(__dirname, "index.html"));
-// });
 
 console.log("server started 8080");
 app.listen(process.env.PORT || 8080);
