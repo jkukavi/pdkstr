@@ -22,9 +22,21 @@ import library from "./icons/library.png";
 
 let preventBlur = false;
 
-window.addEventListener("scroll", () => {
-  console.log("hello");
-});
+export const searchEngines = {
+  YT: "yt",
+  SC: "sc",
+};
+
+const paths = {
+  search: {
+    [searchEngines.YT]: "/search",
+    [searchEngines.SC]: "/soundcloud/tracks",
+  },
+  directUrl: {
+    [searchEngines.YT]: "/url",
+    [searchEngines.SC]: "/soundcloud/url",
+  },
+};
 
 function App() {
   const [page, setPage] = useState(menu.SEARCH);
@@ -46,6 +58,7 @@ function App() {
   const [favourites, setFavourites] = useState(null);
   const location = useLocation();
   const [alert, setAlert] = useState(qs.parse(location.search));
+  const [searchEngine, setSearchEngine] = useState(searchEngines.YT);
 
   const audioPlayerRef = useRef();
 
@@ -57,6 +70,12 @@ function App() {
   const listFavourites = () => {
     const fetchedFavourites = storage.get("favourites");
     setFavourites(fetchedFavourites);
+  };
+
+  const deleteAll = (name) => () => {
+    storage.clean(name);
+    listHistory();
+    listFavourites();
   };
 
   const addToHistory = (item) => {
@@ -91,8 +110,9 @@ function App() {
     setDirectUrl(null);
     setAudioLoading(true);
     setScrollingDown(false);
+    const path = paths.directUrl[searchEngine];
     try {
-      const response = await axios.post("/url", {
+      const response = await axios.post(path, {
         url,
       });
       const { directUrl } = response.data;
@@ -125,8 +145,9 @@ function App() {
     setArrayLoading(true);
     setViewingChannel(false);
     console.log(searchString);
+    const url = paths.search[searchEngine];
     try {
-      const response = await axios.post("/search", {
+      const response = await axios.post(url, {
         searchString: newSearchString || searchString,
       });
       const searchResultsArray = response.data.searchResultsArray;
@@ -239,6 +260,8 @@ function App() {
       <SearchBox
         scrollingDown={scrollingDown || page !== menu.SEARCH}
         searchForm={searchForm}
+        setSearchEngine={setSearchEngine}
+        searchEngine={searchEngine}
         searchYoutube={searchYoutube}
         searchString={searchString}
         handleInput={handleInput}
@@ -256,6 +279,7 @@ function App() {
         <Table
           tableTitle="History"
           notify={notify}
+          deleteAll={deleteAll("history")}
           tableArray={browsingHistory}
           activeVideo={activeVideo}
           getDirectUrl={getDirectUrl}
@@ -289,6 +313,7 @@ function App() {
           tableTitle="Favourites"
           notify={notify}
           tableArray={favourites}
+          deleteAll={deleteAll("favourites")}
           activeVideo={activeVideo}
           getDirectUrl={getDirectUrl}
           setActiveVideo={setActiveVideo}

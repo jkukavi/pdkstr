@@ -131,6 +131,7 @@ audio {
 
 .searchBoxFixedContainer {
   position: fixed;
+  height: 0;
   top: 0;
   left: 0;
   right: 0;
@@ -142,8 +143,6 @@ audio {
   background-color: #343434;
   padding: 0.3rem 0 0.3rem;
   padding-left: calc(100vw - 100%);
-  display: flex;
-  justify-content: center;
   border-bottom: 1px solid #6b6b6b;
   box-shadow: 0px 1px 3px 0px #000000;
   transition: transform 1s;
@@ -223,12 +222,16 @@ audio {
 .searchBox {
   position: relative;
   display: flex;
-  height: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0 0.3rem 0;
+  row-gap: 0.3rem;
+  min-height: 2rem;
 }
 
 .input {
   width: 60vw;
-  height: 100%;
+  height: 2rem;
   font-size: 1.1rem;
   color: #c7c7c7;
   padding-left: 12px;
@@ -246,6 +249,10 @@ audio {
   align-items: center;
 }
 
+.searchBox button {
+  height: 2rem;
+}
+
 .button img {
   filter: invert(0.7);
 }
@@ -256,8 +263,34 @@ audio {
 
 .button.microphone {
   border: none;
+  height: 2rem;
   background-color: unset;
   cursor: pointer;
+}
+
+.searchEngineIcons {
+  display: flex;
+}
+
+.searchBoxIcon {
+  cursor: pointer;
+  padding: 0 0.5rem;
+  height: 2rem;
+  border-radius: 5px;
+  margin-right: 3px;
+  transition: background-color 0.3s;
+}
+
+.searchBoxIcon img {
+  height: 100%;
+}
+
+.searchBoxIcon.active {
+  background-color: #6e6e6e;
+}
+
+.searchBoxIcon:hover {
+  background-color: #6e6e6e;
 }
 
 .small {
@@ -736,6 +769,7 @@ a:active {
 .playlist.icons .icon {
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
 
 .playlist.icons .icon:hover {

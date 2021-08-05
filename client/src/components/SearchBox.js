@@ -3,12 +3,17 @@ import React, { useEffect } from "react";
 import recognizeAndStartSearch from "../speechRecognition";
 import microphone from "../icons/microphone.png";
 import magnifier from "../icons/magnifier.png";
+import youtube from "../icons/youtube.png";
+import soundcloud from "../icons/soundcloud.png";
 import Notification from "./Notification";
+import { searchEngines } from "../App";
 
 let preventBlur = false;
 
 const SearchBox = ({
   scrollingDown,
+  searchEngine,
+  setSearchEngine,
   searchForm,
   searchYoutube,
   searchString,
@@ -89,6 +94,29 @@ const SearchBox = ({
             onClick={recognizeAndStartSearch(startSearch, notify)}
           >
             <img src={microphone} alt="alt" />
+          </div>
+
+          <div className="searchEngineIcons">
+            <div
+              className={`searchBoxIcon ${
+                searchEngine === searchEngines.YT ? "active" : ""
+              }`}
+              onClick={() => {
+                setSearchEngine(searchEngines.YT);
+              }}
+            >
+              <img src={youtube} alt="alt" />
+            </div>
+            <div
+              className={`searchBoxIcon ${
+                searchEngine === searchEngines.SC ? "active" : ""
+              }`}
+              onClick={() => {
+                setSearchEngine(searchEngines.SC);
+              }}
+            >
+              <img src={soundcloud} alt="alt" />
+            </div>
           </div>
         </form>
       </div>

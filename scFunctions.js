@@ -23,7 +23,7 @@ function getUsersPlaylists(userId, limit = 10) {
       });
 
       res.on("end", () => {
-        resolve(JSON.parse(data).collection);
+        resolve(JSON.parse(data).collection.map(mapper));
       });
     });
   });
@@ -47,7 +47,7 @@ function getUserTracks(userId, limit = 10) {
       });
 
       res.on("end", () => {
-        resolve(JSON.parse(data).collection);
+        resolve(JSON.parse(data).collection.map(mapper));
       });
     });
   });
@@ -91,7 +91,7 @@ function getTracks(search, limit = 10) {
 
       const mappedTracks = track_list.map(mapper);
 
-      return res(track_list);
+      return res(mappedTracks);
     });
   });
 }

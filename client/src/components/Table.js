@@ -1,11 +1,12 @@
 import React from "react";
 
 import playButton from "../icons/playButton.png";
-import trash from "../icons/trash.png"
+import trash from "../icons/trash.png";
 
 const Table = ({
   tableTitle,
   notify,
+  deleteAll,
   tableArray,
   activeVideo,
   getDirectUrl,
@@ -20,6 +21,11 @@ const Table = ({
           <th colSpan={2}>
             <div className="indexContainer">
               <span>{tableTitle}</span>
+              <div className={"playlist icons"}>
+                <div className={"icon"} onClick={deleteAll}>
+                  <img src={trash} alt="alt"></img>
+                </div>
+              </div>
             </div>
           </th>
         </tr>
@@ -64,11 +70,6 @@ const Table = ({
                   <p>{video.author?.name}</p>•
                   <p>{getViewsString(video.views)}</p>•<p>{video.duration}</p>•
                   <p>{video.uploadedAt}</p>
-                </div>
-                <div className={"playlist icons"}>
-                  <div className={"icon"}>
-                    <img src={trash} alt="alt"></img>
-                  </div>
                 </div>
               </div>
             </td>

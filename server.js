@@ -20,14 +20,20 @@ app.use(
     directives: {
       defaultSrc: ["'self'"],
       scriptSrc: ["'self'", "example.com"],
-      imgSrc: ["'self'", "i.ytimg.com", "yt3.ggpht.com", "hips.hearstapps.com"],
-      "media-src": ["'self'", "*.googlevideo.com"],
+      imgSrc: [
+        "'self'",
+        "i.ytimg.com",
+        "yt3.ggpht.com",
+        "hips.hearstapps.com",
+        "i1.sndcdn.com",
+      ],
+      "media-src": ["'self'", "*.googlevideo.com", "*.sndcdn.com"],
       "font-src": ["fonts.googleapis.com", "fonts.gstatic.com"],
       "style-src-elem": ["'self'", "fonts.googleapis.com", "fonts.gstatic.com"],
     },
   })
 );
-//proba
+
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
@@ -104,8 +110,8 @@ app.post("/playlist", async (req, res) => {
 
 app.post("/soundcloud/tracks", async (req, res) => {
   const { searchString } = req.body;
-  const tracksArray = await soundcloud.getTracks(searchString, 10);
-  res.status(200).json({ tracksArray });
+  const searchResultsArray = await soundcloud.getTracks(searchString, 10);
+  res.status(200).json({ searchResultsArray });
 });
 
 app.post("/soundcloud/url", async (req, res) => {

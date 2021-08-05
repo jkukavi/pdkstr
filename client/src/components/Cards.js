@@ -82,8 +82,8 @@ const Cards = ({
                 />
                 <div className="descContainer">
                   <p className="desc title">
-                    {`${title.substring(0, 40)}${
-                      title.length > 40 ? "..." : ""
+                    {`${title.substring(0, 50)}${
+                      title.length > 50 ? "..." : ""
                     }`}
                   </p>
                   {!viewingChannel && (
@@ -117,7 +117,12 @@ const Cards = ({
                           >
                             <img src={playingQueue} alt="loading"></img>
                           </div>
-                          <div className="addToPlaylistIcon" onClick={() => {addToFavourites(item);}}>
+                          <div
+                            className="addToPlaylistIcon"
+                            onClick={() => {
+                              addToFavourites(item);
+                            }}
+                          >
                             <img src={star} alt="loading"></img>
                           </div>
                         </div>
@@ -157,7 +162,9 @@ const Cards = ({
                   />
                 </div>
                 <div className="descContainer">
-                  <p className="desc title">{name}</p>
+                  <p style={{ height: "2rem" }} className="desc title">
+                    {name}
+                  </p>
                   <p className="desc">
                     {subscribers || "Subscribers not available"}
                   </p>

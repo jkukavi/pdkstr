@@ -29,7 +29,7 @@
     "helmet": "^4.0.0",
     "request": "^2.88.2",
     "youtube-sr": "^4.1.7",
-    "ytdl-core": "^4.9.0",
+    "ytdl-core": "^4.9.1",
     "ytpl": "^2.2.1",
     "ytsr": "^3.3.1"
   },
