@@ -88,7 +88,6 @@ function getTracks(search, limit = 10) {
     promise.then((response) => {
       const body = response.body;
       const track_list = body.collection;
-
       const mappedTracks = track_list.map(mapper);
 
       return res(mappedTracks);
@@ -111,24 +110,32 @@ module.exports = {
   getDirectUrl,
 };
 
-const mapper = (item) => ({
-  // url: item.permalink_url,
-  url: item.media.transcodings.find(
-    (item) => item.format.protocol === "progressive"
-  ).url,
-  title: item.title,
-  thumbnails: [{ url: item.artwork_url.replace("large", "t200x200") }],
-  duration: intoHHMMSS(item.duration),
-  uploadedAt: item.created_at.substring(0, 10),
-  author: {
-    url: item.user.permalink_url,
-    id: item.user.id,
-    name: item.user.username,
-    avatars: [{ url: item.user.avatar_url }],
-  },
-  views: item.playback_count,
-  type: "video",
-});
+const mapper = (item) => {
+  return {
+    // url: item.permalink_url,
+    url: item.media.transcodings.find(
+      (item) => item.format.protocol === "progressive"
+    ).url,
+    title: item.title,
+    thumbnails: [
+      {
+        url:
+          item.artwork_url?.replace("large", "t200x200") ??
+          item.user.avatar_url,
+      },
+    ],
+    duration: intoHHMMSS(item.duration),
+    uploadedAt: item.created_at.substring(0, 10),
+    author: {
+      url: item.user.permalink_url,
+      id: item.user.id,
+      name: item.user.username,
+      avatars: [{ url: item.user.avatar_url }],
+    },
+    views: item.playback_count,
+    type: "video",
+  };
+};
 
 const intoHHMMSS = (durationMs) =>
   new Date(durationMs)

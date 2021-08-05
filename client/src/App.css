@@ -641,6 +641,12 @@ a:active {
   background-position: center;
   background-size: contain;
   margin-right: 0.5rem;
+  box-shadow: 2px 2px 2px black;
+  transition: box-shadow 0.2s;
+}
+
+.authorThumbnail:hover {
+  box-shadow: 1px 1px 1px black;
 }
 
 #customers {
