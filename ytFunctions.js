@@ -48,7 +48,7 @@ const getVideoIdFromUrl = (text) => {
   return text.replace(re, "$1");
 };
 
-const getPlaylistVideos = async (playlistUrl) => {
+const getChannelVideos = async (playlistUrl) => {
   const result = await ytpl(playlistUrl, { pages: 1 });
   return result.items;
 };
@@ -56,7 +56,7 @@ const getPlaylistVideos = async (playlistUrl) => {
 module.exports = {
   getDirectUrl,
   searchYoutube,
-  getPlaylistVideos,
+  getChannelVideos,
   getVideoInfo,
   getSuggestions,
 };

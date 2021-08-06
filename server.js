@@ -8,7 +8,7 @@ const fs = require("fs");
 const {
   getDirectUrl,
   searchYoutube,
-  getPlaylistVideos,
+  getChannelVideos,
   getVideoInfo,
   getSuggestions,
 } = require("./ytFunctions.js");
@@ -71,21 +71,22 @@ app.post("/info", async (req, res) => {
   }
 });
 
-app.post("/suggestions", async (req, res) => {
+app.post("/suggestions/:engine", async (req, res) => {
+  const { engine } = req.params;
   const { searchString } = req.body;
+
+  const getSuggestionsFunction = {
+    youtube: getSuggestions,
+    soundcloud: soundcloud.getSuggestions,
+  }[engine];
+
   try {
-    const suggestionsArray = await getSuggestions(searchString);
+    const suggestionsArray = await getSuggestionsFunction(searchString);
     res.status(200).json({ suggestionsArray });
   } catch (error) {
     res.status(400).json({ message: "summin fked" });
     console.log(JSON.stringify(error, null, 2));
   }
-});
-
-app.post("/console", async (req, res) => {
-  const { object } = req.body;
-  console.log("incoming object");
-  fs.writeFileSync("log.JSON", JSON.stringify(object, null, 2));
 });
 
 app.post("/search", async (req, res) => {
@@ -100,7 +101,7 @@ app.post("/search", async (req, res) => {
 
 app.post("/playlist", async (req, res) => {
   const { playlistUrl } = req.body;
-  var searchResultsArray = await getPlaylistVideos(playlistUrl);
+  var searchResultsArray = await getChannelVideos(playlistUrl);
   if (searchResultsArray) {
     res.status(200).json({ searchResultsArray });
   } else {

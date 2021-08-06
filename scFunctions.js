@@ -29,6 +29,34 @@ function getUsersPlaylists(userId, limit = 10) {
   });
 }
 
+function getSuggestions(searchString, limit = 10) {
+  return new Promise((resolve, rej) => {
+    //playlists_without_albums
+    //playlists
+    let suggestionsURL =
+      "https://api-v2.soundcloud.com/search/queries?q=SEARCH_TERM&client_id=CLIENT_ID_TERM&limit=LIMIT_TERM";
+
+    suggestionsURL = suggestionsURL
+      .replace("SEARCH_TERM", encodeURIComponent(searchString))
+      .replace("CLIENT_ID_TERM", clientId)
+      .replace("LIMIT_TERM", limit);
+
+    https.get(suggestionsURL, (res) => {
+      let data = "";
+
+      res.on("data", (chunk) => {
+        data += chunk;
+      });
+
+      res.on("end", () => {
+        resolve(
+          JSON.parse(data).collection.map((suggestion) => suggestion.output)
+        );
+      });
+    });
+  });
+}
+
 function getUserTracks(userId, limit = 10) {
   return new Promise((resolve, rej) => {
     let userTracksURL =
@@ -106,6 +134,7 @@ const getDirectUrl = (url) => {
 module.exports = {
   getTracks,
   getUserTracks,
+  getSuggestions,
   getUsersPlaylists,
   getDirectUrl,
 };

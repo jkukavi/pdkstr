@@ -14,7 +14,7 @@ import BottomMenu from "./components/BottomMenu";
 import AudioShelf from "./components/AudioShelf";
 import Table from "./components/Table";
 import ShareAlert from "./components/ShareAlert";
-// import PrintScreen from "./components/PrintScreen";
+import PrintScreen from "./components/PrintScreen";
 
 import magnifier from "./icons/magnifier.png";
 import history from "./icons/history.png";
@@ -23,8 +23,8 @@ import library from "./icons/library.png";
 let preventBlur = false;
 
 export const searchEngines = {
-  YT: "yt",
-  SC: "sc",
+  YT: "youtube",
+  SC: "soundcloud",
 };
 
 const paths = {
@@ -227,7 +227,7 @@ function App() {
       return;
     }
     try {
-      const response = await axios.post("/suggestions", {
+      const response = await axios.post(`/suggestions/${searchEngine}`, {
         searchString: string,
       });
       const { suggestionsArray } = response.data;
@@ -239,10 +239,9 @@ function App() {
   };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const debouncedGetSuggestions = useCallback(
-    debounce(getSuggestions, 200),
-    []
-  );
+  const debouncedGetSuggestions = useCallback(debounce(getSuggestions, 200), [
+    searchEngine,
+  ]);
 
   const input = useRef();
   const searchForm = useRef();
@@ -254,9 +253,7 @@ function App() {
 
   return (
     <>
-      {/* <PrintScreen>
-        {JSON.stringify({ audioLoading, directUrl, scrollingDown }, null, 2)}
-      </PrintScreen> */}
+      <PrintScreen>{JSON.stringify({ searchEngine }, null, 2)}</PrintScreen>
       <SearchBox
         scrollingDown={scrollingDown || page !== menu.SEARCH}
         searchForm={searchForm}
