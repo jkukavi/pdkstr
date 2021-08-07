@@ -19,6 +19,7 @@ import PrintScreen from "./components/PrintScreen";
 import magnifier from "./icons/magnifier.png";
 import history from "./icons/history.png";
 import library from "./icons/library.png";
+import speak from "./speak";
 
 let preventBlur = false;
 
@@ -61,6 +62,21 @@ function App() {
   const [searchEngine, setSearchEngine] = useState(searchEngines.YT);
 
   const audioPlayerRef = useRef();
+
+  const playNext = () => {
+    if (playlist.length !== 0) {
+      if (listeningTo) speak(`Item ${listeningTo.title.slice(0, 20)} ended`);
+      const playedIndex = playlist.findIndex(
+        (item) => item.title === listeningTo.title
+      );
+      const nextItem = playlist[playedIndex + 1];
+      if (nextItem) {
+        speak(`Playing ${nextItem.title.slice(0, 20)} next`);
+        setListeningTo(nextItem);
+        getDirectUrl(nextItem.url);
+      }
+    }
+  };
 
   const listHistory = () => {
     const history = storage.get("history");
@@ -362,6 +378,7 @@ function App() {
         replay={replay}
         notify={notify}
         expanded={expanded}
+        playNext={playNext}
         setExpanded={setExpanded}
         setAudioLoading={setAudioLoading}
         setDirectUrl={setDirectUrl}

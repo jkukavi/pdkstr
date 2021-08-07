@@ -149,7 +149,7 @@ const mapper = (item) => {
     // url: item.permalink_url,
     url: item.media.transcodings.find(
       (item) => item.format.protocol === "progressive"
-    ).url,
+    )?.url,
     title: item.title,
     thumbnails: [
       {

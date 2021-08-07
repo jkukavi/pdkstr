@@ -23,8 +23,7 @@ const AudioShelf = ({
   notify,
   expanded,
   setExpanded,
-  setAudioLoading,
-  setDirectUrl,
+  playNext,
   playlist,
   setListeningTo,
   activeVideo,
@@ -33,19 +32,10 @@ const AudioShelf = ({
   audioPlayerRef,
   getDirectUrl,
 }) => {
-  // const handleError = () => {
-  //   if (window.confirm("Should I try proxying?")) {
-  //     const encodedDirectUrl = encodeURIComponent(directUrl);
-  //     const proxyUrl = `/proxy/${encodedDirectUrl}`;
-  //     setAudioLoading(true);
-  //     setTimeout(() => {
-  //       setAudioLoading(false);
-  //       setDirectUrl(proxyUrl);
-  //     }, 1000);
-  //   } else {
-  //     //nothing
-  //   }
-  // };
+  const onAudioEnded = () => {
+    playNext();
+  };
+
   return (
     <div
       className={`audioShelf ${
@@ -118,7 +108,7 @@ const AudioShelf = ({
             directUrl && (
               <audio
                 ref={audioPlayerRef}
-                // onError={handleError}
+                onEnded={onAudioEnded}
                 controls
                 autoPlay
               >
