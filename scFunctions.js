@@ -145,11 +145,13 @@ module.exports = {
 };
 
 const mapper = (item) => {
+  const progressiveTranscoding = item.media.transcodings.find(
+    (item) => item.format.protocol === "progressive"
+  );
+
   return {
     // url: item.permalink_url,
-    url: item.media.transcodings.find(
-      (item) => item.format.protocol === "progressive"
-    )?.url,
+    url: progressiveTranscoding.url,
     title: item.title,
     thumbnails: [
       {
