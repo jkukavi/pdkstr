@@ -531,6 +531,13 @@ a:active {
   align-items: center;
 }
 
+.card.playlist {
+  display: block;
+  background-color: #f1a12b;
+  align-items: center;
+  text-align: center;
+}
+
 .card.channel .thumbnail {
   width: 14rem;
   height: 14rem;

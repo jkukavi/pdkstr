@@ -23,7 +23,12 @@ function getUsersPlaylists(userId, limit = 10) {
       });
 
       res.on("end", () => {
-        resolve(JSON.parse(data).collection.map(mapper));
+        const resultData = JSON.parse(data).collection;
+        const mappedResultData = resultData.map((album) => ({
+          ...album,
+          tracks: album.tracks.map(mapper),
+        }));
+        resolve(mappedResultData);
       });
     });
   });
@@ -75,7 +80,7 @@ function getUserTracks(userId, limit = 10) {
       });
 
       res.on("end", () => {
-        resolve(JSON.parse(data).collection.map(mapper));
+        resolve(JSON.parse(data).collection);
       });
     });
   });
@@ -171,3 +176,10 @@ const intoHHMMSS = (durationMs) =>
     .toISOString()
     .substr(11, 8)
     .replace(/^[0:]+/, "");
+
+// getUsersPlaylists(55254934).then((res) => {
+//   require("fs").writeFileSync(
+//     "userPlaylists.JSON",
+//     JSON.stringify(res, null, 2)
+//   );
+// });

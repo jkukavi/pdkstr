@@ -8,8 +8,8 @@ const PrintScreen = ({ children }) => {
           style={{
             position: "absolute",
             backgroundColor: "#cb6161f5",
-            top: "10vh",
-            left: "10vw",
+            bottom: "2rem",
+            right: "5rem",
             zIndex: 4,
           }}
         >

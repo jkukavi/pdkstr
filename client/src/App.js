@@ -253,7 +253,20 @@ function App() {
 
   return (
     <>
-      <PrintScreen>{JSON.stringify({ searchEngine }, null, 2)}</PrintScreen>
+      <PrintScreen>
+        {JSON.stringify(
+          {
+            searchEngine,
+            playlist: playlist.map((item) => item.title),
+            activeVideo: activeVideo?.title,
+            listeningTo: listeningTo?.title,
+            info: info?.title,
+            searchArray: searchArray.map((item) => item.title),
+          },
+          null,
+          2
+        )}
+      </PrintScreen>
       <SearchBox
         scrollingDown={scrollingDown || page !== menu.SEARCH}
         searchForm={searchForm}
