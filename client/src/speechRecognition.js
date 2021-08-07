@@ -7,6 +7,12 @@ function Nothing() {
 var SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition || Nothing;
 var recognition = new SpeechRecognition();
+
+recognition.continuous = false;
+recognition.lang = "en-US";
+recognition.interimResults = false;
+recognition.maxAlternatives = 1;
+
 var startSearch;
 var notify;
 

@@ -22,7 +22,7 @@ const searchYoutube = async (searchString) => {
   const mappedItems = searchResults.items.map((item) => {
     return searchMapper[item.type]?.(item) ?? item;
   });
-  return insert(mappedItems, "youtube");
+  return mappedItems;
 };
 
 const getVideoInfo = async (id) => {

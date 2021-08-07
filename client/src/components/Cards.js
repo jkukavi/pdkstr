@@ -227,6 +227,8 @@ const Cards = ({
                 </div>
               );
             }
+
+            return <></>;
           })}
       </div>
     </>
