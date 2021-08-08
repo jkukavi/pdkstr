@@ -50,42 +50,45 @@ const SearchBox = ({
           ref={searchForm}
           onSubmit={searchYoutube}
         >
-          <input
-            className="input"
-            value={searchString}
-            onChange={handleInput}
-            ref={input}
-            onClick={() => {
-              setSuggestions({ ...suggestions, show: true });
-            }}
-            onFocus={() => {
-              setSuggestions({ ...suggestions, show: true });
-            }}
-            onBlur={() => {
-              if (!preventBlur) setSuggestions({ ...suggestions, show: false });
-            }}
-          ></input>
+          <div style={{ position: "relative" }}>
+            <input
+              className="input"
+              value={searchString}
+              onChange={handleInput}
+              ref={input}
+              onClick={() => {
+                setSuggestions({ ...suggestions, show: true });
+              }}
+              onFocus={() => {
+                setSuggestions({ ...suggestions, show: true });
+              }}
+              onBlur={() => {
+                if (!preventBlur)
+                  setSuggestions({ ...suggestions, show: false });
+              }}
+            />
+            {suggestions.show && !!suggestions.array.length && (
+              <div className="suggestionsContainer">
+                {suggestions.array.map((suggestionString) => (
+                  <div
+                    className="suggestion"
+                    onMouseDown={(e) => {
+                      preventBlur = true;
+                    }}
+                    onMouseUp={(e) => {
+                      // eslint-disable-next-line no-unused-vars
+                      preventBlur = false;
+                      setSearchString(suggestionString);
+                      if (!preventBlur) searchYoutube(e, suggestionString);
+                    }}
+                  >
+                    {suggestionString}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
 
-          {suggestions.show && !!suggestions.array.length && (
-            <div className="suggestionsContainer">
-              {suggestions.array.map((suggestionString) => (
-                <div
-                  className="suggestion"
-                  onMouseDown={(e) => {
-                    preventBlur = true;
-                  }}
-                  onMouseUp={(e) => {
-                    // eslint-disable-next-line no-unused-vars
-                    preventBlur = false;
-                    setSearchString(suggestionString);
-                    if (!preventBlur) searchYoutube(e, suggestionString);
-                  }}
-                >
-                  {suggestionString}
-                </div>
-              ))}
-            </div>
-          )}
           <button className="button" type="submit">
             <img src={magnifier} alt="alt" />
           </button>
