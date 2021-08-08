@@ -331,6 +331,7 @@ button:active.small {
 }
 
 .audioShelf {
+  overflow-y: scroll;
   will-change: transform;
   width: 100%;
   height: 100%;
@@ -567,10 +568,25 @@ a:active {
   height: 12rem;
   width: 16rem;
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card .thumbnail img {
   object-fit: cover;
+}
+
+.card .thumbnail .playButton {
+  filter: invert(1);
+  width: 65px;
+  height: 65px;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+.card .thumbnail:hover .playButton {
+  opacity: 1;
 }
 
 .descContainer {
@@ -607,6 +623,7 @@ a:active {
 }
 
 .addToPlaylistIcon {
+  margin-right: 3px;
   transition: background-color 0.2s;
   border-radius: 3px;
   cursor: pointer;
@@ -624,6 +641,7 @@ a:active {
 
 .addToPlaylistIcon:hover {
   background-color: #f1a12b;
+  box-shadow: 1px 1px 2px black;
 }
 
 .descContainer .metadata {
@@ -649,7 +667,7 @@ a:active {
   background-size: contain;
   margin-right: 0.5rem;
   box-shadow: 2px 2px 2px black;
-  transition: box-shadow 0.2s;
+  transition: box-shadow 0.2s, border 0.5s;
 }
 
 .authorThumbnail:hover {

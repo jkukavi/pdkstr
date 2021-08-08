@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const PrintScreen = ({ children }) => {
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(false);
   return (
     <>
       {process.env.NODE_ENV !== "production" && (

@@ -3,7 +3,7 @@ const request = require("request");
 
 clientId = process.env.SOUNDCLOUD_API_KEY;
 
-function getUsersPlaylists(userId, limit = 10) {
+function getUsersPlaylists(userId, limit = 20) {
   return new Promise((resolve, rej) => {
     //playlists_without_albums
     //playlists
@@ -23,12 +23,8 @@ function getUsersPlaylists(userId, limit = 10) {
       });
 
       res.on("end", () => {
-        const resultData = JSON.parse(data).collection;
-        const mappedResultData = resultData.map((album) => ({
-          ...album,
-          tracks: album.tracks.map(mapper),
-        }));
-        resolve(mappedResultData);
+        let resultData = JSON.parse(data).collection;
+        resolve(resultData.map(playlistMapper));
       });
     });
   });
@@ -62,6 +58,31 @@ function getSuggestions(searchString, limit = 10) {
   });
 }
 
+function getTracksInfo(ids) {
+  return new Promise((resolve, rej) => {
+    let tracksUrl =
+      "https://api-v2.soundcloud.com/tracks?ids=IDS_TERM&client_id=CLIENT_ID_TERM";
+
+    const idsString = encodeURIComponent(ids.join(","));
+
+    tracksUrl = tracksUrl
+      .replace("IDS_TERM", idsString)
+      .replace("CLIENT_ID_TERM", clientId);
+
+    https.get(tracksUrl, (res) => {
+      let data = "";
+
+      res.on("data", (chunk) => {
+        data += chunk;
+      });
+
+      res.on("end", () => {
+        resolve(JSON.parse(data).map(trackMapper));
+      });
+    });
+  });
+}
+
 function getUserTracks(userId, limit = 10) {
   return new Promise((resolve, rej) => {
     let userTracksURL =
@@ -80,7 +101,7 @@ function getUserTracks(userId, limit = 10) {
       });
 
       res.on("end", () => {
-        resolve(JSON.parse(data).collection);
+        resolve(JSON.parse(data).collection.map(trackMapper));
       });
     });
   });
@@ -121,7 +142,7 @@ function getTracks(search, limit = 10) {
     promise.then((response) => {
       const body = response.body;
       const track_list = body.collection;
-      const mappedTracks = track_list.map(mapper);
+      const mappedTracks = track_list.map(trackMapper);
 
       return res(mappedTracks);
     });
@@ -138,19 +159,20 @@ const getDirectUrl = (url) => {
 
 module.exports = {
   getTracks,
+  getTracksInfo,
   getUserTracks,
   getSuggestions,
   getUsersPlaylists,
   getDirectUrl,
 };
 
-const mapper = (item) => {
+const trackMapper = (item) => {
   const progressiveTranscoding = item.media.transcodings.find(
     (item) => item.format.protocol === "progressive"
   );
 
   return {
-    // url: item.permalink_url,
+    // original_url: item.permalink_url,
     url: progressiveTranscoding.url,
     title: item.title,
     thumbnails: [
@@ -173,6 +195,32 @@ const mapper = (item) => {
   };
 };
 
+const playlistMapper = (item) => {
+  return {
+    // original_url: item.permalink_url,
+    url: item.permalink_url,
+    title: item.title,
+    thumbnails: [
+      {
+        url:
+          item.artwork_url?.replace("large", "t200x200") ??
+          item.user.avatar_url,
+      },
+    ],
+    duration: intoHHMMSS(item.duration),
+    uploadedAt: item.created_at.substring(0, 10),
+    author: {
+      url: item.user.permalink_url,
+      id: item.user.id,
+      name: item.user.username,
+      avatars: [{ url: item.user.avatar_url }],
+    },
+    tracks: item.tracks.map((track) => track.id),
+    length: item.tracks.length,
+    type: "playlist",
+  };
+};
+
 const intoHHMMSS = (durationMs) =>
   new Date(durationMs)
     .toISOString()
@@ -185,3 +233,22 @@ const intoHHMMSS = (durationMs) =>
 //     JSON.stringify(res, null, 2)
 //   );
 // });
+
+// getTracks("idontknowjeffery").then((res) => {
+//   require("fs").writeFileSync("getTracks.JSON", JSON.stringify(res, null, 2));
+// });
+
+// getUsersPlaylists(55254934).then((res) => {
+//   require("fs").writeFileSync(
+//     "getUsersPlaylists.JSON",
+//     JSON.stringify(res, null, 2)
+//   );
+// });
+
+// getTracksInfo([983132659, 983214331, 983211670, 983242117, 983967331]).then(
+//   (res) =>
+//     require("fs").writeFileSync(
+//       "getTracksInfo.JSON",
+//       JSON.stringify(res, null, 2)
+//     )
+// );

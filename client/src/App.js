@@ -37,6 +37,11 @@ const paths = {
     [searchEngines.YT]: "/url",
     [searchEngines.SC]: "/soundcloud/url",
   },
+  playlist: {
+    [searchEngines.YT]: "/playlist",
+    [searchEngines.SC]: "soundcloud/user/playlists",
+  },
+  playlistInfo: "/soundcloud/playlist",
 };
 
 function App() {
@@ -175,12 +180,24 @@ function App() {
     }
   };
 
-  const getPlaylistVideos = async (event, playlistUrl) => {
+  const getPlaylistVideos = async (event, item) => {
     event.preventDefault();
     setSearchArray([]);
     setArrayLoading(true);
+
+    const path = paths.playlist[searchEngine];
+
+    const playlistUrl = {
+      [searchEngines.YT]: (type) =>
+        ({
+          channel: item.url,
+          video: item.author?.url,
+        }[type]),
+      [searchEngines.SC]: () => item.author?.id,
+    }[searchEngine](item.type);
+
     try {
-      const response = await axios.post("/playlist", {
+      const response = await axios.post(path, {
         playlistUrl,
       });
       const searchResultsArray = response.data.searchResultsArray;
@@ -231,6 +248,23 @@ function App() {
     }
     setPlaylist([...playlist, item]);
     notify("Added to playing queue");
+  };
+
+  const playPlaylist = async (playlist) => {
+    if (searchEngine === searchEngines.SC) {
+      try {
+        const response = await axios.post(paths.playlistInfo, {
+          trackIds: playlist.tracks,
+        });
+        const { playlistItems } = response.data;
+        setPlaylist(playlistItems);
+        setListeningTo(playlistItems[0]);
+        getDirectUrl(playlistItems[0].url);
+      } catch (e) {
+      } finally {
+        setArrayLoading(false);
+      }
+    }
   };
 
   const notify = (newNotification) => {
@@ -306,6 +340,7 @@ function App() {
           tableTitle="History"
           notify={notify}
           deleteAll={deleteAll("history")}
+          listeningTo={listeningTo}
           tableArray={browsingHistory}
           activeVideo={activeVideo}
           getDirectUrl={getDirectUrl}
@@ -324,6 +359,7 @@ function App() {
             getDirectUrl={getDirectUrl}
             setActiveVideo={setActiveVideo}
             setListeningTo={setListeningTo}
+            playPlaylist={playPlaylist}
             addToHistory={addToHistory}
             addToFavourites={addToFavourites}
             notify={notify}
@@ -339,6 +375,7 @@ function App() {
           tableTitle="Favourites"
           notify={notify}
           tableArray={favourites}
+          listeningTo={listeningTo}
           deleteAll={deleteAll("favourites")}
           activeVideo={activeVideo}
           getDirectUrl={getDirectUrl}
@@ -383,6 +420,7 @@ function App() {
         setAudioLoading={setAudioLoading}
         setDirectUrl={setDirectUrl}
         playlist={playlist}
+        setPlaylist={setPlaylist}
         setListeningTo={setListeningTo}
         activeVideo={activeVideo}
         setActiveVideo={setActiveVideo}

@@ -2,6 +2,7 @@ import React from "react";
 
 import playingQueue from "../icons/playingQueue.png";
 import star from "../icons/star.png";
+import playButtonThumbnail from "../icons/playButtonThumbnail.svg";
 
 const defaultPuppyImg =
   "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*";
@@ -13,6 +14,7 @@ const Cards = ({
   searchArray,
   viewingChannel,
   getDirectUrl,
+  playPlaylist,
   setActiveVideo,
   setListeningTo,
   addToHistory,
@@ -80,7 +82,13 @@ const Cards = ({
                       backgroundPosition: "center",
                       backgroundSize: "cover",
                     }}
-                  />
+                  >
+                    <img
+                      src={playButtonThumbnail}
+                      className="playButton"
+                      alt="alt"
+                    />
+                  </div>
                   <div className="descContainer">
                     <p className="desc title">
                       {`${title.substring(0, 50)}${
@@ -95,7 +103,7 @@ const Cards = ({
                             <div
                               className="authorThumbnail"
                               onClick={(event) => {
-                                getPlaylistVideos(event, author.url);
+                                getPlaylistVideos(event, item);
                               }}
                               style={{
                                 backgroundImage: `url(${
@@ -170,7 +178,7 @@ const Cards = ({
                   <div
                     className="thumbnail"
                     onClick={(event) => {
-                      getPlaylistVideos(event, url);
+                      getPlaylistVideos(event, item);
                     }}
                   >
                     <img
@@ -199,7 +207,7 @@ const Cards = ({
                   </p>
                   <div
                     onClick={(event) => {
-                      getPlaylistVideos(event, url);
+                      playPlaylist(item);
                     }}
                     className="thumbnail"
                     style={{

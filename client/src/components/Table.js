@@ -8,6 +8,7 @@ const Table = ({
   notify,
   deleteAll,
   tableArray,
+  listeningTo,
   activeVideo,
   getDirectUrl,
   setActiveVideo,
@@ -43,7 +44,9 @@ const Table = ({
       <tbody>
         {tableArray.map((video, index) => (
           <tr
-            className={`${activeVideo === index ? "activeVideo" : ""}`}
+            className={`${
+              listeningTo?.title === video.title ? "activeVideo" : ""
+            }`}
             onClick={() => {
               getDirectUrl(video.url);
               setActiveVideo(index);

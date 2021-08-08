@@ -28,6 +28,7 @@ const AudioShelf = ({
   setListeningTo,
   activeVideo,
   setActiveVideo,
+  setPlaylist,
   getViewsString,
   audioPlayerRef,
   getDirectUrl,
@@ -134,6 +135,8 @@ const AudioShelf = ({
             notify={notify}
             tableArray={playlist}
             activeVideo={activeVideo}
+            deleteAll={() => setPlaylist([])}
+            listeningTo={listeningTo}
             getDirectUrl={getDirectUrl}
             setActiveVideo={setActiveVideo}
             setListeningTo={setListeningTo}

@@ -4,7 +4,7 @@ const app = express();
 const helmet = require("helmet");
 const path = require("path");
 const { https } = require("follow-redirects");
-const fs = require("fs");
+
 const {
   getDirectUrl,
   searchYoutube,
@@ -113,6 +113,29 @@ app.post("/soundcloud/tracks", async (req, res) => {
   const { searchString } = req.body;
   const searchResultsArray = await soundcloud.getTracks(searchString, 10);
   res.status(200).json({ searchResultsArray });
+});
+
+app.post("/soundcloud/user/:item", async (req, res) => {
+  const { item } = req.params;
+  const { playlistUrl } = req.body;
+
+  const getFunction = {
+    tracks: soundcloud.getUserTracks,
+    playlists: soundcloud.getUsersPlaylists,
+  }[item];
+
+  const searchResultsArray = await getFunction(playlistUrl, 20);
+  res.status(200).json({ searchResultsArray });
+});
+
+app.post("/soundcloud/playlist", async (req, res) => {
+  const { trackIds } = req.body;
+  var playlistItems = await soundcloud.getTracksInfo(trackIds);
+  if (playlistItems) {
+    res.status(200).json({ playlistItems });
+  } else {
+    res.status(400).json({ message: "No results" });
+  }
 });
 
 app.post("/soundcloud/url", async (req, res) => {
