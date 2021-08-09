@@ -472,9 +472,6 @@ button:active.small {
   margin-bottom: 0.5rem;
 }
 
-.controlsContainer {
-}
-
 .controlsContainer > * {
   width: 2.2rem;
   height: 2.2rem;
@@ -725,7 +722,7 @@ a:active {
   justify-content: center;
 }
 
-#customers tr:hover .playButton {
+#customers tr.active .playButton {
   opacity: 1;
 }
 
@@ -756,17 +753,18 @@ a:active {
   width: 20px;
 }
 
-#customers tr:nth-child(even) {
-}
-
 #customers tbody tr {
   cursor: pointer;
-  transition: background-color 0.6s;
+  transition: background-color 0.1s;
 }
 
-#customers tbody tr:hover {
+#customers tbody tr.active {
   background-color: #94641b;
   color: rgb(0 0 0);
+}
+
+#customers tbody tr:not(.active):hover {
+  background-color: #38384b;
 }
 
 .activeVideo {
