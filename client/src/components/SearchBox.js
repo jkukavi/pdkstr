@@ -1,4 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
+import axios from "axios";
+
+import { debounce } from "../helpers";
 
 import recognizeAndStartSearch from "../speechRecognition";
 import microphone from "../icons/microphone.png";
@@ -9,6 +12,7 @@ import Notification from "./Notification";
 import { searchEngines } from "../App";
 
 let preventBlur = false;
+let inputFocused = false;
 
 const SearchBox = ({
   scrollingDown,
@@ -17,7 +21,6 @@ const SearchBox = ({
   searchForm,
   searchYoutube,
   searchString,
-  handleInput,
   input,
   setSuggestions,
   suggestions,
@@ -36,6 +39,35 @@ const SearchBox = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const getSuggestions = async (string) => {
+    if (!string) {
+      setSuggestions({ show: false, array: [] });
+      return;
+    }
+    try {
+      const response = await axios.post(`/suggestions/${searchEngine}`, {
+        searchString: string,
+      });
+      const { suggestionsArray } = response.data;
+      if (inputFocused) {
+        setSuggestions({ show: true, array: suggestionsArray });
+      }
+    } catch (e) {
+      window.alert("some error happened, please kontakt the dev team");
+    } finally {
+    }
+  };
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const debouncedGetSuggestions = useCallback(debounce(getSuggestions, 200), [
+    searchEngine,
+  ]);
+
+  const handleInput = (e) => {
+    setSearchString(e.target.value);
+    debouncedGetSuggestions(e.target.value.toString());
+  };
+
   return (
     <div className="searchBoxFixedContainer">
       <div className={`searchBoxContainer ${scrollingDown ? "collapsed" : ""}`}>
@@ -48,7 +80,10 @@ const SearchBox = ({
           className="searchBox"
           name="searchForm"
           ref={searchForm}
-          onSubmit={searchYoutube}
+          onSubmit={(e) => {
+            searchYoutube(e);
+            document.getElementById("id_01").blur();
+          }}
         >
           <div style={{ position: "relative" }}>
             <input
@@ -56,13 +91,16 @@ const SearchBox = ({
               value={searchString}
               onChange={handleInput}
               ref={input}
+              id="id_01"
               onClick={() => {
                 setSuggestions({ ...suggestions, show: true });
               }}
               onFocus={() => {
+                inputFocused = true;
                 setSuggestions({ ...suggestions, show: true });
               }}
               onBlur={() => {
+                inputFocused = false;
                 if (!preventBlur)
                   setSuggestions({ ...suggestions, show: false });
               }}
@@ -79,7 +117,7 @@ const SearchBox = ({
                       // eslint-disable-next-line no-unused-vars
                       preventBlur = false;
                       setSearchString(suggestionString);
-                      if (!preventBlur) searchYoutube(e, suggestionString);
+                      searchYoutube(e, suggestionString);
                     }}
                   >
                     {suggestionString}

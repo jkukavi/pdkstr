@@ -1,9 +1,9 @@
-import React, { useState, useRef, useEffect, useCallback } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import qs from "query-string";
 
-import { storage, throttle, debounce, checkScroll } from "./helpers";
+import { storage, throttle, checkScroll } from "./helpers";
 import { menu } from "./consts";
 
 import "./App.css";
@@ -209,11 +209,6 @@ function App() {
     }
   };
 
-  const handleInput = (e) => {
-    setSearchString(e.target.value);
-    debouncedGetSuggestions(e.target.value.toString());
-  };
-
   const rounded = (num) => Math.round((num + Number.EPSILON) * 100) / 100;
 
   const getViewsString = (stringNumber) => {
@@ -271,28 +266,6 @@ function App() {
     setNotifications((notifications) => [...notifications, newNotification]);
   };
 
-  const getSuggestions = async (string) => {
-    if (!string) {
-      setSuggestions({ show: false, array: [] });
-      return;
-    }
-    try {
-      const response = await axios.post(`/suggestions/${searchEngine}`, {
-        searchString: string,
-      });
-      const { suggestionsArray } = response.data;
-      setSuggestions({ show: true, array: suggestionsArray });
-    } catch (e) {
-      window.alert("some error happened, please kontakt the dev team");
-    } finally {
-    }
-  };
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const debouncedGetSuggestions = useCallback(debounce(getSuggestions, 200), [
-    searchEngine,
-  ]);
-
   const input = useRef();
   const searchForm = useRef();
 
@@ -324,7 +297,6 @@ function App() {
         searchEngine={searchEngine}
         searchYoutube={searchYoutube}
         searchString={searchString}
-        handleInput={handleInput}
         input={input}
         setSuggestions={setSuggestions}
         suggestions={suggestions}
