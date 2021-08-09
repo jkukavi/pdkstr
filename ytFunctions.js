@@ -35,7 +35,7 @@ const getVideoInfo = async (id) => {
 const getSuggestions = async (searchString) => {
   const suggestionsArray = await youtubesr.getSuggestions(searchString);
   const cleanedSuggestionsArray = suggestionsArray.map((suggestion) =>
-    suggestion.replace("\\u0027", "'")
+    suggestion.replace(/\\u0027/g, "'")
   );
   return cleanedSuggestionsArray;
 };
