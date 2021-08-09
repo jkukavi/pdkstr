@@ -89,6 +89,7 @@ const SearchBox = ({
             <input
               className="input"
               value={searchString}
+              placeholder={"Search"}
               onChange={handleInput}
               ref={input}
               onClick={() => {

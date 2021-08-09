@@ -62,9 +62,10 @@ function App() {
   const [scrollingDown, setScrollingDown] = useState(false);
   const [browsingHistory, setBrowsingHistory] = useState(null);
   const [favourites, setFavourites] = useState(null);
+  const [searchEngine, setSearchEngine] = useState(searchEngines.YT);
+
   const location = useLocation();
   const [alert, setAlert] = useState(qs.parse(location.search));
-  const [searchEngine, setSearchEngine] = useState(searchEngines.YT);
 
   const audioPlayerRef = useRef();
 
