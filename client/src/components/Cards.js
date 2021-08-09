@@ -73,16 +73,17 @@ const Cards = ({
                       notify(`Listening to: ${item.title}`);
                     }}
                     className="thumbnail"
-                    style={{
-                      background: `url(${
+                  >
+                    <img
+                      className="image"
+                      src={
                         thumbnails
                           ? thumbnails[thumbnails.length - 1]?.url
                           : defaultPuppyImg
-                      })`,
-                      backgroundPosition: "center",
-                      backgroundSize: "cover",
-                    }}
-                  >
+                      }
+                      alt="alt"
+                    ></img>
+
                     <img
                       src={playButtonThumbnail}
                       className="playButton"

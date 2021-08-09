@@ -82,7 +82,7 @@ const SearchBox = ({
           ref={searchForm}
           onSubmit={(e) => {
             searchYoutube(e);
-            document.getElementById("id_01").blur();
+            document.getElementById("s_01").blur();
           }}
         >
           <div style={{ position: "relative" }}>
@@ -91,7 +91,7 @@ const SearchBox = ({
               value={searchString}
               onChange={handleInput}
               ref={input}
-              id="id_01"
+              id="s_01"
               onClick={() => {
                 setSuggestions({ ...suggestions, show: true });
               }}
