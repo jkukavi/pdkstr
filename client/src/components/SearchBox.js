@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
 import { debounce } from "../helpers";
@@ -6,6 +6,7 @@ import { debounce } from "../helpers";
 import recognizeAndStartSearch from "../speechRecognition";
 import microphone from "../icons/microphone.png";
 import magnifier from "../icons/magnifier.png";
+import chevron from "../icons/chevron.png";
 import youtube from "../icons/youtube.png";
 import soundcloud from "../icons/soundcloud.png";
 import Notification from "./Notification";
@@ -38,6 +39,8 @@ const SearchBox = ({
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const [dropdown, setDropdown] = useState(false);
 
   const getSuggestions = async (string) => {
     if (!string) {
@@ -127,37 +130,61 @@ const SearchBox = ({
             )}
           </div>
 
-          <button className="button" type="submit">
+          <button className="button search" type="submit">
             <img src={magnifier} alt="alt" />
           </button>
+
           <div
             className="button microphone"
             onClick={recognizeAndStartSearch(startSearch, notify)}
           >
             <img src={microphone} alt="alt" />
           </div>
+          <div className={"searchEngineIcons"}>
+            <div
+              className={"searchBoxIcon active"}
+              tabIndex="-1"
+              onClick={() => {
+                setDropdown((dropdown) => !dropdown);
+              }}
+            >
+              <img
+                src={searchEngine === searchEngines.YT ? youtube : soundcloud}
+                alt="alt"
+              />
 
-          <div className="searchEngineIcons">
-            <div
-              className={`searchBoxIcon ${
-                searchEngine === searchEngines.YT ? "active" : ""
-              }`}
-              onClick={() => {
-                setSearchEngine(searchEngines.YT);
-              }}
-            >
-              <img src={youtube} alt="alt" />
+              <img className="chevron" src={chevron} alt="alt" />
             </div>
-            <div
-              className={`searchBoxIcon ${
-                searchEngine === searchEngines.SC ? "active" : ""
-              }`}
-              onClick={() => {
-                setSearchEngine(searchEngines.SC);
-              }}
-            >
-              <img src={soundcloud} alt="alt" />
-            </div>
+            {dropdown && (
+              <div
+                onBlur={() => {
+                  window.alert("hello");
+                  setDropdown(false);
+                }}
+                id="alternateEngines"
+                tabIndex="-1"
+                className="alternativeEngineBox"
+              >
+                <div
+                  className="searchBoxIcon"
+                  onClick={() => {
+                    setDropdown(false);
+                    setSearchEngine(searchEngines.YT);
+                  }}
+                >
+                  <img src={youtube} alt="alt"></img>
+                </div>
+                <div
+                  className="searchBoxIcon"
+                  onClick={() => {
+                    setDropdown(false);
+                    setSearchEngine(searchEngines.SC);
+                  }}
+                >
+                  <img src={soundcloud} alt="alt"></img>
+                </div>
+              </div>
+            )}
           </div>
         </form>
       </div>

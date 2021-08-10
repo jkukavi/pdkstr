@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import chevron from "../icons/chevron.png";
+
 const PrintScreen = ({ children }) => {
   const [expanded, setExpanded] = useState(false);
   return (
@@ -12,12 +14,27 @@ const PrintScreen = ({ children }) => {
             top: "10rem",
             right: 0,
             transition: "transform 0.5s",
-            transform: expanded ? "translate(0)" : "translate(90%)",
+            transform: expanded ? "translate(-1rem)" : "translate(100%)",
             zIndex: 4,
           }}
           onClick={() => setExpanded((e) => !e)}
         >
           "expanded" :{expanded.toString()}
+          <div
+            style={{
+              position: "absolute",
+              width: "2rem",
+              height: "2rem",
+              top: "50%",
+              left: 0,
+              transition: "transform 0.5s",
+              transform: `translate(-100%, -50%) ${
+                expanded ? "rotate(90deg)" : "rotate(-90deg)"
+              }`,
+            }}
+          >
+            <img src={chevron} alt="alt" />
+          </div>
           {children}
         </pre>
       )}
