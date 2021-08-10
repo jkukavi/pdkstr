@@ -242,6 +242,7 @@ audio {
   background-color: #222222;
   border-radius: 2px 0 0 2px;
   border: 1px solid rgb(82, 82, 82);
+  transition: width 0.5s;
 }
 
 .input:focus {
@@ -250,7 +251,6 @@ audio {
 
 @media screen and (max-width: 450px) {
   .input:focus {
-    transition: width 0.5s;
     width: calc(100vw - 67px);
   }
 
