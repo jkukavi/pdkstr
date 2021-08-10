@@ -95,9 +95,6 @@ const SearchBox = ({
               placeholder={"Search"}
               onChange={handleInput}
               ref={input}
-              onClick={() => {
-                setSuggestions({ ...suggestions, show: true });
-              }}
               onFocus={() => {
                 inputFocused = true;
                 setSuggestions({ ...suggestions, show: true });
@@ -144,8 +141,14 @@ const SearchBox = ({
             <div
               className={"searchBoxIcon active"}
               tabIndex="-1"
-              onClick={() => {
+              onMouseDown={() => {
                 setDropdown((dropdown) => !dropdown);
+                if (!dropdown) {
+                  setTimeout(
+                    () => document.getElementById("alternateEngines").focus(),
+                    0
+                  );
+                }
               }}
             >
               <img
@@ -158,7 +161,6 @@ const SearchBox = ({
             {dropdown && (
               <div
                 onBlur={() => {
-                  window.alert("hello");
                   setDropdown(false);
                 }}
                 id="alternateEngines"
