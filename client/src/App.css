@@ -248,10 +248,10 @@ audio {
   border: 1px solid salmon;
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 450px) {
   .input:focus {
     transition: width 0.5s;
-    width: 79vw;
+    width: calc(100vw - 67px);
   }
 
   .searchBox {
