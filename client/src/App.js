@@ -147,7 +147,9 @@ function App() {
 
   const searchYoutube = async (event, newSearchString) => {
     if (event?.preventDefault) event.preventDefault();
-    if (searchString === "" && newSearchString === "") return;
+    if (!searchString && !newSearchString) {
+      return;
+    }
     setSearchArray([]);
     setSuggestions({ ...suggestions, show: false });
     setArrayLoading(true);
