@@ -48,13 +48,17 @@ const searchEngineImages = {
   [searchEngines.SC]: soundcloud,
 };
 
-export const SearchEngineIcon = ({ engine }) => {
+export const SearchEngineIcon = ({ engine, size = "s" }) => {
+  const pixels = {
+    s: "16px",
+    m: "30px",
+  }[size];
   return (
     <span style={{ display: "inline", padding: "0 2px" }} className="icon">
       <img
         style={{
-          width: "16px",
-          height: "16px",
+          width: pixels,
+          height: pixels,
           position: "relative",
           top: "2px",
         }}
