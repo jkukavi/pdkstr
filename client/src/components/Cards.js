@@ -74,25 +74,27 @@ const Cards = ({
                     }}
                     className="thumbnail"
                   >
-                    <div
-                      style={{
-                        position: "absolute",
-                        zIndex: 1,
-                        right: "5px",
-                        bottom: "5px",
-                      }}
-                    >
-                      <SearchEngineIcon engine={item.engine} size={"m"} />
+                    <div className="overlay">
+                      <div
+                        style={{
+                          position: "absolute",
+                          zIndex: 2,
+                          right: "5px",
+                          bottom: "5px",
+                        }}
+                      >
+                        <SearchEngineIcon engine={item.engine} size={"m"} />
+                      </div>
+                      <img
+                        className="image"
+                        src={
+                          thumbnails
+                            ? thumbnails[thumbnails.length - 1]?.url
+                            : defaultPuppyImg
+                        }
+                        alt="alt"
+                      ></img>
                     </div>
-                    <img
-                      className="image"
-                      src={
-                        thumbnails
-                          ? thumbnails[thumbnails.length - 1]?.url
-                          : defaultPuppyImg
-                      }
-                      alt="alt"
-                    ></img>
 
                     <img
                       src={playButtonThumbnail}
