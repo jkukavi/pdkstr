@@ -48,7 +48,6 @@ const Cards = ({
           .filter(({ type }) => allowedTypes.includes(type) || !!viewingChannel)
           .map((item, i) => {
             const {
-              url,
               title,
               thumbnails,
               duration,
@@ -66,7 +65,7 @@ const Cards = ({
                 <div className="card" key={i}>
                   <div
                     onClick={() => {
-                      getDirectUrl(url);
+                      getDirectUrl(item);
                       setActiveVideo(null);
                       setListeningTo(item);
                       addToHistory(item);

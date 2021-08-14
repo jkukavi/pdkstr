@@ -10,7 +10,7 @@ import chevron from "../icons/chevron.png";
 import youtube from "../icons/youtube.png";
 import soundcloud from "../icons/soundcloud.png";
 import Notification from "./Notification";
-import { searchEngines } from "../App";
+import { searchEngines } from "../consts";
 
 let preventBlur = false;
 let inputFocused = false;

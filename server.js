@@ -46,9 +46,9 @@ app.use(
 app.use(express.static("client/build"));
 
 app.post("/url", async (req, res) => {
-  const url = req.body.url;
+  const { id } = req.body;
   try {
-    var directUrl = await getDirectUrl(url);
+    var directUrl = await getDirectUrl(id);
     if (directUrl) {
       res.status(200).json({ directUrl });
     } else {
@@ -138,9 +138,19 @@ app.post("/soundcloud/playlist", async (req, res) => {
   }
 });
 
+app.post("/soundcloud/info", async (req, res) => {
+  const { id } = req.body;
+  var trackInfo = await soundcloud.getTrackInfo(id);
+  if (trackInfo) {
+    res.status(200).json(trackInfo);
+  } else {
+    res.status(400).json({ message: "No results" });
+  }
+});
+
 app.post("/soundcloud/url", async (req, res) => {
-  const { url } = req.body;
-  const directUrl = await soundcloud.getDirectUrl(url);
+  const { id, fromUrl } = req.body;
+  const directUrl = await soundcloud.getDirectUrl(id, fromUrl);
   res.status(200).json({ directUrl });
 });
 

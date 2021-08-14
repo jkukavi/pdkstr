@@ -13,6 +13,7 @@ import forward30 from "../icons/forward30.png";
 import share from "../icons/share.png";
 import playingQueue from "../icons/playingQueue.png";
 import chevron from "../icons/chevron.png";
+import { SearchEngineIcon, searchEngineShortcuts } from "../consts";
 
 const AudioShelf = ({
   directUrl,
@@ -47,6 +48,7 @@ const AudioShelf = ({
         <div className="currentlyPlaying">
           <p>
             <span>Currently playing:</span>{" "}
+            <SearchEngineIcon engine={listeningTo.engine} />
             <span style={{ fontStyle: "italic", fontWeight: 600 }}>
               {listeningTo.title}
             </span>
@@ -82,7 +84,9 @@ const AudioShelf = ({
                   process.env.NODE_ENV === "production"
                     ? "https://podkaster2.herokuapp.com"
                     : "localhost:3000"
-                }?id=${listeningTo.id}`
+                }?id=${searchEngineShortcuts[listeningTo.engine]}.${
+                  listeningTo.id
+                }`
               );
               notify("Sharing link copied to clipboard!");
             }}

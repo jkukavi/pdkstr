@@ -58,6 +58,10 @@ function getSuggestions(searchString, limit = 10) {
   });
 }
 
+async function getTrackInfo(id) {
+  return (await getTracksInfo([id]))[0];
+}
+
 function getTracksInfo(ids) {
   return new Promise((resolve, rej) => {
     let tracksUrl =
@@ -149,7 +153,9 @@ function getTracks(search, limit = 10) {
   });
 }
 
-const getDirectUrl = (url) => {
+const getDirectUrl = async (id, fromUrl) => {
+  const url = fromUrl || (await getTrackInfo(id).url);
+
   return new Promise((resolve, rej) => {
     request.get(`${url}?client_id=${clientId}`, {}, (err, res, body) => {
       resolve(JSON.parse(body).url);
@@ -159,6 +165,7 @@ const getDirectUrl = (url) => {
 
 module.exports = {
   getTracks,
+  getTrackInfo,
   getTracksInfo,
   getUserTracks,
   getSuggestions,
@@ -173,6 +180,8 @@ const trackMapper = (item) => {
 
   return {
     // original_url: item.permalink_url,
+    id: item.id,
+    engine: "soundcloud",
     url: progressiveTranscoding.url,
     title: item.title,
     thumbnails: [
@@ -198,6 +207,7 @@ const trackMapper = (item) => {
 const playlistMapper = (item) => {
   return {
     // original_url: item.permalink_url,
+    engine: "soundcloud",
     url: item.permalink_url,
     title: item.title,
     thumbnails: [

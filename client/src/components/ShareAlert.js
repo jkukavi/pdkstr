@@ -13,7 +13,10 @@ const ShareAlert = ({
       <p>Hello there man, somebody sent you a song you need to check!</p>
       <div className="alertMessageContainer">
         {info ? (
-          <span className="alertMessage">{info.title}</span>
+          <>
+            <p className="alertMessage">{info.author.name}</p>
+            <p className="alertMessage">{info.title}</p>
+          </>
         ) : (
           <div className="loading audio">
             <div className="miniloader" />
@@ -24,7 +27,7 @@ const ShareAlert = ({
       <button
         className="button small"
         onClick={() => {
-          getDirectUrl(info.url);
+          getDirectUrl(info);
           setListeningTo(info);
           notify(`Listening to: ${info.title}`);
           setAlert(null);

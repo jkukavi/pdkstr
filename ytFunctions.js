@@ -20,16 +20,27 @@ const searchYoutube = async (searchString) => {
   const searchResults = await ytsr(searchString, { limit: 20 });
 
   const mappedItems = searchResults.items.map((item) => {
-    return searchMapper[item.type]?.(item) ?? item;
+    return { ...(searchMapper[item.type]?.(item) ?? item), engine: "youtube" };
   });
   return mappedItems;
 };
 
 const getVideoInfo = async (id) => {
-  const videoInfo = await youtubesr.getVideo(
-    `https://www.youtube.com/watch?v=${id}`
-  );
-  return videoInfo;
+  try {
+    const videoInfo = await ytdl.getBasicInfo(id, {
+      requestOptions: {
+        headers: {
+          cookie: COOKIE,
+        },
+      },
+    });
+
+    const returnVal = getBasicInfoMapper(videoInfo.videoDetails);
+
+    return returnVal;
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 const getSuggestions = async (searchString) => {
@@ -40,8 +51,7 @@ const getSuggestions = async (searchString) => {
   return cleanedSuggestionsArray;
 };
 
-const getDirectUrl = async (url) => {
-  var id = getVideoIdFromUrl(url);
+const getDirectUrl = async (id) => {
   let info = await ytdl.getInfo(id, {
     requestOptions: {
       headers: {
@@ -64,7 +74,11 @@ const getVideoIdFromUrl = (text) => {
 
 const getChannelVideos = async (playlistUrl) => {
   const result = await ytpl(playlistUrl, { pages: 1 });
-  return result.items.map((item) => ({ ...item, type: "video" }));
+  return result.items.map((item) => ({
+    ...item,
+    type: "video",
+    engine: "youtube",
+  }));
 };
 
 module.exports = {
@@ -74,3 +88,24 @@ module.exports = {
   getVideoInfo,
   getSuggestions,
 };
+
+const getBasicInfoMapper = (item) => {
+  return {
+    id: item.videoId,
+    engine: "youtube",
+    url: item.video_url,
+    title: item.title,
+    thumbnails: item.thumbnails,
+    duration: intoHHMMSS(item.lengthSeconds),
+    uploadedAt: item.uploadDate,
+    author: item.author,
+    views: item.viewCount,
+    type: "video",
+  };
+};
+
+const intoHHMMSS = (durationMs) =>
+  new Date(durationMs)
+    .toISOString()
+    .substr(11, 8)
+    .replace(/^[0:]+/, "");

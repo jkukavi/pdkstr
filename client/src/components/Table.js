@@ -2,6 +2,7 @@ import React from "react";
 
 import playButton from "../icons/playButton.png";
 import trash from "../icons/trash.png";
+import { SearchEngineIcon } from "../consts";
 
 const Table = ({
   tableTitle,
@@ -46,7 +47,7 @@ const Table = ({
           <tr
             className={`${listeningTo?.title === video.title ? "active" : ""}`}
             onClick={() => {
-              getDirectUrl(video.url);
+              getDirectUrl(video);
               setActiveVideo(index);
               setListeningTo(video);
               notify(`Listening to: ${video.title}`);
@@ -65,7 +66,10 @@ const Table = ({
             <td>
               <div className="tableRowInfo">
                 <div className={"playlist title"}>
-                  <p>{video.title}</p>
+                  <p>
+                    <SearchEngineIcon engine={video.engine} />
+                    {video.title}
+                  </p>
                 </div>
                 <div className={"playlist metadata"}>
                   <p>{video.author?.name}</p>•

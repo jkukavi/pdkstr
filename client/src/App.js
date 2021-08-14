@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import qs from "query-string";
 
 import { storage, throttle, checkScroll } from "./helpers";
-import { menu } from "./consts";
+import { menu, paths, searchEngines, searchEnginesByShortcut } from "./consts";
 
 import "./App.css";
 
@@ -22,27 +22,6 @@ import library from "./icons/library.png";
 import speak from "./speak";
 
 let preventBlur = false;
-
-export const searchEngines = {
-  YT: "youtube",
-  SC: "soundcloud",
-};
-
-const paths = {
-  search: {
-    [searchEngines.YT]: "/search",
-    [searchEngines.SC]: "/soundcloud/tracks",
-  },
-  directUrl: {
-    [searchEngines.YT]: "/url",
-    [searchEngines.SC]: "/soundcloud/url",
-  },
-  playlist: {
-    [searchEngines.YT]: "/playlist",
-    [searchEngines.SC]: "soundcloud/user/playlists",
-  },
-  playlistInfo: "/soundcloud/playlist",
-};
 
 function App() {
   const [page, setPage] = useState(menu.SEARCH);
@@ -79,7 +58,7 @@ function App() {
       if (nextItem) {
         speak(`Playing ${nextItem.title.slice(0, 20)} next`);
         setListeningTo(nextItem);
-        getDirectUrl(nextItem.url);
+        getDirectUrl(nextItem);
       }
     }
   };
@@ -118,7 +97,12 @@ function App() {
 
   useEffect(() => {
     if (!!location.search) {
-      getInfo(qs.parse(location.search).id);
+      const [sharedEngineShortcut, sharedId] = qs
+        .parse(location.search)
+        .id.split(".");
+
+      const sharedEngine = searchEnginesByShortcut[sharedEngineShortcut];
+      getInfo({ id: sharedId, engine: sharedEngine });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -128,14 +112,15 @@ function App() {
     audioPlayer.currentTime = audioPlayer.currentTime + time;
   };
 
-  const getDirectUrl = async (url) => {
+  const getDirectUrl = async ({ id, engine, url }) => {
     setDirectUrl(null);
     setAudioLoading(true);
     setScrollingDown(false);
-    const path = paths.directUrl[searchEngine];
+    const path = paths.directUrl[engine];
     try {
       const response = await axios.post(path, {
-        url,
+        id,
+        ...(engine === searchEngines.SC && { fromUrl: url }),
       });
       const { directUrl } = response.data;
       setDirectUrl(directUrl);
@@ -146,9 +131,10 @@ function App() {
     }
   };
 
-  const getInfo = async (id) => {
+  const getInfo = async ({ id, engine }) => {
+    const path = paths.trackInfo[engine];
     try {
-      const response = await axios.post("/info", {
+      const response = await axios.post(path, {
         id,
       });
       setInfo(response.data);
@@ -186,7 +172,7 @@ function App() {
     setSearchArray([]);
     setArrayLoading(true);
 
-    const path = paths.playlist[searchEngine];
+    const path = paths.playlist[item.engine];
 
     const playlistUrl = {
       [searchEngines.YT]: (type) =>
@@ -195,7 +181,7 @@ function App() {
           video: item.author?.url,
         }[type]),
       [searchEngines.SC]: () => item.author?.id,
-    }[searchEngine](item.type);
+    }[item.engine](item.type);
 
     try {
       const response = await axios.post(path, {
@@ -234,7 +220,7 @@ function App() {
 
   const addToQueue = (item) => {
     if (playlist.length === 0) {
-      getDirectUrl(item.url);
+      getDirectUrl(item);
       setActiveVideo(null);
       setListeningTo(item);
       addToHistory(item);
@@ -247,7 +233,7 @@ function App() {
   };
 
   const playPlaylist = async (playlist) => {
-    if (searchEngine === searchEngines.SC) {
+    if (playlist.engine === searchEngines.SC) {
       try {
         const response = await axios.post(paths.playlistInfo, {
           trackIds: playlist.tracks,
@@ -255,7 +241,7 @@ function App() {
         const { playlistItems } = response.data;
         setPlaylist(playlistItems);
         setListeningTo(playlistItems[0]);
-        getDirectUrl(playlistItems[0].url);
+        getDirectUrl(playlistItems[0]);
       } catch (e) {
       } finally {
         setArrayLoading(false);
@@ -283,7 +269,10 @@ function App() {
             searchEngine,
             playlist: playlist.map((item) => item.title),
             activeVideo: activeVideo?.title,
-            listeningTo: listeningTo?.title,
+            listeningTo: {
+              title: listeningTo?.title,
+              engine: listeningTo?.engine,
+            },
             info: info?.title,
             searchArray: searchArray.map((item) => item.title),
           },
