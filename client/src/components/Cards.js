@@ -78,7 +78,7 @@ const Cards = ({
                       <div
                         style={{
                           position: "absolute",
-                          zIndex: 2,
+                          zIndex: 3,
                           right: "5px",
                           bottom: "5px",
                         }}
@@ -224,21 +224,54 @@ const Cards = ({
                     }}
                     className="thumbnail"
                     style={{
-                      background: `url(${
-                        thumbnails
-                          ? thumbnails[thumbnails.length - 1]?.url
-                          : defaultPuppyImg
-                      })`,
                       backgroundPosition: "center",
                       backgroundSize: "cover",
                     }}
-                  />
+                  >
+                    <div className="overlay">
+                      <div
+                        style={{
+                          position: "absolute",
+                          zIndex: 3,
+                          right: "5px",
+                          bottom: "5px",
+                        }}
+                      >
+                        <SearchEngineIcon engine={item.engine} size={"m"} />
+                      </div>
+                      <img
+                        className="image"
+                        src={
+                          thumbnails
+                            ? thumbnails[thumbnails.length - 1]?.url
+                            : defaultPuppyImg
+                        }
+                        alt="alt"
+                      ></img>
+                    </div>
+                    <div
+                      style={{
+                        filter: "drop-shadow(2px 4px 3px black",
+                        position: "absolute",
+                        top: "50%",
+                        left: "50%",
+                      }}
+                    >
+                      <img
+                        src={playingQueue}
+                        style={{ filter: "invert(1)" }}
+                        className="playButton"
+                        alt="alt"
+                      />
+                    </div>
+                  </div>
                   <div className="descContainer">
                     <p className="desc title">
                       {`${title.substring(0, 45)}${
                         title.length > 45 ? "..." : ""
                       }`}
                     </p>
+
                     <p className="desc">
                       {item.length
                         ? `Number of tracks: ${item.length}`
