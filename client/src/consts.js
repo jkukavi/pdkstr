@@ -31,6 +31,14 @@ export const paths = {
     [searchEngines.YT]: "/info",
     [searchEngines.SC]: "soundcloud/info",
   },
+  channelItems: {
+    [searchEngines.YT]: "channel/videos",
+    [searchEngines.SC]: "soundcloud/user/tracks",
+  },
+  channelPlaylists: {
+    [searchEngines.YT]: "channel/playlists",
+    [searchEngines.SC]: "soundcloud/user/playlists",
+  },
 };
 
 export const searchEnginesByShortcut = {
@@ -41,6 +49,17 @@ export const searchEnginesByShortcut = {
 export const searchEngineShortcuts = {
   [searchEngines.YT]: "yt",
   [searchEngines.SC]: "sc",
+};
+
+export const buttonTextBySearchEngine = {
+  [searchEngines.YT]: {
+    items: "Videos",
+    playlists: "Playlists",
+  },
+  [searchEngines.SC]: {
+    items: "Tracks",
+    playlists: "Playlists",
+  },
 };
 
 const searchEngineImages = {

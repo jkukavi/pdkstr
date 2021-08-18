@@ -9,7 +9,7 @@
     "build": "cd client && npm run build",
     "install-client": "cd client && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
-    "develop": "node -r dotenv/config server.js"
+    "dev": "node -r dotenv/config server.js"
   },
   "engines": {
     "node": "14.15.3",
@@ -29,6 +29,7 @@
     "helmet": "^4.0.0",
     "request": "^2.88.2",
     "youtube-sr": "^4.1.7",
+    "yt-channel-info": "^2.2.0",
     "ytdl-core": "^4.9.1",
     "ytpl": "^2.2.1",
     "ytsr": "^3.3.1"

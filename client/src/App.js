@@ -176,21 +176,96 @@ function App() {
 
     const path = paths.playlist[item.engine];
 
-    const playlistUrl = {
+    const playlistId = item.id;
+
+    try {
+      const response = await axios.post(path, {
+        playlistId,
+      });
+      const searchResultsArray = response.data.searchResultsArray;
+      setViewingChannel(searchResultsArray[0].author.name);
+      setSearchArray(searchResultsArray);
+    } catch (e) {
+    } finally {
+      setArrayLoading(false);
+    }
+  };
+
+  const getChannelItems = async (item) => {
+    setSearchArray([]);
+    setArrayLoading(true);
+
+    const path = paths.channelItems[item.engine];
+
+    const channelId = {
       [searchEngines.YT]: (type) =>
         ({
-          channel: item.url,
-          video: item.author?.url,
+          channel: item.channelID,
+          [undefined]: item.channelID,
+          video: item.author?.channelID,
         }[type]),
-      [searchEngines.SC]: () => item.author?.id,
+      [searchEngines.SC]: (type) =>
+        ({ [undefined]: item.id, video: item.author?.id }[type]),
+    }[item.engine](item.type);
+
+    const channelInfo = {
+      [searchEngines.YT]: (type) =>
+        ({
+          channel: item,
+          [undefined]: item,
+          video: item.author,
+        }[type]),
+      [searchEngines.SC]: (type) =>
+        ({ [undefined]: item, video: item.author }[type]),
     }[item.engine](item.type);
 
     try {
       const response = await axios.post(path, {
-        playlistUrl,
+        channelId,
       });
       const searchResultsArray = response.data.searchResultsArray;
-      setViewingChannel(searchResultsArray[0].author.name);
+      setViewingChannel({ ...channelInfo, engine: item.engine });
+      setSearchArray(searchResultsArray);
+    } catch (e) {
+    } finally {
+      setArrayLoading(false);
+    }
+  };
+
+  const getChannelPlaylists = async (item) => {
+    setSearchArray([]);
+    setArrayLoading(true);
+
+    const path = paths.channelPlaylists[item.engine];
+
+    const channelId = {
+      [searchEngines.YT]: (type) =>
+        ({
+          channel: item.channelID,
+          [undefined]: item.channelID,
+          video: item.author?.channelID,
+        }[type]),
+      [searchEngines.SC]: (type) =>
+        ({ [undefined]: item.id, video: item.author?.id }[type]),
+    }[item.engine](item.type);
+
+    const channelInfo = {
+      [searchEngines.YT]: (type) =>
+        ({
+          channel: item,
+          [undefined]: item,
+          video: item.author,
+        }[type]),
+      [searchEngines.SC]: (type) =>
+        ({ [undefined]: item, video: item.author }[type]),
+    }[item.engine](item.type);
+
+    try {
+      const response = await axios.post(path, {
+        channelId,
+      });
+      const searchResultsArray = response.data.searchResultsArray;
+      setViewingChannel({ ...channelInfo, engine: item.engine });
       setSearchArray(searchResultsArray);
     } catch (e) {
     } finally {
@@ -235,19 +310,17 @@ function App() {
   };
 
   const playPlaylist = async (playlist) => {
-    if (playlist.engine === searchEngines.SC) {
-      try {
-        const response = await axios.post(paths.playlistInfo, {
-          trackIds: playlist.tracks,
-        });
-        const { playlistItems } = response.data;
-        setPlaylist(playlistItems);
-        setListeningTo(playlistItems[0]);
-        getDirectUrl(playlistItems[0]);
-      } catch (e) {
-      } finally {
-        setArrayLoading(false);
-      }
+    try {
+      const response = await axios.post(paths.playlistInfo, {
+        trackIds: playlist.tracks,
+      });
+      const { playlistItems } = response.data;
+      setPlaylist(playlistItems);
+      setListeningTo(playlistItems[0]);
+      getDirectUrl(playlistItems[0]);
+    } catch (e) {
+    } finally {
+      setArrayLoading(false);
     }
   };
 
@@ -268,6 +341,7 @@ function App() {
       <PrintScreen>
         {JSON.stringify(
           {
+            viewingChannel,
             searchEngine,
             playlist: playlist.map((item) => item.title),
             activeVideo: activeVideo?.title,
@@ -297,6 +371,9 @@ function App() {
         startSearch={startSearch}
         notify={notify}
         notifications={notifications}
+        viewingChannel={viewingChannel}
+        getChannelItems={getChannelItems}
+        getChannelPlaylists={getChannelPlaylists}
       />
 
       {page === menu.HISTORY && (
@@ -315,23 +392,22 @@ function App() {
       )}
 
       {page === menu.SEARCH && (
-        <div className="container">
-          <Cards
-            arrayLoading={arrayLoading}
-            searchArray={searchArray}
-            viewingChannel={viewingChannel}
-            getDirectUrl={getDirectUrl}
-            setActiveVideo={setActiveVideo}
-            setListeningTo={setListeningTo}
-            playPlaylist={playPlaylist}
-            addToHistory={addToHistory}
-            addToFavourites={addToFavourites}
-            notify={notify}
-            getPlaylistVideos={getPlaylistVideos}
-            addToQueue={addToQueue}
-            getViewsString={getViewsString}
-          />
-        </div>
+        <Cards
+          arrayLoading={arrayLoading}
+          searchArray={searchArray}
+          viewingChannel={viewingChannel}
+          getDirectUrl={getDirectUrl}
+          getChannelItems={getChannelItems}
+          setActiveVideo={setActiveVideo}
+          setListeningTo={setListeningTo}
+          playPlaylist={playPlaylist}
+          addToHistory={addToHistory}
+          addToFavourites={addToFavourites}
+          notify={notify}
+          getPlaylistVideos={getPlaylistVideos}
+          addToQueue={addToQueue}
+          getViewsString={getViewsString}
+        />
       )}
 
       {page === menu.LIBRARY && (

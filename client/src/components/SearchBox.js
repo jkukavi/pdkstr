@@ -11,6 +11,7 @@ import youtube from "../icons/youtube.png";
 import soundcloud from "../icons/soundcloud.png";
 import Notification from "./Notification";
 import { searchEngines } from "../consts";
+import ChannelInfo from "./ChannelInfo";
 
 let preventBlur = false;
 let inputFocused = false;
@@ -29,6 +30,9 @@ const SearchBox = ({
   startSearch,
   notifications,
   notify,
+  viewingChannel,
+  getChannelItems,
+  getChannelPlaylists,
 }) => {
   useEffect(() => {
     window.addEventListener("mouseup", () => {
@@ -189,6 +193,13 @@ const SearchBox = ({
             )}
           </div>
         </form>
+        {viewingChannel && (
+          <ChannelInfo
+            channelInfo={viewingChannel}
+            getChannelItems={getChannelItems}
+            getChannelPlaylists={getChannelPlaylists}
+          />
+        )}
       </div>
     </div>
   );

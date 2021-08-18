@@ -50,9 +50,13 @@ audio {
   max-width: 1120px;
   min-height: 100vh;
   padding-bottom: 10rem;
-  padding-top: 5rem;
+  padding-top: 2.7rem;
   margin: auto;
   position: relative;
+}
+
+.container.expanded {
+  padding-top: 5.4rem;
 }
 
 .notificationsContainer {
@@ -140,15 +144,13 @@ audio {
 .searchBoxContainer {
   position: relative;
   background-color: #343434;
-  padding: 0.3rem 0 0.3rem;
-  padding-left: calc(100vw - 100%);
   border-bottom: 1px solid #6b6b6b;
   box-shadow: 0px 1px 3px 0px #000000;
   transition: transform 1s;
 }
 
 .searchBoxContainer.collapsed {
-  transform: translate(0, -100%);
+  transform: translate(0, -2.7rem);
 }
 
 .bottomMenu {
@@ -225,7 +227,8 @@ audio {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 0 0.3rem 0;
+  padding: 0.3rem 0 0.3rem;
+  padding-left: calc(100vw - 100%);
   row-gap: 0.3rem;
   min-height: 2rem;
 }
@@ -259,7 +262,7 @@ audio {
   }
 }
 
-.button {
+.searchBox .button {
   background-color: #3d3d3d;
   height: 100%;
   padding: 0 1rem 0;
@@ -270,7 +273,7 @@ audio {
   align-items: center;
 }
 
-.searchBox button {
+.button.search {
   height: 2rem;
 }
 
@@ -377,7 +380,6 @@ button:active.small {
 }
 
 .audioShelf {
-  overflow-y: scroll;
   will-change: transform;
   width: 100%;
   height: 100%;
@@ -393,6 +395,16 @@ button:active.small {
   transition: transform 1s;
 }
 
+.audioShelf.closed {
+  transform: translateY(0);
+}
+
+.audioShelf.opened {
+  overflow-y: scroll;
+  box-shadow: none;
+  transform: translateY(-100%);
+}
+
 .audioPlayerContainer {
   margin-bottom: 0.5rem;
 }
@@ -403,15 +415,6 @@ button:active.small {
   justify-content: center;
   height: 4rem;
   filter: drop-shadow(2px 3px 0px black);
-}
-
-.closed {
-  transform: translateY(0);
-}
-
-.opened {
-  box-shadow: none;
-  transform: translateY(-100%);
 }
 
 .audioButton.close.expanded {
@@ -548,6 +551,76 @@ a:hover {
 a:active {
   box-shadow: none;
   top: 5px;
+}
+
+.channelInfoContainer {
+  margin-top: 0rem;
+  height: 2.7rem;
+  padding-left: 0.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.channelInfo {
+  display: flex;
+  align-items: center;
+}
+
+.channelInfo p {
+  line-height: 0.9rem;
+  color: #d0d0d0;
+}
+
+.channelInfo img {
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  height: 2.3rem;
+  width: 2.3rem;
+}
+
+.channelInfoContainer .button {
+  padding: 0 0.5rem 0;
+  cursor: pointer;
+  color: #c7c7c7;
+  transition: color 0.2s;
+  margin-left: 0.5rem;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.channelInfoContainer .button:hover {
+  color: white;
+}
+
+.channelInfoContainer .button.active {
+  color: white;
+}
+
+.channelInfoContainer .button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: transparent;
+  transition: background-color 0.2s;
+  bottom: 0;
+}
+
+.channelInfoContainer .button:hover::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+}
+
+.channelInfoContainer .button.active::after {
+  height: 2px;
+  background-color: white;
 }
 
 .card {

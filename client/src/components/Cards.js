@@ -3,7 +3,7 @@ import React from "react";
 import playingQueue from "../icons/playingQueue.png";
 import star from "../icons/star.png";
 import playButtonThumbnail from "../icons/playButtonThumbnail.svg";
-import { SearchEngineIcon } from "../consts";
+import { SearchEngineIcon, searchEngines } from "../consts";
 
 const defaultPuppyImg =
   "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*";
@@ -15,6 +15,7 @@ const Cards = ({
   searchArray,
   viewingChannel,
   getDirectUrl,
+  getChannelItems,
   playPlaylist,
   setActiveVideo,
   setListeningTo,
@@ -26,19 +27,7 @@ const Cards = ({
   getViewsString,
 }) => {
   return (
-    <>
-      {viewingChannel && (
-        <p
-          style={{
-            margin: "2rem 2rem 0rem",
-            fontSize: "1.2rem",
-            fontWeight: "bold",
-          }}
-        >
-          Videos from channel {viewingChannel}:
-        </p>
-      )}
-
+    <div className={`container ${!!viewingChannel ? "expanded" : ""}`}>
       <div className="cardContainer">
         {arrayLoading && (
           <div className="loading array">
@@ -46,7 +35,7 @@ const Cards = ({
           </div>
         )}
         {searchArray
-          .filter(({ type }) => allowedTypes.includes(type) || !!viewingChannel)
+          .filter(({ type }) => allowedTypes.includes(type))
           .map((item, i) => {
             const {
               title,
@@ -116,7 +105,7 @@ const Cards = ({
                             <div
                               className="authorThumbnail"
                               onClick={(event) => {
-                                getPlaylistVideos(event, item);
+                                getChannelItems(item);
                               }}
                               style={{
                                 backgroundImage: `url(${
@@ -190,8 +179,8 @@ const Cards = ({
                   </p>
                   <div
                     className="thumbnail"
-                    onClick={(event) => {
-                      getPlaylistVideos(event, item);
+                    onClick={() => {
+                      getChannelItems(item);
                     }}
                   >
                     <img
@@ -220,7 +209,11 @@ const Cards = ({
                   </p>
                   <div
                     onClick={(event) => {
-                      playPlaylist(item);
+                      if (item.engine === searchEngines.SC) {
+                        playPlaylist(item);
+                      } else if (item.engine === searchEngines.YT) {
+                        getPlaylistVideos(event, item);
+                      }
                     }}
                     className="thumbnail"
                     style={{
@@ -285,7 +278,7 @@ const Cards = ({
             return <></>;
           })}
       </div>
-    </>
+    </div>
   );
 };
 

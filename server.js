@@ -8,7 +8,9 @@ const { https } = require("follow-redirects");
 const {
   getDirectUrl,
   searchYoutube,
+  getPlaylistVideos,
   getChannelVideos,
+  getChannelPlaylists,
   getVideoInfo,
   getSuggestions,
 } = require("./ytFunctions.js");
@@ -100,8 +102,28 @@ app.post("/search", async (req, res) => {
 });
 
 app.post("/playlist", async (req, res) => {
-  const { playlistUrl } = req.body;
-  var searchResultsArray = await getChannelVideos(playlistUrl);
+  const { playlistId } = req.body;
+  var searchResultsArray = await getPlaylistVideos(playlistId);
+  if (searchResultsArray) {
+    res.status(200).json({ searchResultsArray });
+  } else {
+    res.status(400).json({ message: "No results" });
+  }
+});
+
+app.post("/channel/videos", async (req, res) => {
+  const { channelId } = req.body;
+  const searchResultsArray = await getChannelVideos(channelId);
+  if (searchResultsArray) {
+    res.status(200).json({ searchResultsArray });
+  } else {
+    res.status(400).json({ message: "No results" });
+  }
+});
+
+app.post("/channel/playlists", async (req, res) => {
+  const { channelId } = req.body;
+  const searchResultsArray = await getChannelPlaylists(channelId);
   if (searchResultsArray) {
     res.status(200).json({ searchResultsArray });
   } else {
@@ -117,14 +139,14 @@ app.post("/soundcloud/tracks", async (req, res) => {
 
 app.post("/soundcloud/user/:item", async (req, res) => {
   const { item } = req.params;
-  const { playlistUrl } = req.body;
+  const { channelId } = req.body;
 
   const getFunction = {
     tracks: soundcloud.getUserTracks,
     playlists: soundcloud.getUsersPlaylists,
   }[item];
 
-  const searchResultsArray = await getFunction(playlistUrl, 20);
+  const searchResultsArray = await getFunction(channelId, 20);
   res.status(200).json({ searchResultsArray });
 });
 
