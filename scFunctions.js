@@ -3,6 +3,30 @@ const request = require("request");
 
 clientId = process.env.SOUNDCLOUD_API_KEY;
 
+function getUserTracks(userId, limit = 10) {
+  return new Promise((resolve, rej) => {
+    let userTracksURL =
+      "https://api-v2.soundcloud.com/users/USER_ID_TERM/tracks?client_id=CLIENT_ID_TERM&limit=LIMIT_TERM";
+
+    userTracksURL = userTracksURL
+      .replace("USER_ID_TERM", userId)
+      .replace("CLIENT_ID_TERM", clientId)
+      .replace("LIMIT_TERM", limit);
+
+    https.get(userTracksURL, (res) => {
+      let data = "";
+
+      res.on("data", (chunk) => {
+        data += chunk;
+      });
+
+      res.on("end", () => {
+        resolve(JSON.parse(data).collection.map(trackMapper));
+      });
+    });
+  });
+}
+
 function getUsersPlaylists(userId, limit = 20) {
   return new Promise((resolve, rej) => {
     //playlists_without_albums
@@ -59,7 +83,22 @@ function getSuggestions(searchString, limit = 10) {
 }
 
 async function getTrackInfo(id) {
-  return (await getTracksInfo([id]))[0];
+  // ili return (await getTracksInfo([id]))[0];
+  return new Promise((resolve, rej) => {
+    let tracksUrl =
+      "https://api-v2.soundcloud.com/tracks/TRACK_ID_TERM?client_id=CLIENT_ID_TERM";
+
+    tracksUrl = tracksUrl
+      .replace("TRACK_ID_TERM", id)
+      .replace("CLIENT_ID_TERM", clientId);
+
+    request.get(tracksUrl, {}, (err, res, body) => {
+      const rawTrackInfo = JSON.parse(body);
+      const trackInfo = trackMapper(rawTrackInfo);
+
+      resolve(trackInfo);
+    });
+  });
 }
 
 function getTracksInfo(ids) {
@@ -87,31 +126,36 @@ function getTracksInfo(ids) {
   });
 }
 
-function getUserTracks(userId, limit = 10) {
-  return new Promise((resolve, rej) => {
-    let userTracksURL =
-      "https://api-v2.soundcloud.com/users/USER_ID_TERM/tracks?client_id=CLIENT_ID_TERM&limit=LIMIT_TERM";
+async function getPlaylistItems(id) {
+  const trackIdsArray = await getPlaylistTrackIds(id);
+  const playlistItems = await getTracksInfo(trackIdsArray);
+  return playlistItems;
+}
 
-    userTracksURL = userTracksURL
-      .replace("USER_ID_TERM", userId)
-      .replace("CLIENT_ID_TERM", clientId)
-      .replace("LIMIT_TERM", limit);
+async function getPlaylistTrackIds(id) {
+  return new Promise(async (resolve, rej) => {
+    let playlistUrl =
+      "https://api-v2.soundcloud.com/playlists/PLAYLIST_ID_TERM?client_id=CLIENT_ID_TERM";
 
-    https.get(userTracksURL, (res) => {
-      let data = "";
+    playlistUrl = playlistUrl
+      .replace("PLAYLIST_ID_TERM", id)
+      .replace("CLIENT_ID_TERM", clientId);
 
-      res.on("data", (chunk) => {
-        data += chunk;
+    try {
+      request.get(playlistUrl, {}, (err, res, body) => {
+        const playlistInfo = JSON.parse(body);
+        const trackIdsArray = playlistInfo.tracks.map((item) => item.id);
+        resolve(trackIdsArray);
       });
-
-      res.on("end", () => {
-        resolve(JSON.parse(data).collection.map(trackMapper));
-      });
-    });
+    } catch (e) {
+      throw new Error(
+        "Something went wrong with fetching soundcloud playlist track ids."
+      );
+    }
   });
 }
 
-function getTracks(search, limit = 10) {
+function searchForTracks(search, limit = 10) {
   return new Promise((res, rej) => {
     if (typeof search != "string") throw "Seach term is not type of string";
     if (isNaN(limit)) throw "Not a number";
@@ -164,9 +208,9 @@ const getDirectUrl = async (id, fromUrl) => {
 };
 
 module.exports = {
-  getTracks,
+  searchForTracks,
   getTrackInfo,
-  getTracksInfo,
+  getPlaylistItems,
   getUserTracks,
   getSuggestions,
   getUsersPlaylists,
@@ -225,7 +269,7 @@ const playlistMapper = (item) => {
       name: item.user.username,
       avatars: [{ url: item.user.avatar_url }],
     },
-    tracks: item.tracks.map((track) => track.id),
+    id: item.id,
     length: item.tracks.length,
     type: "playlist",
   };
@@ -237,15 +281,12 @@ const intoHHMMSS = (durationMs) =>
     .substr(11, 8)
     .replace(/^[0:]+/, "");
 
-// getUsersPlaylists(55254934).then((res) => {
-//   require("fs").writeFileSync(
-//     "userPlaylists.JSON",
-//     JSON.stringify(res, null, 2)
-//   );
+// searchForTracks("idontknowjeffery").then((res) => {
+//   require("fs").writeFileSync("getTracks.JSON", JSON.stringify(res, null, 2));
 // });
 
-// getTracks("idontknowjeffery").then((res) => {
-//   require("fs").writeFileSync("getTracks.JSON", JSON.stringify(res, null, 2));
+// getUserTracks(55254934).then((res) => {
+//   var bla = 2;
 // });
 
 // getUsersPlaylists(55254934).then((res) => {
@@ -255,10 +296,13 @@ const intoHHMMSS = (durationMs) =>
 //   );
 // });
 
-// getTracksInfo([983132659, 983214331, 983211670, 983242117, 983967331]).then(
-//   (res) =>
-//     require("fs").writeFileSync(
-//       "getTracksInfo.JSON",
-//       JSON.stringify(res, null, 2)
-//     )
-// );
+// getTrackInfo(983132659).then((res) => {
+//   var bla = 2;
+// });
+
+// getPlaylistInfo(1211028727).then((res) => {
+//   require("fs").writeFileSync(
+//     "playlistINFo.json",
+//     JSON.stringify(res, null, 2)
+//   );
+// });

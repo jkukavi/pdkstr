@@ -22,11 +22,10 @@ export const paths = {
     [searchEngines.YT]: "/url",
     [searchEngines.SC]: "/soundcloud/url",
   },
-  playlist: {
+  playlistItems: {
     [searchEngines.YT]: "/playlist",
-    [searchEngines.SC]: "soundcloud/user/playlists",
+    [searchEngines.SC]: "/soundcloud/playlist",
   },
-  playlistInfo: "/soundcloud/playlist",
   trackInfo: {
     [searchEngines.YT]: "/info",
     [searchEngines.SC]: "soundcloud/info",

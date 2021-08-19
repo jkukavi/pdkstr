@@ -102,10 +102,10 @@ app.post("/search", async (req, res) => {
 });
 
 app.post("/playlist", async (req, res) => {
-  const { playlistId } = req.body;
-  var searchResultsArray = await getPlaylistVideos(playlistId);
-  if (searchResultsArray) {
-    res.status(200).json({ searchResultsArray });
+  const { id } = req.body;
+  var playlistItems = await getPlaylistVideos(id);
+  if (playlistItems) {
+    res.status(200).json({ playlistItems });
   } else {
     res.status(400).json({ message: "No results" });
   }
@@ -133,7 +133,7 @@ app.post("/channel/playlists", async (req, res) => {
 
 app.post("/soundcloud/tracks", async (req, res) => {
   const { searchString } = req.body;
-  const searchResultsArray = await soundcloud.getTracks(searchString, 10);
+  const searchResultsArray = await soundcloud.searchForTracks(searchString, 10);
   res.status(200).json({ searchResultsArray });
 });
 
@@ -151,8 +151,8 @@ app.post("/soundcloud/user/:item", async (req, res) => {
 });
 
 app.post("/soundcloud/playlist", async (req, res) => {
-  const { trackIds } = req.body;
-  var playlistItems = await soundcloud.getTracksInfo(trackIds);
+  const { id } = req.body;
+  var playlistItems = await soundcloud.getPlaylistItems(id);
   if (playlistItems) {
     res.status(200).json({ playlistItems });
   } else {

@@ -3,7 +3,7 @@ import React from "react";
 import playingQueue from "../icons/playingQueue.png";
 import star from "../icons/star.png";
 import playButtonThumbnail from "../icons/playButtonThumbnail.svg";
-import { SearchEngineIcon, searchEngines } from "../consts";
+import { SearchEngineIcon } from "../consts";
 
 const defaultPuppyImg =
   "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*";
@@ -22,7 +22,6 @@ const Cards = ({
   addToHistory,
   addToFavourites,
   notify,
-  getPlaylistVideos,
   addToQueue,
   getViewsString,
 }) => {
@@ -208,12 +207,8 @@ const Cards = ({
                     PLAYLIST
                   </p>
                   <div
-                    onClick={(event) => {
-                      if (item.engine === searchEngines.SC) {
-                        playPlaylist(item);
-                      } else if (item.engine === searchEngines.YT) {
-                        getPlaylistVideos(event, item);
-                      }
+                    onClick={() => {
+                      playPlaylist(item);
                     }}
                     className="thumbnail"
                     style={{

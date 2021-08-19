@@ -169,25 +169,19 @@ function App() {
     }
   };
 
-  const getPlaylistVideos = async (event, item) => {
-    event.preventDefault();
-    setSearchArray([]);
-    setArrayLoading(true);
+  const getPlaylistItems = async (playlist) => {
+    const path = paths.playlistItems[playlist.engine];
 
-    const path = paths.playlist[item.engine];
-
-    const playlistId = item.id;
+    const id = playlist.id;
 
     try {
       const response = await axios.post(path, {
-        playlistId,
+        id,
       });
-      const searchResultsArray = response.data.searchResultsArray;
-      setViewingChannel(searchResultsArray[0].author.name);
-      setSearchArray(searchResultsArray);
+      const { playlistItems } = response.data;
+      return playlistItems;
     } catch (e) {
-    } finally {
-      setArrayLoading(false);
+      notify("Something went wrong with fetching playlist items.");
     }
   };
 
@@ -311,16 +305,12 @@ function App() {
 
   const playPlaylist = async (playlist) => {
     try {
-      const response = await axios.post(paths.playlistInfo, {
-        trackIds: playlist.tracks,
-      });
-      const { playlistItems } = response.data;
+      const playlistItems = await getPlaylistItems(playlist);
       setPlaylist(playlistItems);
       setListeningTo(playlistItems[0]);
       getDirectUrl(playlistItems[0]);
     } catch (e) {
-    } finally {
-      setArrayLoading(false);
+      notify("Something went wrong with trying to play this playlist.");
     }
   };
 
@@ -343,14 +333,14 @@ function App() {
           {
             viewingChannel,
             searchEngine,
-            playlist: playlist.map((item) => item.title),
+            playlist: playlist.map && playlist.map((item) => item.title),
             activeVideo: activeVideo?.title,
             listeningTo: {
               title: listeningTo?.title,
               engine: listeningTo?.engine,
             },
             info: info?.title,
-            searchArray: searchArray.map((item) => item.title),
+            searchArray: searchArray.map((item) => item.id),
           },
           null,
           2
@@ -404,7 +394,6 @@ function App() {
           addToHistory={addToHistory}
           addToFavourites={addToFavourites}
           notify={notify}
-          getPlaylistVideos={getPlaylistVideos}
           addToQueue={addToQueue}
           getViewsString={getViewsString}
         />

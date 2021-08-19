@@ -195,6 +195,7 @@ audio {
 
 .suggestionsContainer {
   position: absolute;
+  z-index: 1;
   width: 100%;
   max-height: 50vh;
   overflow-y: auto;
@@ -206,6 +207,7 @@ audio {
 }
 
 .suggestion {
+  cursor: pointer;
   will-change: transform;
   font-size: 1.1rem;
   padding: 0.5rem 0.5rem;
@@ -259,6 +261,7 @@ audio {
   .searchBox {
     flex-wrap: nowrap;
     justify-content: flex-start;
+    padding-left: 0.2rem;
   }
 }
 
@@ -569,6 +572,15 @@ a:active {
 .channelInfo p {
   line-height: 0.9rem;
   color: #d0d0d0;
+}
+
+@media screen and (max-width: 450px) {
+  .channelInfo p {
+    max-width: 7.4rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .channelInfo img {

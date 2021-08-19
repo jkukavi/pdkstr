@@ -12,6 +12,7 @@ const searchMapper = {
   channel: (item) => ({ ...item, engine: "youtube" }),
   playlist: (item) => ({
     ...item,
+    id: item.playlistID,
     thumbnails: item.firstVideo.thumbnails,
     playlistLength: item.length,
   }),
@@ -68,7 +69,7 @@ const getDirectUrl = async (id) => {
 };
 
 const getPlaylistVideos = async (playlistId) => {
-  const result = await ytpl(playlistId, { pages: 1 });
+  const result = await ytpl(playlistId, { limit: 20 });
   return result.items.map((item) => ({
     ...item,
     type: "video",
