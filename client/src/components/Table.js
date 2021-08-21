@@ -10,6 +10,7 @@ const Table = ({
   deleteAll,
   tableArray,
   listeningTo,
+  controls,
   activeVideo,
   getDirectUrl,
   setActiveVideo,
@@ -19,6 +20,14 @@ const Table = ({
   return (
     <table id="customers">
       <thead>
+        {controls && (
+          <tr>
+            <th colSpan={2}>
+              <div className="indexContainer">{controls}</div>
+            </th>
+          </tr>
+        )}
+
         <tr>
           <th colSpan={2}>
             <div className="indexContainer">
@@ -73,8 +82,8 @@ const Table = ({
                 </div>
                 <div className={"playlist metadata"}>
                   <p>{video.author?.name}</p>•
-                  <p>{getViewsString(video.views)}</p>•<p>{video.duration}</p>•
-                  <p>{video.uploadedAt}</p>
+                  <p>{getViewsString?.(video.views) || "N/A"}</p>•
+                  <p>{video.duration}</p>•<p>{video.uploadedAt}</p>
                 </div>
               </div>
             </td>

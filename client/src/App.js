@@ -15,6 +15,7 @@ import AudioShelf from "./components/AudioShelf";
 import Table from "./components/Table";
 import ShareAlert from "./components/ShareAlert";
 import PrintScreen from "./components/PrintScreen";
+import PlaylistSidebar from "./components/PlaylistSideBar";
 
 import magnifier from "./icons/magnifier.png";
 import history from "./icons/history.png";
@@ -34,6 +35,7 @@ function App() {
   const [viewingChannel, setViewingChannel] = useState(false);
   const [notifications, setNotifications] = useState([]);
   const [playlist, setPlaylist] = useState([]);
+  const [browsingPlaylist, setBrowsingPlaylist] = useState(null);
   const [activeVideo, setActiveVideo] = useState(null);
   const [listeningTo, setListeningTo] = useState(null);
   const [info, setInfo] = useState(null);
@@ -314,6 +316,21 @@ function App() {
     }
   };
 
+  const browsePlaylist = async (playlist) => {
+    try {
+      const playlistItems = await getPlaylistItems(playlist);
+      setBrowsingPlaylist({ items: playlistItems, info: playlist });
+    } catch (e) {
+      notify(
+        "Something went wrong with trying to fetch information about this playlist."
+      );
+    }
+  };
+
+  const closeBrowsingPlaylist = () => {
+    setBrowsingPlaylist(null);
+  };
+
   const notify = (newNotification) => {
     setNotifications((notifications) => [...notifications, newNotification]);
   };
@@ -391,11 +408,32 @@ function App() {
           setActiveVideo={setActiveVideo}
           setListeningTo={setListeningTo}
           playPlaylist={playPlaylist}
+          browsePlaylist={browsePlaylist}
           addToHistory={addToHistory}
           addToFavourites={addToFavourites}
           notify={notify}
           addToQueue={addToQueue}
           getViewsString={getViewsString}
+        />
+      )}
+
+      {!!browsingPlaylist && (
+        <PlaylistSidebar
+          browsingPlaylist={browsingPlaylist}
+          playPlaylist={playPlaylist}
+          closeBrowsingPlaylist={closeBrowsingPlaylist}
+          tableFunctions={{
+            tableArray: browsingPlaylist.items,
+            tableTitle: "Playlist: " + browsingPlaylist.info.title,
+            notify: notify,
+            deleteAll: deleteAll("history"),
+            listeningTo: listeningTo,
+            activeVideo: activeVideo,
+            getDirectUrl,
+            setActiveVideo,
+            setListeningTo,
+            getViewsString,
+          }}
         />
       )}
 

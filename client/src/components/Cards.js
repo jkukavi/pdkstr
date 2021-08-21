@@ -1,6 +1,7 @@
 import React from "react";
 
 import playingQueue from "../icons/playingQueue.png";
+import browseList from "../icons/browseList.png";
 import star from "../icons/star.png";
 import playButtonThumbnail from "../icons/playButtonThumbnail.svg";
 import { SearchEngineIcon } from "../consts";
@@ -17,6 +18,7 @@ const Cards = ({
   getDirectUrl,
   getChannelItems,
   playPlaylist,
+  browsePlaylist,
   setActiveVideo,
   setListeningTo,
   addToHistory,
@@ -254,16 +256,35 @@ const Cards = ({
                     </div>
                   </div>
                   <div className="descContainer">
-                    <p className="desc title">
-                      {`${title.substring(0, 45)}${
-                        title.length > 45 ? "..." : ""
-                      }`}
-                    </p>
-
-                    <p className="desc">
-                      {item.length
-                        ? `Number of tracks: ${item.length}`
-                        : "Views not available"}
+                    <div style={{ display: "flex", margin: "0.5rem 0px" }}>
+                      <div
+                        className="addToPlaylistIcon playlist"
+                        onClick={() => {
+                          browsePlaylist(item);
+                        }}
+                      >
+                        <img src={browseList} alt="loading"></img>
+                      </div>
+                      <div
+                        className="addToPlaylistIcon playlist"
+                        onClick={() => {
+                          browsePlaylist(item);
+                        }}
+                      >
+                        <img src={star} alt="loading"></img>
+                      </div>
+                    </div>
+                    <p
+                      className="desc title singleLineText"
+                      style={{ marginTop: 0 }}
+                    >
+                      <span>{title}</span>
+                      <br />
+                      <span style={{ fontSize: "12px", fontWeight: "normal" }}>
+                        {item.length
+                          ? `Number of tracks: ${item.length}`
+                          : "Number of items not available."}
+                      </span>
                     </p>
                   </div>
                 </div>
