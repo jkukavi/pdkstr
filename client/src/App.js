@@ -94,10 +94,9 @@ function App() {
   };
 
   useEffect(() => {
-    window.addEventListener(
-      "scroll",
-      throttle(checkScroll(setScrollingDown), 500)
-    );
+    document
+      .getElementById("cardContainer")
+      .addEventListener("scroll", throttle(checkScroll(setScrollingDown), 500));
   }, []);
 
   useEffect(() => {
@@ -357,6 +356,7 @@ function App() {
         <PrintScreen>
           {JSON.stringify(
             {
+              scrollingDown,
               viewingChannel,
               searchEngine,
               playlist: playlist.map && playlist.map((item) => item.title),

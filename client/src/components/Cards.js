@@ -28,7 +28,10 @@ const Cards = ({
   getViewsString,
 }) => {
   return (
-    <div className={`cardContainer ${!!viewingChannel ? "expanded" : ""}`}>
+    <div
+      id="cardContainer"
+      className={`cardContainer ${!!viewingChannel ? "expanded" : ""}`}
+    >
       {arrayLoading && (
         <div className="loading array">
           <div className="loader" />

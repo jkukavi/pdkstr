@@ -31,14 +31,16 @@ function throttle(callback, limit) {
 
 const checkScroll = (setScrollingDown) => {
   let oldScroll = 0;
+  const cardContainer = document.getElementById("cardContainer");
 
   return () => {
-    if (window.scrollY > oldScroll) {
+    console.log("hello");
+    if (cardContainer.scrollTop > oldScroll) {
       setScrollingDown(true);
     } else {
       setScrollingDown(false);
     }
-    oldScroll = window.scrollY;
+    oldScroll = cardContainer.scrollTop;
   };
 };
 
