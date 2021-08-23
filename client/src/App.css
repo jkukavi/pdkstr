@@ -1,34 +1,50 @@
 html {
-  overflow-x: hidden;
 }
 
 body {
   margin: 0;
+  overflow: hidden;
+}
+
+#root {
   background: rgb(75, 54, 208);
   background: linear-gradient(90deg, #4b36d0, #5536d0 66%, rgb(92 43 241) 101%);
   overflow-x: hidden;
+  overflow-y: auto;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
 }
 
-/* width */
+#root.blurredAndOverlayed {
+  filter: saturate(0.8) sepia(0.7) brightness(0.2);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+* {
+  scrollbar-color: #555 rgb(56, 56, 56);
+  scrollbar-color: transparent transparent;
+  scrollbar-width: thin;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: rgb(56, 56, 56);
+  /* background: transparent; */
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: rgb(133, 133, 133);
+  /* background: none; */
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-
 p {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -47,12 +63,11 @@ audio {
 }
 
 .container {
-  max-width: 1120px;
-  min-height: 100vh;
-  padding-bottom: 10rem;
-  padding-top: 2.7rem;
+  width: 100vw;
+  height: 100vh;
   margin: auto;
   position: relative;
+  overflow: hidden;
 }
 
 .container.expanded {
@@ -154,29 +169,22 @@ audio {
 }
 
 .playlistSidebarContainer {
-  height: 80vh;
-  overflow-y: scroll;
   will-change: transform;
-  position: fixed;
-  top: 2rem;
-  right: 0;
+  border: 2px solid #c99001;
+  position: absolute;
+  top: 6rem;
+  right: 3rem;
+  transform: translate(calc(100% + 3rem));
   z-index: 3;
-  transform: translate(100%);
-  transition: transform 1s;
+  transition: transform 0.5s;
 }
 
 .playlistSidebarContainer.expanded {
   transform: translate(0);
 }
 
-.playlistSidebarContainer #customers {
-  width: 80vw;
-}
-
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 720px) {
   .playlistSidebarContainer {
-    height: 100vh;
-    overflow-y: scroll;
     will-change: transform;
     position: fixed;
     top: 0;
@@ -186,6 +194,14 @@ audio {
     transition: transform 1s;
   }
 
+  .playlistSidebarContainer:before {
+    content: none !important;
+  }
+
+  .playlistSidebarContainer > div:first-child {
+    max-height: calc(100vh - 4px);
+  }
+
   .playlistSidebarContainer.expanded {
     transform: translate(0);
   }
@@ -193,6 +209,25 @@ audio {
   .playlistSidebarContainer #customers {
     width: 98vw;
   }
+}
+
+.playlistSidebarContainer > div {
+  height: fit-content;
+  max-height: 31rem;
+  overflow-y: auto;
+}
+
+.playlistSidebarContainer::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  box-shadow: 0px -2px 3px 0px #0000008c;
+}
+
+.playlistSidebarContainer #customers {
+  width: 80vw;
 }
 
 .bottomMenu {
@@ -733,10 +768,18 @@ a:active {
 }
 
 .cardContainer {
-  margin: 2rem 0.3rem 0rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100vh;
+  width: 100vw;
+  padding: 3.8rem 0.3rem 2.5rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.cardContainer.expanded {
+  padding: 6.5rem 0.3rem 12.6rem;
 }
 
 .card .thumbnail {
@@ -771,6 +814,7 @@ a:active {
 }
 
 .card .thumbnail:hover .playButton {
+  z-index: 3;
   opacity: 1;
 }
 

@@ -35,7 +35,10 @@ function App() {
   const [viewingChannel, setViewingChannel] = useState(false);
   const [notifications, setNotifications] = useState([]);
   const [playlist, setPlaylist] = useState([]);
-  const [browsingPlaylist, setBrowsingPlaylist] = useState(null);
+  const [browsingPlaylist, setBrowsingPlaylist] = useState({
+    items: [],
+    expanded: false,
+  });
   const [activeVideo, setActiveVideo] = useState(null);
   const [listeningTo, setListeningTo] = useState(null);
   const [info, setInfo] = useState(null);
@@ -318,8 +321,13 @@ function App() {
 
   const browsePlaylist = async (playlist) => {
     try {
+      notify("Loading playlist...");
       const playlistItems = await getPlaylistItems(playlist);
-      setBrowsingPlaylist({ items: playlistItems, info: playlist });
+      setBrowsingPlaylist({
+        items: playlistItems,
+        info: playlist,
+        expanded: true,
+      });
     } catch (e) {
       notify(
         "Something went wrong with trying to fetch information about this playlist."
@@ -328,7 +336,7 @@ function App() {
   };
 
   const closeBrowsingPlaylist = () => {
-    setBrowsingPlaylist(null);
+    setBrowsingPlaylist((bp) => ({ ...bp, expanded: false }));
   };
 
   const notify = (newNotification) => {
@@ -345,86 +353,86 @@ function App() {
 
   return (
     <>
-      <PrintScreen>
-        {JSON.stringify(
-          {
-            viewingChannel,
-            searchEngine,
-            playlist: playlist.map && playlist.map((item) => item.title),
-            activeVideo: activeVideo?.title,
-            listeningTo: {
-              title: listeningTo?.title,
-              engine: listeningTo?.engine,
+      <div className="container">
+        <PrintScreen>
+          {JSON.stringify(
+            {
+              viewingChannel,
+              searchEngine,
+              playlist: playlist.map && playlist.map((item) => item.title),
+              activeVideo: activeVideo?.title,
+              listeningTo: {
+                title: listeningTo?.title,
+                engine: listeningTo?.engine,
+              },
+              info: info?.title,
+              searchArray: searchArray.map((item) => item.id),
             },
-            info: info?.title,
-            searchArray: searchArray.map((item) => item.id),
-          },
-          null,
-          2
-        )}
-      </PrintScreen>
-      <SearchBox
-        scrollingDown={scrollingDown || page !== menu.SEARCH}
-        searchForm={searchForm}
-        setSearchEngine={setSearchEngine}
-        searchEngine={searchEngine}
-        searchYoutube={searchYoutube}
-        searchString={searchString}
-        input={input}
-        setSuggestions={setSuggestions}
-        suggestions={suggestions}
-        preventBlur={preventBlur}
-        setSearchString={setSearchString}
-        startSearch={startSearch}
-        notify={notify}
-        notifications={notifications}
-        viewingChannel={viewingChannel}
-        getChannelItems={getChannelItems}
-        getChannelPlaylists={getChannelPlaylists}
-      />
-
-      {page === menu.HISTORY && (
-        <Table
-          tableTitle="History"
+            null,
+            2
+          )}
+        </PrintScreen>
+        <SearchBox
+          scrollingDown={scrollingDown || page !== menu.SEARCH}
+          searchForm={searchForm}
+          setSearchEngine={setSearchEngine}
+          searchEngine={searchEngine}
+          searchYoutube={searchYoutube}
+          searchString={searchString}
+          input={input}
+          setSuggestions={setSuggestions}
+          suggestions={suggestions}
+          preventBlur={preventBlur}
+          setSearchString={setSearchString}
+          startSearch={startSearch}
           notify={notify}
-          deleteAll={deleteAll("history")}
-          listeningTo={listeningTo}
-          tableArray={browsingHistory}
-          activeVideo={activeVideo}
-          getDirectUrl={getDirectUrl}
-          setActiveVideo={setActiveVideo}
-          setListeningTo={setListeningTo}
-          getViewsString={getViewsString}
-        />
-      )}
-
-      {page === menu.SEARCH && (
-        <Cards
-          arrayLoading={arrayLoading}
-          searchArray={searchArray}
+          notifications={notifications}
           viewingChannel={viewingChannel}
-          getDirectUrl={getDirectUrl}
           getChannelItems={getChannelItems}
-          setActiveVideo={setActiveVideo}
-          setListeningTo={setListeningTo}
-          playPlaylist={playPlaylist}
-          browsePlaylist={browsePlaylist}
-          addToHistory={addToHistory}
-          addToFavourites={addToFavourites}
-          notify={notify}
-          addToQueue={addToQueue}
-          getViewsString={getViewsString}
+          getChannelPlaylists={getChannelPlaylists}
         />
-      )}
 
-      {!!browsingPlaylist && (
+        {page === menu.HISTORY && (
+          <Table
+            tableTitle="History"
+            notify={notify}
+            deleteAll={deleteAll("history")}
+            listeningTo={listeningTo}
+            tableArray={browsingHistory}
+            activeVideo={activeVideo}
+            getDirectUrl={getDirectUrl}
+            setActiveVideo={setActiveVideo}
+            setListeningTo={setListeningTo}
+            getViewsString={getViewsString}
+          />
+        )}
+
+        {page === menu.SEARCH && (
+          <Cards
+            arrayLoading={arrayLoading}
+            searchArray={searchArray}
+            viewingChannel={viewingChannel}
+            getDirectUrl={getDirectUrl}
+            getChannelItems={getChannelItems}
+            setActiveVideo={setActiveVideo}
+            setListeningTo={setListeningTo}
+            playPlaylist={playPlaylist}
+            browsePlaylist={browsePlaylist}
+            addToHistory={addToHistory}
+            addToFavourites={addToFavourites}
+            notify={notify}
+            addToQueue={addToQueue}
+            getViewsString={getViewsString}
+          />
+        )}
+
         <PlaylistSidebar
           browsingPlaylist={browsingPlaylist}
           playPlaylist={playPlaylist}
           closeBrowsingPlaylist={closeBrowsingPlaylist}
           tableFunctions={{
             tableArray: browsingPlaylist.items,
-            tableTitle: "Playlist: " + browsingPlaylist.info.title,
+            tableTitle: "Playlist: " + browsingPlaylist.info?.title,
             notify: notify,
             deleteAll: deleteAll("history"),
             listeningTo: listeningTo,
@@ -435,66 +443,66 @@ function App() {
             getViewsString,
           }}
         />
-      )}
 
-      {page === menu.LIBRARY && (
-        <Table
-          tableTitle="Favourites"
-          notify={notify}
-          tableArray={favourites}
+        {page === menu.LIBRARY && (
+          <Table
+            tableTitle="Favourites"
+            notify={notify}
+            tableArray={favourites}
+            listeningTo={listeningTo}
+            deleteAll={deleteAll("favourites")}
+            activeVideo={activeVideo}
+            getDirectUrl={getDirectUrl}
+            setActiveVideo={setActiveVideo}
+            setListeningTo={setListeningTo}
+            getViewsString={getViewsString}
+          />
+        )}
+
+        {!!location.search && (
+          <ShareAlert
+            info={info}
+            alert={alert}
+            getDirectUrl={getDirectUrl}
+            setListeningTo={setListeningTo}
+            notify={notify}
+            setAlert={setAlert}
+          />
+        )}
+
+        <BottomMenu
+          menu={menu}
+          page={page}
+          setPage={setPage}
+          listHistory={listHistory}
+          listFavourites={listFavourites}
+          history={history}
+          magnifier={magnifier}
+          library={library}
+        />
+
+        <AudioShelf
+          directUrl={directUrl}
+          audioLoading={audioLoading}
+          scrollingDown={scrollingDown}
           listeningTo={listeningTo}
-          deleteAll={deleteAll("favourites")}
-          activeVideo={activeVideo}
-          getDirectUrl={getDirectUrl}
-          setActiveVideo={setActiveVideo}
-          setListeningTo={setListeningTo}
-          getViewsString={getViewsString}
-        />
-      )}
-
-      {!!location.search && (
-        <ShareAlert
-          info={info}
-          alert={alert}
-          getDirectUrl={getDirectUrl}
-          setListeningTo={setListeningTo}
+          replay={replay}
           notify={notify}
-          setAlert={setAlert}
+          expanded={expanded}
+          playNext={playNext}
+          setExpanded={setExpanded}
+          setAudioLoading={setAudioLoading}
+          setDirectUrl={setDirectUrl}
+          playlist={playlist}
+          setPlaylist={setPlaylist}
+          setListeningTo={setListeningTo}
+          activeVideo={activeVideo}
+          setActiveVideo={setActiveVideo}
+          getViewsString={getViewsString}
+          audioPlayerRef={audioPlayerRef}
+          getDirectUrl={getDirectUrl}
         />
-      )}
-
-      <BottomMenu
-        menu={menu}
-        page={page}
-        setPage={setPage}
-        listHistory={listHistory}
-        listFavourites={listFavourites}
-        history={history}
-        magnifier={magnifier}
-        library={library}
-      />
-
-      <AudioShelf
-        directUrl={directUrl}
-        audioLoading={audioLoading}
-        scrollingDown={scrollingDown}
-        listeningTo={listeningTo}
-        replay={replay}
-        notify={notify}
-        expanded={expanded}
-        playNext={playNext}
-        setExpanded={setExpanded}
-        setAudioLoading={setAudioLoading}
-        setDirectUrl={setDirectUrl}
-        playlist={playlist}
-        setPlaylist={setPlaylist}
-        setListeningTo={setListeningTo}
-        activeVideo={activeVideo}
-        setActiveVideo={setActiveVideo}
-        getViewsString={getViewsString}
-        audioPlayerRef={audioPlayerRef}
-        getDirectUrl={getDirectUrl}
-      />
+      </div>
     </>
   );
 }

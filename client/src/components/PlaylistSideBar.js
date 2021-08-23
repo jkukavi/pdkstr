@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import ReactDOM from "react-dom";
 
 import Table from "./Table";
 import playButtonThumbnail from "../icons/playButtonThumbnail.svg";
@@ -10,12 +11,6 @@ const PlaylistSidebar = ({
   playPlaylist,
   closeBrowsingPlaylist,
 }) => {
-  const [expanded, setExpanded] = useState(false);
-
-  useEffect(() => {
-    setExpanded(true);
-  }, []);
-
   const controls = (
     <>
       <div
@@ -54,11 +49,34 @@ const PlaylistSidebar = ({
     </>
   );
 
+  useEffect(() => {
+    if (browsingPlaylist.expanded) {
+      setTimeout(() => {
+        document.getElementById("root").classList.add("blurredAndOverlayed");
+        document.getElementById("hell").classList.add("highlighted");
+      }, 500);
+    } else {
+      document.getElementById("root").classList.remove("blurredAndOverlayed");
+      document.getElementById("hell").classList.remove("highlighted");
+    }
+  }, [browsingPlaylist.expanded]);
+
   return (
-    <div className={`playlistSidebarContainer ${expanded ? "expanded" : ""}`}>
-      <div></div>
-      <Table controls={controls} {...tableFunctions} />
-    </div>
+    <>
+      {ReactDOM.createPortal(
+        <div
+          id="hell"
+          className={`playlistSidebarContainer ${
+            browsingPlaylist.expanded ? "expanded" : ""
+          }`}
+        >
+          <div style={{ position: "relative" }}>
+            <Table controls={controls} {...tableFunctions} />
+          </div>
+        </div>,
+        document.getElementById("modal")
+      )}
+    </>
   );
 };
 
