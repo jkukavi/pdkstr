@@ -2,17 +2,13 @@ html {
 }
 
 body {
+  overflow-x: hidden;
   margin: 0;
-  overflow: hidden;
 }
 
 #root {
   background: rgb(75, 54, 208);
   background: linear-gradient(90deg, #4b36d0, #5536d0 66%, rgb(92 43 241) 101%);
-  overflow-x: hidden;
-  overflow-y: auto;
-  height: 100vh;
-  width: 100vw;
   position: relative;
 }
 
@@ -770,6 +766,7 @@ a:active {
 }
 
 .cardContainer {
+  overscroll-behavior: auto;
   overflow-x: hidden;
   overflow-y: auto;
   height: 100vh;
