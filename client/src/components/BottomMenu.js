@@ -1,44 +1,29 @@
 import React from "react";
 
-import { menu } from "../consts";
+import { NavLink } from "react-router-dom";
 
-const BottomMenu = ({
-  page,
-  setPage,
-  listHistory,
-  history,
-  listFavourites,
-  magnifier,
-  library,
-}) => {
+import magnifier from "../icons/magnifier.png";
+import history from "../icons/history.png";
+import library from "../icons/library.png";
+
+const BottomMenu = () => {
   return (
     <div className="bottomMenu">
-      <div
-        className={`icon ${page === menu.HISTORY ? "active" : ""}`}
-        onClick={() => {
-          listHistory();
-          setPage(menu.HISTORY);
-        }}
-      >
-        <img src={history} alt="alt"></img>
-      </div>
-      <div
-        className={`icon ${page === menu.SEARCH ? "active" : ""}`}
-        onClick={() => {
-          setPage(menu.SEARCH);
-        }}
-      >
-        <img src={magnifier} alt="alt"></img>
-      </div>
-      <div
-        className={`icon ${page === menu.LIBRARY ? "active" : ""}`}
-        onClick={() => {
-          listFavourites();
-          setPage(menu.LIBRARY);
-        }}
-      >
-        <img src={library} alt="alt"></img>
-      </div>
+      <NavLink to="/history" activeClassName="active">
+        <div className="icon">
+          <img src={history} alt="alt"></img>
+        </div>
+      </NavLink>
+      <NavLink exact to="/" activeClassName="active">
+        <div className="icon">
+          <img src={magnifier} alt="alt"></img>
+        </div>
+      </NavLink>
+      <NavLink to="/favourites" activeClassName="active">
+        <div className="icon">
+          <img src={library} alt="alt"></img>
+        </div>
+      </NavLink>
     </div>
   );
 };

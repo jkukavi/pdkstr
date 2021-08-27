@@ -2,7 +2,7 @@ import React from "react";
 
 import playButton from "../icons/playButton.png";
 import trash from "../icons/trash.png";
-import { SearchEngineIcon } from "../consts";
+import { SearchEngineIcon } from "../consts/index.js";
 
 const Table = ({
   tableTitle,
@@ -52,7 +52,7 @@ const Table = ({
         </tr>
       </thead>
       <tbody>
-        {tableArray.map((video, index) => (
+        {tableArray?.map((video, index) => (
           <tr
             className={`${listeningTo?.title === video.title ? "active" : ""}`}
             onClick={() => {

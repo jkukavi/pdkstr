@@ -1,6 +1,6 @@
 import React from "react";
 
-import copyToClipboard from "../copyToClipboard";
+import copyToClipboard from "../helpers/copyToClipboard";
 
 import Table from "./Table";
 
@@ -13,7 +13,7 @@ import forward30 from "../icons/forward30.png";
 import share from "../icons/share.png";
 import playingQueue from "../icons/playingQueue.png";
 import chevron from "../icons/chevron.png";
-import { SearchEngineIcon, searchEngineShortcuts } from "../consts";
+import { SearchEngineIcon, searchEngineShortcuts } from "../consts/index.js";
 
 const AudioShelf = ({
   directUrl,

@@ -1,31 +1,31 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { Route, useLocation } from "react-router-dom";
 import qs from "query-string";
 
-import { storage, throttle, checkScroll } from "./helpers";
-import { menu, paths, searchEngines, searchEnginesByShortcut } from "./consts";
-
+import { storage } from "../helpers/helpers";
+import {
+  menu,
+  paths,
+  searchEngines,
+  searchEnginesByShortcut,
+} from "../consts/index.js";
+import speak from "../helpers/speak";
 import "./App.css";
 
-import SearchBox from "./components/SearchBox";
-import Cards from "./components/Cards";
-import BottomMenu from "./components/BottomMenu";
-import AudioShelf from "./components/AudioShelf";
-import Table from "./components/Table";
-import ShareAlert from "./components/ShareAlert";
-import PrintScreen from "./components/PrintScreen";
-import PlaylistSidebar from "./components/PlaylistSideBar";
-
-import magnifier from "./icons/magnifier.png";
-import history from "./icons/history.png";
-import library from "./icons/library.png";
-import speak from "./speak";
+import History from "../components/History";
+import Favourites from "../components/Favourites";
+import SearchBox from "../components/SearchBox";
+import Cards from "../components/Cards";
+import BottomMenu from "../components/BottomMenu";
+import AudioShelf from "../components/AudioShelf";
+import ShareAlert from "../components/ShareAlert";
+import PrintScreen from "../components/PrintScreen";
+import PlaylistSidebar from "../components/PlaylistSideBar";
 
 let preventBlur = false;
 
 function App() {
-  const [page, setPage] = useState(menu.SEARCH);
   const [directUrl, setDirectUrl] = useState(null);
   const [audioLoading, setAudioLoading] = useState(false);
   const [arrayLoading, setArrayLoading] = useState(false);
@@ -92,12 +92,6 @@ function App() {
     notify("Added To Favourites");
     storage.add("favourites", item);
   };
-
-  useEffect(() => {
-    document
-      .getElementById("cardContainer")
-      .addEventListener("scroll", throttle(checkScroll(setScrollingDown), 500));
-  }, []);
 
   useEffect(() => {
     if (!!location.search) {
@@ -356,6 +350,7 @@ function App() {
         <PrintScreen>
           {JSON.stringify(
             {
+              location,
               scrollingDown,
               viewingChannel,
               searchEngine,
@@ -373,7 +368,7 @@ function App() {
           )}
         </PrintScreen>
         <SearchBox
-          scrollingDown={scrollingDown || page !== menu.SEARCH}
+          scrollingDown={scrollingDown || location.pathname !== menu.SEARCH}
           searchForm={searchForm}
           setSearchEngine={setSearchEngine}
           searchEngine={searchEngine}
@@ -392,22 +387,35 @@ function App() {
           getChannelPlaylists={getChannelPlaylists}
         />
 
-        {page === menu.HISTORY && (
-          <Table
-            tableTitle="History"
+        <Route path="/history">
+          <History
+            listHistory={listHistory}
             notify={notify}
-            deleteAll={deleteAll("history")}
+            deleteAll={deleteAll}
             listeningTo={listeningTo}
-            tableArray={browsingHistory}
+            browsingHistory={browsingHistory}
             activeVideo={activeVideo}
             getDirectUrl={getDirectUrl}
             setActiveVideo={setActiveVideo}
             setListeningTo={setListeningTo}
             getViewsString={getViewsString}
           />
-        )}
-
-        {page === menu.SEARCH && (
+        </Route>
+        <Route path="/favourites">
+          <Favourites
+            listFavourites={listFavourites}
+            notify={notify}
+            tableArray={favourites}
+            listeningTo={listeningTo}
+            deleteAll={deleteAll}
+            activeVideo={activeVideo}
+            getDirectUrl={getDirectUrl}
+            setActiveVideo={setActiveVideo}
+            setListeningTo={setListeningTo}
+            getViewsString={getViewsString}
+          />
+        </Route>
+        <Route path="/">
           <Cards
             arrayLoading={arrayLoading}
             searchArray={searchArray}
@@ -416,6 +424,7 @@ function App() {
             getChannelItems={getChannelItems}
             setActiveVideo={setActiveVideo}
             setListeningTo={setListeningTo}
+            setScrollingDown={setScrollingDown}
             playPlaylist={playPlaylist}
             browsePlaylist={browsePlaylist}
             addToHistory={addToHistory}
@@ -424,7 +433,7 @@ function App() {
             addToQueue={addToQueue}
             getViewsString={getViewsString}
           />
-        )}
+        </Route>
 
         <PlaylistSidebar
           browsingPlaylist={browsingPlaylist}
@@ -444,21 +453,6 @@ function App() {
           }}
         />
 
-        {page === menu.LIBRARY && (
-          <Table
-            tableTitle="Favourites"
-            notify={notify}
-            tableArray={favourites}
-            listeningTo={listeningTo}
-            deleteAll={deleteAll("favourites")}
-            activeVideo={activeVideo}
-            getDirectUrl={getDirectUrl}
-            setActiveVideo={setActiveVideo}
-            setListeningTo={setListeningTo}
-            getViewsString={getViewsString}
-          />
-        )}
-
         {!!location.search && (
           <ShareAlert
             info={info}
@@ -469,17 +463,6 @@ function App() {
             setAlert={setAlert}
           />
         )}
-
-        <BottomMenu
-          menu={menu}
-          page={page}
-          setPage={setPage}
-          listHistory={listHistory}
-          listFavourites={listFavourites}
-          history={history}
-          magnifier={magnifier}
-          library={library}
-        />
 
         <AudioShelf
           directUrl={directUrl}
@@ -502,6 +485,8 @@ function App() {
           audioPlayerRef={audioPlayerRef}
           getDirectUrl={getDirectUrl}
         />
+
+        <BottomMenu />
       </div>
     </>
   );

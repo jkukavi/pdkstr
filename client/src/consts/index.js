@@ -1,11 +1,11 @@
-import youtube from "./icons/youtube.png";
-import soundcloud from "./icons/soundcloud.png";
+import youtube from "../icons/youtube.png";
+import soundcloud from "../icons/soundcloud.png";
 import React from "react";
 
 export const menu = {
-  SEARCH: "search",
-  HISTORY: "history",
-  LIBRARY: "library",
+  SEARCH: "/",
+  HISTORY: "/history",
+  LIBRARY: "/library",
 };
 
 export const searchEngines = {

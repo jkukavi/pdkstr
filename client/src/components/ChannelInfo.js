@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { buttonTextBySearchEngine } from "../consts";
+import { buttonTextBySearchEngine } from "../consts/index.js";
 
 const ChannelInfo = ({ channelInfo, getChannelItems, getChannelPlaylists }) => {
   const [active, setActive] = useState("items");

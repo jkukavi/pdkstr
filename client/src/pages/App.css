@@ -10,6 +10,7 @@ body {
   background: rgb(75, 54, 208);
   background: linear-gradient(90deg, #4b36d0, #5536d0 66%, rgb(92 43 241) 101%);
   position: relative;
+  background-attachment: fixed;
 }
 
 #root.blurredAndOverlayed {
@@ -20,12 +21,12 @@ body {
 
 * {
   scrollbar-color: #555 rgb(56, 56, 56);
-  scrollbar-color: transparent transparent;
+  /* scrollbar-color: transparent transparent; */
   scrollbar-width: thin;
 }
 
 ::-webkit-scrollbar {
-  width: 3px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -41,9 +42,18 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
 p {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+.flex {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 * {
@@ -52,6 +62,135 @@ p {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
+}
+
+.loginFormContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  min-height: 35rem;
+  overflow: auto;
+}
+
+@media screen and (max-width: 720px) {
+  .loginFormContainer {
+    align-items: flex-start;
+    overflow: auto;
+  }
+
+  .loginForm {
+    margin-top: 2rem;
+  }
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 30rem;
+  max-width: 90%;
+  height: 70%;
+  min-height: 25rem;
+  position: relative;
+}
+
+.loginForm a {
+  text-decoration: underline;
+  cursor: pointer;
+  margin-bottom: 0.4rem;
+  color: inherit;
+}
+
+.loginForm .underlayContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.loginForm .underlay {
+  width: 100%;
+  height: 100%;
+  border-radius: 25px 12px 25px 33px;
+  box-shadow: inset 1px 0px 9px 0px #000000;
+  overflow: hidden;
+}
+
+.loginForm .inner {
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  box-shadow: inset 2px 1px 9px 1px #000000;
+  filter: blur(18px);
+  border-radius: 15px 45px 15px 45px;
+  background: inherit;
+}
+
+.loginForm :not(.underlayContainer) {
+  z-index: 1;
+}
+
+.loginForm .item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginForm input {
+  border-radius: 6px;
+  padding: 0.2rem;
+  width: 60%;
+  height: 2rem;
+  font-size: 1.2rem;
+  text-align: center;
+  background: none;
+  border: none;
+  border-bottom: 1px solid black;
+  border-radius: 0px;
+}
+
+.loginForm button {
+  will-change: transform;
+  border: none;
+  text-decoration: none;
+  outline: none;
+  background: none;
+  border: none;
+  background: linear-gradient(
+    23deg,
+    #c87700,
+    #f1462bb0 66%,
+    rgb(230 0 0 / 69%) 101%
+  );
+  padding: 0.6rem 2rem;
+  font-size: 1.5rem;
+  font-weight: 900;
+  border-radius: 3px;
+  box-shadow: 1px 1px 4px black;
+  transition: box-shadow 0.2s;
+  margin-bottom: 1rem;
+}
+
+.loginForm button:hover {
+  box-shadow: 2px 1px 8px black;
+}
+
+.loginForm input::placeholder {
+  color: rgb(184, 151, 8);
+}
+
+.loginForm input:focus-visible {
+  outline: none;
+}
+
+.loginForm label {
+  height: 2rem;
+  font-size: 1.2rem;
 }
 
 audio {
@@ -250,7 +389,7 @@ audio {
   cursor: pointer;
 }
 
-.bottomMenu .icon.active {
+.bottomMenu .active .icon {
   background-color: #454545;
 }
 
@@ -611,32 +750,6 @@ button:active.small {
   cursor: pointer;
 }
 
-a {
-  background-color: rgb(255 124 0);
-  box-shadow: 0 5px 0 darkred;
-  color: rgb(0, 0, 0);
-  padding: 0.5em 0.75em;
-  position: relative;
-  text-decoration: none;
-  text-transform: uppercase;
-  border-radius: 0.3rem;
-  display: block;
-  width: fit-content;
-  margin: auto;
-  margin-top: 2rem;
-  color: black;
-  font-size: 2rem;
-}
-
-a:hover {
-  background-color: #ce0606;
-}
-
-a:active {
-  box-shadow: none;
-  top: 5px;
-}
-
 .channelInfoContainer {
   margin-top: 0rem;
   height: 2.7rem;
@@ -916,6 +1029,11 @@ a:active {
 
 .authorThumbnail:hover {
   box-shadow: 1px 1px 1px black;
+}
+
+.tablePageContainer {
+  height: calc(100vh - 2.5rem);
+  overflow: hidden auto;
 }
 
 #customers {

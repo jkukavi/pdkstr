@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import playingQueue from "../icons/playingQueue.png";
 import browseList from "../icons/browseList.png";
 import star from "../icons/star.png";
 import playButtonThumbnail from "../icons/playButtonThumbnail.svg";
-import { SearchEngineIcon } from "../consts";
+import { SearchEngineIcon } from "../consts/index.js";
+
+import { throttle, checkScroll } from "../helpers/helpers";
 
 const defaultPuppyImg =
   "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*";
@@ -21,12 +23,20 @@ const Cards = ({
   browsePlaylist,
   setActiveVideo,
   setListeningTo,
+  setScrollingDown,
   addToHistory,
   addToFavourites,
   notify,
   addToQueue,
   getViewsString,
 }) => {
+  useEffect(() => {
+    document
+      .getElementById("cardContainer")
+      .addEventListener("scroll", throttle(checkScroll(setScrollingDown), 500));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div
       id="cardContainer"

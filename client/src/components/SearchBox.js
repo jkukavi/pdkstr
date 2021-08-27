@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
-import { debounce } from "../helpers";
+import { debounce } from "../helpers/helpers";
 
-import recognizeAndStartSearch from "../speechRecognition";
+import recognizeAndStartSearch from "../helpers/speechRecognition";
 import microphone from "../icons/microphone.png";
 import magnifier from "../icons/magnifier.png";
 import chevron from "../icons/chevron.png";
 import youtube from "../icons/youtube.png";
 import soundcloud from "../icons/soundcloud.png";
 import Notification from "./Notification";
-import { searchEngines } from "../consts";
+import { searchEngines } from "../consts/index.js";
 import ChannelInfo from "./ChannelInfo";
 
 let preventBlur = false;
