@@ -1,8 +1,4 @@
 const express = require("express");
-const bodyParser = require("body-parser");
-const app = express();
-const helmet = require("helmet");
-const path = require("path");
 const { https } = require("follow-redirects");
 
 const {
@@ -17,35 +13,7 @@ const {
 
 const soundcloud = require("./scFunctions");
 
-app.use(
-  helmet.contentSecurityPolicy({
-    directives: {
-      defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", "example.com"],
-      imgSrc: [
-        "'self'",
-        "i.ytimg.com",
-        "yt3.ggpht.com",
-        "hips.hearstapps.com",
-        "i1.sndcdn.com",
-      ],
-      "media-src": ["'self'", "*.googlevideo.com", "*.sndcdn.com"],
-      "font-src": ["fonts.googleapis.com", "fonts.gstatic.com"],
-      "style-src-elem": ["'self'", "fonts.googleapis.com", "fonts.gstatic.com"],
-    },
-  })
-);
-
-app.use(bodyParser.json());
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-  })
-);
-
-// Serve the static files from the React app
-
-app.use(express.static("client/build"));
+const app = express.Router();
 
 app.post("/url", async (req, res) => {
   const { id } = req.body;
@@ -193,5 +161,4 @@ const domain = (url) => {
   return hostname.split(".")[1];
 };
 
-console.log("server started 8080");
-app.listen(process.env.PORT || 8080);
+module.exports = app;
