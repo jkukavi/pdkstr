@@ -54,7 +54,7 @@ const PlaylistSidebar = ({
       setTimeout(() => {
         document.getElementById("root").classList.add("blurredAndOverlayed");
         document.getElementById("hell").classList.add("highlighted");
-      }, 500);
+      }, 600);
     } else {
       document.getElementById("root").classList.remove("blurredAndOverlayed");
       document.getElementById("hell").classList.remove("highlighted");

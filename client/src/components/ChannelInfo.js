@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 
 import { buttonTextBySearchEngine } from "../consts/index.js";
+import star from "../icons/star.png";
+import trash from "../icons/trash.png";
 
-const ChannelInfo = ({ channelInfo, getChannelItems, getChannelPlaylists }) => {
+const ChannelInfo = ({
+  channelInfo,
+  getChannelItems,
+  getChannelPlaylists,
+  addToFavourites,
+}) => {
   const [active, setActive] = useState("items");
 
   const buttonTexts = buttonTextBySearchEngine[channelInfo.engine];
@@ -17,6 +24,9 @@ const ChannelInfo = ({ channelInfo, getChannelItems, getChannelPlaylists }) => {
         <div className="channelInfo">
           <img
             src={channelInfo.avatars[channelInfo.avatars.length - 1].url}
+            onError={(e) => {
+              e.target.src = trash;
+            }}
             alt="alt"
           ></img>
           <p>
@@ -44,6 +54,14 @@ const ChannelInfo = ({ channelInfo, getChannelItems, getChannelPlaylists }) => {
           className={`button ${active === "playlists" ? "active" : ""}`}
         >
           {buttonTexts.playlists}
+        </div>
+        <div
+          onClick={() => {
+            addToFavourites(channelInfo);
+          }}
+          className={`button icon`}
+        >
+          <img src={star} alt="alt"></img>
         </div>
       </div>
     </>

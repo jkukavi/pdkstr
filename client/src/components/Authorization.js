@@ -1,23 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-import { useHistory, Redirect } from "react-router-dom";
+import { Redirect, useLocation } from "react-router-dom";
 
 import { useAuthContext } from "../contexts/Auth";
 
 const Authorization = ({ children }) => {
   const { user } = useAuthContext();
-  const history = useHistory();
+  const location = useLocation();
 
-  useEffect(() => {
-    if (user) {
-      history.replace("/");
-    }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
-
-  if (false) {
-    return <Redirect to="/login" />;
+  if (!user) {
+    return <Redirect to={{ pathname: "/login", state: { from: location } }} />;
   } else {
     return children;
   }

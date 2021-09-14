@@ -29,6 +29,7 @@ const Cards = ({
   notify,
   addToQueue,
   getViewsString,
+  channelClickAction,
 }) => {
   useEffect(() => {
     document
@@ -106,8 +107,8 @@ const Cards = ({
                 </div>
                 <div className="descContainer">
                   <p className="desc title">
-                    {`${title.substring(0, 45)}${
-                      title.length > 45 ? "..." : ""
+                    {`${title?.substring(0, 45)}${
+                      title?.length > 45 ? "..." : ""
                     }`}
                   </p>
 
@@ -194,6 +195,7 @@ const Cards = ({
                   className="thumbnail"
                   onClick={() => {
                     getChannelItems(item);
+                    if (channelClickAction) channelClickAction();
                   }}
                 >
                   <img
@@ -203,12 +205,24 @@ const Cards = ({
                   />
                 </div>
                 <div className="descContainer">
-                  <p style={{ height: "2rem" }} className="desc title">
-                    {name}
-                  </p>
-                  <p className="desc">
-                    {subscribers || "Subscribers not available"}
-                  </p>
+                  <div className="flex">
+                    <div>
+                      <p style={{ height: "2rem" }} className="desc title">
+                        {name}
+                      </p>
+                      <p className="desc">
+                        {subscribers || "Subscribers not available"}
+                      </p>
+                    </div>
+                    <div
+                      className="addToPlaylistIcon playlist"
+                      onClick={() => {
+                        addToFavourites(item);
+                      }}
+                    >
+                      <img src={star} alt="loading"></img>
+                    </div>
+                  </div>
                 </div>
               </div>
             );
@@ -281,7 +295,7 @@ const Cards = ({
                     <div
                       className="addToPlaylistIcon playlist"
                       onClick={() => {
-                        browsePlaylist(item);
+                        addToFavourites(item);
                       }}
                     >
                       <img src={star} alt="loading"></img>

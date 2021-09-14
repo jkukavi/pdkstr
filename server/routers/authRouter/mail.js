@@ -1,0 +1,34 @@
+const sgMail = require("@sendgrid/mail");
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+const baseUri =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:8080"
+    : "https://podkaster.herokuapp.com";
+
+const sendActivationEmail = async ({
+  to,
+  activationCode,
+  pendingAccountId,
+}) => {
+  const url = `${baseUri}/activate/${pendingAccountId}/${activationCode}`;
+
+  const msg = {
+    to: to, // Change to your recipient
+    from: "vincentofthe@gmail.com", // Change to your verified sender
+    subject: "Registration Email",
+    html: `<h4>In order to complete your registration, visit the link below:</h4><br/><a target="_blank" href="${url}">${url}</a>`,
+    text: `In order to complete your registration, visit the link below: \n ${url}`,
+  };
+
+  return await sgMail.send(msg);
+};
+
+const getRandomCode = () => {
+  return require("crypto").randomBytes(25).toString("hex");
+};
+
+module.exports = {
+  sendActivationEmail,
+  getRandomCode,
+};

@@ -1,27 +1,35 @@
 import React, { useState, useRef, useEffect } from "react";
-import axios from "axios";
-import { Route, useLocation } from "react-router-dom";
+import {
+  useHistory,
+  Redirect,
+  Route,
+  Switch,
+  useLocation,
+} from "react-router-dom";
 import qs from "query-string";
 
-import { storage } from "../helpers/helpers";
+import { storage } from "../../helpers/helpers";
 import {
   menu,
   paths,
   searchEngines,
   searchEnginesByShortcut,
-} from "../consts/index.js";
-import speak from "../helpers/speak";
+} from "../../consts/index.js";
+import speak from "../../helpers/speak";
 import "./App.css";
 
-import History from "../components/History";
-import Favourites from "../components/Favourites";
-import SearchBox from "../components/SearchBox";
-import Cards from "../components/Cards";
-import BottomMenu from "../components/BottomMenu";
-import AudioShelf from "../components/AudioShelf";
-import ShareAlert from "../components/ShareAlert";
-import PrintScreen from "../components/PrintScreen";
-import PlaylistSidebar from "../components/PlaylistSideBar";
+import History from "../../components/History";
+import Favourites from "../../components/Favourites";
+import SearchBox from "../../components/SearchBox";
+import Cards from "../../components/Cards";
+import BottomMenu from "../../components/BottomMenu";
+import AudioShelf from "../../components/AudioShelf";
+import ShareAlert from "../../components/ShareAlert";
+import PrintScreen from "../../components/PrintScreen";
+import PlaylistSidebar from "../../components/PlaylistSideBar";
+import Settings from "./Settings";
+
+import { instance as axios } from "../../contexts/axiosInstance";
 
 let preventBlur = false;
 
@@ -44,7 +52,7 @@ function App() {
   const [info, setInfo] = useState(null);
   const [suggestions, setSuggestions] = useState({ show: false, array: [] });
   const [scrollingDown, setScrollingDown] = useState(false);
-  const [browsingHistory, setBrowsingHistory] = useState(null);
+  const [history, setHistory] = useState(null);
   const [favourites, setFavourites] = useState(null);
   const [searchEngine, setSearchEngine] = useState(searchEngines.YT);
 
@@ -52,6 +60,11 @@ function App() {
   const [alert, setAlert] = useState(qs.parse(location.search));
 
   const audioPlayerRef = useRef();
+  const searchHistory = useHistory();
+
+  useEffect(() => {
+    setScrollingDown(false);
+  }, [location]);
 
   const playNext = () => {
     if (playlist.length !== 0) {
@@ -68,14 +81,24 @@ function App() {
     }
   };
 
-  const listHistory = () => {
-    const history = storage.get("history");
-    setBrowsingHistory(history);
+  const listHistory = async () => {
+    try {
+      const response = await axios.get("/users/my/history");
+      const fetchedHistory = response.data;
+      setHistory(fetchedHistory);
+    } catch (e) {
+      notify("Unable to fetch history");
+    }
   };
 
-  const listFavourites = () => {
-    const fetchedFavourites = storage.get("favourites");
-    setFavourites(fetchedFavourites);
+  const listFavourites = async () => {
+    try {
+      const response = await axios.get("/users/my/favourites");
+      const fetchedFavourites = response.data;
+      setFavourites(fetchedFavourites);
+    } catch (e) {
+      notify("Unable to fetch history");
+    }
   };
 
   const deleteAll = (name) => () => {
@@ -84,13 +107,21 @@ function App() {
     listFavourites();
   };
 
-  const addToHistory = (item) => {
-    storage.add("history", item);
+  const addToHistory = async (item) => {
+    try {
+      await axios.post("/users/my/history", { item });
+    } catch (e) {
+      notify("Unable to record this listening to history.");
+    }
   };
 
-  const addToFavourites = (item) => {
-    notify("Added To Favourites");
-    storage.add("favourites", item);
+  const addToFavourites = async (item) => {
+    try {
+      await axios.post("/users/my/favourites", { item });
+      notify("Added to favourites");
+    } catch (e) {
+      notify("Unable to add to favourites");
+    }
   };
 
   useEffect(() => {
@@ -105,11 +136,6 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const replay = (time) => () => {
-    const audioPlayer = audioPlayerRef.current;
-    audioPlayer.currentTime = audioPlayer.currentTime + time;
-  };
-
   const getDirectUrl = async ({ id, engine, url }) => {
     setDirectUrl(null);
     setAudioLoading(true);
@@ -123,7 +149,7 @@ function App() {
       const { directUrl } = response.data;
       setDirectUrl(directUrl);
     } catch (e) {
-      window.alert("some error happened, please kontakt the dev team");
+      notify("Something went wrong. Try again.");
     } finally {
       setAudioLoading(false);
     }
@@ -137,7 +163,7 @@ function App() {
       });
       setInfo(response.data);
     } catch (e) {
-      window.alert("some error happened, please kontakt the dev team");
+      notify("Something went wrong. Try again.");
     } finally {
       setAudioLoading(false);
     }
@@ -179,7 +205,7 @@ function App() {
       const { playlistItems } = response.data;
       return playlistItems;
     } catch (e) {
-      notify("Something went wrong with fetching playlist items.");
+      notify("Something went wrong. Try again.");
     }
   };
 
@@ -344,24 +370,32 @@ function App() {
     searchYoutube(null, recognizedString);
   };
 
+  const cardProps = {
+    arrayLoading,
+    searchArray,
+    viewingChannel,
+    getDirectUrl,
+    getChannelItems,
+    playPlaylist,
+    browsePlaylist,
+    setActiveVideo,
+    setListeningTo,
+    setScrollingDown,
+    addToHistory,
+    addToFavourites,
+    notify,
+    addToQueue,
+    getViewsString,
+  };
+
   return (
     <>
       <div className="container">
         <PrintScreen>
           {JSON.stringify(
             {
-              location,
-              scrollingDown,
-              viewingChannel,
-              searchEngine,
-              playlist: playlist.map && playlist.map((item) => item.title),
-              activeVideo: activeVideo?.title,
-              listeningTo: {
-                title: listeningTo?.title,
-                engine: listeningTo?.engine,
-              },
-              info: info?.title,
-              searchArray: searchArray.map((item) => item.id),
+              favourites: (favourites || []).map((item) => item.type),
+              his: searchHistory.length,
             },
             null,
             2
@@ -375,6 +409,7 @@ function App() {
           searchYoutube={searchYoutube}
           searchString={searchString}
           input={input}
+          addToFavourites={addToFavourites}
           setSuggestions={setSuggestions}
           suggestions={suggestions}
           preventBlur={preventBlur}
@@ -386,54 +421,32 @@ function App() {
           getChannelItems={getChannelItems}
           getChannelPlaylists={getChannelPlaylists}
         />
-
-        <Route path="/history">
-          <History
-            listHistory={listHistory}
-            notify={notify}
-            deleteAll={deleteAll}
-            listeningTo={listeningTo}
-            browsingHistory={browsingHistory}
-            activeVideo={activeVideo}
-            getDirectUrl={getDirectUrl}
-            setActiveVideo={setActiveVideo}
-            setListeningTo={setListeningTo}
-            getViewsString={getViewsString}
-          />
-        </Route>
-        <Route path="/favourites">
-          <Favourites
-            listFavourites={listFavourites}
-            notify={notify}
-            tableArray={favourites}
-            listeningTo={listeningTo}
-            deleteAll={deleteAll}
-            activeVideo={activeVideo}
-            getDirectUrl={getDirectUrl}
-            setActiveVideo={setActiveVideo}
-            setListeningTo={setListeningTo}
-            getViewsString={getViewsString}
-          />
-        </Route>
-        <Route path="/">
-          <Cards
-            arrayLoading={arrayLoading}
-            searchArray={searchArray}
-            viewingChannel={viewingChannel}
-            getDirectUrl={getDirectUrl}
-            getChannelItems={getChannelItems}
-            setActiveVideo={setActiveVideo}
-            setListeningTo={setListeningTo}
-            setScrollingDown={setScrollingDown}
-            playPlaylist={playPlaylist}
-            browsePlaylist={browsePlaylist}
-            addToHistory={addToHistory}
-            addToFavourites={addToFavourites}
-            notify={notify}
-            addToQueue={addToQueue}
-            getViewsString={getViewsString}
-          />
-        </Route>
+        <Switch>
+          <Route path="/history">
+            <History
+              listHistory={listHistory}
+              history={history}
+              cardProps={cardProps}
+            />
+          </Route>
+          <Route path="/favourites">
+            <Favourites
+              listFavourites={listFavourites}
+              favourites={favourites}
+              playPlaylist={playPlaylist}
+              cardProps={cardProps}
+            />
+          </Route>
+          <Route path="/settings">
+            <Settings />
+          </Route>
+          <Route exact path="/">
+            <Cards {...cardProps} />
+          </Route>
+          <Route path="/">
+            <Redirect to="/"></Redirect>
+          </Route>
+        </Switch>
 
         <PlaylistSidebar
           browsingPlaylist={browsingPlaylist}
@@ -469,7 +482,6 @@ function App() {
           audioLoading={audioLoading}
           scrollingDown={scrollingDown}
           listeningTo={listeningTo}
-          replay={replay}
           notify={notify}
           expanded={expanded}
           playNext={playNext}

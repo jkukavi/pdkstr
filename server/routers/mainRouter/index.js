@@ -9,9 +9,9 @@ const {
   getChannelPlaylists,
   getVideoInfo,
   getSuggestions,
-} = require("./ytFunctions.js");
+} = require("./handlers/ytFunctions.js");
 
-const soundcloud = require("./scFunctions");
+const soundcloud = require("./handlers/scFunctions");
 
 const app = express.Router();
 

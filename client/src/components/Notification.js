@@ -11,17 +11,7 @@ const Notification = ({ notification }) => {
   return (
     show && (
       <div className="notification">
-        {/* <img
-          src={note}
-          alt="alt"
-          style={{ filter: "invert(0.8)", height: "1.4rem" }}
-        ></img> */}
         <p style={{ fontStyle: "italic" }}> {notification}</p>
-        {/* <img
-          src={note}
-          alt="alt"
-          style={{ filter: "invert(0.8)", height: "1.4rem" }}
-        ></img> */}
       </div>
     )
   );

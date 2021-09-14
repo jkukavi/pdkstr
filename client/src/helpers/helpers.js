@@ -17,14 +17,14 @@ function throttle(callback, limit) {
   return function (...args) {
     if (!waiting) {
       clearTimeout(finalTimeout);
-      callback();
+      callback(...args);
       waiting = true;
       setTimeout(function () {
         waiting = false;
       }, limit);
     } else {
       clearTimeout(finalTimeout);
-      finalTimeout = setTimeout(callback, limit / 2);
+      finalTimeout = setTimeout(() => callback(...args), limit / 2);
     }
   };
 }

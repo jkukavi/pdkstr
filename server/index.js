@@ -1,40 +1,38 @@
 const express = require("express");
-const app = express();
 const helmet = require("helmet");
+const cookieParser = require("cookie-parser");
+const path = require("path");
 
+const { CSPPolicies } = require("./consts");
+const authRouter = require("./routers/authRouter");
 const auth = require("./auth");
-const mainRouter = require("./mainRouter");
+const mainRouter = require("./routers/mainRouter");
+const usersRouter = require("./routers/usersRouter");
 
-app.use(
-  helmet.contentSecurityPolicy({
-    directives: {
-      defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", "example.com"],
-      imgSrc: [
-        "'self'",
-        "i.ytimg.com",
-        "yt3.ggpht.com",
-        "hips.hearstapps.com",
-        "i1.sndcdn.com",
-      ],
-      "media-src": ["'self'", "*.googlevideo.com", "*.sndcdn.com"],
-      "font-src": ["fonts.googleapis.com", "fonts.gstatic.com"],
-      "style-src-elem": ["'self'", "fonts.googleapis.com", "fonts.gstatic.com"],
-    },
-  })
-);
+const app = express();
 
+app.use(helmet.contentSecurityPolicy(CSPPolicies));
 app.use(express.json());
 app.use(
   express.urlencoded({
     extended: true,
   })
 );
+app.use(cookieParser());
 
-// Client is served with:
-app.use(express.static("client/build"));
+// Clients static files are served with:
+app.use("/", express.static("client/build"));
+
 // Backend is routed with:
-app.use(auth, mainRouter);
+app.use(authRouter);
+// auth on every endpoint (besides previous logins/registration)
+app.use("/api/users/", auth, usersRouter);
+app.use("/api", auth, mainRouter);
+
+//redirect to client
+app.use("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/../client/build/index.html"));
+});
 
 console.log("server started 8080");
 
