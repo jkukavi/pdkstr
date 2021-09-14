@@ -74,9 +74,14 @@ function getSuggestions(searchString, limit = 10) {
       });
 
       res.on("end", () => {
-        resolve(
-          JSON.parse(data).collection.map((suggestion) => suggestion.output)
-        );
+        try {
+          const response = JSON.parse(data).collection.map(
+            (suggestion) => suggestion.output
+          );
+          resolve(response);
+        } catch (e) {
+          rej(e);
+        }
       });
     });
   });
