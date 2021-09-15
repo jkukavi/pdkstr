@@ -446,6 +446,8 @@ audio {
   padding-left: calc(100vw - 100%);
   row-gap: 0.3rem;
   min-height: 2rem;
+
+  z-index: 1;
 }
 
 .input {
