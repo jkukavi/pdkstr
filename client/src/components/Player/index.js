@@ -28,9 +28,11 @@ const Player = ({ audioPlayer, currentlyPlaying }) => {
         </div>
         <div className="barContainer noFlash">
           <div id="barHolder" className="noTouchAction">
-            <div className="progress bar"></div>
-            <div className="buffer bar"></div>
-            <div className="norm bar"></div>
+            <div className="bars">
+              <div className="progress bar"></div>
+              <div className="buffer bar"></div>
+              <div className="norm bar"></div>
+            </div>
             <div id="circleHolder">
               <div className="circle" />
 

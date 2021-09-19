@@ -106,7 +106,6 @@ const AudioShelf = ({
                     )
                   }
                 />
-
                 <div className="audioControls">
                   <div className="audioButton" onClick={replay(-30)}>
                     <img src={replay30} alt="loading" />

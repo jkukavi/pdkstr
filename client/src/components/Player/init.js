@@ -3,7 +3,7 @@ import pauseIcon from "./icons/pause.png";
 import { throttle } from "../../helpers/helpers";
 
 function prettyPrintSeconds(secondsWithRemainder) {
-  if (!secondsWithRemainder) {
+  if (secondsWithRemainder === undefined) {
     return "N/A";
   }
   const totalSeconds = Math.floor(secondsWithRemainder);
@@ -29,9 +29,11 @@ function prefixWithZero(timeUnit) {
   return timeUnit < 10 ? "0" + timeUnit : String(timeUnit);
 }
 
-function addOneSecondTo(time) {
-  if (time.seconds === "59") {
-    time.seconds = "00";
+function addSecondsToTime(time, diff) {
+  let newSeconds = Number(time.seconds) + diff;
+
+  if (newSeconds > 59) {
+    time.seconds = prefixWithZero(newSeconds % 60);
     if (time.minutes === "59") {
       time.minutes = "00";
       time.hours = prefixWithZero(Number(time.hours) + 1);
@@ -39,40 +41,10 @@ function addOneSecondTo(time) {
       time.minutes = prefixWithZero(Number(time.minutes) + 1);
     }
   } else {
-    time.seconds = prefixWithZero(Number(time.seconds) + 1);
+    time.seconds = prefixWithZero(newSeconds);
   }
 
   return time.toString();
-}
-
-var time = {
-  seconds: "00",
-  minutes: "00",
-  hours: "00",
-  toString() {
-    return this.hours
-      ? this.hours + ":" + this.minutes + ":" + this.seconds
-      : this.minutes + ":" + this.seconds;
-  },
-};
-
-function initializeTime(prettyPrintedDuration) {
-  const timeStringArray = prettyPrintedDuration.split(":");
-  if (timeStringArray.length === 2) {
-    time.hours = null;
-  }
-}
-
-function setTime(timeString) {
-  const timeArray = timeString.split(":");
-  if (timeArray.length === 3) {
-    time.seconds = timeArray[2] || null;
-    time.minutes = timeArray[1] || null;
-    time.hours = timeArray[0] || null;
-  } else if (timeArray.length === 2) {
-    time.seconds = timeArray[1] || null;
-    time.minutes = timeArray[0] || null;
-  }
 }
 
 export default function init() {
@@ -93,6 +65,54 @@ export default function init() {
 
   let playing = false;
 
+  const listeners = [];
+
+  function addEventListener(element, ...args) {
+    listeners.push({
+      element,
+      args,
+    });
+
+    element.addEventListener(...args);
+  }
+
+  function removeAllEventListeners() {
+    for (const { element, args } of listeners) {
+      element.removeEventListener(...args);
+    }
+  }
+
+  var time = {
+    seconds: "00",
+    minutes: "00",
+    hours: "00",
+    toString() {
+      return this.hours
+        ? this.hours + ":" + this.minutes + ":" + this.seconds
+        : this.minutes + ":" + this.seconds;
+    },
+  };
+
+  function initializeTime(prettyPrintedDuration) {
+    const timeStringArray = prettyPrintedDuration.split(":");
+    if (timeStringArray.length === 2) {
+      time.hours = null;
+    }
+  }
+
+  function setTime(timeString) {
+    const timeArray = timeString.split(":");
+    if (timeArray.length === 3) {
+      time.seconds = timeArray[2] || null;
+      time.minutes = timeArray[1] || null;
+      time.hours = timeArray[0] || null;
+    } else if (timeArray.length === 2) {
+      time.seconds = timeArray[1] || null;
+      time.minutes = timeArray[0] || null;
+      time.hours = null;
+    }
+  }
+
   function displayControls() {
     // playButton.style.display = "block";
   }
@@ -102,13 +122,7 @@ export default function init() {
     displayControls();
   } else {
     // not ready yet - wait for canplay event
-    myAudio.addEventListener(
-      "canplay",
-      function () {
-        displayControls();
-      },
-      { once: true }
-    );
+    addEventListener(myAudio, "canplay", displayControls, { once: true });
   }
 
   if (myAudio.readyState > 0) {
@@ -116,14 +130,15 @@ export default function init() {
     document.getElementById("duration").innerHTML = prettyPrintedDuration;
     cancelSeekDuration.innerHTML = prettyPrintedDuration;
   } else {
-    myAudio.addEventListener("loadedmetadata", () => {
-      const prettyPrintedDuration = prettyPrintSeconds(myAudio.duration);
-      document.getElementById("duration").innerHTML = prettyPrintedDuration;
-      cancelSeekDuration.innerHTML = prettyPrintedDuration;
-      initializeTime(prettyPrintedDuration);
-      initializeSingleSecondProgressPercentage(myAudio.duration);
-      progressBar.style.transform = `scaleX(0) translateY(-50%)`;
-    });
+    addEventListener(myAudio, "loadedmetadata", onLoadedMetadata);
+  }
+
+  function onLoadedMetadata() {
+    const prettyPrintedDuration = prettyPrintSeconds(myAudio.duration);
+    document.getElementById("duration").innerHTML = prettyPrintedDuration;
+    cancelSeekDuration.innerHTML = prettyPrintedDuration;
+    initializeTime(prettyPrintedDuration);
+    initializeSingleSecondProgressPercentage();
   }
 
   function playOrPause(e) {
@@ -138,48 +153,71 @@ export default function init() {
     }
   }
 
-  playButton.addEventListener("click", playOrPause);
-
-  myAudio.addEventListener("play", () => {
+  function playAudio() {
     playing = true;
     playButton.style.backgroundImage = `url(${pauseIcon})`;
-  });
-
-  myAudio.addEventListener("pause", () => {
-    playing = false;
-    playButton.style.backgroundImage = `url(${playIcon})`;
-  });
-
-  // // display progress
-
-  var flag = false;
-
-  let singleSecondProgressPercentage;
-
-  function initializeSingleSecondProgressPercentage(totalDurationInSeconds) {
-    singleSecondProgressPercentage =
-      Math.round((1 / totalDurationInSeconds) * 100 * 100) / 100;
   }
 
-  function nonThrottledTimeUpdate() {
-    const newProgressPercentage =
-      Number(circleHolder.style.left.split("%")[0]) +
-      singleSecondProgressPercentage;
+  function pauseAudio() {
+    playing = false;
+    playButton.style.backgroundImage = `url(${playIcon})`;
+  }
 
-    if (!flag) {
+  addEventListener(playButton, "click", playOrPause);
+  addEventListener(myAudio, "play", playAudio);
+  addEventListener(myAudio, "pause", pauseAudio);
+
+  var seeking = false;
+
+  let singleSecondProgressPercentage;
+  let currentProgressPercentage = 0;
+  let currentSecond = 0;
+
+  function initializeSingleSecondProgressPercentage() {
+    const totalDuration = Math.floor(myAudio.duration);
+    let nonRoundedPercentage = (1 / totalDuration) * 100;
+    singleSecondProgressPercentage =
+      Math.round(nonRoundedPercentage * 100 * 100) / (100 * 100);
+  }
+
+  function endTrack() {
+    currentProgressPercentage = 100;
+    progressBar.style.left = `${currentProgressPercentage}%`;
+    circleHolder.style.left = `${currentProgressPercentage}%`;
+  }
+
+  addEventListener(myAudio, "ended", endTrack);
+
+  function nonThrottledTimeUpdate() {
+    const newSeconds = Math.floor(myAudio.currentTime);
+    const diff = newSeconds - currentSecond;
+
+    if (diff === 0) {
+      return;
+    } else if (diff < 0) {
+      setTime(prettyPrintSeconds(newSeconds));
+      currentProgressPercentage = newSeconds * singleSecondProgressPercentage;
+    } else {
+      addSecondsToTime(time, diff);
+      currentSecond = newSeconds;
+      currentProgressPercentage += diff * singleSecondProgressPercentage;
+    }
+
+    if (!seeking) {
       requestAnimationFrame(() => {
-        currentTime.innerHTML = addOneSecondTo(time);
-        progressBar.style.transform = `scaleX(${newProgressPercentage}) translateY(-50%)`;
-        circleHolder.style.left = `${newProgressPercentage}%`;
+        currentTime.innerHTML = time.toString();
+        progressBar.style.left = `${currentProgressPercentage}%`;
+        circleHolder.style.left = `${currentProgressPercentage}%`;
       });
+    } else {
+      currentTime.innerHTML = time.toString();
     }
   }
 
-  const timeUpdate = throttle(nonThrottledTimeUpdate, 800);
+  const timeUpdate = nonThrottledTimeUpdate;
+  addEventListener(myAudio, "timeupdate", timeUpdate);
 
-  myAudio.addEventListener("timeupdate", timeUpdate);
-
-  myAudio.addEventListener("progress", function () {
+  function bufferBarUpdate() {
     var duration = myAudio.duration;
     if (duration > 0) {
       if (myAudio.buffered.length > 0) {
@@ -188,27 +226,29 @@ export default function init() {
         bufferBar.style.width = bufferedPercentage + "%";
       }
     }
-  });
+  }
+
+  addEventListener(myAudio, "progress", bufferBarUpdate);
 
   const nonThrottledUpdatePosition = (e) => {
-    const newPercentage =
-      (e.pageX - barHolder.offsetLeft) / barHolder.clientWidth;
+    let newPercentage =
+      ((e.pageX - barHolder.offsetLeft) / barHolder.clientWidth) * 100;
 
-    if (newPercentage < 0 || newPercentage > 1) {
-      return;
+    let newSeconds;
+
+    if (newPercentage < 0) {
+      newSeconds = 0;
+    } else if (newPercentage > 100) {
+      newSeconds = Math.floor(myAudio.duration);
+    } else {
+      newSeconds = Math.floor(newPercentage / singleSecondProgressPercentage);
     }
 
-    const roundedNewPercentage = Math.round(newPercentage * 100 * 100) / 100;
-
-    const currentTimeString = prettyPrintSeconds(
-      Math.round((roundedNewPercentage / 100) * myAudio.duration)
-    );
-
-    setTime(currentTimeString);
+    const currentTimeString = prettyPrintSeconds(newSeconds);
+    const roundedNewPercentage = newSeconds * singleSecondProgressPercentage;
 
     cancelSeekCurrentTime.innerHTML = currentTimeString;
-    currentTime.innerHTML = currentTimeString;
-    progressBar.style.transform = `scaleX(${roundedNewPercentage}) translateY(-50%)`;
+    progressBar.style.left = `${roundedNewPercentage}%`;
     circleHolder.style.left = `${roundedNewPercentage}%`;
   };
 
@@ -225,50 +265,56 @@ export default function init() {
   }
 
   const cleanup = (e) => {
-    flag = false;
+    seeking = false;
     window.removeEventListener("pointermove", updatePosition);
     window.removeEventListener("pointerup", cleanup);
 
     try {
       if (cancelSeekIsPressed(e)) throw new Error("Seek cancelled");
     } catch (e) {
-      circle.classList.remove("display");
-      cancelSeek.classList.remove("display");
-      const newProgressPercentage =
-        Math.round((myAudio.currentTime / myAudio.duration) * 100 * 100) / 100;
-
-      currentTime.innerHTML = prettyPrintSeconds(myAudio.currentTime);
-      progressBar.style.transform = `scaleX(${newProgressPercentage}) translateY(-50%)`;
-      circleHolder.style.left = `${newProgressPercentage}%`;
-
+      currentTime.innerHTML = time.toString();
+      progressBar.style.left = `${currentProgressPercentage}%`;
+      circleHolder.style.left = `${currentProgressPercentage}%`;
       return;
     } finally {
       circle.classList.remove("display");
       cancelSeek.classList.remove("display");
     }
 
-    var clickPositionString = circleHolder.style.left;
-    var clickPosition = Number(clickPositionString.slice(0, -1)) / 100;
-    var clickTime = clickPosition * myAudio.duration;
-    var twoDecClickTime = Math.round(clickTime * 100) / 100;
+    const rawNewPercentage = Number(circleHolder.style.left.slice(0, -1));
+
+    const newSeconds = Math.floor(
+      rawNewPercentage / singleSecondProgressPercentage
+    );
+
+    currentProgressPercentage = newSeconds * singleSecondProgressPercentage;
+    currentSecond = newSeconds;
+    const newTime = prettyPrintSeconds(newSeconds);
+    setTime(newTime);
+
     // move the playhead to the correct position
-    myAudio.currentTime = twoDecClickTime;
+    myAudio.currentTime = newSeconds;
+    currentTime.innerHTML = time.toString();
+    progressBar.style.left = `${currentProgressPercentage}%`;
+    circleHolder.style.left = `${currentProgressPercentage}%`;
   };
 
-  barHolder.addEventListener("pointerdown", function (e) {
+  function handlePointerDown(e) {
     e.preventDefault();
     e.stopPropagation();
 
-    flag = true;
+    seeking = true;
     circle.classList.add("display");
     cancelSeek.classList.add("display");
     updatePosition(e);
 
     window.addEventListener("pointermove", updatePosition);
     window.addEventListener("pointerup", cleanup);
-  });
+  }
+
+  addEventListener(barHolder, "pointerdown", handlePointerDown);
 
   return () => {
-    playButton.removeEventListener("click", playOrPause);
+    removeAllEventListeners();
   };
 }

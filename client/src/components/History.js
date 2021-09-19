@@ -47,7 +47,7 @@ const History = ({ listHistory, history = [], cardProps }) => {
       <Cards
         {...{
           ...cardProps,
-          searchArray: filteredItems || [],
+          searchArray: (filteredItems || []).slice(0, 10),
         }}
       />
     </>
