@@ -17,7 +17,7 @@ const sendActivationEmail = async ({
     to: to, // Change to your recipient
     from: "vincentofthe@gmail.com", // Change to your verified sender
     subject: "Registration Email",
-    html: `<h4>In order to complete your registration, visit the link below:</h4><br/><a target="_blank" href="${url}">${url}</a>`,
+    html: `<h2 style="color: black;">In order to complete your registration, visit the link below:</h2><a target="_blank" href="${url}">${url}</a>`,
     text: `In order to complete your registration, visit the link below: \n ${url}`,
   };
 

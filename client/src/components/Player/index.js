@@ -12,7 +12,6 @@ const Player = ({ audioPlayer, currentlyPlaying }) => {
   return (
     <>
       {audioPlayer}
-
       <div id="player">
         <div className="playerInfo">
           {currentlyPlaying}
@@ -23,16 +22,6 @@ const Player = ({ audioPlayer, currentlyPlaying }) => {
             }}
           >
             <span id="currentTime">00:00</span>
-            {/* <div className="toggle720" style={{ display: "inline" }}>
-              <div
-                style={{
-                  height: "1px",
-                  width: "100%",
-                  backgroundColor: "black",
-                }}
-              />
-              <span> / </span>
-            </div> */}
             <span>/</span>
             <span id="duration">00:00</span>
           </div>

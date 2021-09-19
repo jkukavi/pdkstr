@@ -4,9 +4,7 @@ const { MongoClient } = require("mongodb");
 const prodUri = `mongodb+srv://podkaster:${process.env.MONGODB_PASS}@pkcluster.crvpn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 const localUri = "mongodb://192.168.5.11:27017";
 
-// const uri = process.env.NODE_ENV === "production" ? prodUri : localUri;
-
-const uri = prodUri;
+const uri = process.env.NODE_ENV === "production" ? prodUri : localUri;
 
 const client = new MongoClient(uri, {
   socketTimeoutMS: 1000,
