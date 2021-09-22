@@ -62,11 +62,12 @@ const Cards = ({
             bestAvatar,
             name,
             subscribers,
+            key,
           } = item;
 
           if (type === "video") {
             return (
-              <div className="card" key={i}>
+              <div className="card" key={key}>
                 <div
                   onClick={() => {
                     getDirectUrl(item);
@@ -187,7 +188,7 @@ const Cards = ({
 
           if (type === "channel") {
             return (
-              <div className="card channel" key={i}>
+              <div className="card channel" key={key}>
                 <p style={{ height: "0.4rem" }} className="desc title">
                   CHANNEL
                 </p>
@@ -230,7 +231,7 @@ const Cards = ({
 
           if (type === "playlist") {
             return (
-              <div className="card playlist" key={i}>
+              <div className="card playlist" key={key}>
                 <p style={{ height: "1rem" }} className="desc title">
                   PLAYLIST
                 </p>

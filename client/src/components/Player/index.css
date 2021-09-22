@@ -60,7 +60,7 @@ body {
 .bar {
   position: absolute;
   left: 0;
-  height: 4px;
+  height: 2px;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -100,8 +100,8 @@ body {
 
 #circleHolder {
   cursor: pointer;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
 
   position: absolute;
   z-index: 4;
@@ -140,11 +140,10 @@ body {
 
 #cancelSeek {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  background-color: #3dc92bd6;
-  transition: background-color 0.2s;
   border-radius: 4px;
   padding: 3px;
   box-shadow: 1px 1px 2px black;
@@ -157,12 +156,9 @@ body {
   display: none;
 }
 
-#cancelSeek:hover {
-  background-color: #ff3b48d6;
-}
-
-#cancelSeek:hover .button {
-  /* transform: scale(1.08); */
+#cancelSeek span {
+  z-index: 5;
+  pointer-events: none;
 }
 
 #cancelSeek .button {
@@ -173,6 +169,31 @@ body {
   border-radius: 50%;
   border: 1px solid black;
   box-shadow: 1px 1px 2px black;
+  z-index: 2;
+}
+
+#cancelSeek .dropOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background-color: #3dc92bd6;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+#cancelSeek:hover .dropOverlay {
+  background-color: #ff3b48d6;
+}
+
+#cancelSeek .dropOverlay:hover {
+  background-color: #3dc92bd6;
+}
+
+#cancelSeek.cancel .dropOverlay {
+  background-color: #ff3b48d6;
 }
 
 @media screen and (max-width: 720px) {
@@ -181,7 +202,11 @@ body {
   }
 
   #cancelSeek {
-    background-color: #ff3b48d6;
+    transition: none;
+  }
+
+  #cancelSeek span {
+    font-size: 1.2rem;
   }
 
   #cancelSeek .button {

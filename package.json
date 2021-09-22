@@ -32,6 +32,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.1.1",
     "request": "^2.88.2",
+    "uuid": "^8.3.2",
     "youtube-sr": "^4.1.7",
     "yt-channel-info": "^2.2.0",
     "ytdl-core": "^4.9.1",

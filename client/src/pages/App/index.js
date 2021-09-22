@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import qs from "query-string";
 
-import { storage } from "../../helpers/helpers";
+import { addRandomKey, storage } from "../../helpers/helpers";
 import {
   menu,
   paths,
@@ -84,7 +84,7 @@ function App() {
   const listHistory = async () => {
     try {
       const response = await axios.get("/users/my/history");
-      const fetchedHistory = response.data;
+      const fetchedHistory = response.data.map(addRandomKey);
       setHistory(fetchedHistory);
     } catch (e) {
       notify("Unable to fetch history");
@@ -94,7 +94,7 @@ function App() {
   const listFavourites = async () => {
     try {
       const response = await axios.get("/users/my/favourites");
-      const fetchedFavourites = response.data;
+      const fetchedFavourites = response.data.map(addRandomKey);
       setFavourites(fetchedFavourites);
     } catch (e) {
       notify("Unable to fetch history");
@@ -185,7 +185,7 @@ function App() {
         searchString: newSearchString || searchString,
       });
       const searchResultsArray = response.data.searchResultsArray;
-      setSearchArray(searchResultsArray);
+      setSearchArray(searchResultsArray.map(addRandomKey));
       setViewingChannel(false);
     } catch (e) {
     } finally {
@@ -243,7 +243,7 @@ function App() {
       });
       const searchResultsArray = response.data.searchResultsArray;
       setViewingChannel({ ...channelInfo, engine: item.engine });
-      setSearchArray(searchResultsArray);
+      setSearchArray(searchResultsArray.map(addRandomKey));
     } catch (e) {
     } finally {
       setArrayLoading(false);
@@ -284,7 +284,7 @@ function App() {
       });
       const searchResultsArray = response.data.searchResultsArray;
       setViewingChannel({ ...channelInfo, engine: item.engine });
-      setSearchArray(searchResultsArray);
+      setSearchArray(searchResultsArray.map(addRandomKey));
     } catch (e) {
     } finally {
       setArrayLoading(false);
@@ -330,7 +330,7 @@ function App() {
   const playPlaylist = async (playlist) => {
     try {
       const playlistItems = await getPlaylistItems(playlist);
-      setPlaylist(playlistItems);
+      setPlaylist(playlistItems.map(addRandomKey));
       setListeningTo(playlistItems[0]);
       getDirectUrl(playlistItems[0]);
     } catch (e) {
@@ -343,7 +343,7 @@ function App() {
       notify("Loading playlist...");
       const playlistItems = await getPlaylistItems(playlist);
       setBrowsingPlaylist({
-        items: playlistItems,
+        items: playlistItems.map(addRandomKey),
         info: playlist,
         expanded: true,
       });

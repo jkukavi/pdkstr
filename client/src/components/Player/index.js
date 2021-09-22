@@ -40,6 +40,7 @@ const Player = ({ audioPlayer, currentlyPlaying }) => {
                 <span className="currentTime">00:00</span>
                 <div className="button" />
                 <span className="duration">00:00</span>
+                <div className="dropOverlay"></div>
               </div>
             </div>
           </div>

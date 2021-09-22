@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 
 import { useLocation } from "react-router";
 
-import { debounce, throttle } from "../../helpers/helpers";
+import { addRandomKey, debounce, throttle } from "../../helpers/helpers";
 
 import recognizeAndStartSearch from "../../helpers/speechRecognition";
 import microphone from "../../icons/microphone.png";
@@ -86,7 +86,14 @@ const SearchBox = ({
       });
       const { suggestionsArray } = response.data;
       if (inputFocused) {
-        setSuggestions({ show: true, array: suggestionsArray });
+        setSuggestions({
+          show: true,
+          array: suggestionsArray
+            .map((string) => ({
+              string,
+            }))
+            .map(addRandomKey),
+        });
       }
     } catch (e) {
       notify("Something went wrong. Try again.");
@@ -173,8 +180,9 @@ const SearchBox = ({
                 />
                 {suggestions.show && !!suggestions.array.length && (
                   <div className="suggestionsContainer">
-                    {suggestions.array.map((suggestionString) => (
+                    {suggestions.array.map((suggestion) => (
                       <div
+                        key={suggestion.key}
                         className="suggestion"
                         onMouseDown={(e) => {
                           preventBlur = true;
@@ -182,11 +190,11 @@ const SearchBox = ({
                         onMouseUp={(e) => {
                           // eslint-disable-next-line no-unused-vars
                           preventBlur = false;
-                          setSearchString(suggestionString);
-                          searchYoutube(e, suggestionString);
+                          setSearchString(suggestion.string);
+                          searchYoutube(e, suggestion.string);
                         }}
                       >
-                        {suggestionString}
+                        {suggestion.string}
                       </div>
                     ))}
                   </div>

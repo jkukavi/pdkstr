@@ -230,11 +230,46 @@ export default function init() {
 
   addEventListener(myAudio, "progress", bufferBarUpdate);
 
+  let cancelSeekBoundingClientRect;
+  let isTouchingCancelSeek = false;
+
+  function setCancelSeekBoundingClientRect(clientRect) {
+    cancelSeekBoundingClientRect = {
+      top: Math.floor(clientRect.top),
+      bottom: Math.floor(clientRect.bottom),
+    };
+  }
+
+  function touchInsideCancelSeek(e) {
+    console.log(
+      cancelSeekBoundingClientRect.top,
+      e.clientY,
+      cancelSeekBoundingClientRect.bottom
+    );
+    if (
+      e.clientY > cancelSeekBoundingClientRect.top &&
+      e.clientY < cancelSeekBoundingClientRect.bottom
+    ) {
+      return true;
+    }
+    return false;
+  }
+
   const nonThrottledUpdatePosition = (e) => {
     let newPercentage =
       ((e.pageX - barHolder.offsetLeft) / barHolder.clientWidth) * 100;
 
     let newSeconds;
+
+    if (e.pointerType === "touch") {
+      if (touchInsideCancelSeek(e) && !isTouchingCancelSeek) {
+        isTouchingCancelSeek = true;
+        cancelSeek.classList.add("cancel");
+      } else if (!touchInsideCancelSeek(e) && isTouchingCancelSeek) {
+        isTouchingCancelSeek = false;
+        cancelSeek.classList.remove("cancel");
+      }
+    }
 
     if (newPercentage < 0) {
       newSeconds = 0;
@@ -306,6 +341,7 @@ export default function init() {
     seeking = true;
     circle.classList.add("display");
     cancelSeek.classList.add("display");
+    setCancelSeekBoundingClientRect(cancelSeekButton.getBoundingClientRect());
     updatePosition(e);
 
     window.addEventListener("pointermove", updatePosition);

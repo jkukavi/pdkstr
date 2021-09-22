@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid";
+
 const debounce = (func, wait) => {
   var timeout;
   return function (arg) {
@@ -10,6 +12,13 @@ const debounce = (func, wait) => {
     }, wait);
   };
 };
+
+function addRandomKey(item) {
+  return {
+    ...item,
+    key: uuidv4(),
+  };
+}
 
 function throttle(callback, limit) {
   let waiting = false;
@@ -63,4 +72,4 @@ const clean = (name) => {
 
 const storage = { get, add, clean };
 
-export { debounce, throttle, checkScroll, storage };
+export { debounce, throttle, checkScroll, storage, addRandomKey };

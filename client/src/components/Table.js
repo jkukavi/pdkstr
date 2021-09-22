@@ -54,6 +54,7 @@ const Table = ({
       <tbody>
         {tableArray?.map((video, index) => (
           <tr
+            key={video.key}
             className={`${listeningTo?.title === video.title ? "active" : ""}`}
             onClick={() => {
               getDirectUrl(video);
