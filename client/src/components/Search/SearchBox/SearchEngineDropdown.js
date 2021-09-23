@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-import chevron from "../../icons/chevron.png";
-import youtube from "../../icons/youtube.png";
-import soundcloud from "../../icons/soundcloud.png";
-import { searchEngines } from "../../consts";
+import chevron from "../../../icons/chevron.png";
+import youtube from "../../../icons/youtube.png";
+import soundcloud from "../../../icons/soundcloud.png";
+import { searchEngines } from "../../../consts";
 
 const SearchEngineDropdown = ({ searchEngine, setSearchEngine }) => {
   const [dropdown, setDropdown] = useState(false);

@@ -2,19 +2,19 @@ import React, { useState, useEffect, useCallback } from "react";
 
 import { useLocation } from "react-router";
 
-import { addRandomKey, debounce, throttle } from "../../helpers/helpers";
+import { addRandomKey, debounce, throttle } from "../../../helpers/helpers";
 
-import recognizeAndStartSearch from "../../helpers/speechRecognition";
-import microphone from "../../icons/microphone.png";
-import magnifier from "../../icons/magnifier.png";
-import chevron from "../../icons/chevron.png";
-import Notification from "../Notification";
+import recognizeAndStartSearch from "../../../helpers/speechRecognition";
+import microphone from "../../../icons/microphone.png";
+import magnifier from "../../../icons/magnifier.png";
+import chevron from "../../../icons/chevron.png";
+import Notification from "../../Notification";
 
-import { instance as axios } from "../../contexts/axiosInstance";
+import { instance as axios } from "../../../contexts/axiosInstance";
 
 import SearchEngineDropdown from "./SearchEngineDropdown";
 import UserDropdown from "./UserDropdown";
-import ChannelInfo from "../../components/ChannelInfo";
+import ChannelInfo from "../../ChannelInfo";
 
 let preventBlur = false;
 let inputFocused = false;

@@ -20,8 +20,7 @@ import "./App.css";
 
 import History from "../../components/History";
 import Favourites from "../../components/Favourites";
-import SearchBox from "../../components/SearchBox";
-import Cards from "../../components/Cards";
+import Search from "../../components/Search";
 import BottomMenu from "../../components/BottomMenu";
 import AudioShelf from "../../components/AudioShelf";
 import ShareAlert from "../../components/ShareAlert";
@@ -401,26 +400,6 @@ function App() {
             2
           )}
         </PrintScreen>
-        <SearchBox
-          scrollingDown={scrollingDown || location.pathname !== menu.SEARCH}
-          searchForm={searchForm}
-          setSearchEngine={setSearchEngine}
-          searchEngine={searchEngine}
-          searchYoutube={searchYoutube}
-          searchString={searchString}
-          input={input}
-          addToFavourites={addToFavourites}
-          setSuggestions={setSuggestions}
-          suggestions={suggestions}
-          preventBlur={preventBlur}
-          setSearchString={setSearchString}
-          startSearch={startSearch}
-          notify={notify}
-          notifications={notifications}
-          viewingChannel={viewingChannel}
-          getChannelItems={getChannelItems}
-          getChannelPlaylists={getChannelPlaylists}
-        />
         <Switch>
           <Route path="/history">
             <History
@@ -441,7 +420,27 @@ function App() {
             <Settings />
           </Route>
           <Route exact path="/">
-            <Cards {...cardProps} />
+            <Search
+              scrollingDown={scrollingDown || location.pathname !== menu.SEARCH}
+              searchForm={searchForm}
+              setSearchEngine={setSearchEngine}
+              searchEngine={searchEngine}
+              searchYoutube={searchYoutube}
+              searchString={searchString}
+              input={input}
+              addToFavourites={addToFavourites}
+              setSuggestions={setSuggestions}
+              suggestions={suggestions}
+              preventBlur={preventBlur}
+              setSearchString={setSearchString}
+              startSearch={startSearch}
+              notify={notify}
+              notifications={notifications}
+              viewingChannel={viewingChannel}
+              getChannelItems={getChannelItems}
+              getChannelPlaylists={getChannelPlaylists}
+              cardProps={cardProps}
+            />
           </Route>
           <Route path="/">
             <Redirect to="/"></Redirect>

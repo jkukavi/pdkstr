@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 
-import { useAuthContext } from "../../contexts/Auth";
+import { useAuthContext } from "../../../contexts/Auth";
 
-import chevron from "../../icons/chevron.png";
-import settings from "../../icons/settings.png";
-import powerOff from "../../icons/powerOff.png";
-import userIcon from "../../icons/userIcon.png";
+import chevron from "../../../icons/chevron.png";
+import settings from "../../../icons/settings.png";
+import powerOff from "../../../icons/powerOff.png";
+import userIcon from "../../../icons/userIcon.png";
 
 const SearchEngineDropdown = ({ notify }) => {
   const [dropdown, setDropdown] = useState(false);
