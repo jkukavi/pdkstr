@@ -48,33 +48,19 @@ function App() {
   const [listeningTo, setListeningTo] = useState(null);
   const [info, setInfo] = useState(null);
   const [scrollingDown, setScrollingDown] = useState(false);
+
+  //"data"
   const [history, setHistory] = useState(null);
   const [favourites, setFavourites] = useState(null);
 
+  //trigger for sharing
   const location = useLocation();
   const [alert, setAlert] = useState(qs.parse(location.search).id);
-
-  const audioPlayerRef = useRef();
   const searchHistory = useHistory();
 
   useEffect(() => {
     setScrollingDown(false);
   }, [location]);
-
-  const playNext = () => {
-    if (playlist.length !== 0) {
-      if (listeningTo) speak(`Item ${listeningTo.title.slice(0, 20)} ended`);
-      const playedIndex = playlist.findIndex(
-        (item) => item.title === listeningTo.title
-      );
-      const nextItem = playlist[playedIndex + 1];
-      if (nextItem) {
-        speak(`Playing ${nextItem.title.slice(0, 20)} next`);
-        setListeningTo(nextItem);
-        getDirectUrl(nextItem);
-      }
-    }
-  };
 
   const listHistory = async () => {
     try {
@@ -130,6 +116,52 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const getPlaylistItems = async (playlist) => {
+    const path = paths.playlistItems[playlist.engine];
+
+    const id = playlist.id;
+
+    try {
+      const response = await axios.post(path, {
+        id,
+      });
+      const { playlistItems } = response.data;
+      return playlistItems;
+    } catch (e) {
+      notify("Something went wrong. Try again.");
+    }
+  };
+
+  const browsePlaylist = async (playlist) => {
+    try {
+      notify("Loading playlist...");
+      const playlistItems = await getPlaylistItems(playlist);
+      setBrowsingPlaylist({
+        items: playlistItems.map(addRandomKey),
+        info: playlist,
+        expanded: true,
+      });
+    } catch (e) {
+      notify(
+        "Something went wrong with trying to fetch information about this playlist."
+      );
+    }
+  };
+
+  const getInfo = async ({ id, engine }) => {
+    const path = paths.trackInfo[engine];
+    try {
+      const response = await axios.post(path, {
+        id,
+      });
+      setInfo(response.data);
+    } catch (e) {
+      notify("Something went wrong. Try again.");
+    } finally {
+      setAudioLoading(false);
+    }
+  };
+
   const getDirectUrl = async ({ id, engine, url }) => {
     setDirectUrl(null);
     setAudioLoading(true);
@@ -149,33 +181,29 @@ function App() {
     }
   };
 
-  const getInfo = async ({ id, engine }) => {
-    const path = paths.trackInfo[engine];
+  const playPlaylist = async (playlist) => {
     try {
-      const response = await axios.post(path, {
-        id,
-      });
-      setInfo(response.data);
+      const playlistItems = await getPlaylistItems(playlist);
+      setPlaylist(playlistItems.map(addRandomKey));
+      setListeningTo(playlistItems[0]);
+      getDirectUrl(playlistItems[0]);
     } catch (e) {
-      notify("Something went wrong. Try again.");
-    } finally {
-      setAudioLoading(false);
+      notify("Something went wrong with trying to play this playlist.");
     }
   };
 
-  const getPlaylistItems = async (playlist) => {
-    const path = paths.playlistItems[playlist.engine];
-
-    const id = playlist.id;
-
-    try {
-      const response = await axios.post(path, {
-        id,
-      });
-      const { playlistItems } = response.data;
-      return playlistItems;
-    } catch (e) {
-      notify("Something went wrong. Try again.");
+  const playNext = () => {
+    if (playlist.length !== 0) {
+      if (listeningTo) speak(`Item ${listeningTo.title.slice(0, 20)} ended`);
+      const playedIndex = playlist.findIndex(
+        (item) => item.title === listeningTo.title
+      );
+      const nextItem = playlist[playedIndex + 1];
+      if (nextItem) {
+        speak(`Playing ${nextItem.title.slice(0, 20)} next`);
+        setListeningTo(nextItem);
+        getDirectUrl(nextItem);
+      }
     }
   };
 
@@ -191,33 +219,6 @@ function App() {
     }
     setPlaylist([...playlist, item]);
     notify("Added to playing queue");
-  };
-
-  const playPlaylist = async (playlist) => {
-    try {
-      const playlistItems = await getPlaylistItems(playlist);
-      setPlaylist(playlistItems.map(addRandomKey));
-      setListeningTo(playlistItems[0]);
-      getDirectUrl(playlistItems[0]);
-    } catch (e) {
-      notify("Something went wrong with trying to play this playlist.");
-    }
-  };
-
-  const browsePlaylist = async (playlist) => {
-    try {
-      notify("Loading playlist...");
-      const playlistItems = await getPlaylistItems(playlist);
-      setBrowsingPlaylist({
-        items: playlistItems.map(addRandomKey),
-        info: playlist,
-        expanded: true,
-      });
-    } catch (e) {
-      notify(
-        "Something went wrong with trying to fetch information about this playlist."
-      );
-    }
   };
 
   const closeBrowsingPlaylist = () => {
@@ -333,7 +334,6 @@ function App() {
           setListeningTo={setListeningTo}
           activeVideo={activeVideo}
           setActiveVideo={setActiveVideo}
-          audioPlayerRef={audioPlayerRef}
           getDirectUrl={getDirectUrl}
         />
 
