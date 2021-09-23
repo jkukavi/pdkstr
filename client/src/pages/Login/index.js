@@ -5,7 +5,7 @@ import Register from "./Register";
 import LoginForm from "./LoginForm";
 
 import { useAuthContext } from "../../contexts/Auth";
-import Notification from "../../components/Notification";
+import Notifications from "../../components/Notifications";
 
 const LoginPage = () => {
   const [notifications, setNotifications] = useState([]);
@@ -56,11 +56,7 @@ const LoginPage = () => {
 
   return (
     <div className="loginPageContainer">
-      <div style={{ position: "absolute", top: 0, left: 0 }}>
-        {notifications.map((notification) => (
-          <Notification notification={notification} />
-        ))}
-      </div>
+      <Notifications notifications={notifications} />
       <div className="loginFormContainer">
         <Switch>
           <Route path="/login/register">

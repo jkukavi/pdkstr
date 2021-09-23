@@ -27,6 +27,7 @@ import ShareAlert from "../../components/ShareAlert";
 import PrintScreen from "../../components/PrintScreen";
 import PlaylistSidebar from "../../components/PlaylistSideBar";
 import Settings from "./Settings";
+import Notifications from "../../components/Notifications";
 
 import { instance as axios } from "../../contexts/axiosInstance";
 
@@ -37,7 +38,6 @@ function App() {
   const [audioLoading, setAudioLoading] = useState(false);
   const [arrayLoading, setArrayLoading] = useState(false);
   const [expanded, setExpanded] = useState(false);
-  const [searchString, setSearchString] = useState("");
   const [searchArray, setSearchArray] = useState([]);
   const [viewingChannel, setViewingChannel] = useState(false);
   const [notifications, setNotifications] = useState([]);
@@ -49,11 +49,9 @@ function App() {
   const [activeVideo, setActiveVideo] = useState(null);
   const [listeningTo, setListeningTo] = useState(null);
   const [info, setInfo] = useState(null);
-  const [suggestions, setSuggestions] = useState({ show: false, array: [] });
   const [scrollingDown, setScrollingDown] = useState(false);
   const [history, setHistory] = useState(null);
   const [favourites, setFavourites] = useState(null);
-  const [searchEngine, setSearchEngine] = useState(searchEngines.YT);
 
   const location = useLocation();
   const [alert, setAlert] = useState(qs.parse(location.search));
@@ -165,30 +163,6 @@ function App() {
       notify("Something went wrong. Try again.");
     } finally {
       setAudioLoading(false);
-    }
-  };
-
-  const searchYoutube = async (event, newSearchString) => {
-    if (event?.preventDefault) event.preventDefault();
-    if (!searchString && !newSearchString) {
-      return;
-    }
-    setSearchArray([]);
-    setSuggestions({ ...suggestions, show: false });
-    setArrayLoading(true);
-    setViewingChannel(false);
-    console.log(searchString);
-    const url = paths.search[searchEngine];
-    try {
-      const response = await axios.post(url, {
-        searchString: newSearchString || searchString,
-      });
-      const searchResultsArray = response.data.searchResultsArray;
-      setSearchArray(searchResultsArray.map(addRandomKey));
-      setViewingChannel(false);
-    } catch (e) {
-    } finally {
-      setArrayLoading(false);
     }
   };
 
@@ -361,14 +335,6 @@ function App() {
     setNotifications((notifications) => [...notifications, newNotification]);
   };
 
-  const input = useRef();
-  const searchForm = useRef();
-
-  const startSearch = (recognizedString) => {
-    setSearchString(recognizedString);
-    searchYoutube(null, recognizedString);
-  };
-
   const cardProps = {
     arrayLoading,
     searchArray,
@@ -400,6 +366,7 @@ function App() {
             2
           )}
         </PrintScreen>
+        <Notifications notifications={notifications} />
         <Switch>
           <Route path="/history">
             <History
@@ -422,18 +389,11 @@ function App() {
           <Route exact path="/">
             <Search
               scrollingDown={scrollingDown || location.pathname !== menu.SEARCH}
-              searchForm={searchForm}
-              setSearchEngine={setSearchEngine}
-              searchEngine={searchEngine}
-              searchYoutube={searchYoutube}
-              searchString={searchString}
-              input={input}
+              setSearchArray={setSearchArray}
+              setArrayLoading={setArrayLoading}
+              setViewingChannel={setViewingChannel}
               addToFavourites={addToFavourites}
-              setSuggestions={setSuggestions}
-              suggestions={suggestions}
               preventBlur={preventBlur}
-              setSearchString={setSearchString}
-              startSearch={startSearch}
               notify={notify}
               notifications={notifications}
               viewingChannel={viewingChannel}
@@ -447,23 +407,25 @@ function App() {
           </Route>
         </Switch>
 
-        <PlaylistSidebar
-          browsingPlaylist={browsingPlaylist}
-          playPlaylist={playPlaylist}
-          closeBrowsingPlaylist={closeBrowsingPlaylist}
-          tableFunctions={{
-            tableArray: browsingPlaylist.items,
-            tableTitle: "Playlist: " + browsingPlaylist.info?.title,
-            notify: notify,
-            deleteAll: deleteAll("history"),
-            listeningTo: listeningTo,
-            activeVideo: activeVideo,
-            getDirectUrl,
-            setActiveVideo,
-            setListeningTo,
-            getViewsString,
-          }}
-        />
+        {browsingPlaylist && (
+          <PlaylistSidebar
+            browsingPlaylist={browsingPlaylist}
+            playPlaylist={playPlaylist}
+            closeBrowsingPlaylist={closeBrowsingPlaylist}
+            tableFunctions={{
+              tableArray: browsingPlaylist.items,
+              tableTitle: "Playlist: " + browsingPlaylist.info?.title,
+              notify: notify,
+              deleteAll: deleteAll("history"),
+              listeningTo: listeningTo,
+              activeVideo: activeVideo,
+              getDirectUrl,
+              setActiveVideo,
+              setListeningTo,
+              getViewsString,
+            }}
+          />
+        )}
 
         {!!location.search && (
           <ShareAlert

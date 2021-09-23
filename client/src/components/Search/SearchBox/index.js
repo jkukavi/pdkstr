@@ -1,14 +1,15 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 
 import { useLocation } from "react-router";
 
 import { addRandomKey, debounce, throttle } from "../../../helpers/helpers";
 
+import { paths, searchEngines } from "../../../consts/index.js";
+
 import recognizeAndStartSearch from "../../../helpers/speechRecognition";
 import microphone from "../../../icons/microphone.png";
 import magnifier from "../../../icons/magnifier.png";
 import chevron from "../../../icons/chevron.png";
-import Notification from "../../Notification";
 
 import { instance as axios } from "../../../contexts/axiosInstance";
 
@@ -16,23 +17,12 @@ import SearchEngineDropdown from "./SearchEngineDropdown";
 import UserDropdown from "./UserDropdown";
 import ChannelInfo from "../../ChannelInfo";
 
-let preventBlur = false;
-let inputFocused = false;
-
 const SearchBox = ({
   addToFavourites,
   scrollingDown,
-  searchEngine,
-  setSearchEngine,
-  searchForm,
-  searchYoutube,
-  searchString,
-  input,
-  setSuggestions,
-  suggestions,
-  setSearchString,
-  startSearch,
-  notifications,
+  setSearchArray,
+  setArrayLoading,
+  setViewingChannel,
   notify,
   viewingChannel,
   getChannelItems,
@@ -41,21 +31,38 @@ const SearchBox = ({
   const location = useLocation();
   const [showInput, setShowInput] = useState(false);
   const [smallScreen, setSmallScreen] = useState(window.innerWidth < 600);
+  const [searchEngine, setSearchEngine] = useState(searchEngines.YT);
 
+  const searchYoutube = async (event, newSearchString) => {
+    const searchString = newSearchString || event.target.searchString.value;
+
+    if (event?.preventDefault) event.preventDefault();
+    if (!searchString && !newSearchString) {
+      return;
+    }
+    setSearchArray([]);
+    setArrayLoading(true);
+    setViewingChannel(false);
+    console.log(searchString);
+    const url = paths.search[searchEngine];
+    try {
+      const response = await axios.post(url, {
+        searchString,
+      });
+      const searchResultsArray = response.data.searchResultsArray;
+      setSearchArray(searchResultsArray.map(addRandomKey));
+      setViewingChannel(false);
+    } catch (e) {
+    } finally {
+      setArrayLoading(false);
+    }
+  };
+
+  const startSearch = (recognizedString) => {
+    document.getElementById("searchInput").value = recognizedString;
+    searchYoutube(null, recognizedString);
+  };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => {
-    const blurHandler = () => {
-      if (preventBlur) {
-        preventBlur = false;
-        setSuggestions((suggestions) => ({ ...suggestions, show: false }));
-      }
-    };
-
-    window.addEventListener("mouseup", blurHandler);
-
-    return window.removeEventListener("mouseup", blurHandler);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [setSuggestions]);
 
   useEffect(() => {
     const checkResize = () => {
@@ -75,42 +82,6 @@ const SearchBox = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [smallScreen, setSmallScreen]);
 
-  const getSuggestions = async (string) => {
-    if (!string) {
-      setSuggestions({ show: false, array: [] });
-      return;
-    }
-    try {
-      const response = await axios.post(`/suggestions/${searchEngine}`, {
-        searchString: string,
-      });
-      const { suggestionsArray } = response.data;
-      if (inputFocused) {
-        setSuggestions({
-          show: true,
-          array: suggestionsArray
-            .map((string) => ({
-              string,
-            }))
-            .map(addRandomKey),
-        });
-      }
-    } catch (e) {
-      notify("Something went wrong. Try again.");
-    } finally {
-    }
-  };
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const debouncedGetSuggestions = useCallback(debounce(getSuggestions, 200), [
-    searchEngine,
-  ]);
-
-  const handleInput = (e) => {
-    setSearchString(e.target.value);
-    debouncedGetSuggestions(e.target.value.toString());
-  };
-
   const viewingSearch = location.pathname === "/";
   const collapsedClassName =
     viewingChannel && !viewingSearch ? "collapsed2x" : "collapsed";
@@ -123,6 +94,8 @@ const SearchBox = ({
     setShowInput(false);
   };
 
+  const searchForm = useRef();
+
   return (
     <div className="searchBoxFixedContainer">
       <div
@@ -130,16 +103,14 @@ const SearchBox = ({
           scrollingDown ? collapsedClassName : ""
         }`}
       >
-        <div className="notificationsContainer">
-          {notifications.map((notification) => (
-            <Notification notification={notification} />
-          ))}
-        </div>
         <form
           className="searchBox"
           name="searchForm"
+          id="searchForm"
           ref={searchForm}
+          autoComplete="off"
           onSubmit={(e) => {
+            e.preventDefault();
             searchYoutube(e);
             document.activeElement?.blur();
           }}
@@ -161,45 +132,11 @@ const SearchBox = ({
                 </button>
               )}
 
-              <div className="inputHolder">
-                <input
-                  className="input"
-                  value={searchString}
-                  placeholder={"Search"}
-                  onChange={handleInput}
-                  ref={input}
-                  onFocus={() => {
-                    inputFocused = true;
-                    setSuggestions({ ...suggestions, show: true });
-                  }}
-                  onBlur={() => {
-                    inputFocused = false;
-                    if (!preventBlur)
-                      setSuggestions({ ...suggestions, show: false });
-                  }}
-                />
-                {suggestions.show && !!suggestions.array.length && (
-                  <div className="suggestionsContainer">
-                    {suggestions.array.map((suggestion) => (
-                      <div
-                        key={suggestion.key}
-                        className="suggestion"
-                        onMouseDown={(e) => {
-                          preventBlur = true;
-                        }}
-                        onMouseUp={(e) => {
-                          // eslint-disable-next-line no-unused-vars
-                          preventBlur = false;
-                          setSearchString(suggestion.string);
-                          searchYoutube(e, suggestion.string);
-                        }}
-                      >
-                        {suggestion.string}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
+              <InputWithSuggestions
+                searchEngine={searchEngine}
+                notify={notify}
+                searchForm={searchForm}
+              />
               <button className="button search" type="submit">
                 <img src={magnifier} alt="alt" />
               </button>
@@ -258,3 +195,109 @@ const SearchBox = ({
 };
 
 export default SearchBox;
+
+let preventBlur = false;
+let inputFocused = false;
+
+const InputWithSuggestions = ({ searchEngine, notify, searchForm }) => {
+  const [suggestions, setSuggestions] = useState({ show: false, array: [] });
+
+  useEffect(() => {
+    function blurHandler() {
+      if (preventBlur) {
+        console.log("preventBlu");
+        preventBlur = false;
+        setSuggestions((suggestions) => ({ ...suggestions, show: false }));
+      }
+    }
+
+    window.addEventListener("mouseup", blurHandler);
+
+    return () => window.removeEventListener("mouseup", blurHandler);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleInput = (e) => {
+    debouncedGetSuggestions(e.target.value.toString());
+  };
+
+  const getSuggestions = async (string) => {
+    if (!string) {
+      setSuggestions({ show: false, array: [] });
+      return;
+    }
+    try {
+      const response = await axios.post(`/suggestions/${searchEngine}`, {
+        searchString: string,
+      });
+      const { suggestionsArray } = response.data;
+      if (inputFocused) {
+        setSuggestions({
+          show: true,
+          array: suggestionsArray
+            .map((string) => ({
+              string,
+            }))
+            .map(addRandomKey),
+        });
+      }
+    } catch (e) {
+      notify("Something went wrong. Try again.");
+    } finally {
+    }
+  };
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const debouncedGetSuggestions = useCallback(debounce(getSuggestions, 200), [
+    searchEngine,
+  ]);
+
+  const submitSuggestion = (e) => {
+    // eslint-disable-next-line no-unused-vars
+    preventBlur = false;
+    document.getElementById("searchInput").value = e.target.innerText;
+    searchForm.current.dispatchEvent(
+      new Event("submit", { cancelable: true, bubbles: true })
+    );
+    setSuggestions({ ...suggestions, show: false });
+  };
+
+  const onMouseDownSuggestion = (e) => {
+    preventBlur = true;
+  };
+
+  return (
+    <div className="inputHolder">
+      <input
+        className="input"
+        name="searchString"
+        id="searchInput"
+        placeholder={"Search"}
+        onChange={handleInput}
+        onFocus={() => {
+          inputFocused = true;
+          setSuggestions({ ...suggestions, show: true });
+        }}
+        onBlur={() => {
+          inputFocused = false;
+          if (!preventBlur) setSuggestions({ ...suggestions, show: false });
+        }}
+      />
+      {suggestions.show && !!suggestions.array.length && (
+        <div className="suggestionsContainer">
+          {suggestions.array.map((suggestion) => (
+            <div
+              key={suggestion.key}
+              className="suggestion"
+              onMouseDown={onMouseDownSuggestion}
+              onMouseUp={submitSuggestion}
+              value={suggestion.string}
+            >
+              {suggestion.string}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
