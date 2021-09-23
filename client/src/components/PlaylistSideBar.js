@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 
 import Table from "./Table";
@@ -11,6 +11,8 @@ const PlaylistSidebar = ({
   playPlaylist,
   closeBrowsingPlaylist,
 }) => {
+  const [show, setShow] = useState(false);
+
   const controls = (
     <>
       <div
@@ -51,24 +53,27 @@ const PlaylistSidebar = ({
 
   useEffect(() => {
     if (browsingPlaylist.expanded) {
+      setShow(true);
       setTimeout(() => {
         document.getElementById("root").classList.add("blurredAndOverlayed");
-        document.getElementById("hell").classList.add("highlighted");
       }, 600);
-    } else {
+    } else if (show) {
+      setShow(false);
       document.getElementById("root").classList.remove("blurredAndOverlayed");
-      document.getElementById("hell").classList.remove("highlighted");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [browsingPlaylist.expanded]);
+
+  if (!browsingPlaylist.expanded) {
+    return null;
+  }
 
   return (
     <>
       {ReactDOM.createPortal(
         <div
           id="hell"
-          className={`playlistSidebarContainer ${
-            browsingPlaylist.expanded ? "expanded" : ""
-          }`}
+          className={`playlistSidebarContainer ${show ? "expanded" : ""}`}
         >
           <div style={{ position: "relative" }}>
             <Table controls={controls} {...tableFunctions} />

@@ -10,7 +10,6 @@ import qs from "query-string";
 
 import { addRandomKey, storage } from "../../helpers/helpers";
 import {
-  menu,
   paths,
   searchEngines,
   searchEnginesByShortcut,
@@ -388,7 +387,7 @@ function App() {
           </Route>
           <Route exact path="/">
             <Search
-              scrollingDown={scrollingDown || location.pathname !== menu.SEARCH}
+              scrollingDown={scrollingDown}
               setSearchArray={setSearchArray}
               setArrayLoading={setArrayLoading}
               setViewingChannel={setViewingChannel}
@@ -407,25 +406,23 @@ function App() {
           </Route>
         </Switch>
 
-        {browsingPlaylist && (
-          <PlaylistSidebar
-            browsingPlaylist={browsingPlaylist}
-            playPlaylist={playPlaylist}
-            closeBrowsingPlaylist={closeBrowsingPlaylist}
-            tableFunctions={{
-              tableArray: browsingPlaylist.items,
-              tableTitle: "Playlist: " + browsingPlaylist.info?.title,
-              notify: notify,
-              deleteAll: deleteAll("history"),
-              listeningTo: listeningTo,
-              activeVideo: activeVideo,
-              getDirectUrl,
-              setActiveVideo,
-              setListeningTo,
-              getViewsString,
-            }}
-          />
-        )}
+        <PlaylistSidebar
+          browsingPlaylist={browsingPlaylist}
+          playPlaylist={playPlaylist}
+          closeBrowsingPlaylist={closeBrowsingPlaylist}
+          tableFunctions={{
+            tableArray: browsingPlaylist.items,
+            tableTitle: "Playlist: " + browsingPlaylist.info?.title,
+            notify: notify,
+            deleteAll: deleteAll("history"),
+            listeningTo: listeningTo,
+            activeVideo: activeVideo,
+            getDirectUrl,
+            setActiveVideo,
+            setListeningTo,
+            getViewsString,
+          }}
+        />
 
         {!!location.search && (
           <ShareAlert
