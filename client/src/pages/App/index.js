@@ -35,10 +35,9 @@ let preventBlur = false;
 function App() {
   const [directUrl, setDirectUrl] = useState(null);
   const [audioLoading, setAudioLoading] = useState(false);
-  const [arrayLoading, setArrayLoading] = useState(false);
+
   const [expanded, setExpanded] = useState(false);
-  const [searchArray, setSearchArray] = useState([]);
-  const [viewingChannel, setViewingChannel] = useState(false);
+
   const [notifications, setNotifications] = useState([]);
   const [playlist, setPlaylist] = useState([]);
   const [browsingPlaylist, setBrowsingPlaylist] = useState({
@@ -53,7 +52,7 @@ function App() {
   const [favourites, setFavourites] = useState(null);
 
   const location = useLocation();
-  const [alert, setAlert] = useState(qs.parse(location.search));
+  const [alert, setAlert] = useState(qs.parse(location.search).id);
 
   const audioPlayerRef = useRef();
   const searchHistory = useHistory();
@@ -121,10 +120,9 @@ function App() {
   };
 
   useEffect(() => {
-    if (!!location.search) {
-      const [sharedEngineShortcut, sharedId] = qs
-        .parse(location.search)
-        .id.split(".");
+    const queryString = qs.parse(location.search);
+    if (queryString.id) {
+      const [sharedEngineShortcut, sharedId] = queryString.id.split(".");
 
       const sharedEngine = searchEnginesByShortcut[sharedEngineShortcut];
       getInfo({ id: sharedId, engine: sharedEngine });
@@ -181,88 +179,6 @@ function App() {
     }
   };
 
-  const getChannelItems = async (item) => {
-    setSearchArray([]);
-    setArrayLoading(true);
-
-    const path = paths.channelItems[item.engine];
-
-    const channelId = {
-      [searchEngines.YT]: (type) =>
-        ({
-          channel: item.channelID,
-          [undefined]: item.channelID,
-          video: item.author?.channelID,
-        }[type]),
-      [searchEngines.SC]: (type) =>
-        ({ [undefined]: item.id, video: item.author?.id }[type]),
-    }[item.engine](item.type);
-
-    const channelInfo = {
-      [searchEngines.YT]: (type) =>
-        ({
-          channel: item,
-          [undefined]: item,
-          video: item.author,
-        }[type]),
-      [searchEngines.SC]: (type) =>
-        ({ [undefined]: item, video: item.author }[type]),
-    }[item.engine](item.type);
-
-    try {
-      const response = await axios.post(path, {
-        channelId,
-      });
-      const searchResultsArray = response.data.searchResultsArray;
-      setViewingChannel({ ...channelInfo, engine: item.engine });
-      setSearchArray(searchResultsArray.map(addRandomKey));
-    } catch (e) {
-    } finally {
-      setArrayLoading(false);
-    }
-  };
-
-  const getChannelPlaylists = async (item) => {
-    setSearchArray([]);
-    setArrayLoading(true);
-
-    const path = paths.channelPlaylists[item.engine];
-
-    const channelId = {
-      [searchEngines.YT]: (type) =>
-        ({
-          channel: item.channelID,
-          [undefined]: item.channelID,
-          video: item.author?.channelID,
-        }[type]),
-      [searchEngines.SC]: (type) =>
-        ({ [undefined]: item.id, video: item.author?.id }[type]),
-    }[item.engine](item.type);
-
-    const channelInfo = {
-      [searchEngines.YT]: (type) =>
-        ({
-          channel: item,
-          [undefined]: item,
-          video: item.author,
-        }[type]),
-      [searchEngines.SC]: (type) =>
-        ({ [undefined]: item, video: item.author }[type]),
-    }[item.engine](item.type);
-
-    try {
-      const response = await axios.post(path, {
-        channelId,
-      });
-      const searchResultsArray = response.data.searchResultsArray;
-      setViewingChannel({ ...channelInfo, engine: item.engine });
-      setSearchArray(searchResultsArray.map(addRandomKey));
-    } catch (e) {
-    } finally {
-      setArrayLoading(false);
-    }
-  };
-
   const addToQueue = (item) => {
     if (playlist.length === 0) {
       getDirectUrl(item);
@@ -313,11 +229,7 @@ function App() {
   };
 
   const cardProps = {
-    arrayLoading,
-    searchArray,
-    viewingChannel,
     getDirectUrl,
-    getChannelItems,
     playPlaylist,
     browsePlaylist,
     setActiveVideo,
@@ -365,16 +277,10 @@ function App() {
           <Route exact path="/">
             <Search
               scrollingDown={scrollingDown}
-              setSearchArray={setSearchArray}
-              setArrayLoading={setArrayLoading}
-              setViewingChannel={setViewingChannel}
               addToFavourites={addToFavourites}
               preventBlur={preventBlur}
               notify={notify}
               notifications={notifications}
-              viewingChannel={viewingChannel}
-              getChannelItems={getChannelItems}
-              getChannelPlaylists={getChannelPlaylists}
               cardProps={cardProps}
             />
           </Route>

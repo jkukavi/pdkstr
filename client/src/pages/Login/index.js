@@ -27,7 +27,6 @@ const LoginPage = () => {
   const tryReestablishingSession = async () => {
     try {
       await reestablishSession();
-      goBack();
     } catch (e) {
       setLoading(false);
     }
@@ -41,7 +40,7 @@ const LoginPage = () => {
   }, []);
 
   if (!!user) {
-    history.replace("/");
+    goBack();
   }
 
   if (loading && user === null) {
