@@ -2,6 +2,8 @@ import React from "react";
 
 import copyToClipboard from "../helpers/copyToClipboard";
 
+import { getViewsString } from "../helpers/helpers";
+
 import Table from "./Table";
 import Player from "./Player";
 
@@ -15,8 +17,6 @@ import share from "../icons/share.png";
 import playingQueue from "../icons/playingQueue.png";
 import chevron from "../icons/chevron.png";
 import { SearchEngineIcon, searchEngineShortcuts } from "../consts/index.js";
-
-// import bla from "./Player/bla.mp3";
 
 const AudioShelf = ({
   directUrl,
@@ -32,8 +32,6 @@ const AudioShelf = ({
   activeVideo,
   setActiveVideo,
   setPlaylist,
-  getViewsString,
-  audioPlayerRef,
   getDirectUrl,
 }) => {
   const onAudioEnded = () => {

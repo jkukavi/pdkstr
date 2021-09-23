@@ -20,6 +20,28 @@ function addRandomKey(item) {
   };
 }
 
+const rounded = (num) => Math.round((num + Number.EPSILON) * 100) / 100;
+
+function getViewsString(stringNumber) {
+  const num = Number(stringNumber);
+  const million = 1000 * 1000;
+  const thousand = 1000;
+  const billion = 1000 * 1000 * 1000;
+
+  if (num > billion) {
+    const billions = rounded(num / billion);
+    return `${billions}B`;
+  } else if (num > million) {
+    const millions = rounded(num / million);
+    return `${millions}M`;
+  } else if (num > thousand) {
+    const thousands = rounded(num / thousand);
+    return `${thousands}K`;
+  } else {
+    return num;
+  }
+}
+
 function throttle(callback, limit) {
   let waiting = false;
   let finalTimeout = false;
@@ -72,4 +94,11 @@ const clean = (name) => {
 
 const storage = { get, add, clean };
 
-export { debounce, throttle, checkScroll, storage, addRandomKey };
+export {
+  debounce,
+  throttle,
+  checkScroll,
+  storage,
+  addRandomKey,
+  getViewsString,
+};

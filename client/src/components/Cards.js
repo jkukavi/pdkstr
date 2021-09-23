@@ -6,7 +6,7 @@ import star from "../icons/star.png";
 import playButtonThumbnail from "../icons/playButtonThumbnail.svg";
 import { SearchEngineIcon } from "../consts/index.js";
 
-import { throttle, checkScroll } from "../helpers/helpers";
+import { throttle, checkScroll, getViewsString } from "../helpers/helpers";
 
 const defaultPuppyImg =
   "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*";
@@ -28,7 +28,6 @@ const Cards = ({
   addToFavourites,
   notify,
   addToQueue,
-  getViewsString,
   channelClickAction,
 }) => {
   useEffect(() => {

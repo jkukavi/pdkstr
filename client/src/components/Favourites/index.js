@@ -19,7 +19,7 @@ const Favourites = ({ listFavourites, favourites = [], cardProps }) => {
   const history = useHistory();
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(listFavourites, []);
+  useEffect(() => listFavourites, []);
 
   const [inputDroppedDown, setInputDroppedDown] = useState(false);
   const [filter, setFilter] = useState(filters.TRACKS);
