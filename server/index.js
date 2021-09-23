@@ -5,9 +5,10 @@ const path = require("path");
 
 const { CSPPolicies } = require("./consts");
 const authRouter = require("./routers/authRouter");
-const auth = require("./auth");
+const { auth, proxyAuth } = require("./auth");
 const mainRouter = require("./routers/mainRouter");
 const usersRouter = require("./routers/usersRouter");
+const proxyRouter = require("./routers/proxyRouter");
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.use(authRouter);
 // auth on every endpoint (besides previous logins/registration)
 app.use("/api/users/", auth, usersRouter);
 app.use("/api", auth, mainRouter);
+app.use("/proxy", proxyAuth, proxyRouter);
 
 //redirect to client
 app.use("*", (req, res) => {

@@ -42,6 +42,14 @@ router.post("/login", async (req, res) => {
     };
     res.cookie("rt", refreshToken, options); // options is optional
 
+    let audioCookieOptions = {
+      httpOnly: true, // The cookie only accessible by the web server
+      path: "/proxy",
+      sameSite: "strict",
+    };
+
+    res.cookie("ac", process.env.AUDIO_COOKIE, audioCookieOptions);
+
     res.status(200).json({ username: user.username, token });
   } catch (e) {
     res.status(401).send();

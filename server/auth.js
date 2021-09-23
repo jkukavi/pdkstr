@@ -11,4 +11,14 @@ const auth = async (req, res, next) => {
   }
 };
 
-module.exports = auth;
+const proxyAuth = (req, res, next) => {
+  const audioCookie = req.cookies.ac;
+
+  if (audioCookie === process.env.AUDIO_COOKIE) {
+    next();
+  } else {
+    res.status(401).send({ error: "You need to authenticate." });
+  }
+};
+
+module.exports = { auth, proxyAuth };
