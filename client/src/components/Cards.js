@@ -17,7 +17,7 @@ const Cards = ({
   searchArray,
   arrayLoading,
   viewingChannel,
-  getChannelItems,
+  loadChannelItems,
   addToHistory,
   addToFavourites,
   notify,
@@ -105,7 +105,7 @@ const Cards = ({
                           <div
                             className="authorThumbnail"
                             onClick={(event) => {
-                              getChannelItems(item);
+                              loadChannelItems(item);
                             }}
                             style={{
                               backgroundImage: `url(${
@@ -180,7 +180,7 @@ const Cards = ({
                 <div
                   className="thumbnail"
                   onClick={() => {
-                    getChannelItems(item);
+                    loadChannelItems(item);
                     if (channelClickAction) channelClickAction();
                   }}
                 >

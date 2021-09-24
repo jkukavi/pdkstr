@@ -20,10 +20,8 @@ export const getPlaylistItems = async (playlist) => {
   }
 };
 
-export const getChannelPlaylists = async (item) => {
-  const path = paths.channelPlaylists[item.engine];
-
-  const channelId = {
+const getChannelIdFromPlaylist = (item) => {
+  return {
     [searchEngines.YT]: (type) =>
       ({
         channel: item.channelID,
@@ -33,8 +31,10 @@ export const getChannelPlaylists = async (item) => {
     [searchEngines.SC]: (type) =>
       ({ [undefined]: item.id, video: item.author?.id }[type]),
   }[item.engine](item.type);
+};
 
-  const channelInfo = {
+const getChannelInfoFromPlaylist = (item) => {
+  return {
     [searchEngines.YT]: (type) =>
       ({
         channel: item,
@@ -44,6 +44,13 @@ export const getChannelPlaylists = async (item) => {
     [searchEngines.SC]: (type) =>
       ({ [undefined]: item, video: item.author }[type]),
   }[item.engine](item.type);
+};
+
+export const getChannelPlaylists = async (item) => {
+  const path = paths.channelPlaylists[item.engine];
+
+  const channelId = getChannelIdFromPlaylist(item);
+  const channelInfo = getChannelInfoFromPlaylist(item);
 
   const response = await axios.post(path, {
     channelId,
@@ -53,6 +60,65 @@ export const getChannelPlaylists = async (item) => {
 
   return {
     channelInfo: { ...channelInfo, engine: item.engine },
+    searchResultsArray,
+  };
+};
+
+const channelIdFromItem = (item) => {
+  return {
+    [searchEngines.YT]: (type) =>
+      ({
+        channel: item.channelID,
+        [undefined]: item.channelID,
+        video: item.author?.channelID,
+      }[type]),
+    [searchEngines.SC]: (type) =>
+      ({ [undefined]: item.id, video: item.author?.id }[type]),
+  }[item.engine](item.type);
+};
+
+const channelInfoFromItem = (item) => {
+  return {
+    [searchEngines.YT]: (type) =>
+      ({
+        channel: item,
+        [undefined]: item,
+        video: item.author,
+      }[type]),
+    [searchEngines.SC]: (type) =>
+      ({ [undefined]: item, video: item.author }[type]),
+  }[item.engine](item.type);
+};
+
+export const getChannelItems = async (item) => {
+  const path = paths.channelItems[item.engine];
+
+  const channelId = channelIdFromItem(item);
+  const channelInfo = channelInfoFromItem(item);
+
+  const response = await axios.post(path, {
+    channelId,
+  });
+  const searchResultsArray = response.data.searchResultsArray.map(addRandomKey);
+
+  return {
+    channelId,
+    channelInfo: { ...channelInfo, engine: item.engine },
+    searchResultsArray,
+  };
+};
+
+export const getChannelItemsFromId = async (channelId, engine) => {
+  const path = paths.channelItems[engine];
+
+  const response = await axios.post(path, {
+    channelId,
+  });
+  const searchResultsArray = response.data.searchResultsArray.map(addRandomKey);
+  const channelInfo = channelInfoFromItem(searchResultsArray[0]);
+
+  return {
+    channelInfo: { ...channelInfo, engine },
     searchResultsArray,
   };
 };

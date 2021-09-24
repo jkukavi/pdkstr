@@ -25,8 +25,8 @@ const SearchBox = ({
   setViewingChannel,
   notify,
   viewingChannel,
-  getChannelItems,
-  getChannelPlaylists,
+  loadChannelItems,
+  loadChannelPlaylists,
 }) => {
   const location = useLocation();
   const scrollingDown = useScrollingDownContext("cardContainer");
@@ -185,8 +185,8 @@ const SearchBox = ({
         {viewingChannel && (
           <ChannelInfo
             channelInfo={viewingChannel}
-            getChannelItems={getChannelItems}
-            getChannelPlaylists={getChannelPlaylists}
+            loadChannelItems={loadChannelItems}
+            loadChannelPlaylists={loadChannelPlaylists}
             addToFavourites={addToFavourites}
           />
         )}

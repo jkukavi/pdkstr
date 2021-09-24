@@ -5,14 +5,14 @@ import { useLocation, useHistory } from "react-router";
 import SearchBox from "./SearchBox";
 import Cards from "../Cards";
 
+import { searchEngineShortcuts, searchEnginesByShortcut } from "../../consts";
 import {
-  paths,
-  searchEngines,
-  searchEngineShortcuts,
-  searchEnginesByShortcut,
-} from "../../consts";
-import { addRandomKey } from "../../helpers/helpers";
-import { instance as axios } from "../../contexts/axiosInstance";
+  getChannelItems,
+  getChannelPlaylists,
+  getChannelItemsFromId,
+} from "../../apiCalls";
+
+import { notify } from "../Notifications";
 
 const Search = ({ cardProps, ...rest }) => {
   const [searchArray, setSearchArray] = useState([]);
@@ -26,115 +26,56 @@ const Search = ({ cardProps, ...rest }) => {
     if (queryString.channel) {
       const [engineShortcut, channelId] = queryString.channel.split(".");
       const engine = searchEnginesByShortcut[engineShortcut];
-      getChannelItemsFromId(channelId, engine);
+      loadChannelItemsFromId(channelId, engine);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const getChannelItemsFromId = async (channelId, engine) => {
-    const path = paths.channelItems[engine];
-
+  const loadChannelItemsFromId = async (channelId, engine) => {
     try {
-      const response = await axios.post(path, {
+      const { channelInfo, searchResultsArray } = await getChannelItemsFromId(
         channelId,
-      });
-      const searchResultsArray = response.data.searchResultsArray;
-      const channelInfo = channelInfoFromItem(searchResultsArray[0]);
-      setViewingChannel({ ...channelInfo, engine });
-      setSearchArray(searchResultsArray.map(addRandomKey));
+        engine
+      );
+      setViewingChannel(channelInfo);
+      setSearchArray(searchResultsArray);
     } catch (e) {
+      notify("Unable to fetch channel data.");
     } finally {
       setArrayLoading(false);
     }
   };
 
-  const channelIdFromItem = (item) => {
-    return {
-      [searchEngines.YT]: (type) =>
-        ({
-          channel: item.channelID,
-          [undefined]: item.channelID,
-          video: item.author?.channelID,
-        }[type]),
-      [searchEngines.SC]: (type) =>
-        ({ [undefined]: item.id, video: item.author?.id }[type]),
-    }[item.engine](item.type);
-  };
-
-  const channelInfoFromItem = (item) => {
-    return {
-      [searchEngines.YT]: (type) =>
-        ({
-          channel: item,
-          [undefined]: item,
-          video: item.author,
-        }[type]),
-      [searchEngines.SC]: (type) =>
-        ({ [undefined]: item, video: item.author }[type]),
-    }[item.engine](item.type);
-  };
-
-  const getChannelItems = async (item) => {
+  const loadChannelItems = async (item) => {
     setSearchArray([]);
     setArrayLoading(true);
 
-    const path = paths.channelItems[item.engine];
-
-    const channelId = channelIdFromItem(item);
-    const channelInfo = channelInfoFromItem(item);
-
     try {
-      const response = await axios.post(path, {
-        channelId,
-      });
-      const searchResultsArray = response.data.searchResultsArray;
-      setViewingChannel({ ...channelInfo, engine: item.engine });
-      setSearchArray(searchResultsArray.map(addRandomKey));
-    } catch (e) {
-    } finally {
+      const { channelId, channelInfo, searchResultsArray } =
+        await getChannelItems(item);
+      setViewingChannel(channelInfo);
+      setSearchArray(searchResultsArray);
       history.push(
         `?channel=${searchEngineShortcuts[item.engine]}.${channelId}`
       );
+    } catch (e) {
+      notify("Unable to fetch channel data.");
+    } finally {
       setArrayLoading(false);
     }
   };
 
-  const getChannelPlaylists = async (item) => {
+  const loadChannelPlaylists = async (item) => {
     setSearchArray([]);
     setArrayLoading(true);
-
-    const path = paths.channelPlaylists[item.engine];
-
-    const channelId = {
-      [searchEngines.YT]: (type) =>
-        ({
-          channel: item.channelID,
-          [undefined]: item.channelID,
-          video: item.author?.channelID,
-        }[type]),
-      [searchEngines.SC]: (type) =>
-        ({ [undefined]: item.id, video: item.author?.id }[type]),
-    }[item.engine](item.type);
-
-    const channelInfo = {
-      [searchEngines.YT]: (type) =>
-        ({
-          channel: item,
-          [undefined]: item,
-          video: item.author,
-        }[type]),
-      [searchEngines.SC]: (type) =>
-        ({ [undefined]: item, video: item.author }[type]),
-    }[item.engine](item.type);
-
     try {
-      const response = await axios.post(path, {
-        channelId,
-      });
-      const searchResultsArray = response.data.searchResultsArray;
-      setViewingChannel({ ...channelInfo, engine: item.engine });
-      setSearchArray(searchResultsArray.map(addRandomKey));
+      const { channelInfo, searchResultsArray } = await getChannelPlaylists(
+        item
+      );
+      setViewingChannel(channelInfo);
+      setSearchArray(searchResultsArray);
     } catch (e) {
+      notify("Unable to fetch channel data.");
     } finally {
       setArrayLoading(false);
     }
@@ -147,8 +88,8 @@ const Search = ({ cardProps, ...rest }) => {
           ...rest,
           setSearchArray,
           setArrayLoading,
-          getChannelItems,
-          getChannelPlaylists,
+          loadChannelItems,
+          loadChannelPlaylists,
           viewingChannel,
           setViewingChannel,
         }}
@@ -159,7 +100,7 @@ const Search = ({ cardProps, ...rest }) => {
           searchArray,
           arrayLoading,
           viewingChannel,
-          getChannelItems,
+          loadChannelItems,
         }}
       />
     </>

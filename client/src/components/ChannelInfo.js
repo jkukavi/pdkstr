@@ -6,8 +6,8 @@ import trash from "../icons/trash.png";
 
 const ChannelInfo = ({
   channelInfo,
-  getChannelItems,
-  getChannelPlaylists,
+  loadChannelItems,
+  loadChannelPlaylists,
   addToFavourites,
 }) => {
   const [active, setActive] = useState("items");
@@ -43,7 +43,7 @@ const ChannelInfo = ({
         <div
           onClick={() => {
             setActive("items");
-            getChannelItems(channelInfo);
+            loadChannelItems(channelInfo);
           }}
           className={`button ${active === "items" ? "active" : ""}`}
         >
@@ -52,7 +52,7 @@ const ChannelInfo = ({
         <div
           onClick={() => {
             setActive("playlists");
-            getChannelPlaylists(channelInfo);
+            loadChannelPlaylists(channelInfo);
           }}
           className={`button ${active === "playlists" ? "active" : ""}`}
         >
