@@ -19,7 +19,6 @@ const PrintScreen = ({ children }) => {
           }}
           onClick={() => setExpanded((e) => !e)}
         >
-          "expanded" :{expanded.toString()}
           <div
             style={{
               position: "absolute",
@@ -35,7 +34,7 @@ const PrintScreen = ({ children }) => {
           >
             <img src={chevron} alt="alt" />
           </div>
-          {children}
+          {JSON.stringify(children, null, 2)}
         </pre>
       )}
     </>

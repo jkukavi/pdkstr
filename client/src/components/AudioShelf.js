@@ -1,8 +1,4 @@
-import React from "react";
-
-import copyToClipboard from "../helpers/copyToClipboard";
-
-import { getViewsString } from "../helpers/helpers";
+import React, { useEffect, useState } from "react";
 
 import Table from "./Table";
 import Player from "./Player";
@@ -17,24 +13,71 @@ import share from "../icons/share.png";
 import playingQueue from "../icons/playingQueue.png";
 import chevron from "../icons/chevron.png";
 import { SearchEngineIcon, searchEngineShortcuts } from "../consts/index.js";
-import { useScrollingDownContext } from "../contexts/ScrollingDown";
 
-const AudioShelf = ({
-  directUrl,
-  audioLoading,
-  listeningTo,
-  notify,
-  expanded,
-  setExpanded,
-  playNext,
-  playlist,
-  setListeningTo,
-  activeVideo,
-  setActiveVideo,
-  setPlaylist,
-  getDirectUrl,
-}) => {
+import { v4 as uuid } from "uuid";
+
+import copyToClipboard from "../helpers/copyToClipboard";
+import { getViewsString, addRandomKey } from "../helpers/helpers";
+import speak from "../helpers/speak";
+import { paths, searchEngines } from "../consts/index.js";
+
+import { useScrollingDownContext } from "../contexts/ScrollingDown";
+import { instance as axios } from "../contexts/axiosInstance";
+
+export const AudioPlayer = {
+  getDirectUrl: null,
+  playPlaylist: null,
+  setActiveVideo: null,
+  setListeningTo: null,
+  addToQueue: null,
+  listeningTo: null,
+  activeVideo: null,
+  subscribe: (fn) => {
+    const id = uuid();
+    AudioPlayer.subscribers.push({ fn, id: id });
+    return id;
+  },
+  unsubscribe: (id) => {
+    const index = AudioPlayer.subscribers.findIndex((item) => item.id === id);
+    if (index) AudioPlayer.subscribers.splice(index, 1);
+  },
+  subscribers: [],
+};
+
+const notifySubscribers = (listeningTo) => {
+  for (const subscribers of AudioPlayer.subscribers) {
+    subscribers.fn(listeningTo);
+  }
+};
+
+const AudioShelf = ({ notify, addToHistory, getPlaylistItems }) => {
   const scrollingDown = useScrollingDownContext("cardContainer");
+  const [directUrl, setDirectUrl] = useState(null);
+  const [audioLoading, setAudioLoading] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const [playlist, setPlaylist] = useState([]);
+  const [listeningTo, setListeningTo] = useState(null);
+  const [activeVideo, setActiveVideo] = useState(null);
+
+  useEffect(() => {
+    AudioPlayer.getDirectUrl = getDirectUrl;
+    AudioPlayer.playPlaylist = playPlaylist;
+    AudioPlayer.setActiveVideo = setActiveVideo;
+    AudioPlayer.setListeningTo = setListeningTo;
+    AudioPlayer.addToQueue = addToQueue;
+    AudioPlayer.listeningTo = listeningTo;
+    AudioPlayer.activeVideo = activeVideo;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    setDirectUrl,
+    setAudioLoading,
+    setExpanded,
+    setPlaylist,
+    setActiveVideo,
+    activeVideo,
+  ]);
+
+  useEffect(() => notifySubscribers(listeningTo), [listeningTo]);
 
   const onAudioEnded = () => {
     playNext();
@@ -43,6 +86,64 @@ const AudioShelf = ({
   const replay = (time) => () => {
     const audioPlayer = document.getElementById("my-audio");
     audioPlayer.currentTime = audioPlayer.currentTime + time;
+  };
+
+  const getDirectUrl = async ({ id, engine, url }) => {
+    setDirectUrl(null);
+    setAudioLoading(true);
+    const path = paths.directUrl[engine];
+    try {
+      const response = await axios.post(path, {
+        id,
+        ...(engine === searchEngines.SC && { fromUrl: url }),
+      });
+      const { directUrl } = response.data;
+      setDirectUrl(directUrl);
+    } catch (e) {
+      notify("Something went wrong. Try again.");
+    } finally {
+      setAudioLoading(false);
+    }
+  };
+
+  const playPlaylist = async (playlist) => {
+    try {
+      const playlistItems = await getPlaylistItems(playlist);
+      setPlaylist(playlistItems.map(addRandomKey));
+      setListeningTo(playlistItems[0]);
+      getDirectUrl(playlistItems[0]);
+    } catch (e) {
+      notify("Something went wrong with trying to play this playlist.");
+    }
+  };
+
+  const playNext = () => {
+    if (playlist.length !== 0) {
+      if (listeningTo) speak(`Item ${listeningTo.title.slice(0, 20)} ended`);
+      const playedIndex = playlist.findIndex(
+        (item) => item.title === listeningTo.title
+      );
+      const nextItem = playlist[playedIndex + 1];
+      if (nextItem) {
+        speak(`Playing ${nextItem.title.slice(0, 20)} next`);
+        setListeningTo(nextItem);
+        getDirectUrl(nextItem);
+      }
+    }
+  };
+
+  const addToQueue = (item) => {
+    if (playlist.length === 0) {
+      getDirectUrl(item);
+      setActiveVideo(null);
+      setListeningTo(item);
+      addToHistory(item);
+      setTimeout(() => {
+        notify(`Listening to: ${item.title}`);
+      }, 500);
+    }
+    setPlaylist([...playlist, item]);
+    notify("Added to playing queue");
   };
 
   return (

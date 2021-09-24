@@ -5,10 +5,11 @@ import Table from "./Table";
 import playButtonThumbnail from "../icons/playButtonThumbnail.svg";
 import chevron from "../icons/chevron.png";
 
+import { AudioPlayer } from "./AudioShelf";
+
 const PlaylistSidebar = ({
-  tableFunctions,
+  tableProps,
   browsingPlaylist,
-  playPlaylist,
   closeBrowsingPlaylist,
 }) => {
   const [show, setShow] = useState(false);
@@ -39,7 +40,7 @@ const PlaylistSidebar = ({
         }}
         onClick={() => {
           closeBrowsingPlaylist();
-          playPlaylist(browsingPlaylist.info);
+          AudioPlayer.playPlaylist(browsingPlaylist.info);
         }}
       >
         <img
@@ -76,7 +77,7 @@ const PlaylistSidebar = ({
           className={`playlistSidebarContainer ${show ? "expanded" : ""}`}
         >
           <div style={{ position: "relative" }}>
-            <Table controls={controls} {...tableFunctions} />
+            <Table controls={controls} {...tableProps} />
           </div>
         </div>,
         document.getElementById("modal")

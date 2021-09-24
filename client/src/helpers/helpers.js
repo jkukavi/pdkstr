@@ -65,7 +65,6 @@ const checkScroll = (setScrollingDown) => {
   const cardContainer = document.getElementById("cardContainer");
 
   return () => {
-    console.log("hello");
     if (cardContainer.scrollTop > oldScroll) {
       setScrollingDown(true);
     } else {

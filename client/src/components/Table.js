@@ -1,19 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import playButton from "../icons/playButton.png";
-import { SearchEngineIcon } from "../consts/index.js";
 
-const Table = ({
-  tableTitle,
-  notify,
-  tableArray,
-  listeningTo,
-  controls,
-  getDirectUrl,
-  setActiveVideo,
-  setListeningTo,
-  getViewsString,
-}) => {
+import { getViewsString } from "../helpers/helpers";
+
+import { SearchEngineIcon } from "../consts/index.js";
+import { AudioPlayer } from "./AudioShelf";
+
+const Table = ({ tableTitle, notify, tableArray, controls }) => {
+  const [listeningTo, setListeningTo] = useState(
+    null || AudioPlayer.listeningTo
+  );
+
+  useEffect(() => {
+    console.log("subskribe");
+    const id = AudioPlayer.subscribe(setListeningTo);
+
+    return () => {
+      AudioPlayer.unsubscribe(id);
+      console.log("unsubkribe");
+    };
+  }, [setListeningTo]);
+
   return (
     <table id="customers">
       <thead>
@@ -47,10 +55,11 @@ const Table = ({
         {tableArray?.map((video, index) => (
           <tr
             key={video.key}
-            className={`${listeningTo?.title === video.title ? "active" : ""}`}
+            className={`${listeningTo?.id === video.id ? "active" : ""}`}
             onClick={() => {
-              getDirectUrl(video);
-              setActiveVideo(index);
+              AudioPlayer.getDirectUrl(video);
+              AudioPlayer.setActiveVideo(index);
+              AudioPlayer.setListeningTo(video);
               setListeningTo(video);
               notify(`Listening to: ${video.title}`);
             }}

@@ -8,22 +8,19 @@ import { SearchEngineIcon, defaultPuppyImg } from "../consts/index.js";
 
 import { getViewsString } from "../helpers/helpers";
 
+import { AudioPlayer } from "./AudioShelf";
+
 const allowedTypes = ["video", "playlist", "channel"];
 
 const Cards = ({
-  arrayLoading,
   searchArray,
+  arrayLoading,
   viewingChannel,
-  getDirectUrl,
   getChannelItems,
-  playPlaylist,
   browsePlaylist,
-  setActiveVideo,
-  setListeningTo,
   addToHistory,
   addToFavourites,
   notify,
-  addToQueue,
   channelClickAction,
 }) => {
   return (
@@ -58,9 +55,9 @@ const Cards = ({
               <div className="card" key={key}>
                 <div
                   onClick={() => {
-                    getDirectUrl(item);
-                    setActiveVideo(null);
-                    setListeningTo(item);
+                    AudioPlayer.getDirectUrl(item);
+                    AudioPlayer.setActiveVideo(null);
+                    AudioPlayer.setListeningTo(item);
                     addToHistory(item);
                     notify(`Listening to: ${item.title}`);
                   }}
@@ -128,7 +125,7 @@ const Cards = ({
                         <div
                           className="addToPlaylistIcon"
                           onClick={() => {
-                            addToQueue(item);
+                            AudioPlayer.addToQueue(item);
                           }}
                         >
                           <img src={playingQueue} alt="loading"></img>
@@ -225,7 +222,7 @@ const Cards = ({
                 </p>
                 <div
                   onClick={() => {
-                    playPlaylist(item);
+                    AudioPlayer.playPlaylist(item);
                   }}
                   className="thumbnail"
                   style={{

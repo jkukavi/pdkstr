@@ -160,7 +160,6 @@ const Search = ({ cardProps, ...rest }) => {
           arrayLoading,
           viewingChannel,
           getChannelItems,
-          getChannelPlaylists,
         }}
       />
     </>

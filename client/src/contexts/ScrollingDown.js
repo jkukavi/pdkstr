@@ -26,7 +26,6 @@ export const useScrollingDownContext = (id) => {
   const location = useLocation();
 
   useEffect(() => {
-    console.log("mount");
     const element = document.getElementById(id);
     const debouncedSetScroll = debounce(setScrollingDown, 1500);
     const throttletCheckScroll = throttle(checkScroll(setScrollingDown), 500);
@@ -38,7 +37,6 @@ export const useScrollingDownContext = (id) => {
     element.addEventListener("scroll", scrollHandler);
 
     return () => {
-      console.log("unmount");
       element.removeEventListener("scroll", scrollHandler);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
