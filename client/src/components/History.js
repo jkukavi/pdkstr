@@ -4,9 +4,25 @@ import { debounce } from "../helpers/helpers";
 import magnifier from "../icons/magnifier.png";
 import Cards from "../components/Cards";
 
-const History = ({ listHistory, history = [], cardProps }) => {
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(listHistory, []);
+import { addRandomKey } from "../helpers/helpers";
+
+import { instance as axios } from "../contexts/axiosInstance";
+
+const History = ({ history, setHistory, cardProps, notify }) => {
+  useEffect(() => {
+    listHistory();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const listHistory = async () => {
+    try {
+      const response = await axios.get("/users/my/history");
+      const fetchedHistory = response.data.map(addRandomKey);
+      setHistory(fetchedHistory);
+    } catch (e) {
+      notify("Unable to fetch history");
+    }
+  };
 
   const [queryString, setQueryString] = useState(null);
 

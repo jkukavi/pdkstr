@@ -26,7 +26,7 @@ import ShareAlert from "../../components/ShareAlert";
 import PrintScreen from "../../components/PrintScreen";
 import PlaylistSidebar from "../../components/PlaylistSideBar";
 import Settings from "./Settings";
-import Notifications from "../../components/Notifications";
+import Notifications, { notify } from "../../components/Notifications";
 
 import { instance as axios } from "../../contexts/axiosInstance";
 import { ScrollingDownProvider } from "../../contexts/ScrollingDown";
@@ -41,9 +41,6 @@ function App() {
   const [playlist, setPlaylist] = useState([]);
   const [listeningTo, setListeningTo] = useState(null);
   const [activeVideo, setActiveVideo] = useState(null);
-
-  //notifications
-  const [notifications, setNotifications] = useState([]);
 
   //playlistsidebar
   const [browsingPlaylist, setBrowsingPlaylist] = useState({
@@ -62,26 +59,16 @@ function App() {
   const location = useLocation();
   const [alert, setAlert] = useState(qs.parse(location.search).id);
   const searchHistory = useHistory();
+  useEffect(() => {
+    const queryString = qs.parse(location.search);
+    if (queryString.id) {
+      const [sharedEngineShortcut, sharedId] = queryString.id.split(".");
 
-  const listHistory = async () => {
-    try {
-      const response = await axios.get("/users/my/history");
-      const fetchedHistory = response.data.map(addRandomKey);
-      setHistory(fetchedHistory);
-    } catch (e) {
-      notify("Unable to fetch history");
+      const sharedEngine = searchEnginesByShortcut[sharedEngineShortcut];
+      getInfo({ id: sharedId, engine: sharedEngine });
     }
-  };
-
-  const listFavourites = async () => {
-    try {
-      const response = await axios.get("/users/my/favourites");
-      const fetchedFavourites = response.data.map(addRandomKey);
-      setFavourites(fetchedFavourites);
-    } catch (e) {
-      notify("Unable to fetch history");
-    }
-  };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const addToHistory = async (item) => {
     try {
@@ -99,17 +86,6 @@ function App() {
       notify("Unable to add to favourites");
     }
   };
-
-  useEffect(() => {
-    const queryString = qs.parse(location.search);
-    if (queryString.id) {
-      const [sharedEngineShortcut, sharedId] = queryString.id.split(".");
-
-      const sharedEngine = searchEnginesByShortcut[sharedEngineShortcut];
-      getInfo({ id: sharedId, engine: sharedEngine });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const getPlaylistItems = async (playlist) => {
     const path = paths.playlistItems[playlist.engine];
@@ -141,6 +117,10 @@ function App() {
         "Something went wrong with trying to fetch information about this playlist."
       );
     }
+  };
+
+  const closeBrowsingPlaylist = () => {
+    setBrowsingPlaylist((bp) => ({ ...bp, expanded: false }));
   };
 
   const getInfo = async ({ id, engine }) => {
@@ -215,14 +195,6 @@ function App() {
     notify("Added to playing queue");
   };
 
-  const closeBrowsingPlaylist = () => {
-    setBrowsingPlaylist((bp) => ({ ...bp, expanded: false }));
-  };
-
-  const notify = (newNotification) => {
-    setNotifications((notifications) => [...notifications, newNotification]);
-  };
-
   const cardProps = {
     getDirectUrl,
     playPlaylist,
@@ -249,21 +221,22 @@ function App() {
               2
             )}
           </PrintScreen>
-          <Notifications notifications={notifications} />
+          <Notifications />
           <Switch>
             <Route path="/history">
               <History
-                listHistory={listHistory}
+                setHistory={setHistory}
                 history={history}
                 cardProps={cardProps}
+                notify={notify}
               />
             </Route>
             <Route path="/favourites">
               <Favourites
-                listFavourites={listFavourites}
+                setFavourites={setFavourites}
                 favourites={favourites}
-                playPlaylist={playPlaylist}
                 cardProps={cardProps}
+                notify={notify}
               />
             </Route>
             <Route path="/settings">
@@ -274,7 +247,6 @@ function App() {
                 addToFavourites={addToFavourites}
                 preventBlur={preventBlur}
                 notify={notify}
-                notifications={notifications}
                 cardProps={cardProps}
               />
             </Route>

@@ -1,4 +1,5 @@
 import speak from "./speak";
+import { notify } from "../components/Notifications";
 
 function Nothing() {
   this.start = () => {};
@@ -14,7 +15,6 @@ recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
 var startSearch;
-var notify;
 
 recognition.onstart = function () {
   notify("Listening...");
@@ -39,7 +39,6 @@ recognition.onresult = function (event) {
 
 const recognizeAndStartSearch = (currentStartSearch, currentNotify) => {
   startSearch = currentStartSearch;
-  notify = currentNotify;
   return () => {
     recognition.start();
   };
