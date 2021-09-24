@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 
-import { buttonTextBySearchEngine } from "../consts/index.js";
+import { buttonTextBySearchEngine, defaultPuppyImg } from "../consts/index.js";
 import star from "../icons/star.png";
 import trash from "../icons/trash.png";
-
-const defaultPuppyImg =
-  "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*";
 
 const ChannelInfo = ({
   channelInfo,

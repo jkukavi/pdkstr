@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   useHistory,
   Redirect,
@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import qs from "query-string";
 
-import { addRandomKey, storage } from "../../helpers/helpers";
+import { addRandomKey } from "../../helpers/helpers";
 import {
   paths,
   searchEngines,
@@ -29,25 +29,30 @@ import Settings from "./Settings";
 import Notifications from "../../components/Notifications";
 
 import { instance as axios } from "../../contexts/axiosInstance";
+import { ScrollingDownProvider } from "../../contexts/ScrollingDown";
 
 let preventBlur = false;
 
 function App() {
+  //audioshelf
   const [directUrl, setDirectUrl] = useState(null);
   const [audioLoading, setAudioLoading] = useState(false);
-
   const [expanded, setExpanded] = useState(false);
-
-  const [notifications, setNotifications] = useState([]);
   const [playlist, setPlaylist] = useState([]);
+  const [listeningTo, setListeningTo] = useState(null);
+  const [activeVideo, setActiveVideo] = useState(null);
+
+  //notifications
+  const [notifications, setNotifications] = useState([]);
+
+  //playlistsidebar
   const [browsingPlaylist, setBrowsingPlaylist] = useState({
     items: [],
     expanded: false,
   });
-  const [activeVideo, setActiveVideo] = useState(null);
-  const [listeningTo, setListeningTo] = useState(null);
+
+  //alert
   const [info, setInfo] = useState(null);
-  const [scrollingDown, setScrollingDown] = useState(false);
 
   //"data"
   const [history, setHistory] = useState(null);
@@ -57,10 +62,6 @@ function App() {
   const location = useLocation();
   const [alert, setAlert] = useState(qs.parse(location.search).id);
   const searchHistory = useHistory();
-
-  useEffect(() => {
-    setScrollingDown(false);
-  }, [location]);
 
   const listHistory = async () => {
     try {
@@ -80,12 +81,6 @@ function App() {
     } catch (e) {
       notify("Unable to fetch history");
     }
-  };
-
-  const deleteAll = (name) => () => {
-    storage.clean(name);
-    listHistory();
-    listFavourites();
   };
 
   const addToHistory = async (item) => {
@@ -165,7 +160,6 @@ function App() {
   const getDirectUrl = async ({ id, engine, url }) => {
     setDirectUrl(null);
     setAudioLoading(true);
-    setScrollingDown(false);
     const path = paths.directUrl[engine];
     try {
       const response = await axios.post(path, {
@@ -235,7 +229,6 @@ function App() {
     browsePlaylist,
     setActiveVideo,
     setListeningTo,
-    setScrollingDown,
     addToHistory,
     addToFavourites,
     notify,
@@ -245,99 +238,98 @@ function App() {
   return (
     <>
       <div className="container">
-        <PrintScreen>
-          {JSON.stringify(
-            {
-              favourites: (favourites || []).map((item) => item.type),
-              his: searchHistory.length,
-            },
-            null,
-            2
-          )}
-        </PrintScreen>
-        <Notifications notifications={notifications} />
-        <Switch>
-          <Route path="/history">
-            <History
-              listHistory={listHistory}
-              history={history}
-              cardProps={cardProps}
-            />
-          </Route>
-          <Route path="/favourites">
-            <Favourites
-              listFavourites={listFavourites}
-              favourites={favourites}
-              playPlaylist={playPlaylist}
-              cardProps={cardProps}
-            />
-          </Route>
-          <Route path="/settings">
-            <Settings />
-          </Route>
-          <Route exact path="/">
-            <Search
-              scrollingDown={scrollingDown}
-              addToFavourites={addToFavourites}
-              preventBlur={preventBlur}
-              notify={notify}
-              notifications={notifications}
-              cardProps={cardProps}
-            />
-          </Route>
-          <Route path="/">
-            <Redirect to="/"></Redirect>
-          </Route>
-        </Switch>
+        <ScrollingDownProvider>
+          <PrintScreen>
+            {JSON.stringify(
+              {
+                favourites: (favourites || []).map((item) => item.type),
+                his: searchHistory.length,
+              },
+              null,
+              2
+            )}
+          </PrintScreen>
+          <Notifications notifications={notifications} />
+          <Switch>
+            <Route path="/history">
+              <History
+                listHistory={listHistory}
+                history={history}
+                cardProps={cardProps}
+              />
+            </Route>
+            <Route path="/favourites">
+              <Favourites
+                listFavourites={listFavourites}
+                favourites={favourites}
+                playPlaylist={playPlaylist}
+                cardProps={cardProps}
+              />
+            </Route>
+            <Route path="/settings">
+              <Settings />
+            </Route>
+            <Route exact path="/">
+              <Search
+                addToFavourites={addToFavourites}
+                preventBlur={preventBlur}
+                notify={notify}
+                notifications={notifications}
+                cardProps={cardProps}
+              />
+            </Route>
+            <Route path="/">
+              <Redirect to="/"></Redirect>
+            </Route>
+          </Switch>
 
-        <PlaylistSidebar
-          browsingPlaylist={browsingPlaylist}
-          playPlaylist={playPlaylist}
-          closeBrowsingPlaylist={closeBrowsingPlaylist}
-          tableFunctions={{
-            tableArray: browsingPlaylist.items,
-            tableTitle: "Playlist: " + browsingPlaylist.info?.title,
-            notify: notify,
-            deleteAll: deleteAll("history"),
-            listeningTo: listeningTo,
-            activeVideo: activeVideo,
-            getDirectUrl,
-            setActiveVideo,
-            setListeningTo,
-          }}
-        />
-
-        {!!location.search && (
-          <ShareAlert
-            info={info}
-            alert={alert}
-            getDirectUrl={getDirectUrl}
-            setListeningTo={setListeningTo}
-            notify={notify}
-            setAlert={setAlert}
+          <PlaylistSidebar
+            browsingPlaylist={browsingPlaylist}
+            playPlaylist={playPlaylist}
+            closeBrowsingPlaylist={closeBrowsingPlaylist}
+            tableFunctions={{
+              tableArray: browsingPlaylist.items,
+              tableTitle: "Playlist: " + browsingPlaylist.info?.title,
+              notify: notify,
+              listeningTo: listeningTo,
+              activeVideo: activeVideo,
+              getDirectUrl,
+              setActiveVideo,
+              setListeningTo,
+            }}
           />
-        )}
 
-        <AudioShelf
-          directUrl={directUrl}
-          audioLoading={audioLoading}
-          scrollingDown={scrollingDown}
-          listeningTo={listeningTo}
-          notify={notify}
-          expanded={expanded}
-          playNext={playNext}
-          setExpanded={setExpanded}
-          setAudioLoading={setAudioLoading}
-          setDirectUrl={setDirectUrl}
-          playlist={playlist}
-          setPlaylist={setPlaylist}
-          setListeningTo={setListeningTo}
-          activeVideo={activeVideo}
-          setActiveVideo={setActiveVideo}
-          getDirectUrl={getDirectUrl}
-        />
+          {!!location.search && (
+            <ShareAlert
+              info={info}
+              alert={alert}
+              getDirectUrl={getDirectUrl}
+              setListeningTo={setListeningTo}
+              notify={notify}
+              setAlert={setAlert}
+            />
+          )}
 
-        <BottomMenu />
+          <AudioShelf
+            directUrl={directUrl}
+            audioLoading={audioLoading}
+            listeningTo={listeningTo}
+            notify={notify}
+            expanded={expanded}
+            setExpanded={setExpanded}
+            playNext={playNext}
+            setAudioLoading={setAudioLoading}
+            setDirectUrl={setDirectUrl}
+            playlist={playlist}
+            setPlaylist={setPlaylist}
+            setListeningTo={setListeningTo}
+            activeVideo={activeVideo}
+            setActiveVideo={setActiveVideo}
+            getDirectUrl={getDirectUrl}
+          />
+
+          <BottomMenu />
+        </ScrollingDownProvider>
       </div>
     </>
   );

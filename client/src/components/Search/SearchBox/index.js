@@ -16,10 +16,10 @@ import { instance as axios } from "../../../contexts/axiosInstance";
 import SearchEngineDropdown from "./SearchEngineDropdown";
 import UserDropdown from "./UserDropdown";
 import ChannelInfo from "../../ChannelInfo";
+import { useScrollingDownContext } from "../../../contexts/ScrollingDown";
 
 const SearchBox = ({
   addToFavourites,
-  scrollingDown,
   setSearchArray,
   setArrayLoading,
   setViewingChannel,
@@ -29,6 +29,7 @@ const SearchBox = ({
   getChannelPlaylists,
 }) => {
   const location = useLocation();
+  const scrollingDown = useScrollingDownContext("cardContainer");
   const [showInput, setShowInput] = useState(false);
   const [smallScreen, setSmallScreen] = useState(window.innerWidth < 600);
   const [searchEngine, setSearchEngine] = useState(searchEngines.YT);

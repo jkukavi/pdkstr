@@ -1,17 +1,14 @@
 import React from "react";
 
 import playButton from "../icons/playButton.png";
-import trash from "../icons/trash.png";
 import { SearchEngineIcon } from "../consts/index.js";
 
 const Table = ({
   tableTitle,
   notify,
-  deleteAll,
   tableArray,
   listeningTo,
   controls,
-  activeVideo,
   getDirectUrl,
   setActiveVideo,
   setListeningTo,
@@ -32,11 +29,6 @@ const Table = ({
           <th colSpan={2}>
             <div className="indexContainer">
               <span>{tableTitle}</span>
-              <div className={"playlist icons"}>
-                <div className={"icon"} onClick={deleteAll}>
-                  <img src={trash} alt="alt"></img>
-                </div>
-              </div>
             </div>
           </th>
         </tr>

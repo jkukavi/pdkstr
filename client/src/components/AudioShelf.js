@@ -17,11 +17,11 @@ import share from "../icons/share.png";
 import playingQueue from "../icons/playingQueue.png";
 import chevron from "../icons/chevron.png";
 import { SearchEngineIcon, searchEngineShortcuts } from "../consts/index.js";
+import { useScrollingDownContext } from "../contexts/ScrollingDown";
 
 const AudioShelf = ({
   directUrl,
   audioLoading,
-  scrollingDown,
   listeningTo,
   notify,
   expanded,
@@ -34,6 +34,8 @@ const AudioShelf = ({
   setPlaylist,
   getDirectUrl,
 }) => {
+  const scrollingDown = useScrollingDownContext("cardContainer");
+
   const onAudioEnded = () => {
     playNext();
   };
