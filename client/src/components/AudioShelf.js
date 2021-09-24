@@ -12,14 +12,15 @@ import forward30 from "../icons/forward30.png";
 import share from "../icons/share.png";
 import playingQueue from "../icons/playingQueue.png";
 import chevron from "../icons/chevron.png";
-import { SearchEngineIcon, searchEngineShortcuts } from "../consts/index.js";
+import { SearchEngineIcon, searchEngineShortcuts } from "../consts";
+import { getPlaylistItems } from "../apiCalls";
 
 import { v4 as uuid } from "uuid";
 
 import copyToClipboard from "../helpers/copyToClipboard";
 import { getViewsString, addRandomKey } from "../helpers/helpers";
 import speak from "../helpers/speak";
-import { paths, searchEngines } from "../consts/index.js";
+import { paths, searchEngines } from "../consts";
 
 import { useScrollingDownContext } from "../contexts/ScrollingDown";
 import { instance as axios } from "../contexts/axiosInstance";
@@ -50,7 +51,7 @@ const notifySubscribers = (listeningTo) => {
   }
 };
 
-const AudioShelf = ({ notify, addToHistory, getPlaylistItems }) => {
+const AudioShelf = ({ notify, addToHistory }) => {
   const scrollingDown = useScrollingDownContext("cardContainer");
   const [directUrl, setDirectUrl] = useState(null);
   const [audioLoading, setAudioLoading] = useState(false);

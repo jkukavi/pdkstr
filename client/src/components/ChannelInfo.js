@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { buttonTextBySearchEngine, defaultPuppyImg } from "../consts/index.js";
+import { buttonTextBySearchEngine, defaultPuppyImg } from "../consts";
 import star from "../icons/star.png";
 import trash from "../icons/trash.png";
 

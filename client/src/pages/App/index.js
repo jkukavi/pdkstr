@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 
-import { addRandomKey } from "../../helpers/helpers";
-import { paths } from "../../consts/index.js";
 import "./App.css";
 
 import History from "../../components/History";
@@ -14,21 +12,10 @@ import PrintScreen from "../../components/PrintScreen";
 import PlaylistSidebar from "../../components/PlaylistSideBar";
 import Settings from "./Settings";
 import Notifications, { notify } from "../../components/Notifications";
-
 import { instance as axios } from "../../contexts/axiosInstance";
 import { ScrollingDownProvider } from "../../contexts/ScrollingDown";
 
-let preventBlur = false;
-
 function App() {
-  //audioshelf
-
-  //playlistsidebar
-  const [browsingPlaylist, setBrowsingPlaylist] = useState({
-    items: [],
-    expanded: false,
-  });
-
   //"data"
   const [history, setHistory] = useState(null);
   const [favourites, setFavourites] = useState(null);
@@ -50,44 +37,7 @@ function App() {
     }
   };
 
-  const getPlaylistItems = async (playlist) => {
-    const path = paths.playlistItems[playlist.engine];
-
-    const id = playlist.id;
-
-    try {
-      const response = await axios.post(path, {
-        id,
-      });
-      const { playlistItems } = response.data;
-      return playlistItems;
-    } catch (e) {
-      notify("Something went wrong. Try again.");
-    }
-  };
-
-  const browsePlaylist = async (playlist) => {
-    try {
-      notify("Loading playlist...");
-      const playlistItems = await getPlaylistItems(playlist);
-      setBrowsingPlaylist({
-        items: playlistItems.map(addRandomKey),
-        info: playlist,
-        expanded: true,
-      });
-    } catch (e) {
-      notify(
-        "Something went wrong with trying to fetch information about this playlist."
-      );
-    }
-  };
-
-  const closeBrowsingPlaylist = () => {
-    setBrowsingPlaylist((bp) => ({ ...bp, expanded: false }));
-  };
-
   const cardProps = {
-    browsePlaylist,
     addToHistory,
     addToFavourites,
     notify,
@@ -105,16 +55,16 @@ function App() {
           <Switch>
             <Route path="/history">
               <History
-                setHistory={setHistory}
                 history={history}
+                setHistory={setHistory}
                 cardProps={cardProps}
                 notify={notify}
               />
             </Route>
             <Route path="/favourites">
               <Favourites
-                setFavourites={setFavourites}
                 favourites={favourites}
+                setFavourites={setFavourites}
                 cardProps={cardProps}
                 notify={notify}
               />
@@ -124,10 +74,9 @@ function App() {
             </Route>
             <Route exact path="/">
               <Search
-                addToFavourites={addToFavourites}
-                preventBlur={preventBlur}
                 notify={notify}
                 cardProps={cardProps}
+                addToFavourites={addToFavourites}
               />
             </Route>
             <Route path="/">
@@ -135,21 +84,9 @@ function App() {
             </Route>
           </Switch>
 
-          <PlaylistSidebar
-            browsingPlaylist={browsingPlaylist}
-            closeBrowsingPlaylist={closeBrowsingPlaylist}
-            tableProps={{
-              tableTitle: "Playlist: " + browsingPlaylist.info?.title,
-              tableArray: browsingPlaylist.items,
-              notify: notify,
-            }}
-          />
+          <PlaylistSidebar />
 
-          <AudioShelf
-            addToHistory={addToHistory}
-            getPlaylistItems={getPlaylistItems}
-            notify={notify}
-          />
+          <AudioShelf addToHistory={addToHistory} notify={notify} />
 
           <BottomMenu />
         </ScrollingDownProvider>

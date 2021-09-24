@@ -4,7 +4,7 @@ import { useLocation } from "react-router";
 
 import { addRandomKey, debounce, throttle } from "../../../helpers/helpers";
 
-import { paths, searchEngines } from "../../../consts/index.js";
+import { paths, searchEngines } from "../../../consts";
 
 import recognizeAndStartSearch from "../../../helpers/speechRecognition";
 import microphone from "../../../icons/microphone.png";

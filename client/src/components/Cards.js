@@ -4,11 +4,12 @@ import playingQueue from "../icons/playingQueue.png";
 import browseList from "../icons/browseList.png";
 import star from "../icons/star.png";
 import playButtonThumbnail from "../icons/playButtonThumbnail.svg";
-import { SearchEngineIcon, defaultPuppyImg } from "../consts/index.js";
+import { SearchEngineIcon, defaultPuppyImg } from "../consts";
 
 import { getViewsString } from "../helpers/helpers";
 
 import { AudioPlayer } from "./AudioShelf";
+import { PlaylistSidebar } from "./PlaylistSideBar";
 
 const allowedTypes = ["video", "playlist", "channel"];
 
@@ -17,7 +18,6 @@ const Cards = ({
   arrayLoading,
   viewingChannel,
   getChannelItems,
-  browsePlaylist,
   addToHistory,
   addToFavourites,
   notify,
@@ -273,7 +273,7 @@ const Cards = ({
                     <div
                       className="addToPlaylistIcon playlist"
                       onClick={() => {
-                        browsePlaylist(item);
+                        PlaylistSidebar.browsePlaylist(item);
                       }}
                     >
                       <img src={browseList} alt="loading"></img>

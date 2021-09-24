@@ -5,14 +5,47 @@ import Table from "./Table";
 import playButtonThumbnail from "../icons/playButtonThumbnail.svg";
 import chevron from "../icons/chevron.png";
 
-import { AudioPlayer } from "./AudioShelf";
+import { addRandomKey } from "../helpers/helpers";
+import { getPlaylistItems } from "../apiCalls";
 
-const PlaylistSidebar = ({
-  tableProps,
-  browsingPlaylist,
-  closeBrowsingPlaylist,
-}) => {
+import { AudioPlayer } from "./AudioShelf";
+import { notify } from "./Notifications";
+
+export const PlaylistSidebar = {
+  browsePlaylist: null,
+};
+
+const PlaylistSidebarComponent = () => {
   const [show, setShow] = useState(false);
+  const [browsingPlaylist, setBrowsingPlaylist] = useState({
+    items: [],
+    expanded: false,
+  });
+
+  useEffect(() => {
+    PlaylistSidebar.browsePlaylist = browsePlaylist;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [setBrowsingPlaylist]);
+
+  const browsePlaylist = async (playlist) => {
+    try {
+      notify("Loading playlist...");
+      const playlistItems = await getPlaylistItems(playlist);
+      setBrowsingPlaylist({
+        items: playlistItems.map(addRandomKey),
+        info: playlist,
+        expanded: true,
+      });
+    } catch (e) {
+      notify(
+        "Something went wrong with trying to fetch information about this playlist."
+      );
+    }
+  };
+
+  const closeBrowsingPlaylist = () => {
+    setBrowsingPlaylist((bp) => ({ ...bp, expanded: false }));
+  };
 
   const controls = (
     <>
@@ -77,7 +110,14 @@ const PlaylistSidebar = ({
           className={`playlistSidebarContainer ${show ? "expanded" : ""}`}
         >
           <div style={{ position: "relative" }}>
-            <Table controls={controls} {...tableProps} />
+            <Table
+              controls={controls}
+              {...{
+                tableTitle: "Playlist: " + browsingPlaylist.info?.title,
+                tableArray: browsingPlaylist.items,
+                notify: notify,
+              }}
+            />
           </div>
         </div>,
         document.getElementById("modal")
@@ -86,4 +126,4 @@ const PlaylistSidebar = ({
   );
 };
 
-export default PlaylistSidebar;
+export default PlaylistSidebarComponent;

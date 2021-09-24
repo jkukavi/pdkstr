@@ -4,7 +4,7 @@ import playButton from "../icons/playButton.png";
 
 import { getViewsString } from "../helpers/helpers";
 
-import { SearchEngineIcon } from "../consts/index.js";
+import { SearchEngineIcon } from "../consts";
 import { AudioPlayer } from "./AudioShelf";
 
 const Table = ({ tableTitle, notify, tableArray, controls }) => {
