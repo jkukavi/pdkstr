@@ -2,15 +2,13 @@ import React, { useState, useCallback, useEffect, useMemo } from "react";
 
 import { useHistory } from "react-router";
 
-import { debounce, addRandomKey } from "../../helpers/helpers";
+import { debounce } from "../../helpers/helpers";
 import magnifier from "../../icons/magnifier.png";
 import closeIcon from "../../icons/close.png";
 import FilterDropdown from "./FilterDropdown";
 
 import Cards from "../../components/Cards";
-import { notify } from "../Notifications";
-
-import { instance as axios } from "../../contexts/axiosInstance";
+import { useUserData } from "../../contexts/UserData";
 
 const filters = {
   TRACKS: "video",
@@ -18,23 +16,13 @@ const filters = {
   CHANNELS: "channel",
 };
 
-const Favourites = ({ favourites = [], setFavourites, cardProps }) => {
+const Favourites = () => {
   const history = useHistory();
 
-  useEffect(() => {
-    listFavourites();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const { favourites, loadFavourites } = useUserData();
 
-  const listFavourites = async () => {
-    try {
-      const response = await axios.get("/users/my/favourites");
-      const fetchedFavourites = response.data.map(addRandomKey);
-      setFavourites(fetchedFavourites);
-    } catch (e) {
-      notify("Unable to fetch history");
-    }
-  };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(loadFavourites, []);
 
   const [inputDroppedDown, setInputDroppedDown] = useState(false);
   const [filter, setFilter] = useState(filters.TRACKS);
@@ -185,12 +173,9 @@ const Favourites = ({ favourites = [], setFavourites, cardProps }) => {
         </div>
       </div>
       <Cards
-        {...{
-          ...cardProps,
-          searchArray: filteredItems,
-          channelClickAction: () => {
-            history.push("/");
-          },
+        searchArray={filteredItems}
+        channelClickAction={() => {
+          history.push("/");
         }}
       />
     </>

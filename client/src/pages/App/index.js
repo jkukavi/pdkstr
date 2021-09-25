@@ -1,44 +1,32 @@
-import React, { useState } from "react";
+import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
-
-import "./App.css";
 
 import History from "../../components/History";
 import Favourites from "../../components/Favourites";
 import Search from "../../components/Search";
 import BottomMenu from "../../components/BottomMenu";
 import AudioShelf from "../../components/AudioShelf";
-import PrintScreen from "../../components/PrintScreen";
 import PlaylistSidebar from "../../components/PlaylistSideBar";
 import Settings from "../../components/Settings";
 import Notifications from "../../components/Notifications";
 import { ScrollingDownProvider } from "../../contexts/ScrollingDown";
+import { UserDataProvider } from "../../contexts/UserData";
+
+import "./App.css";
 
 function App() {
-  //"data"
-  const [history, setHistory] = useState(null);
-  const [favourites, setFavourites] = useState(null);
-
   return (
-    <>
-      <div className="container">
+    <div className="container">
+      <UserDataProvider>
         <ScrollingDownProvider>
-          <PrintScreen>
-            {/*Pass an object in to have it on screen  */}
-            {{ message: "helloWorld" }}
-          </PrintScreen>
-
           <Notifications />
 
           <Switch>
             <Route path="/history">
-              <History history={history} setHistory={setHistory} />
+              <History />
             </Route>
             <Route path="/favourites">
-              <Favourites
-                favourites={favourites}
-                setFavourites={setFavourites}
-              />
+              <Favourites />
             </Route>
             <Route path="/settings">
               <Settings />
@@ -57,8 +45,8 @@ function App() {
 
           <BottomMenu />
         </ScrollingDownProvider>
-      </div>
-    </>
+      </UserDataProvider>
+    </div>
   );
 }
 

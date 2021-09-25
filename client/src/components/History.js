@@ -4,26 +4,13 @@ import { debounce } from "../helpers/helpers";
 import magnifier from "../icons/magnifier.png";
 import Cards from "../components/Cards";
 
-import { addRandomKey } from "../helpers/helpers";
-import { notify } from "./Notifications";
+import { useUserData } from "../contexts/UserData";
 
-import { instance as axios } from "../contexts/axiosInstance";
+const History = () => {
+  const { loadHistory, history } = useUserData();
 
-const History = ({ history, setHistory, cardProps }) => {
-  useEffect(() => {
-    listHistory();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const listHistory = async () => {
-    try {
-      const response = await axios.get("/users/my/history");
-      const fetchedHistory = response.data.map(addRandomKey);
-      setHistory(fetchedHistory);
-    } catch (e) {
-      notify("Unable to fetch history");
-    }
-  };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(loadHistory, []);
 
   const [queryString, setQueryString] = useState(null);
 
@@ -61,12 +48,7 @@ const History = ({ history, setHistory, cardProps }) => {
         </div>
       </div>
 
-      <Cards
-        {...{
-          ...cardProps,
-          searchArray: (filteredItems || []).slice(0, 10),
-        }}
-      />
+      <Cards searchArray={(filteredItems || []).slice(0, 10)} />
     </>
   );
 };
