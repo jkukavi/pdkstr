@@ -7,8 +7,9 @@ import chevron from "../../../icons/chevron.png";
 import settings from "../../../icons/settings.png";
 import powerOff from "../../../icons/powerOff.png";
 import userIcon from "../../../icons/userIcon.png";
+import { notify } from "../../Notifications";
 
-const SearchEngineDropdown = ({ notify }) => {
+const SearchEngineDropdown = () => {
   const [dropdown, setDropdown] = useState(false);
   const history = useHistory();
 

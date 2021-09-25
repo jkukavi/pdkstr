@@ -1,11 +1,12 @@
 import React from "react";
 
+import { notify } from "./Notifications";
+
 const ShareAlert = ({
   info,
   alert,
   getDirectUrl,
   setListeningTo,
-  notify,
   setAlert,
 }) => {
   return (

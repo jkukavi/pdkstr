@@ -5,10 +5,11 @@ import magnifier from "../icons/magnifier.png";
 import Cards from "../components/Cards";
 
 import { addRandomKey } from "../helpers/helpers";
+import { notify } from "./Notifications";
 
 import { instance as axios } from "../contexts/axiosInstance";
 
-const History = ({ history, setHistory, cardProps, notify }) => {
+const History = ({ history, setHistory, cardProps }) => {
   useEffect(() => {
     listHistory();
     // eslint-disable-next-line react-hooks/exhaustive-deps

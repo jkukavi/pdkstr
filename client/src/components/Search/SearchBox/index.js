@@ -12,6 +12,7 @@ import magnifier from "../../../icons/magnifier.png";
 import chevron from "../../../icons/chevron.png";
 
 import { instance as axios } from "../../../contexts/axiosInstance";
+import { notify } from "../../Notifications";
 
 import SearchEngineDropdown from "./SearchEngineDropdown";
 import UserDropdown from "./UserDropdown";
@@ -19,11 +20,9 @@ import ChannelInfo from "../../ChannelInfo";
 import { useScrollingDownContext } from "../../../contexts/ScrollingDown";
 
 const SearchBox = ({
-  addToFavourites,
   setSearchArray,
   setArrayLoading,
   setViewingChannel,
-  notify,
   viewingChannel,
   loadChannelItems,
   loadChannelPlaylists,
@@ -135,7 +134,6 @@ const SearchBox = ({
 
               <InputWithSuggestions
                 searchEngine={searchEngine}
-                notify={notify}
                 searchForm={searchForm}
               />
               <button className="button search" type="submit">
@@ -144,7 +142,7 @@ const SearchBox = ({
               {smallScreen && (
                 <div
                   className="button microphone"
-                  onClick={recognizeAndStartSearch(startSearch, notify)}
+                  onClick={recognizeAndStartSearch(startSearch)}
                 >
                   <img src={microphone} alt="alt" />
                 </div>
@@ -165,7 +163,7 @@ const SearchBox = ({
               )}
               <div
                 className="button microphone"
-                onClick={recognizeAndStartSearch(startSearch, notify)}
+                onClick={recognizeAndStartSearch(startSearch)}
               >
                 <img src={microphone} alt="alt" />
               </div>
@@ -178,7 +176,7 @@ const SearchBox = ({
                 searchEngine={searchEngine}
                 setSearchEngine={setSearchEngine}
               />
-              <UserDropdown notify={notify} />
+              <UserDropdown />
             </>
           )}
         </form>
@@ -187,7 +185,6 @@ const SearchBox = ({
             channelInfo={viewingChannel}
             loadChannelItems={loadChannelItems}
             loadChannelPlaylists={loadChannelPlaylists}
-            addToFavourites={addToFavourites}
           />
         )}
       </div>
@@ -200,7 +197,7 @@ export default SearchBox;
 let preventBlur = false;
 let inputFocused = false;
 
-const InputWithSuggestions = ({ searchEngine, notify, searchForm }) => {
+const InputWithSuggestions = ({ searchEngine, searchForm }) => {
   const [suggestions, setSuggestions] = useState({ show: false, array: [] });
 
   useEffect(() => {

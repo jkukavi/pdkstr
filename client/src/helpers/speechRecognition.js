@@ -37,7 +37,7 @@ recognition.onresult = function (event) {
   }
 };
 
-const recognizeAndStartSearch = (currentStartSearch, currentNotify) => {
+const recognizeAndStartSearch = (currentStartSearch) => {
   startSearch = currentStartSearch;
   return () => {
     recognition.start();

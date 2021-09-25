@@ -4,11 +4,12 @@ import { buttonTextBySearchEngine, defaultPuppyImg } from "../consts";
 import star from "../icons/star.png";
 import trash from "../icons/trash.png";
 
+import { addToFavourites } from "../apiCalls";
+
 const ChannelInfo = ({
   channelInfo,
   loadChannelItems,
   loadChannelPlaylists,
-  addToFavourites,
 }) => {
   const [active, setActive] = useState("items");
 

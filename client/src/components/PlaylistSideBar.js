@@ -112,11 +112,8 @@ const PlaylistSidebarComponent = () => {
           <div style={{ position: "relative" }}>
             <Table
               controls={controls}
-              {...{
-                tableTitle: "Playlist: " + browsingPlaylist.info?.title,
-                tableArray: browsingPlaylist.items,
-                notify: notify,
-              }}
+              tableTitle={"Playlist: " + browsingPlaylist.info?.title}
+              tableArray={browsingPlaylist.items}
             />
           </div>
         </div>,

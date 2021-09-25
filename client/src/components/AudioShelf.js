@@ -22,6 +22,9 @@ import { getViewsString, addRandomKey } from "../helpers/helpers";
 import speak from "../helpers/speak";
 import { paths, searchEngines } from "../consts";
 
+import { addToHistory } from "../apiCalls";
+import { notify } from "./Notifications";
+
 import { useScrollingDownContext } from "../contexts/ScrollingDown";
 import { instance as axios } from "../contexts/axiosInstance";
 
@@ -51,7 +54,7 @@ const notifySubscribers = (listeningTo) => {
   }
 };
 
-const AudioShelf = ({ notify, addToHistory }) => {
+const AudioShelf = () => {
   const scrollingDown = useScrollingDownContext("cardContainer");
   const [directUrl, setDirectUrl] = useState(null);
   const [audioLoading, setAudioLoading] = useState(false);

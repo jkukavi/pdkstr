@@ -4,6 +4,23 @@ import { notify } from "../components/Notifications";
 import { searchEngines } from "../consts";
 import { addRandomKey } from "../helpers/helpers";
 
+export const addToHistory = async (item) => {
+  try {
+    await axios.post("/users/my/history", { item });
+  } catch (e) {
+    notify("Unable to record this listening to history.");
+  }
+};
+
+export const addToFavourites = async (item) => {
+  try {
+    await axios.post("/users/my/favourites", { item });
+    notify("Added to favourites");
+  } catch (e) {
+    notify("Unable to add to favourites");
+  }
+};
+
 export const getPlaylistItems = async (playlist) => {
   const path = paths.playlistItems[playlist.engine];
 

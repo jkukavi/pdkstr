@@ -3,11 +3,12 @@ import React, { useState, useEffect } from "react";
 import playButton from "../icons/playButton.png";
 
 import { getViewsString } from "../helpers/helpers";
+import { notify } from "./Notifications";
 
 import { SearchEngineIcon } from "../consts";
 import { AudioPlayer } from "./AudioShelf";
 
-const Table = ({ tableTitle, notify, tableArray, controls }) => {
+const Table = ({ tableTitle, tableArray, controls }) => {
   const [listeningTo, setListeningTo] = useState(
     null || AudioPlayer.listeningTo
   );

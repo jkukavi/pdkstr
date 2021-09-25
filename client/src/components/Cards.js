@@ -8,6 +8,9 @@ import { SearchEngineIcon, defaultPuppyImg } from "../consts";
 
 import { getViewsString } from "../helpers/helpers";
 
+import { addToHistory, addToFavourites } from "../apiCalls";
+import { notify } from "./Notifications";
+
 import { AudioPlayer } from "./AudioShelf";
 import { PlaylistSidebar } from "./PlaylistSideBar";
 
@@ -18,9 +21,6 @@ const Cards = ({
   arrayLoading,
   viewingChannel,
   loadChannelItems,
-  addToHistory,
-  addToFavourites,
-  notify,
   channelClickAction,
 }) => {
   return (

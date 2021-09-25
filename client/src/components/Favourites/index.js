@@ -8,6 +8,7 @@ import closeIcon from "../../icons/close.png";
 import FilterDropdown from "./FilterDropdown";
 
 import Cards from "../../components/Cards";
+import { notify } from "../Notifications";
 
 import { instance as axios } from "../../contexts/axiosInstance";
 
@@ -17,7 +18,7 @@ const filters = {
   CHANNELS: "channel",
 };
 
-const Favourites = ({ favourites = [], setFavourites, notify, cardProps }) => {
+const Favourites = ({ favourites = [], setFavourites, cardProps }) => {
   const history = useHistory();
 
   useEffect(() => {
