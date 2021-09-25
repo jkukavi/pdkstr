@@ -27,10 +27,13 @@ recognition.onspeechend = function () {
 
 // This runs when the speech recognition service returns result
 recognition.onresult = function (event) {
-  var transcript = event.results[0][0].transcript;
-  var confidence = event.results[0][0].confidence;
-  notify(`Transcribed: "${transcript}" with confidence ${confidence * 100}%`);
-  if (confidence < 0.75) {
+  const transcript = event.results[0][0].transcript;
+  const confidence = event.results[0][0].confidence;
+  const confidencePercentage = Math.floor(confidence * 100);
+  notify(
+    `Transcribed: "${transcript}" with confidence ${confidencePercentage}%`
+  );
+  if (confidencePercentage < 75) {
     speak("Stop mumbling.");
   } else {
     startSearch(transcript);

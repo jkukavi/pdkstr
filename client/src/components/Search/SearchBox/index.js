@@ -59,7 +59,8 @@ const SearchBox = ({
   };
 
   const startSearch = (recognizedString) => {
-    document.getElementById("searchInput").value = recognizedString;
+    const element = document.getElementById("searchInput");
+    if (element) element.value = recognizedString;
     searchYoutube(null, recognizedString);
   };
   // eslint-disable-next-line react-hooks/exhaustive-deps
