@@ -27,18 +27,20 @@ export const useScrollingDownContext = (id) => {
 
   useEffect(() => {
     const element = document.getElementById(id);
-    const debouncedSetScroll = debounce(setScrollingDown, 1500);
-    const throttletCheckScroll = throttle(checkScroll(setScrollingDown), 500);
-    const scrollHandler = () => {
-      debouncedSetScroll(false);
-      throttletCheckScroll();
-    };
+    if (element) {
+      const debouncedSetScroll = debounce(setScrollingDown, 1500);
+      const throttletCheckScroll = throttle(checkScroll(setScrollingDown), 500);
+      const scrollHandler = () => {
+        debouncedSetScroll(false);
+        throttletCheckScroll();
+      };
 
-    element.addEventListener("scroll", scrollHandler);
+      element.addEventListener("scroll", scrollHandler);
+      return () => {
+        element.removeEventListener("scroll", scrollHandler);
+      };
+    }
 
-    return () => {
-      element.removeEventListener("scroll", scrollHandler);
-    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location, setScrollingDown]);
 

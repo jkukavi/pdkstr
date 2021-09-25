@@ -4,7 +4,7 @@ import { useHistory } from "react-router";
 
 import chevron from "../../icons/chevron.png";
 
-import "./Settings.css";
+import "./index.css";
 
 const Settings = () => {
   const history = useHistory();

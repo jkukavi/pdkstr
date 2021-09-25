@@ -10,7 +10,7 @@ import BottomMenu from "../../components/BottomMenu";
 import AudioShelf from "../../components/AudioShelf";
 import PrintScreen from "../../components/PrintScreen";
 import PlaylistSidebar from "../../components/PlaylistSideBar";
-import Settings from "./Settings";
+import Settings from "../../components/Settings";
 import Notifications from "../../components/Notifications";
 import { ScrollingDownProvider } from "../../contexts/ScrollingDown";
 
