@@ -23,7 +23,7 @@ const History = () => {
   }, [history, queryString]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const debouncedSetFilter = useCallback(debounce(setQueryString, 400), [
+  const debouncedSetQueryString = useCallback(debounce(setQueryString, 400), [
     setQueryString,
   ]);
 
@@ -38,7 +38,7 @@ const History = () => {
             type="text"
             placeholder="Search history"
             onChange={(e) => {
-              debouncedSetFilter(e.target.value);
+              debouncedSetQueryString(e.target.value);
             }}
           />
 

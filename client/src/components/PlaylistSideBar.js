@@ -90,7 +90,7 @@ const PlaylistSidebarComponent = () => {
       setShow(true);
       setTimeout(() => {
         document.getElementById("root").classList.add("blurredAndOverlayed");
-      }, 600);
+      }, 700);
     } else if (show) {
       setShow(false);
       document.getElementById("root").classList.remove("blurredAndOverlayed");

@@ -58,7 +58,8 @@ const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     instantiateInstance({ logout, reestablishSession, destroySession });
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const getMyUser = async () => {
     const response = await instance.get("/users/me");

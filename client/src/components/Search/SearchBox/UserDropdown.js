@@ -111,10 +111,17 @@ const UserIcon = ({ username }) => {
         alignItems: "center",
         borderRadius: "100%",
         backgroundColor: colors[0],
+        background: "radial-gradient(circle, rgb(251 158 63) 0%, #fa2e2e 100%)",
         fontWeight: 600,
       }}
     >
-      {username.charAt(0).toUpperCase()}
+      <span
+        style={{
+          filter: "drop-shadow(1px 1px 0.9px #030303c2)",
+        }}
+      >
+        {username.charAt(0).toUpperCase()}
+      </span>
     </div>
   );
 };

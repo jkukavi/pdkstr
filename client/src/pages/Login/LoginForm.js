@@ -66,6 +66,7 @@ const LoginForm = ({ notify, goBack }) => {
 
         <Link to={`${url}/forgot-password`}>Forgot your password?</Link>
         <Link to={`${url}/register`}>Sign up</Link>
+
         <Route exact path={`${url}/forgot-password`}>
           <div className="item">
             <label htmlFor="forgotPassword">Email:</label>
