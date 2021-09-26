@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from "react";
 
-import Table from "./Table";
-import Player from "./Player";
+import Table from "../Table";
+import Player from "../Player";
 
-import replay5 from "../icons/replay5.png";
-import replay10 from "../icons/replay10.png";
-import replay30 from "../icons/replay30.png";
-import forward5 from "../icons/forward5.png";
-import forward10 from "../icons/forward10.png";
-import forward30 from "../icons/forward30.png";
-import share from "../icons/share.png";
-import playingQueue from "../icons/playingQueue.png";
-import chevron from "../icons/chevron.png";
-import { SearchEngineIcon, searchEngineShortcuts } from "../consts";
-import { getPlaylistItems } from "../apiCalls";
+import replay5 from "../../icons/replay5.png";
+import replay10 from "../../icons/replay10.png";
+import replay30 from "../../icons/replay30.png";
+import forward5 from "../../icons/forward5.png";
+import forward10 from "../../icons/forward10.png";
+import forward30 from "../../icons/forward30.png";
+import share from "../../icons/share.png";
+
+import { SearchEngineIcon, searchEngineShortcuts } from "../../consts";
+import { getPlaylistItems } from "../../apiCalls";
 
 import { v4 as uuid } from "uuid";
 
-import copyToClipboard from "../helpers/copyToClipboard";
-import { getViewsString, addRandomKey } from "../helpers/helpers";
-import speak from "../helpers/speak";
-import { paths, searchEngines } from "../consts";
+import copyToClipboard from "../../helpers/copyToClipboard";
+import { getViewsString, addRandomKey } from "../../helpers/helpers";
+import speak from "../../helpers/speak";
+import { paths, searchEngines } from "../../consts";
 
-import { addToHistory } from "../apiCalls";
-import { notify } from "./Notifications";
+import { addToHistory } from "../../apiCalls";
+import { notify } from "../Notifications";
 
-import { useScrollingDownContext } from "../contexts/ScrollingDown";
-import { instance as axios } from "../contexts/axiosInstance";
+import { instance as axios } from "../../contexts/axiosInstance";
+
+import ExpansionContainer, { ExpandButton } from "./ExpansionContainer";
 
 export const AudioPlayer = {
   getDirectUrl: null,
@@ -55,10 +55,8 @@ const notifySubscribers = (listeningTo) => {
 };
 
 const AudioShelf = () => {
-  const scrollingDown = useScrollingDownContext("cardContainer");
   const [directUrl, setDirectUrl] = useState(null);
   const [audioLoading, setAudioLoading] = useState(false);
-  const [expanded, setExpanded] = useState(false);
   const [playlist, setPlaylist] = useState([]);
   const [listeningTo, setListeningTo] = useState(null);
   const [activeVideo, setActiveVideo] = useState(null);
@@ -72,14 +70,7 @@ const AudioShelf = () => {
     AudioPlayer.listeningTo = listeningTo;
     AudioPlayer.activeVideo = activeVideo;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
-    setDirectUrl,
-    setAudioLoading,
-    setExpanded,
-    setPlaylist,
-    setActiveVideo,
-    activeVideo,
-  ]);
+  }, [setDirectUrl, setAudioLoading, setPlaylist, setActiveVideo, activeVideo]);
 
   useEffect(() => notifySubscribers(listeningTo), [listeningTo]);
 
@@ -151,10 +142,10 @@ const AudioShelf = () => {
   };
 
   return (
-    <div
-      className={`audioShelf ${
-        (directUrl || audioLoading) && !scrollingDown ? "" : "closed"
-      } ${expanded ? "opened" : ""}`}
+    <ExpansionContainer
+      directUrl={directUrl}
+      audioLoading={audioLoading}
+      playlist={playlist}
     >
       <div className="audioPlayerContainer">
         <>
@@ -211,7 +202,7 @@ const AudioShelf = () => {
                     )
                   }
                 />
-                <div className="audioControls">
+                <div id="audioControls" className="audioControls">
                   <div className="audioButton" onClick={replay(-30)}>
                     <img src={replay30} alt="loading" />
                   </div>
@@ -252,20 +243,7 @@ const AudioShelf = () => {
                   >
                     <img src={share} alt="loading" />
                   </div>
-
-                  {!!playlist.length && (
-                    <div
-                      className={`audioButton close ${
-                        expanded ? "expanded" : ""
-                      }`}
-                      onClick={() => setExpanded(!expanded)}
-                    >
-                      <img
-                        src={expanded ? chevron : playingQueue}
-                        alt="loading"
-                      />
-                    </div>
-                  )}
+                  {!!playlist.length && <ExpandButton />}
                 </div>
               </>
             )
@@ -293,7 +271,7 @@ const AudioShelf = () => {
           />
         </div>
       )}
-    </div>
+    </ExpansionContainer>
   );
 };
 

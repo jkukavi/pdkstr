@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
 
 import Table from "./Table";
 import playButtonThumbnail from "../icons/playButtonThumbnail.svg";
@@ -87,13 +86,9 @@ const PlaylistSidebarComponent = () => {
 
   useEffect(() => {
     if (browsingPlaylist.expanded) {
-      setShow(true);
-      setTimeout(() => {
-        document.getElementById("root").classList.add("blurredAndOverlayed");
-      }, 700);
+      setTimeout(() => setShow(true));
     } else if (show) {
-      setShow(false);
-      document.getElementById("root").classList.remove("blurredAndOverlayed");
+      setTimeout(() => setShow(false));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [browsingPlaylist.expanded]);
@@ -104,23 +99,48 @@ const PlaylistSidebarComponent = () => {
 
   return (
     <>
-      {ReactDOM.createPortal(
-        <div
-          id="hell"
-          className={`playlistSidebarContainer ${show ? "expanded" : ""}`}
-        >
-          <div style={{ position: "relative" }}>
-            <Table
-              controls={controls}
-              tableTitle={"Playlist: " + browsingPlaylist.info?.title}
-              tableArray={browsingPlaylist.items}
-            />
-          </div>
-        </div>,
-        document.getElementById("modal")
-      )}
+      <div
+        id="hell"
+        className={`playlistSidebarContainer ${show ? "expanded" : ""}`}
+      >
+        <div style={{ position: "relative" }}>
+          <Table
+            controls={controls}
+            tableTitle={"Playlist: " + browsingPlaylist.info?.title}
+            tableArray={browsingPlaylist.items}
+          />
+        </div>
+      </div>
+      <DarkOverlay closeBrowsingPlaylist={closeBrowsingPlaylist} />
     </>
   );
 };
 
 export default PlaylistSidebarComponent;
+
+const DarkOverlay = ({ closeBrowsingPlaylist }) => {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShow(true);
+    }, 500);
+  }, []);
+
+  if (!show) return null;
+
+  return (
+    <div
+      onClick={closeBrowsingPlaylist}
+      style={{
+        backgroundColor: "rgb(0 0 0 / 80%)",
+        position: "absolute",
+        top: 0,
+        left: 0,
+        height: "100%",
+        width: "100%",
+        zIndex: 3,
+      }}
+    ></div>
+  );
+};
