@@ -84,7 +84,7 @@ const AudioShelf = () => {
     setDirectUrl(null);
     setAudioLoading(true);
     try {
-      const directUrl = fetchDirectUrl({ id, engine, url });
+      const directUrl = await fetchDirectUrl({ id, engine, url });
       setDirectUrl(directUrl);
     } catch (e) {
       notify("Something went wrong. Try again.");

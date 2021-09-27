@@ -1,10 +1,11 @@
 import React, { useState, useMemo, useEffect, useCallback } from "react";
 
-import { debounce } from "../helpers/helpers";
-import magnifier from "../icons/magnifier.png";
-import Cards from "../components/Cards";
+import { debounce } from "../../helpers/helpers";
 
-import { useUserData } from "../contexts/UserData";
+import Navbar from "./Navbar";
+import Cards from "../../components/Cards";
+
+import { useUserData } from "../../contexts/UserData";
 
 const History = () => {
   const { loadHistory, history } = useUserData();
@@ -27,27 +28,13 @@ const History = () => {
     setQueryString,
   ]);
 
+  const handleInputChange = (e) => {
+    debouncedSetQueryString(e.target.value);
+  };
+
   return (
     <>
-      <div className="filterNavbarContainer">
-        <div className="filterNavbar">
-          <h2>History</h2>
-          <div className="verticalLine"></div>
-          <input
-            style={{ margin: "3px 0 3px" }}
-            type="text"
-            placeholder="Search history"
-            onChange={(e) => {
-              debouncedSetQueryString(e.target.value);
-            }}
-          />
-
-          <div className="iconHolder">
-            <img src={magnifier} alt="alt" />
-          </div>
-        </div>
-      </div>
-
+      <Navbar handleInputChange={handleInputChange} />
       <Cards searchArray={(filteredItems || []).slice(0, 10)} />
     </>
   );
