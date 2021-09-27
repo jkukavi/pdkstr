@@ -709,7 +709,7 @@ audio {
 
 .dropDownContainer {
   position: relative;
-  width: 4rem;
+  width: fit-content;
   height: 2rem;
   margin-right: 0.3rem;
 }

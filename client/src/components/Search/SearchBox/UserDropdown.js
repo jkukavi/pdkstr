@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { useHistory } from "react-router";
 
 import { useAuthContext } from "../../../contexts/Auth";
 
-import chevron from "../../../icons/chevron.png";
 import settings from "../../../icons/settings.png";
 import powerOff from "../../../icons/powerOff.png";
 import userIcon from "../../../icons/userIcon.png";
 import { notify } from "../../Notifications";
 
+import DropDown from "../../Dropdown";
+
 const SearchEngineDropdown = () => {
-  const [dropdown, setDropdown] = useState(false);
   const history = useHistory();
 
   const { user, logout } = useAuthContext();
@@ -23,63 +23,34 @@ const SearchEngineDropdown = () => {
     }
   };
 
-  const handlePointerDown = (e) => {
-    e.preventDefault();
-    setDropdown((dropdown) => !dropdown);
-    if (!dropdown) {
-      setTimeout(() => document.getElementById("alternateEngines").focus(), 0);
-    }
-  };
   return (
-    <>
-      <div className={"dropDownContainer"}>
-        <div
-          className={"dropDownIcon active"}
-          tabIndex={0}
-          //pointerDown, because pointerUp lost a race condition to onBlur of droppedMenu, so to win the race,
-          //pointerDown is used. In time, should be replaced maybe with a flag or smth.
-          onPointerDown={handlePointerDown}
-          //so it can be opened with keyboard
-          onKeyPress={handlePointerDown}
-        >
-          <UserIcon username={user} />
-
-          <img className="chevron" src={chevron} alt="alt" />
-        </div>
-        {dropdown && (
-          <div
-            onBlur={() => {
-              setDropdown(false);
-            }}
-            id="alternateEngines"
-            //tabIndex="-1" or "0" so it can catch focus, and therefore trigger onblur
-            tabIndex={0}
-            className="dropDown"
-          >
-            <div
-              className="dropDownIcon"
-              onClick={() => {
-                setDropdown(false);
-                history.push("/settings");
-              }}
-            >
-              <img
-                style={{ filter: "invert(0.6)", height: "65%" }}
-                src={settings}
-                alt="alt"
-              ></img>
-            </div>
-            <div className="dropDownIcon" onClick={handleLogout}>
-              <img
-                style={{ filter: "invert(0.6)", height: "65%" }}
-                src={powerOff}
-                alt="alt"
-              ></img>
-            </div>
-          </div>
-        )}
-      </div>
-    </>
+    <DropDown
+      frontItem={<UserIcon username={user} />}
+      dropdownItems={[
+        {
+          component: (
+            <img
+              style={{ filter: "invert(0.6)", height: "65%" }}
+              src={settings}
+              alt="alt"
+            ></img>
+          ),
+          onClick: () => {
+            history.push("/settings");
+          },
+        },
+        {
+          component: (
+            <img
+              style={{ filter: "invert(0.6)", height: "65%" }}
+              src={powerOff}
+              alt="alt"
+            ></img>
+          ),
+          onClick: handleLogout,
+        },
+      ]}
+    />
   );
 };
 

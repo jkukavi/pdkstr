@@ -1,63 +1,34 @@
-import React, { useState } from "react";
-
-import chevron from "../../../../icons/chevron.png";
+import React from "react";
 
 import {
   favouritesFilterNames as filterNames,
   favouritesFilters as filters,
 } from "../../../../consts";
 
-const FilterDropdown = ({ filter, setFilter }) => {
-  const [dropdown, setDropdown] = useState(false);
+import DropDown from "../../../Dropdown";
 
-  const handlePointerDown = (e) => {
-    e.preventDefault();
-    setDropdown((dropdown) => !dropdown);
-    if (!dropdown) {
-      setTimeout(() => document.getElementById("alternateEngines").focus(), 0);
-    }
-  };
+const FilterDropdown = ({ filter, setFilter }) => {
+  const dropdownItems = Object.values(filters).map((item) => {
+    return {
+      component: <Text>{filterNames[item]}</Text>,
+      onClick: () => {
+        setFilter(item);
+      },
+    };
+  });
+
   return (
-    <>
-      <div style={{ width: "5rem", margin: 0 }} className={"dropDownContainer"}>
-        <div
-          className={"dropDownIcon active"}
-          style={{ fontSize: "12px", color: "whitesmoke" }}
-          tabIndex={0}
-          onPointerDown={handlePointerDown}
-          onKeyPress={handlePointerDown}
-        >
-          {filterNames[filter]}
-          <img className="chevron" src={chevron} alt="alt" />
-        </div>
-        {dropdown && (
-          <div
-            onBlur={() => {
-              setDropdown(false);
-            }}
-            tabIndex="-1"
-            id="alternateEngines"
-            className="dropDown"
-          >
-            {Object.values(filters).map((item) => (
-              <div
-                className="dropDownIcon"
-                style={{ color: "whitesmoke" }}
-                onClick={() => {
-                  setFilter(item);
-                  setDropdown(false);
-                }}
-              >
-                <p style={{ fontSize: "12px", textAlign: "left" }}>
-                  {filterNames[item]}
-                </p>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-    </>
+    <DropDown
+      frontItem={<Text>{filterNames[filter]}</Text>}
+      dropdownItems={dropdownItems}
+    />
   );
 };
 
 export default FilterDropdown;
+
+const Text = ({ children }) => {
+  return (
+    <span style={{ fontSize: "12px", color: "whitesmoke" }}>{children}</span>
+  );
+};
