@@ -723,6 +723,10 @@ audio {
   overflow: hidden;
 }
 
+.dropDown:focus {
+  outline: none;
+}
+
 .dropDownIcon {
   cursor: pointer;
   padding: 0 0.5rem;

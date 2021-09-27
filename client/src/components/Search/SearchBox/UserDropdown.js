@@ -22,30 +22,25 @@ const SearchEngineDropdown = () => {
       notify("Something went wrong. Please check your connection.");
     }
   };
+
+  const handlePointerDown = (e) => {
+    e.preventDefault();
+    setDropdown((dropdown) => !dropdown);
+    if (!dropdown) {
+      setTimeout(() => document.getElementById("alternateEngines").focus(), 0);
+    }
+  };
   return (
     <>
       <div className={"dropDownContainer"}>
         <div
           className={"dropDownIcon active"}
-          tabIndex="-1"
-          onKeyPress={() => {
-            setDropdown((dropdown) => !dropdown);
-            if (!dropdown) {
-              setTimeout(
-                () => document.getElementById("alternateEngines").focus(),
-                0
-              );
-            }
-          }}
-          onMouseDown={() => {
-            setDropdown((dropdown) => !dropdown);
-            if (!dropdown) {
-              setTimeout(
-                () => document.getElementById("alternateEngines").focus(),
-                0
-              );
-            }
-          }}
+          tabIndex={0}
+          //pointerDown, because pointerUp lost a race condition to onBlur of droppedMenu, so to win the race,
+          //pointerDown is used. In time, should be replaced maybe with a flag or smth.
+          onPointerDown={handlePointerDown}
+          //so it can be opened with keyboard
+          onKeyPress={handlePointerDown}
         >
           <UserIcon username={user} />
 
@@ -57,7 +52,8 @@ const SearchEngineDropdown = () => {
               setDropdown(false);
             }}
             id="alternateEngines"
-            tabIndex="-1"
+            //tabIndex="-1" or "0" so it can catch focus, and therefore trigger onblur
+            tabIndex={0}
             className="dropDown"
           >
             <div

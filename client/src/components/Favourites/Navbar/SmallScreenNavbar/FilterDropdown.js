@@ -1,40 +1,31 @@
 import React, { useState } from "react";
 
-import chevron from "../../../icons/chevron.png";
+import chevron from "../../../../icons/chevron.png";
 
 import {
   favouritesFilterNames as filterNames,
   favouritesFilters as filters,
-} from "../../../consts";
+} from "../../../../consts";
 
 const FilterDropdown = ({ filter, setFilter }) => {
   const [dropdown, setDropdown] = useState(false);
 
+  const handlePointerDown = (e) => {
+    e.preventDefault();
+    setDropdown((dropdown) => !dropdown);
+    if (!dropdown) {
+      setTimeout(() => document.getElementById("alternateEngines").focus(), 0);
+    }
+  };
   return (
     <>
       <div style={{ width: "5rem", margin: 0 }} className={"dropDownContainer"}>
         <div
           className={"dropDownIcon active"}
           style={{ fontSize: "12px", color: "whitesmoke" }}
-          tabIndex="-1"
-          onKeyPress={() => {
-            setDropdown((dropdown) => !dropdown);
-            if (!dropdown) {
-              setTimeout(
-                () => document.getElementById("alternateEngines").focus(),
-                0
-              );
-            }
-          }}
-          onMouseDown={() => {
-            setDropdown((dropdown) => !dropdown);
-            if (!dropdown) {
-              setTimeout(
-                () => document.getElementById("alternateEngines").focus(),
-                0
-              );
-            }
-          }}
+          tabIndex={0}
+          onPointerDown={handlePointerDown}
+          onKeyPress={handlePointerDown}
         >
           {filterNames[filter]}
           <img className="chevron" src={chevron} alt="alt" />
@@ -44,8 +35,8 @@ const FilterDropdown = ({ filter, setFilter }) => {
             onBlur={() => {
               setDropdown(false);
             }}
-            id="alternateEngines"
             tabIndex="-1"
+            id="alternateEngines"
             className="dropDown"
           >
             {Object.values(filters).map((item) => (

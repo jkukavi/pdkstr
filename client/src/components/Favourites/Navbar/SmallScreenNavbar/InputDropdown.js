@@ -1,37 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
-import magnifier from "../../../icons/magnifier.png";
-import closeIcon from "../../../icons/close.png";
-import FilterDropdown from "./FilterDropdown";
-
-const SmallScreenNavbar = ({
-  filter,
-  setFilter,
-  queryString,
-  debouncedSetQueryString,
-  deleteQuery,
-}) => {
-  return (
-    <div className="filterNavbarContainer">
-      <div style={{ padding: 0 }} className="filterNavbar">
-        <h2 style={{ paddingLeft: "0.3rem" }}>Favourites</h2>
-        <div className="verticalLine"></div>
-
-        <FilterDropdown filter={filter} setFilter={setFilter} />
-
-        <div className="verticalLine"></div>
-
-        <InputDropdown
-          queryString={queryString}
-          debouncedSetQueryString={debouncedSetQueryString}
-          deleteQuery={deleteQuery}
-        />
-      </div>
-    </div>
-  );
-};
-
-export default SmallScreenNavbar;
+import magnifier from "../../../../icons/magnifier.png";
+import closeIcon from "../../../../icons/close.png";
 
 const InputDropdown = ({
   queryString,
@@ -105,3 +75,5 @@ const InputDropdown = ({
     </div>
   );
 };
+
+export default InputDropdown;

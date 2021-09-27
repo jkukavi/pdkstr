@@ -7,30 +7,23 @@ import { searchEngines } from "../../../consts";
 
 const SearchEngineDropdown = ({ searchEngine, setSearchEngine }) => {
   const [dropdown, setDropdown] = useState(false);
+
+  const handlePointerDown = (e) => {
+    e.preventDefault();
+    setDropdown((dropdown) => !dropdown);
+    if (!dropdown) {
+      setTimeout(() => document.getElementById("alternateEngines").focus(), 0);
+    }
+  };
   return (
     <>
       <div className={"dropDownContainer"}>
         <div
           className={"dropDownIcon active"}
-          tabIndex="-1"
-          onKeyPress={() => {
-            setDropdown((dropdown) => !dropdown);
-            if (!dropdown) {
-              setTimeout(
-                () => document.getElementById("alternateEngines").focus(),
-                0
-              );
-            }
-          }}
-          onMouseDown={() => {
-            setDropdown((dropdown) => !dropdown);
-            if (!dropdown) {
-              setTimeout(
-                () => document.getElementById("alternateEngines").focus(),
-                0
-              );
-            }
-          }}
+          tabIndex={0}
+          onPointerDown={handlePointerDown}
+          //so it can be opened with keyboard
+          onKeyPress={handlePointerDown}
         >
           <img
             src={searchEngine === searchEngines.YT ? youtube : soundcloud}
@@ -41,7 +34,8 @@ const SearchEngineDropdown = ({ searchEngine, setSearchEngine }) => {
         </div>
         {dropdown && (
           <div
-            tabIndex="-1"
+            //tabIndex="-1" so it can catch focus, and therefore trigger onblur
+            tabIndex={0}
             onBlur={() => {
               setDropdown(false);
             }}
