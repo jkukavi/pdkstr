@@ -1,18 +1,11 @@
 import React, { useState } from "react";
 
-import chevron from "../../icons/chevron.png";
+import chevron from "../../../icons/chevron.png";
 
-const filters = {
-  TRACKS: "video",
-  PLAYLISTS: "playlist",
-  CHANNELS: "channel",
-};
-
-const filterStrings = {
-  [filters.TRACKS]: "Tracks",
-  [filters.PLAYLISTS]: "Playlists",
-  [filters.CHANNELS]: "Channels",
-};
+import {
+  favouritesFilterNames as filterNames,
+  favouritesFilters as filters,
+} from "../../../consts";
 
 const FilterDropdown = ({ filter, setFilter }) => {
   const [dropdown, setDropdown] = useState(false);
@@ -43,7 +36,7 @@ const FilterDropdown = ({ filter, setFilter }) => {
             }
           }}
         >
-          {filterStrings[filter]}
+          {filterNames[filter]}
           <img className="chevron" src={chevron} alt="alt" />
         </div>
         {dropdown && (
@@ -65,7 +58,7 @@ const FilterDropdown = ({ filter, setFilter }) => {
                 }}
               >
                 <p style={{ fontSize: "12px", textAlign: "left" }}>
-                  {filterStrings[item]}
+                  {filterNames[item]}
                 </p>
               </div>
             ))}

@@ -3,15 +3,11 @@ import { useHistory } from "react-router";
 
 import { debounce } from "../../helpers/helpers";
 
+import { favouritesFilters as filters } from "../../consts";
+
 import Navbar from "./Navbar";
 import Cards from "../../components/Cards";
 import { useUserData } from "../../contexts/UserData";
-
-const filters = {
-  TRACKS: "video",
-  PLAYLISTS: "playlist",
-  CHANNELS: "channel",
-};
 
 const Favourites = () => {
   const history = useHistory();
@@ -53,6 +49,7 @@ const Favourites = () => {
         filters={filters}
         debouncedSetQueryString={debouncedSetQueryString}
         deleteQuery={deleteQuery}
+        queryString={queryString}
       />
       <Cards
         searchArray={filteredItems}

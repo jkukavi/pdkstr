@@ -89,3 +89,15 @@ export const SearchEngineIcon = ({ engine, size = "s" }) => {
 
 export const defaultPuppyImg =
   "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*";
+
+export const favouritesFilters = {
+  TRACKS: "video",
+  PLAYLISTS: "playlist",
+  CHANNELS: "channel",
+};
+
+export const favouritesFilterNames = {
+  [favouritesFilters.TRACKS]: "Tracks",
+  [favouritesFilters.PLAYLISTS]: "Playlists",
+  [favouritesFilters.CHANNELS]: "Channels",
+};

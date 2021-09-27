@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 
 const Sidebar = ({ children, closeMe }) => {
-  const [expanded, setExpanded] = useState();
+  const [expanded, setExpanded] = useState(false);
 
-  useEffect(() => {
-    setExpanded(true);
-  }, []);
+  const expand = () => {
+    // to make sure this gets called *after* everything is rendered.
+    requestAnimationFrame(() => {
+      setExpanded(true);
+    });
+  };
+
+  useEffect(expand, []);
   return (
     <>
       <div className={`playlistSidebarContainer ${expanded ? "expanded" : ""}`}>
