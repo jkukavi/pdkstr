@@ -12,19 +12,16 @@ import forward30 from "../../icons/forward30.png";
 import share from "../../icons/share.png";
 
 import { SearchEngineIcon, searchEngineShortcuts } from "../../consts";
-import { getPlaylistItems } from "../../apiCalls";
+import { getPlaylistItems, fetchDirectUrl } from "../../apiCalls";
 
 import { v4 as uuid } from "uuid";
 
 import copyToClipboard from "../../helpers/copyToClipboard";
 import { getViewsString, addRandomKey } from "../../helpers/helpers";
 import speak from "../../helpers/speak";
-import { paths, searchEngines } from "../../consts";
 
 import { addToHistory } from "../../apiCalls";
 import { notify } from "../Notifications";
-
-import { instance as axios } from "../../contexts/axiosInstance";
 
 import ExpansionContainer, { ExpandButton } from "./ExpansionContainer";
 
@@ -86,13 +83,8 @@ const AudioShelf = () => {
   const getDirectUrl = async ({ id, engine, url }) => {
     setDirectUrl(null);
     setAudioLoading(true);
-    const path = paths.directUrl[engine];
     try {
-      const response = await axios.post(path, {
-        id,
-        ...(engine === searchEngines.SC && { fromUrl: url }),
-      });
-      const { directUrl } = response.data;
+      const directUrl = fetchDirectUrl({ id, engine, url });
       setDirectUrl(directUrl);
     } catch (e) {
       notify("Something went wrong. Try again.");

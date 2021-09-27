@@ -37,6 +37,16 @@ export const getPlaylistItems = async (playlist) => {
   }
 };
 
+export const fetchDirectUrl = async ({ id, engine, url }) => {
+  const path = paths.directUrl[engine];
+  const response = await axios.post(path, {
+    id,
+    ...(engine === searchEngines.SC && { fromUrl: url }),
+  });
+  const { directUrl } = response.data;
+  return directUrl;
+};
+
 const getChannelIdFromPlaylist = (item) => {
   return {
     [searchEngines.YT]: (type) =>

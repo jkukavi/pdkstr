@@ -12,7 +12,7 @@ import { addToHistory, addToFavourites } from "../apiCalls";
 import { notify } from "./Notifications";
 
 import { AudioPlayer } from "./AudioShelf";
-import { PlaylistSidebar } from "./PlaylistSideBar";
+import { PlaylistSidebar } from "./PlaylistSidebar";
 
 const allowedTypes = ["video", "playlist", "channel"];
 
