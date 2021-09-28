@@ -19,6 +19,7 @@ import { notify } from "../Notifications";
 
 const AudioPlayerComponent = ({
   onAudioEnded,
+  onAudioError,
   directUrl,
   listeningTo,
   replay,
@@ -40,6 +41,7 @@ const AudioPlayerComponent = ({
             style={{ display: "none" }}
             id="my-audio"
             onEnded={onAudioEnded}
+            onError={onAudioError}
             controls
             autoPlay
           >

@@ -64,6 +64,12 @@ const AudioShelf = () => {
     playNext();
   };
 
+  const onAudioError = () => {
+    notify("Something went wrong with trying to play this item.");
+    setDirectUrl(null);
+    onAudioEnded();
+  };
+
   const replay = (time) => () => {
     const audioPlayer = document.getElementById("my-audio");
     audioPlayer.currentTime = audioPlayer.currentTime + time;
@@ -132,6 +138,7 @@ const AudioShelf = () => {
         <AudioPlayerComponent
           audioLoading={audioLoading}
           onAudioEnded={onAudioEnded}
+          onAudioError={onAudioError}
           directUrl={directUrl}
           listeningTo={listeningTo}
           replay={replay}
