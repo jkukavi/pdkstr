@@ -138,7 +138,6 @@ const AudioShelf = () => {
           playlist={playlist}
         />
       )}
-
       {!!playlist.length && (
         <PlayingQueTable
           playlist={playlist}
