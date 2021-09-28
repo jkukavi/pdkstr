@@ -1,29 +1,18 @@
 import React, { useEffect, useState } from "react";
 
-import Table from "../Table";
-import Player from "../Player";
-
-import replay5 from "../../icons/replay5.png";
-import replay10 from "../../icons/replay10.png";
-import replay30 from "../../icons/replay30.png";
-import forward5 from "../../icons/forward5.png";
-import forward10 from "../../icons/forward10.png";
-import forward30 from "../../icons/forward30.png";
-import share from "../../icons/share.png";
-
-import { SearchEngineIcon, searchEngineShortcuts } from "../../consts";
 import { getPlaylistItems, fetchDirectUrl } from "../../apiCalls";
 
 import { v4 as uuid } from "uuid";
 
-import copyToClipboard from "../../helpers/copyToClipboard";
-import { getViewsString, addRandomKey } from "../../helpers/helpers";
+import { addRandomKey } from "../../helpers/helpers";
 import speak from "../../helpers/speak";
 
 import { addToHistory } from "../../apiCalls";
 import { notify } from "../Notifications";
 
-import ExpansionContainer, { ExpandButton } from "./ExpansionContainer";
+import ExpandableContainer from "./ExpandableContainer";
+import PlayingQueTable from "./PlayingQueTable";
+import AudioPlayerComponent from "./AudioPlayerComponent";
 
 export const AudioPlayer = {
   getDirectUrl: null,
@@ -134,136 +123,34 @@ const AudioShelf = () => {
   };
 
   return (
-    <ExpansionContainer
+    <ExpandableContainer
       directUrl={directUrl}
       audioLoading={audioLoading}
       playlist={playlist}
     >
-      <div className="audioPlayerContainer">
-        <>
-          {audioLoading ? (
-            <div className="loading audio">
-              <div className="miniloader" />
-            </div>
-          ) : (
-            directUrl && (
-              <>
-                <Player
-                  audioPlayer={
-                    <audio
-                      style={{ display: "none" }}
-                      id="my-audio"
-                      onEnded={onAudioEnded}
-                      controls
-                      autoPlay
-                    >
-                      <source src={directUrl} type="audio/webm" />
-                      <source
-                        src={`proxy/${encodeURIComponent(directUrl)}`}
-                        type="audio/webm"
-                      />
-                    </audio>
-                  }
-                  currentlyPlaying={
-                    listeningTo && (
-                      <div
-                        style={{
-                          lineHeight: "12px",
-                          width: "calc(100% - 6.5rem)",
-                        }}
-                      >
-                        <span style={{ fontSize: "12px" }}>
-                          Currently playing:{" "}
-                        </span>
-                        <br />
-
-                        <div
-                          style={{
-                            fontStyle: "italic",
-                            fontWeight: 600,
-                            fontSize: "12px",
-                            overflow: "hidden",
-                            whiteSpace: "nowrap",
-                            textOverflow: "ellipsis",
-                          }}
-                        >
-                          <SearchEngineIcon engine={listeningTo.engine} />
-                          {listeningTo.title}
-                        </div>
-                      </div>
-                    )
-                  }
-                />
-                <div id="audioControls" className="audioControls">
-                  <div className="audioButton" onClick={replay(-30)}>
-                    <img src={replay30} alt="loading" />
-                  </div>
-                  <div className="audioButton" onClick={replay(-10)}>
-                    <img src={replay10} alt="loading" />
-                  </div>
-                  <div className="audioButton" onClick={replay(-5)}>
-                    <img src={replay5} alt="loading" />
-                  </div>
-                  <button
-                    id="playButton"
-                    className="audioButton noFlash"
-                  ></button>
-                  <div className="audioButton" onClick={replay(5)}>
-                    <img src={forward5} alt="loading" />
-                  </div>
-                  <div className="audioButton" onClick={replay(10)}>
-                    <img src={forward10} alt="loading" />
-                  </div>
-                  <div className="audioButton" onClick={replay(30)}>
-                    <img src={forward30} alt="loading" />
-                  </div>
-                  <div style={{ borderLeft: "1px solid black" }}></div>
-                  <div
-                    className="audioButton"
-                    onClick={() => {
-                      copyToClipboard(
-                        `${
-                          process.env.NODE_ENV === "production"
-                            ? "https://podkaster2.herokuapp.com"
-                            : "localhost:3000"
-                        }?id=${searchEngineShortcuts[listeningTo.engine]}.${
-                          listeningTo.id
-                        }`
-                      );
-                      notify("Sharing link copied to clipboard!");
-                    }}
-                  >
-                    <img src={share} alt="loading" />
-                  </div>
-                  {!!playlist.length && <ExpandButton />}
-                </div>
-              </>
-            )
-          )}
-        </>
-      </div>
-      {!!playlist.length && (
-        <div
-          style={{
-            marginLeft: "calc(50% - 0.5rem)",
-            transform: "translate(-100%)",
-          }}
-        >
-          <Table
-            tableTitle="Playing queue"
-            notify={notify}
-            tableArray={playlist}
-            activeVideo={activeVideo}
-            deleteAll={() => setPlaylist([])}
-            listeningTo={listeningTo}
-            getDirectUrl={getDirectUrl}
-            setActiveVideo={setActiveVideo}
-            setListeningTo={setListeningTo}
-            getViewsString={getViewsString}
-          />
-        </div>
+      {(directUrl || audioLoading) && (
+        <AudioPlayerComponent
+          audioLoading={audioLoading}
+          onAudioEnded={onAudioEnded}
+          directUrl={directUrl}
+          listeningTo={listeningTo}
+          replay={replay}
+          playlist={playlist}
+        />
       )}
-    </ExpansionContainer>
+
+      {!!playlist.length && (
+        <PlayingQueTable
+          playlist={playlist}
+          activeVideo={activeVideo}
+          setPlaylist={setPlaylist}
+          listeningTo={listeningTo}
+          getDirectUrl={getDirectUrl}
+          setActiveVideo={setActiveVideo}
+          setListeningTo={setListeningTo}
+        />
+      )}
+    </ExpandableContainer>
   );
 };
 

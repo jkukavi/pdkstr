@@ -10,7 +10,7 @@ const Container = {
   toggleExpanded: null,
 };
 
-const ExpansionContainer = ({ directUrl, audioLoading, children }) => {
+const ExpandableContainer = ({ directUrl, audioLoading, children }) => {
   const scrollingDown = useScrollingDownContext("cardContainer");
   const [expanded, setExpanded] = useState(false);
 
@@ -37,7 +37,7 @@ const ExpansionContainer = ({ directUrl, audioLoading, children }) => {
   );
 };
 
-export default ExpansionContainer;
+export default ExpandableContainer;
 
 export const ExpandButton = () => {
   const [localExpanded, setLocalExpanded] = useState(Container.expanded);
