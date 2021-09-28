@@ -1,14 +1,6 @@
 import React from "react";
 
-import { notify } from "./Notifications";
-
-const ShareAlert = ({
-  info,
-  alert,
-  getDirectUrl,
-  setListeningTo,
-  setAlert,
-}) => {
+const ShareAlert = ({ info, alert, playItem, setListeningTo, setAlert }) => {
   return (
     <div className={`alertBox ${alert ? "appear" : ""}`}>
       <p>Hello there man, somebody sent you a song you need to check!</p>
@@ -28,10 +20,7 @@ const ShareAlert = ({
       <button
         className="button small"
         onClick={() => {
-          getDirectUrl(info);
-          setListeningTo(info);
-          notify(`Listening to: ${info.title}`);
-          setAlert(null);
+          playItem(info);
         }}
       >
         Let it hit the speakers!

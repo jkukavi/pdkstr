@@ -834,6 +834,7 @@ button:active.small {
 }
 
 .audioPlayerContainer {
+  height: 5rem;
   margin-bottom: 0.7rem;
 }
 

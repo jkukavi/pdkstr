@@ -15,13 +15,10 @@ import PlayingQueTable from "./PlayingQueTable";
 import AudioPlayerComponent from "./AudioPlayerComponent";
 
 export const AudioPlayer = {
-  getDirectUrl: null,
+  playItem: null,
   playPlaylist: null,
-  setActiveVideo: null,
-  setListeningTo: null,
   addToQueue: null,
   listeningTo: null,
-  activeVideo: null,
   subscribe: (fn) => {
     const id = uuid();
     AudioPlayer.subscribers.push({ fn, id: id });
@@ -40,25 +37,25 @@ const notifySubscribers = (listeningTo) => {
   }
 };
 
-const AudioShelf = () => {
-  const [directUrl, setDirectUrl] = useState(null);
-  const [audioLoading, setAudioLoading] = useState(false);
-  const [playlist, setPlaylist] = useState([]);
-  const [listeningTo, setListeningTo] = useState(null);
-  const [activeVideo, setActiveVideo] = useState(null);
+const initialState = {
+  directUrl: null,
+  audioLoading: false,
+  playlist: [],
+  listeningTo: false,
+};
 
-  useEffect(() => {
-    AudioPlayer.getDirectUrl = getDirectUrl;
-    AudioPlayer.playPlaylist = playPlaylist;
-    AudioPlayer.setActiveVideo = setActiveVideo;
-    AudioPlayer.setListeningTo = setListeningTo;
-    AudioPlayer.addToQueue = addToQueue;
-    AudioPlayer.listeningTo = listeningTo;
-    AudioPlayer.activeVideo = activeVideo;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [setDirectUrl, setAudioLoading, setPlaylist, setActiveVideo, activeVideo]);
+const AudioShelf = () => {
+  const [audioPlayerState, setAudioPlayerState] = useState(initialState);
+  const { directUrl, audioLoading, playlist, listeningTo } = audioPlayerState;
 
   useEffect(() => notifySubscribers(listeningTo), [listeningTo]);
+
+  const updateState = (newState) => {
+    setAudioPlayerState({
+      ...audioPlayerState,
+      ...newState,
+    });
+  };
 
   const onAudioEnded = () => {
     playNext();
@@ -66,34 +63,35 @@ const AudioShelf = () => {
 
   const onAudioError = () => {
     notify("Something went wrong with trying to play this item.");
-    setDirectUrl(null);
+    updateState({ directUrl: null });
     onAudioEnded();
   };
 
-  const replay = (time) => () => {
-    const audioPlayer = document.getElementById("my-audio");
-    audioPlayer.currentTime = audioPlayer.currentTime + time;
-  };
-
-  const getDirectUrl = async ({ id, engine, url }) => {
-    setDirectUrl(null);
-    setAudioLoading(true);
+  const playItem = async (item) => {
+    const { id, engine, url } = item;
+    updateState({ directUrl: null, audioLoading: true });
     try {
       const directUrl = await fetchDirectUrl({ id, engine, url });
-      setDirectUrl(directUrl);
+      updateState({
+        directUrl,
+        loading: false,
+        listeningTo: item,
+      });
+      addToHistory(item);
+      notify(`Listening to: ${item.title}`);
     } catch (e) {
       notify("Something went wrong. Try again.");
-    } finally {
-      setAudioLoading(false);
     }
   };
 
   const playPlaylist = async (playlist) => {
     try {
       const playlistItems = await getPlaylistItems(playlist);
-      setPlaylist(playlistItems.map(addRandomKey));
-      setListeningTo(playlistItems[0]);
-      getDirectUrl(playlistItems[0]);
+      updateState({
+        playlist: playlistItems.map(addRandomKey),
+        listeningTo: playlistItems[0],
+      });
+      playItem();
     } catch (e) {
       notify("Something went wrong with trying to play this playlist.");
     }
@@ -105,28 +103,39 @@ const AudioShelf = () => {
       const playedIndex = playlist.findIndex(
         (item) => item.title === listeningTo.title
       );
-      const nextItem = playlist[playedIndex + 1];
+      const nextIndex = playedIndex === -1 ? 0 : playedIndex + 1;
+      const nextItem = playlist[nextIndex];
       if (nextItem) {
         speak(`Playing ${nextItem.title.slice(0, 20)} next`);
-        setListeningTo(nextItem);
-        getDirectUrl(nextItem);
+        playItem(nextItem);
       }
     }
   };
 
   const addToQueue = (item) => {
     if (playlist.length === 0) {
-      getDirectUrl(item);
-      setActiveVideo(null);
-      setListeningTo(item);
-      addToHistory(item);
-      setTimeout(() => {
-        notify(`Listening to: ${item.title}`);
-      }, 500);
+      if (!listeningTo) {
+        playItem(item);
+        updateState({
+          playlist: [item],
+        });
+      } else {
+        updateState({
+          playlist: [listeningTo, item],
+        });
+      }
+    } else {
+      updateState({
+        playlist: [...playlist, item],
+      });
     }
-    setPlaylist([...playlist, item]);
     notify("Added to playing queue");
   };
+
+  AudioPlayer.playItem = playItem;
+  AudioPlayer.playPlaylist = playPlaylist;
+  AudioPlayer.addToQueue = addToQueue;
+  AudioPlayer.listeningTo = listeningTo;
 
   return (
     <ExpandableContainer
@@ -141,21 +150,10 @@ const AudioShelf = () => {
           onAudioError={onAudioError}
           directUrl={directUrl}
           listeningTo={listeningTo}
-          replay={replay}
           playlist={playlist}
         />
       )}
-      {!!playlist.length && (
-        <PlayingQueTable
-          playlist={playlist}
-          activeVideo={activeVideo}
-          setPlaylist={setPlaylist}
-          listeningTo={listeningTo}
-          getDirectUrl={getDirectUrl}
-          setActiveVideo={setActiveVideo}
-          setListeningTo={setListeningTo}
-        />
-      )}
+      {!!playlist.length && <PlayingQueTable playlist={playlist} />}
     </ExpandableContainer>
   );
 };

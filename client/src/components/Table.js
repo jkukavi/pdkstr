@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import playButton from "../icons/playButton.png";
 
 import { getViewsString } from "../helpers/helpers";
-import { notify } from "./Notifications";
 
 import { SearchEngineIcon } from "../consts";
 import { AudioPlayer } from "./AudioShelf";
@@ -14,12 +13,10 @@ const Table = ({ tableTitle, tableArray, controls }) => {
   );
 
   useEffect(() => {
-    console.log("subskribe");
     const id = AudioPlayer.subscribe(setListeningTo);
 
     return () => {
       AudioPlayer.unsubscribe(id);
-      console.log("unsubkribe");
     };
   }, [setListeningTo]);
 
@@ -58,11 +55,7 @@ const Table = ({ tableTitle, tableArray, controls }) => {
             key={video.key}
             className={`${listeningTo?.id === video.id ? "active" : ""}`}
             onClick={() => {
-              AudioPlayer.getDirectUrl(video);
-              AudioPlayer.setActiveVideo(index);
-              AudioPlayer.setListeningTo(video);
-              setListeningTo(video);
-              notify(`Listening to: ${video.title}`);
+              AudioPlayer.playItem(video);
             }}
           >
             <td>

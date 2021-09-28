@@ -1,19 +1,8 @@
 import React from "react";
 
-import { notify } from "../Notifications";
-import { getViewsString } from "../../helpers/helpers";
-
 import Table from "../Table";
 
-const PlayingQueTable = ({
-  playlist,
-  activeVideo,
-  setPlaylist,
-  listeningTo,
-  getDirectUrl,
-  setActiveVideo,
-  setListeningTo,
-}) => {
+const PlayingQueTable = ({ playlist }) => {
   return (
     <div
       style={{
@@ -21,18 +10,7 @@ const PlayingQueTable = ({
         transform: "translate(-100%)",
       }}
     >
-      <Table
-        tableTitle="Playing queue"
-        notify={notify}
-        tableArray={playlist}
-        activeVideo={activeVideo}
-        deleteAll={() => setPlaylist([])}
-        listeningTo={listeningTo}
-        getDirectUrl={getDirectUrl}
-        setActiveVideo={setActiveVideo}
-        setListeningTo={setListeningTo}
-        getViewsString={getViewsString}
-      />
+      <Table tableTitle="Playing queue" tableArray={playlist} />
     </div>
   );
 };

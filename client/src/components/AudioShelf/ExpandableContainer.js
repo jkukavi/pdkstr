@@ -15,8 +15,10 @@ const ExpandableContainer = ({ directUrl, audioLoading, children }) => {
   const [expanded, setExpanded] = useState(false);
 
   const toggleExpanded = () => {
-    setExpanded((e) => !e);
-    Container.expanded = !expanded;
+    setExpanded((e) => {
+      Container.expanded = !e;
+      return !e;
+    });
   };
 
   useEffect(() => {

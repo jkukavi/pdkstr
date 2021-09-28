@@ -18,20 +18,26 @@ import { ExpandButton } from "./ExpandableContainer";
 import { notify } from "../Notifications";
 
 const AudioPlayerComponent = ({
+  audioLoading,
   onAudioEnded,
   onAudioError,
   directUrl,
   listeningTo,
-  replay,
   playlist,
-  audioLoading,
 }) => {
   if (audioLoading)
     return (
-      <div className="loading audio">
-        <div className="miniloader" />
+      <div className="audioPlayerContainer">
+        <div className="loading audio">
+          <div className="miniloader" />
+        </div>
       </div>
     );
+
+  const replay = (time) => () => {
+    const audioPlayer = document.getElementById("my-audio");
+    audioPlayer.currentTime = audioPlayer.currentTime + time;
+  };
 
   return (
     <div className="audioPlayerContainer">

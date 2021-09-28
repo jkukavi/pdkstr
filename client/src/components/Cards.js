@@ -8,8 +8,7 @@ import { SearchEngineIcon, defaultPuppyImg } from "../consts";
 
 import { getViewsString } from "../helpers/helpers";
 
-import { addToHistory, addToFavourites } from "../apiCalls";
-import { notify } from "./Notifications";
+import { addToFavourites } from "../apiCalls";
 
 import { AudioPlayer } from "./AudioShelf";
 import { PlaylistSidebar } from "./PlaylistSidebar";
@@ -55,11 +54,7 @@ const Cards = ({
               <div className="card" key={key}>
                 <div
                   onClick={() => {
-                    AudioPlayer.getDirectUrl(item);
-                    AudioPlayer.setActiveVideo(null);
-                    AudioPlayer.setListeningTo(item);
-                    addToHistory(item);
-                    notify(`Listening to: ${item.title}`);
+                    AudioPlayer.playItem(item);
                   }}
                   className="thumbnail"
                 >
