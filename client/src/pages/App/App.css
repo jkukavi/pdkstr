@@ -821,7 +821,7 @@ button:active.small {
   transform: translateY(0);
 }
 
-.audioShelf.opened {
+.audioShelf.expanded {
   overflow-y: scroll;
   box-shadow: none;
   transform: translateY(-100%);
@@ -862,7 +862,7 @@ button:active.small {
 }
 
 .close {
-  transition: transform 1s;
+  transition: transform 0.5s;
   cursor: pointer;
   transform: rotate(360deg);
 }

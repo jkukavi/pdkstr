@@ -19,6 +19,20 @@ import UserDropdown from "./UserDropdown";
 import ChannelInfo from "../../ChannelInfo";
 import { useScrollingDownContext } from "../../../contexts/ScrollingDown";
 
+const CollapseOnScrollContainer = ({ collapsedClassName, children }) => {
+  const scrollingDown = useScrollingDownContext("cardContainer");
+
+  return (
+    <div
+      className={`searchBoxContainer ${
+        scrollingDown ? collapsedClassName : ""
+      }`}
+    >
+      {children}
+    </div>
+  );
+};
+
 const SearchBox = ({
   setSearchArray,
   setArrayLoading,
@@ -28,7 +42,7 @@ const SearchBox = ({
   loadChannelPlaylists,
 }) => {
   const location = useLocation();
-  const scrollingDown = useScrollingDownContext("cardContainer");
+
   const [showInput, setShowInput] = useState(false);
   const [smallScreen, setSmallScreen] = useState(window.innerWidth < 600);
   const [searchEngine, setSearchEngine] = useState(searchEngines.YT);
@@ -43,7 +57,6 @@ const SearchBox = ({
     setSearchArray([]);
     setArrayLoading(true);
     setViewingChannel(false);
-    console.log(searchString);
     const url = paths.search[searchEngine];
     try {
       const response = await axios.post(url, {
@@ -58,10 +71,10 @@ const SearchBox = ({
     }
   };
 
-  const startSearch = (recognizedString) => {
+  const searchFromVoiceInput = (recognizedVoiceINput) => {
     const element = document.getElementById("searchInput");
-    if (element) element.value = recognizedString;
-    searchYoutube(null, recognizedString);
+    if (element) element.value = recognizedVoiceINput;
+    searchYoutube(null, recognizedVoiceINput);
   };
   // eslint-disable-next-line react-hooks/exhaustive-deps
 
@@ -84,8 +97,6 @@ const SearchBox = ({
   }, [smallScreen, setSmallScreen]);
 
   const viewingSearch = location.pathname === "/";
-  const collapsedClassName =
-    viewingChannel && !viewingSearch ? "collapsed2x" : "collapsed";
 
   const openInput = () => {
     setShowInput(true);
@@ -97,13 +108,12 @@ const SearchBox = ({
 
   const searchForm = useRef();
 
+  const collapsedClassName =
+    viewingChannel && !viewingSearch ? "collapsed2x" : "collapsed";
+
   return (
     <div className="searchBoxFixedContainer">
-      <div
-        className={`searchBoxContainer ${
-          scrollingDown ? collapsedClassName : ""
-        }`}
-      >
+      <CollapseOnScrollContainer collapsedClassName={collapsedClassName}>
         <form
           className="searchBox"
           name="searchForm"
@@ -143,7 +153,7 @@ const SearchBox = ({
               {smallScreen && (
                 <div
                   className="button microphone"
-                  onClick={recognizeAndStartSearch(startSearch)}
+                  onClick={recognizeAndStartSearch(searchFromVoiceInput)}
                 >
                   <img src={microphone} alt="alt" />
                 </div>
@@ -164,7 +174,7 @@ const SearchBox = ({
               )}
               <div
                 className="button microphone"
-                onClick={recognizeAndStartSearch(startSearch)}
+                onClick={recognizeAndStartSearch(searchFromVoiceInput)}
               >
                 <img src={microphone} alt="alt" />
               </div>
@@ -188,7 +198,7 @@ const SearchBox = ({
             loadChannelPlaylists={loadChannelPlaylists}
           />
         )}
-      </div>
+      </CollapseOnScrollContainer>
     </div>
   );
 };
@@ -204,7 +214,6 @@ const InputWithSuggestions = ({ searchEngine, searchForm }) => {
   useEffect(() => {
     function blurHandler() {
       if (preventBlur) {
-        console.log("preventBlu");
         preventBlur = false;
         setSuggestions((suggestions) => ({ ...suggestions, show: false }));
       }

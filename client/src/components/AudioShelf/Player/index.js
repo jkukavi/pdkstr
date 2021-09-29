@@ -15,9 +15,11 @@ import { PlayingQueue } from "../PlayingQueue";
 export const Player = {
   playItem: null,
   listeningTo: null,
-  notifySubscribers: (listeningTo) => {
-    for (const subscribers of Player.subscribers) {
-      subscribers.fn(listeningTo);
+  audioLoading: null,
+  notifySubscribers: () => {
+    const { listeningTo, audioLoading } = Player;
+    for (const subscriber of Player.subscribers) {
+      subscriber.fn({ listeningTo, audioLoading });
     }
   },
   subscribe: (fn) => {
@@ -41,7 +43,8 @@ const initialState = {
 const PlayerComponent = () => {
   const [audioPlayerState, setAudioPlayerState] = useState(initialState);
   const { directUrl, audioLoading, listeningTo } = audioPlayerState;
-  useEffect(() => Player.notifySubscribers(listeningTo), [listeningTo]);
+
+  useEffect(() => Player.notifySubscribers(), [listeningTo, audioLoading]);
 
   const updateState = (newState) => {
     setAudioPlayerState({
@@ -79,6 +82,7 @@ const PlayerComponent = () => {
 
   Player.playItem = playItem;
   Player.listeningTo = listeningTo;
+  Player.audioLoading = audioLoading;
 
   const playerInactive = !(directUrl || audioLoading);
 

@@ -38,9 +38,8 @@ const PlayingQueueComponent = () => {
       const playlistItems = await getPlaylistItems(playlist);
       updateState({
         playlist: playlistItems.map(addRandomKey),
-        listeningTo: playlistItems[0],
       });
-      Player.playItem();
+      Player.playItem(playlistItems[0]);
     } catch (e) {
       notify("Something went wrong with trying to play this playlist.");
     }

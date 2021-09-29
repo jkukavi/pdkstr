@@ -6,13 +6,13 @@ import forward10 from "../../../icons/forward10.png";
 import forward30 from "../../../icons/forward30.png";
 
 import { ExpandButton } from "../ExpandableContainer";
-import { PlayingQueue } from "../PlayingQueue";
+
+const replay = (time) => () => {
+  const audioPlayer = document.getElementById("my-audio");
+  audioPlayer.currentTime = audioPlayer.currentTime + time;
+};
 
 const PlayerControls = () => {
-  const replay = (time) => () => {
-    const audioPlayer = document.getElementById("my-audio");
-    audioPlayer.currentTime = audioPlayer.currentTime + time;
-  };
   return (
     <div id="audioControls" className="audioControls">
       <div className="audioButton" onClick={replay(-30)}>

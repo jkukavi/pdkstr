@@ -241,11 +241,6 @@ export default function init() {
   }
 
   function touchInsideCancelSeek(e) {
-    console.log(
-      cancelSeekBoundingClientRect.top,
-      e.clientY,
-      cancelSeekBoundingClientRect.bottom
-    );
     if (
       e.clientY > cancelSeekBoundingClientRect.top &&
       e.clientY < cancelSeekBoundingClientRect.bottom

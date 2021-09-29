@@ -5,10 +5,8 @@ import PlayingQueue from "./PlayingQueue";
 import Player from "./Player";
 
 const AudioShelf = () => {
-  const isPlayerActive = true;
-
   return (
-    <ExpandableContainer isPlayerActive={isPlayerActive}>
+    <ExpandableContainer>
       <Player />
       <PlayingQueue />
     </ExpandableContainer>

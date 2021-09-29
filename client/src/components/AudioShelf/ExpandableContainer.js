@@ -5,15 +5,19 @@ import chevron from "../../icons/chevron.png";
 
 import { useScrollingDownContext } from "../../contexts/ScrollingDown";
 import { PlayingQueue } from "./PlayingQueue";
+import { Player } from "./Player";
 
 const Container = {
   expanded: false,
   toggleExpanded: null,
 };
 
-const ExpandableContainer = ({ isPlayerActive, children }) => {
+const ExpandableContainer = ({ children }) => {
   const scrollingDown = useScrollingDownContext("cardContainer");
+  const [isPlayerActive, setIsPlayerActive] = useState(false);
   const [expanded, setExpanded] = useState(false);
+
+  console.log(isPlayerActive);
 
   const toggleExpanded = () => {
     setExpanded((e) => {
@@ -27,12 +31,21 @@ const ExpandableContainer = ({ isPlayerActive, children }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setExpanded]);
 
-  const shouldBeOpened = isPlayerActive && !scrollingDown;
+  useEffect(() => {
+    const id = Player.subscribe(() => {
+      setIsPlayerActive(Player.audioLoading || !!Player.listeningTo);
+    });
+
+    return () => Player.unsubscribe(id);
+  }, []);
+
+  const isShown = isPlayerActive && !scrollingDown;
+  const isExpanded = expanded && isShown;
 
   return (
     <div
-      className={`audioShelf ${shouldBeOpened ? "" : "closed"} ${
-        expanded ? "opened" : ""
+      className={`audioShelf ${isShown ? "" : "closed"} ${
+        isExpanded ? "expanded" : ""
       }`}
     >
       {children}

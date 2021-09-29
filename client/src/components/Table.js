@@ -12,8 +12,12 @@ const Table = ({ tableTitle, tableArray, controls }) => {
     null || AudioPlayer.listeningTo
   );
 
+  const updateListeningTo = ({ listeningTo }) => {
+    setListeningTo(listeningTo);
+  };
+
   useEffect(() => {
-    const id = AudioPlayer.subscribe(setListeningTo);
+    const id = AudioPlayer.subscribe(updateListeningTo);
 
     return () => {
       AudioPlayer.unsubscribe(id);
