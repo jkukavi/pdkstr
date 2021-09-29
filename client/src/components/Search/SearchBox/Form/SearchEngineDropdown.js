@@ -1,10 +1,10 @@
 import React from "react";
 
-import DropDown from "../../../components/Dropdown";
+import DropDown from "../../../../components/Dropdown";
 
-import youtube from "../../../icons/youtube.png";
-import soundcloud from "../../../icons/soundcloud.png";
-import { searchEngines } from "../../../consts";
+import youtube from "../../../../icons/youtube.png";
+import soundcloud from "../../../../icons/soundcloud.png";
+import { searchEngines } from "../../../../consts";
 
 const SearchEngineDropdown = ({ searchEngine, setSearchEngine }) => {
   return (

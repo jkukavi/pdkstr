@@ -1,14 +1,14 @@
 import React from "react";
 import { useHistory } from "react-router";
 
-import { useAuthContext } from "../../../contexts/Auth";
+import { useAuthContext } from "../../../../contexts/Auth";
 
-import settings from "../../../icons/settings.png";
-import powerOff from "../../../icons/powerOff.png";
-import userIcon from "../../../icons/userIcon.png";
-import { notify } from "../../Notifications";
+import settings from "../../../../icons/settings.png";
+import powerOff from "../../../../icons/powerOff.png";
+import userIcon from "../../../../icons/userIcon.png";
+import { notify } from "../../../Notifications";
 
-import DropDown from "../../Dropdown";
+import DropDown from "../../../Dropdown";
 
 const SearchEngineDropdown = () => {
   const history = useHistory();
