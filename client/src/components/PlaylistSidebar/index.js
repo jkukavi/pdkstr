@@ -7,7 +7,7 @@ import chevron from "../../icons/chevron.png";
 import { addRandomKey } from "../../helpers/helpers";
 import { getPlaylistItems } from "../../apiCalls";
 
-import { AudioPlayer } from "../AudioShelf";
+import { PlayingQueue } from "../AudioShelf/PlayingQueue";
 import { notify } from "../Notifications";
 import Sidebar from "./Sidebar";
 
@@ -72,7 +72,7 @@ const PlaylistSidebarComponent = () => {
         }}
         onClick={() => {
           closeBrowsingPlaylist();
-          AudioPlayer.playPlaylist(browsingPlaylist.info);
+          PlayingQueue.playPlaylist(browsingPlaylist.info);
         }}
       >
         <img

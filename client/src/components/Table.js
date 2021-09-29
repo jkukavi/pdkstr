@@ -5,7 +5,7 @@ import playButton from "../icons/playButton.png";
 import { getViewsString } from "../helpers/helpers";
 
 import { SearchEngineIcon } from "../consts";
-import { AudioPlayer } from "./AudioShelf";
+import { Player as AudioPlayer } from "../components/AudioShelf/Player";
 
 const Table = ({ tableTitle, tableArray, controls }) => {
   const [listeningTo, setListeningTo] = useState(

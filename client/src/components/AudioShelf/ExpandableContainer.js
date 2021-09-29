@@ -4,6 +4,7 @@ import playingQueue from "../../icons/playingQueue.png";
 import chevron from "../../icons/chevron.png";
 
 import { useScrollingDownContext } from "../../contexts/ScrollingDown";
+import { PlayingQueue } from "./PlayingQueue";
 
 const Container = {
   expanded: false,
@@ -42,19 +43,31 @@ const ExpandableContainer = ({ isPlayerActive, children }) => {
 export default ExpandableContainer;
 
 export const ExpandButton = () => {
+  const [show, setShow] = useState(!!PlayingQueue.playlist.length);
   const [localExpanded, setLocalExpanded] = useState(Container.expanded);
+
+  useEffect(() => {
+    PlayingQueue.notify = () => {
+      setShow(!!PlayingQueue.playlist.length);
+    };
+  }, [setShow]);
 
   const toggleExpanded = () => {
     setLocalExpanded((e) => !e);
     Container.toggleExpanded();
   };
 
+  if (!show) return null;
+
   return (
-    <div
-      className={`audioButton close ${localExpanded ? "expanded" : ""}`}
-      onClick={toggleExpanded}
-    >
-      <img src={localExpanded ? chevron : playingQueue} alt="loading" />
-    </div>
+    <>
+      <div style={{ borderLeft: "1px solid black" }}></div>
+      <div
+        className={`audioButton close ${localExpanded ? "expanded" : ""}`}
+        onClick={toggleExpanded}
+      >
+        <img src={localExpanded ? chevron : playingQueue} alt="loading" />
+      </div>
+    </>
   );
 };

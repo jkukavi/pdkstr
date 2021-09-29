@@ -10,7 +10,8 @@ import { getViewsString } from "../helpers/helpers";
 
 import { addToFavourites } from "../apiCalls";
 
-import { AudioPlayer } from "./AudioShelf";
+import { Player as AudioPlayer } from "./AudioShelf/Player";
+import { PlayingQueue } from "./AudioShelf/PlayingQueue";
 import { PlaylistSidebar } from "./PlaylistSidebar";
 
 const allowedTypes = ["video", "playlist", "channel"];
@@ -120,7 +121,7 @@ const Cards = ({
                         <div
                           className="addToPlaylistIcon"
                           onClick={() => {
-                            AudioPlayer.addToQueue(item);
+                            PlayingQueue.addToQueue(item);
                           }}
                         >
                           <img src={playingQueue} alt="loading"></img>
@@ -217,7 +218,7 @@ const Cards = ({
                 </p>
                 <div
                   onClick={() => {
-                    AudioPlayer.playPlaylist(item);
+                    PlayingQueue.playPlaylist(item);
                   }}
                   className="thumbnail"
                   style={{

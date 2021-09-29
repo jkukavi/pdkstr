@@ -6,7 +6,7 @@ import forward10 from "../../../icons/forward10.png";
 import forward30 from "../../../icons/forward30.png";
 
 import { ExpandButton } from "../ExpandableContainer";
-import { AudioPlayer } from "..";
+import { PlayingQueue } from "../PlayingQueue";
 
 const PlayerControls = () => {
   const replay = (time) => () => {
@@ -34,12 +34,7 @@ const PlayerControls = () => {
       <div className="audioButton" onClick={replay(30)}>
         <img src={forward30} alt="loading" />
       </div>
-      {!!AudioPlayer.playlist.length && (
-        <>
-          <div style={{ borderLeft: "1px solid black" }}></div>
-          <ExpandButton />
-        </>
-      )}
+      <ExpandButton />
     </div>
   );
 };
