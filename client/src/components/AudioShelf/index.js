@@ -11,8 +11,8 @@ import { addToHistory } from "../../apiCalls";
 import { notify } from "../Notifications";
 
 import ExpandableContainer from "./ExpandableContainer";
-import PlayingQueTable from "./PlayingQueTable";
-import AudioPlayerComponent from "./AudioPlayerComponent";
+import PlayingQueue from "./PlayingQueue";
+import Player from "./Player";
 
 export const AudioPlayer = {
   playItem: null,
@@ -136,24 +136,21 @@ const AudioShelf = () => {
   AudioPlayer.playPlaylist = playPlaylist;
   AudioPlayer.addToQueue = addToQueue;
   AudioPlayer.listeningTo = listeningTo;
+  AudioPlayer.playlist = playlist;
+
+  const isPlayerActive = directUrl || audioLoading;
 
   return (
-    <ExpandableContainer
-      directUrl={directUrl}
-      audioLoading={audioLoading}
-      playlist={playlist}
-    >
-      {(directUrl || audioLoading) && (
-        <AudioPlayerComponent
-          audioLoading={audioLoading}
-          onAudioEnded={onAudioEnded}
-          onAudioError={onAudioError}
-          directUrl={directUrl}
-          listeningTo={listeningTo}
-          playlist={playlist}
-        />
-      )}
-      {!!playlist.length && <PlayingQueTable playlist={playlist} />}
+    <ExpandableContainer isPlayerActive={isPlayerActive}>
+      <Player
+        audioLoading={audioLoading}
+        directUrl={directUrl}
+        onAudioEnded={onAudioEnded}
+        onAudioError={onAudioError}
+        listeningTo={listeningTo}
+        playlist={playlist}
+      />
+      <PlayingQueue playlist={playlist} />
     </ExpandableContainer>
   );
 };

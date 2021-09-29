@@ -3,7 +3,7 @@ import "./index.css";
 
 import init from "./init";
 
-const Player = ({ audioPlayer, currentlyPlaying }) => {
+const Player = ({ defaultAudioPlayer, currentlyPlaying }) => {
   useEffect(() => {
     const cleanup = init();
     return cleanup;
@@ -11,10 +11,34 @@ const Player = ({ audioPlayer, currentlyPlaying }) => {
 
   return (
     <>
-      {audioPlayer}
+      <div style={{ display: "none" }}>{defaultAudioPlayer}</div>
+
       <div id="player">
         <div className="playerInfo">
-          {currentlyPlaying}
+          {currentlyPlaying && (
+            <div
+              style={{
+                lineHeight: "12px",
+                width: "calc(100% - 6.5rem)",
+              }}
+            >
+              <span style={{ fontSize: "12px" }}>Currently playing: </span>
+              <br />
+
+              <div
+                style={{
+                  fontStyle: "italic",
+                  fontWeight: 600,
+                  fontSize: "12px",
+                  overflow: "hidden",
+                  whiteSpace: "nowrap",
+                  textOverflow: "ellipsis",
+                }}
+              >
+                {currentlyPlaying}
+              </div>
+            </div>
+          )}
           <div
             style={{
               whiteSpace: "nowrap",

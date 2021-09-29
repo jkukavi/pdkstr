@@ -2,7 +2,9 @@ import React from "react";
 
 import Table from "../Table";
 
-const PlayingQueTable = ({ playlist }) => {
+const PlayingQueue = ({ playlist }) => {
+  if (!playlist.length) return null;
+
   return (
     <div
       style={{
@@ -15,4 +17,4 @@ const PlayingQueTable = ({ playlist }) => {
   );
 };
 
-export default PlayingQueTable;
+export default PlayingQueue;

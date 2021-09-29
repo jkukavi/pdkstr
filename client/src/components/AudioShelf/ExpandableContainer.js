@@ -10,7 +10,7 @@ const Container = {
   toggleExpanded: null,
 };
 
-const ExpandableContainer = ({ directUrl, audioLoading, children }) => {
+const ExpandableContainer = ({ isPlayerActive, children }) => {
   const scrollingDown = useScrollingDownContext("cardContainer");
   const [expanded, setExpanded] = useState(false);
 
@@ -26,11 +26,11 @@ const ExpandableContainer = ({ directUrl, audioLoading, children }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setExpanded]);
 
-  const shouldBeClosed = (directUrl || audioLoading) && !scrollingDown;
+  const shouldBeOpened = isPlayerActive && !scrollingDown;
 
   return (
     <div
-      className={`audioShelf ${shouldBeClosed ? "" : "closed"} ${
+      className={`audioShelf ${shouldBeOpened ? "" : "closed"} ${
         expanded ? "opened" : ""
       }`}
     >
