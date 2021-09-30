@@ -100,8 +100,15 @@ app.post("/channel/playlists", async (req, res) => {
 
 app.post("/soundcloud/tracks", async (req, res) => {
   const { searchString } = req.body;
-  const searchResultsArray = await soundcloud.searchForTracks(searchString, 10);
-  res.status(200).json({ searchResultsArray });
+  try {
+    const searchResultsArray = await soundcloud.searchForTracks(
+      searchString,
+      10
+    );
+    res.status(200).json({ searchResultsArray });
+  } catch (e) {
+    res.status(400).send();
+  }
 });
 
 app.post("/soundcloud/user/:item", async (req, res) => {

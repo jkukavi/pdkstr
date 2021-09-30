@@ -180,25 +180,27 @@ function searchForTracks(search, limit = 10) {
       .replace("SEARCH_TERM", search)
       .replace("LIMIT_TERM", limit);
 
-    const promise = new Promise((_res, _rej) =>
+    new Promise((_res, _rej) =>
       request({ url: searchURL }, function (error, response, body) {
-        if (error) return _rej(new Error(error));
+        if (error) _rej();
 
         if (!error && response.statusCode === 200) {
-          return _res({
+          _res({
             body: JSON.parse(body),
           });
         }
       })
-    );
+    )
+      .then((response) => {
+        const body = response.body;
+        const track_list = body.collection;
+        const mappedTracks = track_list.map(trackMapper);
 
-    promise.then((response) => {
-      const body = response.body;
-      const track_list = body.collection;
-      const mappedTracks = track_list.map(trackMapper);
-
-      return res(mappedTracks);
-    });
+        return res(mappedTracks);
+      })
+      .catch(() => {
+        rej();
+      });
   });
 }
 
