@@ -10,7 +10,7 @@ import InputWithSuggestions from "./InputWithSuggestions";
 
 const SmallScreenForm = ({
   searchForm,
-  searchYoutube,
+  searchForItems,
   searchEngine,
   searchFromVoiceInput,
   setSearchEngine,
@@ -33,7 +33,7 @@ const SmallScreenForm = ({
       autoComplete="off"
       onSubmit={(e) => {
         e.preventDefault();
-        searchYoutube(e);
+        searchForItems(e);
         document.activeElement?.blur();
       }}
     >

@@ -47,6 +47,15 @@ export const fetchDirectUrl = async ({ id, engine, url }) => {
   return directUrl;
 };
 
+export const fetchItems = async (searchString, searchEngine) => {
+  const url = paths.search[searchEngine];
+  const response = await axios.post(url, {
+    searchString,
+  });
+  const searchResultsArray = response.data.searchResultsArray.map(addRandomKey);
+  return searchResultsArray;
+};
+
 const getChannelIdFromPlaylist = (item) => {
   return {
     [searchEngines.YT]: (type) =>

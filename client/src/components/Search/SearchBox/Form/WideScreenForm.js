@@ -10,7 +10,7 @@ const WideScreenForm = ({
   searchEngine,
   searchFromVoiceInput,
   setSearchEngine,
-  searchYoutube,
+  searchForItems,
 }) => {
   return (
     <form
@@ -21,7 +21,7 @@ const WideScreenForm = ({
       autoComplete="off"
       onSubmit={(e) => {
         e.preventDefault();
-        searchYoutube(e);
+        searchForItems(e);
         document.activeElement?.blur();
       }}
     >

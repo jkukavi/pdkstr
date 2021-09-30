@@ -1,33 +1,80 @@
 import React, { useState, useRef } from "react";
 
-import { useLocation } from "react-router";
+import { useHistory, useLocation } from "react-router";
 
-import { addRandomKey } from "../../../helpers/helpers";
+import {
+  fetchItems,
+  getChannelItems,
+  getChannelPlaylists,
+} from "../../../apiCalls";
 
-import { paths, searchEngines } from "../../../consts";
+import { notify } from "../../Notifications";
 
 import Form from "./Form";
 
-import { instance as axios } from "../../../contexts/axiosInstance";
-
+import { addRandomKey } from "../../../helpers/helpers";
+import { searchEngines, searchEngineShortcuts } from "../../../consts";
 import ChannelInfo from "../../ChannelInfo";
 
 import CollapseOnScrollContainer from "./CollapseOnScrollContainer";
 
-const SearchBox = ({
-  setSearchArray,
-  setArrayLoading,
-  setViewingChannel,
-  viewingChannel,
-  loadChannelItems,
-  loadChannelPlaylists,
-}) => {
+const SearchBox = {
+  loadChannelItems: null,
+  loadChannelPlaylists: null,
+  searchForItems: null,
+  searchFromVoiceInput: null,
+  state: {
+    viewingChannel: false,
+    searchEngine: searchEngines.YT,
+  },
+};
+
+const SearchBoxComponent = ({ setSearchArray, setArrayLoading }) => {
   const location = useLocation();
-  const [searchEngine, setSearchEngine] = useState(searchEngines.YT);
+  const [viewingChannel, setViewingChannel] = useState(
+    SearchBox.state.viewingChannel
+  );
+  const [searchEngine, setSearchEngine] = useState(
+    SearchBox.state.searchEngine
+  );
+  const history = useHistory();
 
-  const searchYoutube = async (event, newSearchString) => {
+  const loadChannelItems = async (item) => {
+    setSearchArray([]);
+    setArrayLoading(true);
+    try {
+      const { channelId, channelInfo, searchResultsArray } =
+        await getChannelItems(item);
+      setViewingChannel(channelInfo);
+      setSearchArray(searchResultsArray);
+      history.push(
+        `?channel=${searchEngineShortcuts[item.engine]}.${channelId}`
+      );
+    } catch (e) {
+      notify("Unable to fetch channel data.");
+    } finally {
+      setArrayLoading(false);
+    }
+  };
+
+  const loadChannelPlaylists = async (item) => {
+    setSearchArray([]);
+    setArrayLoading(true);
+    try {
+      const { channelInfo, searchResultsArray } = await getChannelPlaylists(
+        item
+      );
+      setViewingChannel(channelInfo);
+      setSearchArray(searchResultsArray);
+    } catch (e) {
+      notify("Unable to fetch channel data.");
+    } finally {
+      setArrayLoading(false);
+    }
+  };
+
+  const searchForItems = async (event, newSearchString) => {
     const searchString = newSearchString || event.target.searchString.value;
-
     if (event?.preventDefault) event.preventDefault();
     if (!searchString && !newSearchString) {
       return;
@@ -35,12 +82,8 @@ const SearchBox = ({
     setSearchArray([]);
     setArrayLoading(true);
     setViewingChannel(false);
-    const url = paths.search[searchEngine];
     try {
-      const response = await axios.post(url, {
-        searchString,
-      });
-      const searchResultsArray = response.data.searchResultsArray;
+      const searchResultsArray = await fetchItems(searchString, searchEngine);
       setSearchArray(searchResultsArray.map(addRandomKey));
       setViewingChannel(false);
     } catch (e) {
@@ -49,10 +92,10 @@ const SearchBox = ({
     }
   };
 
-  const searchFromVoiceInput = (recognizedVoiceINput) => {
+  const searchFromVoiceInput = (recognizedVoiceInput) => {
     const element = document.getElementById("searchInput");
-    if (element) element.value = recognizedVoiceINput;
-    searchYoutube(null, recognizedVoiceINput);
+    if (element) element.value = recognizedVoiceInput;
+    searchForItems(null, recognizedVoiceInput);
   };
   // eslint-disable-next-line react-hooks/exhaustive-deps
 
@@ -68,7 +111,7 @@ const SearchBox = ({
       <CollapseOnScrollContainer collapsedClassName={collapsedClassName}>
         <Form
           searchForm={searchForm}
-          searchYoutube={searchYoutube}
+          searchForItems={searchForItems}
           searchEngine={searchEngine}
           searchFromVoiceInput={searchFromVoiceInput}
           setSearchEngine={setSearchEngine}
@@ -85,4 +128,4 @@ const SearchBox = ({
   );
 };
 
-export default SearchBox;
+export default SearchBoxComponent;
