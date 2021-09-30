@@ -17,8 +17,6 @@ const ExpandableContainer = ({ children }) => {
   const [isPlayerActive, setIsPlayerActive] = useState(false);
   const [expanded, setExpanded] = useState(false);
 
-  console.log(isPlayerActive);
-
   const toggleExpanded = () => {
     setExpanded((e) => {
       Container.expanded = !e;

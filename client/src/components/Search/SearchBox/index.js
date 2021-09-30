@@ -13,10 +13,11 @@ import { notify } from "../../Notifications";
 import Form from "./Form";
 
 import { addRandomKey } from "../../../helpers/helpers";
-import { searchEngines, searchEngineShortcuts } from "../../../consts";
+import { searchEngineShortcuts } from "../../../consts";
 import ChannelInfo from "../../ChannelInfo";
 
 import CollapseOnScrollContainer from "./CollapseOnScrollContainer";
+import { SearchEngineDropdown } from "./Form/SearchEngineDropdown";
 
 const SearchBox = {
   loadChannelItems: null,
@@ -25,7 +26,6 @@ const SearchBox = {
   searchFromVoiceInput: null,
   state: {
     viewingChannel: false,
-    searchEngine: searchEngines.YT,
   },
 };
 
@@ -34,10 +34,10 @@ const SearchBoxComponent = ({ setSearchArray, setArrayLoading }) => {
   const [viewingChannel, setViewingChannel] = useState(
     SearchBox.state.viewingChannel
   );
-  const [searchEngine, setSearchEngine] = useState(
-    SearchBox.state.searchEngine
-  );
+
   const history = useHistory();
+
+  console.log("searchbox");
 
   const loadChannelItems = async (item) => {
     setSearchArray([]);
@@ -81,11 +81,14 @@ const SearchBoxComponent = ({ setSearchArray, setArrayLoading }) => {
     }
     setSearchArray([]);
     setArrayLoading(true);
-    setViewingChannel(false);
+    // setViewingChannel(false);
     try {
-      const searchResultsArray = await fetchItems(searchString, searchEngine);
+      const searchResultsArray = await fetchItems(
+        searchString,
+        SearchEngineDropdown.selected
+      );
       setSearchArray(searchResultsArray.map(addRandomKey));
-      setViewingChannel(false);
+      // setViewingChannel(false);
     } catch (e) {
     } finally {
       setArrayLoading(false);
@@ -106,15 +109,17 @@ const SearchBoxComponent = ({ setSearchArray, setArrayLoading }) => {
   const collapsedClassName =
     viewingChannel && !viewingSearch ? "collapsed2x" : "collapsed";
 
+  SearchBox.state = {
+    viewingChannel,
+  };
+
   return (
     <div className="searchBoxFixedContainer">
       <CollapseOnScrollContainer collapsedClassName={collapsedClassName}>
         <Form
           searchForm={searchForm}
           searchForItems={searchForItems}
-          searchEngine={searchEngine}
           searchFromVoiceInput={searchFromVoiceInput}
-          setSearchEngine={setSearchEngine}
         />
         {viewingChannel && (
           <ChannelInfo
@@ -128,4 +133,4 @@ const SearchBoxComponent = ({ setSearchArray, setArrayLoading }) => {
   );
 };
 
-export default SearchBoxComponent;
+export default React.memo(SearchBoxComponent);

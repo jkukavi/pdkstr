@@ -5,10 +5,12 @@ import { addRandomKey, debounce } from "../../../../helpers/helpers";
 import { instance as axios } from "../../../../contexts/axiosInstance";
 import { notify } from "../../../Notifications";
 
+import { SearchEngineDropdown } from "./SearchEngineDropdown";
+
 let preventBlur = false;
 let inputFocused = false;
 
-const InputWithSuggestions = ({ searchEngine, searchForm }) => {
+const InputWithSuggestions = ({ searchForm }) => {
   const [suggestions, setSuggestions] = useState({ show: false, array: [] });
 
   useEffect(() => {
@@ -35,9 +37,12 @@ const InputWithSuggestions = ({ searchEngine, searchForm }) => {
       return;
     }
     try {
-      const response = await axios.post(`/suggestions/${searchEngine}`, {
-        searchString: string,
-      });
+      const response = await axios.post(
+        `/suggestions/${SearchEngineDropdown.selected}`,
+        {
+          searchString: string,
+        }
+      );
       const { suggestionsArray } = response.data;
       if (inputFocused) {
         setSuggestions({
@@ -56,9 +61,10 @@ const InputWithSuggestions = ({ searchEngine, searchForm }) => {
   };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const debouncedGetSuggestions = useCallback(debounce(getSuggestions, 200), [
-    searchEngine,
-  ]);
+  const debouncedGetSuggestions = useCallback(
+    debounce(getSuggestions, 200),
+    []
+  );
 
   const submitSuggestion = (e) => {
     // eslint-disable-next-line no-unused-vars
@@ -82,8 +88,9 @@ const InputWithSuggestions = ({ searchEngine, searchForm }) => {
         id="searchInput"
         placeholder={"Search"}
         onChange={handleInput}
-        onFocus={() => {
+        onFocus={(e) => {
           inputFocused = true;
+          getSuggestions(e.target.value.toString());
           setSuggestions({ ...suggestions, show: true });
         }}
         onBlur={() => {
