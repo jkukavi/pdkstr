@@ -14,7 +14,7 @@ import {
 
 import { notify } from "../Notifications";
 
-const Search = ({ cardProps, ...rest }) => {
+const Search = () => {
   const [searchArray, setSearchArray] = useState([]);
   const [arrayLoading, setArrayLoading] = useState(false);
   const [viewingChannel, setViewingChannel] = useState(false);
@@ -84,24 +84,18 @@ const Search = ({ cardProps, ...rest }) => {
   return (
     <>
       <SearchBox
-        {...{
-          ...rest,
-          setSearchArray,
-          setArrayLoading,
-          loadChannelItems,
-          loadChannelPlaylists,
-          viewingChannel,
-          setViewingChannel,
-        }}
+        setSearchArray={setSearchArray}
+        setArrayLoading={setArrayLoading}
+        loadChannelItems={loadChannelItems}
+        loadChannelPlaylists={loadChannelPlaylists}
+        viewingChannel={viewingChannel}
+        setViewingChannel={setViewingChannel}
       />
       <Cards
-        {...{
-          ...cardProps,
-          searchArray,
-          arrayLoading,
-          viewingChannel,
-          loadChannelItems,
-        }}
+        searchArray={searchArray}
+        arrayLoading={arrayLoading}
+        viewingChannel={viewingChannel}
+        loadChannelItems={loadChannelItems}
       />
     </>
   );

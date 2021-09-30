@@ -2,9 +2,11 @@ import React, { useState } from "react";
 
 import { Link, Route, useRouteMatch } from "react-router-dom";
 
+import { notify } from "../../components/Notifications";
+
 import { useAuthContext } from "../../contexts/Auth";
 
-const LoginForm = ({ notify, goBack }) => {
+const LoginForm = ({ goBack }) => {
   const [loading, setLoading] = useState(false);
   const { login } = useAuthContext();
   const { url } = useRouteMatch();

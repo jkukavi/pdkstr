@@ -138,28 +138,19 @@ const Cards = ({
                     </div>
 
                     <div className="metadata">
-                      {!viewingChannel && (
-                        <>
-                          <p className="desc">
-                            {views
-                              ? `${getViewsString(views)} views`
-                              : "Views not available"}
-                          </p>
-                          •
-                        </>
-                      )}
+                      <p className="desc">
+                        {views
+                          ? `${getViewsString(views)} views`
+                          : "Views not available"}
+                      </p>
+                      •
                       <p className="desc">
                         {duration || "Duration not available"}
                       </p>
-
-                      {!viewingChannel && (
-                        <>
-                          •
-                          <p className="desc">
-                            {uploadedAt || "Uploaded date not available"}
-                          </p>
-                        </>
-                      )}
+                      •
+                      <p className="desc">
+                        {uploadedAt || "Uploaded date not available"}
+                      </p>
                     </div>
                   </>
                 </div>

@@ -8,7 +8,6 @@ import { useAuthContext } from "../../contexts/Auth";
 import Notifications from "../../components/Notifications";
 
 const LoginPage = () => {
-  const [notifications, setNotifications] = useState([]);
   const { user, reestablishSession } = useAuthContext();
   const [loading, setLoading] = useState(true);
   const location = useLocation();
@@ -18,10 +17,6 @@ const LoginPage = () => {
 
   const goBack = () => {
     history.replace(from);
-  };
-
-  const notify = (notification) => {
-    setNotifications((notifications) => [...notifications, notification]);
   };
 
   const tryReestablishingSession = async () => {
@@ -55,14 +50,14 @@ const LoginPage = () => {
 
   return (
     <div className="loginPageContainer">
-      <Notifications notifications={notifications} />
+      <Notifications />
       <div className="loginFormContainer">
         <Switch>
           <Route path="/login/register">
-            <Register notify={notify} />
+            <Register />
           </Route>
           <Route path="/login">
-            <LoginForm notify={notify} goBack={goBack} />
+            <LoginForm goBack={goBack} />
           </Route>
           <Route path="/reload">
             <div>YALL need to reload</div>
