@@ -35,7 +35,7 @@ recognition.onresult = function (event) {
   if (confidencePercentage < 75) {
     speak("Stop mumbling.");
   } else {
-    SearchBox.startSearch(transcript);
+    SearchBox.searchFromVoiceInput(transcript);
   }
 };
 

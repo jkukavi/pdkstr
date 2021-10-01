@@ -11,7 +11,6 @@ const WideScreenForm = ({
   searchEngine,
   searchFromVoiceInput,
   setSearchEngine,
-  searchForItems,
 }) => {
   return (
     <form
