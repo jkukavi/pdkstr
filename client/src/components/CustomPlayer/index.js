@@ -30,7 +30,8 @@ const Player = ({ defaultAudioPlayer, currentlyPlaying }) => {
                   fontStyle: "italic",
                   fontWeight: 600,
                   fontSize: "12px",
-                  overflow: "hidden",
+                  height: "20px",
+                  overflowX: "hidden",
                   whiteSpace: "nowrap",
                   textOverflow: "ellipsis",
                 }}

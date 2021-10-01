@@ -170,14 +170,9 @@ function searchForTracks(search, limit = 10) {
     var searchURL =
       "https://api-v2.soundcloud.com/search/tracks?q=SEARCH_TERM&client_id=CLIENT_ID_TERM&limit=LIMIT_TERM";
 
-    var spaces = search.split(" ");
-    for (var i = 0; i < spaces.length; i++) {
-      search = search.replace(" ", "%20");
-    }
-
     searchURL = searchURL
       .replace("CLIENT_ID_TERM", clientId)
-      .replace("SEARCH_TERM", search)
+      .replace("SEARCH_TERM", encodeURIComponent(search))
       .replace("LIMIT_TERM", limit);
 
     new Promise((_res, _rej) =>

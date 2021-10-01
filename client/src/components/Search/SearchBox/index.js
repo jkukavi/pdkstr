@@ -19,7 +19,7 @@ import ChannelInfo from "../../ChannelInfo";
 import CollapseOnScrollContainer from "./CollapseOnScrollContainer";
 import { SearchEngineDropdown } from "./Form/SearchEngineDropdown";
 
-const SearchBox = {
+export const SearchBox = {
   loadChannelItems: null,
   loadChannelPlaylists: null,
   searchForItems: null,
@@ -29,15 +29,13 @@ const SearchBox = {
   },
 };
 
-const SearchBoxComponent = ({ setSearchArray, setArrayLoading }) => {
+const SearchBoxComponent = React.memo(({ setSearchArray, setArrayLoading }) => {
   const location = useLocation();
   const [viewingChannel, setViewingChannel] = useState(
     SearchBox.state.viewingChannel
   );
 
   const history = useHistory();
-
-  console.log("searchbox");
 
   const loadChannelItems = async (item) => {
     setSearchArray([]);
@@ -81,15 +79,16 @@ const SearchBoxComponent = ({ setSearchArray, setArrayLoading }) => {
     }
     setSearchArray([]);
     setArrayLoading(true);
-    // setViewingChannel(false);
+    setViewingChannel(false);
     try {
       const searchResultsArray = await fetchItems(
         searchString,
         SearchEngineDropdown.selected
       );
       setSearchArray(searchResultsArray.map(addRandomKey));
-      // setViewingChannel(false);
+      setViewingChannel(false);
     } catch (e) {
+      notify("Something went wrong. Try changing your search.");
     } finally {
       setArrayLoading(false);
     }
@@ -113,6 +112,9 @@ const SearchBoxComponent = ({ setSearchArray, setArrayLoading }) => {
     viewingChannel,
   };
 
+  SearchBox.loadChannelItems = loadChannelItems;
+  SearchBox.loadChannelPlaylists = loadChannelPlaylists;
+
   return (
     <div className="searchBoxFixedContainer">
       <CollapseOnScrollContainer collapsedClassName={collapsedClassName}>
@@ -131,6 +133,6 @@ const SearchBoxComponent = ({ setSearchArray, setArrayLoading }) => {
       </CollapseOnScrollContainer>
     </div>
   );
-};
+});
 
-export default React.memo(SearchBoxComponent);
+export default SearchBoxComponent;

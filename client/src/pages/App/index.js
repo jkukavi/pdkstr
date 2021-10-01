@@ -19,8 +19,8 @@ function App() {
         <ScrollingDownProvider>
           <Notifications />
           <Views />
-          <PlaylistSidebar />
           <AudioPlayerShelf />
+          <PlaylistSidebar />
           <BottomMenu />
         </ScrollingDownProvider>
       </UserDataProvider>

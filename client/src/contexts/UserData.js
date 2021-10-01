@@ -10,6 +10,7 @@ const UserDataContext = React.createContext({
 });
 
 export const UserDataProvider = ({ children }) => {
+  console.log("user");
   const [history, setHistory] = useState(null);
   const [favourites, setFavourites] = useState(null);
 

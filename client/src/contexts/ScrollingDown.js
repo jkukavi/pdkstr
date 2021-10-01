@@ -29,10 +29,10 @@ export const useScrollingDownContext = (id) => {
     const element = document.getElementById(id);
     if (element) {
       const debouncedSetScroll = debounce(setScrollingDown, 1500);
-      const throttletCheckScroll = throttle(checkScroll(setScrollingDown), 500);
+      const throttledCheckScroll = throttle(checkScroll(setScrollingDown), 500);
       const scrollHandler = () => {
         debouncedSetScroll(false);
-        throttletCheckScroll();
+        throttledCheckScroll();
       };
 
       element.addEventListener("scroll", scrollHandler);

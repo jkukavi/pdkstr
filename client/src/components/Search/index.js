@@ -43,7 +43,6 @@ const Search = () => {
       <Cards
         searchArray={searchArray}
         arrayLoading={arrayLoading}
-        //to implement via Observer
         viewingChannel={false}
         loadChannelItems={() => {}}
       />

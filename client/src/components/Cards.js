@@ -14,19 +14,17 @@ import { Player as AudioPlayer } from "./AudioShelf/Player";
 import { PlayingQueue } from "./AudioShelf/PlayingQueue";
 import { PlaylistSidebar } from "./PlaylistSidebar";
 
+import { SearchBox } from "./Search/SearchBox";
+
 const allowedTypes = ["video", "playlist", "channel"];
 
-const Cards = ({
-  searchArray,
-  arrayLoading,
-  viewingChannel,
-  loadChannelItems,
-  channelClickAction,
-}) => {
+const Cards = ({ searchArray, arrayLoading, channelClickAction }) => {
+  const { viewingChannel } = SearchBox.state;
+
   return (
     <div
       id="cardContainer"
-      className={`cardContainer ${!!viewingChannel ? "expanded" : ""}`}
+      className={`cardContainer ${viewingChannel ? "expanded" : ""}`}
     >
       {arrayLoading && (
         <div className="loading array">
@@ -100,8 +98,8 @@ const Cards = ({
                         <div className="channelDesc">
                           <div
                             className="authorThumbnail"
-                            onClick={(event) => {
-                              loadChannelItems(item);
+                            onClick={() => {
+                              SearchBox.loadChannelItems(item);
                             }}
                             style={{
                               backgroundImage: `url(${
@@ -167,7 +165,7 @@ const Cards = ({
                 <div
                   className="thumbnail"
                   onClick={() => {
-                    loadChannelItems(item);
+                    SearchBox.loadChannelItems(item);
                     if (channelClickAction) channelClickAction();
                   }}
                 >
