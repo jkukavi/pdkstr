@@ -1,5 +1,6 @@
 import speak from "./speak";
 import { notify } from "../components/Notifications";
+import { SearchBox } from "../components/Search/SearchBox";
 
 function Nothing() {
   this.start = () => {};
@@ -13,8 +14,6 @@ recognition.continuous = false;
 recognition.lang = "en-US";
 recognition.interimResults = false;
 recognition.maxAlternatives = 1;
-
-var startSearch;
 
 recognition.onstart = function () {
   notify("Listening...");
@@ -36,15 +35,12 @@ recognition.onresult = function (event) {
   if (confidencePercentage < 75) {
     speak("Stop mumbling.");
   } else {
-    startSearch(transcript);
+    SearchBox.startSearch(transcript);
   }
 };
 
-const recognizeAndStartSearch = (currentStartSearch) => {
-  startSearch = currentStartSearch;
-  return () => {
-    recognition.start();
-  };
+const recognizeAndStartSearch = () => {
+  return () => recognition.start();
 };
 
 export default recognizeAndStartSearch;

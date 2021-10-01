@@ -1,6 +1,4 @@
-import React, { useState, useRef } from "react";
-
-import { useHistory, useLocation } from "react-router";
+import React, { useState, useEffect } from "react";
 
 import {
   fetchItems,
@@ -13,123 +11,100 @@ import { notify } from "../../Notifications";
 import Form from "./Form";
 
 import { addRandomKey } from "../../../helpers/helpers";
-import { searchEngineShortcuts } from "../../../consts";
+
 import ChannelInfo from "../../ChannelInfo";
 
 import CollapseOnScrollContainer from "./CollapseOnScrollContainer";
 import { SearchEngineDropdown } from "./Form/SearchEngineDropdown";
 
 export const SearchBox = {
-  loadChannelItems: null,
-  loadChannelPlaylists: null,
-  searchForItems: null,
-  searchFromVoiceInput: null,
+  setSearchArray: null,
+  setArrayLoading: null,
+  setViewingChannel: null,
+  loadChannelItems: async function (item) {
+    this.setSearchArray([]);
+    this.setArrayLoading(true);
+    try {
+      const { channelInfo, searchResultsArray } = await getChannelItems(item);
+      this.setViewingChannel(channelInfo);
+      this.setSearchArray(searchResultsArray);
+    } catch (e) {
+      notify("Unable to fetch channel data.");
+    } finally {
+      this.setArrayLoading(false);
+    }
+  },
+  loadChannelPlaylists: async function (item) {
+    this.setSearchArray([]);
+    this.setArrayLoading(true);
+    try {
+      const { channelInfo, searchResultsArray } = await getChannelPlaylists(
+        item
+      );
+      this.setViewingChannel(channelInfo);
+      this.setSearchArray(searchResultsArray);
+    } catch (e) {
+      notify("Unable to fetch channel data.");
+    } finally {
+      this.setArrayLoading(false);
+    }
+  },
+  searchForItems: async function (event, newSearchString) {
+    const searchString = newSearchString || event.target.searchString.value;
+    if (event?.preventDefault) event.preventDefault();
+    if (!searchString && !newSearchString) {
+      return;
+    }
+    this.setSearchArray([]);
+    this.setArrayLoading(true);
+    this.setViewingChannel(false);
+    try {
+      const searchResultsArray = await fetchItems(
+        searchString,
+        SearchEngineDropdown.selected
+      );
+      this.setSearchArray(searchResultsArray.map(addRandomKey));
+      this.setViewingChannel(false);
+    } catch (e) {
+      notify("Something went wrong. Try changing your search.");
+    } finally {
+      this.setArrayLoading(false);
+    }
+  },
+  searchFromVoiceInput: function (recognizedVoiceInput) {
+    const element = document.getElementById("searchInput");
+    if (element) element.value = recognizedVoiceInput;
+    this.searchForItems(null, recognizedVoiceInput);
+  },
   state: {
     viewingChannel: false,
   },
 };
 
 const SearchBoxComponent = React.memo(({ setSearchArray, setArrayLoading }) => {
-  const location = useLocation();
   const [viewingChannel, setViewingChannel] = useState(
     SearchBox.state.viewingChannel
   );
 
-  const history = useHistory();
+  const setters = [setSearchArray, setArrayLoading, setViewingChannel];
 
-  const loadChannelItems = async (item) => {
-    setSearchArray([]);
-    setArrayLoading(true);
-    try {
-      const { channelId, channelInfo, searchResultsArray } =
-        await getChannelItems(item);
-      setViewingChannel(channelInfo);
-      setSearchArray(searchResultsArray);
-      history.push(
-        `?channel=${searchEngineShortcuts[item.engine]}.${channelId}`
-      );
-    } catch (e) {
-      notify("Unable to fetch channel data.");
-    } finally {
-      setArrayLoading(false);
-    }
-  };
+  useEffect(() => {
+    SearchBox.state = { viewingChannel };
+    SearchBox.setSearchArray = setSearchArray;
+    SearchBox.setArrayLoading = setArrayLoading;
+    SearchBox.setViewingChannel = setViewingChannel;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, setters);
 
-  const loadChannelPlaylists = async (item) => {
-    setSearchArray([]);
-    setArrayLoading(true);
-    try {
-      const { channelInfo, searchResultsArray } = await getChannelPlaylists(
-        item
-      );
-      setViewingChannel(channelInfo);
-      setSearchArray(searchResultsArray);
-    } catch (e) {
-      notify("Unable to fetch channel data.");
-    } finally {
-      setArrayLoading(false);
-    }
-  };
-
-  const searchForItems = async (event, newSearchString) => {
-    const searchString = newSearchString || event.target.searchString.value;
-    if (event?.preventDefault) event.preventDefault();
-    if (!searchString && !newSearchString) {
-      return;
-    }
-    setSearchArray([]);
-    setArrayLoading(true);
-    setViewingChannel(false);
-    try {
-      const searchResultsArray = await fetchItems(
-        searchString,
-        SearchEngineDropdown.selected
-      );
-      setSearchArray(searchResultsArray.map(addRandomKey));
-      setViewingChannel(false);
-    } catch (e) {
-      notify("Something went wrong. Try changing your search.");
-    } finally {
-      setArrayLoading(false);
-    }
-  };
-
-  const searchFromVoiceInput = (recognizedVoiceInput) => {
-    const element = document.getElementById("searchInput");
-    if (element) element.value = recognizedVoiceInput;
-    searchForItems(null, recognizedVoiceInput);
-  };
   // eslint-disable-next-line react-hooks/exhaustive-deps
 
-  const viewingSearch = location.pathname === "/";
-
-  const searchForm = useRef();
-
-  const collapsedClassName =
-    viewingChannel && !viewingSearch ? "collapsed2x" : "collapsed";
-
-  SearchBox.state = {
-    viewingChannel,
-  };
-
-  SearchBox.loadChannelItems = loadChannelItems;
-  SearchBox.loadChannelPlaylists = loadChannelPlaylists;
+  const collapsedClassName = viewingChannel ? "collapsed" : "collapsed2x";
 
   return (
     <div className="searchBoxFixedContainer">
       <CollapseOnScrollContainer collapsedClassName={collapsedClassName}>
-        <Form
-          searchForm={searchForm}
-          searchForItems={searchForItems}
-          searchFromVoiceInput={searchFromVoiceInput}
-        />
-        {viewingChannel && (
-          <ChannelInfo
-            channelInfo={viewingChannel}
-            loadChannelItems={loadChannelItems}
-            loadChannelPlaylists={loadChannelPlaylists}
-          />
-        )}
+        <Form />
+        {viewingChannel && <ChannelInfo channelInfo={viewingChannel} />}
       </CollapseOnScrollContainer>
     </div>
   );

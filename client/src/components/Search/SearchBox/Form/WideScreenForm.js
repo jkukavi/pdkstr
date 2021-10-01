@@ -4,6 +4,7 @@ import magnifier from "../../../../icons/magnifier.png";
 import SearchEngineDropdown from "./SearchEngineDropdown";
 import UserDropdown from "./UserDropdown";
 import InputWithSuggestions from "./InputWithSuggestions";
+import { SearchBox } from "..";
 
 const WideScreenForm = ({
   searchForm,
@@ -21,7 +22,7 @@ const WideScreenForm = ({
       autoComplete="off"
       onSubmit={(e) => {
         e.preventDefault();
-        searchForItems(e);
+        SearchBox.searchForItems(e);
         document.activeElement?.blur();
       }}
     >

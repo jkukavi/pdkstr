@@ -5,12 +5,9 @@ import star from "../icons/star.png";
 import trash from "../icons/trash.png";
 
 import { addToFavourites } from "../apiCalls";
+import { SearchBox } from "./Search/SearchBox";
 
-const ChannelInfo = ({
-  channelInfo,
-  loadChannelItems,
-  loadChannelPlaylists,
-}) => {
+const ChannelInfo = ({ channelInfo }) => {
   const [active, setActive] = useState("items");
 
   const buttonTexts = buttonTextBySearchEngine[channelInfo.engine];
@@ -44,7 +41,7 @@ const ChannelInfo = ({
         <div
           onClick={() => {
             setActive("items");
-            loadChannelItems(channelInfo);
+            SearchBox.loadChannelItems(channelInfo);
           }}
           className={`button ${active === "items" ? "active" : ""}`}
         >
@@ -53,7 +50,7 @@ const ChannelInfo = ({
         <div
           onClick={() => {
             setActive("playlists");
-            loadChannelPlaylists(channelInfo);
+            SearchBox.loadChannelPlaylists(channelInfo);
           }}
           className={`button ${active === "playlists" ? "active" : ""}`}
         >

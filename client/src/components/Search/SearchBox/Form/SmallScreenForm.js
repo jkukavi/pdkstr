@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import recognizeAndStartSearch from "../../../../helpers/speechRecognition";
 import microphone from "../../../../icons/microphone.png";
@@ -7,14 +7,10 @@ import chevron from "../../../../icons/chevron.png";
 import SearchEngineDropdown from "./SearchEngineDropdown";
 import UserDropdown from "./UserDropdown";
 import InputWithSuggestions from "./InputWithSuggestions";
+import { SearchBox } from "..";
 
-const SmallScreenForm = ({
-  searchForm,
-  searchForItems,
-  searchEngine,
-  searchFromVoiceInput,
-  setSearchEngine,
-}) => {
+const SmallScreenForm = () => {
+  const searchForm = useRef();
   const [showInput, setShowInput] = useState(false);
 
   const openInput = () => {
@@ -33,7 +29,7 @@ const SmallScreenForm = ({
       autoComplete="off"
       onSubmit={(e) => {
         e.preventDefault();
-        searchForItems(e);
+        SearchBox.searchForItems(e);
         document.activeElement?.blur();
       }}
     >
@@ -52,17 +48,14 @@ const SmallScreenForm = ({
             />
           </button>
 
-          <InputWithSuggestions
-            searchEngine={searchEngine}
-            searchForm={searchForm}
-          />
+          <InputWithSuggestions searchForm={searchForm} />
           <button className="button search" type="submit">
             <img src={magnifier} alt="alt" />
           </button>
 
           <div
             className="button microphone"
-            onClick={recognizeAndStartSearch(searchFromVoiceInput)}
+            onClick={recognizeAndStartSearch()}
           >
             <img src={microphone} alt="alt" />
           </div>
@@ -80,14 +73,11 @@ const SmallScreenForm = ({
           </button>
           <div
             className="button microphone"
-            onClick={recognizeAndStartSearch(searchFromVoiceInput)}
+            onClick={recognizeAndStartSearch()}
           >
             <img src={microphone} alt="alt" />
           </div>
-          <SearchEngineDropdown
-            searchEngine={searchEngine}
-            setSearchEngine={setSearchEngine}
-          />
+          <SearchEngineDropdown />
           <UserDropdown />
         </>
       )}
