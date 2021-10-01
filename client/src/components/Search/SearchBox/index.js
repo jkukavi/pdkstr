@@ -86,7 +86,12 @@ const SearchBoxComponent = React.memo(({ setSearchArray, setArrayLoading }) => {
     SearchBox.state.viewingChannel
   );
 
-  const setters = [setSearchArray, setArrayLoading, setViewingChannel];
+  const setters = [
+    viewingChannel,
+    setSearchArray,
+    setArrayLoading,
+    setViewingChannel,
+  ];
 
   useEffect(() => {
     SearchBox.state = { viewingChannel };
@@ -98,11 +103,9 @@ const SearchBoxComponent = React.memo(({ setSearchArray, setArrayLoading }) => {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
 
-  const collapsedClassName = viewingChannel ? "collapsed" : "collapsed2x";
-
   return (
     <div className="searchBoxFixedContainer">
-      <CollapseOnScrollContainer collapsedClassName={collapsedClassName}>
+      <CollapseOnScrollContainer viewingChannel={viewingChannel}>
         <Form />
         {viewingChannel && <ChannelInfo channelInfo={viewingChannel} />}
       </CollapseOnScrollContainer>
