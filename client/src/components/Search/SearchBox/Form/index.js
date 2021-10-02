@@ -2,11 +2,26 @@ import useScreenSize from "./useScreenSize";
 
 import SmallScreenForm from "./SmallScreenForm";
 import WideScreenForm from "./WideScreenForm";
+import { SearchBox } from "..";
 
-const Form = (props) => {
+const Form = () => {
   const smallScreen = useScreenSize();
-  const Form = smallScreen ? SmallScreenForm : WideScreenForm;
-  return <Form {...props} />;
+  const FormContent = smallScreen ? SmallScreenForm : WideScreenForm;
+  return (
+    <form
+      className="searchBox"
+      name="searchForm"
+      id="searchForm"
+      autoComplete="off"
+      onSubmit={(e) => {
+        e.preventDefault();
+        SearchBox.searchForItems(e);
+        document.activeElement?.blur();
+      }}
+    >
+      <FormContent />
+    </form>
+  );
 };
 
 export default Form;

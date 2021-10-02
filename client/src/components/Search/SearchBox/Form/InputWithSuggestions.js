@@ -10,7 +10,7 @@ import { SearchEngineDropdown } from "./SearchEngineDropdown";
 let preventBlur = false;
 let inputFocused = false;
 
-const InputWithSuggestions = ({ searchForm }) => {
+const InputWithSuggestions = () => {
   const [suggestions, setSuggestions] = useState({ show: false, array: [] });
 
   useEffect(() => {
@@ -70,9 +70,9 @@ const InputWithSuggestions = ({ searchForm }) => {
     // eslint-disable-next-line no-unused-vars
     preventBlur = false;
     document.getElementById("searchInput").value = e.target.innerText;
-    searchForm.current.dispatchEvent(
-      new Event("submit", { cancelable: true, bubbles: true })
-    );
+    document
+      .getElementById("searchForm")
+      .dispatchEvent(new Event("submit", { cancelable: true, bubbles: true }));
     setSuggestions({ ...suggestions, show: false });
   };
 
