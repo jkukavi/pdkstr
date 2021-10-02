@@ -96,7 +96,7 @@ const SearchBoxComponent = React.memo(({ setSearchArray, setArrayLoading }) => {
 
   return (
     <div className="searchBoxFixedContainer">
-      <CollapseOnScrollContainer viewingChannel={viewingChannel}>
+      <CollapseOnScrollContainer>
         <Form />
         {viewingChannel && <ChannelInfo channelInfo={viewingChannel} />}
       </CollapseOnScrollContainer>

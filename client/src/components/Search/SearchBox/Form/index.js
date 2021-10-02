@@ -10,7 +10,6 @@ const Form = () => {
   return (
     <form
       className="searchBox"
-      name="searchForm"
       id="searchForm"
       autoComplete="off"
       onSubmit={(e) => {

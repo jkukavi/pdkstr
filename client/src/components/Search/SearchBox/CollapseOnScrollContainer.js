@@ -1,16 +1,10 @@
 import { useScrollingDownContext } from "../../../contexts/ScrollingDown";
 
-const CollapseOnScrollContainer = ({ viewingChannel, children }) => {
+const CollapseOnScrollContainer = ({ children }) => {
   const scrollingDown = useScrollingDownContext("cardContainer");
 
-  const collapsedClassName = viewingChannel ? "collapsed" : "collapsed2x";
-
   return (
-    <div
-      className={`searchBoxContainer ${
-        scrollingDown ? collapsedClassName : ""
-      }`}
-    >
+    <div className={`searchBoxContainer ${scrollingDown ? "collapsed" : ""}`}>
       {children}
     </div>
   );
