@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import Table from "../Table";
 
@@ -8,27 +8,15 @@ import { getPlaylistItems } from "../../apiCalls";
 import { notify } from "../Notifications";
 import Sidebar from "./Sidebar";
 import Controls from "./Controls";
+import useConnectPropsToObserver from "../../hooks/useConnectPropsToObserver";
 
 export const PlaylistSidebar = {
-  browsePlaylist: null,
-};
-
-const PlaylistSidebarComponent = () => {
-  const [browsingPlaylist, setBrowsingPlaylist] = useState({
-    items: [],
-    expanded: false,
-  });
-
-  useEffect(() => {
-    PlaylistSidebar.browsePlaylist = browsePlaylist;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [setBrowsingPlaylist]);
-
-  const browsePlaylist = async (playlist) => {
+  setBrowsingPlaylist: null,
+  browsePlaylist: async function (playlist) {
     try {
       notify("Loading playlist...");
       const playlistItems = await getPlaylistItems(playlist);
-      setBrowsingPlaylist({
+      this.setBrowsingPlaylist({
         items: playlistItems.map(addRandomKey),
         info: playlist,
         expanded: true,
@@ -38,15 +26,28 @@ const PlaylistSidebarComponent = () => {
         "Something went wrong with trying to fetch information about this playlist."
       );
     }
-  };
+  },
+  closeBrowsingPlaylist: function () {
+    this.setBrowsingPlaylist((bp) => ({ ...bp, expanded: false }));
+  },
+};
 
-  const closeBrowsingPlaylist = () => {
-    setBrowsingPlaylist((bp) => ({ ...bp, expanded: false }));
-  };
+const PlaylistSidebarComponent = () => {
+  const [browsingPlaylist, setBrowsingPlaylist] = useState({
+    items: [],
+    expanded: false,
+  });
+
+  const props = { setBrowsingPlaylist };
+  useConnectPropsToObserver(props, PlaylistSidebar);
 
   if (!browsingPlaylist.expanded) {
     return null;
   }
+
+  const closeBrowsingPlaylist = () => {
+    PlaylistSidebar.closeBrowsingPlaylist();
+  };
 
   return (
     <>

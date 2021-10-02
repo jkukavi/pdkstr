@@ -68,7 +68,6 @@ const PlayerComponent = () => {
   };
   const props = { updateState, listeningTo, audioLoading };
   useConnectPropsToObserver(props, Player);
-
   useEffect(() => Player.notifySubscribers(), [listeningTo, audioLoading]);
 
   const onAudioError = () => {
