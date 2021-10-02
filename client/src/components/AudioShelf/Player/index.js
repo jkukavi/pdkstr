@@ -11,11 +11,28 @@ import MiniLoader from "../../../components/MiniLoader";
 import PlayerControls from "./PlayerControls";
 
 import { PlayingQueue } from "../PlayingQueue";
+import useConnectPropsToObserver from "../../../hooks/useConnectPropsToObserver";
 
 export const Player = {
-  playItem: null,
   listeningTo: null,
   audioLoading: null,
+  updateState: null,
+  playItem: async function (item) {
+    const { id, engine, url } = item;
+    this.updateState({ directUrl: null, audioLoading: true });
+    try {
+      const directUrl = await fetchDirectUrl({ id, engine, url });
+      this.updateState({
+        directUrl,
+        audioLoading: false,
+        listeningTo: item,
+      });
+      addToHistory(item);
+      notify(`Listening to: ${item.title}`);
+    } catch (e) {
+      notify("Something went wrong. Try again.");
+    }
+  },
   notifySubscribers: () => {
     const { listeningTo, audioLoading } = Player;
     for (const subscriber of Player.subscribers) {
@@ -43,19 +60,20 @@ const initialState = {
 const PlayerComponent = () => {
   const [audioPlayerState, setAudioPlayerState] = useState(initialState);
   const { directUrl, audioLoading, listeningTo } = audioPlayerState;
-
-  useEffect(() => Player.notifySubscribers(), [listeningTo, audioLoading]);
-
   const updateState = (newState) => {
     setAudioPlayerState({
       ...audioPlayerState,
       ...newState,
     });
   };
+  const props = { updateState, listeningTo, audioLoading };
+  useConnectPropsToObserver(props, Player);
+
+  useEffect(() => Player.notifySubscribers(), [listeningTo, audioLoading]);
 
   const onAudioError = () => {
     notify("Something went wrong with trying to play this item.");
-    updateState({ directUrl: null });
+    //this case needs improvement, defaults to playing next..
     onAudioEnded();
   };
 
@@ -63,33 +81,10 @@ const PlayerComponent = () => {
     PlayingQueue.playNext();
   };
 
-  const playItem = async (item) => {
-    const { id, engine, url } = item;
-    updateState({ directUrl: null, audioLoading: true });
-    try {
-      const directUrl = await fetchDirectUrl({ id, engine, url });
-      updateState({
-        directUrl,
-        loading: false,
-        listeningTo: item,
-      });
-      addToHistory(item);
-      notify(`Listening to: ${item.title}`);
-    } catch (e) {
-      notify("Something went wrong. Try again.");
-    }
-  };
-
-  Player.playItem = playItem;
-  Player.listeningTo = listeningTo;
-  Player.audioLoading = audioLoading;
-
   const playerInactive = !(directUrl || audioLoading);
 
   if (playerInactive) return null;
-
   if (audioLoading) return <MiniLoader />;
-
   return (
     <div className="audioPlayerContainer">
       <CustomPlayer

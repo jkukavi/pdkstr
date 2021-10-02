@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import {
   fetchItems,
@@ -16,8 +16,10 @@ import ChannelInfo from "../../ChannelInfo";
 
 import CollapseOnScrollContainer from "./CollapseOnScrollContainer";
 import { SearchEngineDropdown } from "./Form/SearchEngineDropdown";
+import useConnectPropsToObserver from "../../../hooks/useConnectPropsToObserver";
 
 export const SearchBox = {
+  viewingChannel: false,
   setSearchArray: null,
   setArrayLoading: null,
   setViewingChannel: null,
@@ -76,32 +78,21 @@ export const SearchBox = {
     if (element) element.value = recognizedVoiceInput;
     this.searchForItems(null, recognizedVoiceInput);
   },
-  state: {
-    viewingChannel: false,
-  },
 };
 
 const SearchBoxComponent = React.memo(({ setSearchArray, setArrayLoading }) => {
   const [viewingChannel, setViewingChannel] = useState(
-    SearchBox.state.viewingChannel
+    SearchBox.viewingChannel
   );
 
-  const setters = [
+  const props = {
     viewingChannel,
     setSearchArray,
     setArrayLoading,
     setViewingChannel,
-  ];
+  };
 
-  useEffect(() => {
-    SearchBox.state = { viewingChannel };
-    SearchBox.setSearchArray = setSearchArray;
-    SearchBox.setArrayLoading = setArrayLoading;
-    SearchBox.setViewingChannel = setViewingChannel;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, setters);
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useConnectPropsToObserver(props, SearchBox);
 
   return (
     <div className="searchBoxFixedContainer">

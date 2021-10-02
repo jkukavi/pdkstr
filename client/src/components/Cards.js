@@ -19,7 +19,7 @@ import { SearchBox } from "./Search/SearchBox";
 const allowedTypes = ["video", "playlist", "channel"];
 
 const Cards = ({ searchArray, arrayLoading, channelClickAction }) => {
-  const { viewingChannel } = SearchBox.state;
+  const { viewingChannel } = SearchBox;
 
   return (
     <div

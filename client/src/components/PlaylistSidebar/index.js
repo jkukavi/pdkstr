@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
 
 import Table from "../Table";
-import playButtonThumbnail from "../../icons/playButtonThumbnail.svg";
-import chevron from "../../icons/chevron.png";
 
 import { addRandomKey } from "../../helpers/helpers";
 import { getPlaylistItems } from "../../apiCalls";
 
-import { PlayingQueue } from "../AudioShelf/PlayingQueue";
 import { notify } from "../Notifications";
 import Sidebar from "./Sidebar";
+import Controls from "./Controls";
 
 export const PlaylistSidebar = {
   browsePlaylist: null,
@@ -46,44 +44,6 @@ const PlaylistSidebarComponent = () => {
     setBrowsingPlaylist((bp) => ({ ...bp, expanded: false }));
   };
 
-  const controls = (
-    <>
-      <div
-        style={{ cursor: "pointer", width: "20px", height: "20px" }}
-        onClick={() => closeBrowsingPlaylist()}
-      >
-        <img
-          style={{
-            transform: "rotate(-90deg)",
-            filter: "invert(1)",
-            width: "100%",
-            height: "100%",
-          }}
-          src={chevron}
-          alt="alt"
-        />
-      </div>
-      <div
-        style={{
-          cursor: "pointer",
-          margin: "auto",
-          width: "20px",
-          height: "20px",
-        }}
-        onClick={() => {
-          closeBrowsingPlaylist();
-          PlayingQueue.playPlaylist(browsingPlaylist.info);
-        }}
-      >
-        <img
-          style={{ width: "100%", height: "100%" }}
-          src={playButtonThumbnail}
-          alt="alt"
-        />
-      </div>
-    </>
-  );
-
   if (!browsingPlaylist.expanded) {
     return null;
   }
@@ -92,7 +52,12 @@ const PlaylistSidebarComponent = () => {
     <>
       <Sidebar closeMe={closeBrowsingPlaylist}>
         <Table
-          controls={controls}
+          controls={
+            <Controls
+              closeBrowsingPlaylist={closeBrowsingPlaylist}
+              browsingPlaylist={browsingPlaylist}
+            />
+          }
           tableTitle={"Playlist: " + browsingPlaylist.info?.title}
           tableArray={browsingPlaylist.items}
         />
