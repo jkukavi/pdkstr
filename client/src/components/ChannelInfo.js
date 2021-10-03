@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 import { buttonTextBySearchEngine, defaultPuppyImg } from "../consts";
 import star from "../icons/star.png";
-import trash from "../icons/trash.png";
 
 import { addToFavourites } from "../apiCalls";
 import { SearchBox } from "./Search/SearchBox";
@@ -15,10 +14,6 @@ const ChannelInfo = ({ channelInfo }) => {
     <>
       <div style={{ width: "100%", borderTop: "1px solid #7d7d7d" }}></div>
       <div className="channelInfoContainer">
-        <pre style={{ display: "none" }}>
-          {JSON.stringify(channelInfo, null, 2)}
-        </pre>
-
         <div className="channelInfo">
           <img
             src={
@@ -26,7 +21,7 @@ const ChannelInfo = ({ channelInfo }) => {
               defaultPuppyImg
             }
             onError={(e) => {
-              e.target.src = trash;
+              e.target.src = defaultPuppyImg;
             }}
             alt="alt"
           ></img>
