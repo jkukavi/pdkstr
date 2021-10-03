@@ -101,3 +101,5 @@ export const favouritesFilterNames = {
   [favouritesFilters.PLAYLISTS]: "Playlists",
   [favouritesFilters.CHANNELS]: "Channels",
 };
+
+export const allowedCardTypes = ["video", "playlist", "channel"];
