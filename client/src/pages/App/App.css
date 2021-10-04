@@ -990,6 +990,8 @@ button:active.small {
   flex: 0 1 fit-content;
   /* important if we want the text to collapse */
   min-width: 0;
+  /* or */
+  /* overflow: hidden;, but min-width makes more sense to me */
 }
 
 .channelInfo p {
