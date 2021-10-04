@@ -980,25 +980,24 @@ button:active.small {
   padding-left: 0.2rem;
   display: flex;
   align-items: center;
+  margin-right: 0.1rem;
 }
 
 .channelInfo {
+  font-size: 13px;
   display: flex;
   align-items: center;
+  flex: 0 1 fit-content;
+  /* important if we want the text to collapse */
+  min-width: 0;
 }
 
 .channelInfo p {
   line-height: 0.9rem;
   color: #d0d0d0;
-}
-
-@media screen and (max-width: 450px) {
-  .channelInfo p {
-    max-width: 7.4rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .channelInfo img {
