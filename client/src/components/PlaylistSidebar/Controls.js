@@ -1,7 +1,7 @@
 import { PlayingQueue } from "components/AudioShelf/PlayingQueue";
 
 import playButtonThumbnail from "icons/playButtonThumbnail.svg";
-import chevron from "icons/chevron.png";
+import chevron from "icons/chevron.svg";
 
 const Controls = ({ closeBrowsingPlaylist, browsingPlaylist }) => (
   <>

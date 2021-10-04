@@ -3,10 +3,11 @@ import { SearchEngineIcon, defaultPuppyImg } from "consts";
 import { getViewsString } from "helpers";
 import { addToFavourites } from "apiCalls";
 
-import star from "icons/star.png";
-import playingQueue from "icons/playingQueue.png";
+import star from "icons/star.svg";
+import addToPlayingQueue from "icons/addToPlayingQueue.svg";
+import playingQueue from "icons/playingQueue.svg";
 import playButtonThumbnail from "icons/playButtonThumbnail.svg";
-import browseList from "icons/browseList.png";
+import browseList from "icons/browseList.svg";
 
 import { Player as AudioPlayer } from "components/AudioShelf/Player";
 import { SearchBox } from "components/Search/SearchBox";
@@ -96,16 +97,9 @@ export const SingleItem = ({
                   PlayingQueue.addToQueue(item);
                 }}
               >
-                <img src={playingQueue} alt="loading"></img>
+                <img src={addToPlayingQueue} alt="loading"></img>
               </div>
-              <div
-                className="addToPlaylistIcon"
-                onClick={() => {
-                  addToFavourites(item);
-                }}
-              >
-                <img src={star} alt="loading"></img>
-              </div>
+              <AddToFavouritesButton item={item} />
             </div>
           </div>
 
@@ -120,6 +114,19 @@ export const SingleItem = ({
           </div>
         </>
       </div>
+    </div>
+  );
+};
+
+const AddToFavouritesButton = ({ item }) => {
+  return (
+    <div
+      className="addToPlaylistIcon"
+      onClick={() => {
+        addToFavourites(item);
+      }}
+    >
+      <img src={star} alt="loading"></img>
     </div>
   );
 };
@@ -168,14 +175,7 @@ export const Channel = ({
             </p>
             <p className="desc">{subscribers || "Subscribers not available"}</p>
           </div>
-          <div
-            className="addToPlaylistIcon playlist"
-            onClick={() => {
-              addToFavourites(item);
-            }}
-          >
-            <img src={star} alt="loading"></img>
-          </div>
+          <AddToFavouritesButton item={item} />
         </div>
       </div>
     </div>
@@ -263,14 +263,7 @@ export const Playlist = ({
           >
             <img src={browseList} alt="loading"></img>
           </div>
-          <div
-            className="addToPlaylistIcon playlist"
-            onClick={() => {
-              addToFavourites(item);
-            }}
-          >
-            <img src={star} alt="loading"></img>
-          </div>
+          <AddToFavouritesButton item={item} />
         </div>
         <p className="desc title singleLineText" style={{ marginTop: 0 }}>
           <span>{title}</span>

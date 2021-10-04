@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 import { searchEngines } from "consts";
 
-import youtube from "icons/youtube.png";
-import soundcloud from "icons/soundcloud.png";
+import youtube from "icons/youtube.svg";
+import soundcloud from "icons/soundcloud.svg";
 
 import DropDown from "components/Dropdown";
 

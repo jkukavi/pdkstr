@@ -1,6 +1,6 @@
-import chevron from "icons/chevron.png";
-import magnifier from "icons/magnifier.png";
-import microphone from "icons/microphone.png";
+import chevron from "icons/chevron.svg";
+import magnifier from "icons/magnifier.svg";
+import microphone from "icons/microphone.svg";
 
 import recognizeAndStartSearch from "helpers/speechRecognition";
 

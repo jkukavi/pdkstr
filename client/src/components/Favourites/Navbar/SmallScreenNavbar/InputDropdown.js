@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
-import magnifier from "icons/magnifier.png";
-import closeIcon from "icons/close.png";
+import magnifier from "icons/magnifier.svg";
+import closeIcon from "icons/close.svg";
 
 const InputDropdown = ({
   queryString,

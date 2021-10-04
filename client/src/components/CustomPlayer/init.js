@@ -1,5 +1,5 @@
-import playIcon from "./icons/play.png";
-import pauseIcon from "./icons/pause.png";
+import playIcon from "./icons/play.svg";
+import pauseIcon from "./icons/pause.svg";
 import { throttle } from "helpers";
 
 function prettyPrintSeconds(secondsWithRemainder) {

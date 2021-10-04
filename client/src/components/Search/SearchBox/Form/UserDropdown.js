@@ -3,9 +3,9 @@ import { useHistory } from "react-router";
 
 import { useAuthContext } from "contexts/Auth";
 
-import settings from "icons/settings.png";
-import powerOff from "icons/powerOff.png";
-import userIcon from "icons/userIcon.png";
+import settings from "icons/settings.svg";
+import powerOff from "icons/powerOff.svg";
+import userIcon from "icons/userIcon.svg";
 
 import { notify } from "components/Notifications";
 import DropDown from "components/Dropdown";

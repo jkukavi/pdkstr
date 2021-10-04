@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import magnifier from "icons/magnifier.png";
-import history from "icons/history.png";
-import library from "icons/library.png";
+import magnifier from "icons/magnifier.svg";
+import history from "icons/history.svg";
+import library from "icons/library.svg";
 
 const BottomMenu = () => {
   return (

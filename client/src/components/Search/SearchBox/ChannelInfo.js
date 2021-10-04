@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { buttonTextBySearchEngine, defaultPuppyImg } from "consts";
-import star from "icons/star.png";
+import star from "icons/star.svg";
 
 import { addToFavourites } from "apiCalls";
 import { SearchBox } from ".";

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { getViewsString } from "helpers";
 import { SearchEngineIcon } from "consts";
 
-import playButton from "icons/playButton.png";
+import playButton from "icons/play.svg";
 
 import { Player as AudioPlayer } from "components/AudioShelf/Player";
 

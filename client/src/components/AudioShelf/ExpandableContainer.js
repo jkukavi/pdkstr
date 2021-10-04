@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-import playingQueue from "icons/playingQueue.png";
-import chevron from "icons/chevron.png";
+import playingQueue from "icons/playingQueue.svg";
+import chevron from "icons/chevron.svg";
 
 import { useScrollingDownContext } from "contexts/ScrollingDown";
 import { PlayingQueue } from "./PlayingQueue";

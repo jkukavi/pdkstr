@@ -8,7 +8,7 @@ body {
 }
 
 #playButton {
-  background: url("./icons/play.png") center center / contain no-repeat;
+  background: url("./icons/play.svg") center center / contain no-repeat;
   background-size: contain;
   border: none;
   cursor: pointer;
@@ -164,7 +164,7 @@ body {
 #cancelSeek .button {
   width: 2rem;
   height: 2rem;
-  background: url("./icons/cancel.png") center center / contain no-repeat;
+  background: url("./icons/cancel.svg") center center / contain no-repeat;
   background-size: 130%;
   border-radius: 50%;
   border: 1px solid black;

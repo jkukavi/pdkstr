@@ -1,6 +1,6 @@
 import React from "react";
 
-import magnifier from "icons/magnifier.png";
+import magnifier from "icons/magnifier.svg";
 
 const Navbar = ({ handleInputChange }) => {
   return (

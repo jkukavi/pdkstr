@@ -431,6 +431,11 @@ audio {
   filter: invert(0.7);
 }
 
+.filterNavbar .iconHolder img {
+  width: 24px;
+  height: 24px;
+}
+
 .filterNavbar .inputContainer {
   position: absolute;
   z-index: -1;
@@ -694,6 +699,8 @@ audio {
 
 .button img {
   filter: invert(0.7);
+  height: 24px;
+  width: 24px;
 }
 
 .button:hover img {
