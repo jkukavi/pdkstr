@@ -1,8 +1,8 @@
-import chevron from "../../../../icons/chevron.png";
-import magnifier from "../../../../icons/magnifier.png";
-import microphone from "../../../../icons/microphone.png";
+import chevron from "icons/chevron.png";
+import magnifier from "icons/magnifier.png";
+import microphone from "icons/microphone.png";
 
-import recognizeAndStartSearch from "../../../../helpers/speechRecognition";
+import recognizeAndStartSearch from "helpers/speechRecognition";
 
 export const GoBackButton = ({ onClick }) => {
   return (

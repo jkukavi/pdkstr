@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch, useLocation, useHistory } from "react-router-dom";
 
+import { useAuthContext } from "contexts/Auth";
+
+import Notifications from "components/Notifications";
+
 import Register from "./Register";
 import LoginForm from "./LoginForm";
-
-import { useAuthContext } from "../../contexts/Auth";
-import Notifications from "../../components/Notifications";
 
 const LoginPage = () => {
   const { user, reestablishSession } = useAuthContext();

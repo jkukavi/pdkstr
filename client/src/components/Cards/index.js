@@ -1,11 +1,11 @@
 import React, { useMemo } from "react";
 
-import { allowedCardTypes } from "../../consts";
+import { allowedCardTypes } from "consts";
 
-import { SearchBox } from "../Search/SearchBox";
+import { SearchBox } from "components/Search/SearchBox";
+import Loader from "components/Loader";
+
 import cardTypes from "./cardTypes";
-
-import Loader from "../Loader";
 
 const Cards = ({ searchArray, arrayLoading, channelClickAction }) => {
   const { viewingChannel } = SearchBox;

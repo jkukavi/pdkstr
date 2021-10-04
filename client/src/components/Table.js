@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-import playButton from "../icons/playButton.png";
-
 import { getViewsString } from "helpers";
+import { SearchEngineIcon } from "consts";
 
-import { SearchEngineIcon } from "../consts";
-import { Player as AudioPlayer } from "../components/AudioShelf/Player";
+import playButton from "icons/playButton.png";
+
+import { Player as AudioPlayer } from "components/AudioShelf/Player";
 
 const Table = ({ tableTitle, tableArray, controls }) => {
   const [listeningTo, setListeningTo] = useState(

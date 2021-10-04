@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-import DropDown from "../../../../components/Dropdown";
+import { searchEngines } from "consts";
 
-import { searchEngines } from "../../../../consts";
+import youtube from "icons/youtube.png";
+import soundcloud from "icons/soundcloud.png";
 
-import youtube from "../../../../icons/youtube.png";
-import soundcloud from "../../../../icons/soundcloud.png";
+import DropDown from "components/Dropdown";
 
 export const SearchEngineDropdown = {
   selected: searchEngines.YT,

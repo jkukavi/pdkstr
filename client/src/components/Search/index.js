@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
+import Cards from "components/Cards";
+
 import SearchBox from "./SearchBox";
-import Cards from "../Cards";
 
 const Search = () => {
   const [searchArray, setSearchArray] = useState([]);

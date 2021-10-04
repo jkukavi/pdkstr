@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import note from "../icons/note.png";
 
 const Notification = ({ notification }) => {
   const [show, setShow] = useState(true);

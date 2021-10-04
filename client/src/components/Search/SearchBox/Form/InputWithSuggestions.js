@@ -2,8 +2,8 @@ import { useState, useEffect, useCallback } from "react";
 
 import { addRandomKey, debounce } from "helpers";
 
-import { instance as axios } from "../../../../contexts/axiosInstance";
-import { notify } from "../../../Notifications";
+import { instance as axios } from "contexts/axiosInstance";
+import { notify } from "components/Notifications";
 
 import { SearchEngineDropdown } from "./SearchEngineDropdown";
 

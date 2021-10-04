@@ -1,8 +1,7 @@
 import React from "react";
-
 import { useHistory } from "react-router";
 
-import chevron from "../../icons/chevron.png";
+import chevron from "icons/chevron.png";
 
 import "./index.css";
 

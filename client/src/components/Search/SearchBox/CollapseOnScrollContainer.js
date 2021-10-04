@@ -1,4 +1,4 @@
-import { useScrollingDownContext } from "../../../contexts/ScrollingDown";
+import { useScrollingDownContext } from "contexts/ScrollingDown";
 
 const CollapseOnScrollContainer = ({ children }) => {
   const scrollingDown = useScrollingDownContext("cardContainer");

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-
-import axios from "axios";
-import parseFormData from "../../helpers/parseFormData";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
+import parseFormData from "helpers/parseFormData";
 
 const Register = ({ notify }) => {
   const [state, setState] = useState({ loading: false, success: false });

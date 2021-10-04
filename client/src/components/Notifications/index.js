@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import Notification from "./Notification";
 
 const notificationsObserver = {

@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
-
 import { v4 as uuid } from "uuid";
 
-import { fetchDirectUrl, addToHistory } from "../../../apiCalls";
+import { fetchDirectUrl, addToHistory } from "apiCalls";
+import { SearchEngineIcon } from "consts";
+import useConnectPropsToObserver from "hooks/useConnectPropsToObserver";
 
-import CustomPlayer from "../../CustomPlayer";
-import { notify } from "../../Notifications";
-import { SearchEngineIcon } from "../../../consts";
-import MiniLoader from "../../../components/MiniLoader";
-import PlayerControls from "./PlayerControls";
+import CustomPlayer from "components/CustomPlayer";
+import { notify } from "components/Notifications";
+import MiniLoader from "components/MiniLoader";
 
 import { PlayingQueue } from "../PlayingQueue";
-import useConnectPropsToObserver from "../../../hooks/useConnectPropsToObserver";
+import PlayerControls from "./PlayerControls";
 
 export const Player = {
   listeningTo: null,

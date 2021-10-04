@@ -1,6 +1,8 @@
 import React, { useEffect, useState, createContext, useContext } from "react";
 import axios from "axios";
 
+import parseFormData from "helpers/parseFormData";
+
 import {
   instantiateInstance,
   instance,
@@ -10,8 +12,6 @@ import {
   reestablishSessionInOtherWindows,
   destroySessionInOtherWindows,
 } from "./axiosInstance";
-
-import parseFormData from "../helpers/parseFormData";
 
 const AuthContext = createContext({ user: null });
 

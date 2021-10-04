@@ -2,7 +2,7 @@ import useScreenSize from "./useScreenSize";
 
 import SmallScreenForm from "./SmallScreenForm";
 import WideScreenForm from "./WideScreenForm";
-import { SearchBox } from "..";
+import { SearchBox } from "../";
 
 const Form = () => {
   const smallScreen = useScreenSize();

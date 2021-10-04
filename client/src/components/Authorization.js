@@ -1,8 +1,7 @@
 import React from "react";
-
 import { Redirect, useLocation } from "react-router-dom";
 
-import { useAuthContext } from "../contexts/Auth";
+import { useAuthContext } from "contexts/Auth";
 
 const Authorization = ({ children }) => {
   const { user } = useAuthContext();

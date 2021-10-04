@@ -2,12 +2,12 @@ import React, { useState, useCallback, useEffect, useMemo } from "react";
 import { useHistory } from "react-router";
 
 import { debounce } from "helpers";
+import { favouritesFilters as filters } from "consts";
 
-import { favouritesFilters as filters } from "../../consts";
+import { useUserData } from "contexts/UserData";
+import Cards from "components/Cards";
 
 import Navbar from "./Navbar";
-import Cards from "../../components/Cards";
-import { useUserData } from "../../contexts/UserData";
 
 const Favourites = () => {
   const history = useHistory();

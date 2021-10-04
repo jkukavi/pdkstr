@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 
-import { getPlaylistItems } from "../../apiCalls";
+import { getPlaylistItems } from "apiCalls";
 
 import { addRandomKey } from "helpers";
 import speak from "helpers/speak";
 
+import { notify } from "components/Notifications";
+import Table from "components/Table";
+
 import { Player } from "./Player";
-
-import { notify } from "../Notifications";
-
-import Table from "../Table";
 
 export const PlayingQueue = {
   playlist: [],

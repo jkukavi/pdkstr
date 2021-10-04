@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-import { buttonTextBySearchEngine, defaultPuppyImg } from "../consts";
-import star from "../icons/star.png";
+import { buttonTextBySearchEngine, defaultPuppyImg } from "consts";
+import star from "icons/star.png";
 
-import { addToFavourites } from "../apiCalls";
-import { SearchBox } from "./Search/SearchBox";
+import { addToFavourites } from "apiCalls";
+import { SearchBox } from ".";
 
 const ChannelInfo = ({ channelInfo }) => {
   const [active, setActive] = useState("items");

@@ -1,22 +1,15 @@
 import React, { useState } from "react";
 
-import {
-  fetchItems,
-  getChannelItems,
-  getChannelPlaylists,
-} from "../../../apiCalls";
-
-import { notify } from "../../Notifications";
-
-import Form from "./Form";
-
+import { fetchItems, getChannelItems, getChannelPlaylists } from "apiCalls";
 import { addRandomKey } from "helpers";
+import useConnectPropsToObserver from "hooks/useConnectPropsToObserver";
 
-import ChannelInfo from "../../ChannelInfo";
+import { notify } from "components/Notifications";
 
 import CollapseOnScrollContainer from "./CollapseOnScrollContainer";
+import Form from "./Form";
 import { SearchEngineDropdown } from "./Form/SearchEngineDropdown";
-import useConnectPropsToObserver from "../../../hooks/useConnectPropsToObserver";
+import ChannelInfo from "./ChannelInfo";
 
 export const SearchBox = {
   viewingChannel: false,

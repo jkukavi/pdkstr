@@ -1,9 +1,9 @@
-import replay5 from "../../../icons/replay5.png";
-import replay10 from "../../../icons/replay10.png";
-import replay30 from "../../../icons/replay30.png";
-import forward5 from "../../../icons/forward5.png";
-import forward10 from "../../../icons/forward10.png";
-import forward30 from "../../../icons/forward30.png";
+import replay5 from "icons/replay5.png";
+import replay10 from "icons/replay10.png";
+import replay30 from "icons/replay30.png";
+import forward5 from "icons/forward5.png";
+import forward10 from "icons/forward10.png";
+import forward30 from "icons/forward30.png";
 
 import { ExpandButton } from "../ExpandableContainer";
 

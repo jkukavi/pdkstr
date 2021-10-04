@@ -1,6 +1,7 @@
-import youtube from "../icons/youtube.png";
-import soundcloud from "../icons/soundcloud.png";
 import React from "react";
+
+import youtube from "icons/youtube.png";
+import soundcloud from "icons/soundcloud.png";
 
 export const menu = {
   SEARCH: "/",

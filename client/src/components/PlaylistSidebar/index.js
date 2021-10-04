@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
-import Table from "../Table";
-
 import { addRandomKey } from "helpers";
-import { getPlaylistItems } from "../../apiCalls";
+import { getPlaylistItems } from "apiCalls";
+import useConnectPropsToObserver from "hooks/useConnectPropsToObserver";
 
-import { notify } from "../Notifications";
+import Table from "components/Table";
+import { notify } from "components/Notifications";
+
 import Sidebar from "./Sidebar";
 import Controls from "./Controls";
-import useConnectPropsToObserver from "../../hooks/useConnectPropsToObserver";
 
 export const PlaylistSidebar = {
   setBrowsingPlaylist: null,

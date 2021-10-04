@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import chevron from "../icons/chevron.png";
+import chevron from "icons/chevron.png";
 
 const DropDown = ({ frontItem, dropdownItems }) => {
   const [dropdown, setDropdown] = useState(false);

@@ -1,17 +1,17 @@
-import { SearchEngineIcon, defaultPuppyImg } from "../../consts";
+import { SearchEngineIcon, defaultPuppyImg } from "consts";
 
-import { Player as AudioPlayer } from "../AudioShelf/Player";
 import { getViewsString } from "helpers";
+import { addToFavourites } from "apiCalls";
 
-import { addToFavourites } from "../../apiCalls";
-import playButtonThumbnail from "../../icons/playButtonThumbnail.svg";
-import { SearchBox } from "../Search/SearchBox";
-import { PlayingQueue } from "../AudioShelf/PlayingQueue";
-import star from "../../icons/star.png";
-import playingQueue from "../../icons/playingQueue.png";
+import star from "icons/star.png";
+import playingQueue from "icons/playingQueue.png";
+import playButtonThumbnail from "icons/playButtonThumbnail.svg";
+import browseList from "icons/browseList.png";
 
-import browseList from "../../icons/browseList.png";
-import { PlaylistSidebar } from "../PlaylistSidebar";
+import { Player as AudioPlayer } from "components/AudioShelf/Player";
+import { SearchBox } from "components/Search/SearchBox";
+import { PlayingQueue } from "components/AudioShelf/PlayingQueue";
+import { PlaylistSidebar } from "components/PlaylistSidebar";
 
 export const SingleItem = ({
   viewingChannel,

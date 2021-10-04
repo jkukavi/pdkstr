@@ -3,9 +3,9 @@ import React from "react";
 import {
   favouritesFilterNames as filterNames,
   favouritesFilters as filters,
-} from "../../../../consts";
+} from "consts";
 
-import DropDown from "../../../Dropdown";
+import DropDown from "components/Dropdown";
 
 const FilterDropdown = ({ filter, setFilter }) => {
   const dropdownItems = Object.values(filters).map((item) => {

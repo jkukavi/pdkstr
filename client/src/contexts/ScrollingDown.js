@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-
 import { useLocation } from "react-router-dom";
 
 import { throttle, checkScroll, debounce } from "helpers";

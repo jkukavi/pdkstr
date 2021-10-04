@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import { favouritesFilters, favouritesFilterNames } from "../../../consts";
 
-import magnifier from "../../../icons/magnifier.png";
+import { favouritesFilters, favouritesFilterNames } from "consts";
+import magnifier from "icons/magnifier.png";
 
 const WideScreenNavbar = ({
   filter,

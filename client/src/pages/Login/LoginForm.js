@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-
 import { Link, Route, useRouteMatch } from "react-router-dom";
 
-import { notify } from "../../components/Notifications";
+import { useAuthContext } from "contexts/Auth";
 
-import { useAuthContext } from "../../contexts/Auth";
+import { notify } from "components/Notifications";
 
 const LoginForm = ({ goBack }) => {
   const [loading, setLoading] = useState(false);

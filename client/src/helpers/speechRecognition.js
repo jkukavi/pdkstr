@@ -1,6 +1,6 @@
 import speak from "./speak";
-import { notify } from "../components/Notifications";
-import { SearchBox } from "../components/Search/SearchBox";
+import { notify } from "components/Notifications";
+import { SearchBox } from "components/Search/SearchBox";
 
 function Nothing() {
   this.start = () => {};
