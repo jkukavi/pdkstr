@@ -1,7 +1,7 @@
 import { SearchEngineIcon, defaultPuppyImg } from "../../consts";
 
 import { Player as AudioPlayer } from "../AudioShelf/Player";
-import { getViewsString } from "../../helpers/helpers";
+import { getViewsString } from "helpers";
 
 import { addToFavourites } from "../../apiCalls";
 import playButtonThumbnail from "../../icons/playButtonThumbnail.svg";

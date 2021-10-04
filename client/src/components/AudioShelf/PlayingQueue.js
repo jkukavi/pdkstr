@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 
 import { getPlaylistItems } from "../../apiCalls";
 
-import { addRandomKey } from "../../helpers/helpers";
-import speak from "../../helpers/speak";
+import { addRandomKey } from "helpers";
+import speak from "helpers/speak";
 
 import { Player } from "./Player";
 

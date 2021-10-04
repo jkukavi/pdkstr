@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 
 import { notify } from "../components/Notifications";
 import { instance as axios } from "./axiosInstance";
-import { addRandomKey } from "../helpers/helpers";
+import { addRandomKey } from "helpers";
 
 const UserDataContext = React.createContext({
   history: [],

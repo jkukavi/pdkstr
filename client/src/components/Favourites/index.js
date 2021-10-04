@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect, useMemo } from "react";
 import { useHistory } from "react-router";
 
-import { debounce } from "../../helpers/helpers";
+import { debounce } from "helpers";
 
 import { favouritesFilters as filters } from "../../consts";
 

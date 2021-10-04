@@ -1,6 +1,6 @@
 import playIcon from "./icons/play.png";
 import pauseIcon from "./icons/pause.png";
-import { throttle } from "../../helpers/helpers";
+import { throttle } from "helpers";
 
 function prettyPrintSeconds(secondsWithRemainder) {
   if (secondsWithRemainder === undefined) {

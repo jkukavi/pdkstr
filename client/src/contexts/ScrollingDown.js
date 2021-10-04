@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 
 import { useLocation } from "react-router-dom";
 
-import { throttle, checkScroll, debounce } from "../helpers/helpers";
+import { throttle, checkScroll, debounce } from "helpers";
 
 const ScrollingDownContext = React.createContext(false);
 

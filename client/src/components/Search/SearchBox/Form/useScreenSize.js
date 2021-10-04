@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { throttle } from "../../../../helpers/helpers";
+import { throttle } from "helpers";
 
 const useScreenSize = () => {
   const [smallScreen, setSmallScreen] = useState(window.innerWidth < 600);

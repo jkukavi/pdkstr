@@ -1,8 +1,8 @@
-import { paths } from "../consts";
-import { instance as axios } from "../contexts/axiosInstance";
-import { notify } from "../components/Notifications";
-import { searchEngines } from "../consts";
-import { addRandomKey } from "../helpers/helpers";
+import { paths } from "consts";
+import { instance as axios } from "contexts/axiosInstance";
+import { notify } from "components/Notifications";
+import { searchEngines } from "consts";
+import { addRandomKey } from "helpers";
 
 export const addToHistory = async (item) => {
   try {

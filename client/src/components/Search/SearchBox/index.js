@@ -10,7 +10,7 @@ import { notify } from "../../Notifications";
 
 import Form from "./Form";
 
-import { addRandomKey } from "../../../helpers/helpers";
+import { addRandomKey } from "helpers";
 
 import ChannelInfo from "../../ChannelInfo";
 

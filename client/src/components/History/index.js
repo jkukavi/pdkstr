@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect, useCallback } from "react";
 
-import { debounce } from "../../helpers/helpers";
+import { debounce } from "helpers";
 
 import Navbar from "./Navbar";
 import Cards from "../../components/Cards";

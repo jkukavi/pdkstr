@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-import playingQueue from "../../icons/playingQueue.png";
-import chevron from "../../icons/chevron.png";
+import playingQueue from "icons/playingQueue.png";
+import chevron from "icons/chevron.png";
 
-import { useScrollingDownContext } from "../../contexts/ScrollingDown";
+import { useScrollingDownContext } from "contexts/ScrollingDown";
 import { PlayingQueue } from "./PlayingQueue";
 import { Player } from "./Player";
 

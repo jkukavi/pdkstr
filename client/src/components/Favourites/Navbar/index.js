@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import SmallScreenNavbar from "./SmallScreenNavbar";
 import WideScreenNavbar from "./WideScreenNavbar";
 
-import { throttle } from "../../../helpers/helpers";
+import { throttle } from "helpers";
 
 const Navbar = ({
   filter,

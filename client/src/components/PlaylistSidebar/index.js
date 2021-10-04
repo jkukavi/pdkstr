@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import Table from "../Table";
 
-import { addRandomKey } from "../../helpers/helpers";
+import { addRandomKey } from "helpers";
 import { getPlaylistItems } from "../../apiCalls";
 
 import { notify } from "../Notifications";
