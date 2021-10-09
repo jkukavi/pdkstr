@@ -36,6 +36,4 @@ app.use("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/../client/build/index.html"));
 });
 
-console.log("server started 8080");
-
 module.exports = app;
