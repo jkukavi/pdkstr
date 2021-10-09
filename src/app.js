@@ -6,6 +6,7 @@ const path = require("path");
 const { CSPPolicies } = require("./consts");
 const authRouter = require("./routers/authRouter");
 const { auth, proxyAuth } = require("./auth");
+const { upgradeToSSLIfNecessary } = require("./middleware");
 const mainRouter = require("./routers/mainRouter");
 const usersRouter = require("./routers/usersRouter");
 const proxyRouter = require("./routers/proxyRouter");
@@ -20,6 +21,11 @@ app.use(
   })
 );
 app.use(cookieParser());
+
+//redirect user to https if accidentaly visits http
+if (process.env.NODE_ENV === "production") {
+  app.use(upgradeToSSLIfNecessary);
+}
 
 // Clients static files are served with:
 app.use("/", express.static("client/build"));
