@@ -2011,11 +2011,6 @@ undefsafe@^2.0.3:
   dependencies:
     debug "^2.2.0"
 
-undici@^4.7.0:
-  version "4.7.1"
-  resolved "https://registry.yarnpkg.com/undici/-/undici-4.7.1.tgz#e3aea016caa174fd0b05a01398f73084f34798d3"
-  integrity sha512-5Vub7YlWErSgv+7UE4yCyqRbKLdP+Xo92AR9XWG5BrQvLSMXLtYZa/RxYwYnsOpaLNHeivswkYKGxZOC3Dfw4g==
-
 unique-string@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/unique-string/-/unique-string-2.0.0.tgz#39c6451f81afb2749de2b233e3f7c5e8843bd89d"
@@ -2196,12 +2191,12 @@ yallist@^4.0.0:
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"
   integrity sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
 
-youtube-sr@^4.1.7:
-  version "4.1.8"
-  resolved "https://registry.yarnpkg.com/youtube-sr/-/youtube-sr-4.1.8.tgz#ab3192da5e04efb07f4599609a7ece9c9dfe3ddf"
-  integrity sha512-fcXSyBoGfxmPKT590F1TegC7f3iZFnQkM5sELWppdOJiGcRrXvN6vquVWWIYLakWwuWvUmtR7VzuoslsTMoCng==
+youtube-sr@4.1.7:
+  version "4.1.7"
+  resolved "https://registry.yarnpkg.com/youtube-sr/-/youtube-sr-4.1.7.tgz#a7cdff3e2ce3027170c96e0ca936bfba05955538"
+  integrity sha512-OKbm+561Fq5RlnUtJBmPhnyfS6Zon44zdPhY1v/Y9vpAHzqdfxomD43yc0ZQv6zNsVzSlAkGeWhoweNd6DUUjQ==
   dependencies:
-    undici "^4.7.0"
+    node-fetch "^2.6.1"
 
 yt-channel-info@^2.2.0:
   version "2.2.0"
