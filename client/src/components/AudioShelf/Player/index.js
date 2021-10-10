@@ -69,10 +69,9 @@ const PlayerComponent = () => {
   useConnectPropsToObserver(props, Player);
   useEffect(() => Player.notifySubscribers(), [listeningTo, audioLoading]);
 
-  const onAudioError = () => {
+  const onAudioError = (e) => {
     notify("Something went wrong with trying to play this item.");
     //this case needs improvement, defaults to playing next..
-    onAudioEnded();
   };
 
   const onAudioEnded = () => {
