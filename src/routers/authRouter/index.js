@@ -46,6 +46,7 @@ router.post("/login", async (req, res) => {
       httpOnly: true, // The cookie only accessible by the web server
       path: "/proxy",
       sameSite: "strict",
+      maxAge: 24 * 60 * 60 * 1000,
     };
 
     res.cookie("ac", process.env.AUDIO_COOKIE, audioCookieOptions);
