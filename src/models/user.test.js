@@ -1,6 +1,6 @@
 const users = require("./user");
 const { hashPasswordIn } = require("./helpers");
-const { dropCollection, connect, close } = require("../db");
+const { dropTestCollection, connect, close } = require("../db");
 
 describe("CRUD operations for users collection", () => {
   const user = {
@@ -15,11 +15,11 @@ describe("CRUD operations for users collection", () => {
 
   beforeAll(async () => {
     await connect();
-    await dropCollection("users");
+    await dropTestCollection("users");
   });
 
   afterAll(async () => {
-    await dropCollection("users");
+    await dropTestCollection("users");
     await close();
   });
 

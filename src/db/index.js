@@ -1,27 +1,19 @@
 const { MongoClient } = require("mongodb");
+const config = require("./config");
 
-const prodUri = `mongodb+srv://podkaster:${process.env.MONGODB_PASS}@pkcluster.crvpn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
-const localUri = "mongodb://192.168.5.11:27017";
-
-const uri = process.env.NODE_ENV === "production" ? prodUri : localUri;
-
-const dbName = process.env.NODE_ENV === "test" ? "test" : "podkaster";
-
-const client = new MongoClient(uri, {
-  socketTimeoutMS: 1000,
-  connectTimeoutMS: 1000,
-  serverSelectionTimeoutMS: 1000,
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+const client = new MongoClient(config.uri, config.options);
 
 let db;
 let testDb;
 
+function initDatabases() {
+  db = client.db(config.dbName);
+  testDb = client.db("test");
+}
+
 async function connect() {
   await client.connect();
-  db = client.db(dbName);
-  testDb = client.db("test");
+  initDatabases();
 }
 
 async function close() {
@@ -33,7 +25,7 @@ async function doSth(cb) {
   return response;
 }
 
-async function dropCollection(collection) {
+async function dropTestCollection(collection) {
   const rawCollections = await testDb.listCollections().toArray();
   const collections = rawCollections.map((collection) => collection.name);
   if (collections.includes(collection)) {
@@ -43,7 +35,7 @@ async function dropCollection(collection) {
 
 module.exports = {
   doSth,
-  dropCollection,
+  dropTestCollection,
   connect,
   close,
 };

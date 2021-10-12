@@ -1,5 +1,5 @@
 const pendingAccounts = require("./pendingAccount");
-const { dropCollection, connect, close } = require("../db");
+const { dropTestCollection, connect, close } = require("../db");
 const { getRandomCode } = require("../utils");
 
 describe("CRUD operations for pending accounts collection", () => {
@@ -14,11 +14,11 @@ describe("CRUD operations for pending accounts collection", () => {
 
   beforeAll(async () => {
     await connect();
-    await dropCollection("pendingAccounts");
+    await dropTestCollection("pendingAccounts");
   });
 
   afterAll(async () => {
-    await dropCollection("pendingAccounts");
+    await dropTestCollection("pendingAccounts");
     await close();
   });
 
