@@ -24,11 +24,11 @@ async function save(newPendingAccount) {
   });
 }
 
-async function remove(pendingAccount) {
+async function removeById(id) {
   return doSth(async (db) => {
     return await db
       .collection("pendingAccounts")
-      .deleteOne({ _id: ObjectId(pendingAccount._id) });
+      .deleteOne({ _id: ObjectId(id) });
   });
 }
 
@@ -50,6 +50,6 @@ const checkIfUnique = async (db, email) => {
 
 module.exports = {
   save,
-  remove,
+  removeById,
   findOne,
 };

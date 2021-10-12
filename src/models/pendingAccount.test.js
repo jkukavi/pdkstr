@@ -6,7 +6,7 @@ describe("CRUD operations for pending accounts collection", () => {
   const dummyPendingAccount = {
     activationCode: getRandomCode(),
     accountInfo: {
-      email: "something@something",
+      email: "pendingAccount@test",
       password: "hello",
     },
   };
@@ -14,12 +14,17 @@ describe("CRUD operations for pending accounts collection", () => {
 
   beforeAll(async () => {
     await connect();
-    await dropTestCollection("pendingAccounts");
   });
 
   afterAll(async () => {
-    await dropTestCollection("pendingAccounts");
     await close();
+  });
+
+  afterEach(async () => {
+    if (id) {
+      await pendingAccounts.removeById(id);
+      id = null;
+    }
   });
 
   it("should save pending account", async () => {
@@ -36,6 +41,8 @@ describe("CRUD operations for pending accounts collection", () => {
 
   test("should fail if trying to save pending account with same email", async (done) => {
     try {
+      const { insertedId } = await pendingAccounts.save(dummyPendingAccount);
+      id = insertedId.toString();
       await pendingAccounts.save(dummyPendingAccount);
       throw new Error(
         "It is possible to save pending Account with the same email as another pendingAccount or user"
@@ -52,6 +59,8 @@ describe("CRUD operations for pending accounts collection", () => {
   });
 
   it("should find pending account by activationCode and id", async () => {
+    const { insertedId } = await pendingAccounts.save(dummyPendingAccount);
+    id = insertedId.toString();
     const retrievedPendingAccount = await pendingAccounts.findOne({
       id,
       activationCode: dummyPendingAccount.activationCode,
@@ -63,12 +72,14 @@ describe("CRUD operations for pending accounts collection", () => {
   });
 
   it("should remove pendingAccount", async () => {
+    const { insertedId } = await pendingAccounts.save(dummyPendingAccount);
+    id = insertedId.toString();
     let retrievedAccount = await pendingAccounts.findOne({
       id,
       activationCode: dummyPendingAccount.activationCode,
     });
 
-    await pendingAccounts.remove(retrievedAccount);
+    await pendingAccounts.removeById(retrievedAccount._id.toString());
 
     retrievedAccount = await pendingAccounts.findOne({
       id,

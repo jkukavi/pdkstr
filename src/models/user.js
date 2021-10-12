@@ -15,6 +15,12 @@ async function findById(id) {
   });
 }
 
+async function removeById(id) {
+  return doSth(async (db) => {
+    return await db.collection("users").deleteOne({ _id: ObjectId(id) });
+  });
+}
+
 async function findByCredentials({ email, password }) {
   return doSth(async (db) => {
     const user = await db.collection("users").findOne({ email });
@@ -76,6 +82,7 @@ async function addItemToFavourites(id, item) {
 module.exports = {
   save,
   findById,
+  removeById,
   findByCredentials,
   getMyHistory,
   getMyFavourites,
