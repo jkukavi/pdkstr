@@ -24,11 +24,6 @@ const sendActivationEmail = async ({
   return await sgMail.send(msg);
 };
 
-const getRandomCode = () => {
-  return require("crypto").randomBytes(25).toString("hex");
-};
-
 module.exports = {
   sendActivationEmail,
-  getRandomCode,
 };

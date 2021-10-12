@@ -6,5 +6,7 @@ env.JSON
 lab/
 scdl-testovi
 TODO.txt
+coverage
+globalConfig.json
 
 node_modules

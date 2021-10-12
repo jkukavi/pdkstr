@@ -2,22 +2,25 @@ const { doSth } = require("../db");
 const bcrypt = require("bcrypt");
 const { ObjectId } = require("mongodb");
 
-async function save(pendingAccount) {
+async function save(newPendingAccount) {
+  let newAccountInfo = newPendingAccount.accountInfo;
+
   return doSth(async (db) => {
-    const uniqueEmail = await checkIfUnique(
-      db,
-      pendingAccount.accountInfo.email
-    );
+    const uniqueEmail = await checkIfUnique(db, newAccountInfo.email);
     if (!uniqueEmail) {
       throw new Error("Email already exists");
     }
 
-    await hashPassword(pendingAccount.accountInfo);
+    newAccountInfo = {
+      ...newAccountInfo,
+      password: await bcrypt.hash(newAccountInfo.password, 14),
+      favourites: [],
+      history: [],
+    };
 
-    pendingAccount.accountInfo.favourites = [];
-    pendingAccount.accountInfo.history = [];
+    newPendingAccount.accountInfo = newAccountInfo;
 
-    return await db.collection("pendingAccounts").insertOne(pendingAccount);
+    return await db.collection("pendingAccounts").insertOne(newPendingAccount);
   });
 }
 
@@ -29,9 +32,11 @@ async function remove(pendingAccount) {
   });
 }
 
-async function findOne(pendingAccountInfo) {
+async function findOne({ id, activationCode }) {
   return doSth(async (db) => {
-    return await db.collection("pendingAccounts").findOne(pendingAccountInfo);
+    return await db
+      .collection("pendingAccounts")
+      .findOne({ _id: ObjectId(id), activationCode });
   });
 }
 
@@ -41,11 +46,6 @@ const checkIfUnique = async (db, email) => {
     .findOne({ "accountInfo.email": email });
   const user = await db.collection("users").findOne({ email });
   return !pendingAcc && !user;
-};
-
-const hashPassword = async (accountInfo) => {
-  const hashedPassword = await bcrypt.hash(accountInfo.password, 14);
-  accountInfo.password = hashedPassword;
 };
 
 module.exports = {

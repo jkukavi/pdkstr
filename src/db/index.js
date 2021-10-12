@@ -1,10 +1,11 @@
 const { MongoClient } = require("mongodb");
-// Replace the uri string with your MongoDB deployment's connection string.
 
 const prodUri = `mongodb+srv://podkaster:${process.env.MONGODB_PASS}@pkcluster.crvpn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 const localUri = "mongodb://192.168.5.11:27017";
 
 const uri = process.env.NODE_ENV === "production" ? prodUri : localUri;
+
+const dbName = process.env.NODE_ENV === "test" ? "test" : "podkaster";
 
 const client = new MongoClient(uri, {
   socketTimeoutMS: 1000,
@@ -14,38 +15,35 @@ const client = new MongoClient(uri, {
   useUnifiedTopology: true,
 });
 
-let _db;
+let db;
+let testDb;
 
-async function startClient() {
-  _db = await client.connect();
-  console.log("DB client connected");
+async function connect() {
+  await client.connect();
+  db = client.db(dbName);
+  testDb = client.db("test");
 }
 
-function get() {
-  return _db;
+async function close() {
+  await client.close();
 }
 
 async function doSth(cb) {
-  try {
-    await client.connect();
-    const db = await client.db("podkaster");
-    console.log("clientOpened");
-    const response = await cb(db);
-    console.log("db operation successful");
-    return response;
-  } finally {
-    await client.close();
-    console.log("clientClosed");
+  const response = await cb(db);
+  return response;
+}
+
+async function dropCollection(collection) {
+  const rawCollections = await testDb.listCollections().toArray();
+  const collections = rawCollections.map((collection) => collection.name);
+  if (collections.includes(collection)) {
+    await db.collection(collection).drop();
   }
 }
 
-async function closeConnection() {
-  await _db.close();
-}
-
 module.exports = {
-  startClient,
   doSth,
-  get,
-  closeConnection,
+  dropCollection,
+  connect,
+  close,
 };

@@ -4,7 +4,8 @@ const jwt = require("jsonwebtoken");
 const pendingAccounts = require("../../models/pendingAccount");
 const users = require("../../models/user");
 const { ObjectId } = require("mongodb");
-const { sendActivationEmail, getRandomCode } = require("./mail.js");
+const { sendActivationEmail } = require("./mail.js");
+const { getRandomCode } = require("../../utils");
 
 router.get("/logout", async (req, res) => {
   let options = {
@@ -95,7 +96,7 @@ router.get("/activate/:pendingAccountId/:activationCode", async (req, res) => {
 
   try {
     const pendingAccount = await pendingAccounts.findOne({
-      _id: ObjectId(pendingAccountId),
+      id: pendingAccountId,
       activationCode,
     });
 
