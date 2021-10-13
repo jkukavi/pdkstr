@@ -76,11 +76,14 @@ app.post("/search/:engine", async (req, res) => {
 
   const { search } = engines[engine];
 
-  let searchResultsArray = await search(searchString);
-  if (searchResultsArray) {
+  try {
+    if (!searchString) {
+      throw new Error();
+    }
+    let searchResultsArray = await search(searchString);
     res.status(200).json({ searchResultsArray });
-  } else {
-    res.status(400).json({ message: "No results" });
+  } catch (e) {
+    res.status(400).send();
   }
 });
 

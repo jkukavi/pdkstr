@@ -200,7 +200,7 @@ function search(search, limit = 10) {
 }
 
 const getDirectUrl = async (id, fromUrl) => {
-  const url = fromUrl || (await getItemInfo(id).url);
+  const url = fromUrl || (await getItemInfo(id)).url;
 
   return new Promise((resolve, rej) => {
     request.get(`${url}?client_id=${clientId}`, {}, (err, res, body) => {
