@@ -1,18 +1,7 @@
 const express = require("express");
 
-const {
-  search,
-  getPlaylistVideos,
-  getChannelVideos,
-  getChannelPlaylists,
-  getSuggestions,
-} = require("./handlers/ytFunctions.js");
-
 const youtubeHandlers = require("./handlers/ytFunctions.js");
-
-const soundcloud = require("./handlers/scFunctions");
 const soundcloudHandlers = require("./handlers/scFunctions");
-
 const engines = {
   youtube: youtubeHandlers,
   soundcloud: soundcloudHandlers,
