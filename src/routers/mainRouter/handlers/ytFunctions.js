@@ -18,7 +18,7 @@ const searchMapper = {
   }),
 };
 
-const searchYoutube = async (searchString) => {
+const search = async (searchString) => {
   const searchResults = await ytsr(searchString, { limit: 20 });
 
   const mappedItems = searchResults.items.map((item) => {
@@ -27,7 +27,7 @@ const searchYoutube = async (searchString) => {
   return mappedItems;
 };
 
-const getVideoInfo = async (id) => {
+const getItemInfo = async (id) => {
   try {
     const videoInfo = await ytdl.getBasicInfo(id, {
       requestOptions: {
@@ -89,11 +89,11 @@ const getChannelPlaylists = async (channelId) => {
 
 module.exports = {
   getDirectUrl,
-  searchYoutube,
-  getPlaylistVideos,
-  getChannelVideos,
+  search,
+  getPlaylistItems: getPlaylistVideos,
+  getChannelItems: getChannelVideos,
   getChannelPlaylists,
-  getVideoInfo,
+  getItemInfo,
   getSuggestions,
 };
 

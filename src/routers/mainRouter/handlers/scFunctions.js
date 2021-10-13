@@ -87,7 +87,7 @@ function getSuggestions(searchString, limit = 10) {
   });
 }
 
-async function getTrackInfo(id) {
+async function getItemInfo(id) {
   // ili return (await getTracksInfo([id]))[0];
   return new Promise((resolve, rej) => {
     let tracksUrl =
@@ -160,7 +160,7 @@ async function getPlaylistTrackIds(id) {
   });
 }
 
-function searchForTracks(search, limit = 10) {
+function search(search, limit = 10) {
   return new Promise((res, rej) => {
     if (typeof search != "string") throw "Seach term is not type of string";
     if (isNaN(limit)) throw "Not a number";
@@ -200,7 +200,7 @@ function searchForTracks(search, limit = 10) {
 }
 
 const getDirectUrl = async (id, fromUrl) => {
-  const url = fromUrl || (await getTrackInfo(id).url);
+  const url = fromUrl || (await getItemInfo(id).url);
 
   return new Promise((resolve, rej) => {
     request.get(`${url}?client_id=${clientId}`, {}, (err, res, body) => {
@@ -210,12 +210,12 @@ const getDirectUrl = async (id, fromUrl) => {
 };
 
 module.exports = {
-  searchForTracks,
-  getTrackInfo,
+  search,
+  getItemInfo,
   getPlaylistItems,
-  getUserTracks,
+  getChannelItems: getUserTracks,
+  getChannelPlaylists: getUsersPlaylists,
   getSuggestions,
-  getUsersPlaylists,
   getDirectUrl,
 };
 
@@ -283,7 +283,7 @@ const intoHHMMSS = (durationMs) =>
     .substr(11, 8)
     .replace(/^[0:]+/, "");
 
-// searchForTracks("idontknowjeffery").then((res) => {
+// search("idontknowjeffery").then((res) => {
 //   require("fs").writeFileSync("getTracks.JSON", JSON.stringify(res, null, 2));
 // });
 
@@ -298,7 +298,7 @@ const intoHHMMSS = (durationMs) =>
 //   );
 // });
 
-// getTrackInfo(983132659).then((res) => {
+// getItemInfo(983132659).then((res) => {
 //   var bla = 2;
 // });
 

@@ -1,23 +1,37 @@
 const express = require("express");
 
 const {
-  getDirectUrl,
-  searchYoutube,
+  search,
   getPlaylistVideos,
   getChannelVideos,
   getChannelPlaylists,
-  getVideoInfo,
   getSuggestions,
 } = require("./handlers/ytFunctions.js");
 
+const youtubeHandlers = require("./handlers/ytFunctions.js");
+
 const soundcloud = require("./handlers/scFunctions");
+const soundcloudHandlers = require("./handlers/scFunctions");
+
+const engines = {
+  youtube: youtubeHandlers,
+  soundcloud: soundcloudHandlers,
+};
 
 const app = express.Router();
 
-app.post("/url", async (req, res) => {
-  const { id } = req.body;
+app.post("/url/:engine", async (req, res) => {
+  const { engine } = req.params;
+
+  if (!(engine in engines)) {
+    throw new Error("Bad request.");
+  }
+
+  const { id, fromUrl } = req.body;
+  const getDirectUrl = engines[engine].getDirectUrl;
+
   try {
-    var directUrl = await getDirectUrl(id);
+    var directUrl = await getDirectUrl(id, fromUrl);
     if (directUrl) {
       res.status(200).json({ directUrl });
     } else {
@@ -29,14 +43,22 @@ app.post("/url", async (req, res) => {
   }
 });
 
-app.post("/info", async (req, res) => {
+//unused for now...
+app.post("/info/:engine", async (req, res) => {
+  const { engine } = req.params;
   const { id } = req.body;
+
+  if (!(engine in engines)) {
+    throw new Error("Bad request");
+  }
+
+  const getItemInfo = engines[engine];
+
   try {
-    const videoInfo = await getVideoInfo(id);
-    res.status(200).json(videoInfo);
+    const itemInfo = await getItemInfo(id);
+    res.status(200).json(itemInfo);
   } catch (error) {
-    res.status(400).json({ message: "summin fked up lol" });
-    console.log(JSON.stringify(error, null, 2));
+    res.status(400).json({ message: "Somethin went wrong" });
   }
 });
 
@@ -44,13 +66,10 @@ app.post("/suggestions/:engine", async (req, res) => {
   const { engine } = req.params;
   const { searchString } = req.body;
 
-  const getSuggestionsFunction = {
-    youtube: getSuggestions,
-    soundcloud: soundcloud.getSuggestions,
-  }[engine];
+  const { getSuggestions } = engines[engine];
 
   try {
-    const suggestionsArray = await getSuggestionsFunction(searchString);
+    const suggestionsArray = await getSuggestions(searchString);
     res.status(200).json({ suggestionsArray });
   } catch (error) {
     res.status(400).json({ message: "summin fked" });
@@ -58,9 +77,17 @@ app.post("/suggestions/:engine", async (req, res) => {
   }
 });
 
-app.post("/search", async (req, res) => {
+app.post("/search/:engine", async (req, res) => {
+  const { engine } = req.params;
   const { searchString } = req.body;
-  var searchResultsArray = await searchYoutube(searchString);
+
+  if (!(engine in engines)) {
+    throw new Error("Bad request");
+  }
+
+  const { search } = engines[engine];
+
+  let searchResultsArray = await search(searchString);
   if (searchResultsArray) {
     res.status(200).json({ searchResultsArray });
   } else {
@@ -68,9 +95,17 @@ app.post("/search", async (req, res) => {
   }
 });
 
-app.post("/playlist", async (req, res) => {
+app.post("/playlist/:engine", async (req, res) => {
+  const { engine } = req.params;
   const { id } = req.body;
-  var playlistItems = await getPlaylistVideos(id);
+
+  if (!(engine in engines)) {
+    throw new Error("Bad request");
+  }
+
+  const { getPlaylistItems } = engines[engine];
+
+  var playlistItems = await getPlaylistItems(id);
   if (playlistItems) {
     res.status(200).json({ playlistItems });
   } else {
@@ -78,76 +113,23 @@ app.post("/playlist", async (req, res) => {
   }
 });
 
-app.post("/channel/videos", async (req, res) => {
+app.post("/:engine/channel/:itemType", async (req, res) => {
+  const { engine, itemType } = req.params;
   const { channelId } = req.body;
-  const searchResultsArray = await getChannelVideos(channelId);
+
+  const getChannel = {
+    items: "getChannelItems",
+    playlists: "getChannelPlaylists",
+  };
+
+  const getChannelData = engines[engine][getChannel[itemType]];
+
+  const searchResultsArray = await getChannelData(channelId);
   if (searchResultsArray) {
     res.status(200).json({ searchResultsArray });
   } else {
     res.status(400).json({ message: "No results" });
   }
-});
-
-app.post("/channel/playlists", async (req, res) => {
-  const { channelId } = req.body;
-  const searchResultsArray = await getChannelPlaylists(channelId);
-  if (searchResultsArray) {
-    res.status(200).json({ searchResultsArray });
-  } else {
-    res.status(400).json({ message: "No results" });
-  }
-});
-
-app.post("/soundcloud/tracks", async (req, res) => {
-  const { searchString } = req.body;
-  try {
-    const searchResultsArray = await soundcloud.searchForTracks(
-      searchString,
-      10
-    );
-    res.status(200).json({ searchResultsArray });
-  } catch (e) {
-    res.status(400).send();
-  }
-});
-
-app.post("/soundcloud/user/:item", async (req, res) => {
-  const { item } = req.params;
-  const { channelId } = req.body;
-
-  const getFunction = {
-    tracks: soundcloud.getUserTracks,
-    playlists: soundcloud.getUsersPlaylists,
-  }[item];
-
-  const searchResultsArray = await getFunction(channelId, 20);
-  res.status(200).json({ searchResultsArray });
-});
-
-app.post("/soundcloud/playlist", async (req, res) => {
-  const { id } = req.body;
-  var playlistItems = await soundcloud.getPlaylistItems(id);
-  if (playlistItems) {
-    res.status(200).json({ playlistItems });
-  } else {
-    res.status(400).json({ message: "No results" });
-  }
-});
-
-app.post("/soundcloud/info", async (req, res) => {
-  const { id } = req.body;
-  var trackInfo = await soundcloud.getTrackInfo(id);
-  if (trackInfo) {
-    res.status(200).json(trackInfo);
-  } else {
-    res.status(400).json({ message: "No results" });
-  }
-});
-
-app.post("/soundcloud/url", async (req, res) => {
-  const { id, fromUrl } = req.body;
-  const directUrl = await soundcloud.getDirectUrl(id, fromUrl);
-  res.status(200).json({ directUrl });
 });
 
 module.exports = app;

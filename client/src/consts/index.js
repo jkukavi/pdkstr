@@ -16,28 +16,28 @@ export const searchEngines = {
 
 export const paths = {
   search: {
-    [searchEngines.YT]: "/search",
-    [searchEngines.SC]: "/soundcloud/tracks",
+    [searchEngines.YT]: "/search/youtube",
+    [searchEngines.SC]: "/search/soundcloud",
   },
   directUrl: {
-    [searchEngines.YT]: "/url",
-    [searchEngines.SC]: "/soundcloud/url",
+    [searchEngines.YT]: "/url/youtube",
+    [searchEngines.SC]: "/url/soundcloud",
   },
   playlistItems: {
-    [searchEngines.YT]: "/playlist",
-    [searchEngines.SC]: "/soundcloud/playlist",
+    [searchEngines.YT]: "/playlist/youtube",
+    [searchEngines.SC]: "/playlist/soundcloud",
   },
   trackInfo: {
     [searchEngines.YT]: "/info",
     [searchEngines.SC]: "soundcloud/info",
   },
   channelItems: {
-    [searchEngines.YT]: "channel/videos",
-    [searchEngines.SC]: "soundcloud/user/tracks",
+    [searchEngines.YT]: "youtube/channel/items",
+    [searchEngines.SC]: "soundcloud/channel/items",
   },
   channelPlaylists: {
-    [searchEngines.YT]: "channel/playlists",
-    [searchEngines.SC]: "soundcloud/user/playlists",
+    [searchEngines.YT]: "youtube/channel/playlists",
+    [searchEngines.SC]: "soundcloud/channel/playlists",
   },
 };
 
