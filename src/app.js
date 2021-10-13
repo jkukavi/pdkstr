@@ -5,8 +5,8 @@ const path = require("path");
 
 const { CSPPolicies } = require("./consts");
 const authRouter = require("./routers/authRouter");
-const { auth, proxyAuth } = require("./auth");
-const { upgradeToSSLIfNecessary } = require("./middleware");
+const { auth, proxyAuth } = require("./middleware/auth");
+const { upgradeToSSLIfNecessary } = require("./middleware/sslUpgrade");
 const mainRouter = require("./routers/mainRouter");
 const usersRouter = require("./routers/usersRouter");
 const proxyRouter = require("./routers/proxyRouter");

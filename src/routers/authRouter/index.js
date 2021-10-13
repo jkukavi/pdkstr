@@ -104,7 +104,7 @@ router.get("/activate/:pendingAccountId/:activationCode", async (req, res) => {
       throw new Error("Pending account not found.");
     }
 
-    await pendingAccounts.remove(pendingAccount);
+    await pendingAccounts.removeById(pendingAccountId);
     await users.save(pendingAccount.accountInfo);
 
     res.redirect("/activation-success");

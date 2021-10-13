@@ -25,17 +25,15 @@ async function doSth(cb) {
   return response;
 }
 
-async function dropTestCollection(collection) {
-  const rawCollections = await testDb.listCollections().toArray();
-  const collections = rawCollections.map((collection) => collection.name);
-  if (collections.includes(collection)) {
-    await db.collection(collection).drop();
-  }
+async function dropTestDatabase() {
+  await connect();
+  await testDb.dropDatabase();
+  await close();
 }
 
 module.exports = {
   doSth,
-  dropTestCollection,
+  dropTestDatabase,
   connect,
   close,
 };

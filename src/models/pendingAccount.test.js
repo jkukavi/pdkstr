@@ -1,5 +1,5 @@
 const pendingAccounts = require("./pendingAccount");
-const { dropTestCollection, connect, close } = require("../db");
+const { connect, close } = require("../db");
 const { getRandomCode } = require("../utils");
 
 describe("CRUD operations for pending accounts collection", () => {
@@ -20,6 +20,11 @@ describe("CRUD operations for pending accounts collection", () => {
     await close();
   });
 
+  beforeEach(async () => {
+    const { insertedId } = await pendingAccounts.save(dummyPendingAccount);
+    id = insertedId.toString();
+  });
+
   afterEach(async () => {
     if (id) {
       await pendingAccounts.removeById(id);
@@ -27,22 +32,8 @@ describe("CRUD operations for pending accounts collection", () => {
     }
   });
 
-  it("should save pending account", async () => {
-    const { insertedId } = await pendingAccounts.save(dummyPendingAccount);
-    id = insertedId.toString();
-    const retrievedPendingAccount = await pendingAccounts.findOne({
-      activationCode: dummyPendingAccount.activationCode,
-      id,
-    });
-    expect(retrievedPendingAccount.accountInfo.email).toBe(
-      dummyPendingAccount.accountInfo.email
-    );
-  });
-
   test("should fail if trying to save pending account with same email", async (done) => {
     try {
-      const { insertedId } = await pendingAccounts.save(dummyPendingAccount);
-      id = insertedId.toString();
       await pendingAccounts.save(dummyPendingAccount);
       throw new Error(
         "It is possible to save pending Account with the same email as another pendingAccount or user"
@@ -59,8 +50,6 @@ describe("CRUD operations for pending accounts collection", () => {
   });
 
   it("should find pending account by activationCode and id", async () => {
-    const { insertedId } = await pendingAccounts.save(dummyPendingAccount);
-    id = insertedId.toString();
     const retrievedPendingAccount = await pendingAccounts.findOne({
       id,
       activationCode: dummyPendingAccount.activationCode,
@@ -72,8 +61,6 @@ describe("CRUD operations for pending accounts collection", () => {
   });
 
   it("should remove pendingAccount", async () => {
-    const { insertedId } = await pendingAccounts.save(dummyPendingAccount);
-    id = insertedId.toString();
     let retrievedAccount = await pendingAccounts.findOne({
       id,
       activationCode: dummyPendingAccount.activationCode,
