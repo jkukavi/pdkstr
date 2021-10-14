@@ -1,7 +1,7 @@
 const { https } = require("follow-redirects");
 const request = require("request");
 
-clientId = process.env.SOUNDCLOUD_API_KEY;
+let clientId = process.env.SOUNDCLOUD_API_KEY;
 
 function getUserTracks(userId, limit = 10) {
   return new Promise((resolve, rej) => {
@@ -179,10 +179,14 @@ function search(search, limit = 10) {
       request({ url: searchURL }, function (error, response, body) {
         if (error) _rej();
 
-        if (!error && response.statusCode === 200) {
+        if (response.statusCode === 200) {
           _res({
             body: JSON.parse(body),
           });
+        } else if (response.statusCode === 401) {
+          _rej(
+            "Soundcloud clientId seems to be invalid. Please try to refresh client Id."
+          );
         }
       })
     )
@@ -193,8 +197,8 @@ function search(search, limit = 10) {
 
         return res(mappedTracks);
       })
-      .catch(() => {
-        rej();
+      .catch((e) => {
+        rej(e);
       });
   });
 }
@@ -209,7 +213,17 @@ const getDirectUrl = async (id, fromUrl) => {
   });
 };
 
+const ping = async () => {
+  try {
+    const response = await search("idkjeffery", 2);
+    return true;
+  } catch (e) {
+    throw new Error(e);
+  }
+};
+
 module.exports = {
+  ping,
   search,
   getItemInfo,
   getPlaylistItems,
