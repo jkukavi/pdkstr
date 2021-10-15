@@ -26,7 +26,6 @@
   "license": "ISC",
   "dependencies": {
     "@sendgrid/mail": "^7.4.6",
-    "aws-sdk": "^2.957.0",
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.5",
     "dotenv": "^10.0.0",
@@ -47,6 +46,7 @@
   "devDependencies": {
     "@shelf/jest-mongodb": "^2.1.0",
     "jest": "26.6.0",
+    "jest-circus": "^27.2.5",
     "nodemon": "^2.0.12",
     "supertest": "^6.1.6"
   }
