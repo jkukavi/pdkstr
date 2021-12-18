@@ -106,15 +106,7 @@ describe("Auth routes", () => {
         .expect(200)
     );
 
-    await promisify(
-      agent
-        .post("/rt")
-        .send({
-          email: user.email,
-          password: user.password,
-        })
-        .expect(200)
-    );
+    await promisify(agent.get("/rt").expect(200));
 
     await promisify(agent.get("/logout").expect(200));
 

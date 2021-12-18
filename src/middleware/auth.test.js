@@ -73,7 +73,7 @@ describe("auth middleware test", () => {
 // const proxyAuth = (req, res, next) => {
 //   const audioCookie = req.cookies.ac;
 
-//   if (audioCookie === process.env.AUDIO_COOKIE) {
+//   if (audioCookie === process.env.AUDIO_JWT_SECRET) {
 //     next();
 //   } else {
 //     res.status(401).send({ error: "You need to authenticate." });

@@ -4,8 +4,7 @@ const ytpl = require("ytpl");
 const ytch = require("yt-channel-info");
 const youtubesr = require("youtube-sr").default;
 
-const COOKIE =
-  "VISITOR_INFO1_LIVE=zvW5wcHUS0M; CONSENT=YES+srp.gws-20210816-0-RC3.en+FX+789; _gcl_au=1.1.189908802.1631465358; HSID=AoWJ1_6dIVJpDIh6O; SSID=AWDIMJYvit2STDNpS; APISID=1OlAYBX78cgeQIpC/AZ1ITSJbhHAaSBiMx; SAPISID=WncHu3guCdo0Pth1/AEQL8ExSi2d6n3WOv; __Secure-1PAPISID=WncHu3guCdo0Pth1/AEQL8ExSi2d6n3WOv; __Secure-3PAPISID=WncHu3guCdo0Pth1/AEQL8ExSi2d6n3WOv; SID=CAiGuhrt5gmImYIqGXMF0lAuiegVP7FiBDpSkMVsOS3E2mz_f7iti3MPurVuzxra8if7lA.; __Secure-1PSID=CAiGuhrt5gmImYIqGXMF0lAuiegVP7FiBDpSkMVsOS3E2mz_L5bKYPV4Mkb5FhhpyOT5Ng.; __Secure-3PSID=CAiGuhrt5gmImYIqGXMF0lAuiegVP7FiBDpSkMVsOS3E2mz_Y95I132uz90tdc3lJWcgsg.; PREF=tz=Europe.Zagreb&f6=40000000&f5=30000&volume=70&library_tab_browse_id=FEmusic_liked_playlists; YSC=-0_377QHm68; LOGIN_INFO=AFmmF2swRQIgbA1kvtAGNS8MpoCLHvLzhHBvIsMmyN2wqfsofHh_SUcCIQD3tv5uxO7eXp3lwuD-MWWgBeUAZA59l5cnJ7ZqXV8dVw:QUQ3MjNmejhCakc5MHlvd0NRMF9PYzZLY3kwYXM1TnNxTzVhdE5SSV9rd2IyV211cWttN0pheGZrUUNEU3BvODVIYXIzXzE1enNPTW9zVUdPQ1B4SGNMMUxrNmtNblY1Wmx4ZkhFTXZOVXQzbi1PeUUtekhiamxhTjVGeGpNM0QwaEZoWVZ3SDgybXhDcmNaUjJjbS1jS09MMWRQYTVEcXdR; SIDCC=AJi4QfGuCcCh__-wvQRwnfKHQAyGJi3hsp6LW1e7eMnWIIA9V9U35bVm_uO1WdlZZ2id7_Gs-trd; __Secure-3PSIDCC=AJi4QfEqoqNaK-VpBIR9EZqKtxt2dvZSJdRhwFIUvg7YGPPzyA9tm1gCxW76qj01_S9jELjj-sI";
+const COOKIE = process.env.YT_COOKIE;
 
 const searchMapper = {
   video: (item) => ({ ...item, engine: "youtube" }),

@@ -50,7 +50,7 @@ router.post("/login", async (req, res) => {
       maxAge: 24 * 60 * 60 * 1000,
     };
 
-    res.cookie("ac", process.env.AUDIO_COOKIE, audioCookieOptions);
+    res.cookie("ac", process.env.AUDIO_JWT_SECRET, audioCookieOptions);
 
     res.status(200).json({ username: user.username, token });
   } catch (e) {
