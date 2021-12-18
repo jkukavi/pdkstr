@@ -6,9 +6,8 @@
   "scripts": {
     "start": "node ./src/index.js",
     "test": "jest",
-    "build": "cd client && yarn build",
-    "install-client": "cd client && yarn",
-    "heroku-postbuild": "npm run install-client && yarn build",
+    "install-and-build-client": "cd client && yarn && yarn build",
+    "heroku-postbuild": "npm run install-and-build-client",
     "dev": "NODE_ENV=development node -r dotenv/config ./src/index.js"
   },
   "engines": {
