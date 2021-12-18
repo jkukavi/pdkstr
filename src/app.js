@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Clients static files are served with:
-app.use("/", express.static("client/dist"));
+app.use("/", express.static("client/build"));
 
 // Backend is routed with:
 app.use(authRouter);
@@ -39,7 +39,7 @@ app.use("/proxy", proxyAuth, proxyRouter);
 
 //redirect to client
 app.use("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/../client/dist/index.html"));
+  res.sendFile(path.join(__dirname + "/../client/build/index.html"));
 });
 
 module.exports = app;
