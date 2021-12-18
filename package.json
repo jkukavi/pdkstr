@@ -2,13 +2,14 @@
   "name": "podkaster",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.ts",
   "scripts": {
-    "start": "node ./src/index.js",
+    "start": "node ./dist/index.js",
     "test": "jest",
+    "build": "npx tsc",
     "build-client": "cd client && yarn && yarn build",
-    "heroku-postbuild": "npm run build-client",
-    "dev": "NODE_ENV=development npx ts-node -r dotenv/config ./src/index.js"
+    "heroku-postbuild": "yarn build && yarn build-client",
+    "dev": "NODE_ENV=development npx ts-node -r dotenv/config ./src/index.ts"
   },
   "engines": {
     "node": "14.17.5",
