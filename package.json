@@ -18,7 +18,10 @@
   "jest": {
     "preset": "@shelf/jest-mongodb",
     "globalSetup": "<rootDir>/src/__test__/setup.js",
-    "globalTeardown": "<rootDir>/src/__test__/setup.js"
+    "globalTeardown": "<rootDir>/src/__test__/setup.js",
+    "roots": [
+      "<rootDir>/src/"
+    ]
   },
   "keywords": [],
   "author": "",
