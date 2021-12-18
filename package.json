@@ -8,7 +8,7 @@
     "test": "jest",
     "build-client": "cd client && yarn && yarn build",
     "heroku-postbuild": "npm run build-client",
-    "dev": "NODE_ENV=development node_modules/.bin/ts-node -r dotenv/config ./src/index.js"
+    "dev": "NODE_ENV=development npx ts-node -r dotenv/config ./src/index.js"
   },
   "engines": {
     "node": "14.17.5",
