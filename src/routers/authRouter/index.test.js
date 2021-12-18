@@ -33,7 +33,7 @@ describe("Auth routes", () => {
     await close();
   });
 
-  it("should login with right credentials", async (done) => {
+  it("should login with right credentials", (done) => {
     request
       .post("/login")
       .send({
@@ -91,7 +91,7 @@ describe("Auth routes", () => {
     });
   };
 
-  it("should be able to refresh token only when logged in", async (done) => {
+  it("should be able to refresh token only when logged in", async () => {
     const agent = supertest.agent(app);
 
     await promisify(agent.get("/rt").expect(401));
@@ -110,6 +110,6 @@ describe("Auth routes", () => {
 
     await promisify(agent.get("/logout").expect(200));
 
-    agent.get("/rt").expect(401, done);
+    await agent.get("/rt").expect(401);
   });
 });

@@ -32,7 +32,7 @@ describe("CRUD operations for pending accounts collection", () => {
     }
   });
 
-  test("should fail if trying to save pending account with same email", async (done) => {
+  test("should fail if trying to save pending account with same email", async () => {
     try {
       await pendingAccounts.save(dummyPendingAccount);
       throw new Error(
@@ -40,7 +40,7 @@ describe("CRUD operations for pending accounts collection", () => {
       );
     } catch (e) {
       if (e.message === "Email already exists") {
-        done();
+        return;
       } else {
         throw new Error(
           "Saving might have failed due to reasons other than email uniqueness. Check the error message thrown and make sure it's the same as in the test (since that is how uniqueness check fail is detected)."

@@ -9,45 +9,39 @@ const soundcloudDummyData = {
 };
 
 describe("Testing soundcloud scraper", () => {
-  test("should return results for search", async (done) => {
+  test("should return results for search", async () => {
     const searchResultsArray = await scHandlers.search("idkjeffery");
     expect(Array.isArray(searchResultsArray)).toBe(true);
-    done();
   });
 
-  test("should return array of string suggestions when given string", async (done) => {
+  test("should return array of string suggestions when given string", async () => {
     const suggestions = await scHandlers.getSuggestions("idkjeffery");
     expect(Array.isArray(suggestions)).toBe(true);
-    done();
   });
 
-  test("should return direct url when given item id", async (done) => {
+  test("should return direct url when given item id", async () => {
     const directUrl = await scHandlers.getDirectUrl(soundcloudDummyData.itemId);
     expect(typeof directUrl === "string").toBe(true);
-    done();
   });
 
-  it("should return playlist items when given soundcloud playlist Id", async (done) => {
+  it("should return playlist items when given soundcloud playlist Id", async () => {
     const searchResultsArray = await scHandlers.getPlaylistItems(
       soundcloudDummyData.playlistId
     );
     expect(Array.isArray(searchResultsArray)).toBe(true);
-    done();
   });
 
-  it("should return channel items when given soundcloud channel Id", async (done) => {
+  it("should return channel items when given soundcloud channel Id", async () => {
     const searchResultsArray = await scHandlers.getChannelItems(
       soundcloudDummyData.channelId
     );
     expect(Array.isArray(searchResultsArray)).toBe(true);
-    done();
   });
 
-  it("should return channel playlists when given soundcloud channel Id", async (done) => {
+  it("should return channel playlists when given soundcloud channel Id", async () => {
     const searchResultsArray = await scHandlers.getChannelPlaylists(
       soundcloudDummyData.channelId
     );
     expect(Array.isArray(searchResultsArray)).toBe(true);
-    done();
   });
 });
