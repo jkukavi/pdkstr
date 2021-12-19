@@ -1,15 +1,17 @@
-const express = require("express");
-const helmet = require("helmet");
-const cookieParser = require("cookie-parser");
-const path = require("path");
+import express from "express";
+import cookieParser from "cookie-parser";
+import path from "path";
+import helmet from "helmet";
+import { CSPPolicies } from "./consts";
 
-const { CSPPolicies } = require("./consts");
-const authRouter = require("./routers/authRouter");
-const { auth, proxyAuth } = require("./middleware/auth");
-const { upgradeToSSLIfNecessary } = require("./middleware/sslUpgrade");
-const mainRouter = require("./routers/mainRouter");
-const usersRouter = require("./routers/usersRouter");
-const proxyRouter = require("./routers/proxyRouter");
+import { auth, proxyAuth } from "./middleware/auth";
+
+import authRouter from "./routers/authRouter";
+import { upgradeToSSLIfNecessary } from "./middleware/sslUpgrade";
+
+import mainRouter from "./routers/mainRouter";
+import usersRouter from "./routers/usersRouter";
+import proxyRouter from "./routers/proxyRouter";
 
 const app = express();
 
@@ -42,4 +44,4 @@ app.use("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/../client/build/index.html"));
 });
 
-module.exports = app;
+export default app;

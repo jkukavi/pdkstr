@@ -1,4 +1,4 @@
-const CSPPolicies = {
+export const CSPPolicies = {
   directives: {
     defaultSrc: ["'self'"],
     scriptSrc: ["'self'", "example.com"],
@@ -13,8 +13,4 @@ const CSPPolicies = {
     "font-src": ["fonts.googleapis.com", "fonts.gstatic.com"],
     "style-src-elem": ["'self'", "fonts.googleapis.com", "fonts.gstatic.com"],
   },
-};
-
-module.exports = {
-  CSPPolicies,
 };

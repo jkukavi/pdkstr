@@ -31,9 +31,4 @@ async function dropTestDatabase() {
   await close();
 }
 
-module.exports = {
-  doSth,
-  dropTestDatabase,
-  connect,
-  close,
-};
+export { doSth, dropTestDatabase, connect, close };

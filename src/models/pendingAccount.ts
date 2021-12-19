@@ -1,6 +1,6 @@
-const { doSth } = require("../db");
-const bcrypt = require("bcrypt");
-const { ObjectId } = require("mongodb");
+import { doSth } from "db";
+import bcrypt from "bcrypt";
+import { ObjectId } from "mongodb";
 
 async function save(newPendingAccount) {
   let newAccountInfo = newPendingAccount.accountInfo;
@@ -28,7 +28,7 @@ async function removeById(id) {
   return doSth(async (db) => {
     return await db
       .collection("pendingAccounts")
-      .deleteOne({ _id: ObjectId(id) });
+      .deleteOne({ _id: new ObjectId(id) });
   });
 }
 
@@ -36,7 +36,7 @@ async function findOne({ id, activationCode }) {
   return doSth(async (db) => {
     return await db
       .collection("pendingAccounts")
-      .findOne({ _id: ObjectId(id), activationCode });
+      .findOne({ _id: new ObjectId(id), activationCode });
   });
 }
 
@@ -48,8 +48,4 @@ const checkIfUnique = async (db, email) => {
   return !pendingAcc && !user;
 };
 
-module.exports = {
-  save,
-  removeById,
-  findOne,
-};
+export default { save, removeById, findOne };

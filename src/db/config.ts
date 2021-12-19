@@ -1,4 +1,7 @@
-require("dotenv").config();
+import dotenv from "dotenv";
+
+dotenv.config();
+
 const prodUri = `mongodb+srv://podkaster:${process.env.MONGODB_PASS}@pkcluster.crvpn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 const localUri = `mongodb://${process.env.LOCAL_MONGODB_URL}`;
 
@@ -12,10 +15,4 @@ const options = {
   useUnifiedTopology: true,
 };
 
-const config = {
-  uri,
-  dbName,
-  options,
-};
-
-module.exports = config;
+export { uri, dbName, options };

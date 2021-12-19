@@ -1,11 +1,11 @@
-const express = require("express");
+import express from "express";
+import jwt from "jsonwebtoken";
+import pendingAccounts from "models/pendingAccount";
+import users from "models/user";
+import { sendActivationEmail } from "./mail";
+import { getRandomCode } from "utils";
+
 const router = express.Router();
-const jwt = require("jsonwebtoken");
-const pendingAccounts = require("../../models/pendingAccount");
-const users = require("../../models/user");
-const { ObjectId } = require("mongodb");
-const { sendActivationEmail } = require("./mail.js");
-const { getRandomCode } = require("../../utils");
 
 router.get("/logout", async (req, res) => {
   let options = {
@@ -113,4 +113,4 @@ router.get("/activate/:pendingAccountId/:activationCode", async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

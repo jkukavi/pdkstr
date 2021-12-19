@@ -20,4 +20,4 @@ const domain = (url) => {
   return hostname.split(".")[1];
 };
 
-module.exports = router;
+export default router;

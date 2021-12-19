@@ -21,4 +21,4 @@ const proxyAuth = (req, res, next) => {
   }
 };
 
-module.exports = { auth, proxyAuth };
+export { auth, proxyAuth };

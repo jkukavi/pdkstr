@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const users = require("../../models/user");
+const users = require("models/user");
 
 router.get("/me", async (req, res) => {
   try {
@@ -54,4 +54,4 @@ router.post("/my/favourites", async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

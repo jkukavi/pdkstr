@@ -1,6 +1,6 @@
-const { doSth } = require("../db");
-const bcrypt = require("bcrypt");
-const { ObjectId } = require("mongodb");
+import { doSth } from "db";
+import bcrypt from "bcrypt";
+import { ObjectId } from "mongodb";
 
 async function save(user) {
   return doSth(async (db) => {
@@ -10,14 +10,16 @@ async function save(user) {
 
 async function findById(id) {
   return doSth(async (db) => {
-    const user = await db.collection("users").findOne({ _id: ObjectId(id) });
+    const user = await db
+      .collection("users")
+      .findOne({ _id: new ObjectId(id) });
     return user;
   });
 }
 
 async function removeById(id) {
   return doSth(async (db) => {
-    return await db.collection("users").deleteOne({ _id: ObjectId(id) });
+    return await db.collection("users").deleteOne({ _id: new ObjectId(id) });
   });
 }
 
@@ -39,7 +41,7 @@ async function getMyHistory(id) {
   return doSth(async (db) => {
     const { history } = await db
       .collection("users")
-      .findOne({ _id: ObjectId(id) }, { projection: { history: 1 } });
+      .findOne({ _id: new ObjectId(id) }, { projection: { history: 1 } });
     return history;
   });
 }
@@ -48,7 +50,7 @@ async function getMyFavourites(id) {
   return doSth(async (db) => {
     const { favourites } = await db
       .collection("users")
-      .findOne({ _id: ObjectId(id) }, { projection: { favourites: 1 } });
+      .findOne({ _id: new ObjectId(id) }, { projection: { favourites: 1 } });
     return favourites;
   });
 }
@@ -57,7 +59,7 @@ async function addItemToHistory(id, item) {
   return doSth(async (db) => {
     const response = await db
       .collection("users")
-      .updateOne({ _id: ObjectId(id) }, [
+      .updateOne({ _id: new ObjectId(id) }, [
         {
           $set: { history: { $concatArrays: [[item], "$history"] } },
         },
@@ -70,7 +72,7 @@ async function addItemToFavourites(id, item) {
   return doSth(async (db) => {
     const response = await db
       .collection("users")
-      .updateOne({ _id: ObjectId(id) }, [
+      .updateOne({ _id: new ObjectId(id) }, [
         {
           $set: { favourites: { $concatArrays: [[item], "$favourites"] } },
         },
@@ -79,7 +81,7 @@ async function addItemToFavourites(id, item) {
   });
 }
 
-module.exports = {
+export default {
   save,
   findById,
   removeById,

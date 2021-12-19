@@ -4,6 +4,4 @@ const upgradeToSSLIfNecessary = (req, res, next) => {
   } else next();
 };
 
-module.exports = {
-  upgradeToSSLIfNecessary,
-};
+export { upgradeToSSLIfNecessary };

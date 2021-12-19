@@ -24,6 +24,4 @@ const sendActivationEmail = async ({
   return await sgMail.send(msg);
 };
 
-module.exports = {
-  sendActivationEmail,
-};
+export { sendActivationEmail };

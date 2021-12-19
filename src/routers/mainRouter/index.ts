@@ -124,4 +124,4 @@ app.post("/:engine/channel/:itemType", async (req, res) => {
   }
 });
 
-module.exports = app;
+export default app;
