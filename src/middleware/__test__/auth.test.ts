@@ -1,6 +1,6 @@
-const jwt = require("jsonwebtoken");
-const { getRandomCode } = require("../utils");
-const { auth } = require("./auth");
+import jwt from "jsonwebtoken";
+import { getRandomCode } from "utils";
+import { auth } from "../auth";
 
 describe("auth middleware test", () => {
   beforeAll(() => {
@@ -9,8 +9,8 @@ describe("auth middleware test", () => {
 
   test("auth should be successful with valid token", (done) => {
     const userId = getRandomCode();
-    const token = jwt.sign({ id: userId }, process.env.JWT_SECRET);
-    const req = { headers: { authorization: null } };
+    const token = jwt.sign({ id: userId }, process.env.JWT_SECRET as string);
+    const req: any = { headers: { authorization: null } };
     req.headers.authorization = "Bearer " + token;
     let responseStatus;
     const res = {
@@ -32,10 +32,9 @@ describe("auth middleware test", () => {
 
   test("auth should be unsuccessful with invalid token", (done) => {
     const userId = getRandomCode();
-    let token = jwt.sign({ id: userId }, process.env.JWT_SECRET);
-    token[5] = "s";
-    const req = { headers: { authorization: null } };
-    req.headers.authorization = "Bearer " + token;
+    let token = jwt.sign({ id: userId }, process.env.JWT_SECRET as string);
+    const req: any = { headers: { authorization: null } };
+    req.headers.authorization = "Bearer " + token + "a";
     let responseStatus;
     const res = {
       status: (newStatus) => {

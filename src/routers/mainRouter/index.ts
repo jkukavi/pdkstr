@@ -1,7 +1,7 @@
-const express = require("express");
+import express from "express";
+import youtubeHandlers from "./handlers/ytFunctions";
+import soundcloudHandlers from "./handlers/scFunctions";
 
-const youtubeHandlers = require("./handlers/ytFunctions.js");
-const soundcloudHandlers = require("./handlers/scFunctions");
 const engines = {
   youtube: youtubeHandlers,
   soundcloud: soundcloudHandlers,

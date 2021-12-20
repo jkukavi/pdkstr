@@ -1,12 +1,12 @@
+import { close, connect } from "db";
+import { hashPasswordIn } from "models/helpers";
+import supertest from "supertest";
+import { getRandomCode } from "utils";
+import users from "models/user";
+import app from "app";
+
 process.env.JWT_SECRET = "žaba";
 process.env.SENDGRID_API_KEY = "SG.XXXX";
-
-const supertest = require("supertest");
-const users = require("../../models/user");
-const app = require("../../app");
-const { connect, close } = require("../../db");
-const { getRandomCode } = require("../../utils");
-const { hashPasswordIn } = require("../../models/helpers");
 
 describe("Auth routes", () => {
   const password = getRandomCode();

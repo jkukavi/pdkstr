@@ -1,6 +1,6 @@
-const pendingAccounts = require("./pendingAccount");
-const { connect, close } = require("../db");
-const { getRandomCode } = require("../utils");
+import { close, connect } from "db";
+import { getRandomCode } from "utils";
+import pendingAccounts from "../pendingAccount";
 
 describe("CRUD operations for pending accounts collection", () => {
   const dummyPendingAccount = {
@@ -38,7 +38,7 @@ describe("CRUD operations for pending accounts collection", () => {
       throw new Error(
         "It is possible to save pending Account with the same email as another pendingAccount or user"
       );
-    } catch (e) {
+    } catch (e: any) {
       if (e.message === "Email already exists") {
         return;
       } else {

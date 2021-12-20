@@ -1,9 +1,9 @@
-const users = require("./user");
-const { hashPasswordIn } = require("./helpers");
-const { connect, close } = require("../db");
+import users from "../user";
+import { hashPasswordIn } from "../helpers";
+import { connect, close } from "db";
 
 describe("CRUD operations for users collection", () => {
-  const user = {
+  const user: any = {
     email: "userModel@test",
     password: "hello",
     history: [],

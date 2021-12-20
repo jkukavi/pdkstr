@@ -1,11 +1,12 @@
-const dotenv = require("dotenv");
+import app from "app";
+import { close, connect } from "db";
+import dotenv from "dotenv";
+import { hashPasswordIn } from "models/helpers";
+import supertest from "supertest";
+import { getRandomCode } from "utils";
+import users from "models/user";
+
 dotenv.config();
-const supertest = require("supertest");
-const users = require("../../models/user");
-const app = require("../../app");
-const { connect, close } = require("../../db");
-const { getRandomCode } = require("../../utils");
-const { hashPasswordIn } = require("../../models/helpers");
 
 const promisify = (Test) => {
   return new Promise((_res, _rej) => {
@@ -39,7 +40,7 @@ let request = supertest(app);
 const agent = supertest.agent(app);
 
 const loginAgent = async () => {
-  const response = await promisify(
+  const response: any = await promisify(
     agent
       .post("/login")
       .send({

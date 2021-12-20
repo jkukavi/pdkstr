@@ -1,6 +1,6 @@
-const { getRandomCode } = require("../utils");
-const { hashPasswordIn } = require("./helpers");
-const bcrypt = require("bcrypt");
+import { hashPasswordIn } from "models/helpers";
+import { getRandomCode } from "utils";
+import * as bcrypt from "bcrypt";
 
 it("should properly return pending Account with hashed password", async () => {
   const password = getRandomCode();

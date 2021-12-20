@@ -1,17 +1,17 @@
-const { https } = require("follow-redirects");
-const request = require("request");
+import { https } from "follow-redirects";
+import request from "request";
 
 let clientId = process.env.SOUNDCLOUD_API_KEY;
 
-function getUserTracks(userId, limit = 10) {
+function getUserTracks(userId, limit: any = 10) {
   return new Promise((resolve, rej) => {
     let userTracksURL =
       "https://api-v2.soundcloud.com/users/USER_ID_TERM/tracks?client_id=CLIENT_ID_TERM&limit=LIMIT_TERM";
 
     userTracksURL = userTracksURL
-      .replace("USER_ID_TERM", userId)
-      .replace("CLIENT_ID_TERM", clientId)
-      .replace("LIMIT_TERM", limit);
+      .replace("USER_ID_TERM", userId as string)
+      .replace("CLIENT_ID_TERM", clientId as string)
+      .replace("LIMIT_TERM", limit as string);
 
     https.get(userTracksURL, (res) => {
       let data = "";
@@ -27,7 +27,7 @@ function getUserTracks(userId, limit = 10) {
   });
 }
 
-function getUsersPlaylists(userId, limit = 20) {
+function getUsersPlaylists(userId, limit: any = 20) {
   return new Promise((resolve, rej) => {
     //playlists_without_albums
     //playlists
@@ -36,8 +36,8 @@ function getUsersPlaylists(userId, limit = 20) {
 
     userPlaylistsURL = userPlaylistsURL
       .replace("USER_ID_TERM", userId)
-      .replace("CLIENT_ID_TERM", clientId)
-      .replace("LIMIT_TERM", limit);
+      .replace("CLIENT_ID_TERM", clientId as string)
+      .replace("LIMIT_TERM", limit as string);
 
     https.get(userPlaylistsURL, (res) => {
       let data = "";
@@ -54,7 +54,7 @@ function getUsersPlaylists(userId, limit = 20) {
   });
 }
 
-function getSuggestions(searchString, limit = 10) {
+function getSuggestions(searchString, limit: any = 10) {
   return new Promise((resolve, rej) => {
     //playlists_without_albums
     //playlists
@@ -63,7 +63,7 @@ function getSuggestions(searchString, limit = 10) {
 
     suggestionsURL = suggestionsURL
       .replace("SEARCH_TERM", encodeURIComponent(searchString))
-      .replace("CLIENT_ID_TERM", clientId)
+      .replace("CLIENT_ID_TERM", clientId as string)
       .replace("LIMIT_TERM", limit);
 
     https.get(suggestionsURL, (res) => {
@@ -95,7 +95,7 @@ async function getItemInfo(id) {
 
     tracksUrl = tracksUrl
       .replace("TRACK_ID_TERM", id)
-      .replace("CLIENT_ID_TERM", clientId);
+      .replace("CLIENT_ID_TERM", clientId as string);
 
     request.get(tracksUrl, {}, (err, res, body) => {
       const rawTrackInfo = JSON.parse(body);
@@ -115,7 +115,7 @@ function getTracksInfo(ids) {
 
     tracksUrl = tracksUrl
       .replace("IDS_TERM", idsString)
-      .replace("CLIENT_ID_TERM", clientId);
+      .replace("CLIENT_ID_TERM", clientId as string);
 
     https.get(tracksUrl, (res) => {
       let data = "";
@@ -144,7 +144,7 @@ async function getPlaylistTrackIds(id) {
 
     playlistUrl = playlistUrl
       .replace("PLAYLIST_ID_TERM", id)
-      .replace("CLIENT_ID_TERM", clientId);
+      .replace("CLIENT_ID_TERM", clientId as string);
 
     try {
       request.get(playlistUrl, {}, (err, res, body) => {
@@ -160,7 +160,7 @@ async function getPlaylistTrackIds(id) {
   });
 }
 
-function search(search, limit = 10) {
+function search(search, limit: any = 10) {
   return new Promise((res, rej) => {
     if (typeof search != "string") throw "Seach term is not type of string";
     if (isNaN(limit)) throw "Not a number";
@@ -190,7 +190,7 @@ function search(search, limit = 10) {
         }
       })
     )
-      .then((response) => {
+      .then((response: any) => {
         const body = response.body;
         const track_list = body.collection;
         const mappedTracks = track_list.map(trackMapper);
@@ -203,8 +203,8 @@ function search(search, limit = 10) {
   });
 }
 
-const getDirectUrl = async (id, fromUrl) => {
-  const url = fromUrl || (await getItemInfo(id)).url;
+const getDirectUrl = async (id: any, fromUrl: any) => {
+  const url = fromUrl || ((await getItemInfo(id)) as any).url;
 
   return new Promise((resolve, rej) => {
     request.get(`${url}?client_id=${clientId}`, {}, (err, res, body) => {
@@ -218,11 +218,11 @@ const ping = async () => {
     const response = await search("idkjeffery", 2);
     return true;
   } catch (e) {
-    throw new Error(e);
+    throw new Error(e as any);
   }
 };
 
-module.exports = {
+export default {
   ping,
   search,
   getItemInfo,

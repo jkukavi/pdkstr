@@ -1,9 +1,9 @@
-const jwt = require("jsonwebtoken");
+import jwt from "jsonwebtoken";
 
 const auth = async (req, res, next) => {
   try {
     const token = req.headers.authorization.replace("Bearer ", "");
-    const payload = jwt.verify(token, process.env.JWT_SECRET);
+    const payload: any = jwt.verify(token, process.env.JWT_SECRET as string);
     req.userId = payload.id;
     next();
   } catch (e) {

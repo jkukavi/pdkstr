@@ -1,8 +1,9 @@
-const express = require("express");
-const router = express.Router();
-const users = require("models/user");
+import express from "express";
+import users from "models/user";
 
-router.get("/me", async (req, res) => {
+const router = express.Router();
+
+router.get("/me", async (req: any, res) => {
   try {
     const id = req.userId;
     const { username } = await users.findById(id);
@@ -12,7 +13,7 @@ router.get("/me", async (req, res) => {
   }
 });
 
-router.get("/my/history", async (req, res) => {
+router.get("/my/history", async (req: any, res) => {
   try {
     const id = req.userId;
     const history = await users.getMyHistory(id);
@@ -22,7 +23,7 @@ router.get("/my/history", async (req, res) => {
   }
 });
 
-router.get("/my/favourites", async (req, res) => {
+router.get("/my/favourites", async (req: any, res) => {
   try {
     const id = req.userId;
     const favourites = await users.getMyFavourites(id);
@@ -32,7 +33,7 @@ router.get("/my/favourites", async (req, res) => {
   }
 });
 
-router.post("/my/history", async (req, res) => {
+router.post("/my/history", async (req: any, res) => {
   try {
     const { item } = req.body;
     const id = req.userId;
@@ -43,7 +44,7 @@ router.post("/my/history", async (req, res) => {
   }
 });
 
-router.post("/my/favourites", async (req, res) => {
+router.post("/my/favourites", async (req: any, res) => {
   try {
     const { item } = req.body;
     const id = req.userId;

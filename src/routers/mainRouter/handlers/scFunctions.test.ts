@@ -1,6 +1,7 @@
-const dotenv = require("dotenv");
+import dotenv from "dotenv";
+import scHandlers from "./scFunctions";
+
 dotenv.config();
-const scHandlers = require("./scFunctions.js");
 
 const soundcloudDummyData = {
   itemId: "430754811",
@@ -20,7 +21,10 @@ describe("Testing soundcloud scraper", () => {
   });
 
   test("should return direct url when given item id", async () => {
-    const directUrl = await scHandlers.getDirectUrl(soundcloudDummyData.itemId);
+    const directUrl = await scHandlers.getDirectUrl(
+      soundcloudDummyData.itemId,
+      null
+    );
     expect(typeof directUrl === "string").toBe(true);
   });
 

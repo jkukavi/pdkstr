@@ -1,4 +1,4 @@
-import express from "express";
+import express, { CookieOptions } from "express";
 import jwt from "jsonwebtoken";
 import pendingAccounts from "models/pendingAccount";
 import users from "models/user";
@@ -8,7 +8,7 @@ import { getRandomCode } from "utils";
 const router = express.Router();
 
 router.get("/logout", async (req, res) => {
-  let options = {
+  let options: CookieOptions = {
     httpOnly: true, // The cookie only accessible by the web server
     path: "/rt",
     sameSite: "strict",
@@ -28,14 +28,14 @@ router.post("/login", async (req, res) => {
     const user = await users.findByCredentials({ email, password });
 
     const id = user._id.toString();
-    const token = jwt.sign({ id }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ id }, process.env.JWT_SECRET as string, {
       expiresIn: "15m",
     });
 
-    const refreshToken = jwt.sign({ id }, process.env.JWT_SECRET);
+    const refreshToken = jwt.sign({ id }, process.env.JWT_SECRET as string);
 
     //adding refresh token
-    let options = {
+    let options: CookieOptions = {
       httpOnly: true, // The cookie only accessible by the web server
       path: "/rt",
       sameSite: "strict",
@@ -43,7 +43,7 @@ router.post("/login", async (req, res) => {
     };
     res.cookie("rt", refreshToken, options); // options is optional
 
-    let audioCookieOptions = {
+    let audioCookieOptions: CookieOptions = {
       httpOnly: true, // The cookie only accessible by the web server
       path: "/proxy",
       sameSite: "strict",
@@ -61,8 +61,11 @@ router.post("/login", async (req, res) => {
 router.get("/rt", async (req, res) => {
   try {
     const refreshToken = req.cookies.rt;
-    const { id } = jwt.verify(refreshToken, process.env.JWT_SECRET);
-    const token = jwt.sign({ id }, process.env.JWT_SECRET, {
+    const { id } = jwt.verify(
+      refreshToken,
+      process.env.JWT_SECRET as string
+    ) as any;
+    const token = jwt.sign({ id }, process.env.JWT_SECRET as string, {
       expiresIn: "15m",
     });
     res.json({ token });

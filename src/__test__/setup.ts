@@ -1,4 +1,4 @@
-const { dropTestDatabase } = require("../db");
+import { dropTestDatabase } from "db";
 
 module.exports = async function () {
   try {

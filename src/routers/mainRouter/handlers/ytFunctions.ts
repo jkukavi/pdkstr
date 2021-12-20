@@ -1,8 +1,8 @@
-const ytdl = require("ytdl-core");
-const ytsr = require("ytsr");
-const ytpl = require("ytpl");
-const ytch = require("yt-channel-info");
-const youtubesr = require("youtube-sr").default;
+import { default as youtubesr } from "youtube-sr";
+import ytdl from "ytdl-core";
+import ytpl from "ytpl";
+import ytsr from "ytsr";
+import ytch from "yt-channel-info";
 
 const COOKIE = process.env.YT_COOKIE;
 
@@ -86,7 +86,7 @@ const getChannelPlaylists = async (channelId) => {
   return result.items.map(playlistMapper);
 };
 
-module.exports = {
+export default {
   getDirectUrl,
   search,
   getPlaylistItems: getPlaylistVideos,
