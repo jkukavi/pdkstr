@@ -2,6 +2,7 @@ node_modules/
 /dist
 .env
 globalConfig.json
+clientts
 
 node_modules
 
