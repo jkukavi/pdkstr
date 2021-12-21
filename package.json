@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "NODE_PATH=./dist NODE_ENV=production node dist/index.js",
-    "test": "NODE_PATH=./src NODE_ENV=test jest --runInBand",
+    "test": "NODE_PATH=./src NODE_ENV=test jest",
     "build": "npx tsc --project ./tsconfig.json",
     "build-client": "cd client && yarn && yarn build",
     "heroku-postbuild": "yarn build && yarn test && yarn build-client ",

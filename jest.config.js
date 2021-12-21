@@ -13,6 +13,6 @@ module.exports = {
   roots: ["<rootDir>/src/"],
   testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
   passWithNoTests: true,
-  testTimeout: 60000,
+  testTimeout: 10000,
   bail: true,
 };
