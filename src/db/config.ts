@@ -8,9 +8,9 @@ const localUri = `mongodb://${process.env.LOCAL_MONGODB_URL}`;
 const uri = process.env.NODE_ENV === "production" ? prodUri : localUri;
 const dbName = process.env.NODE_ENV === "test" ? "test" : "podkaster";
 const options = {
-  socketTimeoutMS: 1000,
-  connectTimeoutMS: 1000,
-  serverSelectionTimeoutMS: 1000,
+  socketTimeoutMS: 10000,
+  connectTimeoutMS: 10000,
+  serverSelectionTimeoutMS: 10000,
   useNewUrlParser: true,
   useUnifiedTopology: true,
 };

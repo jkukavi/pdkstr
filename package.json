@@ -5,10 +5,10 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "NODE_PATH=./dist node dist/index.js",
-    "test": "NODE_PATH=./src jest",
+    "test": "NODE_PATH=./src jest --runInBand",
     "build": "npx tsc --project ./tsconfig.json",
     "build-client": "cd client && yarn && yarn build",
-    "heroku-postbuild": "yarn build && yarn build-client",
+    "heroku-postbuild": "yarn build && yarn test && yarn build-client ",
     "dev": "NODE_ENV=development npx nodemon node_modules/.bin/ts-node -r dotenv/config ./src/index.ts"
   },
   "engines": {
@@ -48,6 +48,7 @@
     "@types/supertest": "^2.0.11",
     "jest": "27.4.5",
     "jest-circus": "^27.4.5",
+    "mongodb-memory-server": "^8.0.4",
     "nodemon": "^2.0.15",
     "supertest": "^6.1.6",
     "ts-jest": "^27.1.2",
@@ -55,5 +56,13 @@
     "tsconfig-paths": "^3.12.0",
     "tslib": "^2.3.1",
     "typescript": "^4.5.4"
+  },
+  "config": {
+    "mongodbMemoryServer": {
+      "preferGlobalPath": false,
+      "debug": false,
+      "version": "4.2.8",
+      "downloadUrl": "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1804-4.2.8.tgz"
+    }
   }
 }

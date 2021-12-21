@@ -122,10 +122,10 @@ describe("User routes", () => {
     const dummyItem = { bla: getRandomCode() };
 
     await promisify(
-      agent.post("/api/users/my/history").send({ item: dummyItem })
+      agent.post("/api/users/my/history/").send({ item: dummyItem })
     );
 
-    agent.get("/api/users/my/history").end((err, res) => {
+    agent.get("/api/users/my/history/").end((err, res) => {
       if (err) {
         throw new Error("unable to fetch history");
       } else if (res.statusCode === 200) {
@@ -138,10 +138,10 @@ describe("User routes", () => {
     const dummyItem = { bla: getRandomCode() };
 
     await promisify(
-      agent.post("/api/users/my/favourites").send({ item: dummyItem })
+      agent.post("/api/users/my/favourites/").send({ item: dummyItem })
     );
 
-    agent.get("/api/users/my/favourites").end((err, res) => {
+    agent.get("/api/users/my/favourites/").end((err, res) => {
       if (err) {
         throw new Error("unable to fetch favourites");
       } else if (res.statusCode === 200) {

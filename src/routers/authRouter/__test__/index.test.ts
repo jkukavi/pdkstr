@@ -66,7 +66,7 @@ describe("Auth routes", () => {
         if (res.statusCode !== 200) {
           throw new Error("Unable to login");
         } else {
-          const response = await agent.get("/rt");
+          const response = await agent.get("/rt/");
           if (response.statusCode !== 200) {
             throw new Error("Unable to login");
           }
@@ -94,11 +94,11 @@ describe("Auth routes", () => {
   it("should be able to refresh token only when logged in", async () => {
     const agent = supertest.agent(app);
 
-    await promisify(agent.get("/rt").expect(401));
+    await promisify(agent.get("/rt/").expect(401));
 
     await promisify(
       agent
-        .post("/login")
+        .post("/login/")
         .send({
           email: user.email,
           password: user.password,
@@ -106,10 +106,10 @@ describe("Auth routes", () => {
         .expect(200)
     );
 
-    await promisify(agent.get("/rt").expect(200));
+    await promisify(agent.get("/rt/").expect(200));
 
-    await promisify(agent.get("/logout").expect(200));
+    await promisify(agent.get("/logout/").expect(200));
 
-    await agent.get("/rt").expect(401);
+    await agent.get("/rt/").expect(401);
   });
 });

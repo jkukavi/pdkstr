@@ -42,7 +42,7 @@ const agent = supertest.agent(app);
 const loginAgent = async () => {
   const response: any = await promisify(
     agent
-      .post("/login")
+      .post("/login/")
       .send({
         email: user.email,
         password: user.password,
