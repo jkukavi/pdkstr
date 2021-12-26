@@ -1,6 +1,6 @@
 import crypto from "crypto";
 
-const getRandomCode = () => {
+const getRandomCode = (): string => {
   return crypto.randomBytes(25).toString("hex");
 };
 

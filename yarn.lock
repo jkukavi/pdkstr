@@ -660,6 +660,13 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
+"@types/follow-redirects@^1.13.1":
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/@types/follow-redirects/-/follow-redirects-1.13.1.tgz#b3dde0c7fcff69c497c99daab21a8b366f09270a"
+  integrity sha512-WPzi4QUu0rXeRmcssiXmNVCSbV9elxQJoVfp1N4SThfbKAKEo/xrhzpZVVk/XSCzbwUg70W8wEUC/TCR05QMBQ==
+  dependencies:
+    "@types/node" "*"
+
 "@types/graceful-fs@^4.1.2":
   version "4.1.5"
   resolved "https://registry.yarnpkg.com/@types/graceful-fs/-/graceful-fs-4.1.5.tgz#21ffba0d98da4350db64891f92a9e5db3cdb4e15"
