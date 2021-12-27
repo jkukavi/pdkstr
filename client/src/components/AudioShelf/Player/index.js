@@ -93,11 +93,11 @@ const PlayerComponent = () => {
             controls
             autoPlay
           >
-            <source src={directUrl} type="audio/webm" />
             <source
               src={`proxy/${encodeURIComponent(directUrl)}`}
               type="audio/webm"
             />
+            <source src={directUrl} type="audio/webm" />
           </audio>
         }
         currentlyPlaying={

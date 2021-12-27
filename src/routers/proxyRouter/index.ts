@@ -1,12 +1,7 @@
 import express, { Request, Response } from "express";
 
 import { https } from "follow-redirects";
-
-const urlToHttpOptions = (stringUrl: string) => {
-  const { protocol, hostname, pathname, search } = new URL(stringUrl);
-
-  return { protocol, hostname, path: pathname + search };
-};
+import { urlToHttpOptions, getDomainFromUrlString } from "utils";
 
 const router = express.Router();
 
@@ -14,7 +9,10 @@ router.get("/:url", (req: Request, res: Response) => {
   const { url: encodedUrl } = req.params;
   const url = decodeURIComponent(encodedUrl);
   const httpsOptions = urlToHttpOptions(url);
-  if (req.headers.range && getDomainFromUrl(url) === "googlevideo") {
+  const urlMeetsProxyCriteria =
+    req.headers.range && getDomainFromUrlString(url) === "googlevideo";
+
+  if (urlMeetsProxyCriteria) {
     https
       .get(
         {
@@ -27,7 +25,6 @@ router.get("/:url", (req: Request, res: Response) => {
             proxiedRes.statusMessage,
             proxiedRes.headers
           );
-          console.log("proxied YALL");
           proxiedRes.pipe(res);
         }
       )
@@ -36,13 +33,8 @@ router.get("/:url", (req: Request, res: Response) => {
         res.end();
       });
   } else {
-    res.end();
+    res.status(400).end();
   }
 });
-
-const getDomainFromUrl = (url: string): string => {
-  const { hostname } = new URL(url);
-  return hostname.split(".")[1];
-};
 
 export default router;
