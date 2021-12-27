@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
-
 import { https } from "follow-redirects";
+
 import { urlToHttpOptions, getDomainFromUrlString } from "utils";
 
 const router = express.Router();

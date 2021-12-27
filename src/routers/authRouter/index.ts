@@ -1,27 +1,33 @@
-import express, { CookieOptions } from "express";
+import express, { Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import pendingAccounts from "models/pendingAccount";
 import users from "models/user";
 import { sendActivationEmail } from "./mail";
 import { getRandomCode } from "utils";
 
+import {
+  refreshCookieOptions,
+  expiredCookieOptions,
+  audioCookieOptions,
+} from "consts";
+
 const router = express.Router();
 
-router.get("/logout", async (req, res) => {
-  let options: CookieOptions = {
-    httpOnly: true, // The cookie only accessible by the web server
-    path: "/rt",
-    sameSite: "strict",
-    maxAge: 0,
-    expires: new Date(0),
-    // signed,
-  };
-  res.cookie("rt", "invalid", options); // options is optional
+router.get("/logout", async (req: Request, res: Response) => {
+  res.cookie("rt", "invalid", {
+    ...refreshCookieOptions,
+    ...expiredCookieOptions,
+  });
+
+  res.cookie("ac", "invalid", {
+    ...audioCookieOptions,
+    ...expiredCookieOptions,
+  });
 
   res.status(200).send();
 });
 
-router.post("/login", async (req, res) => {
+router.post("/login", async (req: Request, res: Response) => {
   const { email, password } = req.body;
 
   try {
@@ -34,22 +40,7 @@ router.post("/login", async (req, res) => {
 
     const refreshToken = jwt.sign({ id }, process.env.JWT_SECRET as string);
 
-    //adding refresh token
-    let options: CookieOptions = {
-      httpOnly: true, // The cookie only accessible by the web server
-      path: "/rt",
-      sameSite: "strict",
-      maxAge: 24 * 60 * 60 * 1000,
-    };
-    res.cookie("rt", refreshToken, options); // options is optional
-
-    let audioCookieOptions: CookieOptions = {
-      httpOnly: true, // The cookie only accessible by the web server
-      path: "/proxy",
-      sameSite: "strict",
-      maxAge: 24 * 60 * 60 * 1000,
-    };
-
+    res.cookie("rt", refreshToken, refreshCookieOptions);
     res.cookie("ac", process.env.AUDIO_JWT_SECRET, audioCookieOptions);
 
     res.status(200).json({ username: user.username, token });
@@ -58,23 +49,28 @@ router.post("/login", async (req, res) => {
   }
 });
 
-router.get("/rt", async (req, res) => {
+router.get("/rt", async (req: Request, res: Response) => {
   try {
     const refreshToken = req.cookies.rt;
+
     const { id } = jwt.verify(
       refreshToken,
       process.env.JWT_SECRET as string
-    ) as any;
+    ) as {
+      id: string;
+    };
+
     const token = jwt.sign({ id }, process.env.JWT_SECRET as string, {
       expiresIn: "15m",
     });
+
     res.json({ token });
   } catch {
     res.status(401).send();
   }
 });
 
-router.post("/register", async (req, res) => {
+router.post("/register", async (req: Request, res: Response) => {
   const user = req.body;
   const activationCode = getRandomCode();
   try {
@@ -94,26 +90,29 @@ router.post("/register", async (req, res) => {
   }
 });
 
-router.get("/activate/:pendingAccountId/:activationCode", async (req, res) => {
-  const { pendingAccountId, activationCode } = req.params;
+router.get(
+  "/activate/:pendingAccountId/:activationCode",
+  async (req: Request, res: Response) => {
+    const { pendingAccountId, activationCode } = req.params;
 
-  try {
-    const pendingAccount = await pendingAccounts.findOne({
-      id: pendingAccountId,
-      activationCode,
-    });
+    try {
+      const pendingAccount = await pendingAccounts.findOne({
+        id: pendingAccountId,
+        activationCode,
+      });
 
-    if (!pendingAccount) {
-      throw new Error("Pending account not found.");
+      if (!pendingAccount) {
+        throw new Error("Pending account not found.");
+      }
+
+      await pendingAccounts.removeById(pendingAccountId);
+      await users.save(pendingAccount.accountInfo);
+
+      res.redirect("/activation-success");
+    } catch (e) {
+      res.status(400).send("Invalid account activation link.");
     }
-
-    await pendingAccounts.removeById(pendingAccountId);
-    await users.save(pendingAccount.accountInfo);
-
-    res.redirect("/activation-success");
-  } catch (e) {
-    res.status(400).send("Invalid account activation link.");
   }
-});
+);
 
 export default router;

@@ -11,6 +11,10 @@ const sendActivationEmail = async ({
   to,
   activationCode,
   pendingAccountId,
+}: {
+  to: string;
+  activationCode: string;
+  pendingAccountId: string;
 }) => {
   const url = `${baseUri}/activate/${pendingAccountId}/${activationCode}`;
 
