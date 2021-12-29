@@ -5,17 +5,17 @@ import { useAuthContext } from "contexts/Auth";
 
 import { notify } from "components/Notifications";
 
-const LoginForm = ({ goBack }) => {
+const LoginForm = ({ goBack }: { goBack: VoidFunction }) => {
   const [loading, setLoading] = useState(false);
   const { login } = useAuthContext();
   const { url } = useRouteMatch();
 
-  const tryLogging = async (e) => {
+  const tryLogging = async (e: React.FormEvent<HTMLFormElement>) => {
     setLoading(true);
     try {
       await login(e);
       goBack();
-    } catch (err) {
+    } catch (err: any) {
       if (err.response.status === 401) {
         notify("Wrong credentials brother!");
       } else if (err.response.status >= 500 && err.response.status <= 510) {

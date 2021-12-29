@@ -11,7 +11,9 @@ import LoginForm from "./LoginForm";
 const LoginPage = () => {
   const { user, reestablishSession } = useAuthContext();
   const [loading, setLoading] = useState(true);
-  const location = useLocation();
+  const location = useLocation() as
+    | { state: { from: { pathname: string } } }
+    | { state: undefined };
   const history = useHistory();
 
   const { from } = location.state || { from: { pathname: "/" } };

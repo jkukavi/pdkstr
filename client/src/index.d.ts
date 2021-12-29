@@ -1,6 +1,7 @@
 interface Item {
   title: string;
   engine: string;
+  type: "video";
   author: {
     name: string;
     avatars: { url: any }[];
@@ -14,6 +15,7 @@ interface Item {
 }
 
 interface Channel {
+  type: "channel";
   bestAvatar: {
     url: string;
   };
@@ -25,6 +27,7 @@ interface Channel {
 type VoidFunction = () => void;
 
 interface Playlist {
+  type: "playlist";
   title: string;
   engine: string;
   length: string;

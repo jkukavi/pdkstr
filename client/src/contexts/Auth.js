@@ -13,7 +13,11 @@ import {
   destroySessionInOtherWindows,
 } from "./axiosInstance";
 
-const AuthContext = createContext({ user: null });
+const AuthContext = createContext({
+  user: null,
+  login: async (e) => {},
+  reestablishSession: async (e) => {},
+});
 
 const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);

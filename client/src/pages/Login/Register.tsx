@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 import parseFormData from "helpers/parseFormData";
+import { notify } from "components/Notifications";
 
-const Register = ({ notify }) => {
+const Register = () => {
   const [state, setState] = useState({ loading: false, success: false });
 
-  const register = async (e) => {
+  const register: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     setState((state) => ({ ...state, loading: true }));
 
@@ -15,7 +16,7 @@ const Register = ({ notify }) => {
       "new-username": username,
       "new-password": password,
       "new-email": email,
-    } = parseFormData(e.target);
+    } = parseFormData(e.target as HTMLFormElement);
 
     const body = { username, password, email };
 
