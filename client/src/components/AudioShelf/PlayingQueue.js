@@ -10,11 +10,13 @@ import Table from "components/Table";
 
 import { Player } from "./Player";
 
+const noOp = (i) => {};
+
 export const PlayingQueue = {
   playlist: [],
-  playPlaylist: null,
-  playNext: null,
-  addToQueue: null,
+  playPlaylist: noOp,
+  playNext: noOp,
+  addToQueue: noOp,
   notify: null,
 };
 

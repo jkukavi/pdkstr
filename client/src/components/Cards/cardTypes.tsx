@@ -17,20 +17,11 @@ import { PlaylistSidebar } from "components/PlaylistSidebar";
 export const SingleItem = ({
   viewingChannel,
   item,
-  item: {
-    title,
-    thumbnails,
-    duration,
-    uploadedAt,
-    author,
-    views,
-    type,
-    bestAvatar,
-    name,
-    subscribers,
-    key,
-  },
+}: {
+  viewingChannel: any;
+  item: Item;
 }) => {
+  const { title, thumbnails, duration, uploadedAt, author, views, key } = item;
   return (
     <div className="card" key={key}>
       <div
@@ -118,7 +109,11 @@ export const SingleItem = ({
   );
 };
 
-const AddToFavouritesButton = ({ item }) => {
+const AddToFavouritesButton = ({
+  item,
+}: {
+  item: Item | Channel | Playlist;
+}) => {
   return (
     <div
       className="addToPlaylistIcon"
@@ -132,23 +127,13 @@ const AddToFavouritesButton = ({ item }) => {
 };
 
 export const Channel = ({
-  viewingChannel,
   item,
-  item: {
-    title,
-    thumbnails,
-    duration,
-    uploadedAt,
-    author,
-    views,
-    type,
-    bestAvatar,
-    name,
-    subscribers,
-    key,
-  },
   channelClickAction,
+}: {
+  item: Channel;
+  channelClickAction: VoidFunction;
 }) => {
+  const { bestAvatar, name, subscribers, key } = item;
   return (
     <div className="card channel" key={key}>
       <p style={{ height: "0.4rem" }} className="desc title">
@@ -182,24 +167,8 @@ export const Channel = ({
   );
 };
 
-export const Playlist = ({
-  viewingChannel,
-  item,
-  item: {
-    title,
-    thumbnails,
-    duration,
-    uploadedAt,
-    author,
-    views,
-    type,
-    bestAvatar,
-    name,
-    subscribers,
-    key,
-  },
-  channelClickAction,
-}) => {
+export const Playlist = ({ item }: { item: Playlist }) => {
+  const { title, thumbnails, key } = item;
   return (
     <div className="card playlist" key={key}>
       <p style={{ height: "1rem" }} className="desc title">
