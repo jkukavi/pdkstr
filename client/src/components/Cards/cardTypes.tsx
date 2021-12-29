@@ -14,6 +14,23 @@ import { SearchBox } from "components/Search/SearchBox";
 import { PlayingQueue } from "components/AudioShelf/PlayingQueue";
 import { PlaylistSidebar } from "components/PlaylistSidebar";
 
+const AddToFavouritesButton = ({
+  item,
+}: {
+  item: Item | Channel | Playlist;
+}) => {
+  return (
+    <div
+      className="addToPlaylistIcon"
+      onClick={() => {
+        addToFavourites(item);
+      }}
+    >
+      <img src={star} alt="loading"></img>
+    </div>
+  );
+};
+
 export const SingleItem = ({
   viewingChannel,
   item,
@@ -105,23 +122,6 @@ export const SingleItem = ({
           </div>
         </>
       </div>
-    </div>
-  );
-};
-
-const AddToFavouritesButton = ({
-  item,
-}: {
-  item: Item | Channel | Playlist;
-}) => {
-  return (
-    <div
-      className="addToPlaylistIcon"
-      onClick={() => {
-        addToFavourites(item);
-      }}
-    >
-      <img src={star} alt="loading"></img>
     </div>
   );
 };
