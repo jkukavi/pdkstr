@@ -1,32 +1,63 @@
 import { default as youtubesr } from "youtube-sr";
-import ytdl from "ytdl-core";
+import ytdl, { MoreVideoDetails } from "ytdl-core";
 import ytpl from "ytpl";
-import ytsr from "ytsr";
+import ytsr, { Video, Channel, Playlist, Item } from "ytsr";
 import ytch from "yt-channel-info";
 
 const COOKIE = process.env.YT_COOKIE;
 
-const searchMapper = {
-  video: (item) => ({ ...item, engine: "youtube" }),
-  channel: (item) => ({ ...item, engine: "youtube" }),
-  playlist: (item) => ({
+type Mapper = (Item: Video | Channel | Playlist) => any;
+
+const searchMappers = {
+  video: (item: Video) => item,
+  channel: (item: Channel) => item,
+  playlist: (item: Playlist) => ({
     ...item,
     id: item.playlistID,
-    thumbnails: item.firstVideo.thumbnails,
+    thumbnails: item.firstVideo?.thumbnails,
     playlistLength: item.length,
+    engine: "youtube",
   }),
 };
 
-const search = async (searchString) => {
+const searchMapper = (item: Item) => {
+  let mappedItem = item;
+
+  if (
+    item.type === "video" ||
+    item.type === "channel" ||
+    item.type === "playlist"
+  ) {
+    const mapper = searchMappers[item.type] as Mapper;
+    mappedItem = mapper(item);
+  }
+
+  return { ...mappedItem, engine: "youtube" };
+};
+
+const search = async (searchString: string) => {
   const searchResults = await ytsr(searchString, { limit: 20 });
 
-  const mappedItems = searchResults.items.map((item) => {
-    return { ...(searchMapper[item.type]?.(item) ?? item), engine: "youtube" };
-  });
+  const mappedItems = searchResults.items.map(searchMapper);
   return mappedItems;
 };
 
-const getItemInfo = async (id) => {
+const getBasicInfoMapper = (item: MoreVideoDetails) => {
+  return {
+    id: item.videoId,
+    url: item.video_url,
+    title: item.title,
+    thumbnails: item.thumbnails,
+    duration: intoHHMMSS(item.lengthSeconds),
+    uploadedAt: item.uploadDate,
+    author: item.author,
+    views: item.viewCount,
+    type: "video",
+    engine: "youtube",
+  };
+};
+
+const getItemInfo = async (id: string) => {
   try {
     const videoInfo = await ytdl.getBasicInfo(id, {
       requestOptions: {
@@ -44,15 +75,16 @@ const getItemInfo = async (id) => {
   }
 };
 
-const getSuggestions = async (searchString) => {
-  const suggestionsArray = await youtubesr.getSuggestions(searchString);
-  const cleanedSuggestionsArray = suggestionsArray.map((suggestion) =>
-    suggestion.replace(/\\u0027/g, "'")
-  );
-  return cleanedSuggestionsArray;
+const suggestionsMapper = (suggestion: string) =>
+  suggestion.replace(/\\u0027/g, "'");
+
+const getSuggestions = async (searchString: string) => {
+  const suggestions = await youtubesr.getSuggestions(searchString);
+  const mappedSugesstions = suggestions.map(suggestionsMapper);
+  return mappedSugesstions;
 };
 
-const getDirectUrl = async (id) => {
+const getDirectUrl = async (id: string) => {
   let info = await ytdl.getInfo(id, {
     requestOptions: {
       headers: {
@@ -67,7 +99,7 @@ const getDirectUrl = async (id) => {
   return format.url;
 };
 
-const getPlaylistVideos = async (playlistId) => {
+const getPlaylistVideos = async (playlistId: string) => {
   const result = await ytpl(playlistId, { limit: 20 });
   return result.items.map((item) => ({
     ...item,
@@ -76,12 +108,74 @@ const getPlaylistVideos = async (playlistId) => {
   }));
 };
 
-const getChannelVideos = async (channelId) => {
+interface ChannelInfo {
+  type: "video";
+  title: string;
+  videoId: string;
+  author: string;
+  authorId: string;
+  videoThumbnails: string;
+  viewCountText: string;
+  viewCount: string;
+  publishedText: string;
+  durationText: string;
+  lengthSeconds: string;
+  liveNow: string;
+  premiere: string;
+  premium: string;
+}
+
+const channelVideosMapper = (item: ChannelInfo) => {
+  return {
+    type: "video",
+    engine: "youtube",
+    id: item.videoId,
+    title: item.title,
+    thumbnails: item.videoThumbnails,
+    duration: item.durationText,
+    author: {
+      name: item.author,
+      channelId: item.authorId,
+    },
+    uploadedAt: item.publishedText,
+    views: item.viewCount,
+  };
+};
+
+const getChannelVideos = async (channelId: string) => {
   const result = await ytch.getChannelVideos(channelId, "newest", 1);
   return result.items.map(channelVideosMapper);
 };
 
-const getChannelPlaylists = async (channelId) => {
+interface ChannelPlaylist {
+  title: string;
+  type: "playlist";
+  playlistThumbnail: string;
+  author: string;
+  authorUrl: string;
+  authorId: string;
+  playlistId: string;
+  playlistUrl: string;
+  videoCount: string;
+}
+
+const playlistMapper = (item: ChannelPlaylist) => {
+  return {
+    engine: "youtube",
+    type: "playlist",
+    id: item.playlistId,
+    title: item.title,
+    thumbnails: [{ url: item?.playlistThumbnail }],
+    url: item.authorUrl,
+    length: item.videoCount,
+    author: {
+      name: item.author,
+      channelId: item.authorId,
+    },
+  };
+};
+
+const getChannelPlaylists = async (channelId: string) => {
   const result = await ytch.getChannelPlaylistInfo(channelId, "newest", 1);
   return result.items.map(playlistMapper);
 };
@@ -96,71 +190,7 @@ export default {
   getSuggestions,
 };
 
-const getBasicInfoMapper = (item) => {
-  return {
-    id: item.videoId,
-    engine: "youtube",
-    url: item.video_url,
-    title: item.title,
-    thumbnails: item.thumbnails,
-    duration: intoHHMMSS(item.lengthSeconds),
-    uploadedAt: item.uploadDate,
-    author: item.author,
-    views: item.viewCount,
-    type: "video",
-  };
-};
-
-const channelVideosMapper = (item) => {
-  return {
-    id: item.videoId,
-    engine: "youtube",
-    title: item.title,
-    thumbnails: item.videoThumbnails,
-    duration: item.durationText,
-    author: {
-      name: item.author,
-      channelId: item.authorId,
-    },
-    uploadedAt: item.publishedText,
-    views: item.viewCount,
-    type: "video",
-  };
-};
-
-const playlistMapper = (item) => {
-  return {
-    engine: "youtube",
-    type: "playlist",
-    id: item.playlistId,
-    title: item.title,
-    thumbnails: [{ url: item?.playlistThumbnail }],
-    url: item.authorUrl,
-    length: item.videoCount,
-    author: {
-      name: item.author,
-      channelId: item.authorId,
-    },
-  };
-  // return {
-  //   // original_url: item.permalink_url,
-  //   engine: "soundcloud",
-  //   url: ,
-  //   title: ,
-  //   thumbnails: ,
-  //   duration: intoHHMMSS(item.duration),
-  //   uploadedAt: ,
-  //   author: {
-  //     url:
-  //     id: ,
-  //     name: ,
-  //   },
-  //   length: item.tracks.length,
-  //   type: "playlist",
-  // };
-};
-
-const intoHHMMSS = (durationMs) =>
+const intoHHMMSS = (durationMs: string) =>
   new Date(durationMs)
     .toISOString()
     .substr(11, 8)

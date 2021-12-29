@@ -5,11 +5,14 @@ import * as bcrypt from "bcrypt";
 it("should properly return pending Account with hashed password", async () => {
   const password = getRandomCode();
 
-  const dummyPendingAccount = {
+  const dummyPendingAccount: PendingAccount = {
     activationCode: getRandomCode(),
     accountInfo: {
       email: "hash@hash.test",
       password,
+      username: "sda",
+      history: [],
+      favourites: [],
     },
   };
 

@@ -1,3 +1,4 @@
+import { Response } from "express";
 import jwt from "jsonwebtoken";
 import { getRandomCode } from "utils";
 import { auth } from "../auth";
@@ -12,16 +13,17 @@ describe("auth middleware test", () => {
     const token = jwt.sign({ id: userId }, process.env.JWT_SECRET as string);
     const req: any = { headers: { authorization: null } };
     req.headers.authorization = "Bearer " + token;
-    let responseStatus;
+    let responseStatus: number;
     const res = {
       status: (newStatus) => {
         if (newStatus === 401) {
           throw new Error("Unable to auth with valid token");
         }
       },
-    };
+      locals: {},
+    } as Response<any, { userId: string }>;
     const next = () => {
-      if (req.userId === userId) {
+      if (res.locals.userId === userId) {
         done();
       } else if (responseStatus === 401) {
         throw new Error("Unable to auth with valid token");
@@ -35,7 +37,7 @@ describe("auth middleware test", () => {
     let token = jwt.sign({ id: userId }, process.env.JWT_SECRET as string);
     const req: any = { headers: { authorization: null } };
     req.headers.authorization = "Bearer " + token + "a";
-    let responseStatus;
+    let responseStatus: number;
     const res = {
       status: (newStatus) => {
         if (newStatus === 401) {
@@ -46,9 +48,10 @@ describe("auth middleware test", () => {
           };
         }
       },
-    };
+      locals: {},
+    } as Response<any, { userId: string }>;
     const next = () => {
-      if (req.userId === userId) {
+      if (res.locals.userId === userId) {
         throw new Error("authing with invalid token should not be successful");
       } else if (responseStatus === 401) {
         done();
@@ -57,26 +60,3 @@ describe("auth middleware test", () => {
     auth(req, res, next);
   });
 });
-
-// const auth = async (req, res, next) => {
-//   try {
-//     const token = req.headers.authorization.replace("Bearer ", "");
-//     const payload = jwt.verify(token, process.env.JWT_SECRET);
-//     req.userId = payload.id;
-//     next();
-//   } catch (e) {
-//     res.status(401).send({ error: "Please authenticate." });
-//   }
-// };
-
-// const proxyAuth = (req, res, next) => {
-//   const audioCookie = req.cookies.ac;
-
-//   if (audioCookie === process.env.AUDIO_JWT_SECRET) {
-//     next();
-//   } else {
-//     res.status(401).send({ error: "You need to authenticate." });
-//   }
-// };
-
-// module.exports = { auth, proxyAuth };

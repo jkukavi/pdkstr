@@ -2,14 +2,14 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-import supertest from "supertest";
+import supertest, { Test } from "supertest";
 import users from "models/user";
 import app from "app";
 import { connect, close } from "db";
 import { getRandomCode } from "utils";
 import { hashPasswordIn } from "models/helpers";
 
-const promisify = (Test) => {
+const promisify = (Test: Test) => {
   return new Promise((_res, _rej) => {
     Test.end((err, res) => {
       if (err) {
@@ -57,8 +57,11 @@ describe("User routes", () => {
   beforeAll(async () => {
     await connect();
     userWithHashedPassword = await hashPasswordIn(user);
-    const { insertedId } = await users.save(userWithHashedPassword);
-    id = insertedId.toString();
+    const insertionResult = await users.save(userWithHashedPassword);
+    if (!insertionResult) {
+      throw new Error("Unable to save user.");
+    }
+    id = insertionResult.insertedId.toString();
     await loginAgent();
   });
 

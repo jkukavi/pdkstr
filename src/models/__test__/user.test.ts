@@ -3,16 +3,17 @@ import { hashPasswordIn } from "../helpers";
 import { connect, close } from "db";
 
 describe("CRUD operations for users collection", () => {
-  const user: any = {
+  const user: AccountInfo = {
     email: "userModel@test",
+    username: "usernamio",
     password: "hello",
     history: [],
     favourites: [],
   };
-  let userWithHashedPassword;
+  let userWithHashedPassword = user;
   const dummyItem = { name: "bla", author: "bla" };
 
-  let id;
+  let id: string;
 
   beforeAll(async () => {
     await connect();
@@ -24,8 +25,13 @@ describe("CRUD operations for users collection", () => {
   });
 
   beforeEach(async () => {
-    const { insertedId } = await users.save(userWithHashedPassword);
-    id = insertedId.toString();
+    const insertionResult = await users.save(userWithHashedPassword);
+
+    if (!insertionResult) {
+      throw new Error("Unable to save user.");
+    }
+
+    id = insertionResult?.insertedId.toString();
   });
 
   afterEach(async () => {
@@ -36,6 +42,9 @@ describe("CRUD operations for users collection", () => {
 
   it("should find user from id", async () => {
     const retrievedUser = await users.findById(id);
+    if (!retrievedUser) {
+      throw new Error("Unable to find user from id.");
+    }
     expect(retrievedUser.email).toBe(user.email);
   });
 
@@ -44,6 +53,9 @@ describe("CRUD operations for users collection", () => {
       email: user.email,
       password: user.password,
     });
+    if (!retrievedUser) {
+      throw new Error("Unable to find user from credentials.");
+    }
     expect(retrievedUser.email).toBe(user.email);
   });
 

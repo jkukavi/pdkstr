@@ -12,13 +12,19 @@ import MiniLoader from "components/MiniLoader";
 import { PlayingQueue } from "../PlayingQueue";
 import PlayerControls from "./PlayerControls";
 
-export const Player = {
+const initialState = {
+  directUrl: null,
+  audioLoading: false,
   listeningTo: null,
-  audioLoading: null,
+};
+
+export const Player = {
+  ...initialState,
   updateState: null,
   playItem: async function (item) {
     const { id, engine, url } = item;
     this.updateState({ directUrl: null, audioLoading: true });
+    notify("Trying to fetch audio.");
     try {
       const directUrl = await fetchDirectUrl({ id, engine, url });
       this.updateState({
@@ -29,7 +35,11 @@ export const Player = {
       addToHistory(item);
       notify(`Listening to: ${item.title}`);
     } catch (e) {
-      notify("Something went wrong. Try again.");
+      this.updateState({
+        directUrl: null,
+        audioLoading: false,
+      });
+      notify(`Unable to fetch audio from ${engine}.`);
     }
   },
   notifySubscribers: () => {
@@ -48,12 +58,6 @@ export const Player = {
     if (index) Player.subscribers.splice(index, 1);
   },
   subscribers: [],
-};
-
-const initialState = {
-  directUrl: null,
-  audioLoading: false,
-  listeningTo: null,
 };
 
 const PlayerComponent = () => {

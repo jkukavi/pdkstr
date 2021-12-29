@@ -6,11 +6,12 @@ describe("CRUD operations for pending accounts collection", () => {
   const dummyPendingAccount = {
     activationCode: getRandomCode(),
     accountInfo: {
+      username: "userniiiam",
       email: "pendingAccount@test",
       password: "hello",
     },
   };
-  let id;
+  let id: any;
 
   beforeAll(async () => {
     await connect();
@@ -21,8 +22,14 @@ describe("CRUD operations for pending accounts collection", () => {
   });
 
   beforeEach(async () => {
-    const { insertedId } = await pendingAccounts.save(dummyPendingAccount);
-    id = insertedId.toString();
+    const insertionResult = await pendingAccounts.save(dummyPendingAccount);
+    if (!insertionResult) {
+      throw new Error(
+        "Unable to save pending account. Maybe a db connection issue?"
+      );
+    }
+
+    id = insertionResult.insertedId.toString();
   });
 
   afterEach(async () => {
@@ -55,6 +62,10 @@ describe("CRUD operations for pending accounts collection", () => {
       activationCode: dummyPendingAccount.activationCode,
     });
 
+    if (!retrievedPendingAccount) {
+      throw new Error("Unable to find saved account.");
+    }
+
     expect(retrievedPendingAccount.accountInfo.email).toBe(
       dummyPendingAccount.accountInfo.email
     );
@@ -66,13 +77,18 @@ describe("CRUD operations for pending accounts collection", () => {
       activationCode: dummyPendingAccount.activationCode,
     });
 
+    if (!retrievedAccount) {
+      throw new Error("Unable to fetch account from db.");
+    }
+
     await pendingAccounts.removeById(retrievedAccount._id.toString());
 
-    retrievedAccount = await pendingAccounts.findOne({
-      id,
-      activationCode: dummyPendingAccount.activationCode,
-    });
-
-    expect(retrievedAccount).toEqual(null);
+    try {
+      retrievedAccount = await pendingAccounts.findOne({
+        id,
+        activationCode: dummyPendingAccount.activationCode,
+      });
+      throw new Error();
+    } catch {}
   });
 });

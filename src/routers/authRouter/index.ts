@@ -6,9 +6,9 @@ import { sendActivationEmail } from "./mail";
 import { getRandomCode } from "utils";
 
 import {
-  refreshCookieOptions,
-  expiredCookieOptions,
   audioCookieOptions,
+  expiredCookieOptions,
+  refreshCookieOptions,
 } from "consts";
 
 const router = express.Router();
@@ -27,31 +27,41 @@ router.get("/logout", async (req: Request, res: Response) => {
   res.status(200).send();
 });
 
-router.post("/login", async (req: Request, res: Response) => {
-  const { email, password } = req.body;
+router.post(
+  "/login",
+  async (
+    req: Request<{}, any, { email: string; password: string }>,
+    res: Response
+  ) => {
+    const { email, password } = req.body;
 
-  try {
-    const user = await users.findByCredentials({ email, password });
+    try {
+      const user = await users.findByCredentials({ email, password });
 
-    const id = user._id.toString();
-    const token = jwt.sign({ id }, process.env.JWT_SECRET as string, {
-      expiresIn: "15m",
-    });
+      if (!user) {
+        throw new Error("Login unsuccessful.");
+      }
 
-    const refreshToken = jwt.sign({ id }, process.env.JWT_SECRET as string);
+      const id = user._id.toString();
+      const token = jwt.sign({ id }, process.env.JWT_SECRET as string, {
+        expiresIn: "15m",
+      });
 
-    res.cookie("rt", refreshToken, refreshCookieOptions);
-    res.cookie("ac", process.env.AUDIO_JWT_SECRET, audioCookieOptions);
+      const refreshToken = jwt.sign({ id }, process.env.JWT_SECRET as string);
 
-    res.status(200).json({ username: user.username, token });
-  } catch (e) {
-    res.status(401).send();
+      res.cookie("rt", refreshToken, refreshCookieOptions);
+      res.cookie("ac", process.env.AUDIO_JWT_SECRET, audioCookieOptions);
+
+      res.status(200).json({ username: user.username, token });
+    } catch (e) {
+      res.status(401).send();
+    }
   }
-});
+);
 
 router.get("/rt", async (req: Request, res: Response) => {
   try {
-    const refreshToken = req.cookies.rt;
+    const refreshToken = req.cookies.rt as string;
 
     const { id } = jwt.verify(
       refreshToken,
@@ -70,25 +80,31 @@ router.get("/rt", async (req: Request, res: Response) => {
   }
 });
 
-router.post("/register", async (req: Request, res: Response) => {
-  const user = req.body;
-  const activationCode = getRandomCode();
-  try {
-    const pendingAccount = await pendingAccounts.save({
-      accountInfo: user,
-      activationCode,
-    });
-    const pendingAccountId = pendingAccount.insertedId.toString();
-    await sendActivationEmail({
-      to: user.email,
-      pendingAccountId,
-      activationCode,
-    });
-    res.status(201).send();
-  } catch (e) {
-    res.status(400).send();
+router.post(
+  "/register",
+  async (req: Request<{}, any, UserInfo>, res: Response) => {
+    const user = req.body;
+    const activationCode = getRandomCode();
+    try {
+      const insertionResult = await pendingAccounts.save({
+        accountInfo: user,
+        activationCode,
+      });
+      if (!insertionResult) {
+        throw new Error("Unable to register at this time.");
+      }
+      const pendingAccountId = insertionResult.insertedId.toString();
+      await sendActivationEmail({
+        to: user.email,
+        pendingAccountId,
+        activationCode,
+      });
+      res.status(201).send();
+    } catch (e) {
+      res.status(400).send();
+    }
   }
-});
+);
 
 router.get(
   "/activate/:pendingAccountId/:activationCode",
@@ -100,9 +116,10 @@ router.get(
         id: pendingAccountId,
         activationCode,
       });
-
       if (!pendingAccount) {
-        throw new Error("Pending account not found.");
+        throw new Error(
+          "Unable to find the account you're trying to activate."
+        );
       }
 
       await pendingAccounts.removeById(pendingAccountId);

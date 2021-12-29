@@ -1,6 +1,6 @@
 import { close, connect } from "db";
 import { hashPasswordIn } from "models/helpers";
-import supertest from "supertest";
+import supertest, { Test } from "supertest";
 import { getRandomCode } from "utils";
 import users from "models/user";
 import app from "app";
@@ -10,8 +10,9 @@ process.env.SENDGRID_API_KEY = "SG.XXXX";
 
 describe("Auth routes", () => {
   const password = getRandomCode();
-  const user = {
+  const user: AccountInfo = {
     email: "authRouter@test",
+    username: "ussserr1",
     password,
     history: [],
     favourites: [],
@@ -23,8 +24,11 @@ describe("Auth routes", () => {
   beforeAll(async () => {
     await connect();
     userWithHashedPassword = await hashPasswordIn(user);
-    const { insertedId } = await users.save(userWithHashedPassword);
-    id = insertedId.toString();
+    const insertionResult = await users.save(userWithHashedPassword);
+    if (!insertionResult) {
+      throw new Error("unable to save user.");
+    }
+    id = insertionResult.insertedId.toString();
     process.env.JWT_SECRET = "žaba";
     process.env.SENDGRID_API_KEY = "SG.XXXX";
   });
@@ -79,7 +83,7 @@ describe("Auth routes", () => {
       });
   });
 
-  const promisify = (Test) => {
+  const promisify = (Test: Test) => {
     return new Promise((_res, _rej) => {
       Test.end((err, res) => {
         if (err) {

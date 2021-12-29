@@ -1,62 +1,71 @@
-import { doSth } from "db";
+import { useDatabase } from "db";
 import bcrypt from "bcrypt";
 import { ObjectId } from "mongodb";
 
-async function save(user) {
-  return doSth(async (db) => {
+async function save(user: AccountInfo) {
+  return useDatabase(async (db) => {
     return await db.collection("users").insertOne(user);
   });
 }
 
-async function findById(id) {
-  return doSth(async (db) => {
-    const user = await db
-      .collection("users")
+async function findById(id: string) {
+  return useDatabase(async (db) => {
+    return await db
+      .collection<AccountInfo>("users")
       .findOne({ _id: new ObjectId(id) });
-    return user;
   });
 }
 
-async function removeById(id) {
-  return doSth(async (db) => {
+async function removeById(id: string) {
+  return useDatabase(async (db) => {
     return await db.collection("users").deleteOne({ _id: new ObjectId(id) });
   });
 }
 
-async function findByCredentials({ email, password }) {
-  return doSth(async (db) => {
+async function findByCredentials({
+  email,
+  password,
+}: {
+  email: string;
+  password: string;
+}) {
+  return useDatabase(async (db) => {
     const user = await db.collection("users").findOne({ email });
+
     if (!user) {
-      throw new Error("Unable to authenticate.");
+      return null;
     }
+
     const isValid = await bcrypt.compare(password, user.password);
+
     if (!isValid) {
-      throw new Error("Unable to authenticate.");
+      return null;
     }
+
     return user;
   });
 }
 
-async function getMyHistory(id) {
-  return doSth(async (db) => {
-    const { history } = await db
+async function getMyHistory(id: string) {
+  return useDatabase(async (db) => {
+    const { history }: any = await db
       .collection("users")
       .findOne({ _id: new ObjectId(id) }, { projection: { history: 1 } });
     return history;
   });
 }
 
-async function getMyFavourites(id) {
-  return doSth(async (db) => {
-    const { favourites } = await db
+async function getMyFavourites(id: string) {
+  return useDatabase(async (db) => {
+    const { favourites }: any = await db
       .collection("users")
       .findOne({ _id: new ObjectId(id) }, { projection: { favourites: 1 } });
     return favourites;
   });
 }
 
-async function addItemToHistory(id, item) {
-  return doSth(async (db) => {
+async function addItemToHistory(id: string, item: any) {
+  return useDatabase(async (db) => {
     const response = await db
       .collection("users")
       .updateOne({ _id: new ObjectId(id) }, [
@@ -68,8 +77,8 @@ async function addItemToHistory(id, item) {
   });
 }
 
-async function addItemToFavourites(id, item) {
-  return doSth(async (db) => {
+async function addItemToFavourites(id: string, item: any) {
+  return useDatabase(async (db) => {
     const response = await db
       .collection("users")
       .updateOne({ _id: new ObjectId(id) }, [

@@ -3,7 +3,7 @@ import request from "request";
 
 let clientId = process.env.SOUNDCLOUD_API_KEY;
 
-function getUserTracks(userId, limit: any = 10) {
+function getUserTracks(userId: string, limit: any = 10) {
   return new Promise((resolve, rej) => {
     let userTracksURL =
       "https://api-v2.soundcloud.com/users/USER_ID_TERM/tracks?client_id=CLIENT_ID_TERM&limit=LIMIT_TERM";
@@ -27,7 +27,7 @@ function getUserTracks(userId, limit: any = 10) {
   });
 }
 
-function getUsersPlaylists(userId, limit: any = 20) {
+function getUsersPlaylists(userId: string, limit: any = 20) {
   return new Promise((resolve, rej) => {
     //playlists_without_albums
     //playlists
@@ -54,7 +54,7 @@ function getUsersPlaylists(userId, limit: any = 20) {
   });
 }
 
-function getSuggestions(searchString, limit: any = 10) {
+function getSuggestions(searchString: string, limit: any = 10) {
   return new Promise((resolve, rej) => {
     //playlists_without_albums
     //playlists
@@ -76,7 +76,7 @@ function getSuggestions(searchString, limit: any = 10) {
       res.on("end", () => {
         try {
           const response = JSON.parse(data).collection.map(
-            (suggestion) => suggestion.output
+            (suggestion: { output: string }) => suggestion.output
           );
           resolve(response);
         } catch (e) {
@@ -87,7 +87,7 @@ function getSuggestions(searchString, limit: any = 10) {
   });
 }
 
-async function getItemInfo(id) {
+async function getItemInfo(id: string) {
   // ili return (await getTracksInfo([id]))[0];
   return new Promise((resolve, rej) => {
     let tracksUrl =
@@ -106,7 +106,7 @@ async function getItemInfo(id) {
   });
 }
 
-function getTracksInfo(ids) {
+function getTracksInfo(ids: string[]) {
   return new Promise((resolve, rej) => {
     let tracksUrl =
       "https://api-v2.soundcloud.com/tracks?ids=IDS_TERM&client_id=CLIENT_ID_TERM";
@@ -131,13 +131,13 @@ function getTracksInfo(ids) {
   });
 }
 
-async function getPlaylistItems(id) {
+async function getPlaylistItems(id: string) {
   const trackIdsArray = await getPlaylistTrackIds(id);
   const playlistItems = await getTracksInfo(trackIdsArray);
   return playlistItems;
 }
 
-async function getPlaylistTrackIds(id) {
+async function getPlaylistTrackIds(id: string): Promise<string[]> {
   return new Promise(async (resolve, rej) => {
     let playlistUrl =
       "https://api-v2.soundcloud.com/playlists/PLAYLIST_ID_TERM?client_id=CLIENT_ID_TERM";
@@ -149,7 +149,7 @@ async function getPlaylistTrackIds(id) {
     try {
       request.get(playlistUrl, {}, (err, res, body) => {
         const playlistInfo = JSON.parse(body);
-        const trackIdsArray = playlistInfo.tracks.map((item) => item.id);
+        const trackIdsArray = playlistInfo.tracks.map((item: any) => item.id);
         resolve(trackIdsArray);
       });
     } catch (e) {
@@ -160,7 +160,7 @@ async function getPlaylistTrackIds(id) {
   });
 }
 
-function search(search, limit: any = 10) {
+function search(search: string, limit: any = 10) {
   return new Promise((res, rej) => {
     if (typeof search != "string") throw "Seach term is not type of string";
     if (isNaN(limit)) throw "Not a number";
@@ -233,9 +233,9 @@ export default {
   getDirectUrl,
 };
 
-const trackMapper = (item) => {
+const trackMapper = (item: any) => {
   const progressiveTranscoding = item.media.transcodings.find(
-    (item) => item.format.protocol === "progressive"
+    (item: any) => item.format.protocol === "progressive"
   );
 
   return {
@@ -264,7 +264,7 @@ const trackMapper = (item) => {
   };
 };
 
-const playlistMapper = (item) => {
+const playlistMapper = (item: any) => {
   return {
     // original_url: item.permalink_url,
     engine: "soundcloud",
@@ -291,7 +291,7 @@ const playlistMapper = (item) => {
   };
 };
 
-const intoHHMMSS = (durationMs) =>
+const intoHHMMSS = (durationMs: any) =>
   new Date(durationMs)
     .toISOString()
     .substr(11, 8)

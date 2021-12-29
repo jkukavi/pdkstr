@@ -2,13 +2,13 @@ import app from "app";
 import { close, connect } from "db";
 import dotenv from "dotenv";
 import { hashPasswordIn } from "models/helpers";
-import supertest from "supertest";
+import supertest, { Test } from "supertest";
 import { getRandomCode } from "utils";
 import users from "models/user";
 
 dotenv.config();
 
-const promisify = (Test) => {
+const promisify = (Test: Test) => {
   return new Promise((_res, _rej) => {
     Test.end((err, res) => {
       if (err) {
@@ -62,8 +62,11 @@ beforeAll(async () => {
   try {
     await connect();
     userWithHashedPassword = await hashPasswordIn(user);
-    const { insertedId } = await users.save(userWithHashedPassword);
-    id = insertedId.toString();
+    const insertionResult = await users.save(userWithHashedPassword);
+    if (!insertionResult) {
+      throw new Error("Unable to save user.");
+    }
+    id = insertionResult.insertedId.toString();
     await loginAgent();
   } catch (e) {
     throw new Error("Unable to connect do db or login the test user.");
@@ -94,7 +97,7 @@ describe("Testing soundcloud endpoints", () => {
         searchString: "idkjeffery",
       })
       .expect(200, (err, res) => {
-        const suggestions = res.body.suggestionsArray;
+        const suggestions = res.body.suggestionsArray as string[];
         expect(Array.isArray(suggestions)).toBe(true);
         expect(suggestions.every((item) => typeof item === "string")).toBe(
           true
