@@ -10,7 +10,7 @@ const LoginForm = ({ goBack }: { goBack: VoidFunction }) => {
   const { login } = useAuthContext();
   const { url } = useRouteMatch();
 
-  const tryLogging = async (e: React.FormEvent<HTMLFormElement>) => {
+  const tryLogging: React.FormEventHandler<HTMLFormElement> = async (e) => {
     setLoading(true);
     try {
       await login(e);

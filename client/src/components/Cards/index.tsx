@@ -9,8 +9,8 @@ import cardTypes from "./cardTypes";
 
 interface CardProps {
   searchArray: (Item | Playlist | Channel)[];
-  arrayLoading: boolean;
-  channelClickAction: VoidFunction;
+  arrayLoading?: boolean;
+  channelClickAction?: VoidFunction;
 }
 
 const Cards = ({
