@@ -2,7 +2,7 @@ import playIcon from "./icons/play.svg";
 import pauseIcon from "./icons/pause.svg";
 import { throttle } from "helpers";
 
-function prettyPrintSeconds(secondsWithRemainder) {
+function prettyPrintSeconds(secondsWithRemainder: number) {
   if (secondsWithRemainder === undefined) {
     return "N/A";
   }
@@ -25,11 +25,18 @@ function prettyPrintSeconds(secondsWithRemainder) {
   return prettyPrintedString;
 }
 
-function prefixWithZero(timeUnit) {
+function prefixWithZero(timeUnit: number) {
   return timeUnit < 10 ? "0" + timeUnit : String(timeUnit);
 }
 
-function addSecondsToTime(time, diff) {
+interface Time {
+  seconds: string | null;
+  minutes: string | null;
+  hours: string | null;
+  toString: () => string;
+}
+
+function addSecondsToTime(time: Time, diff: number) {
   let newSeconds = Number(time.seconds) + diff;
 
   if (newSeconds > 59) {
@@ -48,41 +55,58 @@ function addSecondsToTime(time, diff) {
 }
 
 export default function init() {
-  var myAudio = document.getElementById("my-audio");
-  var playButton = document.getElementById("playButton");
-  var progressBar = document.querySelector(".progress.bar");
-  var bufferBar = document.querySelector(".buffer.bar");
-  var barHolder = document.getElementById("barHolder");
-  var circleHolder = document.querySelector("#circleHolder");
-  var circle = document.querySelector("#circleHolder .circle");
-  var currentTime = document.getElementById("currentTime");
-  var cancelSeek = document.getElementById("cancelSeek");
-  var cancelSeekButton = document.querySelector("#cancelSeek .button");
-  var cancelSeekCurrentTime = document.querySelector(
+  const myAudio = document.getElementById("my-audio") as HTMLAudioElement;
+  const durationElement = document.getElementById("duration") as HTMLElement;
+  const playButton = document.getElementById("playButton") as HTMLElement;
+  const progressBar = document.querySelector(".progress.bar") as HTMLElement;
+  const bufferBar = document.querySelector(".buffer.bar") as HTMLElement;
+  const barHolder = document.getElementById("barHolder") as HTMLElement;
+  const circleHolder = document.querySelector("#circleHolder") as HTMLElement;
+  const circle = document.querySelector("#circleHolder .circle") as HTMLElement;
+  const currentTime = document.getElementById("currentTime") as HTMLElement;
+  const cancelSeek = document.getElementById("cancelSeek") as HTMLElement;
+  const cancelSeekButton = document.querySelector(
+    "#cancelSeek .button"
+  ) as HTMLElement;
+  const cancelSeekCurrentTime = document.querySelector(
     "#cancelSeek .currentTime"
-  );
-  var cancelSeekDuration = document.querySelector("#cancelSeek .duration");
+  ) as HTMLElement;
+  const cancelSeekDuration = document.querySelector(
+    "#cancelSeek .duration"
+  ) as HTMLElement;
 
   let playing = false;
 
-  const listeners = [];
+  type PointerEventListener = (e: PointerEvent) => void;
+  type Listener = EventListener | PointerEventListener;
 
-  function addEventListener(element, ...args) {
-    listeners.push({
-      element,
-      args,
-    });
+  type TrackedListener = {
+    element: Element;
+    type: keyof HTMLElementEventMap;
+    listener: Listener;
+    options?: AddEventListenerOptions;
+  };
 
-    element.addEventListener(...args);
+  const listeners: TrackedListener[] = [];
+
+  function addEventListener(
+    element: Element,
+    type: keyof HTMLElementEventMap,
+    listener: Listener,
+    options?: AddEventListenerOptions
+  ) {
+    listeners.push({ element, type, listener, options });
+
+    element.addEventListener(type, listener as EventListener, options);
   }
 
   function removeAllEventListeners() {
-    for (const { element, args } of listeners) {
-      element.removeEventListener(...args);
+    for (const { element, type, listener, options } of listeners) {
+      element.removeEventListener(type, listener as EventListener, options);
     }
   }
 
-  var time = {
+  var time: Time = {
     seconds: "00",
     minutes: "00",
     hours: "00",
@@ -93,14 +117,14 @@ export default function init() {
     },
   };
 
-  function initializeTime(prettyPrintedDuration) {
+  function initializeTime(prettyPrintedDuration: string) {
     const timeStringArray = prettyPrintedDuration.split(":");
     if (timeStringArray.length === 2) {
       time.hours = null;
     }
   }
 
-  function setTime(timeString) {
+  function setTime(timeString: string) {
     const timeArray = timeString.split(":");
     if (timeArray.length === 3) {
       time.seconds = timeArray[2] || null;
@@ -127,21 +151,23 @@ export default function init() {
 
   if (myAudio.readyState > 0) {
     const prettyPrintedDuration = prettyPrintSeconds(myAudio.duration);
-    document.getElementById("duration").innerHTML = prettyPrintedDuration;
-    cancelSeekDuration.innerHTML = prettyPrintedDuration;
+    if (durationElement) durationElement.innerHTML = prettyPrintedDuration;
+    if (cancelSeekDuration)
+      cancelSeekDuration.innerHTML = prettyPrintedDuration;
   } else {
     addEventListener(myAudio, "loadedmetadata", onLoadedMetadata);
   }
 
   function onLoadedMetadata() {
     const prettyPrintedDuration = prettyPrintSeconds(myAudio.duration);
-    document.getElementById("duration").innerHTML = prettyPrintedDuration;
+    durationElement.innerHTML = prettyPrintedDuration;
+
     cancelSeekDuration.innerHTML = prettyPrintedDuration;
     initializeTime(prettyPrintedDuration);
     initializeSingleSecondProgressPercentage();
   }
 
-  function playOrPause(e) {
+  const playOrPause: EventListener = (e) => {
     e.preventDefault();
     e.stopPropagation();
     if (playing) {
@@ -151,7 +177,7 @@ export default function init() {
       playButton.style.backgroundImage = `url(${pauseIcon})`;
       myAudio.play();
     }
-  }
+  };
 
   function playAudio() {
     playing = true;
@@ -167,9 +193,8 @@ export default function init() {
   addEventListener(myAudio, "play", playAudio);
   addEventListener(myAudio, "pause", pauseAudio);
 
-  var seeking = false;
-
-  let singleSecondProgressPercentage;
+  let seeking = false;
+  let singleSecondProgressPercentage: number;
   let currentProgressPercentage = 0;
   let currentSecond = 0;
 
@@ -230,17 +255,18 @@ export default function init() {
 
   addEventListener(myAudio, "progress", bufferBarUpdate);
 
-  let cancelSeekBoundingClientRect;
+  let cancelSeekBoundingClientRect: DOMRect;
   let isTouchingCancelSeek = false;
 
-  function setCancelSeekBoundingClientRect(clientRect) {
+  function setCancelSeekBoundingClientRect(clientRect: DOMRect) {
     cancelSeekBoundingClientRect = {
+      ...clientRect,
       top: Math.floor(clientRect.top),
       bottom: Math.floor(clientRect.bottom),
     };
   }
 
-  function touchInsideCancelSeek(e) {
+  function touchInsideCancelSeek(e: MouseEvent) {
     if (
       e.clientY > cancelSeekBoundingClientRect.top &&
       e.clientY < cancelSeekBoundingClientRect.bottom
@@ -250,7 +276,7 @@ export default function init() {
     return false;
   }
 
-  const nonThrottledUpdatePosition = (e) => {
+  const nonThrottledUpdatePosition = (e: PointerEvent) => {
     let newPercentage =
       ((e.pageX - barHolder.offsetLeft) / barHolder.clientWidth) * 100;
 
@@ -284,7 +310,7 @@ export default function init() {
 
   const updatePosition = throttle(nonThrottledUpdatePosition, 25);
 
-  function cancelSeekIsPressed(e) {
+  function cancelSeekIsPressed(e: PointerEvent) {
     if (e.pointerType === "mouse" && e.target === cancelSeekButton) {
       return true;
     } else if (e.pointerType === "touch") {
@@ -294,7 +320,7 @@ export default function init() {
     return false;
   }
 
-  const cleanup = (e) => {
+  const cleanup = (e: PointerEvent) => {
     seeking = false;
     window.removeEventListener("pointermove", updatePosition);
     window.removeEventListener("pointerup", cleanup);
@@ -329,7 +355,7 @@ export default function init() {
     circleHolder.style.left = `${currentProgressPercentage}%`;
   };
 
-  function handlePointerDown(e) {
+  function handlePointerDown(e: PointerEvent | Event) {
     e.preventDefault();
     e.stopPropagation();
 

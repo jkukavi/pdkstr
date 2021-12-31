@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { v4 as uuid } from "uuid";
 
 import { fetchDirectUrl, addToHistory } from "apiCalls";
@@ -108,28 +108,23 @@ const PlayerComponent = () => {
   return (
     <div className="audioPlayerContainer">
       <CustomPlayer
-        defaultAudioPlayer={
-          <audio
-            id="my-audio"
-            onEnded={onAudioEnded}
-            onError={onAudioError}
-            controls
-            autoPlay
-          >
-            <source src={directUrl} type="audio/webm" />
-            <source
-              src={`proxy/${encodeURIComponent(directUrl)}`}
-              type="audio/webm"
-            />
-          </audio>
-        }
+        onEnded={onAudioEnded}
+        onError={onAudioError}
+        controls
+        autoPlay
         currentlyPlaying={
           <>
             <SearchEngineIcon engine={listeningTo.engine} />
             {listeningTo.title}
           </>
         }
-      />
+      >
+        <source src={directUrl} type="audio/webm" />
+        <source
+          src={`proxy/${encodeURIComponent(directUrl)}`}
+          type="audio/webm"
+        />
+      </CustomPlayer>
       <PlayerControls />
     </div>
   );

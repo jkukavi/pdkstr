@@ -12,7 +12,7 @@ const debounce = (func: VoidFunction, wait: number) => {
     }
     timeout = setTimeout(() => {
       timeout = null;
-      func(args);
+      func(...args);
     }, wait);
   };
 };

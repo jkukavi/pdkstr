@@ -3,7 +3,17 @@ import "./index.css";
 
 import init from "./init";
 
-const Player = ({ defaultAudioPlayer, currentlyPlaying }) => {
+const Player = ({
+  currentlyPlaying,
+  children: sources,
+  ...audioProps
+}: {
+  currentlyPlaying: JSX.Element;
+  children: React.ReactNode;
+} & React.DetailedHTMLProps<
+  React.AudioHTMLAttributes<HTMLAudioElement>,
+  HTMLAudioElement
+>) => {
   useEffect(() => {
     const cleanup = init();
     return cleanup;
@@ -11,7 +21,13 @@ const Player = ({ defaultAudioPlayer, currentlyPlaying }) => {
 
   return (
     <>
-      <div style={{ display: "none" }}>{defaultAudioPlayer}</div>
+      <div style={{ display: "none" }}>
+        {
+          <audio id="my-audio" {...audioProps}>
+            {sources}
+          </audio>
+        }
+      </div>
 
       <div id="player">
         <div className="playerInfo">
