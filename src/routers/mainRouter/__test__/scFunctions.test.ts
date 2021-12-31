@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import scHandlers from "./scFunctions";
+import scHandlers from "../handlers/scFunctions";
 
 dotenv.config();
 

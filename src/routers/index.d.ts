@@ -13,3 +13,5 @@ interface PendingAccount {
   accountInfo: AccountInfo;
   activationCode: string;
 }
+
+declare module "yt-channel-info";

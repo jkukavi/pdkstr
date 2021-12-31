@@ -4,12 +4,13 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
-    "start": "NODE_PATH=./dist NODE_ENV=production node dist/index.js",
+    "start": "NODE_PATH=./dist node --enable-source-maps dist/index.js",
     "test": "NODE_PATH=./src NODE_ENV=test jest",
     "build": "npx tsc --project ./tsconfig.json",
     "build-client": "cd client && yarn && yarn build",
     "heroku-postbuild": "yarn build && yarn test && yarn build-client ",
-    "dev": "NODE_ENV=development npx nodemon node_modules/.bin/ts-node --files -r dotenv/config ./src/index.ts"
+    "dev": "NODE_ENV=development npx nodemon node_modules/.bin/ts-node --files -r dotenv/config ./src/index.ts",
+    "start-built-dev": "NODE_PATH=./dist node --enable-source-maps -r dotenv/config dist/index.js"
   },
   "engines": {
     "node": "14.17.5",
