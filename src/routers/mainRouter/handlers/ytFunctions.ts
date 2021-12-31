@@ -9,14 +9,16 @@ const COOKIE = process.env.YT_COOKIE;
 type Mapper = (Item: Video | Channel | Playlist) => any;
 
 const searchMappers = {
-  video: (item: Video) => item,
+  video: (item: Video) => ({
+    ...item,
+    author: { ...item.author, type: "channel" },
+  }),
   channel: (item: Channel) => item,
   playlist: (item: Playlist) => ({
     ...item,
     id: item.playlistID,
     thumbnails: item.firstVideo?.thumbnails,
     playlistLength: item.length,
-    engine: "youtube",
   }),
 };
 
