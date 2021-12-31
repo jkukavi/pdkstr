@@ -254,6 +254,8 @@ const trackMapper = (item: any) => {
     duration: intoHHMMSS(item.duration),
     uploadedAt: item.created_at.substring(0, 10),
     author: {
+      engine: "soundcloud",
+      type: "channel",
       url: item.user.permalink_url,
       id: item.user.id,
       name: item.user.username,
@@ -280,6 +282,8 @@ const playlistMapper = (item: any) => {
     duration: intoHHMMSS(item.duration),
     uploadedAt: item.created_at.substring(0, 10),
     author: {
+      engine: "soundcloud",
+      type: "channel",
       url: item.user.permalink_url,
       id: item.user.id,
       name: item.user.username,

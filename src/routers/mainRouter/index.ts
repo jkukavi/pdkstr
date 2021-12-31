@@ -121,8 +121,6 @@ app.post("/playlist/:engine", async (req: Request, res: Response) => {
   }
 });
 
-type functionType = "getChannelItems" | "getChannelPlaylists";
-
 app.post(
   "/:engine/channel/:itemType",
   async (
@@ -135,16 +133,14 @@ app.post(
     const { engine, itemType } = req.params;
     const { channelId } = req.body;
 
-    const getChannel: {
-      [prop: string]: functionType;
-    } = {
-      items: "getChannelItems",
-      playlists: "getChannelPlaylists",
-    };
+    const selectedEngine = engines[engine];
 
-    const getChannelData = engines[engine][getChannel[itemType]];
+    const getRequestedChannelData = {
+      items: selectedEngine.getChannelItems,
+      playlists: selectedEngine.getChannelPlaylists,
+    }[itemType];
 
-    const searchResultsArray = await getChannelData(channelId);
+    const searchResultsArray = await getRequestedChannelData(channelId);
     if (searchResultsArray) {
       res.status(200).json({ searchResultsArray });
     } else {
