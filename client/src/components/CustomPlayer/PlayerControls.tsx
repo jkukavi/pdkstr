@@ -5,7 +5,7 @@ import forward5 from "icons/forward5.svg";
 import forward10 from "icons/forward10.svg";
 import forward30 from "icons/forward30.svg";
 
-import { ExpandButton } from "../ExpandableContainer";
+import { ExpandButton } from "../AudioShelf/ExpandableContainer";
 
 const replay = (time: number) => () => {
   const audioPlayer = document.getElementById("my-audio") as HTMLAudioElement;

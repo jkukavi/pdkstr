@@ -54,7 +54,19 @@ function addSecondsToTime(time: Time, diff: number) {
   return time.toString();
 }
 
-export default function init() {
+type PointerEventListener = (e: PointerEvent) => void;
+type Listener = EventListener | PointerEventListener;
+
+type TrackedListener = {
+  element: Element;
+  type: keyof HTMLElementEventMap;
+  listener: Listener;
+  options?: AddEventListenerOptions;
+};
+
+const listeners: TrackedListener[] = [];
+
+export function init() {
   const myAudio = document.getElementById("my-audio") as HTMLAudioElement;
   const durationElement = document.getElementById("duration") as HTMLElement;
   const playButton = document.getElementById("playButton") as HTMLElement;
@@ -76,18 +88,6 @@ export default function init() {
   ) as HTMLElement;
 
   let playing = false;
-
-  type PointerEventListener = (e: PointerEvent) => void;
-  type Listener = EventListener | PointerEventListener;
-
-  type TrackedListener = {
-    element: Element;
-    type: keyof HTMLElementEventMap;
-    listener: Listener;
-    options?: AddEventListenerOptions;
-  };
-
-  const listeners: TrackedListener[] = [];
 
   function addEventListener(
     element: Element,
@@ -370,6 +370,61 @@ export default function init() {
   }
 
   addEventListener(barHolder, "pointerdown", handlePointerDown);
+
+  return () => {
+    removeAllEventListeners();
+  };
+}
+
+export function initDefault() {
+  const myAudio = document.getElementById("my-audio") as HTMLAudioElement;
+  const playButton = document.getElementById("playButton") as HTMLElement;
+  let playing = false;
+
+  const listeners: TrackedListener[] = [];
+
+  function addEventListener(
+    element: Element,
+    type: keyof HTMLElementEventMap,
+    listener: Listener,
+    options?: AddEventListenerOptions
+  ) {
+    listeners.push({ element, type, listener, options });
+
+    element.addEventListener(type, listener as EventListener, options);
+  }
+
+  function removeAllEventListeners() {
+    for (const { element, type, listener, options } of listeners) {
+      element.removeEventListener(type, listener as EventListener, options);
+    }
+  }
+
+  const playOrPause: EventListener = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (playing) {
+      playButton.style.backgroundImage = `url(${playIcon})`;
+      myAudio.pause();
+    } else {
+      playButton.style.backgroundImage = `url(${pauseIcon})`;
+      myAudio.play();
+    }
+  };
+
+  function playAudio() {
+    playing = true;
+    playButton.style.backgroundImage = `url(${pauseIcon})`;
+  }
+
+  function pauseAudio() {
+    playing = false;
+    playButton.style.backgroundImage = `url(${playIcon})`;
+  }
+
+  addEventListener(playButton, "click", playOrPause);
+  addEventListener(myAudio, "play", playAudio);
+  addEventListener(myAudio, "pause", pauseAudio);
 
   return () => {
     removeAllEventListeners();

@@ -10,7 +10,6 @@ import { notify } from "components/Notifications";
 import MiniLoader from "components/MiniLoader";
 
 import { PlayingQueue } from "../PlayingQueue";
-import PlayerControls from "./PlayerControls";
 
 const initialState: InitialState = {
   directUrl: null,
@@ -135,7 +134,6 @@ const PlayerComponent = () => {
         <source src={directUrl} />
         <source src={`proxy/${encodeURIComponent(directUrl)}`} />
       </CustomPlayer>
-      <PlayerControls />
     </div>
   );
 };

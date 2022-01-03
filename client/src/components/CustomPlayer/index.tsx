@@ -1,7 +1,21 @@
 import React, { useEffect } from "react";
 import "./index.css";
+import PlayerControls from "./PlayerControls";
 
-import init from "./init";
+import { init, initDefault } from "./init";
+
+const isPointerSupported = (() => {
+  let isPointerSupported;
+
+  try {
+    new PointerEvent("");
+    isPointerSupported = true;
+  } catch {
+    isPointerSupported = false;
+  }
+
+  return isPointerSupported;
+})();
 
 const Player = ({
   currentlyPlaying,
@@ -15,9 +29,25 @@ const Player = ({
   HTMLAudioElement
 >) => {
   useEffect(() => {
-    const cleanup = init();
-    return cleanup;
+    if (!isPointerSupported) {
+      const cleanup = initDefault();
+      return cleanup;
+    } else {
+      const cleanup = init();
+      return cleanup;
+    }
   }, []);
+
+  if (!isPointerSupported) {
+    return (
+      <>
+        <audio id="my-audio" {...audioProps} style={{ height: "40px" }}>
+          {sources}
+        </audio>
+        <PlayerControls />
+      </>
+    );
+  }
 
   return (
     <>
@@ -87,6 +117,7 @@ const Player = ({
           </div>
         </div>
       </div>
+      <PlayerControls />
     </>
   );
 };
