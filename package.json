@@ -10,7 +10,7 @@
     "build-client": "cd client && yarn && yarn build",
     "heroku-postbuild": "yarn build && yarn test && yarn build-client ",
     "dev": "NODE_ENV=development npx nodemon node_modules/.bin/ts-node --files -r dotenv/config ./src/index.ts",
-    "start-built-dev": "NODE_PATH=./dist node --enable-source-maps -r dotenv/config dist/index.js"
+    "startdb": "MONGOMS_DEBUG=1 npx ts-node startLocalserver.ts"
   },
   "engines": {
     "node": "14.17.5",
