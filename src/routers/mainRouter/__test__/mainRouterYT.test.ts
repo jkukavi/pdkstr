@@ -121,7 +121,7 @@ describe("Testing youtube endpoints", () => {
       })
       .expect(200, (err, res) => {
         const { directUrl } = res.body;
-        expect(typeof directUrl).toBe("string");
+        expect(typeof directUrl[0].url).toBe("string");
         done();
       });
   });

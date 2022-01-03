@@ -19,8 +19,13 @@ const initialState: InitialState = {
   subscribers: [],
 };
 
+type DirectUrl = {
+  url: string;
+  mimeType: string;
+};
+
 interface InitialState {
-  directUrl: string | null;
+  directUrl: null | string;
   audioLoading: boolean;
   listeningTo: Item | null;
   subscribers: { id: string; fn: VoidFunction }[];
@@ -38,6 +43,13 @@ interface VoidFunction {
   (args?: any): void;
 }
 
+const audioTestElement = new Audio();
+
+const probablyCouldBePlayed = (media: DirectUrl): boolean => {
+  const couldBePlayed = audioTestElement.canPlayType(media.mimeType);
+  return !!couldBePlayed;
+};
+
 export const Player: PlayerInterface = {
   ...initialState,
   updateState: () => {},
@@ -46,9 +58,10 @@ export const Player: PlayerInterface = {
     this.updateState({ directUrl: null, audioLoading: true });
     notify("Trying to fetch audio.");
     try {
-      const directUrl = await fetchDirectUrl({ id, engine, url });
+      const directUrls = await fetchDirectUrl({ id, engine, url });
+      const playableMedia = directUrls.filter(probablyCouldBePlayed);
       this.updateState({
-        directUrl,
+        directUrl: playableMedia[0].url,
         audioLoading: false,
         listeningTo: item,
       });
@@ -119,11 +132,8 @@ const PlayerComponent = () => {
           </>
         }
       >
-        <source src={directUrl} type="audio/webm" />
-        <source
-          src={`proxy/${encodeURIComponent(directUrl)}`}
-          type="audio/webm"
-        />
+        <source src={directUrl} />
+        <source src={`proxy/${encodeURIComponent(directUrl)}`} />
       </CustomPlayer>
       <PlayerControls />
     </div>

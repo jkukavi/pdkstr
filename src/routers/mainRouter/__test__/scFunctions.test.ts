@@ -21,11 +21,11 @@ describe("Testing soundcloud scraper", () => {
   });
 
   test("should return direct url when given item id", async () => {
-    const directUrl = await scHandlers.getDirectUrl(
+    const directUrls: any = await scHandlers.getDirectUrls(
       soundcloudDummyData.itemId,
       null
     );
-    expect(typeof directUrl === "string").toBe(true);
+    expect(typeof directUrls[0].url).toBe("string");
   });
 
   it("should return playlist items when given soundcloud playlist Id", async () => {

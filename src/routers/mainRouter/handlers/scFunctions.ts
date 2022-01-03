@@ -203,12 +203,12 @@ function search(search: string, limit: any = 10) {
   });
 }
 
-const getDirectUrl = async (id: any, fromUrl: any) => {
+const getDirectUrls = async (id: any, fromUrl: any) => {
   const url = fromUrl || ((await getItemInfo(id)) as any).url;
 
   return new Promise((resolve, rej) => {
     request.get(`${url}?client_id=${clientId}`, {}, (err, res, body) => {
-      resolve(JSON.parse(body).url);
+      resolve([{ url: JSON.parse(body).url, mimeType: "audio/mpeg" }]);
     });
   });
 };
@@ -230,7 +230,7 @@ export default {
   getChannelItems: getUserTracks,
   getChannelPlaylists: getUsersPlaylists,
   getSuggestions,
-  getDirectUrl,
+  getDirectUrls,
 };
 
 const trackMapper = (item: any) => {

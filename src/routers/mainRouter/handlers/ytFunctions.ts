@@ -86,7 +86,7 @@ const getSuggestions = async (searchString: string) => {
   return mappedSugesstions;
 };
 
-const getDirectUrl = async (id: string) => {
+const getDirectUrls = async (id: string) => {
   let info = await ytdl.getInfo(id, {
     requestOptions: {
       headers: {
@@ -94,11 +94,13 @@ const getDirectUrl = async (id: string) => {
       },
     },
   });
-  let format = ytdl.chooseFormat(info.formats, {
-    quality: "lowest",
-    filter: "audioonly",
-  });
-  return format.url;
+  let formats = ytdl.filterFormats(info.formats, "audioonly");
+
+  const mappedFormats = formats.reverse().map((format) => ({
+    url: format.url,
+    mimeType: format.mimeType,
+  }));
+  return mappedFormats;
 };
 
 const getPlaylistVideos = async (playlistId: string) => {
@@ -183,7 +185,7 @@ const getChannelPlaylists = async (channelId: string) => {
 };
 
 export default {
-  getDirectUrl,
+  getDirectUrls,
   search,
   getPlaylistItems: getPlaylistVideos,
   getChannelItems: getChannelVideos,

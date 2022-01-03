@@ -3,7 +3,7 @@ import youtubeHandlers from "./handlers/ytFunctions";
 import soundcloudHandlers from "./handlers/scFunctions";
 
 interface Engine {
-  getDirectUrl: any;
+  getDirectUrls: any;
   search: any;
   getPlaylistItems: any;
   getChannelItems: any;
@@ -32,10 +32,10 @@ app.post(
     }
 
     const { id, fromUrl } = req.body;
-    const { getDirectUrl } = engines[engine];
+    const { getDirectUrls } = engines[engine];
 
     try {
-      var directUrl = await getDirectUrl(id, fromUrl);
+      var directUrl = await getDirectUrls(id, fromUrl);
       if (directUrl) {
         res.status(200).json({ directUrl });
       } else {

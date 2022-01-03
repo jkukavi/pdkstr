@@ -106,7 +106,7 @@ describe("Testing soundcloud endpoints", () => {
       });
   });
 
-  test("should return direct url when given item id", (done) => {
+  test.only("should return direct url when given item id", (done) => {
     agent
       .post("/api/url/soundcloud")
       .send({
@@ -114,7 +114,7 @@ describe("Testing soundcloud endpoints", () => {
       })
       .expect(200, (err, res) => {
         const { directUrl } = res.body;
-        expect(typeof directUrl).toBe("string");
+        expect(typeof directUrl[0].url).toBe("string");
         done();
       });
   });
