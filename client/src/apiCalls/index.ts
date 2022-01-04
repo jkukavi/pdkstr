@@ -143,7 +143,6 @@ const channelInfoFromItem = (item: any) => {
 
 export const getChannelItems = async (item: AnyItem) => {
   const path = paths.channelItems[item.engine];
-  debugger;
 
   const channelId = channelIdFromItem(item);
   const channelInfo = channelInfoFromItem(item);

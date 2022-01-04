@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import chevron from "icons/chevron.svg";
 
@@ -18,24 +18,32 @@ const DropDown = ({
 }) => {
   const [dropdown, setDropdown] = useState(false);
 
-  const handlePointerDown = (
-    e: React.PointerEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>
+  let blurHappened = useRef(false);
+
+  const dropDownElement = useRef<HTMLDivElement>(null);
+
+  const handleClick = (
+    e:
+      | React.PointerEvent<HTMLDivElement>
+      | React.KeyboardEvent<HTMLDivElement>
+      | React.MouseEvent<HTMLDivElement>
   ) => {
     e.preventDefault();
-    setDropdown((dropdown) => !dropdown);
-    if (!dropdown) {
-      setTimeout(() => document.getElementById("alternateEngines")?.focus(), 0);
+
+    if (blurHappened.current) {
+      blurHappened.current = false;
+      return;
     }
+
+    setDropdown(true);
+    setTimeout(() => {
+      dropDownElement.current?.focus();
+    });
   };
+
   return (
     <div className={"dropDownContainer"}>
-      <div
-        className={"dropDownIcon active"}
-        tabIndex={0}
-        onPointerDown={handlePointerDown}
-        //so it can be opened with keyboard
-        onKeyPress={handlePointerDown}
-      >
+      <div className={"dropDownIcon active"} tabIndex={0} onClick={handleClick}>
         {frontItem}
 
         <img className="chevron" src={chevron} alt="alt" />
@@ -46,8 +54,12 @@ const DropDown = ({
           tabIndex={0}
           onBlur={() => {
             setDropdown(false);
+            blurHappened.current = true;
+            setTimeout(() => {
+              blurHappened.current = false;
+            }, 500);
           }}
-          id="alternateEngines"
+          ref={dropDownElement}
           className="dropDown"
         >
           {dropdownItems.map(({ component, onClick }) => (
