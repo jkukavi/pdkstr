@@ -106,7 +106,7 @@ describe("Testing soundcloud endpoints", () => {
       });
   });
 
-  test.only("should return direct url when given item id", (done) => {
+  test("should return direct url when given item id", (done) => {
     agent
       .post("/api/url/soundcloud")
       .send({

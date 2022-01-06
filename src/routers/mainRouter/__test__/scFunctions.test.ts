@@ -10,14 +10,18 @@ const soundcloudDummyData = {
 };
 
 describe("Testing soundcloud scraper", () => {
-  test("should return results for search", async () => {
+  test("should return search results", async () => {
     const searchResultsArray = await scHandlers.search("idkjeffery");
+
     expect(Array.isArray(searchResultsArray)).toBe(true);
   });
 
-  test("should return array of string suggestions when given string", async () => {
+  test("should return array of search suggestions when given search string", async () => {
     const suggestions = await scHandlers.getSuggestions("idkjeffery");
     expect(Array.isArray(suggestions)).toBe(true);
+    expect(
+      suggestions.every((suggestion: any) => typeof suggestion === "string")
+    ).toBe(true);
   });
 
   test("should return direct url when given item id", async () => {
