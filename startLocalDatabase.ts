@@ -2,7 +2,7 @@ import { MongoMemoryServer } from "mongodb-memory-server";
 
 import { MongoClient } from "mongodb";
 
-const startServer = async () => {
+const startLocalDatabase = async () => {
   const mongod = new MongoMemoryServer({
     instance: {
       port: 27017, // by default choose any free port
@@ -90,4 +90,4 @@ const startServer = async () => {
   await connection.close();
 };
 
-startServer();
+startLocalDatabase();
