@@ -1,9 +1,9 @@
-import replay5 from "icons/replay5.svg";
-import replay10 from "icons/replay10.svg";
-import replay30 from "icons/replay30.svg";
-import forward5 from "icons/forward5.svg";
-import forward10 from "icons/forward10.svg";
-import forward30 from "icons/forward30.svg";
+import replay5 from "./icons/replay5.svg";
+import replay10 from "./icons/replay10.svg";
+import replay30 from "./icons/replay30.svg";
+import forward5 from "./icons/forward5.svg";
+import forward10 from "./icons/forward10.svg";
+import forward30 from "./icons/forward30.svg";
 
 import { ExpandButton } from "../AudioShelf/ExpandableContainer";
 
