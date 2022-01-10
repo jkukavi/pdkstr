@@ -1,0 +1,102 @@
+[
+    {
+        "scope": "https://api-v2.soundcloud.com:443",
+        "method": "GET",
+        "path": "/search/queries?q=idkjeffery&client_id=atkWGyMg57QFFAwK5c9VpC1N5Q141g7I&limit=10",
+        "body": "",
+        "status": 200,
+        "response": {
+            "collection": [
+                {
+                    "output": "idkjeffery rape rape",
+                    "query": "idkjeffery rape rape"
+                },
+                {
+                    "output": "idkjeffery dont trust jeffery",
+                    "query": "idkjeffery dont trust jeffery"
+                },
+                {
+                    "output": "idkjeffery texas",
+                    "query": "idkjeffery texas"
+                },
+                {
+                    "output": "idk jeffery",
+                    "query": "idk jeffery"
+                }
+            ],
+            "next_href": null,
+            "query_urn": "soundcloud:search-autocomplete:db6ce536c4594da19e3d3b3b681b862c"
+        },
+        "rawHeaders": [
+            "Content-Type",
+            "application/json; charset=utf-8",
+            "Content-Length",
+            "363",
+            "Connection",
+            "close",
+            "Date",
+            "Mon, 10 Jan 2022 08:36:59 GMT",
+            "x-robots-tag",
+            "noindex",
+            "Cache-Control",
+            "max-age=86400, must-revalidate",
+            "referrer-policy",
+            "no-referrer",
+            "x-frame-options",
+            "DENY",
+            "x-content-type-options",
+            "nosniff",
+            "strict-transport-security",
+            "max-age=63072000",
+            "Server",
+            "am/2",
+            "Vary",
+            "Origin",
+            "X-Cache",
+            "Hit from cloudfront",
+            "Via",
+            "1.1 5626bf35345f32d3e58fb8d33ec4d967.cloudfront.net (CloudFront)",
+            "X-Amz-Cf-Pop",
+            "FRA56-P3",
+            "X-Amz-Cf-Id",
+            "5UzQSeZlpLpUZIm_3k46aDaBgxJr-8q7tGokK1v5oqO3gXojgkM6pA==",
+            "Age",
+            "482"
+        ],
+        "responseIsBinary": false
+    },
+    {
+        "scope": "http://127.0.0.1:42763",
+        "method": "POST",
+        "path": "/api/suggestions/soundcloud",
+        "body": {
+            "searchString": "idkjeffery"
+        },
+        "status": 200,
+        "response": {
+            "suggestionsArray": [
+                "idkjeffery rape rape",
+                "idkjeffery dont trust jeffery",
+                "idkjeffery texas",
+                "idk jeffery"
+            ]
+        },
+        "rawHeaders": [
+            "X-Powered-By",
+            "Express",
+            "Content-Security-Policy",
+            "default-src 'self';script-src 'self' example.com;img-src 'self' i.ytimg.com yt3.ggpht.com hips.hearstapps.com i1.sndcdn.com;media-src 'self' *.googlevideo.com *.sndcdn.com;font-src fonts.googleapis.com fonts.gstatic.com;style-src-elem 'self' fonts.googleapis.com fonts.gstatic.com",
+            "Content-Type",
+            "application/json; charset=utf-8",
+            "Content-Length",
+            "110",
+            "ETag",
+            "W/\"6e-wzbKcEVK+uGUnSqAMTT3u45CMWg\"",
+            "Date",
+            "Mon, 10 Jan 2022 08:45:00 GMT",
+            "Connection",
+            "close"
+        ],
+        "responseIsBinary": false
+    }
+]

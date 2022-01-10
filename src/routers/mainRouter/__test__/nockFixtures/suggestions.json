@@ -1,0 +1,66 @@
+[
+    {
+        "scope": "https://api-v2.soundcloud.com:443",
+        "method": "GET",
+        "path": "/search/queries?q=idkjeffery&client_id=atkWGyMg57QFFAwK5c9VpC1N5Q141g7I&limit=10",
+        "body": "",
+        "status": 200,
+        "response": {
+            "collection": [
+                {
+                    "output": "idkjeffery rape rape",
+                    "query": "idkjeffery rape rape"
+                },
+                {
+                    "output": "idkjeffery dont trust jeffery",
+                    "query": "idkjeffery dont trust jeffery"
+                },
+                {
+                    "output": "idkjeffery texas",
+                    "query": "idkjeffery texas"
+                },
+                {
+                    "output": "idk jeffery",
+                    "query": "idk jeffery"
+                }
+            ],
+            "next_href": null,
+            "query_urn": "soundcloud:search-autocomplete:e0cfc2ea678a4a5bbfbad80e9452e8fc"
+        },
+        "rawHeaders": [
+            "Content-Type",
+            "application/json; charset=utf-8",
+            "Content-Length",
+            "363",
+            "Connection",
+            "close",
+            "Date",
+            "Mon, 10 Jan 2022 06:46:32 GMT",
+            "x-robots-tag",
+            "noindex",
+            "Cache-Control",
+            "max-age=86400, must-revalidate",
+            "referrer-policy",
+            "no-referrer",
+            "x-frame-options",
+            "DENY",
+            "x-content-type-options",
+            "nosniff",
+            "strict-transport-security",
+            "max-age=63072000",
+            "Server",
+            "am/2",
+            "Vary",
+            "Origin",
+            "X-Cache",
+            "Miss from cloudfront",
+            "Via",
+            "1.1 7395d1816622756cd6753f5e1281200c.cloudfront.net (CloudFront)",
+            "X-Amz-Cf-Pop",
+            "FRA60-P3",
+            "X-Amz-Cf-Id",
+            "64WHLvQXUV860_aK1VhKSLIss7hOrujgRG380IbGHI-nMmu9h7pKhg=="
+        ],
+        "responseIsBinary": false
+    }
+]

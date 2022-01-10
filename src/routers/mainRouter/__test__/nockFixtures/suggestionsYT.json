@@ -1,0 +1,88 @@
+[
+    {
+        "scope": "https://clients1.google.com:443",
+        "method": "GET",
+        "path": "/complete/search?client=youtube&gs_ri=youtube&ds=yt&q=idkjeffery",
+        "body": "",
+        "status": 200,
+        "response": [
+            "1f",
+            "8b08000000000002ff7590c16ac33010447f45e8d480308e0b6d9d5ba05072e835105c1fd6d64ade58961a498e134affbd399514bac7e53d98995dc8ebb0143604ebb080be181e1a497a3ca23118af5235f7a7c8d74f141d4296aa54cdba6e5bf5875fe04c18c5323bc3183af88fb92cabe72c729c5316bf49ffea192f90180626dfb2863047ced09438348418a973c861ca62426128266e2b6898aa8a81fddc070619f2e07b02278034e3904fb7ef4ce8333846b1744691074cdc84ce413f3abaebdfaa2f39cacd5ac993dc48fb02eff0fa54d787d37458d2b6db829df68f6f7abf93dfedea078037e3ce1a020000"
+        ],
+        "rawHeaders": [
+            "Date",
+            "Mon, 10 Jan 2022 08:28:57 GMT",
+            "Expires",
+            "Mon, 10 Jan 2022 08:28:57 GMT",
+            "Cache-Control",
+            "private, max-age=3600",
+            "Content-Type",
+            "text/javascript; charset=UTF-8",
+            "Content-Disposition",
+            "attachment; filename=\"f.txt\"",
+            "Content-Encoding",
+            "gzip",
+            "Server",
+            "gws",
+            "X-XSS-Protection",
+            "0",
+            "X-Frame-Options",
+            "SAMEORIGIN",
+            "Set-Cookie",
+            "CONSENT=PENDING+739; expires=Wed, 10-Jan-2024 08:28:57 GMT; path=/; domain=.google.com; Secure",
+            "P3P",
+            "CP=\"This is not a P3P policy! See g.co/p3phelp for more info.\"",
+            "Alt-Svc",
+            "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"",
+            "Connection",
+            "close",
+            "Transfer-Encoding",
+            "chunked"
+        ],
+        "responseIsBinary": false
+    },
+    {
+        "scope": "http://127.0.0.1:35873",
+        "method": "POST",
+        "path": "/api/suggestions/youtube",
+        "body": {
+            "searchString": "idkjeffery"
+        },
+        "status": 200,
+        "response": {
+            "suggestionsArray": [
+                "idkjeffery type beat",
+                "idkjeffery xavier wulf",
+                "idkjeffery don't trust jeffery",
+                "idkjeffery texas",
+                "idkjeffery after hours",
+                "idkjeffery diss",
+                "idkjeffery horrible",
+                "idkjeffery hit me first",
+                "idkjeffery adam22",
+                "idkjeffery cuco",
+                "idkjeffery financial aid",
+                "idkjeffery instrumental",
+                "idkjeffery give these",
+                "idkjeffery blacklist"
+            ]
+        },
+        "rawHeaders": [
+            "X-Powered-By",
+            "Express",
+            "Content-Security-Policy",
+            "default-src 'self';script-src 'self' example.com;img-src 'self' i.ytimg.com yt3.ggpht.com hips.hearstapps.com i1.sndcdn.com;media-src 'self' *.googlevideo.com *.sndcdn.com;font-src fonts.googleapis.com fonts.gstatic.com;style-src-elem 'self' fonts.googleapis.com fonts.gstatic.com",
+            "Content-Type",
+            "application/json; charset=utf-8",
+            "Content-Length",
+            "351",
+            "ETag",
+            "W/\"15f-+PGm8kve/8dx/jOzc3KmTJEgSb8\"",
+            "Date",
+            "Mon, 10 Jan 2022 08:28:56 GMT",
+            "Connection",
+            "close"
+        ],
+        "responseIsBinary": false
+    }
+]
