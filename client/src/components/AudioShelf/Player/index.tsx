@@ -5,9 +5,11 @@ import { fetchDirectUrl, addToHistory } from "apiCalls";
 import { SearchEngineIcon } from "consts";
 import useConnectPropsToObserver from "hooks/useConnectPropsToObserver";
 
-import CustomPlayer from "components/CustomPlayer";
+import { Audio as AudioElement } from "@mikivela/plyr/dist";
+import "@mikivela/plyr/dist/index.css";
 import { notify } from "components/Notifications";
 import MiniLoader from "components/MiniLoader";
+import { ExpandButton } from "../ExpandableContainer";
 
 import { PlayingQueue } from "../PlayingQueue";
 
@@ -118,23 +120,22 @@ const PlayerComponent = () => {
   if (playerInactive) return null;
   if (audioLoading || !directUrl || !listeningTo) return <MiniLoader />;
   return (
-    <div className="audioPlayerContainer">
-      <CustomPlayer
-        onEnded={onAudioEnded}
-        onError={onAudioError}
-        controls
-        autoPlay
-        currentlyPlaying={
-          <>
-            <SearchEngineIcon engine={listeningTo.engine} />
-            {listeningTo.title}
-          </>
-        }
-      >
-        <source src={directUrl} />
-        <source src={`proxy/${encodeURIComponent(directUrl)}`} />
-      </CustomPlayer>
-    </div>
+    <AudioElement
+      onEnded={onAudioEnded}
+      onError={onAudioError}
+      autoPlay
+      controls
+      currentlyPlaying={
+        <>
+          <SearchEngineIcon engine={listeningTo.engine} />
+          {listeningTo.title}
+        </>
+      }
+      additionalButtons={<ExpandButton />}
+    >
+      <source src={directUrl} />
+      <source src={`proxy/${encodeURIComponent(directUrl)}`} />
+    </AudioElement>
   );
 };
 

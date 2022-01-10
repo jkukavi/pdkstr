@@ -101,16 +101,7 @@ const PlayingQueueComponent = () => {
 
   if (!playlist.length) return null;
 
-  return (
-    <div
-      style={{
-        marginLeft: "calc(50% - 0.5rem)",
-        transform: "translate(-100%)",
-      }}
-    >
-      <Table tableTitle="Playing queue" tableArray={playlist} />
-    </div>
-  );
+  return <Table tableTitle="Playing queue" tableArray={playlist} />;
 };
 
 export default PlayingQueueComponent;
