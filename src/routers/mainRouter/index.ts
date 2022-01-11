@@ -2,19 +2,6 @@ import express, { Request, Response } from "express";
 import youtubeHandlers from "./handlers/ytFunctions";
 import soundcloudHandlers from "./handlers/scFunctions";
 
-interface Engine {
-  getDirectUrls: any;
-  search: any;
-  getPlaylistItems: any;
-  getChannelItems: any;
-  getChannelPlaylists: any;
-  getItemInfo: any;
-  getSuggestions: any;
-}
-interface Engines {
-  [engineName: string]: Engine;
-}
-
 const engines: Engines = {
   youtube: youtubeHandlers,
   soundcloud: soundcloudHandlers,

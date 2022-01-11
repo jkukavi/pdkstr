@@ -21,6 +21,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@mikivela/sc-scrappy": "^0.1.0",
     "@sendgrid/mail": "^7.6.0",
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.6",

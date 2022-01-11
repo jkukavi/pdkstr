@@ -15,3 +15,17 @@ interface PendingAccount {
 }
 
 declare module "yt-channel-info";
+
+interface Engine {
+  getDirectUrls: any;
+  search: any;
+  getPlaylistItems: any;
+  getChannelItems: any;
+  getChannelPlaylists: any;
+  getItemInfo: any;
+  getSuggestions: any;
+  [prop: string]: any;
+}
+interface Engines {
+  [engineName: string]: Engine;
+}
