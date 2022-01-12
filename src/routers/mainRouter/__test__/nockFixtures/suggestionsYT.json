@@ -7,13 +7,22 @@
         "status": 200,
         "response": [
             "1f",
-            "8b08000000000002ff7590c16ac33010447f45e8d480308e0b6d9d5ba05072e835105c1fd6d64ade58961a498e134affbd399514bac7e53d98995dc8ebb0143604ebb080be181e1a497a3ca23118af5235f7a7c8d74f141d4296aa54cdba6e5bf5875fe04c18c5323bc3183af88fb92cabe72c729c5316bf49ffea192f90180626dfb2863047ced09438348418a973c861ca62426128266e2b6898aa8a81fddc070619f2e07b02278034e3904fb7ef4ce8333846b1744691074cdc84ce413f3abaebdfaa2f39cacd5ac993dc48fb02eff0fa54d787d37458d2b6db829df68f6f7abf93dfedea078037e3ce1a020000"
+            "8b",
+            "08",
+            "00",
+            "00",
+            "00",
+            "00",
+            "00",
+            "02",
+            "ff",
+            "75d0c14ac4301080e15709392984d21644dc9bd8cb8ae855ac45a6c9643bdb345993d47615dfdd3d2d0ace317c3fcc4c16f2262cc52e849dc30274315cb492ccb8476b311ea56a7f3f453e1e50f40859aa52b5d54dd7a93fbec2076114cbec2c5398e05fe7b2acafb3c8714e599c27fd9b675c213106369f660d618e5c612871348418a977c8316531a1b01413772b1898ea9a413debc090250f5e1338016498867c3afdce843e836392de811e1db1eba560e04c9dfa92a3dc544abecb8dd48f87fdd27c3e55e65e5fbd3563f370b7d62fc66c9f6fe57777f90329e9cac214020000"
         ],
         "rawHeaders": [
             "Date",
-            "Mon, 10 Jan 2022 08:28:57 GMT",
+            "Wed, 12 Jan 2022 07:25:06 GMT",
             "Expires",
-            "Mon, 10 Jan 2022 08:28:57 GMT",
+            "Wed, 12 Jan 2022 07:25:06 GMT",
             "Cache-Control",
             "private, max-age=3600",
             "Content-Type",
@@ -29,7 +38,7 @@
             "X-Frame-Options",
             "SAMEORIGIN",
             "Set-Cookie",
-            "CONSENT=PENDING+739; expires=Wed, 10-Jan-2024 08:28:57 GMT; path=/; domain=.google.com; Secure",
+            "CONSENT=PENDING+951; expires=Fri, 12-Jan-2024 07:25:06 GMT; path=/; domain=.google.com; Secure",
             "P3P",
             "CP=\"This is not a P3P policy! See g.co/p3phelp for more info.\"",
             "Alt-Svc",
@@ -42,7 +51,7 @@
         "responseIsBinary": false
     },
     {
-        "scope": "http://127.0.0.1:35873",
+        "scope": "http://127.0.0.1:44153",
         "method": "POST",
         "path": "/api/suggestions/youtube",
         "body": {
@@ -63,8 +72,8 @@
                 "idkjeffery cuco",
                 "idkjeffery financial aid",
                 "idkjeffery instrumental",
-                "idkjeffery give these",
-                "idkjeffery blacklist"
+                "idkjeffery blacklist",
+                "idkjeffery soda"
             ]
         },
         "rawHeaders": [
@@ -75,11 +84,11 @@
             "Content-Type",
             "application/json; charset=utf-8",
             "Content-Length",
-            "351",
+            "345",
             "ETag",
-            "W/\"15f-+PGm8kve/8dx/jOzc3KmTJEgSb8\"",
+            "W/\"159-7gqIWxw1qFoW+PaMYE48/otAf6Q\"",
             "Date",
-            "Mon, 10 Jan 2022 08:28:56 GMT",
+            "Wed, 12 Jan 2022 07:25:06 GMT",
             "Connection",
             "close"
         ],
