@@ -1,52 +1,17 @@
+import dotenv from "dotenv";
+import supertest from "supertest";
+
 import app from "app";
 import { close, connect } from "db";
-import { hashPasswordIn } from "models/helpers";
-import supertest, { Test } from "supertest";
-import { getRandomCode } from "utils";
-import dotenv from "dotenv";
 import users from "models/user";
+import { generateUniqueDummyUser, youtubeDummyData } from "./dummyData";
 import nock from "nock";
+import { promisify } from "./helpers";
 
 dotenv.config();
-
-const promisify = (Test: Test) => {
-  return new Promise((_res, _rej) => {
-    Test.end((err, res) => {
-      if (err) {
-        _rej(err);
-      } else {
-        _res(res);
-      }
-    });
-  });
-};
-
-const youtubeDummyData = {
-  itemId: "eJRvRM9wfdE",
-  playlistId: "PLYu-7OugCfta0mrJ5fRKvXfjU3qwgWZxS",
-  channelId: "UCtPlB4OmowajcgVaL3jvGcA",
-};
-
-const soundcloudDummyData = {
-  itemId: "430754811",
-  playlistId: "1211028727",
-  channelId: "55254934",
-};
-
-const password = getRandomCode();
-const user = {
-  username: "userRouterName",
-  email: "youtubeEngine@test",
-  password,
-  history: [],
-  favourites: [],
-};
-let userWithHashedPassword;
-let id;
-let request = supertest(app);
 const agent = supertest.agent(app, {});
 
-const loginAgent = async () => {
+const loginAgent = async (user: AccountInfo) => {
   const response: any = await promisify(
     agent
       .post("/login")
@@ -68,15 +33,17 @@ const loginAgent = async () => {
 beforeAll(async () => {
   try {
     await connect();
-    userWithHashedPassword = await hashPasswordIn(user);
+    const { user, userWithHashedPassword } = await generateUniqueDummyUser(
+      "YTtesting"
+    );
     const insertionResult = await users.save(userWithHashedPassword);
     if (!insertionResult) {
       throw new Error("Unable to save user.");
     }
-    id = insertionResult.insertedId.toString();
-    await loginAgent();
+    insertionResult.insertedId.toString();
+    await loginAgent(user);
     nock.back.setMode("record");
-    nock.back.fixtures = __dirname + "/nockFixtures";
+    nock.back.fixtures = __dirname + "/nockFixtures/YT";
   } catch (e: any) {
     throw new Error(
       "Unable to connect do db or login the test user.\n" + e.message
@@ -88,14 +55,14 @@ afterAll(async () => {
   await close();
 });
 
-const matcher = (host: string) => {
+const isLocalHost = (host: string) => {
   return host.includes("127.0.0.1");
 };
 
 describe("Testing youtube endpoints", () => {
   it("should return search results when given string", (done) => {
     nock.back("searchResultsYT.json").then(({ nockDone }) => {
-      nock.enableNetConnect(matcher);
+      nock.enableNetConnect(isLocalHost);
       agent
         .post("/api/search/youtube")
         .send({
@@ -112,7 +79,7 @@ describe("Testing youtube endpoints", () => {
 
   it("should return array of string suggestions when given string", (done) => {
     nock.back("suggestionsYT.json", (nockDone) => {
-      nock.enableNetConnect(matcher);
+      nock.enableNetConnect(isLocalHost);
       agent
         .post("/api/suggestions/youtube")
         .send({
@@ -132,7 +99,7 @@ describe("Testing youtube endpoints", () => {
 
   it("should return direct url when given item id", (done) => {
     nock.back("directUrlYT.json").then(({ nockDone }) => {
-      nock.enableNetConnect(matcher);
+      nock.enableNetConnect(isLocalHost);
       agent
         .post("/api/url/youtube")
         .send({
@@ -149,7 +116,7 @@ describe("Testing youtube endpoints", () => {
 
   it("should return playlist items when given playlist Id", (done) => {
     nock.back("playlistItemsYT.json").then(({ nockDone }) => {
-      nock.enableNetConnect(matcher);
+      nock.enableNetConnect(isLocalHost);
       agent
         .post("/api/playlist/youtube")
         .send({
@@ -166,7 +133,7 @@ describe("Testing youtube endpoints", () => {
 
   it("should return channel items when given youtube channel Id", (done) => {
     nock.back("channelItemsYT.json").then(({ nockDone }) => {
-      nock.enableNetConnect(matcher);
+      nock.enableNetConnect(isLocalHost);
       agent
         .post("/api/youtube/channel/items")
         .send({
@@ -183,7 +150,7 @@ describe("Testing youtube endpoints", () => {
 
   it("should return channel playlists when given channel Id", (done) => {
     nock.back("channelPlaylistsYT.json").then(({ nockDone }) => {
-      nock.enableNetConnect(matcher);
+      nock.enableNetConnect(isLocalHost);
       agent
         .post("/api/youtube/channel/playlists")
         .send({
@@ -195,6 +162,16 @@ describe("Testing youtube endpoints", () => {
           done();
           nockDone();
         });
+    });
+  });
+
+  it("should successfuly ping", (done) => {
+    nock.back("ping.json").then(({ nockDone }) => {
+      nock.enableNetConnect(isLocalHost);
+      agent.get("/ping/youtube").expect(200, () => {
+        done();
+        nockDone();
+      });
     });
   });
 });

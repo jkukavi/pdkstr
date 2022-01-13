@@ -4,9 +4,29 @@ import ytpl from "ytpl";
 import ytsr, { Video, Channel, Playlist, Item } from "ytsr";
 import ytch from "yt-channel-info";
 
+import { youtubeDummyData as dummyData } from "../__test__/dummyData";
+
 const COOKIE = process.env.YT_COOKIE;
 
 type Mapper = (Item: Video | Channel | Playlist) => any;
+
+const ping = async () => {
+  await ytdl.getInfo("TrVGymR-jFU", {
+    requestOptions: {
+      headers: {
+        cookie: COOKIE,
+      },
+    },
+  });
+
+  await youtubesr.getSuggestions(dummyData.suggestionQuery);
+
+  await ytpl(dummyData.playlistId, { limit: 10 });
+
+  await ytch.getChannelVideos(dummyData.channelId, "newest", 1);
+
+  return true;
+};
 
 const searchMappers = {
   video: (item: Video) => ({
@@ -192,6 +212,7 @@ export default {
   getChannelPlaylists,
   getItemInfo,
   getSuggestions,
+  ping,
 };
 
 const intoHHMMSS = (durationMs: string) =>

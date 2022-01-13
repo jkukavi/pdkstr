@@ -113,7 +113,7 @@ const {
   getDirectUrls,
 } = scScrappy;
 
-const exportio: Engine = {
+export default {
   ping,
   search: mapAfterFetch(search, trackMapper),
   getItemInfo: mappAfterSingleItemFetch(getTrackInfo, trackMapper),
@@ -123,5 +123,3 @@ const exportio: Engine = {
   getSuggestions: mapAfterFetch(getSuggestions, suggestionMapper),
   getDirectUrls,
 };
-
-export default exportio;

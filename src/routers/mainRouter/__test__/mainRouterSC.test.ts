@@ -1,32 +1,17 @@
+import dotenv from "dotenv";
+import supertest from "supertest";
+
 import app from "app";
 import { close, connect } from "db";
-import dotenv from "dotenv";
-import { hashPasswordIn } from "models/helpers";
-import supertest from "supertest";
-import { getRandomCode } from "utils";
 import users from "models/user";
-import { soundcloudDummyData } from "./dummyData";
+import { generateUniqueDummyUser, soundcloudDummyData } from "./dummyData";
 import nock from "nock";
 import { promisify } from "./helpers";
 
-nock.back.fixtures = __dirname + "/fixtures";
-
 dotenv.config();
-
-const password = getRandomCode();
-const user = {
-  username: "userRouterName",
-  email: "soundcloud@test",
-  password,
-  history: [],
-  favourites: [],
-};
-let userWithHashedPassword;
-let id;
-let request = supertest(app);
 const agent = supertest.agent(app);
 
-const loginAgent = async () => {
+const loginAgent = async (user: AccountInfo) => {
   const response: any = await promisify(
     agent
       .post("/login/")
@@ -48,13 +33,15 @@ const loginAgent = async () => {
 beforeAll(async () => {
   try {
     await connect();
-    userWithHashedPassword = await hashPasswordIn(user);
+    const { user, userWithHashedPassword } = await generateUniqueDummyUser(
+      "SCtesting"
+    );
     const insertionResult = await users.save(userWithHashedPassword);
     if (!insertionResult) {
       throw new Error("Unable to save user.");
     }
-    id = insertionResult.insertedId.toString();
-    await loginAgent();
+    insertionResult.insertedId.toString();
+    await loginAgent(user);
     nock.back.setMode("record");
     nock.back.fixtures = __dirname + "/nockFixtures/SC";
   } catch (e) {
@@ -66,14 +53,14 @@ afterAll(async () => {
   await close();
 });
 
-const matcher = (host: string) => {
+const isLocalHost = (host: string) => {
   return host.includes("127.0.0.1");
 };
 
 describe("Testing soundcloud endpoints", () => {
   test("should return results for search", (done) => {
     nock.back("searchResultsSC.json").then(({ nockDone }) => {
-      nock.enableNetConnect(matcher);
+      nock.enableNetConnect(isLocalHost);
       agent
         .post("/api/search/soundcloud")
         .send({
@@ -89,7 +76,7 @@ describe("Testing soundcloud endpoints", () => {
 
   test("should return array of string suggestions when given string", (done) => {
     nock.back("suggestionsSC.json").then(({ nockDone }) => {
-      nock.enableNetConnect(matcher);
+      nock.enableNetConnect(isLocalHost);
       agent
         .post("/api/suggestions/soundcloud")
         .send({
@@ -109,7 +96,7 @@ describe("Testing soundcloud endpoints", () => {
 
   test("should return direct url when given item id", (done) => {
     nock.back("directUrlSC.json").then(({ nockDone }) => {
-      nock.enableNetConnect(matcher);
+      nock.enableNetConnect(isLocalHost);
       agent
         .post("/api/url/soundcloud")
         .send({
@@ -126,7 +113,7 @@ describe("Testing soundcloud endpoints", () => {
 
   it("should return playlist items when given soundcloud playlist Id", (done) => {
     nock.back("playlistItemsSC.json").then(({ nockDone }) => {
-      nock.enableNetConnect(matcher);
+      nock.enableNetConnect(isLocalHost);
       agent
         .post("/api/playlist/soundcloud")
         .send({
@@ -143,7 +130,7 @@ describe("Testing soundcloud endpoints", () => {
 
   it("should return channel items when given soundcloud channel Id", (done) => {
     nock.back("channelItemsSC.json").then(({ nockDone }) => {
-      nock.enableNetConnect(matcher);
+      nock.enableNetConnect(isLocalHost);
       agent
         .post("/api/soundcloud/channel/items")
         .send({
@@ -160,7 +147,7 @@ describe("Testing soundcloud endpoints", () => {
 
   it("should return channel playlists when given soundcloud channel Id", (done) => {
     nock.back("channelPlaylistsSC.json").then(({ nockDone }) => {
-      nock.enableNetConnect(matcher);
+      nock.enableNetConnect(isLocalHost);
       agent
         .post("/api/soundcloud/channel/playlists")
         .send({
@@ -172,6 +159,16 @@ describe("Testing soundcloud endpoints", () => {
           done();
           nockDone();
         });
+    });
+  });
+
+  it("should successfuly ping", (done) => {
+    nock.back("ping.json").then(({ nockDone }) => {
+      nock.enableNetConnect(isLocalHost);
+      agent.get("/ping/soundcloud").expect(200, () => {
+        done();
+        nockDone();
+      });
     });
   });
 });

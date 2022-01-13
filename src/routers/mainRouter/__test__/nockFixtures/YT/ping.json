@@ -1,0 +1,33 @@
+[
+    {
+        "scope": "http://127.0.0.1:42191",
+        "method": "GET",
+        "path": "/ping/youtube",
+        "body": "",
+        "status": 200,
+        "response": "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"/><link rel=\"icon\" href=\"/favicon.ico\"/><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"/><meta name=\"theme-color\" content=\"#000000\"/><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"/><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin/><link href=\"https://fonts.googleapis.com/css2?family=Sarabun&display=swap\" rel=\"stylesheet\"/><meta name=\"description\" content=\"Web site created using create-react-app\"/><link rel=\"apple-touch-icon\" href=\"/favicon.ico\"/><link rel=\"manifest\" href=\"/manifest.json\"/><title>Podkaster</title><script defer=\"defer\" src=\"/static/js/main.524e17ed.js\"></script><link href=\"/static/css/main.5b415a04.css\" rel=\"stylesheet\"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id=\"root\"></div><div id=\"modal\"></div></body></html>",
+        "rawHeaders": [
+            "X-Powered-By",
+            "Express",
+            "Content-Security-Policy",
+            "default-src 'self';script-src 'self' example.com;img-src 'self' i.ytimg.com yt3.ggpht.com hips.hearstapps.com i1.sndcdn.com;media-src 'self' *.googlevideo.com *.sndcdn.com;font-src fonts.googleapis.com fonts.gstatic.com;style-src-elem 'self' fonts.googleapis.com fonts.gstatic.com",
+            "Accept-Ranges",
+            "bytes",
+            "Cache-Control",
+            "public, max-age=0",
+            "Last-Modified",
+            "Mon, 10 Jan 2022 01:43:52 GMT",
+            "ETag",
+            "W/\"378-17e41a7f13c\"",
+            "Content-Type",
+            "text/html; charset=UTF-8",
+            "Content-Length",
+            "888",
+            "Date",
+            "Thu, 13 Jan 2022 02:06:27 GMT",
+            "Connection",
+            "close"
+        ],
+        "responseIsBinary": false
+    }
+]

@@ -16,7 +16,8 @@ interface PendingAccount {
 
 declare module "yt-channel-info";
 
-interface Engine {
+interface EngineMethods {
+  ping: any;
   getDirectUrls: any;
   search: any;
   getPlaylistItems: any;
@@ -24,8 +25,10 @@ interface Engine {
   getChannelPlaylists: any;
   getItemInfo: any;
   getSuggestions: any;
-  [prop: string]: any;
 }
-interface Engines {
-  [engineName: string]: Engine;
-}
+
+type Engines = {
+  [key: string]: EngineMethods;
+};
+
+type Engine = "youtube" | "soundcloud";
