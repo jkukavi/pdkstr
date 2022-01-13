@@ -939,6 +939,16 @@ button:active.small {
   filter: drop-shadow(1px 1px 1px black);
 }
 
+.microloader {
+  border: 3px solid transparent;
+  border-radius: 50%;
+  border-top: 3px solid #db9134;
+  width: 2rem;
+  height: 2rem;
+  animation: spin 1.4s linear infinite;
+  filter: drop-shadow(1px 1px 0.8px #000000);
+}
+
 .tinyloader {
   border: 3px solid transparent;
   border-radius: 50%;

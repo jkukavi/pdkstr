@@ -8,7 +8,7 @@ import useConnectPropsToObserver from "hooks/useConnectPropsToObserver";
 import { Audio as AudioElement } from "@mikivela/plyr/dist";
 import "@mikivela/plyr/dist/index.css";
 import { notify } from "components/Notifications";
-import MiniLoader from "components/MiniLoader";
+import MiniLoader from "components/Loaders/MiniLoader";
 import { ExpandButton } from "../ExpandableContainer";
 
 import { PlayingQueue } from "../PlayingQueue";

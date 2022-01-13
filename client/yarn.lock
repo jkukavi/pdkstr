@@ -1278,10 +1278,10 @@
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
 
-"@mikivela/plyr@^0.2.3":
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/@mikivela/plyr/-/plyr-0.2.3.tgz#c0c9a1a96a7409df9ca2e029a4ef620b98600531"
-  integrity sha512-aZo1Bk92X2cPvMMnubkHSfSkSG9nFutPo2nPrX9U3fZbdfUXzlsd4+ML4rUqENu0pJkYEhyVIXm8en9RVvYekA==
+"@mikivela/plyr@^0.2.5":
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/@mikivela/plyr/-/plyr-0.2.5.tgz#72c3f33a8f4fc81603ac4c1e839c975d2cda0a05"
+  integrity sha512-zZDrPRaiOTpaxYQ37zvMTnmrEi9iRcQqwFCLT/+lj2eEWgFHzb7QFRxUH6puJg9Y93u2rXltOMBkTGxLYT/g0w==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"

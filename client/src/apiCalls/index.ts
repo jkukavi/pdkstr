@@ -1,7 +1,6 @@
 import { paths } from "consts";
 import { instance as axios } from "contexts/axiosInstance";
 import { notify } from "components/Notifications";
-import { searchEngines } from "consts";
 import { addRandomKey } from "helpers";
 
 export const addToHistory = async (item: AnyItem) => {
@@ -47,13 +46,13 @@ export const fetchDirectUrl = async ({
   url,
 }: {
   id: string;
-  engine: string;
+  engine: Engine;
   url: string;
 }) => {
   const path = paths.directUrl[engine];
   const response = await axios.post(path, {
     id,
-    ...(engine === searchEngines.SC && { fromUrl: url }),
+    ...(engine === "soundcloud" && { fromUrl: url }),
   });
   const { directUrl } = response.data;
   return directUrl;
@@ -61,7 +60,7 @@ export const fetchDirectUrl = async ({
 
 export const fetchItems = async (
   searchString: string,
-  searchEngine: string
+  searchEngine: Engine
 ) => {
   const url = paths.search[searchEngine];
   const response = await axios.post(url, {
@@ -71,37 +70,37 @@ export const fetchItems = async (
   return searchResultsArray;
 };
 
-const getChannelIdFromPlaylist = (item: any) => {
+const getChannelIdFromItem = (item: any): string => {
   return {
-    [searchEngines.YT]: (type: AnyItem["type"]) =>
+    youtube: (type: AnyItem["type"]) =>
       ({
         channel: item.channelID,
         playlist: item.channelID,
         video: item.author?.channelID,
       }[type]),
-    [searchEngines.SC]: (type: AnyItem["type"]) =>
+    soundcloud: (type: AnyItem["type"]) =>
       ({ playlist: item.id, video: item.author?.id, channel: item.id }[type]),
-  }[item.engine](item.type);
+  }[item.engine as Engine](item.type);
 };
 
-const getChannelInfoFromPlaylist = (item: any) => {
+const getChannelInfoFromItem = (item: any) => {
   return {
-    [searchEngines.YT]: (type: AnyItem["type"]) =>
+    youtube: (type: AnyItem["type"]) =>
       ({
         channel: item,
         playlist: item,
         video: item.author,
       }[type]),
-    [searchEngines.SC]: (type: AnyItem["type"]) =>
+    soundcloud: (type: AnyItem["type"]) =>
       ({ playlist: item, video: item.author, channel: item }[type]),
-  }[item.engine](item.type);
+  }[item.engine as Engine](item.type);
 };
 
 export const getChannelPlaylists = async (item: AnyItem) => {
   const path = paths.channelPlaylists[item.engine];
 
-  const channelId = getChannelIdFromPlaylist(item);
-  const channelInfo = getChannelInfoFromPlaylist(item);
+  const channelId = getChannelIdFromItem(item);
+  const channelInfo = getChannelInfoFromItem(item);
 
   const response = await axios.post(path, {
     channelId,
@@ -115,30 +114,30 @@ export const getChannelPlaylists = async (item: AnyItem) => {
   };
 };
 
-const channelIdFromItem = (item: any) => {
+const channelIdFromItem = (item: any): string => {
   return {
-    [searchEngines.YT]: (type: AnyItem["type"]) =>
+    youtube: (type: AnyItem["type"]) =>
       ({
         channel: item.channelID,
         playlist: item.channelID,
         video: item.author?.channelID,
       }[type]),
-    [searchEngines.SC]: (type: AnyItem["type"]) =>
+    soundcloud: (type: AnyItem["type"]) =>
       ({ playlist: item.id, video: item.author?.id, channel: item.id }[type]),
-  }[item.engine](item.type);
+  }[item.engine as Engine](item.type);
 };
 
 const channelInfoFromItem = (item: any) => {
   return {
-    [searchEngines.YT]: (type: AnyItem["type"]) =>
+    youtube: (type: AnyItem["type"]) =>
       ({
         channel: item,
         playlist: item,
         video: item.author,
       }[type]),
-    [searchEngines.SC]: (type: AnyItem["type"]) =>
+    soundcloud: (type: AnyItem["type"]) =>
       ({ playlist: item, video: item.author, channel: item }[type]),
-  }[item.engine](item.type);
+  }[item.engine as Engine](item.type);
 };
 
 export const getChannelItems = async (item: AnyItem) => {
@@ -175,4 +174,10 @@ export const getChannelItemsFromId = async (
     channelInfo: { ...channelInfo, engine },
     searchResultsArray,
   };
+};
+
+export const ping = async (engine: Engine): Promise<void> => {
+  const path = paths.ping[engine];
+
+  await axios.get(path);
 };

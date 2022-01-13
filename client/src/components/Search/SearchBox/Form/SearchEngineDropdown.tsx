@@ -1,18 +1,15 @@
-import React, { useState } from "react";
-
-import { searchEngines } from "consts";
+import { useState } from "react";
 
 import youtube from "icons/youtube.svg";
 import soundcloud from "icons/soundcloud.svg";
-
 import DropDown from "components/Dropdown";
 
-export const SearchEngineDropdown = {
-  selected: searchEngines.YT,
+export const SearchEngineDropdown: { selected: Engine } = {
+  selected: "youtube",
 };
 
 const SearchEngineDropdownComponent = () => {
-  const [searchEngine, setSearchEngine] = useState(
+  const [searchEngine, setSearchEngine] = useState<Engine>(
     SearchEngineDropdown.selected
   );
 
@@ -23,7 +20,7 @@ const SearchEngineDropdownComponent = () => {
       <DropDown
         frontItem={
           <img
-            src={searchEngine === searchEngines.YT ? youtube : soundcloud}
+            src={searchEngine === "youtube" ? youtube : soundcloud}
             alt="alt"
           />
         }
@@ -31,13 +28,13 @@ const SearchEngineDropdownComponent = () => {
           {
             component: <img src={youtube} alt="alt"></img>,
             onClick: () => {
-              setSearchEngine(searchEngines.YT);
+              setSearchEngine("youtube");
             },
           },
           {
             component: <img src={soundcloud} alt="alt"></img>,
             onClick: () => {
-              setSearchEngine(searchEngines.SC);
+              setSearchEngine("soundcloud");
             },
           },
         ]}

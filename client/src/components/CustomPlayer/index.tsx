@@ -65,7 +65,7 @@ const Player = ({
             <div
               style={{
                 lineHeight: "12px",
-                width: "calc(100% - 6.5rem)",
+                overflow: "hidden",
               }}
             >
               <span style={{ fontSize: "12px" }}>Currently playing: </span>

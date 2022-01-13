@@ -1,5 +1,3 @@
-import React from "react";
-
 import youtube from "icons/youtube.svg";
 import soundcloud from "icons/soundcloud.svg";
 
@@ -9,69 +7,68 @@ export const menu = {
   LIBRARY: "/library",
 };
 
-export const searchEngines = {
-  YT: "youtube",
-  SC: "soundcloud",
+type Paths = {
+  [key: string]: {
+    [key in Engine]: string;
+  };
 };
 
-export const paths = {
+export const paths: Paths = {
   search: {
-    [searchEngines.YT]: "/search/youtube",
-    [searchEngines.SC]: "/search/soundcloud",
+    youtube: "/search/youtube",
+    soundcloud: "/search/soundcloud",
   },
   directUrl: {
-    [searchEngines.YT]: "/url/youtube",
-    [searchEngines.SC]: "/url/soundcloud",
+    youtube: "/url/youtube",
+    soundcloud: "/url/soundcloud",
   },
   playlistItems: {
-    [searchEngines.YT]: "/playlist/youtube",
-    [searchEngines.SC]: "/playlist/soundcloud",
+    youtube: "/playlist/youtube",
+    soundcloud: "/playlist/soundcloud",
   },
   trackInfo: {
-    [searchEngines.YT]: "/info",
-    [searchEngines.SC]: "soundcloud/info",
+    youtube: "/info",
+    soundcloud: "soundcloud/info",
   },
   channelItems: {
-    [searchEngines.YT]: "youtube/channel/items",
-    [searchEngines.SC]: "soundcloud/channel/items",
+    youtube: "/youtube/channel/items",
+    soundcloud: "/soundcloud/channel/items",
   },
   channelPlaylists: {
-    [searchEngines.YT]: "youtube/channel/playlists",
-    [searchEngines.SC]: "soundcloud/channel/playlists",
+    youtube: "/youtube/channel/playlists",
+    soundcloud: "/soundcloud/channel/playlists",
+  },
+  ping: {
+    youtube: "/ping/youtube",
+    soundcloud: "/ping/soundcloud",
   },
 };
 
-export const searchEnginesByShortcut = {
-  yt: searchEngines.YT,
-  sc: searchEngines.SC,
-};
-
-export const searchEngineShortcuts = {
-  [searchEngines.YT]: "yt",
-  [searchEngines.SC]: "sc",
-};
-
-export const buttonTextBySearchEngine = {
-  [searchEngines.YT]: {
+export const buttonTextBySearchEngine: {
+  [key in Engine]: { items: string; playlists: string };
+} = {
+  youtube: {
     items: "Videos",
     playlists: "Playlists",
   },
-  [searchEngines.SC]: {
+  soundcloud: {
     items: "Tracks",
     playlists: "Playlists",
   },
 };
 
-const searchEngineImages = {
-  [searchEngines.YT]: youtube,
-  [searchEngines.SC]: soundcloud,
+const searchEngineImageSource: {
+  [key in Engine]: string;
+} = {
+  youtube: youtube,
+  soundcloud: soundcloud,
 };
 
 export const SearchEngineIcon = ({
   engine,
   size = "s",
 }: {
-  engine: string;
+  engine: Engine;
   size?: "s" | "m";
 }) => {
   const pixels = {
@@ -87,7 +84,7 @@ export const SearchEngineIcon = ({
           position: "relative",
           top: "2px",
         }}
-        src={searchEngineImages[engine]}
+        src={searchEngineImageSource[engine]}
         alt="alt"
       ></img>
     </span>

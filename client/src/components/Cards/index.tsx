@@ -1,11 +1,10 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 
 import { allowedCardTypes } from "consts";
 
 import { SearchBox } from "components/Search/SearchBox";
-import Loader from "components/Loader";
-
 import cardTypes from "./cardTypes";
+import Loader from "components/Loaders/Loader";
 
 interface CardProps {
   searchArray: (Item | Playlist | Channel)[];
