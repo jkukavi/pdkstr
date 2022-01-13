@@ -25,7 +25,7 @@
                 }
             ],
             "next_href": null,
-            "query_urn": "soundcloud:search-autocomplete:0fea42cb98414ce4bcb52f5691d3e8e0"
+            "query_urn": "soundcloud:search-autocomplete:977f72b7cd8942ea85af66c830ba60a2"
         },
         "rawHeaders": [
             "Content-Type",
@@ -35,7 +35,7 @@
             "Connection",
             "close",
             "Date",
-            "Wed, 12 Jan 2022 05:14:29 GMT",
+            "Thu, 13 Jan 2022 00:04:27 GMT",
             "x-robots-tag",
             "noindex",
             "Cache-Control",
@@ -53,20 +53,18 @@
             "Vary",
             "Origin",
             "X-Cache",
-            "Hit from cloudfront",
+            "Miss from cloudfront",
             "Via",
-            "1.1 96b3f0ca359697e92cd090a37a2e3bf4.cloudfront.net (CloudFront)",
+            "1.1 f8d34d99bd5a267bad6857ae101ea8e2.cloudfront.net (CloudFront)",
             "X-Amz-Cf-Pop",
-            "VIE50-C1",
+            "MUC50-P1",
             "X-Amz-Cf-Id",
-            "5s1YlYrV5c1zVC_xeOVfd4FLe2nIQucEW93mII3uYQv2Pk0LJXTgvQ==",
-            "Age",
-            "7836"
+            "L-fFlcEC_W8c5pJS7BlPIV6sP6DRz_bUDnUUuMptMkyMfa3CjXzerQ=="
         ],
         "responseIsBinary": false
     },
     {
-        "scope": "http://127.0.0.1:44607",
+        "scope": "http://127.0.0.1:34929",
         "method": "POST",
         "path": "/api/suggestions/soundcloud",
         "body": {
@@ -93,7 +91,7 @@
             "ETag",
             "W/\"6e-wzbKcEVK+uGUnSqAMTT3u45CMWg\"",
             "Date",
-            "Wed, 12 Jan 2022 07:25:05 GMT",
+            "Thu, 13 Jan 2022 00:04:25 GMT",
             "Connection",
             "close"
         ],

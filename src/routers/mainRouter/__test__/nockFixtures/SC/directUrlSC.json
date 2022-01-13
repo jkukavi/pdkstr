@@ -24,10 +24,10 @@
             "label_name": null,
             "last_modified": "2021-10-02T14:44:29Z",
             "license": "all-rights-reserved",
-            "likes_count": 18794,
+            "likes_count": 18792,
             "permalink": "eastmemphisboyz-who-run-it-remix-chris-travis-ta-double-idkjeffery-xavier-wulf",
             "permalink_url": "https://soundcloud.com/christravis/eastmemphisboyz-who-run-it-remix-chris-travis-ta-double-idkjeffery-xavier-wulf",
-            "playback_count": 865186,
+            "playback_count": 865293,
             "public": true,
             "publisher_metadata": {
                 "id": 430754811,
@@ -92,13 +92,13 @@
             },
             "station_urn": "soundcloud:system-playlists:track-stations:430754811",
             "station_permalink": "track-stations:430754811",
-            "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjBiNzBjZmRiLTNiMjQtNGM1Yy05ZmYxLTkyNDRkYmNkMmFiMiIsImlhdCI6MTY0MTk3MjMwNn0.yD6jSC3DI79hsDlXWBbRFEDVVZOpBjfS_Aezvfsd3bA",
+            "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjBiNzBjZmRiLTNiMjQtNGM1Yy05ZmYxLTkyNDRkYmNkMmFiMiIsImlhdCI6MTY0MjAzMjI2N30.ZFWii8GHVFq5LD7UFeUGb3xjVikJL9opdu87AVS9MeA",
             "monetization_model": "NOT_APPLICABLE",
             "policy": "ALLOW",
             "user": {
                 "avatar_url": "https://i1.sndcdn.com/avatars-mLxWzWdYIXoFYUai-ciyNlA-large.jpg",
                 "first_name": "Chris",
-                "followers_count": 288474,
+                "followers_count": 288487,
                 "full_name": "Chris Travis",
                 "id": 14845235,
                 "kind": "user",
@@ -129,7 +129,7 @@
             "Connection",
             "close",
             "Date",
-            "Wed, 12 Jan 2022 07:25:06 GMT",
+            "Thu, 13 Jan 2022 00:04:27 GMT",
             "x-robots-tag",
             "noindex",
             "Cache-Control",
@@ -149,11 +149,11 @@
             "X-Cache",
             "Miss from cloudfront",
             "Via",
-            "1.1 60b130d1fc70d3593e6c3e738e3f4416.cloudfront.net (CloudFront)",
+            "1.1 89efe3a7854e47cf7f1fe47e28e39348.cloudfront.net (CloudFront)",
             "X-Amz-Cf-Pop",
-            "VIE50-C1",
+            "MUC50-P1",
             "X-Amz-Cf-Id",
-            "yK9LjJ1OA5_gxfXMagL_TBVI6SB0IZTVWyjkkbmIdDy5PlrbVlLMZg=="
+            "kgYBLHCP2aCj6vhPwSAXw9iYkSSzAL4wFjmIT-kEaw7tDpj6yb2x3g=="
         ],
         "responseIsBinary": false
     },
@@ -164,7 +164,7 @@
         "body": "",
         "status": 200,
         "response": {
-            "url": "https://cf-media.sndcdn.com/PMRFQgKUwpB0.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vUE1SRlFnS1V3cEIwLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjQxOTcyNjYyfX19XX0_&Signature=HMzbnWA3U3ES8gB8CLj9ffobPatt6FtNlrkTT2bkxxzp3NYHdfiCVWzHsQnpSFbQKGjOMSdG2owz7sZygQGuV7mG1z4MB~My1cukWCZRhYBLhYS5r8Cve82~se-jrWZZP8aobrDrUNVkEUPGD7en~013PUYo2KDWDfQ3KWh8ccdXuUStyC94Yo6TEnQ5PEjab6p7-MlFAMS~89GKTlzJnNJbLe-TJiehW~ovznXtzZ~HSjPBaxnnSOG591ejTJ67YKB1Xbq6h1caSlHSX1IlZpjDpUWelAJaKiAmINjDmwsRAVtRrRSjA2D7hXrCtelQuXg-fngzmVQaEE4UsF3afg__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ"
+            "url": "https://cf-media.sndcdn.com/PMRFQgKUwpB0.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vUE1SRlFnS1V3cEIwLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjQyMDMyNjIzfX19XX0_&Signature=eWZJXUvA4pEoRsZWYpa4zg2JVKJL6uBUcUsetY4abUv1-EL97jSwH58FsHdG9zasgRz~O42BYURsqubAIk9RQOIqWMY3RXdG2yeedSXZQMkhNuijytIwZJbaUYCDlwBsRQcI15JNrFTm0Fp2dGwBtdmR6Hw53mDQj5v56pO2JaGz6NzlYGOMUQg41rFGoLbp8Pp~U4DuSGrtFIESgdvG5ZG0MAPEu1pJHfAcakgdy9jp4jry7cEvuDD7uchEtIdjQoj9csMm7b6LqdzwL~VwE9Lt0bWIC0oeMXRYryY2C4r901mga21n8Py8hnL83jLVj2SR9-rEUX~wTgYu6I45tw__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ"
         },
         "rawHeaders": [
             "Content-Type",
@@ -174,7 +174,7 @@
             "Connection",
             "close",
             "Date",
-            "Wed, 12 Jan 2022 07:25:06 GMT",
+            "Thu, 13 Jan 2022 00:04:27 GMT",
             "x-robots-tag",
             "noindex",
             "Cache-Control",
@@ -194,16 +194,16 @@
             "X-Cache",
             "Miss from cloudfront",
             "Via",
-            "1.1 40e8cff7eb9a18d9e3d7f191f1493514.cloudfront.net (CloudFront)",
+            "1.1 8ebebe66cc8de626ee8e15b2ee72d826.cloudfront.net (CloudFront)",
             "X-Amz-Cf-Pop",
-            "VIE50-C1",
+            "MUC50-P1",
             "X-Amz-Cf-Id",
-            "YVo-vbuktB5w6MmqE_J0l1swO65TnEga2hqzJooJl8owDlMgHV_5yw=="
+            "0e2puebimzobjyFsRrFSc_2Q1Bzvla-yKQCRHiDzxC8y6CNs65UV6A=="
         ],
         "responseIsBinary": false
     },
     {
-        "scope": "http://127.0.0.1:37103",
+        "scope": "http://127.0.0.1:35351",
         "method": "POST",
         "path": "/api/url/soundcloud",
         "body": {
@@ -213,7 +213,7 @@
         "response": {
             "directUrl": [
                 {
-                    "url": "https://cf-media.sndcdn.com/PMRFQgKUwpB0.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vUE1SRlFnS1V3cEIwLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjQxOTcyNjYyfX19XX0_&Signature=HMzbnWA3U3ES8gB8CLj9ffobPatt6FtNlrkTT2bkxxzp3NYHdfiCVWzHsQnpSFbQKGjOMSdG2owz7sZygQGuV7mG1z4MB~My1cukWCZRhYBLhYS5r8Cve82~se-jrWZZP8aobrDrUNVkEUPGD7en~013PUYo2KDWDfQ3KWh8ccdXuUStyC94Yo6TEnQ5PEjab6p7-MlFAMS~89GKTlzJnNJbLe-TJiehW~ovznXtzZ~HSjPBaxnnSOG591ejTJ67YKB1Xbq6h1caSlHSX1IlZpjDpUWelAJaKiAmINjDmwsRAVtRrRSjA2D7hXrCtelQuXg-fngzmVQaEE4UsF3afg__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ",
+                    "url": "https://cf-media.sndcdn.com/PMRFQgKUwpB0.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vUE1SRlFnS1V3cEIwLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjQyMDMyNjIzfX19XX0_&Signature=eWZJXUvA4pEoRsZWYpa4zg2JVKJL6uBUcUsetY4abUv1-EL97jSwH58FsHdG9zasgRz~O42BYURsqubAIk9RQOIqWMY3RXdG2yeedSXZQMkhNuijytIwZJbaUYCDlwBsRQcI15JNrFTm0Fp2dGwBtdmR6Hw53mDQj5v56pO2JaGz6NzlYGOMUQg41rFGoLbp8Pp~U4DuSGrtFIESgdvG5ZG0MAPEu1pJHfAcakgdy9jp4jry7cEvuDD7uchEtIdjQoj9csMm7b6LqdzwL~VwE9Lt0bWIC0oeMXRYryY2C4r901mga21n8Py8hnL83jLVj2SR9-rEUX~wTgYu6I45tw__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ",
                     "mimeType": "audio/mpeg"
                 }
             ]
@@ -228,9 +228,9 @@
             "Content-Length",
             "674",
             "ETag",
-            "W/\"2a2-zujLg2B9yHlZ7AwQIyOk7PYLyGI\"",
+            "W/\"2a2-bnpjbMQvj93v3Vn8qmdyfJCZM1w\"",
             "Date",
-            "Wed, 12 Jan 2022 07:25:06 GMT",
+            "Thu, 13 Jan 2022 00:04:25 GMT",
             "Connection",
             "close"
         ],

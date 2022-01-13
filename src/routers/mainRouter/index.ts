@@ -1,10 +1,10 @@
 import express, { Request, Response } from "express";
-import youtubeHandlers from "./handlers/ytFunctions";
-import soundcloudHandlers from "./handlers/scFunctions";
+import youtube from "./searchEngines/youtube";
+import soundcloud from "./searchEngines/soundcloud";
 
 const engines: Engines = {
-  youtube: youtubeHandlers,
-  soundcloud: soundcloudHandlers,
+  youtube,
+  soundcloud,
 };
 
 const app = express.Router();
