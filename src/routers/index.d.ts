@@ -16,6 +16,8 @@ interface PendingAccount {
 
 declare module "yt-channel-info";
 
+type Engine = "youtube" | "soundcloud";
+
 interface EngineMethods {
   ping: any;
   getDirectUrls: any;
@@ -28,7 +30,5 @@ interface EngineMethods {
 }
 
 type Engines = {
-  [key: string]: EngineMethods;
+  [key in Engine]: EngineMethods;
 };
-
-type Engine = "youtube" | "soundcloud";
