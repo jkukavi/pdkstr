@@ -13,7 +13,7 @@ app.post<string, { engine: Engine }>("/url/:engine", async (req, res) => {
   const { getDirectUrls } = engines[engine];
 
   try {
-    var directUrl = await getDirectUrls(id, fromUrl);
+    const directUrl = await getDirectUrls(id, fromUrl);
     if (directUrl) {
       res.status(200).json({ directUrl });
     } else {
@@ -97,7 +97,7 @@ app.post<string, { engine: Engine }, any, { id: string }>(
 
     const { getPlaylistItems } = engines[engine];
 
-    var playlistItems = await getPlaylistItems(id);
+    const playlistItems = await getPlaylistItems(id);
     if (playlistItems) {
       res.status(200).json({ playlistItems });
     } else {
