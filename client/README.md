@@ -7,4 +7,5 @@ after that, simply
 
 ```yarn start```,
 
-and CRA will use the deployed backend as proxy.
+and you can open it in the browser. CRA
+will use the deployed backend as proxy.
