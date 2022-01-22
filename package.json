@@ -23,6 +23,7 @@
   "dependencies": {
     "@mikivela/sc-scrappy": "^0.2.2",
     "@sendgrid/mail": "^7.6.0",
+    "@types/heroku-client": "^3.1.0",
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.6",
     "dotenv": "^10.0.0",
@@ -30,6 +31,7 @@
     "express": "^4.17.2",
     "follow-redirects": "^1.14.6",
     "helmet": "^4.0.0",
+    "heroku-client": "^3.1.0",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.2.2",
     "request": "^2.88.2",

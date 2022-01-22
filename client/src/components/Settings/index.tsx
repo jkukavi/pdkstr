@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import { SearchEngineIcon } from "consts";
-import { ping } from "apiCalls";
+import { ping, tryRestartingService } from "apiCalls";
 import MicroLoader from "components/Loaders/MicroLoader";
 
 import chevron from "icons/chevron.svg";
@@ -40,6 +40,15 @@ const Settings = () => {
             Health check
           </button>
         )}
+        {
+          <button
+            onClick={() => {
+              tryRestartingService();
+            }}
+          >
+            Restart Service
+          </button>
+        }
       </div>
     </div>
   );

@@ -12,6 +12,7 @@ import { upgradeToSSLIfNecessary } from "./middleware/sslUpgrade";
 import mainRouter from "./routers/mainRouter";
 import usersRouter from "./routers/usersRouter";
 import proxyRouter from "./routers/proxyRouter";
+import serviceRouter from "./routers/serviceRouter";
 
 const app = express();
 
@@ -36,7 +37,9 @@ app.use("/", express.static("client/build"));
 app.use(authRouter);
 // auth on every endpoint (besides previous logins/registration)
 app.use("/api/users/", auth, usersRouter);
+app.use("/api/service/", auth, serviceRouter);
 app.use("/api", auth, mainRouter);
+
 app.use("/proxy", proxyAuth, proxyRouter);
 
 //redirect to client

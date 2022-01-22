@@ -3,6 +3,17 @@ import { instance as axios } from "contexts/axiosInstance";
 import { notify } from "components/Notifications";
 import { addRandomKey } from "helpers";
 
+export const tryRestartingService = async () => {
+  try {
+    await axios.post("/service/restart");
+    notify("Successfuly restarted.");
+  } catch (e) {
+    notify(
+      "Unable to restart service. Could be that you have unsufficient permissions."
+    );
+  }
+};
+
 export const addToHistory = async (item: AnyItem) => {
   try {
     await axios.post("/users/my/history", { item });
