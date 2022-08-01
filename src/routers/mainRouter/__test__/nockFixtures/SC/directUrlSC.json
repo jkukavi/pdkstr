@@ -2,14 +2,14 @@
     {
         "scope": "https://api-v2.soundcloud.com:443",
         "method": "GET",
-        "path": "/tracks/430754811?client_id=atkWGyMg57QFFAwK5c9VpC1N5Q141g7I",
+        "path": "/tracks/430754811?client_id=OrZoy8IshHh0YwFZmmXWC0ORwJNEKm9Z",
         "body": "",
         "status": 200,
         "response": {
             "artwork_url": "https://i1.sndcdn.com/artworks-000336105762-joygtm-large.jpg",
             "caption": null,
             "commentable": true,
-            "comment_count": 209,
+            "comment_count": 215,
             "created_at": "2018-04-16T23:44:40Z",
             "description": "",
             "downloadable": false,
@@ -22,12 +22,12 @@
             "id": 430754811,
             "kind": "track",
             "label_name": null,
-            "last_modified": "2021-10-02T14:44:29Z",
+            "last_modified": "2022-04-11T14:02:35Z",
             "license": "all-rights-reserved",
-            "likes_count": 18793,
+            "likes_count": 18962,
             "permalink": "eastmemphisboyz-who-run-it-remix-chris-travis-ta-double-idkjeffery-xavier-wulf",
             "permalink_url": "https://soundcloud.com/christravis/eastmemphisboyz-who-run-it-remix-chris-travis-ta-double-idkjeffery-xavier-wulf",
-            "playback_count": 865307,
+            "playback_count": 888761,
             "public": true,
             "publisher_metadata": {
                 "id": 430754811,
@@ -39,7 +39,7 @@
             "purchase_title": null,
             "purchase_url": null,
             "release_date": null,
-            "reposts_count": 2145,
+            "reposts_count": 2149,
             "secret_token": null,
             "sharing": "public",
             "state": "finished",
@@ -92,17 +92,17 @@
             },
             "station_urn": "soundcloud:system-playlists:track-stations:430754811",
             "station_permalink": "track-stations:430754811",
-            "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjBiNzBjZmRiLTNiMjQtNGM1Yy05ZmYxLTkyNDRkYmNkMmFiMiIsImlhdCI6MTY0MjAzOTU4NX0.MUV_Gw2dWTlp_qK9zz0RIhc0I4u6ofLXnltda8TUmX8",
+            "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6ImJjYzAwNDc0LTk3ODEtNGFjNS04MmU3LTBiYzQwZGMyZTUxOSIsImlhdCI6MTY1OTM1MTk5N30.Ja4H45KYq2ZzOgIphpM-lV-91YM3-ivhtFgrCHhS1IY",
             "monetization_model": "NOT_APPLICABLE",
             "policy": "ALLOW",
             "user": {
-                "avatar_url": "https://i1.sndcdn.com/avatars-mLxWzWdYIXoFYUai-ciyNlA-large.jpg",
+                "avatar_url": "https://i1.sndcdn.com/avatars-fy1Sxb29IRm4VJd3-cgPPsA-large.jpg",
                 "first_name": "Chris",
-                "followers_count": 288491,
+                "followers_count": 293472,
                 "full_name": "Chris Travis",
                 "id": 14845235,
                 "kind": "user",
-                "last_modified": "2022-01-07T06:03:22Z",
+                "last_modified": "2022-06-17T08:17:26Z",
                 "last_name": "Travis",
                 "permalink": "christravis",
                 "permalink_url": "https://soundcloud.com/christravis",
@@ -129,7 +129,7 @@
             "Connection",
             "close",
             "Date",
-            "Thu, 13 Jan 2022 02:06:25 GMT",
+            "Mon, 01 Aug 2022 11:06:37 GMT",
             "x-robots-tag",
             "noindex",
             "Cache-Control",
@@ -149,22 +149,22 @@
             "X-Cache",
             "Miss from cloudfront",
             "Via",
-            "1.1 07ba06e632a891feeba3436a80d00ee4.cloudfront.net (CloudFront)",
+            "1.1 9569de78dc2ca85c5ba29cb17f0eb7ce.cloudfront.net (CloudFront)",
             "X-Amz-Cf-Pop",
-            "VIE50-C2",
+            "ZAG50-C1",
             "X-Amz-Cf-Id",
-            "Ld3l0CCMVL6k4AIcXrw03nNuqrpxG8134kCiKBTi-NO9i42yhzjWGQ=="
+            "KvGXlzuArde3txVnYYH3bxbZ7uZ4_DUMiFw3-8t8o0j0jn1G5tOkkg=="
         ],
         "responseIsBinary": false
     },
     {
         "scope": "https://api-v2.soundcloud.com:443",
         "method": "GET",
-        "path": "/media/soundcloud:tracks:430754811/a11f3daa-02a9-4098-85bd-9c93e60c13fe/stream/progressive?client_id=atkWGyMg57QFFAwK5c9VpC1N5Q141g7I",
+        "path": "/media/soundcloud:tracks:430754811/a11f3daa-02a9-4098-85bd-9c93e60c13fe/stream/progressive?client_id=OrZoy8IshHh0YwFZmmXWC0ORwJNEKm9Z",
         "body": "",
         "status": 200,
         "response": {
-            "url": "https://cf-media.sndcdn.com/PMRFQgKUwpB0.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vUE1SRlFnS1V3cEIwLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjQyMDM5OTQwfX19XX0_&Signature=HjT246foqqsLE7HM37QIwx6aNbjVcd~N7pPJd6qIqsnZmya57tz3a71PW0QbScrS~b8DnXkJH91kPYJGDslBom7vcdSdw-1JJP1~6pKeF3A-BWHMz6nInL9aj42t4QuKJ5ANJ9sIEJC9q9hwZ-fBiKIwrRquJcv64ZNUNfORzz7BuqyiWBg1BORhwlv~ekwTIdgzn0mWsYwkD1kotLgD8JY-IQsNhwch3162LTEWUtU3DBN0TkWZhevcmYHI9uBYUdjg5rJSTvMrAtuP3qBb7~PbEDF~AsBcn294e08W13jxK7Flfi1xNxNj~-FXS4WZ4eA5YQ4WC5A1QoqM5JJZgg__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ"
+            "url": "https://cf-media.sndcdn.com/PMRFQgKUwpB0.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vUE1SRlFnS1V3cEIwLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjU5MzUyMzUzfX19XX0_&Signature=ZnDH9ZpOGyS~gSHlAzckr3fqhi2RenxwPyi4~2Nb~GXLSHpV4nmy8nNBw7rGd9Mp46eEtjBQMWY0AM0tsU~4xJuvC5JljLlcVGPNZB9M4YygGU~H6coHQjzxICOc4xcTlfLOa9I-4yjWFGDO8uo~K1DK1cJdGLRCEf-7wosdfJ0lD-cpDFgnFZ6b7PNqFPeGREW008bbNqMpH5ca2foKUOt0l2xZUvlzc5Dw7lyWn93QciFMhrcc0ATQq96oVoQ6ykCfBHHTwWQ5p9iFIMfvpbuvJbxXvH7mVKDsLRfSkImC7Qu9Yuq7sTmWtqQRt779DxHZ7SgLoJnLOX8gR26nRw__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ"
         },
         "rawHeaders": [
             "Content-Type",
@@ -174,7 +174,7 @@
             "Connection",
             "close",
             "Date",
-            "Thu, 13 Jan 2022 02:06:25 GMT",
+            "Mon, 01 Aug 2022 11:06:37 GMT",
             "x-robots-tag",
             "noindex",
             "Cache-Control",
@@ -194,16 +194,16 @@
             "X-Cache",
             "Miss from cloudfront",
             "Via",
-            "1.1 218366faeb88f6d265d2589e37ea2dac.cloudfront.net (CloudFront)",
+            "1.1 b63f332297d95bccb0f4e41c4aef0ab0.cloudfront.net (CloudFront)",
             "X-Amz-Cf-Pop",
-            "VIE50-C2",
+            "ZAG50-C1",
             "X-Amz-Cf-Id",
-            "xBMivbd0009Bc_gFGfRLkl2gIFCrIefyZRSeU97sQp2Jcxn_w48AJg=="
+            "O0nXOVVWyYScrTa3KNl7VYYnkmTMT05BZiNvBT8aoqld5nPCPof6zA=="
         ],
         "responseIsBinary": false
     },
     {
-        "scope": "http://127.0.0.1:46183",
+        "scope": "http://127.0.0.1:52947",
         "method": "POST",
         "path": "/api/url/soundcloud",
         "body": {
@@ -213,7 +213,7 @@
         "response": {
             "directUrl": [
                 {
-                    "url": "https://cf-media.sndcdn.com/PMRFQgKUwpB0.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vUE1SRlFnS1V3cEIwLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjQyMDM5OTQwfX19XX0_&Signature=HjT246foqqsLE7HM37QIwx6aNbjVcd~N7pPJd6qIqsnZmya57tz3a71PW0QbScrS~b8DnXkJH91kPYJGDslBom7vcdSdw-1JJP1~6pKeF3A-BWHMz6nInL9aj42t4QuKJ5ANJ9sIEJC9q9hwZ-fBiKIwrRquJcv64ZNUNfORzz7BuqyiWBg1BORhwlv~ekwTIdgzn0mWsYwkD1kotLgD8JY-IQsNhwch3162LTEWUtU3DBN0TkWZhevcmYHI9uBYUdjg5rJSTvMrAtuP3qBb7~PbEDF~AsBcn294e08W13jxK7Flfi1xNxNj~-FXS4WZ4eA5YQ4WC5A1QoqM5JJZgg__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ",
+                    "url": "https://cf-media.sndcdn.com/PMRFQgKUwpB0.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vUE1SRlFnS1V3cEIwLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjU5MzUyMzUzfX19XX0_&Signature=ZnDH9ZpOGyS~gSHlAzckr3fqhi2RenxwPyi4~2Nb~GXLSHpV4nmy8nNBw7rGd9Mp46eEtjBQMWY0AM0tsU~4xJuvC5JljLlcVGPNZB9M4YygGU~H6coHQjzxICOc4xcTlfLOa9I-4yjWFGDO8uo~K1DK1cJdGLRCEf-7wosdfJ0lD-cpDFgnFZ6b7PNqFPeGREW008bbNqMpH5ca2foKUOt0l2xZUvlzc5Dw7lyWn93QciFMhrcc0ATQq96oVoQ6ykCfBHHTwWQ5p9iFIMfvpbuvJbxXvH7mVKDsLRfSkImC7Qu9Yuq7sTmWtqQRt779DxHZ7SgLoJnLOX8gR26nRw__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ",
                     "mimeType": "audio/mpeg"
                 }
             ]
@@ -228,9 +228,9 @@
             "Content-Length",
             "674",
             "ETag",
-            "W/\"2a2-1LS5C8HgHrfVIY6mV/ZiJ/BSqmY\"",
+            "W/\"2a2-ZAsaa1ZGCCSkasSrwUQe/7XI4y0\"",
             "Date",
-            "Thu, 13 Jan 2022 02:06:23 GMT",
+            "Mon, 01 Aug 2022 11:06:37 GMT",
             "Connection",
             "close"
         ],

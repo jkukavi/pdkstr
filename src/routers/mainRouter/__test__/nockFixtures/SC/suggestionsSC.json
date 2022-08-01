@@ -2,7 +2,7 @@
     {
         "scope": "https://api-v2.soundcloud.com:443",
         "method": "GET",
-        "path": "/search/queries?q=idkjeffery&limit=10&client_id=atkWGyMg57QFFAwK5c9VpC1N5Q141g7I",
+        "path": "/search/queries?q=idkjeffery&limit=10&client_id=OrZoy8IshHh0YwFZmmXWC0ORwJNEKm9Z",
         "body": "",
         "status": 200,
         "response": {
@@ -16,16 +16,16 @@
                     "query": "idkjeffery dont trust jeffery"
                 },
                 {
-                    "output": "idkjeffery texas",
-                    "query": "idkjeffery texas"
-                },
-                {
                     "output": "idk jeffery",
                     "query": "idk jeffery"
+                },
+                {
+                    "output": "idk jeffery lenh",
+                    "query": "idk jeffery lenh"
                 }
             ],
             "next_href": null,
-            "query_urn": "soundcloud:search-autocomplete:6ee2d026960e40aa97700a2ddaa90dd6"
+            "query_urn": "soundcloud:search-autocomplete:fb526c159d09472499791ded710fc740"
         },
         "rawHeaders": [
             "Content-Type",
@@ -35,7 +35,7 @@
             "Connection",
             "close",
             "Date",
-            "Thu, 13 Jan 2022 01:22:17 GMT",
+            "Mon, 01 Aug 2022 09:53:35 GMT",
             "x-robots-tag",
             "noindex",
             "Cache-Control",
@@ -55,18 +55,18 @@
             "X-Cache",
             "Hit from cloudfront",
             "Via",
-            "1.1 e77ae8cfd42b65dd9027fa08596c6f2a.cloudfront.net (CloudFront)",
+            "1.1 0921eae154c93e666b192fa267ea4bfa.cloudfront.net (CloudFront)",
             "X-Amz-Cf-Pop",
-            "VIE50-C2",
+            "ZAG50-C1",
             "X-Amz-Cf-Id",
-            "XW1LlgYMtHvM7XCvugntV54BXhnJ55PQYY7OAcDXYe-65DIgceoHYQ==",
+            "KHzP0pjlcgvAmIqRmbf28Qj3DtlqDK0hnBSwL-OFNSkmVIAdukjOxQ==",
             "Age",
-            "2647"
+            "4382"
         ],
         "responseIsBinary": false
     },
     {
-        "scope": "http://127.0.0.1:42229",
+        "scope": "http://127.0.0.1:52939",
         "method": "POST",
         "path": "/api/suggestions/soundcloud",
         "body": {
@@ -77,8 +77,8 @@
             "suggestionsArray": [
                 "idkjeffery rape rape",
                 "idkjeffery dont trust jeffery",
-                "idkjeffery texas",
-                "idk jeffery"
+                "idk jeffery",
+                "idk jeffery lenh"
             ]
         },
         "rawHeaders": [
@@ -91,9 +91,9 @@
             "Content-Length",
             "110",
             "ETag",
-            "W/\"6e-wzbKcEVK+uGUnSqAMTT3u45CMWg\"",
+            "W/\"6e-l7pgzAPd8jScVQrph2w4SeE0fu8\"",
             "Date",
-            "Thu, 13 Jan 2022 02:06:23 GMT",
+            "Mon, 01 Aug 2022 11:06:37 GMT",
             "Connection",
             "close"
         ],

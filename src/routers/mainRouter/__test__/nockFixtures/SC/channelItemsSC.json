@@ -2,1015 +2,68 @@
     {
         "scope": "https://api-v2.soundcloud.com:443",
         "method": "GET",
-        "path": "/users/55254934/tracks?limit=10&client_id=atkWGyMg57QFFAwK5c9VpC1N5Q141g7I",
+        "path": "/users/55254934/tracks?limit=10&client_id=OrZoy8IshHh0YwFZmmXWC0ORwJNEKm9Z",
         "body": "",
         "status": 200,
         "response": {
             "collection": [
                 {
-                    "artwork_url": "https://i1.sndcdn.com/artworks-QHuCGOmF6TCqzLdB-FyMuKw-large.jpg",
+                    "artwork_url": "https://i1.sndcdn.com/artworks-9MvnR0HHXjAJBaE3-0GhBow-large.jpg",
                     "caption": null,
                     "commentable": true,
-                    "comment_count": 7,
-                    "created_at": "2021-12-03T01:49:39Z",
-                    "description": "Prod. By Quintin Lamb",
-                    "downloadable": false,
-                    "download_count": 0,
-                    "duration": 105143,
-                    "full_duration": 105143,
-                    "embeddable_by": "all",
-                    "genre": "Hip-hop & Rap",
-                    "has_downloads_left": false,
-                    "id": 1170975193,
-                    "kind": "track",
-                    "label_name": null,
-                    "last_modified": "2022-01-06T03:17:02Z",
-                    "license": "all-rights-reserved",
-                    "likes_count": 358,
-                    "permalink": "the-predator-eddy-baker",
-                    "permalink_url": "https://soundcloud.com/idontknowjeffery/the-predator-eddy-baker",
-                    "playback_count": 11356,
-                    "public": true,
-                    "publisher_metadata": {
-                        "id": 1170975193,
-                        "urn": "soundcloud:tracks:1170975193",
-                        "artist": "Eddy Baker",
-                        "contains_music": true,
-                        "publisher": "Jamaal Ashby",
-                        "isrc": "QZTH82167770",
-                        "explicit": true
-                    },
-                    "purchase_title": null,
-                    "purchase_url": null,
-                    "release_date": null,
-                    "reposts_count": 11,
-                    "secret_token": null,
-                    "sharing": "public",
-                    "state": "finished",
-                    "streamable": true,
-                    "tag_list": "abovethelawrecords healthyboyz empire badboys2",
-                    "title": "THE PREDATOR - Eddy Baker (Prod. By Quintin Lamb)",
-                    "track_format": "single-track",
-                    "uri": "https://api.soundcloud.com/tracks/1170975193",
-                    "urn": "soundcloud:tracks:1170975193",
-                    "user_id": 55254934,
-                    "visuals": null,
-                    "waveform_url": "https://wave.sndcdn.com/KhoEDHM41qia_m.json",
-                    "display_date": "2021-12-03T01:49:39Z",
-                    "media": {
-                        "transcodings": [
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170975193/365e18c3-c2c6-4545-b65b-dc580617eaad/stream/hls",
-                                "preset": "mp3_0_1",
-                                "duration": 105143,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/mpeg"
-                                },
-                                "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170975193/365e18c3-c2c6-4545-b65b-dc580617eaad/stream/progressive",
-                                "preset": "mp3_0_1",
-                                "duration": 105143,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "progressive",
-                                    "mime_type": "audio/mpeg"
-                                },
-                                "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170975193/e95084b4-e9fc-444e-9461-0db3569173e7/stream/hls",
-                                "preset": "opus_0_0",
-                                "duration": 105122,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/ogg; codecs=\"opus\""
-                                },
-                                "quality": "sq"
-                            }
-                        ]
-                    },
-                    "station_urn": "soundcloud:system-playlists:track-stations:1170975193",
-                    "station_permalink": "track-stations:1170975193",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjEwZGQ1YjdjLTRhYzAtNDgxZC1hYzQ0LWMxNDNmNmIyZTY3NyIsImlhdCI6MTY0MjAzOTU4NX0.o3S88qyZTenFLcMTCx53NnVr7IcdRCKbAd30FJ-Im-4",
-                    "monetization_model": "NOT_APPLICABLE",
-                    "policy": "ALLOW",
-                    "user": {
-                        "avatar_url": "https://i1.sndcdn.com/avatars-NhrUICnsAhcj87UZ-TgwlZg-large.jpg",
-                        "first_name": "idontknowjeffery",
-                        "followers_count": 72547,
-                        "full_name": "idontknowjeffery",
-                        "id": 55254934,
-                        "kind": "user",
-                        "last_modified": "2021-12-05T22:17:18Z",
-                        "last_name": "",
-                        "permalink": "idontknowjeffery",
-                        "permalink_url": "https://soundcloud.com/idontknowjeffery",
-                        "uri": "https://api.soundcloud.com/users/55254934",
-                        "urn": "soundcloud:users:55254934",
-                        "username": "idontknowjeffery",
-                        "verified": true,
-                        "city": "East Memphis",
-                        "country_code": "US",
-                        "badges": {
-                            "pro": false,
-                            "pro_unlimited": true,
-                            "verified": true
-                        },
-                        "station_urn": "soundcloud:system-playlists:artist-stations:55254934",
-                        "station_permalink": "artist-stations:55254934"
-                    }
-                },
-                {
-                    "artwork_url": "https://i1.sndcdn.com/artworks-QHuCGOmF6TCqzLdB-FyMuKw-large.jpg",
-                    "caption": null,
-                    "commentable": true,
-                    "comment_count": 34,
-                    "created_at": "2021-12-03T01:46:00Z",
-                    "description": "Prod. By BOZ",
-                    "downloadable": false,
-                    "download_count": 0,
-                    "duration": 146442,
-                    "full_duration": 146442,
-                    "embeddable_by": "all",
-                    "genre": "Hip-hop & Rap",
-                    "has_downloads_left": false,
-                    "id": 1170973903,
-                    "kind": "track",
-                    "label_name": null,
-                    "last_modified": "2021-12-16T05:02:36Z",
-                    "license": "all-rights-reserved",
-                    "likes_count": 930,
-                    "permalink": "warzone-idontknowjeffery-eddy-baker",
-                    "permalink_url": "https://soundcloud.com/idontknowjeffery/warzone-idontknowjeffery-eddy-baker",
-                    "playback_count": 24865,
-                    "public": true,
-                    "publisher_metadata": {
-                        "id": 1170973903,
-                        "urn": "soundcloud:tracks:1170973903",
-                        "artist": "idontknowjeffery",
-                        "album_title": "                              ",
-                        "contains_music": true,
-                        "publisher": "Jeffrey T Harper",
-                        "isrc": "QZTH82167763",
-                        "explicit": true
-                    },
-                    "purchase_title": null,
-                    "purchase_url": null,
-                    "release_date": null,
-                    "reposts_count": 37,
-                    "secret_token": null,
-                    "sharing": "public",
-                    "state": "finished",
-                    "streamable": true,
-                    "tag_list": "abovethelawrecords healthyboyz empire badboys2",
-                    "title": "WARZONE - idontknowjeffery & Eddy Baker(Prod. By BOZ)",
-                    "track_format": "single-track",
-                    "uri": "https://api.soundcloud.com/tracks/1170973903",
-                    "urn": "soundcloud:tracks:1170973903",
-                    "user_id": 55254934,
-                    "visuals": null,
-                    "waveform_url": "https://wave.sndcdn.com/PnVN3eCVnIsW_m.json",
-                    "display_date": "2021-12-03T01:46:00Z",
-                    "media": {
-                        "transcodings": [
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170973903/6a8a73bb-c8a5-4d62-beb7-e660888fc9e0/stream/hls",
-                                "preset": "mp3_0_1",
-                                "duration": 146442,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/mpeg"
-                                },
-                                "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170973903/6a8a73bb-c8a5-4d62-beb7-e660888fc9e0/stream/progressive",
-                                "preset": "mp3_0_1",
-                                "duration": 146442,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "progressive",
-                                    "mime_type": "audio/mpeg"
-                                },
-                                "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170973903/0aa7ce1f-08c1-4215-ad57-48161243af6a/stream/hls",
-                                "preset": "opus_0_0",
-                                "duration": 146423,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/ogg; codecs=\"opus\""
-                                },
-                                "quality": "sq"
-                            }
-                        ]
-                    },
-                    "station_urn": "soundcloud:system-playlists:track-stations:1170973903",
-                    "station_permalink": "track-stations:1170973903",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjhhNzQ5YmRhLTRkZTQtNGU4Yi05NGNkLTM2Y2M1MTQ1M2ViOCIsImlhdCI6MTY0MjAzOTU4NX0.KBbpTNcFsa_RJLggWZqpTSmEEQPJlOBxrA8GqDH5g4o",
-                    "monetization_model": "NOT_APPLICABLE",
-                    "policy": "ALLOW",
-                    "user": {
-                        "avatar_url": "https://i1.sndcdn.com/avatars-NhrUICnsAhcj87UZ-TgwlZg-large.jpg",
-                        "first_name": "idontknowjeffery",
-                        "followers_count": 72547,
-                        "full_name": "idontknowjeffery",
-                        "id": 55254934,
-                        "kind": "user",
-                        "last_modified": "2021-12-05T22:17:18Z",
-                        "last_name": "",
-                        "permalink": "idontknowjeffery",
-                        "permalink_url": "https://soundcloud.com/idontknowjeffery",
-                        "uri": "https://api.soundcloud.com/users/55254934",
-                        "urn": "soundcloud:users:55254934",
-                        "username": "idontknowjeffery",
-                        "verified": true,
-                        "city": "East Memphis",
-                        "country_code": "US",
-                        "badges": {
-                            "pro": false,
-                            "pro_unlimited": true,
-                            "verified": true
-                        },
-                        "station_urn": "soundcloud:system-playlists:artist-stations:55254934",
-                        "station_permalink": "artist-stations:55254934"
-                    }
-                },
-                {
-                    "artwork_url": "https://i1.sndcdn.com/artworks-QHuCGOmF6TCqzLdB-FyMuKw-large.jpg",
-                    "caption": null,
-                    "commentable": true,
-                    "comment_count": 19,
-                    "created_at": "2021-12-03T01:43:31Z",
-                    "description": "Prod. By BOZ",
-                    "downloadable": false,
-                    "download_count": 0,
-                    "duration": 163213,
-                    "full_duration": 163213,
-                    "embeddable_by": "all",
-                    "genre": "Hip-hop & Rap",
-                    "has_downloads_left": false,
-                    "id": 1170973024,
-                    "kind": "track",
-                    "label_name": null,
-                    "last_modified": "2021-12-07T05:42:36Z",
-                    "license": "all-rights-reserved",
-                    "likes_count": 655,
-                    "permalink": "touched-idontknowjeffery-eddy-baker",
-                    "permalink_url": "https://soundcloud.com/idontknowjeffery/touched-idontknowjeffery-eddy-baker",
-                    "playback_count": 16516,
-                    "public": true,
-                    "publisher_metadata": {
-                        "id": 1170973024,
-                        "urn": "soundcloud:tracks:1170973024",
-                        "artist": "idontknowjeffery",
-                        "contains_music": true,
-                        "publisher": "Jeffrey T Harper",
-                        "isrc": "QZTH82167760",
-                        "explicit": true
-                    },
-                    "purchase_title": null,
-                    "purchase_url": null,
-                    "release_date": null,
-                    "reposts_count": 34,
-                    "secret_token": null,
-                    "sharing": "public",
-                    "state": "finished",
-                    "streamable": true,
-                    "tag_list": "\"abovethelawrecords #healthyboyz #empire #badboys2\"",
-                    "title": "TOUCHED - idontknowjeffery & Eddy Baker (Prod. By BOZ)",
-                    "track_format": "single-track",
-                    "uri": "https://api.soundcloud.com/tracks/1170973024",
-                    "urn": "soundcloud:tracks:1170973024",
-                    "user_id": 55254934,
-                    "visuals": null,
-                    "waveform_url": "https://wave.sndcdn.com/VfNCMtdTMCWo_m.json",
-                    "display_date": "2021-12-03T01:43:31Z",
-                    "media": {
-                        "transcodings": [
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170973024/5c5a8d99-bc79-4bbd-82bb-a588dc192c2a/stream/hls",
-                                "preset": "mp3_0_1",
-                                "duration": 163213,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/mpeg"
-                                },
-                                "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170973024/5c5a8d99-bc79-4bbd-82bb-a588dc192c2a/stream/progressive",
-                                "preset": "mp3_0_1",
-                                "duration": 163213,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "progressive",
-                                    "mime_type": "audio/mpeg"
-                                },
-                                "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170973024/5cb4d1ad-fdfb-4037-8e74-d80932489381/stream/hls",
-                                "preset": "opus_0_0",
-                                "duration": 163183,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/ogg; codecs=\"opus\""
-                                },
-                                "quality": "sq"
-                            }
-                        ]
-                    },
-                    "station_urn": "soundcloud:system-playlists:track-stations:1170973024",
-                    "station_permalink": "track-stations:1170973024",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjIzMmQ1MzZjLTk1MzQtNGMwZC04NzBjLTE3ZGY3MWI5MTgxMiIsImlhdCI6MTY0MjAzOTU4NX0.iymr2_IgH44AzaajzpRtvMV3pMn6D79qJxWeo4BZN-M",
-                    "monetization_model": "NOT_APPLICABLE",
-                    "policy": "ALLOW",
-                    "user": {
-                        "avatar_url": "https://i1.sndcdn.com/avatars-NhrUICnsAhcj87UZ-TgwlZg-large.jpg",
-                        "first_name": "idontknowjeffery",
-                        "followers_count": 72547,
-                        "full_name": "idontknowjeffery",
-                        "id": 55254934,
-                        "kind": "user",
-                        "last_modified": "2021-12-05T22:17:18Z",
-                        "last_name": "",
-                        "permalink": "idontknowjeffery",
-                        "permalink_url": "https://soundcloud.com/idontknowjeffery",
-                        "uri": "https://api.soundcloud.com/users/55254934",
-                        "urn": "soundcloud:users:55254934",
-                        "username": "idontknowjeffery",
-                        "verified": true,
-                        "city": "East Memphis",
-                        "country_code": "US",
-                        "badges": {
-                            "pro": false,
-                            "pro_unlimited": true,
-                            "verified": true
-                        },
-                        "station_urn": "soundcloud:system-playlists:artist-stations:55254934",
-                        "station_permalink": "artist-stations:55254934"
-                    }
-                },
-                {
-                    "artwork_url": "https://i1.sndcdn.com/artworks-QHuCGOmF6TCqzLdB-FyMuKw-large.jpg",
-                    "caption": null,
-                    "commentable": true,
-                    "comment_count": 23,
-                    "created_at": "2021-12-03T01:38:22Z",
-                    "description": "Prod. By Lyson Beats",
-                    "downloadable": false,
-                    "download_count": 0,
-                    "duration": 128705,
-                    "full_duration": 128705,
-                    "embeddable_by": "all",
-                    "genre": "Hip-hop & Rap",
-                    "has_downloads_left": false,
-                    "id": 1170970672,
-                    "kind": "track",
-                    "label_name": null,
-                    "last_modified": "2021-12-08T00:49:58Z",
-                    "license": "all-rights-reserved",
-                    "likes_count": 696,
-                    "permalink": "dirty-cop-idontknowjeffery-eddy-baker",
-                    "permalink_url": "https://soundcloud.com/idontknowjeffery/dirty-cop-idontknowjeffery-eddy-baker",
-                    "playback_count": 19749,
-                    "public": true,
-                    "publisher_metadata": {
-                        "id": 1170970672,
-                        "urn": "soundcloud:tracks:1170970672",
-                        "artist": "idontknowjeffery",
-                        "album_title": "                              ",
-                        "contains_music": true,
-                        "publisher": "Jeffrey T Harper",
-                        "isrc": "QZTH82167738",
-                        "explicit": true
-                    },
-                    "purchase_title": null,
-                    "purchase_url": null,
-                    "release_date": null,
-                    "reposts_count": 28,
-                    "secret_token": null,
-                    "sharing": "public",
-                    "state": "finished",
-                    "streamable": true,
-                    "tag_list": "abovethelawrecords healthyboyz Empire Badboys2",
-                    "title": "DIRTY COP - idontknowjeffery & Eddy Baker (Prod. By Lyson Beats)",
-                    "track_format": "single-track",
-                    "uri": "https://api.soundcloud.com/tracks/1170970672",
-                    "urn": "soundcloud:tracks:1170970672",
-                    "user_id": 55254934,
-                    "visuals": null,
-                    "waveform_url": "https://wave.sndcdn.com/Wgjc3sB6U7Wu_m.json",
-                    "display_date": "2021-12-03T01:38:22Z",
-                    "media": {
-                        "transcodings": [
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170970672/74e08688-1f5b-4a8e-ad56-abca53e65153/stream/hls",
-                                "preset": "mp3_0_1",
-                                "duration": 128705,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/mpeg"
-                                },
-                                "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170970672/74e08688-1f5b-4a8e-ad56-abca53e65153/stream/progressive",
-                                "preset": "mp3_0_1",
-                                "duration": 128705,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "progressive",
-                                    "mime_type": "audio/mpeg"
-                                },
-                                "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170970672/65de9657-1bf9-4df8-bd04-96114583cc4d/stream/hls",
-                                "preset": "opus_0_0",
-                                "duration": 128686,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/ogg; codecs=\"opus\""
-                                },
-                                "quality": "sq"
-                            }
-                        ]
-                    },
-                    "station_urn": "soundcloud:system-playlists:track-stations:1170970672",
-                    "station_permalink": "track-stations:1170970672",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjYyOGUzNTViLTlhNWQtNDI1ZS05OTM5LTkzYWZlMGZiNWU4ZiIsImlhdCI6MTY0MjAzOTU4NX0.Xymraq4a88EDnWsdZxjg3CyFTjhuxjx5WYbtk7GfPHo",
-                    "monetization_model": "NOT_APPLICABLE",
-                    "policy": "ALLOW",
-                    "user": {
-                        "avatar_url": "https://i1.sndcdn.com/avatars-NhrUICnsAhcj87UZ-TgwlZg-large.jpg",
-                        "first_name": "idontknowjeffery",
-                        "followers_count": 72547,
-                        "full_name": "idontknowjeffery",
-                        "id": 55254934,
-                        "kind": "user",
-                        "last_modified": "2021-12-05T22:17:18Z",
-                        "last_name": "",
-                        "permalink": "idontknowjeffery",
-                        "permalink_url": "https://soundcloud.com/idontknowjeffery",
-                        "uri": "https://api.soundcloud.com/users/55254934",
-                        "urn": "soundcloud:users:55254934",
-                        "username": "idontknowjeffery",
-                        "verified": true,
-                        "city": "East Memphis",
-                        "country_code": "US",
-                        "badges": {
-                            "pro": false,
-                            "pro_unlimited": true,
-                            "verified": true
-                        },
-                        "station_urn": "soundcloud:system-playlists:artist-stations:55254934",
-                        "station_permalink": "artist-stations:55254934"
-                    }
-                },
-                {
-                    "artwork_url": "https://i1.sndcdn.com/artworks-QHuCGOmF6TCqzLdB-FyMuKw-large.jpg",
-                    "caption": null,
-                    "commentable": true,
-                    "comment_count": 14,
-                    "created_at": "2021-12-03T01:34:42Z",
-                    "description": "Prod. By BOZ",
-                    "downloadable": false,
-                    "download_count": 0,
-                    "duration": 130377,
-                    "full_duration": 130377,
-                    "embeddable_by": "all",
-                    "genre": "Hip-hop & Rap",
-                    "has_downloads_left": false,
-                    "id": 1170969301,
-                    "kind": "track",
-                    "label_name": null,
-                    "last_modified": "2021-12-25T09:55:28Z",
-                    "license": "all-rights-reserved",
-                    "likes_count": 604,
-                    "permalink": "choosing-fee-idontknowjeffery-eddy-baker",
-                    "permalink_url": "https://soundcloud.com/idontknowjeffery/choosing-fee-idontknowjeffery-eddy-baker",
-                    "playback_count": 17325,
-                    "public": true,
-                    "publisher_metadata": {
-                        "id": 1170969301,
-                        "urn": "soundcloud:tracks:1170969301",
-                        "artist": "idontknowjeffery",
-                        "contains_music": true,
-                        "publisher": "Jeffrey T Harper",
-                        "isrc": "QZTH82167734",
-                        "explicit": true
-                    },
-                    "purchase_title": null,
-                    "purchase_url": null,
-                    "release_date": null,
-                    "reposts_count": 32,
-                    "secret_token": null,
-                    "sharing": "public",
-                    "state": "finished",
-                    "streamable": true,
-                    "tag_list": "abovethelawrecords healthyboyz Empire Badboys2",
-                    "title": "CHOOSING FEE - idontknowjeffery & Eddy Baker (Prod. By BOZ)",
-                    "track_format": "single-track",
-                    "uri": "https://api.soundcloud.com/tracks/1170969301",
-                    "urn": "soundcloud:tracks:1170969301",
-                    "user_id": 55254934,
-                    "visuals": null,
-                    "waveform_url": "https://wave.sndcdn.com/TJUDBJTe4FkC_m.json",
-                    "display_date": "2021-12-03T01:34:42Z",
-                    "media": {
-                        "transcodings": [
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170969301/51637923-d1b8-4d45-b7fa-22626078a7d1/stream/hls",
-                                "preset": "mp3_0_1",
-                                "duration": 130377,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/mpeg"
-                                },
-                                "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170969301/51637923-d1b8-4d45-b7fa-22626078a7d1/stream/progressive",
-                                "preset": "mp3_0_1",
-                                "duration": 130377,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "progressive",
-                                    "mime_type": "audio/mpeg"
-                                },
-                                "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170969301/b6c474d5-6bea-497d-bc74-ee988b74ac93/stream/hls",
-                                "preset": "opus_0_0",
-                                "duration": 130358,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/ogg; codecs=\"opus\""
-                                },
-                                "quality": "sq"
-                            }
-                        ]
-                    },
-                    "station_urn": "soundcloud:system-playlists:track-stations:1170969301",
-                    "station_permalink": "track-stations:1170969301",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjE4YjcwNGU2LTlmOWUtNGRmMS1hMTJlLTZiY2RhM2Q0MDQ0YiIsImlhdCI6MTY0MjAzOTU4NX0.I6CdZ3VnWAFU1wv7EOgZ8sthwRiEOfjuqOtESeC6N1M",
-                    "monetization_model": "NOT_APPLICABLE",
-                    "policy": "ALLOW",
-                    "user": {
-                        "avatar_url": "https://i1.sndcdn.com/avatars-NhrUICnsAhcj87UZ-TgwlZg-large.jpg",
-                        "first_name": "idontknowjeffery",
-                        "followers_count": 72547,
-                        "full_name": "idontknowjeffery",
-                        "id": 55254934,
-                        "kind": "user",
-                        "last_modified": "2021-12-05T22:17:18Z",
-                        "last_name": "",
-                        "permalink": "idontknowjeffery",
-                        "permalink_url": "https://soundcloud.com/idontknowjeffery",
-                        "uri": "https://api.soundcloud.com/users/55254934",
-                        "urn": "soundcloud:users:55254934",
-                        "username": "idontknowjeffery",
-                        "verified": true,
-                        "city": "East Memphis",
-                        "country_code": "US",
-                        "badges": {
-                            "pro": false,
-                            "pro_unlimited": true,
-                            "verified": true
-                        },
-                        "station_urn": "soundcloud:system-playlists:artist-stations:55254934",
-                        "station_permalink": "artist-stations:55254934"
-                    }
-                },
-                {
-                    "artwork_url": "https://i1.sndcdn.com/artworks-QHuCGOmF6TCqzLdB-FyMuKw-large.jpg",
-                    "caption": null,
-                    "commentable": true,
-                    "comment_count": 13,
-                    "created_at": "2021-12-03T01:26:52Z",
-                    "description": "Prod. By BOZ",
-                    "downloadable": false,
-                    "download_count": 0,
-                    "duration": 111020,
-                    "full_duration": 111020,
-                    "embeddable_by": "all",
-                    "genre": "Hip-hop & Rap",
-                    "has_downloads_left": false,
-                    "id": 1170966667,
-                    "kind": "track",
-                    "label_name": null,
-                    "last_modified": "2021-12-07T05:06:48Z",
-                    "license": "all-rights-reserved",
-                    "likes_count": 403,
-                    "permalink": "firearm-idontknowjeffery-eddy-baker",
-                    "permalink_url": "https://soundcloud.com/idontknowjeffery/firearm-idontknowjeffery-eddy-baker",
-                    "playback_count": 10636,
-                    "public": true,
-                    "publisher_metadata": {
-                        "id": 1170966667,
-                        "urn": "soundcloud:tracks:1170966667",
-                        "artist": "idontknowjeffery",
-                        "album_title": "                              ",
-                        "contains_music": true,
-                        "publisher": "Jeffrey T Harper",
-                        "isrc": "QZTH82167722",
-                        "explicit": true
-                    },
-                    "purchase_title": null,
-                    "purchase_url": null,
-                    "release_date": null,
-                    "reposts_count": 16,
-                    "secret_token": null,
-                    "sharing": "public",
-                    "state": "finished",
-                    "streamable": true,
-                    "tag_list": "abovethelawrecords healthyboyz Empire Badboys2",
-                    "title": "FIREARM - idontknowjeffery & Eddy Baker (Prod. by BOZ)",
-                    "track_format": "single-track",
-                    "uri": "https://api.soundcloud.com/tracks/1170966667",
-                    "urn": "soundcloud:tracks:1170966667",
-                    "user_id": 55254934,
-                    "visuals": null,
-                    "waveform_url": "https://wave.sndcdn.com/RkINWEhjil7E_m.json",
-                    "display_date": "2021-12-03T01:26:52Z",
-                    "media": {
-                        "transcodings": [
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170966667/c922d42f-0235-4fe3-9c7f-73c8e15fe22d/stream/hls",
-                                "preset": "mp3_0_1",
-                                "duration": 111020,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/mpeg"
-                                },
-                                "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170966667/c922d42f-0235-4fe3-9c7f-73c8e15fe22d/stream/progressive",
-                                "preset": "mp3_0_1",
-                                "duration": 111020,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "progressive",
-                                    "mime_type": "audio/mpeg"
-                                },
-                                "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170966667/14c3144f-7f12-43f7-bba9-503b6e811e91/stream/hls",
-                                "preset": "opus_0_0",
-                                "duration": 111001,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/ogg; codecs=\"opus\""
-                                },
-                                "quality": "sq"
-                            }
-                        ]
-                    },
-                    "station_urn": "soundcloud:system-playlists:track-stations:1170966667",
-                    "station_permalink": "track-stations:1170966667",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjJhNDg4MzNiLWE1OTAtNDM3ZC05OTg1LWQxZTg5N2FjN2M1YyIsImlhdCI6MTY0MjAzOTU4NX0.mJWZEdHAhktux1Q83WrZ3xj7pJ81CjbvBHf7D0AF69M",
-                    "monetization_model": "NOT_APPLICABLE",
-                    "policy": "ALLOW",
-                    "user": {
-                        "avatar_url": "https://i1.sndcdn.com/avatars-NhrUICnsAhcj87UZ-TgwlZg-large.jpg",
-                        "first_name": "idontknowjeffery",
-                        "followers_count": 72547,
-                        "full_name": "idontknowjeffery",
-                        "id": 55254934,
-                        "kind": "user",
-                        "last_modified": "2021-12-05T22:17:18Z",
-                        "last_name": "",
-                        "permalink": "idontknowjeffery",
-                        "permalink_url": "https://soundcloud.com/idontknowjeffery",
-                        "uri": "https://api.soundcloud.com/users/55254934",
-                        "urn": "soundcloud:users:55254934",
-                        "username": "idontknowjeffery",
-                        "verified": true,
-                        "city": "East Memphis",
-                        "country_code": "US",
-                        "badges": {
-                            "pro": false,
-                            "pro_unlimited": true,
-                            "verified": true
-                        },
-                        "station_urn": "soundcloud:system-playlists:artist-stations:55254934",
-                        "station_permalink": "artist-stations:55254934"
-                    }
-                },
-                {
-                    "artwork_url": "https://i1.sndcdn.com/artworks-QHuCGOmF6TCqzLdB-FyMuKw-large.jpg",
-                    "caption": null,
-                    "commentable": true,
-                    "comment_count": 11,
-                    "created_at": "2021-12-03T01:23:53Z",
-                    "description": "Prod. By Mr. Sisco",
-                    "downloadable": false,
-                    "download_count": 0,
-                    "duration": 190772,
-                    "full_duration": 190772,
-                    "embeddable_by": "all",
-                    "genre": "Hip-hop & Rap",
-                    "has_downloads_left": false,
-                    "id": 1170965671,
-                    "kind": "track",
-                    "label_name": null,
-                    "last_modified": "2021-12-29T10:41:02Z",
-                    "license": "all-rights-reserved",
-                    "likes_count": 480,
-                    "permalink": "nightmares-come-true-too-idontknowjeffery-eddy-baker",
-                    "permalink_url": "https://soundcloud.com/idontknowjeffery/nightmares-come-true-too-idontknowjeffery-eddy-baker",
-                    "playback_count": 12200,
-                    "public": true,
-                    "publisher_metadata": {
-                        "id": 1170965671,
-                        "urn": "soundcloud:tracks:1170965671",
-                        "artist": "idontknowjeffery",
-                        "contains_music": true,
-                        "publisher": "Jeffrey T Harper",
-                        "isrc": "QZTH82167717",
-                        "explicit": true
-                    },
-                    "purchase_title": null,
-                    "purchase_url": null,
-                    "release_date": null,
-                    "reposts_count": 17,
-                    "secret_token": null,
-                    "sharing": "public",
-                    "state": "finished",
-                    "streamable": true,
-                    "tag_list": "abovethelawrecords healthyboyz Empire Badboys2",
-                    "title": "NIGHTMARES COME TRUE TOO - idontknowjeffery & Eddy Baker (Prod. By Mr. Sisco)",
-                    "track_format": "single-track",
-                    "uri": "https://api.soundcloud.com/tracks/1170965671",
-                    "urn": "soundcloud:tracks:1170965671",
-                    "user_id": 55254934,
-                    "visuals": null,
-                    "waveform_url": "https://wave.sndcdn.com/EA7EVQ9Sbr1v_m.json",
-                    "display_date": "2021-12-03T01:23:53Z",
-                    "media": {
-                        "transcodings": [
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170965671/0b03740f-d50c-4b7e-b195-bdf2be967183/stream/hls",
-                                "preset": "mp3_0_1",
-                                "duration": 190772,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/mpeg"
-                                },
-                                "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170965671/0b03740f-d50c-4b7e-b195-bdf2be967183/stream/progressive",
-                                "preset": "mp3_0_1",
-                                "duration": 190772,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "progressive",
-                                    "mime_type": "audio/mpeg"
-                                },
-                                "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170965671/1dd73493-974b-4623-a6fa-48293423a64a/stream/hls",
-                                "preset": "opus_0_0",
-                                "duration": 190753,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/ogg; codecs=\"opus\""
-                                },
-                                "quality": "sq"
-                            }
-                        ]
-                    },
-                    "station_urn": "soundcloud:system-playlists:track-stations:1170965671",
-                    "station_permalink": "track-stations:1170965671",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjM5MDVmYjk1LTMwNTQtNDg4Ni1iMmI2LTNhYzZhY2I0MTM2NyIsImlhdCI6MTY0MjAzOTU4NX0.jm88XKEMf7ztJbvojNHyp7GU00ayNj47_kq9l7d5VR4",
-                    "monetization_model": "NOT_APPLICABLE",
-                    "policy": "ALLOW",
-                    "user": {
-                        "avatar_url": "https://i1.sndcdn.com/avatars-NhrUICnsAhcj87UZ-TgwlZg-large.jpg",
-                        "first_name": "idontknowjeffery",
-                        "followers_count": 72547,
-                        "full_name": "idontknowjeffery",
-                        "id": 55254934,
-                        "kind": "user",
-                        "last_modified": "2021-12-05T22:17:18Z",
-                        "last_name": "",
-                        "permalink": "idontknowjeffery",
-                        "permalink_url": "https://soundcloud.com/idontknowjeffery",
-                        "uri": "https://api.soundcloud.com/users/55254934",
-                        "urn": "soundcloud:users:55254934",
-                        "username": "idontknowjeffery",
-                        "verified": true,
-                        "city": "East Memphis",
-                        "country_code": "US",
-                        "badges": {
-                            "pro": false,
-                            "pro_unlimited": true,
-                            "verified": true
-                        },
-                        "station_urn": "soundcloud:system-playlists:artist-stations:55254934",
-                        "station_permalink": "artist-stations:55254934"
-                    }
-                },
-                {
-                    "artwork_url": "https://i1.sndcdn.com/artworks-hfQyvyRhWDj69fho-dl6BaQ-large.jpg",
-                    "caption": null,
-                    "commentable": true,
-                    "comment_count": 9,
-                    "created_at": "2021-12-03T01:18:45Z",
-                    "description": "Prod. by Hotwheelz",
-                    "downloadable": false,
-                    "download_count": 0,
-                    "duration": 174629,
-                    "full_duration": 174629,
-                    "embeddable_by": "all",
-                    "genre": "Hip-hop & Rap",
-                    "has_downloads_left": false,
-                    "id": 1170963832,
-                    "kind": "track",
-                    "label_name": null,
-                    "last_modified": "2021-12-07T05:01:46Z",
-                    "license": "all-rights-reserved",
-                    "likes_count": 382,
-                    "permalink": "bad-boys-for-life-idontknowjeffery-eddy-baker",
-                    "permalink_url": "https://soundcloud.com/idontknowjeffery/bad-boys-for-life-idontknowjeffery-eddy-baker",
-                    "playback_count": 11748,
-                    "public": true,
-                    "publisher_metadata": {
-                        "id": 1170963832,
-                        "urn": "soundcloud:tracks:1170963832",
-                        "artist": "idontknowjeffery",
-                        "album_title": "                              ",
-                        "contains_music": true,
-                        "publisher": "Jeffrey T Harper",
-                        "isrc": "QZTH82167708",
-                        "explicit": true
-                    },
-                    "purchase_title": null,
-                    "purchase_url": null,
-                    "release_date": null,
-                    "reposts_count": 17,
-                    "secret_token": null,
-                    "sharing": "public",
-                    "state": "finished",
-                    "streamable": true,
-                    "tag_list": "",
-                    "title": "BAD BOYS FOR LIFE - idontknowjeffery & Eddy Baker (Prod. By Hotwheelz)",
-                    "track_format": "single-track",
-                    "uri": "https://api.soundcloud.com/tracks/1170963832",
-                    "urn": "soundcloud:tracks:1170963832",
-                    "user_id": 55254934,
-                    "visuals": null,
-                    "waveform_url": "https://wave.sndcdn.com/ztMp9ENPbdgs_m.json",
-                    "display_date": "2021-12-03T01:18:45Z",
-                    "media": {
-                        "transcodings": [
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170963832/c61eac6d-95b5-43bf-83c4-e258496e84a9/stream/hls",
-                                "preset": "mp3_0_1",
-                                "duration": 174629,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/mpeg"
-                                },
-                                "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170963832/c61eac6d-95b5-43bf-83c4-e258496e84a9/stream/progressive",
-                                "preset": "mp3_0_1",
-                                "duration": 174629,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "progressive",
-                                    "mime_type": "audio/mpeg"
-                                },
-                                "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170963832/629fedb4-5483-466d-9338-6b0911e59123/stream/hls",
-                                "preset": "opus_0_0",
-                                "duration": 174609,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/ogg; codecs=\"opus\""
-                                },
-                                "quality": "sq"
-                            }
-                        ]
-                    },
-                    "station_urn": "soundcloud:system-playlists:track-stations:1170963832",
-                    "station_permalink": "track-stations:1170963832",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjFhZDkxY2MyLTMxNjgtNDc2YS04ZWRjLTA5MTMxY2IyNDM5ZSIsImlhdCI6MTY0MjAzOTU4NX0.FZdvRWkQNSkzKhwJ47RWiA5VVOgu63P4vc0GardaX50",
-                    "monetization_model": "NOT_APPLICABLE",
-                    "policy": "ALLOW",
-                    "user": {
-                        "avatar_url": "https://i1.sndcdn.com/avatars-NhrUICnsAhcj87UZ-TgwlZg-large.jpg",
-                        "first_name": "idontknowjeffery",
-                        "followers_count": 72547,
-                        "full_name": "idontknowjeffery",
-                        "id": 55254934,
-                        "kind": "user",
-                        "last_modified": "2021-12-05T22:17:18Z",
-                        "last_name": "",
-                        "permalink": "idontknowjeffery",
-                        "permalink_url": "https://soundcloud.com/idontknowjeffery",
-                        "uri": "https://api.soundcloud.com/users/55254934",
-                        "urn": "soundcloud:users:55254934",
-                        "username": "idontknowjeffery",
-                        "verified": true,
-                        "city": "East Memphis",
-                        "country_code": "US",
-                        "badges": {
-                            "pro": false,
-                            "pro_unlimited": true,
-                            "verified": true
-                        },
-                        "station_urn": "soundcloud:system-playlists:artist-stations:55254934",
-                        "station_permalink": "artist-stations:55254934"
-                    }
-                },
-                {
-                    "artwork_url": "https://i1.sndcdn.com/artworks-GSzvS8Y6IhGzkXho-0BqXLg-large.jpg",
-                    "caption": null,
-                    "commentable": true,
-                    "comment_count": 26,
-                    "created_at": "2021-11-07T03:34:34Z",
+                    "comment_count": null,
+                    "created_at": "2022-07-14T11:12:35Z",
                     "description": "",
                     "downloadable": false,
-                    "download_count": 0,
-                    "duration": 127425,
-                    "full_duration": 127425,
+                    "download_count": null,
+                    "duration": 143386,
+                    "full_duration": 143386,
                     "embeddable_by": "all",
-                    "genre": "Hip-hop & Rap",
+                    "genre": "",
                     "has_downloads_left": false,
-                    "id": 1155263044,
+                    "id": 1305021748,
                     "kind": "track",
                     "label_name": null,
-                    "last_modified": "2021-11-30T00:45:38Z",
+                    "last_modified": "2022-07-29T04:15:31Z",
                     "license": "all-rights-reserved",
-                    "likes_count": 649,
-                    "permalink": "gun-license-idontknowjeffery-ft-grindhard-e",
-                    "permalink_url": "https://soundcloud.com/idontknowjeffery/gun-license-idontknowjeffery-ft-grindhard-e",
-                    "playback_count": 16086,
+                    "likes_count": null,
+                    "permalink": "godzilla-freestyle",
+                    "permalink_url": "https://soundcloud.com/idontknowjeffery/godzilla-freestyle",
+                    "playback_count": null,
                     "public": true,
                     "publisher_metadata": {
-                        "id": 1155263044,
-                        "urn": "soundcloud:tracks:1155263044",
+                        "id": 1305021748,
+                        "urn": "soundcloud:tracks:1305021748",
                         "artist": "idontknowjeffery",
+                        "album_title": "                              ",
                         "contains_music": true,
-                        "publisher": "Jeffrey T Harper",
-                        "isrc": "QZTH82160238",
+                        "publisher": "Jeffrey T Harpe",
+                        "isrc": "QZHPJ2250155",
                         "explicit": true
                     },
                     "purchase_title": null,
                     "purchase_url": null,
-                    "release_date": null,
-                    "reposts_count": 40,
+                    "release_date": "2022-07-28T00:00:00Z",
+                    "reposts_count": 0,
                     "secret_token": null,
                     "sharing": "public",
                     "state": "finished",
                     "streamable": true,
-                    "tag_list": "",
-                    "title": "Gun License - idontknowjeffery ft GRINDHARD E",
+                    "tag_list": "\"Hip Hop\"",
+                    "title": "Godzilla Freestyle (feat. Big Marri)",
                     "track_format": "single-track",
-                    "uri": "https://api.soundcloud.com/tracks/1155263044",
-                    "urn": "soundcloud:tracks:1155263044",
+                    "uri": "https://api.soundcloud.com/tracks/1305021748",
+                    "urn": "soundcloud:tracks:1305021748",
                     "user_id": 55254934,
                     "visuals": null,
-                    "waveform_url": "https://wave.sndcdn.com/rT7NW5hYyAwF_m.json",
-                    "display_date": "2021-11-07T03:34:34Z",
+                    "waveform_url": "https://wave.sndcdn.com/FEMFXz2Vk2mj_m.json",
+                    "display_date": "2022-07-29T04:15:31Z",
                     "media": {
                         "transcodings": [
                             {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1155263044/5458bd96-5cef-4f46-b8e2-adf8591b04b5/stream/hls",
-                                "preset": "mp3_0_1",
-                                "duration": 127425,
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021748/7f2bcdd9-6ce8-4d15-954e-8c647cda6356/stream/hls",
+                                "preset": "mp3_1_0",
+                                "duration": 143386,
                                 "snipped": false,
                                 "format": {
                                     "protocol": "hls",
@@ -1019,9 +72,9 @@
                                 "quality": "sq"
                             },
                             {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1155263044/5458bd96-5cef-4f46-b8e2-adf8591b04b5/stream/progressive",
-                                "preset": "mp3_0_1",
-                                "duration": 127425,
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021748/7f2bcdd9-6ce8-4d15-954e-8c647cda6356/stream/progressive",
+                                "preset": "mp3_1_0",
+                                "duration": 143386,
                                 "snipped": false,
                                 "format": {
                                     "protocol": "progressive",
@@ -1030,9 +83,9 @@
                                 "quality": "sq"
                             },
                             {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1155263044/3535075b-b899-44a1-ab19-5d17e92217fb/stream/hls",
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021748/f24b13e4-32af-43bb-8e09-59ef70910f86/stream/hls",
                                 "preset": "opus_0_0",
-                                "duration": 127406,
+                                "duration": 143367,
                                 "snipped": false,
                                 "format": {
                                     "protocol": "hls",
@@ -1042,20 +95,20 @@
                             }
                         ]
                     },
-                    "station_urn": "soundcloud:system-playlists:track-stations:1155263044",
-                    "station_permalink": "track-stations:1155263044",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6ImY3NzJkNDQ1LTNjNTItNDI1Ni1hYzZlLTNmZjE1Y2Y2NzFhZCIsImlhdCI6MTY0MjAzOTU4NX0.K2h9T92HejdE7MVO-zAw5fL7YD_5Zu27ap0rRnZhJJI",
+                    "station_urn": "soundcloud:system-playlists:track-stations:1305021748",
+                    "station_permalink": "track-stations:1305021748",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjAxNzUyOGRlLTdjM2UtNGM0NC05M2Y3LTEyYTQ1NGJhZmM1ZCIsImlhdCI6MTY1OTM1MTk5OH0.CAi7tlNg5hOzVAt4rOhvWrDrXiHQ9vTt_FWKDGtoEig",
                     "monetization_model": "NOT_APPLICABLE",
                     "policy": "ALLOW",
                     "user": {
-                        "avatar_url": "https://i1.sndcdn.com/avatars-NhrUICnsAhcj87UZ-TgwlZg-large.jpg",
-                        "first_name": "idontknowjeffery",
-                        "followers_count": 72547,
-                        "full_name": "idontknowjeffery",
+                        "avatar_url": "https://i1.sndcdn.com/avatars-puHyDu45LG7ltG3f-90VYNQ-large.jpg",
+                        "first_name": "jeffrey",
+                        "followers_count": 74925,
+                        "full_name": "jeffrey harper",
                         "id": 55254934,
                         "kind": "user",
-                        "last_modified": "2021-12-05T22:17:18Z",
-                        "last_name": "",
+                        "last_modified": "2022-07-31T08:49:03Z",
+                        "last_name": "harper",
                         "permalink": "idontknowjeffery",
                         "permalink_url": "https://soundcloud.com/idontknowjeffery",
                         "uri": "https://api.soundcloud.com/users/55254934",
@@ -1074,61 +127,61 @@
                     }
                 },
                 {
-                    "artwork_url": "https://i1.sndcdn.com/artworks-HmBwRj2VObEWXfCX-DqPOJg-large.jpg",
-                    "caption": "What should we call he tape ?",
+                    "artwork_url": "https://i1.sndcdn.com/artworks-N3KvY5n3dJxfPgPz-AXzjhA-large.jpg",
+                    "caption": null,
                     "commentable": true,
-                    "comment_count": 57,
-                    "created_at": "2021-10-03T05:16:23Z",
-                    "description": "Prod. By BOZ\nMastered by @THEFORRESTT",
+                    "comment_count": null,
+                    "created_at": "2022-07-14T11:12:03Z",
+                    "description": "Prod. By Huncho Sett",
                     "downloadable": false,
-                    "download_count": 0,
-                    "duration": 245420,
-                    "full_duration": 245420,
+                    "download_count": null,
+                    "duration": 181394,
+                    "full_duration": 181394,
                     "embeddable_by": "all",
                     "genre": "Hip-hop & Rap",
                     "has_downloads_left": false,
-                    "id": 1135200445,
+                    "id": 1305021634,
                     "kind": "track",
                     "label_name": null,
-                    "last_modified": "2021-12-13T14:49:59Z",
+                    "last_modified": "2022-07-29T04:15:05Z",
                     "license": "all-rights-reserved",
-                    "likes_count": 1232,
-                    "permalink": "we-got-the-same-job-idontknowjeffery-x-grindharde",
-                    "permalink_url": "https://soundcloud.com/idontknowjeffery/we-got-the-same-job-idontknowjeffery-x-grindharde",
-                    "playback_count": 33926,
+                    "likes_count": null,
+                    "permalink": "cant-keep-lil-mama",
+                    "permalink_url": "https://soundcloud.com/idontknowjeffery/cant-keep-lil-mama",
+                    "playback_count": null,
                     "public": true,
                     "publisher_metadata": {
-                        "id": 1135200445,
-                        "urn": "soundcloud:tracks:1135200445",
+                        "id": 1305021634,
+                        "urn": "soundcloud:tracks:1305021634",
                         "artist": "idontknowjeffery",
                         "contains_music": true,
                         "publisher": "Jeffrey T Harper",
-                        "isrc": "QZT852112047",
+                        "isrc": "QZHPJ2250137",
                         "explicit": true
                     },
                     "purchase_title": null,
                     "purchase_url": null,
-                    "release_date": null,
-                    "reposts_count": 69,
+                    "release_date": "2022-07-28T00:00:00Z",
+                    "reposts_count": 0,
                     "secret_token": null,
                     "sharing": "public",
                     "state": "finished",
                     "streamable": true,
                     "tag_list": "",
-                    "title": "We Got The Same Job ft GRINDHARD E",
+                    "title": "Can't Keep Lil Mama (feat. Big Marri)",
                     "track_format": "single-track",
-                    "uri": "https://api.soundcloud.com/tracks/1135200445",
-                    "urn": "soundcloud:tracks:1135200445",
+                    "uri": "https://api.soundcloud.com/tracks/1305021634",
+                    "urn": "soundcloud:tracks:1305021634",
                     "user_id": 55254934,
                     "visuals": null,
-                    "waveform_url": "https://wave.sndcdn.com/VW8i4u0ejlQt_m.json",
-                    "display_date": "2021-10-03T06:00:45Z",
+                    "waveform_url": "https://wave.sndcdn.com/pcMI0WouNAgv_m.json",
+                    "display_date": "2022-07-29T04:15:05Z",
                     "media": {
                         "transcodings": [
                             {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1135200445/eb1fecad-b245-4384-b7df-aaeed7b68aa7/stream/hls",
-                                "preset": "mp3_0_1",
-                                "duration": 245420,
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021634/a6ebe993-b698-4c83-9b27-e5bd82b4385b/stream/hls",
+                                "preset": "mp3_1_0",
+                                "duration": 181394,
                                 "snipped": false,
                                 "format": {
                                     "protocol": "hls",
@@ -1137,9 +190,9 @@
                                 "quality": "sq"
                             },
                             {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1135200445/eb1fecad-b245-4384-b7df-aaeed7b68aa7/stream/progressive",
-                                "preset": "mp3_0_1",
-                                "duration": 245420,
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021634/a6ebe993-b698-4c83-9b27-e5bd82b4385b/stream/progressive",
+                                "preset": "mp3_1_0",
+                                "duration": 181394,
                                 "snipped": false,
                                 "format": {
                                     "protocol": "progressive",
@@ -1148,9 +201,9 @@
                                 "quality": "sq"
                             },
                             {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1135200445/8bf5ac11-de27-41a7-bee8-5abaf03008aa/stream/hls",
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021634/62ea0eeb-8639-4eb8-b363-dc41a75c15b4/stream/hls",
                                 "preset": "opus_0_0",
-                                "duration": 245378,
+                                "duration": 181375,
                                 "snipped": false,
                                 "format": {
                                     "protocol": "hls",
@@ -1160,20 +213,969 @@
                             }
                         ]
                     },
-                    "station_urn": "soundcloud:system-playlists:track-stations:1135200445",
-                    "station_permalink": "track-stations:1135200445",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjZhMjJhMGMzLWQ2ZjItNDdjNi04Nzc3LTFmNDQzYWE2ZTk4MyIsImlhdCI6MTY0MjAzOTU4NX0.sQY_n8S1ITWjJamD9u8D2pwpP3YiIqaKzbgYtbLLErE",
+                    "station_urn": "soundcloud:system-playlists:track-stations:1305021634",
+                    "station_permalink": "track-stations:1305021634",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6ImUzNzk0OThjLTE3M2EtNGI3Yy04MjEzLWEzNTljYTE0MzZhNSIsImlhdCI6MTY1OTM1MTk5OH0.JiLBho2titYOtrWSYoUFaUtbgC6VCWyo2IT5ys353_A",
                     "monetization_model": "NOT_APPLICABLE",
                     "policy": "ALLOW",
                     "user": {
-                        "avatar_url": "https://i1.sndcdn.com/avatars-NhrUICnsAhcj87UZ-TgwlZg-large.jpg",
-                        "first_name": "idontknowjeffery",
-                        "followers_count": 72547,
-                        "full_name": "idontknowjeffery",
+                        "avatar_url": "https://i1.sndcdn.com/avatars-puHyDu45LG7ltG3f-90VYNQ-large.jpg",
+                        "first_name": "jeffrey",
+                        "followers_count": 74925,
+                        "full_name": "jeffrey harper",
                         "id": 55254934,
                         "kind": "user",
-                        "last_modified": "2021-12-05T22:17:18Z",
-                        "last_name": "",
+                        "last_modified": "2022-07-31T08:49:03Z",
+                        "last_name": "harper",
+                        "permalink": "idontknowjeffery",
+                        "permalink_url": "https://soundcloud.com/idontknowjeffery",
+                        "uri": "https://api.soundcloud.com/users/55254934",
+                        "urn": "soundcloud:users:55254934",
+                        "username": "idontknowjeffery",
+                        "verified": true,
+                        "city": "East Memphis",
+                        "country_code": "US",
+                        "badges": {
+                            "pro": false,
+                            "pro_unlimited": true,
+                            "verified": true
+                        },
+                        "station_urn": "soundcloud:system-playlists:artist-stations:55254934",
+                        "station_permalink": "artist-stations:55254934"
+                    }
+                },
+                {
+                    "artwork_url": "https://i1.sndcdn.com/artworks-5wMycIB69ZxnnAhy-PH9KXw-large.jpg",
+                    "caption": null,
+                    "commentable": true,
+                    "comment_count": 1,
+                    "created_at": "2022-07-14T11:12:15Z",
+                    "description": "Prod. By Adkins",
+                    "downloadable": false,
+                    "download_count": 0,
+                    "duration": 117420,
+                    "full_duration": 117420,
+                    "embeddable_by": "all",
+                    "genre": "Hip-hop & Rap",
+                    "has_downloads_left": false,
+                    "id": 1305021664,
+                    "kind": "track",
+                    "label_name": null,
+                    "last_modified": "2022-07-29T06:58:29Z",
+                    "license": "all-rights-reserved",
+                    "likes_count": 75,
+                    "permalink": "studio-one-freestyle",
+                    "permalink_url": "https://soundcloud.com/idontknowjeffery/studio-one-freestyle",
+                    "playback_count": 842,
+                    "public": true,
+                    "publisher_metadata": {
+                        "id": 1305021664,
+                        "urn": "soundcloud:tracks:1305021664",
+                        "artist": "idontknowjeffery",
+                        "album_title": "                              ",
+                        "contains_music": true,
+                        "publisher": "Jeffrey T Harper",
+                        "isrc": "QZHPJ2250002",
+                        "explicit": true
+                    },
+                    "purchase_title": null,
+                    "purchase_url": null,
+                    "release_date": "2022-07-28T00:00:00Z",
+                    "reposts_count": 5,
+                    "secret_token": null,
+                    "sharing": "public",
+                    "state": "finished",
+                    "streamable": true,
+                    "tag_list": "",
+                    "title": "Studio One Freestyle (feat. Big Marri)",
+                    "track_format": "single-track",
+                    "uri": "https://api.soundcloud.com/tracks/1305021664",
+                    "urn": "soundcloud:tracks:1305021664",
+                    "user_id": 55254934,
+                    "visuals": null,
+                    "waveform_url": "https://wave.sndcdn.com/tfsJQPxO3cLs_m.json",
+                    "display_date": "2022-07-29T04:14:50Z",
+                    "media": {
+                        "transcodings": [
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021664/de3033d8-6819-45ee-ad6d-11ff521543de/stream/hls",
+                                "preset": "mp3_1_0",
+                                "duration": 117420,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "hls",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            },
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021664/de3033d8-6819-45ee-ad6d-11ff521543de/stream/progressive",
+                                "preset": "mp3_1_0",
+                                "duration": 117420,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "progressive",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            },
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021664/1efa56e5-cca8-439d-9629-0f2dea12bc3b/stream/hls",
+                                "preset": "opus_0_0",
+                                "duration": 117401,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "hls",
+                                    "mime_type": "audio/ogg; codecs=\"opus\""
+                                },
+                                "quality": "sq"
+                            }
+                        ]
+                    },
+                    "station_urn": "soundcloud:system-playlists:track-stations:1305021664",
+                    "station_permalink": "track-stations:1305021664",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6ImVhMWRhNmQ0LWU1NmEtNGVlMy04NGQ5LTNiYmYzZWZiNjExMSIsImlhdCI6MTY1OTM1MTk5OH0.gb1spkk48GQtqQ0xA2KDG7UtwTTRgbQegq8OdsycYgQ",
+                    "monetization_model": "NOT_APPLICABLE",
+                    "policy": "ALLOW",
+                    "user": {
+                        "avatar_url": "https://i1.sndcdn.com/avatars-puHyDu45LG7ltG3f-90VYNQ-large.jpg",
+                        "first_name": "jeffrey",
+                        "followers_count": 74925,
+                        "full_name": "jeffrey harper",
+                        "id": 55254934,
+                        "kind": "user",
+                        "last_modified": "2022-07-31T08:49:03Z",
+                        "last_name": "harper",
+                        "permalink": "idontknowjeffery",
+                        "permalink_url": "https://soundcloud.com/idontknowjeffery",
+                        "uri": "https://api.soundcloud.com/users/55254934",
+                        "urn": "soundcloud:users:55254934",
+                        "username": "idontknowjeffery",
+                        "verified": true,
+                        "city": "East Memphis",
+                        "country_code": "US",
+                        "badges": {
+                            "pro": false,
+                            "pro_unlimited": true,
+                            "verified": true
+                        },
+                        "station_urn": "soundcloud:system-playlists:artist-stations:55254934",
+                        "station_permalink": "artist-stations:55254934"
+                    }
+                },
+                {
+                    "artwork_url": "https://i1.sndcdn.com/artworks-GpJZghSD7inGxfnC-CB4ygg-large.jpg",
+                    "caption": null,
+                    "commentable": true,
+                    "comment_count": 0,
+                    "created_at": "2022-07-14T11:12:27Z",
+                    "description": "(Prod. By Huncho Sett)",
+                    "downloadable": false,
+                    "download_count": 0,
+                    "duration": 142341,
+                    "full_duration": 142341,
+                    "embeddable_by": "all",
+                    "genre": "Hip-hop & Rap",
+                    "has_downloads_left": false,
+                    "id": 1305021712,
+                    "kind": "track",
+                    "label_name": null,
+                    "last_modified": "2022-07-29T04:14:36Z",
+                    "license": "all-rights-reserved",
+                    "likes_count": 30,
+                    "permalink": "ima-young-nigga-interlude",
+                    "permalink_url": "https://soundcloud.com/idontknowjeffery/ima-young-nigga-interlude",
+                    "playback_count": 571,
+                    "public": true,
+                    "publisher_metadata": {
+                        "id": 1305021712,
+                        "urn": "soundcloud:tracks:1305021712",
+                        "artist": "idontknowjeffery",
+                        "album_title": "                              ",
+                        "contains_music": true,
+                        "publisher": "Jeffrey T Harper",
+                        "isrc": "QZHPJ2249996",
+                        "explicit": true
+                    },
+                    "purchase_title": null,
+                    "purchase_url": null,
+                    "release_date": "2022-07-28T00:00:00Z",
+                    "reposts_count": 1,
+                    "secret_token": null,
+                    "sharing": "public",
+                    "state": "finished",
+                    "streamable": true,
+                    "tag_list": "",
+                    "title": "Ima Young Nigga (interlude) - BIG MARRI",
+                    "track_format": "single-track",
+                    "uri": "https://api.soundcloud.com/tracks/1305021712",
+                    "urn": "soundcloud:tracks:1305021712",
+                    "user_id": 55254934,
+                    "visuals": null,
+                    "waveform_url": "https://wave.sndcdn.com/XLdYW4ZomhsX_m.json",
+                    "display_date": "2022-07-29T04:14:36Z",
+                    "media": {
+                        "transcodings": [
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021712/78b36457-d91a-4bf8-b478-932968e5c27f/stream/hls",
+                                "preset": "mp3_1_0",
+                                "duration": 142341,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "hls",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            },
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021712/78b36457-d91a-4bf8-b478-932968e5c27f/stream/progressive",
+                                "preset": "mp3_1_0",
+                                "duration": 142341,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "progressive",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            },
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021712/f54c8cc0-af94-4908-bba9-73024ed2de1b/stream/hls",
+                                "preset": "opus_0_0",
+                                "duration": 142322,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "hls",
+                                    "mime_type": "audio/ogg; codecs=\"opus\""
+                                },
+                                "quality": "sq"
+                            }
+                        ]
+                    },
+                    "station_urn": "soundcloud:system-playlists:track-stations:1305021712",
+                    "station_permalink": "track-stations:1305021712",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6ImY0YTgxNGI1LWRlYmItNGFhNS1hZGQwLWZmYjJmNTVlNTQ4YiIsImlhdCI6MTY1OTM1MTk5OH0.GG5Jk2KoVJCsWSZ47VeAIESM-6nMGtePP18FRM33pk0",
+                    "monetization_model": "NOT_APPLICABLE",
+                    "policy": "ALLOW",
+                    "user": {
+                        "avatar_url": "https://i1.sndcdn.com/avatars-puHyDu45LG7ltG3f-90VYNQ-large.jpg",
+                        "first_name": "jeffrey",
+                        "followers_count": 74925,
+                        "full_name": "jeffrey harper",
+                        "id": 55254934,
+                        "kind": "user",
+                        "last_modified": "2022-07-31T08:49:03Z",
+                        "last_name": "harper",
+                        "permalink": "idontknowjeffery",
+                        "permalink_url": "https://soundcloud.com/idontknowjeffery",
+                        "uri": "https://api.soundcloud.com/users/55254934",
+                        "urn": "soundcloud:users:55254934",
+                        "username": "idontknowjeffery",
+                        "verified": true,
+                        "city": "East Memphis",
+                        "country_code": "US",
+                        "badges": {
+                            "pro": false,
+                            "pro_unlimited": true,
+                            "verified": true
+                        },
+                        "station_urn": "soundcloud:system-playlists:artist-stations:55254934",
+                        "station_permalink": "artist-stations:55254934"
+                    }
+                },
+                {
+                    "artwork_url": "https://i1.sndcdn.com/artworks-fNwOFcavVHO5Fxnb-ZRKlxw-large.jpg",
+                    "caption": null,
+                    "commentable": true,
+                    "comment_count": 2,
+                    "created_at": "2022-07-14T11:11:30Z",
+                    "description": "Prod. By Denaro Love",
+                    "downloadable": false,
+                    "download_count": 0,
+                    "duration": 227422,
+                    "full_duration": 227422,
+                    "embeddable_by": "all",
+                    "genre": "Hip-hop & Rap",
+                    "has_downloads_left": false,
+                    "id": 1305021448,
+                    "kind": "track",
+                    "label_name": null,
+                    "last_modified": "2022-07-29T04:14:25Z",
+                    "license": "all-rights-reserved",
+                    "likes_count": 64,
+                    "permalink": "when-i-catch-yall",
+                    "permalink_url": "https://soundcloud.com/idontknowjeffery/when-i-catch-yall",
+                    "playback_count": 708,
+                    "public": true,
+                    "publisher_metadata": {
+                        "id": 1305021448,
+                        "urn": "soundcloud:tracks:1305021448",
+                        "artist": "idontknowjeffery",
+                        "contains_music": true,
+                        "publisher": "Jeffrey T Harper",
+                        "isrc": "QZHPJ2249234",
+                        "explicit": true
+                    },
+                    "purchase_title": null,
+                    "purchase_url": null,
+                    "release_date": null,
+                    "reposts_count": 4,
+                    "secret_token": null,
+                    "sharing": "public",
+                    "state": "finished",
+                    "streamable": true,
+                    "tag_list": "",
+                    "title": "When I Catch Yall (feat. Big Marri)",
+                    "track_format": "single-track",
+                    "uri": "https://api.soundcloud.com/tracks/1305021448",
+                    "urn": "soundcloud:tracks:1305021448",
+                    "user_id": 55254934,
+                    "visuals": null,
+                    "waveform_url": "https://wave.sndcdn.com/ByEkjFqUyiqC_m.json",
+                    "display_date": "2022-07-29T04:14:25Z",
+                    "media": {
+                        "transcodings": [
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021448/cd5ea336-9f97-45f6-8d71-455e5e7c6a4d/stream/hls",
+                                "preset": "mp3_1_0",
+                                "duration": 227422,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "hls",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            },
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021448/cd5ea336-9f97-45f6-8d71-455e5e7c6a4d/stream/progressive",
+                                "preset": "mp3_1_0",
+                                "duration": 227422,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "progressive",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            },
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021448/879ae724-1c88-46d2-9766-034e4ee2237d/stream/hls",
+                                "preset": "opus_0_0",
+                                "duration": 227398,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "hls",
+                                    "mime_type": "audio/ogg; codecs=\"opus\""
+                                },
+                                "quality": "sq"
+                            }
+                        ]
+                    },
+                    "station_urn": "soundcloud:system-playlists:track-stations:1305021448",
+                    "station_permalink": "track-stations:1305021448",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6ImYwYzg5MjlmLWIwMTUtNDViMy05MzQxLTg5YzMyYzExYzcwMiIsImlhdCI6MTY1OTM1MTk5OH0.76q-PmM9y6duxIkaFyjsJcZ7vwXDd9HGf6k5YCc4C9Y",
+                    "monetization_model": "NOT_APPLICABLE",
+                    "policy": "ALLOW",
+                    "user": {
+                        "avatar_url": "https://i1.sndcdn.com/avatars-puHyDu45LG7ltG3f-90VYNQ-large.jpg",
+                        "first_name": "jeffrey",
+                        "followers_count": 74925,
+                        "full_name": "jeffrey harper",
+                        "id": 55254934,
+                        "kind": "user",
+                        "last_modified": "2022-07-31T08:49:03Z",
+                        "last_name": "harper",
+                        "permalink": "idontknowjeffery",
+                        "permalink_url": "https://soundcloud.com/idontknowjeffery",
+                        "uri": "https://api.soundcloud.com/users/55254934",
+                        "urn": "soundcloud:users:55254934",
+                        "username": "idontknowjeffery",
+                        "verified": true,
+                        "city": "East Memphis",
+                        "country_code": "US",
+                        "badges": {
+                            "pro": false,
+                            "pro_unlimited": true,
+                            "verified": true
+                        },
+                        "station_urn": "soundcloud:system-playlists:artist-stations:55254934",
+                        "station_permalink": "artist-stations:55254934"
+                    }
+                },
+                {
+                    "artwork_url": "https://i1.sndcdn.com/artworks-ycOjdHzv0ULe4kNL-JMYRTw-large.jpg",
+                    "caption": null,
+                    "commentable": true,
+                    "comment_count": 0,
+                    "created_at": "2022-07-14T11:11:36Z",
+                    "description": "(Prod. By Denaro Love)",
+                    "downloadable": false,
+                    "download_count": 0,
+                    "duration": 151458,
+                    "full_duration": 151458,
+                    "embeddable_by": "all",
+                    "genre": "Hip-hop & Rap",
+                    "has_downloads_left": false,
+                    "id": 1305021478,
+                    "kind": "track",
+                    "label_name": null,
+                    "last_modified": "2022-07-29T04:14:13Z",
+                    "license": "all-rights-reserved",
+                    "likes_count": 50,
+                    "permalink": "umbrella-un",
+                    "permalink_url": "https://soundcloud.com/idontknowjeffery/umbrella-un",
+                    "playback_count": 668,
+                    "public": true,
+                    "publisher_metadata": {
+                        "id": 1305021478,
+                        "urn": "soundcloud:tracks:1305021478",
+                        "artist": "idontknowjeffery",
+                        "contains_music": true,
+                        "publisher": "Jeffrey T Harper",
+                        "isrc": "QZHPJ2249987",
+                        "explicit": true
+                    },
+                    "purchase_title": null,
+                    "purchase_url": null,
+                    "release_date": null,
+                    "reposts_count": 2,
+                    "secret_token": null,
+                    "sharing": "public",
+                    "state": "finished",
+                    "streamable": true,
+                    "tag_list": "",
+                    "title": "Umbrella (feat. Big Marri)",
+                    "track_format": "single-track",
+                    "uri": "https://api.soundcloud.com/tracks/1305021478",
+                    "urn": "soundcloud:tracks:1305021478",
+                    "user_id": 55254934,
+                    "visuals": null,
+                    "waveform_url": "https://wave.sndcdn.com/vgsd8hyKrmGs_m.json",
+                    "display_date": "2022-07-29T04:14:13Z",
+                    "media": {
+                        "transcodings": [
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021478/6c7c1c00-bf01-4c4d-a1ca-5893ebaa6247/stream/hls",
+                                "preset": "mp3_1_0",
+                                "duration": 151458,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "hls",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            },
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021478/6c7c1c00-bf01-4c4d-a1ca-5893ebaa6247/stream/progressive",
+                                "preset": "mp3_1_0",
+                                "duration": 151458,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "progressive",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            },
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021478/bcea3132-ed32-4c99-838a-a9eb0443e2f2/stream/hls",
+                                "preset": "opus_0_0",
+                                "duration": 151422,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "hls",
+                                    "mime_type": "audio/ogg; codecs=\"opus\""
+                                },
+                                "quality": "sq"
+                            }
+                        ]
+                    },
+                    "station_urn": "soundcloud:system-playlists:track-stations:1305021478",
+                    "station_permalink": "track-stations:1305021478",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjAzYTE1NmVhLTI1MzctNGYwMC1hOWNhLThlZDVmOWYwMjM3YyIsImlhdCI6MTY1OTM1MTk5OH0.urCvdyNh-2ClD3Ai-eR50KmlWlxlX_INphQClC1nscA",
+                    "monetization_model": "NOT_APPLICABLE",
+                    "policy": "ALLOW",
+                    "user": {
+                        "avatar_url": "https://i1.sndcdn.com/avatars-puHyDu45LG7ltG3f-90VYNQ-large.jpg",
+                        "first_name": "jeffrey",
+                        "followers_count": 74925,
+                        "full_name": "jeffrey harper",
+                        "id": 55254934,
+                        "kind": "user",
+                        "last_modified": "2022-07-31T08:49:03Z",
+                        "last_name": "harper",
+                        "permalink": "idontknowjeffery",
+                        "permalink_url": "https://soundcloud.com/idontknowjeffery",
+                        "uri": "https://api.soundcloud.com/users/55254934",
+                        "urn": "soundcloud:users:55254934",
+                        "username": "idontknowjeffery",
+                        "verified": true,
+                        "city": "East Memphis",
+                        "country_code": "US",
+                        "badges": {
+                            "pro": false,
+                            "pro_unlimited": true,
+                            "verified": true
+                        },
+                        "station_urn": "soundcloud:system-playlists:artist-stations:55254934",
+                        "station_permalink": "artist-stations:55254934"
+                    }
+                },
+                {
+                    "artwork_url": "https://i1.sndcdn.com/artworks-44YYog6zchXy9N6B-yDC92g-large.jpg",
+                    "caption": null,
+                    "commentable": true,
+                    "comment_count": 1,
+                    "created_at": "2022-07-14T11:11:58Z",
+                    "description": "Prod. By BOZ",
+                    "downloadable": false,
+                    "download_count": 0,
+                    "duration": 126041,
+                    "full_duration": 126041,
+                    "embeddable_by": "all",
+                    "genre": "Hip-hop & Rap",
+                    "has_downloads_left": false,
+                    "id": 1305021586,
+                    "kind": "track",
+                    "label_name": null,
+                    "last_modified": "2022-07-29T04:13:48Z",
+                    "license": "all-rights-reserved",
+                    "likes_count": 53,
+                    "permalink": "kill-the-messager",
+                    "permalink_url": "https://soundcloud.com/idontknowjeffery/kill-the-messager",
+                    "playback_count": 617,
+                    "public": true,
+                    "publisher_metadata": {
+                        "id": 1305021586,
+                        "urn": "soundcloud:tracks:1305021586",
+                        "artist": "idontknowjeffery",
+                        "contains_music": true,
+                        "publisher": "Jeffrey T Harper",
+                        "isrc": "QZHPJ2249913",
+                        "explicit": true
+                    },
+                    "purchase_title": null,
+                    "purchase_url": null,
+                    "release_date": "2022-07-28T00:00:00Z",
+                    "reposts_count": 3,
+                    "secret_token": null,
+                    "sharing": "public",
+                    "state": "finished",
+                    "streamable": true,
+                    "tag_list": "\"Hip Hop\" Trap",
+                    "title": "Kill The Messenger (feat. by Big Marri)",
+                    "track_format": "single-track",
+                    "uri": "https://api.soundcloud.com/tracks/1305021586",
+                    "urn": "soundcloud:tracks:1305021586",
+                    "user_id": 55254934,
+                    "visuals": null,
+                    "waveform_url": "https://wave.sndcdn.com/iVPAxwgqBTiR_m.json",
+                    "display_date": "2022-07-29T04:13:48Z",
+                    "media": {
+                        "transcodings": [
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021586/a6e685ee-c05c-48ff-8e6f-3825df9fc0fe/stream/hls",
+                                "preset": "mp3_1_0",
+                                "duration": 126041,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "hls",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            },
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021586/a6e685ee-c05c-48ff-8e6f-3825df9fc0fe/stream/progressive",
+                                "preset": "mp3_1_0",
+                                "duration": 126041,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "progressive",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            },
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021586/bdf86568-0c14-4c1a-9b82-c471017d1489/stream/hls",
+                                "preset": "opus_0_0",
+                                "duration": 126007,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "hls",
+                                    "mime_type": "audio/ogg; codecs=\"opus\""
+                                },
+                                "quality": "sq"
+                            }
+                        ]
+                    },
+                    "station_urn": "soundcloud:system-playlists:track-stations:1305021586",
+                    "station_permalink": "track-stations:1305021586",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6ImYzNTVhYjIxLTQwOGEtNGI0NS1iMzU5LWQ2Y2Y0NzJlZGM3NyIsImlhdCI6MTY1OTM1MTk5OH0.q4aPBGJQjkG56KJ7oLXyStd8J5TSYZzMy_ApdwDlnHk",
+                    "monetization_model": "NOT_APPLICABLE",
+                    "policy": "ALLOW",
+                    "user": {
+                        "avatar_url": "https://i1.sndcdn.com/avatars-puHyDu45LG7ltG3f-90VYNQ-large.jpg",
+                        "first_name": "jeffrey",
+                        "followers_count": 74925,
+                        "full_name": "jeffrey harper",
+                        "id": 55254934,
+                        "kind": "user",
+                        "last_modified": "2022-07-31T08:49:03Z",
+                        "last_name": "harper",
+                        "permalink": "idontknowjeffery",
+                        "permalink_url": "https://soundcloud.com/idontknowjeffery",
+                        "uri": "https://api.soundcloud.com/users/55254934",
+                        "urn": "soundcloud:users:55254934",
+                        "username": "idontknowjeffery",
+                        "verified": true,
+                        "city": "East Memphis",
+                        "country_code": "US",
+                        "badges": {
+                            "pro": false,
+                            "pro_unlimited": true,
+                            "verified": true
+                        },
+                        "station_urn": "soundcloud:system-playlists:artist-stations:55254934",
+                        "station_permalink": "artist-stations:55254934"
+                    }
+                },
+                {
+                    "artwork_url": "https://i1.sndcdn.com/artworks-5z1u0portdBxkhrt-cU5ctg-large.jpg",
+                    "caption": null,
+                    "commentable": true,
+                    "comment_count": null,
+                    "created_at": "2022-07-14T11:12:22Z",
+                    "description": "Prod. By ADKINS",
+                    "downloadable": false,
+                    "download_count": null,
+                    "duration": 154253,
+                    "full_duration": 154253,
+                    "embeddable_by": "all",
+                    "genre": "Hip-hop & Rap",
+                    "has_downloads_left": false,
+                    "id": 1305021691,
+                    "kind": "track",
+                    "label_name": null,
+                    "last_modified": "2022-07-29T04:13:29Z",
+                    "license": "all-rights-reserved",
+                    "likes_count": null,
+                    "permalink": "no-she-aint",
+                    "permalink_url": "https://soundcloud.com/idontknowjeffery/no-she-aint",
+                    "playback_count": null,
+                    "public": true,
+                    "publisher_metadata": {
+                        "id": 1305021691,
+                        "urn": "soundcloud:tracks:1305021691",
+                        "artist": "idontknowjeffery",
+                        "album_title": "                              ",
+                        "contains_music": true,
+                        "publisher": "Jeffrey T Harpe",
+                        "isrc": "QZHPJ2249259",
+                        "explicit": true
+                    },
+                    "purchase_title": null,
+                    "purchase_url": null,
+                    "release_date": "2022-07-28T00:00:00Z",
+                    "reposts_count": 0,
+                    "secret_token": null,
+                    "sharing": "public",
+                    "state": "finished",
+                    "streamable": true,
+                    "tag_list": "",
+                    "title": "No She Aint (feat. Big Marri)",
+                    "track_format": "single-track",
+                    "uri": "https://api.soundcloud.com/tracks/1305021691",
+                    "urn": "soundcloud:tracks:1305021691",
+                    "user_id": 55254934,
+                    "visuals": null,
+                    "waveform_url": "https://wave.sndcdn.com/jycfucwq3JIF_m.json",
+                    "display_date": "2022-07-29T04:13:29Z",
+                    "media": {
+                        "transcodings": [
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021691/5805aba1-2f4a-440d-8cca-b366ddf338fa/stream/hls",
+                                "preset": "mp3_1_0",
+                                "duration": 154253,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "hls",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            },
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021691/5805aba1-2f4a-440d-8cca-b366ddf338fa/stream/progressive",
+                                "preset": "mp3_1_0",
+                                "duration": 154253,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "progressive",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            },
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021691/d180df48-3bcd-4d2a-bd35-b56423e8eee7/stream/hls",
+                                "preset": "opus_0_0",
+                                "duration": 154233,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "hls",
+                                    "mime_type": "audio/ogg; codecs=\"opus\""
+                                },
+                                "quality": "sq"
+                            }
+                        ]
+                    },
+                    "station_urn": "soundcloud:system-playlists:track-stations:1305021691",
+                    "station_permalink": "track-stations:1305021691",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjcxNDU3MzlhLTQ0NGUtNDU2OS1iMWU2LTYzNzdkZThkZjNjNyIsImlhdCI6MTY1OTM1MTk5OH0.ZvrTQGiBdgHBMifI9mz0O7eUdkx8dZ4U9dYHtRx2fSs",
+                    "monetization_model": "NOT_APPLICABLE",
+                    "policy": "ALLOW",
+                    "user": {
+                        "avatar_url": "https://i1.sndcdn.com/avatars-puHyDu45LG7ltG3f-90VYNQ-large.jpg",
+                        "first_name": "jeffrey",
+                        "followers_count": 74925,
+                        "full_name": "jeffrey harper",
+                        "id": 55254934,
+                        "kind": "user",
+                        "last_modified": "2022-07-31T08:49:03Z",
+                        "last_name": "harper",
+                        "permalink": "idontknowjeffery",
+                        "permalink_url": "https://soundcloud.com/idontknowjeffery",
+                        "uri": "https://api.soundcloud.com/users/55254934",
+                        "urn": "soundcloud:users:55254934",
+                        "username": "idontknowjeffery",
+                        "verified": true,
+                        "city": "East Memphis",
+                        "country_code": "US",
+                        "badges": {
+                            "pro": false,
+                            "pro_unlimited": true,
+                            "verified": true
+                        },
+                        "station_urn": "soundcloud:system-playlists:artist-stations:55254934",
+                        "station_permalink": "artist-stations:55254934"
+                    }
+                },
+                {
+                    "artwork_url": "https://i1.sndcdn.com/artworks-yR20KYFG5U4xFz8U-spCz8g-large.jpg",
+                    "caption": null,
+                    "commentable": true,
+                    "comment_count": null,
+                    "created_at": "2022-07-14T11:13:03Z",
+                    "description": "Prod. By DAVAUGHN",
+                    "downloadable": false,
+                    "download_count": null,
+                    "duration": 236617,
+                    "full_duration": 236617,
+                    "embeddable_by": "all",
+                    "genre": "Hip-hop & Rap",
+                    "has_downloads_left": false,
+                    "id": 1305021922,
+                    "kind": "track",
+                    "label_name": null,
+                    "last_modified": "2022-07-29T04:13:17Z",
+                    "license": "all-rights-reserved",
+                    "likes_count": null,
+                    "permalink": "civil-war-freestyle",
+                    "permalink_url": "https://soundcloud.com/idontknowjeffery/civil-war-freestyle",
+                    "playback_count": null,
+                    "public": true,
+                    "publisher_metadata": {
+                        "id": 1305021922,
+                        "urn": "soundcloud:tracks:1305021922",
+                        "artist": "idontknowjeffery",
+                        "album_title": "                              ",
+                        "contains_music": true,
+                        "publisher": "Jeffery T Harper",
+                        "isrc": "QZHPJ2249889",
+                        "explicit": true
+                    },
+                    "purchase_title": null,
+                    "purchase_url": null,
+                    "release_date": "2022-07-28T00:00:00Z",
+                    "reposts_count": 0,
+                    "secret_token": null,
+                    "sharing": "public",
+                    "state": "finished",
+                    "streamable": true,
+                    "tag_list": "",
+                    "title": "Civil War Freestyle (feat. Big Marri)",
+                    "track_format": "single-track",
+                    "uri": "https://api.soundcloud.com/tracks/1305021922",
+                    "urn": "soundcloud:tracks:1305021922",
+                    "user_id": 55254934,
+                    "visuals": null,
+                    "waveform_url": "https://wave.sndcdn.com/virXJwTlgYB2_m.json",
+                    "display_date": "2022-07-29T04:13:17Z",
+                    "media": {
+                        "transcodings": [
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021922/923daf89-7bea-4df8-8071-3d93cb51cf6f/stream/hls",
+                                "preset": "mp3_1_0",
+                                "duration": 236617,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "hls",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            },
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021922/923daf89-7bea-4df8-8071-3d93cb51cf6f/stream/progressive",
+                                "preset": "mp3_1_0",
+                                "duration": 236617,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "progressive",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            },
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021922/b4e56186-3f30-4803-8605-43d83c6a99d6/stream/hls",
+                                "preset": "opus_0_0",
+                                "duration": 236598,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "hls",
+                                    "mime_type": "audio/ogg; codecs=\"opus\""
+                                },
+                                "quality": "sq"
+                            }
+                        ]
+                    },
+                    "station_urn": "soundcloud:system-playlists:track-stations:1305021922",
+                    "station_permalink": "track-stations:1305021922",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjZmMmMwZDI5LTQ4ZDktNDY2Ny04OTJiLTE2YjllNTcxZDA3NyIsImlhdCI6MTY1OTM1MTk5OH0.eoctQ02oRzl7SF_e0axXEgb71RteG6vaikRWlbWX4oY",
+                    "monetization_model": "NOT_APPLICABLE",
+                    "policy": "ALLOW",
+                    "user": {
+                        "avatar_url": "https://i1.sndcdn.com/avatars-puHyDu45LG7ltG3f-90VYNQ-large.jpg",
+                        "first_name": "jeffrey",
+                        "followers_count": 74925,
+                        "full_name": "jeffrey harper",
+                        "id": 55254934,
+                        "kind": "user",
+                        "last_modified": "2022-07-31T08:49:03Z",
+                        "last_name": "harper",
+                        "permalink": "idontknowjeffery",
+                        "permalink_url": "https://soundcloud.com/idontknowjeffery",
+                        "uri": "https://api.soundcloud.com/users/55254934",
+                        "urn": "soundcloud:users:55254934",
+                        "username": "idontknowjeffery",
+                        "verified": true,
+                        "city": "East Memphis",
+                        "country_code": "US",
+                        "badges": {
+                            "pro": false,
+                            "pro_unlimited": true,
+                            "verified": true
+                        },
+                        "station_urn": "soundcloud:system-playlists:artist-stations:55254934",
+                        "station_permalink": "artist-stations:55254934"
+                    }
+                },
+                {
+                    "artwork_url": "https://i1.sndcdn.com/artworks-HbmAYWnlazXM6YAb-hWEvcw-large.jpg",
+                    "caption": null,
+                    "commentable": true,
+                    "comment_count": 3,
+                    "created_at": "2022-07-14T11:17:06Z",
+                    "description": "Prod. By Adkins",
+                    "downloadable": false,
+                    "download_count": 0,
+                    "duration": 110498,
+                    "full_duration": 110498,
+                    "embeddable_by": "all",
+                    "genre": "Hip-hop & Rap",
+                    "has_downloads_left": false,
+                    "id": 1305023284,
+                    "kind": "track",
+                    "label_name": null,
+                    "last_modified": "2022-07-29T04:13:02Z",
+                    "license": "all-rights-reserved",
+                    "likes_count": 56,
+                    "permalink": "angel-in-the-daytime",
+                    "permalink_url": "https://soundcloud.com/idontknowjeffery/angel-in-the-daytime",
+                    "playback_count": 889,
+                    "public": true,
+                    "publisher_metadata": {
+                        "id": 1305023284,
+                        "urn": "soundcloud:tracks:1305023284",
+                        "artist": "idontknowjeffery",
+                        "album_title": "                              ",
+                        "contains_music": true,
+                        "publisher": "Jeffrey T Harper",
+                        "isrc": "QZHPJ2249253",
+                        "explicit": true
+                    },
+                    "purchase_title": null,
+                    "purchase_url": null,
+                    "release_date": "2022-07-28T00:00:00Z",
+                    "reposts_count": 3,
+                    "secret_token": null,
+                    "sharing": "public",
+                    "state": "finished",
+                    "streamable": true,
+                    "tag_list": "",
+                    "title": "Angel in the Daytime (feat. Big Marri) (INTRO)",
+                    "track_format": "single-track",
+                    "uri": "https://api.soundcloud.com/tracks/1305023284",
+                    "urn": "soundcloud:tracks:1305023284",
+                    "user_id": 55254934,
+                    "visuals": null,
+                    "waveform_url": "https://wave.sndcdn.com/idInAueprouU_m.json",
+                    "display_date": "2022-07-29T04:13:02Z",
+                    "media": {
+                        "transcodings": [
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305023284/85c76aac-b3e1-41bc-ac85-b3614a529a20/stream/hls",
+                                "preset": "mp3_1_0",
+                                "duration": 110498,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "hls",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            },
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305023284/85c76aac-b3e1-41bc-ac85-b3614a529a20/stream/progressive",
+                                "preset": "mp3_1_0",
+                                "duration": 110498,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "progressive",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            },
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305023284/9addcc76-aabf-499e-bf35-b9d30dc54a13/stream/hls",
+                                "preset": "opus_0_0",
+                                "duration": 110478,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "hls",
+                                    "mime_type": "audio/ogg; codecs=\"opus\""
+                                },
+                                "quality": "sq"
+                            }
+                        ]
+                    },
+                    "station_urn": "soundcloud:system-playlists:track-stations:1305023284",
+                    "station_permalink": "track-stations:1305023284",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjA4YTIyNjg3LTE2MWQtNGYxMy1iM2EyLThiNDU1MTBlNjY4OCIsImlhdCI6MTY1OTM1MTk5OH0.uQWQUqSOAEQsCkma4Kul8D1RffYdO3bGf0RL8By5ux4",
+                    "monetization_model": "NOT_APPLICABLE",
+                    "policy": "ALLOW",
+                    "user": {
+                        "avatar_url": "https://i1.sndcdn.com/avatars-puHyDu45LG7ltG3f-90VYNQ-large.jpg",
+                        "first_name": "jeffrey",
+                        "followers_count": 74925,
+                        "full_name": "jeffrey harper",
+                        "id": 55254934,
+                        "kind": "user",
+                        "last_modified": "2022-07-31T08:49:03Z",
+                        "last_name": "harper",
                         "permalink": "idontknowjeffery",
                         "permalink_url": "https://soundcloud.com/idontknowjeffery",
                         "uri": "https://api.soundcloud.com/users/55254934",
@@ -1192,18 +1194,18 @@
                     }
                 }
             ],
-            "next_href": "https://api-v2.soundcloud.com/users/55254934/tracks?offset=2021-10-03T06%3A00%3A45.000Z%2Ctracks%2C01135200445&limit=10",
+            "next_href": "https://api-v2.soundcloud.com/users/55254934/tracks?offset=2022-07-29T04%3A13%3A02.000Z%2Ctracks%2C01305023284&limit=10",
             "query_urn": null
         },
         "rawHeaders": [
             "Content-Type",
             "application/json; charset=utf-8",
             "Content-Length",
-            "33190",
+            "32393",
             "Connection",
             "close",
             "Date",
-            "Thu, 13 Jan 2022 02:06:25 GMT",
+            "Mon, 01 Aug 2022 11:06:38 GMT",
             "x-robots-tag",
             "noindex",
             "Cache-Control",
@@ -1223,16 +1225,16 @@
             "X-Cache",
             "Miss from cloudfront",
             "Via",
-            "1.1 614c7e2196cc5b32f71450d1d8261094.cloudfront.net (CloudFront)",
+            "1.1 ec5f7ca5219bc2c06993f1aa180b2fa0.cloudfront.net (CloudFront)",
             "X-Amz-Cf-Pop",
-            "VIE50-C2",
+            "ZAG50-C1",
             "X-Amz-Cf-Id",
-            "fNaV78gG24fNSJ3tKvfn0PfMP8_Caj0x33hURVABnrm57SGjV-1t8w=="
+            "JfatHgkCxD-ejwnt-NEHh7clU3U4HunSU7_kZaaSv2LZ4ETcn7SbNA=="
         ],
         "responseIsBinary": false
     },
     {
-        "scope": "http://127.0.0.1:36119",
+        "scope": "http://127.0.0.1:52979",
         "method": "POST",
         "path": "/api/soundcloud/channel/items",
         "body": {
@@ -1242,17 +1244,17 @@
         "response": {
             "searchResultsArray": [
                 {
-                    "id": 1170975193,
+                    "id": 1305021748,
                     "engine": "soundcloud",
-                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170975193/365e18c3-c2c6-4545-b65b-dc580617eaad/stream/progressive",
-                    "title": "THE PREDATOR - Eddy Baker (Prod. By Quintin Lamb)",
+                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021748/7f2bcdd9-6ce8-4d15-954e-8c647cda6356/stream/progressive",
+                    "title": "Godzilla Freestyle (feat. Big Marri)",
                     "thumbnails": [
                         {
-                            "url": "https://i1.sndcdn.com/artworks-QHuCGOmF6TCqzLdB-FyMuKw-t200x200.jpg"
+                            "url": "https://i1.sndcdn.com/artworks-9MvnR0HHXjAJBaE3-0GhBow-t200x200.jpg"
                         }
                     ],
-                    "duration": "1:45",
-                    "uploadedAt": "2021-12-03",
+                    "duration": "2:23",
+                    "uploadedAt": "2022-07-14",
                     "author": {
                         "engine": "soundcloud",
                         "type": "channel",
@@ -1261,25 +1263,25 @@
                         "name": "idontknowjeffery",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-NhrUICnsAhcj87UZ-TgwlZg-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-puHyDu45LG7ltG3f-90VYNQ-large.jpg"
                             }
                         ]
                     },
-                    "views": 11356,
+                    "views": null,
                     "type": "video"
                 },
                 {
-                    "id": 1170973903,
+                    "id": 1305021634,
                     "engine": "soundcloud",
-                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170973903/6a8a73bb-c8a5-4d62-beb7-e660888fc9e0/stream/progressive",
-                    "title": "WARZONE - idontknowjeffery & Eddy Baker(Prod. By BOZ)",
+                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021634/a6ebe993-b698-4c83-9b27-e5bd82b4385b/stream/progressive",
+                    "title": "Can't Keep Lil Mama (feat. Big Marri)",
                     "thumbnails": [
                         {
-                            "url": "https://i1.sndcdn.com/artworks-QHuCGOmF6TCqzLdB-FyMuKw-t200x200.jpg"
+                            "url": "https://i1.sndcdn.com/artworks-N3KvY5n3dJxfPgPz-AXzjhA-t200x200.jpg"
                         }
                     ],
-                    "duration": "2:26",
-                    "uploadedAt": "2021-12-03",
+                    "duration": "3:01",
+                    "uploadedAt": "2022-07-14",
                     "author": {
                         "engine": "soundcloud",
                         "type": "channel",
@@ -1288,25 +1290,25 @@
                         "name": "idontknowjeffery",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-NhrUICnsAhcj87UZ-TgwlZg-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-puHyDu45LG7ltG3f-90VYNQ-large.jpg"
                             }
                         ]
                     },
-                    "views": 24865,
+                    "views": null,
                     "type": "video"
                 },
                 {
-                    "id": 1170973024,
+                    "id": 1305021664,
                     "engine": "soundcloud",
-                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170973024/5c5a8d99-bc79-4bbd-82bb-a588dc192c2a/stream/progressive",
-                    "title": "TOUCHED - idontknowjeffery & Eddy Baker (Prod. By BOZ)",
+                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021664/de3033d8-6819-45ee-ad6d-11ff521543de/stream/progressive",
+                    "title": "Studio One Freestyle (feat. Big Marri)",
                     "thumbnails": [
                         {
-                            "url": "https://i1.sndcdn.com/artworks-QHuCGOmF6TCqzLdB-FyMuKw-t200x200.jpg"
+                            "url": "https://i1.sndcdn.com/artworks-5wMycIB69ZxnnAhy-PH9KXw-t200x200.jpg"
                         }
                     ],
-                    "duration": "2:43",
-                    "uploadedAt": "2021-12-03",
+                    "duration": "1:57",
+                    "uploadedAt": "2022-07-14",
                     "author": {
                         "engine": "soundcloud",
                         "type": "channel",
@@ -1315,25 +1317,25 @@
                         "name": "idontknowjeffery",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-NhrUICnsAhcj87UZ-TgwlZg-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-puHyDu45LG7ltG3f-90VYNQ-large.jpg"
                             }
                         ]
                     },
-                    "views": 16516,
+                    "views": 842,
                     "type": "video"
                 },
                 {
-                    "id": 1170970672,
+                    "id": 1305021712,
                     "engine": "soundcloud",
-                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170970672/74e08688-1f5b-4a8e-ad56-abca53e65153/stream/progressive",
-                    "title": "DIRTY COP - idontknowjeffery & Eddy Baker (Prod. By Lyson Beats)",
+                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021712/78b36457-d91a-4bf8-b478-932968e5c27f/stream/progressive",
+                    "title": "Ima Young Nigga (interlude) - BIG MARRI",
                     "thumbnails": [
                         {
-                            "url": "https://i1.sndcdn.com/artworks-QHuCGOmF6TCqzLdB-FyMuKw-t200x200.jpg"
+                            "url": "https://i1.sndcdn.com/artworks-GpJZghSD7inGxfnC-CB4ygg-t200x200.jpg"
                         }
                     ],
-                    "duration": "2:08",
-                    "uploadedAt": "2021-12-03",
+                    "duration": "2:22",
+                    "uploadedAt": "2022-07-14",
                     "author": {
                         "engine": "soundcloud",
                         "type": "channel",
@@ -1342,25 +1344,25 @@
                         "name": "idontknowjeffery",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-NhrUICnsAhcj87UZ-TgwlZg-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-puHyDu45LG7ltG3f-90VYNQ-large.jpg"
                             }
                         ]
                     },
-                    "views": 19749,
+                    "views": 571,
                     "type": "video"
                 },
                 {
-                    "id": 1170969301,
+                    "id": 1305021448,
                     "engine": "soundcloud",
-                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170969301/51637923-d1b8-4d45-b7fa-22626078a7d1/stream/progressive",
-                    "title": "CHOOSING FEE - idontknowjeffery & Eddy Baker (Prod. By BOZ)",
+                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021448/cd5ea336-9f97-45f6-8d71-455e5e7c6a4d/stream/progressive",
+                    "title": "When I Catch Yall (feat. Big Marri)",
                     "thumbnails": [
                         {
-                            "url": "https://i1.sndcdn.com/artworks-QHuCGOmF6TCqzLdB-FyMuKw-t200x200.jpg"
+                            "url": "https://i1.sndcdn.com/artworks-fNwOFcavVHO5Fxnb-ZRKlxw-t200x200.jpg"
                         }
                     ],
-                    "duration": "2:10",
-                    "uploadedAt": "2021-12-03",
+                    "duration": "3:47",
+                    "uploadedAt": "2022-07-14",
                     "author": {
                         "engine": "soundcloud",
                         "type": "channel",
@@ -1369,25 +1371,25 @@
                         "name": "idontknowjeffery",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-NhrUICnsAhcj87UZ-TgwlZg-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-puHyDu45LG7ltG3f-90VYNQ-large.jpg"
                             }
                         ]
                     },
-                    "views": 17325,
+                    "views": 708,
                     "type": "video"
                 },
                 {
-                    "id": 1170966667,
+                    "id": 1305021478,
                     "engine": "soundcloud",
-                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170966667/c922d42f-0235-4fe3-9c7f-73c8e15fe22d/stream/progressive",
-                    "title": "FIREARM - idontknowjeffery & Eddy Baker (Prod. by BOZ)",
+                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021478/6c7c1c00-bf01-4c4d-a1ca-5893ebaa6247/stream/progressive",
+                    "title": "Umbrella (feat. Big Marri)",
                     "thumbnails": [
                         {
-                            "url": "https://i1.sndcdn.com/artworks-QHuCGOmF6TCqzLdB-FyMuKw-t200x200.jpg"
+                            "url": "https://i1.sndcdn.com/artworks-ycOjdHzv0ULe4kNL-JMYRTw-t200x200.jpg"
                         }
                     ],
-                    "duration": "1:51",
-                    "uploadedAt": "2021-12-03",
+                    "duration": "2:31",
+                    "uploadedAt": "2022-07-14",
                     "author": {
                         "engine": "soundcloud",
                         "type": "channel",
@@ -1396,25 +1398,25 @@
                         "name": "idontknowjeffery",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-NhrUICnsAhcj87UZ-TgwlZg-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-puHyDu45LG7ltG3f-90VYNQ-large.jpg"
                             }
                         ]
                     },
-                    "views": 10636,
+                    "views": 668,
                     "type": "video"
                 },
                 {
-                    "id": 1170965671,
+                    "id": 1305021586,
                     "engine": "soundcloud",
-                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170965671/0b03740f-d50c-4b7e-b195-bdf2be967183/stream/progressive",
-                    "title": "NIGHTMARES COME TRUE TOO - idontknowjeffery & Eddy Baker (Prod. By Mr. Sisco)",
+                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021586/a6e685ee-c05c-48ff-8e6f-3825df9fc0fe/stream/progressive",
+                    "title": "Kill The Messenger (feat. by Big Marri)",
                     "thumbnails": [
                         {
-                            "url": "https://i1.sndcdn.com/artworks-QHuCGOmF6TCqzLdB-FyMuKw-t200x200.jpg"
+                            "url": "https://i1.sndcdn.com/artworks-44YYog6zchXy9N6B-yDC92g-t200x200.jpg"
                         }
                     ],
-                    "duration": "3:10",
-                    "uploadedAt": "2021-12-03",
+                    "duration": "2:06",
+                    "uploadedAt": "2022-07-14",
                     "author": {
                         "engine": "soundcloud",
                         "type": "channel",
@@ -1423,25 +1425,25 @@
                         "name": "idontknowjeffery",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-NhrUICnsAhcj87UZ-TgwlZg-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-puHyDu45LG7ltG3f-90VYNQ-large.jpg"
                             }
                         ]
                     },
-                    "views": 12200,
+                    "views": 617,
                     "type": "video"
                 },
                 {
-                    "id": 1170963832,
+                    "id": 1305021691,
                     "engine": "soundcloud",
-                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1170963832/c61eac6d-95b5-43bf-83c4-e258496e84a9/stream/progressive",
-                    "title": "BAD BOYS FOR LIFE - idontknowjeffery & Eddy Baker (Prod. By Hotwheelz)",
+                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021691/5805aba1-2f4a-440d-8cca-b366ddf338fa/stream/progressive",
+                    "title": "No She Aint (feat. Big Marri)",
                     "thumbnails": [
                         {
-                            "url": "https://i1.sndcdn.com/artworks-hfQyvyRhWDj69fho-dl6BaQ-t200x200.jpg"
+                            "url": "https://i1.sndcdn.com/artworks-5z1u0portdBxkhrt-cU5ctg-t200x200.jpg"
                         }
                     ],
-                    "duration": "2:54",
-                    "uploadedAt": "2021-12-03",
+                    "duration": "2:34",
+                    "uploadedAt": "2022-07-14",
                     "author": {
                         "engine": "soundcloud",
                         "type": "channel",
@@ -1450,25 +1452,25 @@
                         "name": "idontknowjeffery",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-NhrUICnsAhcj87UZ-TgwlZg-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-puHyDu45LG7ltG3f-90VYNQ-large.jpg"
                             }
                         ]
                     },
-                    "views": 11748,
+                    "views": null,
                     "type": "video"
                 },
                 {
-                    "id": 1155263044,
+                    "id": 1305021922,
                     "engine": "soundcloud",
-                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1155263044/5458bd96-5cef-4f46-b8e2-adf8591b04b5/stream/progressive",
-                    "title": "Gun License - idontknowjeffery ft GRINDHARD E",
+                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305021922/923daf89-7bea-4df8-8071-3d93cb51cf6f/stream/progressive",
+                    "title": "Civil War Freestyle (feat. Big Marri)",
                     "thumbnails": [
                         {
-                            "url": "https://i1.sndcdn.com/artworks-GSzvS8Y6IhGzkXho-0BqXLg-t200x200.jpg"
+                            "url": "https://i1.sndcdn.com/artworks-yR20KYFG5U4xFz8U-spCz8g-t200x200.jpg"
                         }
                     ],
-                    "duration": "2:07",
-                    "uploadedAt": "2021-11-07",
+                    "duration": "3:56",
+                    "uploadedAt": "2022-07-14",
                     "author": {
                         "engine": "soundcloud",
                         "type": "channel",
@@ -1477,25 +1479,25 @@
                         "name": "idontknowjeffery",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-NhrUICnsAhcj87UZ-TgwlZg-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-puHyDu45LG7ltG3f-90VYNQ-large.jpg"
                             }
                         ]
                     },
-                    "views": 16086,
+                    "views": null,
                     "type": "video"
                 },
                 {
-                    "id": 1135200445,
+                    "id": 1305023284,
                     "engine": "soundcloud",
-                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1135200445/eb1fecad-b245-4384-b7df-aaeed7b68aa7/stream/progressive",
-                    "title": "We Got The Same Job ft GRINDHARD E",
+                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1305023284/85c76aac-b3e1-41bc-ac85-b3614a529a20/stream/progressive",
+                    "title": "Angel in the Daytime (feat. Big Marri) (INTRO)",
                     "thumbnails": [
                         {
-                            "url": "https://i1.sndcdn.com/artworks-HmBwRj2VObEWXfCX-DqPOJg-t200x200.jpg"
+                            "url": "https://i1.sndcdn.com/artworks-HbmAYWnlazXM6YAb-hWEvcw-t200x200.jpg"
                         }
                     ],
-                    "duration": "4:05",
-                    "uploadedAt": "2021-10-03",
+                    "duration": "1:50",
+                    "uploadedAt": "2022-07-14",
                     "author": {
                         "engine": "soundcloud",
                         "type": "channel",
@@ -1504,11 +1506,11 @@
                         "name": "idontknowjeffery",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-NhrUICnsAhcj87UZ-TgwlZg-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-puHyDu45LG7ltG3f-90VYNQ-large.jpg"
                             }
                         ]
                     },
-                    "views": 33926,
+                    "views": 889,
                     "type": "video"
                 }
             ]
@@ -1521,11 +1523,11 @@
             "Content-Type",
             "application/json; charset=utf-8",
             "Content-Length",
-            "6283",
+            "6070",
             "ETag",
-            "W/\"188b-ktA+DkTsUDr7eTc2xisP4QjK1+A\"",
+            "W/\"17b6-oqTKjKNFdt/JckTWZcMbi3Bh5io\"",
             "Date",
-            "Thu, 13 Jan 2022 02:06:24 GMT",
+            "Mon, 01 Aug 2022 11:06:38 GMT",
             "Connection",
             "close"
         ],

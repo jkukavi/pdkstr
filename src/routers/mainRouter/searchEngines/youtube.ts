@@ -6,6 +6,12 @@ import ytch from "yt-channel-info";
 
 import { youtubeDummyData as dummyData } from "../__test__/dummyData";
 
+import fetch from "node-fetch";
+
+if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test") {
+  globalThis.fetch = fetch as unknown as typeof globalThis.fetch;
+}
+
 const COOKIE = process.env.YT_COOKIE;
 
 type Mapper = (Item: Video | Channel | Playlist) => any;

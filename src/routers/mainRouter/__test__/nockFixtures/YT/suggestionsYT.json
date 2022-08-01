@@ -1,6 +1,6 @@
 [
     {
-        "scope": "https://clients1.google.com:443",
+        "scope": "https://suggestqueries-clients6.youtube.com:443",
         "method": "GET",
         "path": "/complete/search?client=youtube&gs_ri=youtube&ds=yt&q=idkjeffery",
         "body": "",
@@ -17,21 +17,16 @@
             "02",
             "ff",
             "75",
-            "d0",
-            "51",
-            "4b",
-            "c3",
-            "30",
-            "10",
-            "c0",
-            "f1",
-            "af12f2e42094ae2feabec2c4b721b316b92697f69634d1245d57c4efee9e6482f7187e7fb8bb2c144c5caa21c6c16305ba1aef5a49c69dd05a4cab54eded5394f503458f50a4aa55bb7dec3af5c72f70264c6299bd650a13c3db5cd7cd7d1125cdb988df49ffe6052f9019035baeb3c63827ae3094391a634ad47be4988a9850584a99bb150c4c4dc3a09e7564c85280a009bc00324c43215f7f67c250c033498e0618ea3d68e7e966f34e7d4927775b253fe54efaf55937707a180fe0f0c5ed5f8ffbe1fc0e87f8a4e577b7f901b7450c4314020000"
+            "8e",
+            "31",
+            "4f",
+            "c3301085ffcac913485694b6434547106317ba2042864b7c8e8f049b5eeca615e2bfc3848ac48da7efdd7bdfc2d1a5a51a521a26aab0afc24d63d88d6fe43dc9c5d8e6fa84339e9804963279636bdbaceedad6fe49e4cb0741479815ee527c2d75bdde66c852e60cbf4bffd7d1196785a1cf3f2e2115d1128e670d05cef04ee059664db52f7dd2be9308771329382690d275a48a798e187bc609909d9219f8449003cdda4ac0805abf10c182de5f29b6f6d38c66b7b2e66876e6209b5a023e6f9ec607da86fdb1dca7c5bb97f1716fbedadb6f13fca20a18020000"
         ],
         "rawHeaders": [
             "Date",
-            "Thu, 13 Jan 2022 02:06:25 GMT",
+            "Mon, 01 Aug 2022 11:06:37 GMT",
             "Expires",
-            "Thu, 13 Jan 2022 02:06:25 GMT",
+            "Mon, 01 Aug 2022 11:06:37 GMT",
             "Cache-Control",
             "private, max-age=3600",
             "Content-Type",
@@ -47,7 +42,7 @@
             "X-Frame-Options",
             "SAMEORIGIN",
             "Set-Cookie",
-            "CONSENT=PENDING+476; expires=Sat, 13-Jan-2024 02:06:25 GMT; path=/; domain=.google.com; Secure",
+            "CONSENT=PENDING+591; expires=Wed, 31-Jul-2024 11:06:37 GMT; path=/; domain=.youtube.com; Secure",
             "P3P",
             "CP=\"This is not a P3P policy! See g.co/p3phelp for more info.\"",
             "Alt-Svc",
@@ -60,7 +55,7 @@
         "responseIsBinary": false
     },
     {
-        "scope": "http://127.0.0.1:39101",
+        "scope": "http://127.0.0.1:52957",
         "method": "POST",
         "path": "/api/suggestions/youtube",
         "body": {
@@ -69,20 +64,20 @@
         "status": 200,
         "response": {
             "suggestionsArray": [
-                "idkjeffery type beat",
                 "idkjeffery xavier wulf",
+                "idkjeffery type beat",
                 "idkjeffery don't trust jeffery",
                 "idkjeffery texas",
                 "idkjeffery after hours",
                 "idkjeffery diss",
-                "idkjeffery horrible",
                 "idkjeffery hit me first",
-                "idkjeffery adam22",
                 "idkjeffery cuco",
+                "idkjeffery horrible",
+                "idkjeffery no rubbers",
                 "idkjeffery financial aid",
-                "idkjeffery instrumental",
-                "idkjeffery soda",
-                "idkjeffery blacklist"
+                "idkjeffery give these",
+                "idkjeffery haha",
+                "idkjeffery free waffle"
             ]
         },
         "rawHeaders": [
@@ -93,11 +88,11 @@
             "Content-Type",
             "application/json; charset=utf-8",
             "Content-Length",
-            "345",
+            "349",
             "ETag",
-            "W/\"159-f7QvURRwWWWywqJ/utUz2ZYSEjM\"",
+            "W/\"15d-QWuD0aMiLY27XW51inFgLh0UigQ\"",
             "Date",
-            "Thu, 13 Jan 2022 02:06:23 GMT",
+            "Mon, 01 Aug 2022 11:06:37 GMT",
             "Connection",
             "close"
         ],

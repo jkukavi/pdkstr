@@ -10,11 +10,11 @@
     "build-client": "cd client && yarn && yarn build",
     "heroku-postbuild": "yarn build && yarn test && yarn build-client ",
     "dev": "NODE_ENV=development npx nodemon node_modules/.bin/ts-node --files -r dotenv/config ./src/index.ts",
-    "startdb": "MONGOMS_DEBUG=1 npx ts-node mockDb/startDb.ts"
+    "startdb": "MONGOMS_DEBUG=1 MONGOMS_ARCH=x64 npx ts-node mockDb/startDb.ts"
   },
   "engines": {
     "node": "14.17.5",
-    "yarn": "1.22.17",
+    "yarn": "1.22.18",
     "npm": "6.14.14"
   },
   "keywords": [],
@@ -24,7 +24,8 @@
     "@mikivela/sc-scrappy": "^0.2.2",
     "@sendgrid/mail": "^7.6.0",
     "@types/heroku-client": "^3.1.0",
-    "bcrypt": "^5.0.1",
+    "@types/node-fetch": "^2.6.2",
+    "bcrypt": "5.0.0",
     "cookie-parser": "^1.4.6",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.3",
@@ -34,11 +35,12 @@
     "heroku-client": "^3.1.0",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.2.2",
+    "node-fetch": "^2.6.7",
     "request": "^2.88.2",
     "uuid": "^8.3.2",
-    "youtube-sr": "4.1.11",
+    "youtube-sr": "^4.3.0",
     "yt-channel-info": "^2.2.0",
-    "ytdl-core": "^4.10.0",
+    "ytdl-core": "^4.11.0",
     "ytpl": "^2.2.1",
     "ytsr": "^3.3.1"
   },
@@ -71,8 +73,10 @@
       "preferGlobalPath": false,
       "downloadDir": "./node_modules/mongodb-memory-server/",
       "debug": false,
+      "md5Check": true,
       "version": "4.2.8",
-      "downloadUrl": "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1804-4.2.8.tgz"
+      "architecture": "arm64",
+      "os": "osx"
     }
   }
 }

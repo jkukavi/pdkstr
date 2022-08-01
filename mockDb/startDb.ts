@@ -27,7 +27,7 @@ const startLocalDatabase = async () => {
     .collection("users")
     .insertOne({
       username: "dasd",
-      password: "$2b$14$65x0f6FC/RCVhLU6.XAZAuIhMtRIQcnov6Q/Bpx1GvU9C.rqB.29q",
+      password: "$2b$14$hV/a3tLwxkBJqkzrrAg/memEUlFcTChgx8esTyDoVDgXI.vdb.lOC",
       email: "mikivela1111@gmail.com",
       favourites: [],
       history: [
