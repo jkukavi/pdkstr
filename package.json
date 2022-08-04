@@ -23,6 +23,7 @@
   "dependencies": {
     "@mikivela/sc-scrappy": "^0.2.2",
     "@sendgrid/mail": "^7.6.0",
+    "@types/fluent-ffmpeg": "^2.1.20",
     "@types/heroku-client": "^3.1.0",
     "@types/node-fetch": "^2.6.2",
     "bcrypt": "5.0.0",
@@ -30,6 +31,7 @@
     "dotenv": "^10.0.0",
     "ejs": "^3.1.3",
     "express": "^4.17.2",
+    "fluent-ffmpeg": "^2.1.2",
     "follow-redirects": "^1.14.6",
     "helmet": "^4.0.0",
     "heroku-client": "^3.1.0",

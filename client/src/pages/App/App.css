@@ -1203,7 +1203,7 @@ button:active.small {
 }
 
 .desc.channelName {
-  max-width: 7.8rem;
+  max-width: 90px;
   font-size: 0.8rem;
   font-weight: 600;
 }

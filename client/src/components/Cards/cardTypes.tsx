@@ -8,6 +8,7 @@ import addToPlayingQueue from "icons/addToPlayingQueue.svg";
 import playingQueue from "icons/playingQueue.svg";
 import playButtonThumbnail from "icons/playButtonThumbnail.svg";
 import browseList from "icons/browseList.svg";
+import downloadPng from "icons/download.png";
 
 import { Player as AudioPlayer } from "components/AudioShelf/Player";
 import { SearchBox } from "components/Search/SearchBox";
@@ -108,6 +109,14 @@ export const SingleItem = ({
                 <img src={addToPlayingQueue} alt="loading"></img>
               </div>
               <AddToFavouritesButton item={item} />
+              <a
+                href={`/proxy/dl/${item.engine}/${item.id}`}
+                target="_blank"
+                rel="noreferrer"
+                className="addToPlaylistIcon"
+              >
+                <img src={downloadPng} alt="loading"></img>
+              </a>
             </div>
           </div>
 

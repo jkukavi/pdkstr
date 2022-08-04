@@ -7,13 +7,7 @@ export const menu = {
   LIBRARY: "/library",
 };
 
-type Paths = {
-  [key: string]: {
-    [key in Engine]: string;
-  };
-};
-
-export const paths: Paths = {
+export const paths = {
   search: {
     youtube: "/search/youtube",
     soundcloud: "/search/soundcloud",
@@ -38,11 +32,15 @@ export const paths: Paths = {
     youtube: "/youtube/channel/playlists",
     soundcloud: "/soundcloud/channel/playlists",
   },
+  download: {
+    youtube: "/dl/youtube",
+    soundcloud: "/dl/soundcloud",
+  },
   ping: {
     youtube: "/ping/youtube",
     soundcloud: "/ping/soundcloud",
   },
-};
+} as const;
 
 export const buttonTextBySearchEngine: {
   [key in Engine]: { items: string; playlists: string };
