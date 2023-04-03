@@ -2,7 +2,7 @@
     {
         "scope": "https://api-v2.soundcloud.com:443",
         "method": "GET",
-        "path": "/search/queries?q=idkjeffery&limit=10&client_id=OrZoy8IshHh0YwFZmmXWC0ORwJNEKm9Z",
+        "path": "/search/queries?q=idkjeffery&limit=10&client_id=DQlbwZQRhyUCF86xxboXOT0XocvYG5na",
         "body": "",
         "status": 200,
         "response": {
@@ -12,30 +12,22 @@
                     "query": "idkjeffery rape rape"
                 },
                 {
-                    "output": "idkjeffery dont trust jeffery",
-                    "query": "idkjeffery dont trust jeffery"
-                },
-                {
                     "output": "idk jeffery",
                     "query": "idk jeffery"
-                },
-                {
-                    "output": "idk jeffery lenh",
-                    "query": "idk jeffery lenh"
                 }
             ],
             "next_href": null,
-            "query_urn": "soundcloud:search-autocomplete:fb526c159d09472499791ded710fc740"
+            "query_urn": "soundcloud:search-autocomplete:c2248622aec84653b55bdfe73160ca54"
         },
         "rawHeaders": [
             "Content-Type",
             "application/json; charset=utf-8",
             "Content-Length",
-            "363",
+            "223",
             "Connection",
             "close",
             "Date",
-            "Mon, 01 Aug 2022 09:53:35 GMT",
+            "Mon, 03 Apr 2023 16:55:38 GMT",
             "x-robots-tag",
             "noindex",
             "Cache-Control",
@@ -53,20 +45,18 @@
             "Vary",
             "Origin",
             "X-Cache",
-            "Hit from cloudfront",
+            "Miss from cloudfront",
             "Via",
-            "1.1 0921eae154c93e666b192fa267ea4bfa.cloudfront.net (CloudFront)",
+            "1.1 3b241d28b74f1afdcb7ac9fb7109cff0.cloudfront.net (CloudFront)",
             "X-Amz-Cf-Pop",
             "ZAG50-C1",
             "X-Amz-Cf-Id",
-            "KHzP0pjlcgvAmIqRmbf28Qj3DtlqDK0hnBSwL-OFNSkmVIAdukjOxQ==",
-            "Age",
-            "4382"
+            "Y2OnyETPVzPNEkjGBdBUYDgvTYgTaW1SmFeaToarbw5T_aE-mU6UcA=="
         ],
         "responseIsBinary": false
     },
     {
-        "scope": "http://127.0.0.1:52939",
+        "scope": "http://127.0.0.1:54278",
         "method": "POST",
         "path": "/api/suggestions/soundcloud",
         "body": {
@@ -76,9 +66,7 @@
         "response": {
             "suggestionsArray": [
                 "idkjeffery rape rape",
-                "idkjeffery dont trust jeffery",
-                "idk jeffery",
-                "idk jeffery lenh"
+                "idk jeffery"
             ]
         },
         "rawHeaders": [
@@ -89,11 +77,11 @@
             "Content-Type",
             "application/json; charset=utf-8",
             "Content-Length",
-            "110",
+            "59",
             "ETag",
-            "W/\"6e-l7pgzAPd8jScVQrph2w4SeE0fu8\"",
+            "W/\"3b-1Sr+sWzVGlAjwpbW/5eZw72fAaY\"",
             "Date",
-            "Mon, 01 Aug 2022 11:06:37 GMT",
+            "Mon, 03 Apr 2023 16:55:38 GMT",
             "Connection",
             "close"
         ],

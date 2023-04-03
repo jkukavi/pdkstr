@@ -2,14 +2,14 @@
     {
         "scope": "https://api-v2.soundcloud.com:443",
         "method": "GET",
-        "path": "/tracks/430754811?client_id=OrZoy8IshHh0YwFZmmXWC0ORwJNEKm9Z",
+        "path": "/tracks/430754811?client_id=DQlbwZQRhyUCF86xxboXOT0XocvYG5na",
         "body": "",
         "status": 200,
         "response": {
             "artwork_url": "https://i1.sndcdn.com/artworks-000336105762-joygtm-large.jpg",
             "caption": null,
             "commentable": true,
-            "comment_count": 215,
+            "comment_count": 216,
             "created_at": "2018-04-16T23:44:40Z",
             "description": "",
             "downloadable": false,
@@ -24,10 +24,10 @@
             "label_name": null,
             "last_modified": "2022-04-11T14:02:35Z",
             "license": "all-rights-reserved",
-            "likes_count": 18962,
+            "likes_count": 19112,
             "permalink": "eastmemphisboyz-who-run-it-remix-chris-travis-ta-double-idkjeffery-xavier-wulf",
             "permalink_url": "https://soundcloud.com/christravis/eastmemphisboyz-who-run-it-remix-chris-travis-ta-double-idkjeffery-xavier-wulf",
-            "playback_count": 888761,
+            "playback_count": 911490,
             "public": true,
             "publisher_metadata": {
                 "id": 430754811,
@@ -39,7 +39,7 @@
             "purchase_title": null,
             "purchase_url": null,
             "release_date": null,
-            "reposts_count": 2149,
+            "reposts_count": 2156,
             "secret_token": null,
             "sharing": "public",
             "state": "finished",
@@ -92,17 +92,17 @@
             },
             "station_urn": "soundcloud:system-playlists:track-stations:430754811",
             "station_permalink": "track-stations:430754811",
-            "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6ImJjYzAwNDc0LTk3ODEtNGFjNS04MmU3LTBiYzQwZGMyZTUxOSIsImlhdCI6MTY1OTM1MTk5N30.Ja4H45KYq2ZzOgIphpM-lV-91YM3-ivhtFgrCHhS1IY",
+            "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjFkNmYwZTBmLTU5YTMtNDg0ZS05NTZlLTA2MTBmNDM1ZDRkOSIsImlhdCI6MTY4MDU0MDkzOX0.B880P3WN2D5eZQt6e0T2aoGNsTM_FaiBhCVlfNfc4b8",
             "monetization_model": "NOT_APPLICABLE",
             "policy": "ALLOW",
             "user": {
-                "avatar_url": "https://i1.sndcdn.com/avatars-fy1Sxb29IRm4VJd3-cgPPsA-large.jpg",
+                "avatar_url": "https://i1.sndcdn.com/avatars-4DJWoQRRtYOrhaMz-IYGm7w-large.jpg",
                 "first_name": "Chris",
-                "followers_count": 293472,
+                "followers_count": 299449,
                 "full_name": "Chris Travis",
                 "id": 14845235,
                 "kind": "user",
-                "last_modified": "2022-06-17T08:17:26Z",
+                "last_modified": "2022-12-22T22:50:21Z",
                 "last_name": "Travis",
                 "permalink": "christravis",
                 "permalink_url": "https://soundcloud.com/christravis",
@@ -129,7 +129,7 @@
             "Connection",
             "close",
             "Date",
-            "Mon, 01 Aug 2022 11:06:37 GMT",
+            "Mon, 03 Apr 2023 16:55:39 GMT",
             "x-robots-tag",
             "noindex",
             "Cache-Control",
@@ -149,22 +149,22 @@
             "X-Cache",
             "Miss from cloudfront",
             "Via",
-            "1.1 9569de78dc2ca85c5ba29cb17f0eb7ce.cloudfront.net (CloudFront)",
+            "1.1 f1f7e88380a0546160e4e023c7c1d332.cloudfront.net (CloudFront)",
             "X-Amz-Cf-Pop",
             "ZAG50-C1",
             "X-Amz-Cf-Id",
-            "KvGXlzuArde3txVnYYH3bxbZ7uZ4_DUMiFw3-8t8o0j0jn1G5tOkkg=="
+            "gZLoxypppFfnZ05v_EHKVQGwwZSB2mYGq5Hpvl5Q1e618ef2Wg6kGQ=="
         ],
         "responseIsBinary": false
     },
     {
         "scope": "https://api-v2.soundcloud.com:443",
         "method": "GET",
-        "path": "/media/soundcloud:tracks:430754811/a11f3daa-02a9-4098-85bd-9c93e60c13fe/stream/progressive?client_id=OrZoy8IshHh0YwFZmmXWC0ORwJNEKm9Z",
+        "path": "/media/soundcloud:tracks:430754811/a11f3daa-02a9-4098-85bd-9c93e60c13fe/stream/progressive?client_id=DQlbwZQRhyUCF86xxboXOT0XocvYG5na",
         "body": "",
         "status": 200,
         "response": {
-            "url": "https://cf-media.sndcdn.com/PMRFQgKUwpB0.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vUE1SRlFnS1V3cEIwLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjU5MzUyMzUzfX19XX0_&Signature=ZnDH9ZpOGyS~gSHlAzckr3fqhi2RenxwPyi4~2Nb~GXLSHpV4nmy8nNBw7rGd9Mp46eEtjBQMWY0AM0tsU~4xJuvC5JljLlcVGPNZB9M4YygGU~H6coHQjzxICOc4xcTlfLOa9I-4yjWFGDO8uo~K1DK1cJdGLRCEf-7wosdfJ0lD-cpDFgnFZ6b7PNqFPeGREW008bbNqMpH5ca2foKUOt0l2xZUvlzc5Dw7lyWn93QciFMhrcc0ATQq96oVoQ6ykCfBHHTwWQ5p9iFIMfvpbuvJbxXvH7mVKDsLRfSkImC7Qu9Yuq7sTmWtqQRt779DxHZ7SgLoJnLOX8gR26nRw__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ"
+            "url": "https://cf-media.sndcdn.com/PMRFQgKUwpB0.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vUE1SRlFnS1V3cEIwLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjgwNTQxMjk0fX19XX0_&Signature=aOMuVzDYKRri447R44hrxDsLuJ5cXQPoUVMHLz-K3SeUM-o6cNEQ~iGwccfF-qCz1vu-PjV~Z-iogoAT~iPGVsdzz~zVhkYHeqKt1KZ45XfeJihMyvgk63CaQ9YK3Upo9TqvIHWliuzDU9OKAdxa-oRRrn2D-Qg-wdSp1HtvYXBmM7mNIhbzSgQSbjwiNrYbECuhcSSqnG7U9phmIo5QqhSizbXtuIPGgNu5poaEOrxoiwijpUI5qay~dmC3FkI3dvuqrpU7~wQHJt3ZDkgriPGHcTFUTz6Jet-gVLGSf9cBY8Jo6JRRNzRwUvqYi6~k-6DlT~SArhQ5GlHMVOpdDw__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ"
         },
         "rawHeaders": [
             "Content-Type",
@@ -174,7 +174,7 @@
             "Connection",
             "close",
             "Date",
-            "Mon, 01 Aug 2022 11:06:37 GMT",
+            "Mon, 03 Apr 2023 16:55:39 GMT",
             "x-robots-tag",
             "noindex",
             "Cache-Control",
@@ -198,12 +198,12 @@
             "X-Amz-Cf-Pop",
             "ZAG50-C1",
             "X-Amz-Cf-Id",
-            "O0nXOVVWyYScrTa3KNl7VYYnkmTMT05BZiNvBT8aoqld5nPCPof6zA=="
+            "eduOprOHohuXmP_nQOQrqVjLr3enwsZkgQ7Qmbs-sBMqGTqcTdV0eA=="
         ],
         "responseIsBinary": false
     },
     {
-        "scope": "http://127.0.0.1:52947",
+        "scope": "http://127.0.0.1:54281",
         "method": "POST",
         "path": "/api/url/soundcloud",
         "body": {
@@ -213,7 +213,7 @@
         "response": {
             "directUrl": [
                 {
-                    "url": "https://cf-media.sndcdn.com/PMRFQgKUwpB0.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vUE1SRlFnS1V3cEIwLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjU5MzUyMzUzfX19XX0_&Signature=ZnDH9ZpOGyS~gSHlAzckr3fqhi2RenxwPyi4~2Nb~GXLSHpV4nmy8nNBw7rGd9Mp46eEtjBQMWY0AM0tsU~4xJuvC5JljLlcVGPNZB9M4YygGU~H6coHQjzxICOc4xcTlfLOa9I-4yjWFGDO8uo~K1DK1cJdGLRCEf-7wosdfJ0lD-cpDFgnFZ6b7PNqFPeGREW008bbNqMpH5ca2foKUOt0l2xZUvlzc5Dw7lyWn93QciFMhrcc0ATQq96oVoQ6ykCfBHHTwWQ5p9iFIMfvpbuvJbxXvH7mVKDsLRfSkImC7Qu9Yuq7sTmWtqQRt779DxHZ7SgLoJnLOX8gR26nRw__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ",
+                    "url": "https://cf-media.sndcdn.com/PMRFQgKUwpB0.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vUE1SRlFnS1V3cEIwLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjgwNTQxMjk0fX19XX0_&Signature=aOMuVzDYKRri447R44hrxDsLuJ5cXQPoUVMHLz-K3SeUM-o6cNEQ~iGwccfF-qCz1vu-PjV~Z-iogoAT~iPGVsdzz~zVhkYHeqKt1KZ45XfeJihMyvgk63CaQ9YK3Upo9TqvIHWliuzDU9OKAdxa-oRRrn2D-Qg-wdSp1HtvYXBmM7mNIhbzSgQSbjwiNrYbECuhcSSqnG7U9phmIo5QqhSizbXtuIPGgNu5poaEOrxoiwijpUI5qay~dmC3FkI3dvuqrpU7~wQHJt3ZDkgriPGHcTFUTz6Jet-gVLGSf9cBY8Jo6JRRNzRwUvqYi6~k-6DlT~SArhQ5GlHMVOpdDw__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ",
                     "mimeType": "audio/mpeg"
                 }
             ]
@@ -228,9 +228,9 @@
             "Content-Length",
             "674",
             "ETag",
-            "W/\"2a2-ZAsaa1ZGCCSkasSrwUQe/7XI4y0\"",
+            "W/\"2a2-3hLiFeVsmksm29tJ/hypsGPezoU\"",
             "Date",
-            "Mon, 01 Aug 2022 11:06:37 GMT",
+            "Mon, 03 Apr 2023 16:55:39 GMT",
             "Connection",
             "close"
         ],
