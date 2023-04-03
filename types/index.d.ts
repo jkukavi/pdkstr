@@ -14,8 +14,6 @@ interface PendingAccount {
   activationCode: string;
 }
 
-declare module "yt-channel-info";
-
 type Engine = "youtube" | "soundcloud";
 
 interface EngineMethods {

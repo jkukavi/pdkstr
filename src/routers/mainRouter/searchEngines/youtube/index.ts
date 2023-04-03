@@ -2,9 +2,9 @@ import { default as youtubesr } from "youtube-sr";
 import ytdl, { MoreVideoDetails } from "ytdl-core";
 import ytpl from "ytpl";
 import ytsr, { Video, Channel, Playlist, Item } from "ytsr";
-import ytch from "yt-channel-info";
+import ytch from "./youtube-channel-info";
 
-import { youtubeDummyData as dummyData } from "../__test__/dummyData";
+import { youtubeDummyData as dummyData } from "../../__test__/dummyData";
 
 import fetch from "node-fetch";
 

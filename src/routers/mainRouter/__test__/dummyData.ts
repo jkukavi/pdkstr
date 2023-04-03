@@ -3,7 +3,7 @@ import { getRandomCode } from "utils";
 
 export const youtubeDummyData = {
   itemId: "eJRvRM9wfdE",
-  playlistId: "PLYu-7OugCfta0mrJ5fRKvXfjU3qwgWZxS",
+  playlistId: "PLhkF-IG09XgBkFiy4ftTmQIsUOiKBYjfM",
   channelId: "UCtPlB4OmowajcgVaL3jvGcA",
   suggestionQuery: "doggo",
 };
