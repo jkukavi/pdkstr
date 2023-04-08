@@ -1,4 +1,5 @@
 // @ts-nocheck
+import { resolve } from "./resolver";
 import { PlaylistResponse } from "./playlistTypes";
 
 const helper = require("../helper");
@@ -59,19 +60,18 @@ class PlaylistFetcher {
       channelUrl: `https://www.youtube.com/channel/${channelId}`,
     };
 
-    let playlistData;
-
-    try {
-      playlistData = (response as PlaylistResponse).data[1].response.contents
-        .twoColumnBrowseResultsRenderer.tabs[4].tabRenderer.content
-        .sectionListRenderer.contents[0].itemSectionRenderer.contents[0]
-        .gridRenderer;
-    } catch {
-      playlistData =
+    const resolvers = [
+      (response: PlaylistResponse) =>
+        response.data[1].response.contents.twoColumnBrowseResultsRenderer
+          .tabs[4].tabRenderer.content.sectionListRenderer.contents[0]
+          .itemSectionRenderer.contents[0].gridRenderer,
+      (response: any) =>
         response.data[1].response.contents.twoColumnBrowseResultsRenderer
           .tabs[2].tabRenderer.content.sectionListRenderer.contents[0]
-          .itemSectionRenderer.contents[0].gridRenderer;
-    }
+          .itemSectionRenderer.contents[0].gridRenderer,
+    ];
+
+    let playlistData = resolve(response, resolvers);
 
     if (typeof playlistData === "undefined") {
       return {

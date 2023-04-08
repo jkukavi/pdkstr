@@ -16,6 +16,8 @@ const startLocalDatabase = async () => {
     },
   } as any);
 
+  const binaryPath = await mongod.instanceInfo?.dbPath;
+
   await mongod.start();
 
   const mongodUri = mongod.getUri();
