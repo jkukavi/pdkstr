@@ -1,3 +1,4 @@
+import React from "react";
 import chevron from "icons/chevron.svg";
 import magnifier from "icons/magnifier.svg";
 import microphone from "icons/microphone.svg";

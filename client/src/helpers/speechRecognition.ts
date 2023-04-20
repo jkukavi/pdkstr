@@ -10,8 +10,8 @@ function Nothing() {
 }
 
 //Nothing is added so that non-chrome browsers don't crash.
-let SpeechRecognition = window.webkitSpeechRecognition || Nothing;
-let recognition = new SpeechRecognition();
+const SpeechRecognition = window.webkitSpeechRecognition || Nothing;
+const recognition = new SpeechRecognition();
 
 recognition.continuous = false;
 recognition.lang = "en-US";

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { v4 as uuid } from "uuid";
 
 import { fetchDirectUrl, addToHistory } from "apiCalls";
@@ -41,6 +41,7 @@ interface PlayerInterface extends InitialState {
 }
 
 interface VoidFunction {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (args?: any): void;
 }
 
@@ -53,7 +54,7 @@ const probablyCouldBePlayed = (media: DirectUrl): boolean => {
 
 export const Player: PlayerInterface = {
   ...initialState,
-  updateState: () => {},
+  updateState: () => null,
   playItem: async function (item: Item) {
     const { id, engine, url } = item;
     this.updateState({ directUrl: null, audioLoading: true });

@@ -1,3 +1,4 @@
+import React from "react";
 import { PlayingQueue } from "components/AudioShelf/PlayingQueue";
 
 import playButtonThumbnail from "icons/playButtonThumbnail.svg";

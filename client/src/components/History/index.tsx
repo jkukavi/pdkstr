@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useCallback } from "react";
+import React, { useState, useMemo, useEffect, useCallback } from "react";
 
 import { debounce } from "helpers";
 
@@ -10,7 +10,6 @@ import Navbar from "./Navbar";
 const History = () => {
   const { loadHistory, history } = useUserData();
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(loadHistory, []);
 
   const [queryString, setQueryString] = useState<string | null>(null);

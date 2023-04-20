@@ -1,3 +1,4 @@
+import React from "react";
 import { ScrollingDownProvider } from "contexts/ScrollingDown";
 import { UserDataProvider } from "contexts/UserData";
 

@@ -32,7 +32,6 @@ const LoginPage = () => {
     if (user === null) {
       tryReestablishingSession();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (!!user) {

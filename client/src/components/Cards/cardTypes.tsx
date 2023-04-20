@@ -1,3 +1,4 @@
+import React from "react";
 import { SearchEngineIcon, defaultPuppyImg } from "consts";
 
 import { getViewsString } from "helpers";

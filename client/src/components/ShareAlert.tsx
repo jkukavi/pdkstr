@@ -1,3 +1,5 @@
+import React from "react";
+
 const ShareAlert = ({ info, alert, playItem }: any) => {
   return (
     <div className={`alertBox ${alert ? "appear" : ""}`}>

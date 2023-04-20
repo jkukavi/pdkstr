@@ -15,6 +15,7 @@ const LoginForm = ({ goBack }: { goBack: VoidFunction }) => {
     try {
       await login(e);
       goBack();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       if (err.response.status === 401) {
         notify("Wrong credentials brother!");

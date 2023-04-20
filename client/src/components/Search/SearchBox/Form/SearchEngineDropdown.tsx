@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 import youtube from "icons/youtube.svg";
 import soundcloud from "icons/soundcloud.svg";

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { throttle } from "helpers";
 
 const useScreenSize = () => {
@@ -17,7 +17,6 @@ const useScreenSize = () => {
     window.addEventListener("resize", throttledCheckResize);
 
     return () => window.removeEventListener("resize", throttledCheckResize);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [smallScreen, setSmallScreen]);
 
   return smallScreen;

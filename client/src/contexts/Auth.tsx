@@ -14,6 +14,7 @@ import {
 } from "./axiosInstance";
 
 interface VoidFunction {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (args?: any): void;
 }
 
@@ -26,13 +27,14 @@ const AuthContext = createContext<{
   getMyUser: () => Promise<void>;
 }>({
   user: null,
-  login: async (e) => {},
-  reestablishSession: async (e) => {},
-  setUser: () => {},
-  logout: () => {},
+  login: async () => null,
+  reestablishSession: async () => null,
+  setUser: () => null,
+  logout: () => null,
   getMyUser: async () => {},
 });
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const AuthContextProvider = ({ children }: { children: any }) => {
   const [user, setUser] = useState<{ name: string } | null>(null);
 
@@ -76,7 +78,6 @@ const AuthContextProvider = ({ children }: { children: any }) => {
 
   useEffect(() => {
     instantiateInstance({ logout, reestablishSession, destroySession });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getMyUser = async () => {

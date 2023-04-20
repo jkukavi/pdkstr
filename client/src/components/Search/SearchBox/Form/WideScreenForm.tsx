@@ -1,3 +1,4 @@
+import React from "react";
 import SearchEngineDropdown from "./SearchEngineDropdown";
 import UserDropdown from "./UserDropdown";
 import InputWithSuggestions from "./InputWithSuggestions";

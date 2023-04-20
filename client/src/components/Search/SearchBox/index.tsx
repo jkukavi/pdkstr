@@ -84,36 +84,36 @@ export const SearchBox: SearchBoxInterface = {
   },
 };
 
-const SearchBoxComponent = React.memo(
-  ({
+const Component = ({
+  setSearchArray,
+  setArrayLoading,
+}: {
+  setSearchArray: React.Dispatch<React.SetStateAction<AnyItem[]>>;
+  setArrayLoading: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
+  const [viewingChannel, setViewingChannel] = useState<Channel | null>(
+    SearchBox.viewingChannel
+  );
+
+  const props = {
+    viewingChannel,
     setSearchArray,
     setArrayLoading,
-  }: {
-    setSearchArray: React.Dispatch<React.SetStateAction<AnyItem[]>>;
-    setArrayLoading: React.Dispatch<React.SetStateAction<boolean>>;
-  }) => {
-    const [viewingChannel, setViewingChannel] = useState<Channel | null>(
-      SearchBox.viewingChannel
-    );
+    setViewingChannel,
+  };
 
-    const props = {
-      viewingChannel,
-      setSearchArray,
-      setArrayLoading,
-      setViewingChannel,
-    };
+  useConnectPropsToObserver(props, SearchBox);
 
-    useConnectPropsToObserver(props, SearchBox);
+  return (
+    <div className="searchBoxFixedContainer">
+      <CollapseOnScrollContainer>
+        <Form />
+        {viewingChannel && <ChannelInfo channelInfo={viewingChannel} />}
+      </CollapseOnScrollContainer>
+    </div>
+  );
+};
 
-    return (
-      <div className="searchBoxFixedContainer">
-        <CollapseOnScrollContainer>
-          <Form />
-          {viewingChannel && <ChannelInfo channelInfo={viewingChannel} />}
-        </CollapseOnScrollContainer>
-      </div>
-    );
-  }
-);
+const SearchBoxComponent = React.memo(Component);
 
 export default SearchBoxComponent;

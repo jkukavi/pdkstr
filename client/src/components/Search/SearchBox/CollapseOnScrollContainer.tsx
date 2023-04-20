@@ -1,3 +1,4 @@
+import React from "react";
 import { useScrollingDownContext } from "contexts/ScrollingDown";
 
 const CollapseOnScrollContainer = ({ children }: { children: any }) => {

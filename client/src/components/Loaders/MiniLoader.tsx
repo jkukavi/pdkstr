@@ -1,3 +1,4 @@
+import React from "react";
 const MiniLoader = () => {
   return (
     <div className="audioLoaderContainer">

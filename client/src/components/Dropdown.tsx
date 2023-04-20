@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 
 import chevron from "icons/chevron.svg";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ReactComponent = (props: any) => JSX.Element;
 
 type DropDownItem = {
@@ -18,7 +19,7 @@ const DropDown = ({
 }) => {
   const [dropdown, setDropdown] = useState(false);
 
-  let blurHappened = useRef(false);
+  const blurHappened = useRef(false);
 
   const dropDownElement = useRef<HTMLDivElement>(null);
 
@@ -62,9 +63,10 @@ const DropDown = ({
           ref={dropDownElement}
           className="dropDown"
         >
-          {dropdownItems.map(({ component, onClick }) => (
+          {dropdownItems.map(({ component, onClick }, i) => (
             <div
               className="dropDownIcon"
+              key={i}
               onClick={() => {
                 setDropdown(false);
                 onClick();

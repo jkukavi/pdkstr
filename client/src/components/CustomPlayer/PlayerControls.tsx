@@ -1,3 +1,4 @@
+import React from "react";
 import replay5 from "./icons/replay5.svg";
 import replay10 from "./icons/replay10.svg";
 import replay30 from "./icons/replay30.svg";

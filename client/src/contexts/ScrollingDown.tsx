@@ -45,8 +45,6 @@ export const useScrollingDownContext = (id: string) => {
         element.removeEventListener("scroll", scrollHandler);
       };
     }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location, setScrollingDown]);
 
   return scrollingDown;
