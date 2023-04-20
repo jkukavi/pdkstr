@@ -6,7 +6,7 @@ const PrintScreen = ({ children }: { children: React.ReactNode }) => {
   const [expanded, setExpanded] = useState(false);
   return (
     <>
-      {process.env.NODE_ENV !== "production" && (
+      {false && (
         <pre
           style={{
             position: "fixed",
