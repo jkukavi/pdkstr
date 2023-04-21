@@ -14,7 +14,6 @@ const Favourites = () => {
 
   const { favourites, loadFavourites } = useUserData();
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(loadFavourites, []);
 
   const [filter, setFilter] = useState(filters.TRACKS);
@@ -32,7 +31,6 @@ const Favourites = () => {
     return queriedItems;
   }, [favourites, queryString, filter]);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedSetQueryString = useCallback(debounce(setQueryString, 500), [
     setQueryString,
   ]);

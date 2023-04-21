@@ -36,7 +36,7 @@ export const getPlaylistItems = async (playlist: Playlist): Promise<Item[]> => {
 
   const id = playlist.id;
 
-  let fetchedPlaylistItems = [];
+  let fetchedPlaylistItems: Item[] = [];
 
   try {
     const response = await axios.post(path, {
@@ -44,9 +44,9 @@ export const getPlaylistItems = async (playlist: Playlist): Promise<Item[]> => {
     });
     const { playlistItems } = response.data;
     fetchedPlaylistItems = playlistItems || [];
+    return fetchedPlaylistItems;
   } catch (e) {
     notify("Something went wrong. Try again.");
-  } finally {
     return fetchedPlaylistItems;
   }
 };

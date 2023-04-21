@@ -34,7 +34,7 @@ const LoginPage = () => {
     }
   }, []);
 
-  if (!!user) {
+  if (user) {
     goBack();
   }
 

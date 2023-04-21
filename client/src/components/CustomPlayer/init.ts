@@ -37,7 +37,7 @@ interface Time {
 }
 
 function addSecondsToTime(time: Time, diff: number) {
-  let newSeconds = Number(time.seconds) + diff;
+  const newSeconds = Number(time.seconds) + diff;
 
   if (newSeconds > 59) {
     time.seconds = prefixWithZero(newSeconds % 60);
@@ -106,7 +106,7 @@ export function init() {
     }
   }
 
-  var time: Time = {
+  const time: Time = {
     seconds: "00",
     minutes: "00",
     hours: "00",
@@ -200,7 +200,7 @@ export function init() {
 
   function initializeSingleSecondProgressPercentage() {
     const totalDuration = Math.floor(myAudio.duration);
-    let nonRoundedPercentage = (1 / totalDuration) * 100;
+    const nonRoundedPercentage = (1 / totalDuration) * 100;
     singleSecondProgressPercentage =
       Math.round(nonRoundedPercentage * 100 * 100) / (100 * 100);
   }
@@ -243,7 +243,7 @@ export function init() {
   addEventListener(myAudio, "timeupdate", timeUpdate);
 
   function bufferBarUpdate() {
-    var duration = myAudio.duration;
+    const duration = myAudio.duration;
     if (duration > 0) {
       if (myAudio.buffered.length > 0) {
         const bufferedPercentage =
@@ -277,7 +277,7 @@ export function init() {
   }
 
   const nonThrottledUpdatePosition = (e: PointerEvent) => {
-    let newPercentage =
+    const newPercentage =
       ((e.pageX - barHolder.offsetLeft) / barHolder.clientWidth) * 100;
 
     let newSeconds;

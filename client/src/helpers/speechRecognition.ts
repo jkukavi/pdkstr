@@ -48,4 +48,4 @@ const recognizeAndStartSearch = () => {
 
 export default recognizeAndStartSearch;
 
-document.getElementById("hello")?.addEventListener("start", (e) => {});
+document.getElementById("hello")?.addEventListener("start", () => {});

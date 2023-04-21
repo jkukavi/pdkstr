@@ -20,8 +20,6 @@ const WideScreenNavbar = ({
     if (inputRef.current) {
       inputRef.current.value = queryString;
     }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onInputChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -74,8 +72,9 @@ const FilterButons = ({
 }) => {
   return (
     <div style={{ display: "flex", height: "100%" }}>
-      {filtersArray.map((currentFilter) => (
+      {filtersArray.map((currentFilter, i) => (
         <div
+          key={i}
           className={`button ${filter === currentFilter ? "active" : ""}`}
           onClick={() => {
             setFilter(currentFilter);

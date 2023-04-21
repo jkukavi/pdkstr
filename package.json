@@ -5,6 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "NODE_PATH=./dist node --enable-source-maps dist/index.js",
+    "lint": "npx tsc --noEmit && cd client && yarn lint",
     "test": "NODE_PATH=./src NODE_ENV=test jest",
     "build": "npx tsc --project ./tsconfig.json",
     "build-client": "cd client && yarn && yarn build",
@@ -62,6 +63,7 @@
     "mongodb-memory-server": "^8.0.4",
     "nock": "^13.2.1",
     "nodemon": "^2.0.15",
+    "prettier": "^2.8.7",
     "supertest": "^6.1.6",
     "ts-jest": "^27.1.2",
     "ts-node": "^10.4.0",

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Notification from "./Notification";
 
 const notificationsObserver: {
-  push: ((arg: any) => {}) | null;
+  push: ((arg: any) => void) | null;
   subscribe: (fn: any) => void;
 } = {
   push: null,
@@ -27,13 +27,12 @@ const Notifications = () => {
     notificationsObserver.subscribe(pushNotifications);
   };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(subscribeToNotifications, [setNotifications]);
 
   return (
     <div className="notificationsContainer">
-      {notifications.map((notification) => (
-        <Notification notification={notification} />
+      {notifications.map((notification, i) => (
+        <Notification notification={notification} key={i} />
       ))}
     </div>
   );

@@ -29,7 +29,6 @@ const ExpandableContainer = ({ children }: { children: any }) => {
 
   useEffect(() => {
     Container.toggleExpanded = toggleExpanded;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setExpanded]);
 
   useEffect(() => {

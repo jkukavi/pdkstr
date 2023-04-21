@@ -11,6 +11,7 @@ import Sidebar from "./Sidebar";
 import Controls from "./Controls";
 
 export const PlaylistSidebar = {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setBrowsingPlaylist: (args: any) => {},
   browsePlaylist: async function (playlist: Playlist) {
     try {

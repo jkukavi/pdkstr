@@ -57,8 +57,8 @@ const Settings = () => {
 
 const ServicesHealthCheck = () => (
   <>
-    {engineArray.map((engine: Engine) => (
-      <HealthOf engine={engine} />
+    {engineArray.map((engine: Engine, i) => (
+      <HealthOf engine={engine} key={i} />
     ))}
   </>
 );

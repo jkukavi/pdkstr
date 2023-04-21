@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 
 import { allowedCardTypes } from "consts";
 
@@ -19,24 +19,19 @@ const Cards = ({
 }: CardProps) => {
   const { viewingChannel } = SearchBox;
 
-  const cards = useMemo(() => {
-    return searchArray
-      .filter(({ type }) => allowedCardTypes.includes(type))
-      .map((item) => {
-        const CardComponent = cardTypes[item.type] as (
-          props: any
-        ) => JSX.Element;
+  const cards = searchArray
+    .filter(({ type }) => allowedCardTypes.includes(type))
+    .map((item, i) => {
+      const CardComponent = cardTypes[item.type] as (props: any) => JSX.Element;
 
-        const cardProps = {
-          viewingChannel,
-          item,
-          channelClickAction,
-        };
+      const cardProps = {
+        viewingChannel,
+        item,
+        channelClickAction,
+      };
 
-        return <CardComponent {...cardProps} />;
-      });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchArray]);
+      return <CardComponent {...cardProps} key={i} />;
+    });
 
   return (
     <div

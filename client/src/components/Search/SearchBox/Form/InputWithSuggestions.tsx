@@ -35,7 +35,6 @@ const InputWithSuggestions = () => {
     window.addEventListener("mouseup", blurHandler);
 
     return () => window.removeEventListener("mouseup", blurHandler);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleInput: React.ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -67,11 +66,9 @@ const InputWithSuggestions = () => {
       }
     } catch (e) {
       notify("Something went wrong. Try again.");
-    } finally {
     }
   };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedGetSuggestions = useCallback(
     debounce(getSuggestions, 200),
     []

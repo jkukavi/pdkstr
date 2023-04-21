@@ -19,8 +19,6 @@ const InputDropdown = ({
     if (inputRef.current) {
       inputRef.current.value = queryString;
     }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const inputDropdown = {

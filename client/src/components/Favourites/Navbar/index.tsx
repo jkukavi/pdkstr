@@ -33,7 +33,6 @@ const Navbar = ({
     window.addEventListener("resize", throttledCheckResize);
 
     return () => window.removeEventListener("resize", throttledCheckResize);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [smallScreen, setSmallScreen]);
 
   const navbarProps = {
