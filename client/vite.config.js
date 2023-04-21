@@ -15,11 +15,13 @@ export default defineConfig({
         ws: true,
       },
     },
+    assetsInlineLimit: 0,
   },
   // This changes the out put dir from dist to build
   // comment this out if that isn't relevant for your project
   build: {
     outDir: "build",
+    assetsInlineLimit: 0,
   },
   plugins: [viteCommonjs(), reactRefresh(), tsconfigPaths(), svgr({})],
   optimizeDeps: {
