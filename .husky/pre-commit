@@ -1,4 +1,11 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+red='\033[0;31m'
+green='\033[0;32m'
+yellow='\033[0;33m'
+no_color='\033[0m'
+
+echo "${green}\nSit tight while some pre-commit checks are being runned. \nChecking ts and eslint checks for BE and FE. ${no_color}\n"
+
 yarn lint
