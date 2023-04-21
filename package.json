@@ -6,7 +6,7 @@
   "scripts": {
     "start": "NODE_PATH=./dist node --enable-source-maps dist/index.js",
     "test": "NODE_PATH=./src NODE_ENV=test jest",
-    "build": "npx tsc --project ./tsconfig.json",
+    "build": "npx tsc --project ./tsconfig.json && cd client && yarn build-client & cd ..",
     "build-client": "cd client && yarn && yarn build",
     "heroku-postbuild": "yarn build && yarn test && yarn build-client",
     "dev": "NODE_ENV=development npx nodemon node_modules/.bin/ts-node --files -r dotenv/config ./src/index.ts",
