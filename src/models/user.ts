@@ -50,7 +50,10 @@ async function getMyHistory(id: string) {
   return useDatabase(async (db) => {
     const { history }: any = await db
       .collection("users")
-      .findOne({ _id: new ObjectId(id) }, { projection: { history: 1 } });
+      .findOne(
+        { _id: new ObjectId(id) },
+        { projection: { history: { $slice: 20 } } }
+      );
     return history;
   });
 }
@@ -59,7 +62,10 @@ async function getMyFavourites(id: string) {
   return useDatabase(async (db) => {
     const { favourites }: any = await db
       .collection("users")
-      .findOne({ _id: new ObjectId(id) }, { projection: { favourites: 1 } });
+      .findOne(
+        { _id: new ObjectId(id) },
+        { projection: { favourites: { $slice: 20 } } }
+      );
     return favourites;
   });
 }
