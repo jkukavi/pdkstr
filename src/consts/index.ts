@@ -8,6 +8,7 @@ export const CSPPolicies = {
       "'self'",
       "i.ytimg.com",
       "yt3.ggpht.com",
+      "yt3.googleusercontent.com",
       "hips.hearstapps.com",
       "i1.sndcdn.com",
     ],
