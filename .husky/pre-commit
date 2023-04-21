@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash
 . "$(dirname -- "$0")/_/husky.sh"
 
 red='\033[0;31m'
@@ -6,6 +6,12 @@ green='\033[0;32m'
 yellow='\033[0;33m'
 no_color='\033[0m'
 
-echo "${green}\nSit tight while some pre-commit checks are being runned. \nChecking ts and eslint checks for BE and FE. ${no_color}\n"
+echo -e "${green}\nSit tight while some pre-commit checks are being runned. \nChecking ts and eslint checks for BE and FE. ${no_color}\n"
 
 yarn lint
+
+if [ $? -eq 0 ]; then
+    echo -e "${green} Congrats! Everything went smooth. You've successfully commited your changes."
+else
+    echo -e "${red} Unfortunatenitanetaly, something went wrong. It appears that there are some typescript or eslint errors in BE or FE. Try running yarn lint for better logging."
+fi
