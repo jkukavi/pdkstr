@@ -19,7 +19,6 @@ const UserDataContext = React.createContext<{
 });
 
 export const UserDataProvider = ({ children }: { children: any }) => {
-  console.log("user");
   const [history, setHistory] = useState<Item[]>([]);
   const [favourites, setFavourites] = useState<AnyItem[]>([]);
 

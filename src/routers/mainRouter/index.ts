@@ -21,7 +21,6 @@ app.post<string, { engine: Engine }>("/url/:engine", async (req, res) => {
     }
   } catch (error) {
     res.status(400).json({ message: "Direct url not found" });
-    console.log(JSON.stringify(error, null, 2));
   }
 });
 
@@ -56,7 +55,6 @@ app.post<string, { engine: Engine }, any, { searchString: string }>(
       res.status(200).json({ suggestionsArray });
     } catch (error) {
       res.status(400).json({ message: "summin fked" });
-      console.log(JSON.stringify(error, null, 2));
     }
   }
 );

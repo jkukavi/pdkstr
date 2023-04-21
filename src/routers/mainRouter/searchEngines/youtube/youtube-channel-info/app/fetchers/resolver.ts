@@ -21,13 +21,3 @@ export const resolve = <
     }
   }
 };
-
-const resolvers = [
-  (val: { item: { bla: string } }) => val.item.bla,
-  (val: { item: { dva: string } }) => val.item.dva,
-  (val: { item: { tri: string } }) => val.item.tri,
-];
-
-const resolvedVal = resolve({ item: { tri: "hello", dva: 2 } }, resolvers);
-
-console.log(resolvedVal);

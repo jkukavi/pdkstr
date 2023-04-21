@@ -31,7 +31,6 @@ router.get("/:url", (req: Request, res: Response) => {
         }
       )
       .on("error", (e) => {
-        console.log(e);
         res.end();
       });
   } else {

@@ -98,9 +98,7 @@ const getItemInfo = async (id: string) => {
     const returnVal = getBasicInfoMapper(videoInfo.videoDetails);
 
     return returnVal;
-  } catch (e) {
-    console.log(e);
-  }
+  } catch (e) {}
 };
 
 const suggestionsMapper = (suggestion: string) =>
