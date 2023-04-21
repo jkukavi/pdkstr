@@ -6,9 +6,9 @@
   "scripts": {
     "start": "NODE_PATH=./dist node --enable-source-maps dist/index.js",
     "test": "NODE_PATH=./src NODE_ENV=test jest",
-    "build": "npx tsc --project ./tsconfig.json && yarn build-client && cd ..",
+    "build": "npx tsc --project ./tsconfig.json",
     "build-client": "cd client && yarn && yarn build",
-    "heroku-postbuild": "yarn build && yarn test && yarn build-client",
+    "heroku-postbuild": "yarn build && yarn build-client && yarn test",
     "dev": "NODE_ENV=development npx nodemon node_modules/.bin/ts-node --files -r dotenv/config ./src/index.ts",
     "startdb": "MONGOMS_DEBUG=1 MONGOMS_ARCH=x64 npx ts-node mockDb/startDb.ts"
   },
