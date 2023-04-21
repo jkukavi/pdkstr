@@ -11,7 +11,8 @@
     "build-client": "cd client && yarn && yarn build",
     "heroku-postbuild": "yarn build && yarn build-client && yarn test",
     "dev": "NODE_ENV=development npx nodemon node_modules/.bin/ts-node --files -r dotenv/config ./src/index.ts",
-    "startdb": "MONGOMS_DEBUG=1 MONGOMS_ARCH=x64 npx ts-node mockDb/startDb.ts"
+    "startdb": "MONGOMS_DEBUG=1 MONGOMS_ARCH=x64 npx ts-node mockDb/startDb.ts",
+    "prepare": "husky install"
   },
   "engines": {
     "node": "14.17.5",
@@ -69,7 +70,8 @@
     "ts-node": "^10.4.0",
     "tsconfig-paths": "^3.12.0",
     "tslib": "^2.3.1",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.4",
+    "husky": "^8.0.0"
   },
   "config": {
     "mongodbMemoryServer": {
