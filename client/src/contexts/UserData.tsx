@@ -6,11 +6,13 @@ import { notify } from "components/Notifications";
 
 import { instance as axios } from "./axiosInstance";
 
+type FunctionType = () => void;
+
 const UserDataContext = React.createContext<{
   history: Item[];
   favourites: AnyItem[];
-  loadHistory: any;
-  loadFavourites: any;
+  loadHistory: FunctionType;
+  loadFavourites: FunctionType;
 }>({
   history: [],
   favourites: [],
@@ -18,7 +20,7 @@ const UserDataContext = React.createContext<{
   loadFavourites: () => {},
 });
 
-export const UserDataProvider = ({ children }: { children: any }) => {
+export const UserDataProvider = ({ children }: { children: JSX.Element }) => {
   const [history, setHistory] = useState<Item[]>([]);
   const [favourites, setFavourites] = useState<AnyItem[]>([]);
 

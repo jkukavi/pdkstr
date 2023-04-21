@@ -22,7 +22,6 @@ const History = () => {
       : history;
   }, [history, queryString]);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedSetQueryString = useCallback(debounce(setQueryString, 400), [
     setQueryString,
   ]);
