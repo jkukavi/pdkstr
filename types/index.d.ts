@@ -4,13 +4,8 @@ interface UserInfo {
   password: string;
 }
 
-type AccountInfo = {
-  history: string[];
-  favourites: string[];
-} & UserInfo;
-
 interface PendingAccount {
-  accountInfo: AccountInfo;
+  accountInfo: UserInfo;
   activationCode: string;
 }
 

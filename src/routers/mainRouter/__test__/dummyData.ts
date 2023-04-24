@@ -14,7 +14,7 @@ export const soundcloudDummyData = {
   channelId: "55254934",
 };
 
-const blankAccountInfo = {
+const blankUserInfo = {
   username: "userRouterName",
   history: [],
   favourites: [],
@@ -22,10 +22,10 @@ const blankAccountInfo = {
 
 export const generateUniqueDummyUser = async (
   uniqueId: string
-): Promise<{ user: AccountInfo; userWithHashedPassword: AccountInfo }> => {
+): Promise<{ user: UserInfo; userWithHashedPassword: UserInfo }> => {
   const password = getRandomCode();
   const user = {
-    ...blankAccountInfo,
+    ...blankUserInfo,
     email: `${uniqueId}@mail.com`,
     password,
   };

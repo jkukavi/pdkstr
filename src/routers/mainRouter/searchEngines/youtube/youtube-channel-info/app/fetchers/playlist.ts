@@ -1,7 +1,9 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 import { resolve } from "./resolver";
 import { PlaylistResponse } from "./playlistTypes";
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const helper = require("../helper");
 
 class PlaylistFetcher {
@@ -71,7 +73,7 @@ class PlaylistFetcher {
           .itemSectionRenderer.contents[0].gridRenderer,
     ];
 
-    let playlistData = resolve(response, resolvers);
+    const playlistData = resolve(response, resolvers);
 
     if (typeof playlistData === "undefined") {
       return {

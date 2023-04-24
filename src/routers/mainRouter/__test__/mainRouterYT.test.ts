@@ -11,7 +11,7 @@ import { promisify } from "./helpers";
 dotenv.config();
 const agent = supertest.agent(app, {});
 
-const loginAgent = async (user: AccountInfo) => {
+const loginAgent = async (user: UserInfo) => {
   const response: any = await promisify(
     agent
       .post("/login")

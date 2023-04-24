@@ -1,34 +1,21 @@
 import { close, connect } from "db";
-import { hashPasswordIn } from "models/helpers";
 import supertest, { Test } from "supertest";
 import { getRandomCode } from "utils";
-import users from "models/user";
 import app from "app";
+import { createDummyUser } from "__test__/createUser";
 
 process.env.JWT_SECRET = "žaba";
 process.env.SENDGRID_API_KEY = "SG.XXXX";
 
 describe("Auth routes", () => {
-  const password = getRandomCode();
-  const user: AccountInfo = {
-    email: "authRouter@test",
-    username: "ussserr1",
-    password,
-    history: [],
-    favourites: [],
-  };
-  let userWithHashedPassword;
-  let id;
-  let request = supertest(app);
+  const request = supertest(app);
+
+  let user: UserInfo;
 
   beforeAll(async () => {
     await connect();
-    userWithHashedPassword = await hashPasswordIn(user);
-    const insertionResult = await users.save(userWithHashedPassword);
-    if (!insertionResult) {
-      throw new Error("unable to save user.");
-    }
-    id = insertionResult.insertedId.toString();
+    const { dummyUser } = await createDummyUser();
+    user = dummyUser;
     process.env.JWT_SECRET = "žaba";
     process.env.SENDGRID_API_KEY = "SG.XXXX";
   });
@@ -74,7 +61,7 @@ describe("Auth routes", () => {
           if (response.statusCode !== 200) {
             throw new Error("Unable to login");
           }
-          if (!!response.body.token) {
+          if (response.body.token) {
             done();
           } else {
             throw new Error("no refresh TOken received");

@@ -16,7 +16,7 @@ async function save({
       throw new Error("Email already exists");
     }
 
-    let newAccountInfo = {
+    const newUserInfo = {
       ...accountInfo,
       password: await bcrypt.hash(accountInfo.password, 14),
       favourites: [],
@@ -24,7 +24,7 @@ async function save({
     };
 
     const newPendingAccount: PendingAccount = {
-      accountInfo: newAccountInfo,
+      accountInfo: newUserInfo,
       activationCode,
     };
 

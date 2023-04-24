@@ -1,43 +1,27 @@
 import users from "../user";
-import { hashPasswordIn } from "../helpers";
 import { connect, close } from "db";
+import { createDummyUser } from "__test__/createUser";
 
 describe("CRUD operations for users collection", () => {
-  const user: AccountInfo = {
-    email: "userModel@test",
-    username: "usernamio",
-    password: "hello",
-    history: [],
-    favourites: [],
-  };
-  let userWithHashedPassword = user;
+  let user: UserInfo;
+  let history: any = [];
+  let favourites: any = [];
   const dummyItem = { name: "bla", author: "bla" };
 
   let id: string;
 
   beforeAll(async () => {
     await connect();
-    userWithHashedPassword = await hashPasswordIn(user);
+    const { dummyUser, usersHistory, usersFavourites } =
+      await createDummyUser();
+    id = dummyUser._id.toString();
+    user = dummyUser;
+    history = usersHistory;
+    favourites = usersFavourites;
   });
 
   afterAll(async () => {
     await close();
-  });
-
-  beforeEach(async () => {
-    const insertionResult = await users.save(userWithHashedPassword);
-
-    if (!insertionResult) {
-      throw new Error("Unable to save user.");
-    }
-
-    id = insertionResult?.insertedId.toString();
-  });
-
-  afterEach(async () => {
-    if (id) {
-      await users.removeById(id);
-    }
   });
 
   it("should find user from id", async () => {
@@ -61,25 +45,25 @@ describe("CRUD operations for users collection", () => {
 
   it("should retrieve users history array from users id", async () => {
     const retrievedHistoryArray = await users.getMyHistory(id);
-    expect(retrievedHistoryArray).toEqual(user.history);
+    expect(retrievedHistoryArray[0]).toMatchObject(history[0].data);
   });
 
   it("should retrieve users favourites array from users id", async () => {
     const retrievedFavouritesArray = await users.getMyFavourites(id);
-    expect(retrievedFavouritesArray).toEqual(user.favourites);
+    expect(retrievedFavouritesArray[0]).toMatchObject(favourites[0].data);
   });
 
   it("should add item to users history", async () => {
     await users.addItemToHistory(id, dummyItem);
     const retrievedHistoryArray = await users.getMyHistory(id);
     const lastAddedItemToHistory = retrievedHistoryArray[0];
-    expect(lastAddedItemToHistory).toEqual(dummyItem);
+    expect(lastAddedItemToHistory).toMatchObject(dummyItem);
   });
 
   it("should add item to users favourites", async () => {
     await users.addItemToFavourites(id, dummyItem);
     const retrievedFavouritesArray = await users.getMyFavourites(id);
     const lastAddedItemToFavourites = retrievedFavouritesArray[0];
-    expect(lastAddedItemToFavourites).toEqual(dummyItem);
+    expect(lastAddedItemToFavourites).toMatchObject(dummyItem);
   });
 });

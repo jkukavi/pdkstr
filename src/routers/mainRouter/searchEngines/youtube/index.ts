@@ -98,7 +98,10 @@ const getItemInfo = async (id: string) => {
     const returnVal = getBasicInfoMapper(videoInfo.videoDetails);
 
     return returnVal;
-  } catch (e) {}
+  } catch (e) {
+    //idk y this is empty
+    1;
+  }
 };
 
 const suggestionsMapper = (suggestion: string) =>
@@ -111,14 +114,14 @@ const getSuggestions = async (searchString: string) => {
 };
 
 const getDirectUrls = async (id: string) => {
-  let info = await ytdl.getInfo(id, {
+  const info = await ytdl.getInfo(id, {
     requestOptions: {
       headers: {
         cookie: COOKIE,
       },
     },
   });
-  let formats = ytdl.filterFormats(info.formats, "audioonly");
+  const formats = ytdl.filterFormats(info.formats, "audioonly");
 
   const mappedFormats = formats.reverse().map((format) => ({
     url: format.url,

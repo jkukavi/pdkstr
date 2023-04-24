@@ -34,7 +34,7 @@ describe("auth middleware test", () => {
 
   test("auth should be unsuccessful with invalid token", (done) => {
     const userId = getRandomCode();
-    let token = jwt.sign({ id: userId }, process.env.JWT_SECRET as string);
+    const token = jwt.sign({ id: userId }, process.env.JWT_SECRET as string);
     const req: any = { headers: { authorization: null } };
     req.headers.authorization = "Bearer " + token + "a";
     let responseStatus: number;

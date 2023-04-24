@@ -1,13 +1,11 @@
 import dotenv from "dotenv";
 
 dotenv.config();
-
 import supertest, { Test } from "supertest";
-import users from "models/user";
 import app from "app";
 import { connect, close } from "db";
 import { getRandomCode } from "utils";
-import { hashPasswordIn } from "models/helpers";
+import { createDummyUser } from "__test__/createUser";
 
 const promisify = (Test: Test) => {
   return new Promise((_res, _rej) => {
@@ -22,18 +20,20 @@ const promisify = (Test: Test) => {
 };
 
 describe("User routes", () => {
-  const password = getRandomCode();
-  const user = {
-    username: "userRouterName",
-    email: "userRouter@test",
-    password,
-    history: [],
-    favourites: [],
-  };
-  let userWithHashedPassword;
-  let id;
-  let request = supertest(app);
+  let user: UserInfo;
   const agent = supertest.agent(app);
+
+  beforeAll(async () => {
+    await connect();
+    const { dummyUser } = await createDummyUser();
+    user = dummyUser;
+
+    await loginAgent();
+  });
+
+  afterAll(async () => {
+    await close();
+  });
 
   const loginAgent = async () => {
     const response: any = await promisify(
@@ -53,21 +53,6 @@ describe("User routes", () => {
 
     agent.set("Authorization", "Bearer " + token);
   };
-
-  beforeAll(async () => {
-    await connect();
-    userWithHashedPassword = await hashPasswordIn(user);
-    const insertionResult = await users.save(userWithHashedPassword);
-    if (!insertionResult) {
-      throw new Error("Unable to save user.");
-    }
-    id = insertionResult.insertedId.toString();
-    await loginAgent();
-  });
-
-  afterAll(async () => {
-    await close();
-  });
 
   it("should fetch user data", (done) => {
     agent

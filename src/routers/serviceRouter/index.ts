@@ -4,7 +4,7 @@ import Heroku from "heroku-client";
 const herokuClient = new Heroku({ token: process.env.HTOKEN });
 const router = express.Router();
 
-router.post<string, {}>("/restart", async (req, res) => {
+router.post<string, null>("/restart", async (req, res) => {
   try {
     await herokuClient.delete("/apps/podkaster/dynos/");
     res.status(200).send();

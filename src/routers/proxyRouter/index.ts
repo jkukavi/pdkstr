@@ -30,7 +30,7 @@ router.get("/:url", (req: Request, res: Response) => {
           proxiedRes.pipe(res);
         }
       )
-      .on("error", (e) => {
+      .on("error", () => {
         res.end();
       });
   } else {
@@ -38,7 +38,7 @@ router.get("/:url", (req: Request, res: Response) => {
   }
 });
 
-router.get<string, { engine: Engine; id: string }, {}>(
+router.get<string, { engine: Engine; id: string }, null>(
   "/dl/:engine/:id",
   async (req, res) => {
     const { engine, id } = req.params;
@@ -69,10 +69,10 @@ router.get<string, { engine: Engine; id: string }, {}>(
           }
         )
         .on("error", () => {
-          res.status(400).json("There was an error while downloading.");
+          res.status(400).json();
         });
     } catch (e: any) {
-      res.status(400).json("Unable to locate file on remote server.");
+      res.status(400).json();
     }
   }
 );

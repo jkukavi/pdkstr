@@ -89,6 +89,9 @@ describe("CRUD operations for pending accounts collection", () => {
         activationCode: dummyPendingAccount.activationCode,
       });
       throw new Error();
-    } catch {}
+    } catch {
+      //idk y dis was placed here
+      1;
+    }
   });
 });

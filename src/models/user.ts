@@ -2,16 +2,18 @@ import { useDatabase } from "db";
 import bcrypt from "bcrypt";
 import { ObjectId } from "mongodb";
 
-async function save(user: AccountInfo) {
+async function save(user: UserInfo) {
   return useDatabase(async (db) => {
-    return await db.collection("users").insertOne(user);
+    const users = db.collection("users");
+
+    return await users.insertOne(user);
   });
 }
 
 async function findById(id: string) {
   return useDatabase(async (db) => {
     return await db
-      .collection<AccountInfo>("users")
+      .collection<UserInfo>("users")
       .findOne({ _id: new ObjectId(id) });
   });
 }
@@ -48,53 +50,65 @@ async function findByCredentials({
 
 async function getMyHistory(id: string) {
   return useDatabase(async (db) => {
-    const { history }: any = await db
-      .collection("users")
-      .findOne(
-        { _id: new ObjectId(id) },
-        { projection: { history: { $slice: 20 } } }
-      );
-    return history;
+    const history: any = await db
+      .collection("history")
+      .find({ user_id: new ObjectId(id) })
+      .sort({ _id: -1 })
+      .limit(20)
+      .toArray();
+    return history.map((item: any) => item.data);
   });
 }
 
 async function getMyFavourites(id: string) {
   return useDatabase(async (db) => {
-    const { favourites }: any = await db
-      .collection("users")
-      .findOne(
-        { _id: new ObjectId(id) },
-        { projection: { favourites: { $slice: 20 } } }
-      );
-    return favourites;
+    const favourites: any = await db
+      .collection("favourites")
+      .find({ user_id: new ObjectId(id) })
+      .sort({ _id: -1 })
+      .limit(20)
+      .toArray();
+    return favourites.map((item: any) => item.data);
   });
 }
 
 async function addItemToHistory(id: string, item: any) {
   return useDatabase(async (db) => {
-    const response = await db
-      .collection("users")
-      .updateOne({ _id: new ObjectId(id) }, [
-        {
-          $set: { history: { $concatArrays: [[item], "$history"] } },
-        },
-      ]);
+    const response = await db.collection("history").insertOne({
+      user_id: new ObjectId(id),
+      data: item,
+    });
     return response;
   });
 }
 
 async function addItemToFavourites(id: string, item: any) {
   return useDatabase(async (db) => {
-    const response = await db
-      .collection("users")
-      .updateOne({ _id: new ObjectId(id) }, [
-        {
-          $set: { favourites: { $concatArrays: [[item], "$favourites"] } },
-        },
-      ]);
+    const response = await db.collection("favourites").insertOne({
+      user_id: new ObjectId(id),
+      data: item,
+    });
     return response;
   });
 }
+
+async function populateHistoryAndFavourites(
+  id: string,
+  history: any,
+  favourites: any
+) {
+  return useDatabase(async (db) => {
+    await db.collection("history").insertMany(history);
+    await db.collection("favourites").insertMany(favourites);
+  });
+}
+
+// async function removeHistoryAndFavourites(id: string) {
+//   return useDatabase(async (db) => {
+//     await db.collection("history").deleteMany({ user_id: new ObjectId(id) });
+//     await db.collection("favourites").deleteMany({ user_id: new ObjectId(id) });
+//   });
+// }
 
 export default {
   save,
@@ -105,4 +119,5 @@ export default {
   getMyFavourites,
   addItemToHistory,
   addItemToFavourites,
+  populateHistoryAndFavourites,
 };

@@ -11,8 +11,6 @@ it("should properly return pending Account with hashed password", async () => {
       email: "hash@hash.test",
       password,
       username: "sda",
-      history: [],
-      favourites: [],
     },
   };
 

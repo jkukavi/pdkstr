@@ -75,7 +75,7 @@ app.post<string, { engine: Engine }, any, { searchString: string }>(
       if (!searchString) {
         throw new Error();
       }
-      let searchResultsArray = await search(searchString);
+      const searchResultsArray = await search(searchString);
       res.status(200).json({ searchResultsArray });
     } catch (e) {
       res.status(400).send();

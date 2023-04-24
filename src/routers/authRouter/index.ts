@@ -30,7 +30,7 @@ router.get("/logout", async (req: Request, res: Response) => {
 router.post(
   "/login",
   async (
-    req: Request<{}, any, { email: string; password: string }>,
+    req: Request<null, any, { email: string; password: string }>,
     res: Response
   ) => {
     const { email, password } = req.body;
@@ -82,7 +82,7 @@ router.get("/rt", async (req: Request, res: Response) => {
 
 router.post(
   "/register",
-  async (req: Request<{}, any, UserInfo>, res: Response) => {
+  async (req: Request<null, any, UserInfo>, res: Response) => {
     const user = req.body;
     const activationCode = getRandomCode();
     try {
