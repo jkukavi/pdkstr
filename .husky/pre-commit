@@ -10,4 +10,4 @@ echo "${green}\nSit tight while some pre-commit checks are running. \nChecking t
 
 yarn lint
 
-echo "\n${green} Congrats! Everything went smooth. You've successfully commited your changes.${no_color}\n"
+echo "\n${green}Congrats! Everything went smooth. You've successfully commited your changes.${no_color}\n"
