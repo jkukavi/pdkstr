@@ -17,7 +17,7 @@ const Favourites = () => {
 
   useEffect(() => loadFavourites(type, queryString), [type, queryString]);
 
-  const debouncedSetQueryString = useCallback(debounce(setQueryString, 500), [
+  const debouncedSetQueryString = useCallback(debounce(setQueryString, 600), [
     setQueryString,
   ]);
 

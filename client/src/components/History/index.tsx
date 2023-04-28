@@ -12,7 +12,7 @@ const History = () => {
 
   useEffect(() => loadHistory(type, queryString), [queryString, type]);
 
-  const debouncedSetQueryString = useCallback(debounce(setQueryString, 400), [
+  const debouncedSetQueryString = useCallback(debounce(setQueryString, 600), [
     setQueryString,
   ]);
 
