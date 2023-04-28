@@ -19,12 +19,14 @@ router.get(
   }
 );
 
-router.get(
-  "/my/history",
-  async (req: Request, res: Response<any, { userId: string }>) => {
+router.get<any, { type: string }, any, any, { search: string }>(
+  "/my/history/:type",
+  async (req, res) => {
     try {
       const id = res.locals.userId;
-      const history = await users.getMyHistory(id);
+      const type = req.params.type;
+      const search = req.query.search;
+      const history = await users.getMyHistory(id, type, search);
       res.json(history);
     } catch (e) {
       res.status(404).send();
@@ -32,12 +34,14 @@ router.get(
   }
 );
 
-router.get(
-  "/my/favourites",
-  async (req: Request, res: Response<any, { userId: string }>) => {
+router.get<any, { type: string }, any, any, { search: string }>(
+  "/my/favourites/:type",
+  async (req, res) => {
     try {
       const id = res.locals.userId;
-      const favourites: any[] = await users.getMyFavourites(id);
+      const type = req.params.type;
+      const search = req.query.search;
+      const favourites: any[] = await users.getMyFavourites(id, type, search);
       res.json(favourites);
     } catch (e) {
       res.status(404).send();

@@ -1,26 +1,21 @@
 import React from "react";
+import { INavbar } from "components/Favourites/Navbar";
 
 import FilterDropdown from "./FilterDropdown";
 
 import InputDropdown from "./InputDropdown";
 
 const SmallScreenNavbar = ({
+  title,
   filter,
   setFilter,
   queryString,
-  debouncedSetQueryString,
-  deleteQuery,
-}: {
-  filter: string;
-  setFilter: React.Dispatch<React.SetStateAction<string>>;
-  queryString: string;
-  debouncedSetQueryString: VoidFunction;
-  deleteQuery: VoidFunction;
-}) => {
+  setQueryString,
+}: INavbar) => {
   return (
     <div className="filterNavbarContainer">
       <div style={{ padding: 0 }} className="filterNavbar">
-        <h2 style={{ paddingLeft: "0.3rem" }}>Favourites</h2>
+        <h2 style={{ paddingLeft: "0.3rem" }}>{title}</h2>
         <div className="verticalLine"></div>
 
         <FilterDropdown filter={filter} setFilter={setFilter} />
@@ -29,8 +24,8 @@ const SmallScreenNavbar = ({
 
         <InputDropdown
           queryString={queryString}
-          debouncedSetQueryString={debouncedSetQueryString}
-          deleteQuery={deleteQuery}
+          debouncedSetQueryString={setQueryString}
+          deleteQuery={() => setQueryString("")}
         />
       </div>
     </div>

@@ -1,47 +1,53 @@
 import React, { useState, useContext } from "react";
 
-import { addRandomKey } from "helpers";
-
 import { notify } from "components/Notifications";
+import { getMyFavourites, getMyHistory } from "apiCalls";
 
-import { instance as axios } from "./axiosInstance";
-
-type FunctionType = () => void;
+type FunctionType = (arg: any) => void;
 
 const UserDataContext = React.createContext<{
-  history: Item[];
+  history: AnyItem[];
   favourites: AnyItem[];
-  loadHistory: FunctionType;
-  loadFavourites: FunctionType;
+  loadHistory: (type: ItemType, queryString: string) => void;
+  loadFavourites: (type: ItemType, queryString: string) => void;
+  loading: boolean;
 }>({
   history: [],
   favourites: [],
-  loadHistory: () => {},
-  loadFavourites: () => {},
+  loadHistory: (type: ItemType, queryString: string) => {},
+  loadFavourites: (type: ItemType, queryString: string) => {},
+  loading: false,
 });
 
 export const UserDataProvider = ({ children }: { children: JSX.Element }) => {
-  const [history, setHistory] = useState<Item[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [history, setHistory] = useState<AnyItem[]>([]);
   const [favourites, setFavourites] = useState<AnyItem[]>([]);
 
-  const loadHistory = async () => {
+  const loadHistory = async (type: ItemType = "item", queryString: string) => {
+    setLoading(true);
     try {
-      const response = await axios.get("/users/my/history");
-      const fetchedHistory = response.data.map(addRandomKey);
+      const fetchedHistory = await getMyHistory(type, queryString);
       setHistory(fetchedHistory);
     } catch (e) {
       notify("Unable to fetch history");
+    } finally {
+      setLoading(false);
     }
   };
 
-  const loadFavourites = async () => {
+  const loadFavourites = async (
+    type: ItemType = "item",
+    queryString: string
+  ) => {
+    setLoading(true);
     try {
-      const response = await axios.get("/users/my/favourites");
-      const fetchedFavourites = response.data.map(addRandomKey);
+      const fetchedFavourites = await getMyFavourites(type, queryString);
       setFavourites(fetchedFavourites);
     } catch (e) {
       notify("Unable to fetch history");
     }
+    setLoading(false);
   };
 
   const value = {
@@ -49,6 +55,7 @@ export const UserDataProvider = ({ children }: { children: JSX.Element }) => {
     loadHistory,
     favourites,
     loadFavourites,
+    loading,
   };
 
   return (

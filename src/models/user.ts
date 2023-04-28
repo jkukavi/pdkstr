@@ -48,11 +48,22 @@ async function findByCredentials({
   });
 }
 
-async function getMyHistory(id: string) {
+const itemTypeByType = {
+  item: "video",
+  playlist: "playlist",
+  channel: "channel",
+};
+
+async function getMyHistory(id: string, type: string, search: string) {
+  const itemType = itemTypeByType[type as "item" | "playlist" | "channel"];
   return useDatabase(async (db) => {
     const history: any = await db
       .collection("history")
-      .find({ user_id: new ObjectId(id) })
+      .find({
+        user_id: new ObjectId(id),
+        ...(itemType && { "data.type": itemType }),
+        ...(search && { "data.title": { $regex: search, $options: "i" } }),
+      })
       .sort({ _id: -1 })
       .limit(20)
       .toArray();
@@ -60,11 +71,16 @@ async function getMyHistory(id: string) {
   });
 }
 
-async function getMyFavourites(id: string) {
+async function getMyFavourites(id: string, type: string, search: string) {
+  const itemType = itemTypeByType[type as "item" | "playlist" | "channel"];
   return useDatabase(async (db) => {
     const favourites: any = await db
       .collection("favourites")
-      .find({ user_id: new ObjectId(id) })
+      .find({
+        user_id: new ObjectId(id),
+        ...(itemType && { "data.type": itemType }),
+        ...(search && { "data.title": { $regex: search, $options: "i" } }),
+      })
       .sort({ _id: -1 })
       .limit(20)
       .toArray();

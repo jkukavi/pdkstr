@@ -2,15 +2,16 @@ import speak from "./speak";
 import { notify } from "components/Notifications";
 import { SearchBox } from "components/Search/SearchBox";
 
-function Nothing() {
+function DummySpeechRecognition() {
   return {
-    start: () => {},
-    stop: () => {},
+    start: () => null,
+    stop: () => null,
   };
 }
 
 //Nothing is added so that non-chrome browsers don't crash.
-const SpeechRecognition = window.webkitSpeechRecognition || Nothing;
+const SpeechRecognition =
+  window.webkitSpeechRecognition || DummySpeechRecognition;
 const recognition = new SpeechRecognition();
 
 recognition.continuous = false;
@@ -47,5 +48,3 @@ const recognizeAndStartSearch = () => {
 };
 
 export default recognizeAndStartSearch;
-
-document.getElementById("hello")?.addEventListener("start", () => {});

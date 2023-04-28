@@ -8,15 +8,11 @@ import Loader from "components/Loaders/Loader";
 
 interface CardProps {
   searchArray: (Item | Playlist | Channel)[];
-  arrayLoading?: boolean;
+  loading?: boolean;
   channelClickAction?: VoidFunction;
 }
 
-const Cards = ({
-  searchArray,
-  arrayLoading,
-  channelClickAction,
-}: CardProps) => {
+const Cards = ({ searchArray, loading, channelClickAction }: CardProps) => {
   const { viewingChannel } = SearchBox;
 
   const cards = searchArray
@@ -38,8 +34,8 @@ const Cards = ({
       id="cardContainer"
       className={`cardContainer ${viewingChannel ? "expanded" : ""}`}
     >
-      {arrayLoading && <Loader />}
-      {searchArray && cards}
+      {loading && <Loader />}
+      {!loading && searchArray && cards}
     </div>
   );
 };

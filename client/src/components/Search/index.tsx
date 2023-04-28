@@ -14,7 +14,7 @@ const Search = () => {
         setSearchArray={setSearchArray}
         setArrayLoading={setArrayLoading}
       />
-      <Cards searchArray={searchArray} arrayLoading={arrayLoading} />
+      <Cards searchArray={searchArray} loading={arrayLoading} />
     </>
   );
 };

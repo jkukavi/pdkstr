@@ -31,6 +31,32 @@ export const addToFavourites = async (item: AnyItem) => {
   }
 };
 
+export const getMyHistory = async (type: ItemType, search: string) => {
+  const queryString = search ? `?search=${search}` : "";
+  const path = "/users/my/history/" + type + queryString;
+  try {
+    const response = await axios.get(path);
+    const fetchedHistory = response.data.map(addRandomKey);
+    return fetchedHistory as AnyItem[];
+  } catch (e) {
+    notify("Unable to load history.");
+    return [];
+  }
+};
+
+export const getMyFavourites = async (type: ItemType, search: string) => {
+  const queryString = search ? `?search=${search}` : "";
+  const path = "/users/my/favourites/" + type + queryString;
+  try {
+    const response = await axios.get(path);
+    const fetchedFavourites = response.data.map(addRandomKey);
+    return fetchedFavourites as AnyItem[];
+  } catch (e) {
+    notify("Unable to load history.");
+    return [];
+  }
+};
+
 export const getPlaylistItems = async (playlist: Playlist): Promise<Item[]> => {
   const path = paths.playlistItems[playlist.engine];
 

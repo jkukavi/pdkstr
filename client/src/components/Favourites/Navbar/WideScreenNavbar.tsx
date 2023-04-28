@@ -2,18 +2,15 @@ import React, { useEffect, useRef } from "react";
 
 import { favouritesFilters, favouritesFilterNames } from "consts";
 import magnifier from "icons/magnifier.svg";
+import { INavbar } from "components/Favourites/Navbar";
 
 const WideScreenNavbar = ({
+  title,
   filter,
   setFilter,
-  debouncedSetQueryString,
+  setQueryString,
   queryString,
-}: {
-  filter: string;
-  setFilter: React.Dispatch<React.SetStateAction<string>>;
-  debouncedSetQueryString: VoidFunction;
-  queryString: string;
-}) => {
+}: INavbar) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -24,7 +21,7 @@ const WideScreenNavbar = ({
 
   const onInputChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     const newString = e.target.value;
-    debouncedSetQueryString(newString);
+    setQueryString(newString);
   };
 
   const inputProps = {
@@ -36,7 +33,7 @@ const WideScreenNavbar = ({
   return (
     <div className="filterNavbarContainer">
       <div style={{ padding: 0 }} className="filterNavbar">
-        <h2 style={{ paddingLeft: "0.3rem" }}>Favourites</h2>
+        <h2 style={{ paddingLeft: "0.3rem" }}>{title}</h2>
 
         <div className="verticalLine"></div>
 
@@ -67,8 +64,8 @@ const FilterButons = ({
   setFilter,
   filter,
 }: {
-  setFilter: React.Dispatch<React.SetStateAction<string>>;
-  filter: string;
+  setFilter: INavbar["setFilter"];
+  filter: INavbar["filter"];
 }) => {
   return (
     <div style={{ display: "flex", height: "100%" }}>

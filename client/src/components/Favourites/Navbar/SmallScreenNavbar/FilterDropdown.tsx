@@ -6,13 +6,14 @@ import {
 } from "consts";
 
 import DropDown from "components/Dropdown";
+import { INavbar } from "components/Favourites/Navbar";
 
 const FilterDropdown = ({
   filter,
   setFilter,
 }: {
-  filter: string;
-  setFilter: React.Dispatch<React.SetStateAction<string>>;
+  filter: INavbar["filter"];
+  setFilter: INavbar["setFilter"];
 }) => {
   const dropdownItems = Object.values(filters).map((item) => {
     return {

@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from "react";
-
 import SmallScreenNavbar from "./SmallScreenNavbar";
 import WideScreenNavbar from "./WideScreenNavbar";
-
 import { throttle } from "helpers";
 
-const Navbar = ({
+export type INavbar = {
+  title: string;
+  filter: ItemType;
+  setFilter: (type: ItemType) => void;
+  queryString: string;
+  setQueryString: VoidFunction;
+};
+
+const Navbar: React.FC<INavbar> = ({
+  title,
   filter,
   setFilter,
   queryString,
-  debouncedSetQueryString,
-  deleteQuery,
-}: {
-  filter: string;
-  setFilter: React.Dispatch<React.SetStateAction<string>>;
-  queryString: string;
-  debouncedSetQueryString: VoidFunction;
-  deleteQuery: VoidFunction;
+  setQueryString,
 }) => {
   const [smallScreen, setSmallScreen] = useState(window.innerWidth < 600);
 
@@ -36,11 +36,11 @@ const Navbar = ({
   }, [smallScreen, setSmallScreen]);
 
   const navbarProps = {
+    title,
     filter,
     setFilter,
     queryString,
-    debouncedSetQueryString,
-    deleteQuery,
+    setQueryString,
   };
 
   const Navbar = smallScreen ? SmallScreenNavbar : WideScreenNavbar;

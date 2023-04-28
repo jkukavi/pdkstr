@@ -69,7 +69,7 @@ describe("User routes", () => {
 
   it("should fetch my history", (done) => {
     agent
-      .get("/api/users/my/history")
+      .get("/api/users/my/history/item")
       .expect(200)
       .end((err, res) => {
         if (err) {
@@ -82,7 +82,7 @@ describe("User routes", () => {
 
   it("should fetch my favourites", (done) => {
     agent
-      .get("/api/users/my/favourites")
+      .get("/api/users/my/favourites/item")
       .expect(200)
       .end((err, res) => {
         if (err) {
@@ -95,7 +95,7 @@ describe("User routes", () => {
 
   it("should fetch my favourites", (done) => {
     agent
-      .get("/api/users/my/favourites")
+      .get("/api/users/my/favourites/item")
       .expect(200)
       .end((err, res) => {
         if (err) {
@@ -113,7 +113,7 @@ describe("User routes", () => {
       agent.post("/api/users/my/history/").send({ item: dummyItem })
     );
 
-    agent.get("/api/users/my/history/").end((err, res) => {
+    agent.get("/api/users/my/history/item").end((err, res) => {
       if (err) {
         throw new Error("unable to fetch history");
       } else if (res.statusCode === 200) {
@@ -129,7 +129,7 @@ describe("User routes", () => {
       agent.post("/api/users/my/favourites/").send({ item: dummyItem })
     );
 
-    agent.get("/api/users/my/favourites/").end((err, res) => {
+    agent.get("/api/users/my/favourites/item").end((err, res) => {
       if (err) {
         throw new Error("unable to fetch favourites");
       } else if (res.statusCode === 200) {

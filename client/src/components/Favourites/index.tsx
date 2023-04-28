@@ -11,45 +11,28 @@ import Navbar from "./Navbar";
 
 const Favourites = () => {
   const history = useHistory();
-
-  const { favourites, loadFavourites } = useUserData();
-
-  useEffect(loadFavourites, []);
-
-  const [filter, setFilter] = useState(filters.TRACKS);
+  const { favourites, loadFavourites, loading } = useUserData();
+  const [type, setType] = useState<ItemType>("item");
   const [queryString, setQueryString] = useState("");
 
-  const filteredItems = useMemo(() => {
-    const favouriteItems = (favourites || []).filter(
-      (item) => item.type === filter
-    );
-    const queriedItems = queryString
-      ? favouriteItems.filter((item) =>
-          (item as any).title.toLowerCase().includes(queryString.toLowerCase())
-        )
-      : favouriteItems;
-    return queriedItems;
-  }, [favourites, queryString, filter]);
+  useEffect(() => loadFavourites(type, queryString), [type, queryString]);
 
   const debouncedSetQueryString = useCallback(debounce(setQueryString, 500), [
     setQueryString,
   ]);
 
-  const deleteQuery = () => {
-    setQueryString("");
-  };
-
   return (
     <>
       <Navbar
-        filter={filter}
-        setFilter={setFilter}
-        debouncedSetQueryString={debouncedSetQueryString}
-        deleteQuery={deleteQuery}
+        title="Favourites"
+        filter={type}
+        setFilter={setType}
+        setQueryString={debouncedSetQueryString}
         queryString={queryString}
       />
       <Cards
-        searchArray={filteredItems}
+        loading={loading}
+        searchArray={favourites}
         channelClickAction={() => {
           history.push("/");
         }}

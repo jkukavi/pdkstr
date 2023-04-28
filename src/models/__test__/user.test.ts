@@ -6,7 +6,7 @@ describe("CRUD operations for users collection", () => {
   let user: UserInfo;
   let history: any = [];
   let favourites: any = [];
-  const dummyItem = { name: "bla", author: "bla" };
+  const dummyItem = { name: "bla", author: "bla", type: "video" };
 
   let id: string;
 
@@ -44,25 +44,33 @@ describe("CRUD operations for users collection", () => {
   });
 
   it("should retrieve users history array from users id", async () => {
-    const retrievedHistoryArray = await users.getMyHistory(id);
+    const retrievedHistoryArray = await users.getMyHistory(id, "item", "");
     expect(retrievedHistoryArray[0]).toMatchObject(history[0].data);
   });
 
   it("should retrieve users favourites array from users id", async () => {
-    const retrievedFavouritesArray = await users.getMyFavourites(id);
+    const retrievedFavouritesArray = await users.getMyFavourites(
+      id,
+      "item",
+      ""
+    );
     expect(retrievedFavouritesArray[0]).toMatchObject(favourites[0].data);
   });
 
   it("should add item to users history", async () => {
     await users.addItemToHistory(id, dummyItem);
-    const retrievedHistoryArray = await users.getMyHistory(id);
+    const retrievedHistoryArray = await users.getMyHistory(id, "item", "");
     const lastAddedItemToHistory = retrievedHistoryArray[0];
     expect(lastAddedItemToHistory).toMatchObject(dummyItem);
   });
 
   it("should add item to users favourites", async () => {
     await users.addItemToFavourites(id, dummyItem);
-    const retrievedFavouritesArray = await users.getMyFavourites(id);
+    const retrievedFavouritesArray = await users.getMyFavourites(
+      id,
+      "item",
+      ""
+    );
     const lastAddedItemToFavourites = retrievedFavouritesArray[0];
     expect(lastAddedItemToFavourites).toMatchObject(dummyItem);
   });

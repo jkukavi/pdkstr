@@ -5,7 +5,12 @@
   },
   "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
   "overrides": [],
-  "ignorePatterns": ["mockDb/migrations/**", "**.js"],
+  "ignorePatterns": [
+    "mockDb/migrations/**",
+    "**.js",
+    "client/**.ts",
+    "client/**/**.tsx"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
