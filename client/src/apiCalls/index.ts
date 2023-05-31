@@ -31,8 +31,26 @@ export const addToFavourites = async (item: AnyItem) => {
   }
 };
 
-export const getMyHistory = async (type: ItemType, search: string) => {
-  const queryString = search ? `?search=${search}` : "";
+const buildQueryString = (params: Record<string, string>) => {
+  const parsedParams = new URLSearchParams(params);
+
+  if (parsedParams) {
+    return `?${parsedParams}`;
+  } else return "";
+};
+
+export const getMyHistory = async (
+  type: ItemType,
+  search: string,
+  page = 0,
+  pageSize = 10
+) => {
+  const queryString = buildQueryString({
+    search,
+    page: page.toString(),
+    pageSize: pageSize.toString(),
+  });
+
   const path = "/users/my/history/" + type + queryString;
   try {
     const response = await axios.get(path);

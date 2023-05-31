@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 import { allowedCardTypes } from "consts";
 
@@ -10,9 +10,35 @@ interface CardProps {
   searchArray: (Item | Playlist | Channel)[];
   loading?: boolean;
   channelClickAction?: VoidFunction;
+  onBottomReached?: () => void;
 }
 
-const Cards = ({ searchArray, loading, channelClickAction }: CardProps) => {
+const detectBottomReached = (element: HTMLElement, callback: () => void) => {
+  const handleScroll = () => {
+    const { scrollHeight, scrollTop, clientHeight } = element;
+
+    const bottomReached = scrollTop + clientHeight >= scrollHeight;
+
+    if (bottomReached) {
+      // User has scrolled to the bottom of the scrollableDiv, load more results
+      callback();
+    }
+  };
+
+  element.addEventListener("scroll", handleScroll);
+
+  // Clean up function
+  return () => {
+    element.removeEventListener("scroll", handleScroll);
+  };
+};
+
+const Cards = ({
+  searchArray,
+  loading,
+  channelClickAction,
+  onBottomReached,
+}: CardProps) => {
   const { viewingChannel } = SearchBox;
 
   const cards = searchArray
@@ -29,13 +55,26 @@ const Cards = ({ searchArray, loading, channelClickAction }: CardProps) => {
       return <CardComponent {...cardProps} key={i} />;
     });
 
+  const scrollableDivRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (scrollableDivRef.current) {
+      const cleanup = detectBottomReached(scrollableDivRef.current, () => {
+        onBottomReached?.();
+        console.log("Bottom of scrollable div reached!");
+      });
+      return cleanup;
+    }
+  }, []);
+
   return (
     <div
       id="cardContainer"
       className={`cardContainer ${viewingChannel ? "expanded" : ""}`}
+      ref={scrollableDivRef}
     >
+      {searchArray && cards}
       {loading && <Loader />}
-      {!loading && searchArray && cards}
     </div>
   );
 };

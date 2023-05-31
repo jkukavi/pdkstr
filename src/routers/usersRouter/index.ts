@@ -19,14 +19,15 @@ router.get(
   }
 );
 
-router.get<any, { type: string }, any, any, { search: string }>(
+router.get<any, { type: string }, any, any, { search: string; page: number }>(
   "/my/history/:type",
   async (req, res) => {
     try {
       const id = res.locals.userId;
       const type = req.params.type;
-      const search = req.query.search;
-      const history = await users.getMyHistory(id, type, search);
+      const search = req.query.search || "";
+      const page = Number(req.query.page) || 0;
+      const history = await users.getMyHistory(id, type, search, page);
       res.json(history);
     } catch (e) {
       res.status(404).send();

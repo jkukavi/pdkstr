@@ -29,6 +29,7 @@ const startLocalDatabase = async () => {
   const userId = new ObjectId();
 
   const usersHistory = createHistoryForUser(userId.toString());
+
   const usersFavourites = createFavouritesForUser(userId.toString());
 
   await users.insertOne({
