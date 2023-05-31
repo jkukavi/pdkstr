@@ -2,7 +2,7 @@
     {
         "scope": "https://api-v2.soundcloud.com:443",
         "method": "GET",
-        "path": "/search/queries?q=idkjeffery&limit=10&client_id=DQlbwZQRhyUCF86xxboXOT0XocvYG5na",
+        "path": "/search/queries?q=idkjeffery&limit=10&client_id=vvWDsm284DNe9CDlRlfb3wuseloIl1RS",
         "body": "",
         "status": 200,
         "response": {
@@ -17,7 +17,7 @@
                 }
             ],
             "next_href": null,
-            "query_urn": "soundcloud:search-autocomplete:c2248622aec84653b55bdfe73160ca54"
+            "query_urn": "soundcloud:search-autocomplete:f441cc7347ca4c9b9eed14332e500365"
         },
         "rawHeaders": [
             "Content-Type",
@@ -27,7 +27,7 @@
             "Connection",
             "close",
             "Date",
-            "Mon, 03 Apr 2023 16:55:38 GMT",
+            "Wed, 31 May 2023 22:56:09 GMT",
             "x-robots-tag",
             "noindex",
             "Cache-Control",
@@ -47,16 +47,16 @@
             "X-Cache",
             "Miss from cloudfront",
             "Via",
-            "1.1 3b241d28b74f1afdcb7ac9fb7109cff0.cloudfront.net (CloudFront)",
+            "1.1 e9ebe38de33a70557cf9d9c1d7e5d11e.cloudfront.net (CloudFront)",
             "X-Amz-Cf-Pop",
             "ZAG50-C1",
             "X-Amz-Cf-Id",
-            "Y2OnyETPVzPNEkjGBdBUYDgvTYgTaW1SmFeaToarbw5T_aE-mU6UcA=="
+            "fbAI-KP8i0JuN5chdAd53QuB1SUilBB6QVGpVJflsenJDz9ZLxTNvw=="
         ],
         "responseIsBinary": false
     },
     {
-        "scope": "http://127.0.0.1:54278",
+        "scope": "http://127.0.0.1:53315",
         "method": "POST",
         "path": "/api/suggestions/soundcloud",
         "body": {
@@ -73,7 +73,7 @@
             "X-Powered-By",
             "Express",
             "Content-Security-Policy",
-            "default-src 'self';script-src 'self' example.com;img-src 'self' i.ytimg.com yt3.ggpht.com hips.hearstapps.com i1.sndcdn.com;media-src 'self' *.googlevideo.com *.sndcdn.com;font-src fonts.googleapis.com fonts.gstatic.com;style-src-elem 'self' fonts.googleapis.com fonts.gstatic.com",
+            "default-src 'self';script-src 'self' example.com;img-src 'self' i.ytimg.com yt3.ggpht.com yt3.googleusercontent.com hips.hearstapps.com i1.sndcdn.com;media-src 'self' *.googlevideo.com *.sndcdn.com;font-src fonts.googleapis.com fonts.gstatic.com;style-src-elem 'self' fonts.googleapis.com fonts.gstatic.com",
             "Content-Type",
             "application/json; charset=utf-8",
             "Content-Length",
@@ -81,7 +81,7 @@
             "ETag",
             "W/\"3b-1Sr+sWzVGlAjwpbW/5eZw72fAaY\"",
             "Date",
-            "Mon, 03 Apr 2023 16:55:38 GMT",
+            "Wed, 31 May 2023 22:56:09 GMT",
             "Connection",
             "close"
         ],

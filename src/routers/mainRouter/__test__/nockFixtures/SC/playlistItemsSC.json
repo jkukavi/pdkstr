@@ -2,7 +2,7 @@
     {
         "scope": "https://api-v2.soundcloud.com:443",
         "method": "GET",
-        "path": "/playlists/1211028727?client_id=DQlbwZQRhyUCF86xxboXOT0XocvYG5na",
+        "path": "/playlists/1211028727?client_id=vvWDsm284DNe9CDlRlfb3wuseloIl1RS",
         "body": "",
         "status": 200,
         "response": {
@@ -17,7 +17,7 @@
             "label_name": "",
             "last_modified": "2023-02-17T08:06:09Z",
             "license": "all-rights-reserved",
-            "likes_count": 1771,
+            "likes_count": 1767,
             "managed_by_feeds": false,
             "permalink": "the-night-is-young-ii",
             "permalink_url": "https://soundcloud.com/idontknowjeffery/sets/the-night-is-young-ii",
@@ -37,13 +37,13 @@
             "published_at": "2021-02-14T08:30:25Z",
             "display_date": "2021-02-14T08:30:25Z",
             "user": {
-                "avatar_url": "https://i1.sndcdn.com/avatars-iA7mrCdEur1ufUyl-IrA8cg-large.jpg",
+                "avatar_url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg",
                 "first_name": "Jeffrey",
-                "followers_count": 77310,
+                "followers_count": 77826,
                 "full_name": "Jeffrey Harper",
                 "id": 55254934,
                 "kind": "user",
-                "last_modified": "2023-04-03T11:20:59Z",
+                "last_modified": "2023-05-25T10:58:22Z",
                 "last_name": "Harper",
                 "permalink": "idontknowjeffery",
                 "permalink_url": "https://soundcloud.com/idontknowjeffery",
@@ -66,7 +66,7 @@
                     "artwork_url": "https://i1.sndcdn.com/artworks-m7EyTh0WHHbQ-0-large.jpg",
                     "caption": null,
                     "commentable": true,
-                    "comment_count": 1,
+                    "comment_count": 2,
                     "created_at": "2023-01-24T12:31:53Z",
                     "description": null,
                     "downloadable": false,
@@ -81,10 +81,10 @@
                     "label_name": "Above The Law Records",
                     "last_modified": "2023-03-20T18:46:09Z",
                     "license": "all-rights-reserved",
-                    "likes_count": 15,
+                    "likes_count": 22,
                     "permalink": "damn-i-love-revenge-2",
                     "permalink_url": "https://soundcloud.com/idontknowjeffery/damn-i-love-revenge-2",
-                    "playback_count": 441,
+                    "playback_count": 813,
                     "public": true,
                     "publisher_metadata": {
                         "id": 1431306580,
@@ -105,7 +105,7 @@
                     "purchase_title": null,
                     "purchase_url": null,
                     "release_date": "2021-02-14T00:00:00Z",
-                    "reposts_count": 2,
+                    "reposts_count": 3,
                     "secret_token": null,
                     "sharing": "public",
                     "state": "finished",
@@ -147,17 +147,17 @@
                     },
                     "station_urn": "soundcloud:system-playlists:track-stations:1431306580",
                     "station_permalink": "track-stations:1431306580",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjA4NWQyYjg4LTI2NDItNDAwMi05NzNhLWRmZTJlM2RkOGM3ZSIsImlhdCI6MTY4MDU0MDkzOX0.1Y12FT0MdOiP8nxcdW-IfwqFIBnZ-CKWJNyL0BG4ujw",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjdkZmQyZTg2LTAwYzctNDI3MS04YzhlLTJhNDBhZTRhZWFhOCIsImlhdCI6MTY4NTU3Mzc3MH0.Fmyn1oVTUKB-rpNKdYEgwaLcHVJmtoL-mgmzTOJe9Zs",
                     "monetization_model": "NOT_APPLICABLE",
                     "policy": "SNIP",
                     "user": {
-                        "avatar_url": "https://i1.sndcdn.com/avatars-iA7mrCdEur1ufUyl-IrA8cg-large.jpg",
+                        "avatar_url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg",
                         "first_name": "Jeffrey",
-                        "followers_count": 77310,
+                        "followers_count": 77826,
                         "full_name": "Jeffrey Harper",
                         "id": 55254934,
                         "kind": "user",
-                        "last_modified": "2023-04-03T11:20:59Z",
+                        "last_modified": "2023-05-25T10:58:22Z",
                         "last_name": "Harper",
                         "permalink": "idontknowjeffery",
                         "permalink_url": "https://soundcloud.com/idontknowjeffery",
@@ -195,10 +195,10 @@
                     "label_name": null,
                     "last_modified": "2021-11-08T11:25:48Z",
                     "license": "all-rights-reserved",
-                    "likes_count": 3447,
+                    "likes_count": 3460,
                     "permalink": "northridge",
                     "permalink_url": "https://soundcloud.com/idontknowjeffery/northridge",
-                    "playback_count": 162652,
+                    "playback_count": 165273,
                     "public": true,
                     "publisher_metadata": {
                         "id": 983214331,
@@ -212,7 +212,7 @@
                     "purchase_title": null,
                     "purchase_url": null,
                     "release_date": null,
-                    "reposts_count": 177,
+                    "reposts_count": 178,
                     "secret_token": null,
                     "sharing": "public",
                     "state": "finished",
@@ -265,17 +265,17 @@
                     },
                     "station_urn": "soundcloud:system-playlists:track-stations:983214331",
                     "station_permalink": "track-stations:983214331",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjU2M2IxYWU4LTdiZjctNDc5Yi1iZjhlLWI3ZGRmZjBlMzIxZSIsImlhdCI6MTY4MDU0MDkzOX0.wxvw2cnkbpGDMVoLhgtmkkYgQZ2oH7IjSGfwjEIWpcA",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjhhMzFhNDZiLTYxZjMtNGI0NC04NzZhLTQzMTllODM1OGMzYyIsImlhdCI6MTY4NTU3Mzc3MH0.KKLub5N6ZwemTiNVua6WN5lBaNhSp4XsQqR3AcPm6m8",
                     "monetization_model": "NOT_APPLICABLE",
                     "policy": "ALLOW",
                     "user": {
-                        "avatar_url": "https://i1.sndcdn.com/avatars-iA7mrCdEur1ufUyl-IrA8cg-large.jpg",
+                        "avatar_url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg",
                         "first_name": "Jeffrey",
-                        "followers_count": 77310,
+                        "followers_count": 77826,
                         "full_name": "Jeffrey Harper",
                         "id": 55254934,
                         "kind": "user",
-                        "last_modified": "2023-04-03T11:20:59Z",
+                        "last_modified": "2023-05-25T10:58:22Z",
                         "last_name": "Harper",
                         "permalink": "idontknowjeffery",
                         "permalink_url": "https://soundcloud.com/idontknowjeffery",
@@ -313,10 +313,10 @@
                     "label_name": null,
                     "last_modified": "2021-08-16T03:49:39Z",
                     "license": "all-rights-reserved",
-                    "likes_count": 2875,
+                    "likes_count": 2901,
                     "permalink": "still-looking-for-the-juice",
                     "permalink_url": "https://soundcloud.com/idontknowjeffery/still-looking-for-the-juice",
-                    "playback_count": 145678,
+                    "playback_count": 148655,
                     "public": true,
                     "publisher_metadata": {
                         "id": 983211670,
@@ -329,7 +329,7 @@
                     "purchase_title": null,
                     "purchase_url": null,
                     "release_date": null,
-                    "reposts_count": 158,
+                    "reposts_count": 160,
                     "secret_token": null,
                     "sharing": "public",
                     "state": "finished",
@@ -382,17 +382,17 @@
                     },
                     "station_urn": "soundcloud:system-playlists:track-stations:983211670",
                     "station_permalink": "track-stations:983211670",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6ImFkY2RmNDJmLWY4MDUtNGZlNC05MDJmLWIwYjE3YTZiM2FlMCIsImlhdCI6MTY4MDU0MDkzOX0.U0B2__zg1RHoKlaXWJ58HgEalDonox_fMo6PkuEzW3o",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjM4NTVmMjFiLWI5OTUtNDBmZC1iMmVkLWYxMDZiM2I3M2FjNCIsImlhdCI6MTY4NTU3Mzc3MH0.GO-bkxUZRY8v-jX0n9LSZvwOb9LIqDDxaKhl9OKF9Fg",
                     "monetization_model": "NOT_APPLICABLE",
                     "policy": "ALLOW",
                     "user": {
-                        "avatar_url": "https://i1.sndcdn.com/avatars-iA7mrCdEur1ufUyl-IrA8cg-large.jpg",
+                        "avatar_url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg",
                         "first_name": "Jeffrey",
-                        "followers_count": 77310,
+                        "followers_count": 77826,
                         "full_name": "Jeffrey Harper",
                         "id": 55254934,
                         "kind": "user",
-                        "last_modified": "2023-04-03T11:20:59Z",
+                        "last_modified": "2023-05-25T10:58:22Z",
                         "last_name": "Harper",
                         "permalink": "idontknowjeffery",
                         "permalink_url": "https://soundcloud.com/idontknowjeffery",
@@ -430,10 +430,10 @@
                     "label_name": null,
                     "last_modified": "2021-03-13T22:39:37Z",
                     "license": "all-rights-reserved",
-                    "likes_count": 1638,
+                    "likes_count": 1642,
                     "permalink": "i-know-what-u-did-last-summer",
                     "permalink_url": "https://soundcloud.com/idontknowjeffery/i-know-what-u-did-last-summer",
-                    "playback_count": 97331,
+                    "playback_count": 98834,
                     "public": true,
                     "publisher_metadata": {
                         "id": 983242117,
@@ -500,17 +500,17 @@
                     },
                     "station_urn": "soundcloud:system-playlists:track-stations:983242117",
                     "station_permalink": "track-stations:983242117",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjkwYTFkZGYxLTVjZjEtNGExMy04ZDMyLTkzMjI5MDI2YWZmMSIsImlhdCI6MTY4MDU0MDkzOX0.KpCdGbzUIKHQ1xk6MZV4Q9cjgGPEuAuuTD6BhCBjUiM",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjQxNmFhYjZmLTZlYTctNDU1Ni1hMjExLTllMDM3YWJkMDA0MiIsImlhdCI6MTY4NTU3Mzc3MH0.7AguGzPZrAsOs2vY7YkmIbwi7-ZzzlT7j9eiTZ8LGXc",
                     "monetization_model": "NOT_APPLICABLE",
                     "policy": "ALLOW",
                     "user": {
-                        "avatar_url": "https://i1.sndcdn.com/avatars-iA7mrCdEur1ufUyl-IrA8cg-large.jpg",
+                        "avatar_url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg",
                         "first_name": "Jeffrey",
-                        "followers_count": 77310,
+                        "followers_count": 77826,
                         "full_name": "Jeffrey Harper",
                         "id": 55254934,
                         "kind": "user",
-                        "last_modified": "2023-04-03T11:20:59Z",
+                        "last_modified": "2023-05-25T10:58:22Z",
                         "last_name": "Harper",
                         "permalink": "idontknowjeffery",
                         "permalink_url": "https://soundcloud.com/idontknowjeffery",
@@ -533,7 +533,7 @@
                     "artwork_url": "https://i1.sndcdn.com/artworks-FCAyzXS08gNYlLOX-vlGTuQ-large.jpg",
                     "caption": null,
                     "commentable": true,
-                    "comment_count": 35,
+                    "comment_count": 36,
                     "created_at": "2021-02-12T06:06:05Z",
                     "description": "",
                     "downloadable": false,
@@ -548,10 +548,10 @@
                     "label_name": null,
                     "last_modified": "2021-02-14T09:27:11Z",
                     "license": "all-rights-reserved",
-                    "likes_count": 1209,
+                    "likes_count": 1211,
                     "permalink": "johnny-bravo",
                     "permalink_url": "https://soundcloud.com/idontknowjeffery/johnny-bravo",
-                    "playback_count": 73815,
+                    "playback_count": 74715,
                     "public": true,
                     "publisher_metadata": {
                         "id": 983967331,
@@ -565,7 +565,7 @@
                     "purchase_title": null,
                     "purchase_url": null,
                     "release_date": null,
-                    "reposts_count": 58,
+                    "reposts_count": 59,
                     "secret_token": null,
                     "sharing": "public",
                     "state": "finished",
@@ -618,17 +618,17 @@
                     },
                     "station_urn": "soundcloud:system-playlists:track-stations:983967331",
                     "station_permalink": "track-stations:983967331",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjhkMmMxYzAyLTM2YjYtNDJkOS05ODBkLWU0MGQ1MjdiYTZjZiIsImlhdCI6MTY4MDU0MDkzOX0.5v1jwpSje4vBZoqbvY-yKMCDN8JQJD3ISi-m7wSnqdw",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6ImM4MGJmNWJkLWIwMTctNDZkYS04OGM0LTMzMGRmMTU1NjIxOSIsImlhdCI6MTY4NTU3Mzc3MH0.OTt5WswQe8YY306vSXP-t4hOuaGuB7foPPIUeRniyfY",
                     "monetization_model": "NOT_APPLICABLE",
                     "policy": "ALLOW",
                     "user": {
-                        "avatar_url": "https://i1.sndcdn.com/avatars-iA7mrCdEur1ufUyl-IrA8cg-large.jpg",
+                        "avatar_url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg",
                         "first_name": "Jeffrey",
-                        "followers_count": 77310,
+                        "followers_count": 77826,
                         "full_name": "Jeffrey Harper",
                         "id": 55254934,
                         "kind": "user",
-                        "last_modified": "2023-04-03T11:20:59Z",
+                        "last_modified": "2023-05-25T10:58:22Z",
                         "last_name": "Harper",
                         "permalink": "idontknowjeffery",
                         "permalink_url": "https://soundcloud.com/idontknowjeffery",
@@ -682,7 +682,7 @@
             "Connection",
             "close",
             "Date",
-            "Mon, 03 Apr 2023 16:55:39 GMT",
+            "Wed, 31 May 2023 22:56:10 GMT",
             "x-robots-tag",
             "noindex",
             "Cache-Control",
@@ -702,18 +702,18 @@
             "X-Cache",
             "Miss from cloudfront",
             "Via",
-            "1.1 2fd9c5b0508a46d517c437af26a3a5c8.cloudfront.net (CloudFront)",
+            "1.1 e7ac510e4ba21d85d8aee7d252b283a8.cloudfront.net (CloudFront)",
             "X-Amz-Cf-Pop",
             "ZAG50-C1",
             "X-Amz-Cf-Id",
-            "MtNoZ9ZvWDzZV6qEhJH1JGGdzr4nCZWXoMcvIqfYFwTJKjzOvHmKlw=="
+            "gfjBEBSstciWOlLmAI4fGf-rJWozyYzi6eXUg1x6LStOiaQS6Su9sA=="
         ],
         "responseIsBinary": false
     },
     {
         "scope": "https://api-v2.soundcloud.com:443",
         "method": "GET",
-        "path": "/tracks?ids=1431306580%2C983214331%2C983211670%2C983242117%2C983967331%2C891349951%2C985110091%2C983222065%2C983218084&client_id=DQlbwZQRhyUCF86xxboXOT0XocvYG5na",
+        "path": "/tracks?ids=1431306580%2C983214331%2C983211670%2C983242117%2C983967331%2C891349951%2C985110091%2C983222065%2C983218084&client_id=vvWDsm284DNe9CDlRlfb3wuseloIl1RS",
         "body": "",
         "status": 200,
         "response": [
@@ -736,10 +736,10 @@
                 "label_name": null,
                 "last_modified": "2021-03-21T19:53:27Z",
                 "license": "all-rights-reserved",
-                "likes_count": 1052,
+                "likes_count": 1053,
                 "permalink": "no-wassup",
                 "permalink_url": "https://soundcloud.com/idontknowjeffery/no-wassup",
-                "playback_count": 66584,
+                "playback_count": 67336,
                 "public": true,
                 "publisher_metadata": {
                     "id": 985110091,
@@ -806,17 +806,17 @@
                 },
                 "station_urn": "soundcloud:system-playlists:track-stations:985110091",
                 "station_permalink": "track-stations:985110091",
-                "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6ImVhY2QwZWQzLTZkYTItNDZiNy04ZjMzLWFhMzE2Yzg2MDc1ZSIsImlhdCI6MTY4MDU0MDkzOX0.4rhoUL5nsN193mgK7KrJ2J5ma_ciHXym3tCasWN1gSs",
+                "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjBhMjNiMWFiLTAzOTMtNDU3My05MDk2LWRhMjUxNmYwYzZlNCIsImlhdCI6MTY4NTU3Mzc3MH0.1VFbIZ17DWsDU3klhKn6et-7UYd8iBkP-VJZgsei_cM",
                 "monetization_model": "NOT_APPLICABLE",
                 "policy": "ALLOW",
                 "user": {
-                    "avatar_url": "https://i1.sndcdn.com/avatars-iA7mrCdEur1ufUyl-IrA8cg-large.jpg",
+                    "avatar_url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg",
                     "first_name": "Jeffrey",
-                    "followers_count": 77310,
+                    "followers_count": 77826,
                     "full_name": "Jeffrey Harper",
                     "id": 55254934,
                     "kind": "user",
-                    "last_modified": "2023-04-03T11:20:59Z",
+                    "last_modified": "2023-05-25T10:58:22Z",
                     "last_name": "Harper",
                     "permalink": "idontknowjeffery",
                     "permalink_url": "https://soundcloud.com/idontknowjeffery",
@@ -839,7 +839,7 @@
                 "artwork_url": "https://i1.sndcdn.com/artworks-m7EyTh0WHHbQ-0-large.jpg",
                 "caption": null,
                 "commentable": true,
-                "comment_count": 1,
+                "comment_count": 2,
                 "created_at": "2023-01-24T12:31:53Z",
                 "description": null,
                 "downloadable": false,
@@ -854,10 +854,10 @@
                 "label_name": "Above The Law Records",
                 "last_modified": "2023-03-20T18:46:09Z",
                 "license": "all-rights-reserved",
-                "likes_count": 15,
+                "likes_count": 22,
                 "permalink": "damn-i-love-revenge-2",
                 "permalink_url": "https://soundcloud.com/idontknowjeffery/damn-i-love-revenge-2",
-                "playback_count": 441,
+                "playback_count": 813,
                 "public": true,
                 "publisher_metadata": {
                     "id": 1431306580,
@@ -878,7 +878,7 @@
                 "purchase_title": null,
                 "purchase_url": null,
                 "release_date": "2021-02-14T00:00:00Z",
-                "reposts_count": 2,
+                "reposts_count": 3,
                 "secret_token": null,
                 "sharing": "public",
                 "state": "finished",
@@ -920,17 +920,17 @@
                 },
                 "station_urn": "soundcloud:system-playlists:track-stations:1431306580",
                 "station_permalink": "track-stations:1431306580",
-                "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjA4NWQyYjg4LTI2NDItNDAwMi05NzNhLWRmZTJlM2RkOGM3ZSIsImlhdCI6MTY4MDU0MDkzOX0.1Y12FT0MdOiP8nxcdW-IfwqFIBnZ-CKWJNyL0BG4ujw",
+                "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjdkZmQyZTg2LTAwYzctNDI3MS04YzhlLTJhNDBhZTRhZWFhOCIsImlhdCI6MTY4NTU3Mzc3MH0.Fmyn1oVTUKB-rpNKdYEgwaLcHVJmtoL-mgmzTOJe9Zs",
                 "monetization_model": "NOT_APPLICABLE",
                 "policy": "SNIP",
                 "user": {
-                    "avatar_url": "https://i1.sndcdn.com/avatars-iA7mrCdEur1ufUyl-IrA8cg-large.jpg",
+                    "avatar_url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg",
                     "first_name": "Jeffrey",
-                    "followers_count": 77310,
+                    "followers_count": 77826,
                     "full_name": "Jeffrey Harper",
                     "id": 55254934,
                     "kind": "user",
-                    "last_modified": "2023-04-03T11:20:59Z",
+                    "last_modified": "2023-05-25T10:58:22Z",
                     "last_name": "Harper",
                     "permalink": "idontknowjeffery",
                     "permalink_url": "https://soundcloud.com/idontknowjeffery",
@@ -968,10 +968,10 @@
                 "label_name": null,
                 "last_modified": "2021-03-13T22:39:37Z",
                 "license": "all-rights-reserved",
-                "likes_count": 1638,
+                "likes_count": 1642,
                 "permalink": "i-know-what-u-did-last-summer",
                 "permalink_url": "https://soundcloud.com/idontknowjeffery/i-know-what-u-did-last-summer",
-                "playback_count": 97331,
+                "playback_count": 98834,
                 "public": true,
                 "publisher_metadata": {
                     "id": 983242117,
@@ -1038,17 +1038,17 @@
                 },
                 "station_urn": "soundcloud:system-playlists:track-stations:983242117",
                 "station_permalink": "track-stations:983242117",
-                "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjkwYTFkZGYxLTVjZjEtNGExMy04ZDMyLTkzMjI5MDI2YWZmMSIsImlhdCI6MTY4MDU0MDkzOX0.KpCdGbzUIKHQ1xk6MZV4Q9cjgGPEuAuuTD6BhCBjUiM",
+                "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjQxNmFhYjZmLTZlYTctNDU1Ni1hMjExLTllMDM3YWJkMDA0MiIsImlhdCI6MTY4NTU3Mzc3MH0.7AguGzPZrAsOs2vY7YkmIbwi7-ZzzlT7j9eiTZ8LGXc",
                 "monetization_model": "NOT_APPLICABLE",
                 "policy": "ALLOW",
                 "user": {
-                    "avatar_url": "https://i1.sndcdn.com/avatars-iA7mrCdEur1ufUyl-IrA8cg-large.jpg",
+                    "avatar_url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg",
                     "first_name": "Jeffrey",
-                    "followers_count": 77310,
+                    "followers_count": 77826,
                     "full_name": "Jeffrey Harper",
                     "id": 55254934,
                     "kind": "user",
-                    "last_modified": "2023-04-03T11:20:59Z",
+                    "last_modified": "2023-05-25T10:58:22Z",
                     "last_name": "Harper",
                     "permalink": "idontknowjeffery",
                     "permalink_url": "https://soundcloud.com/idontknowjeffery",
@@ -1086,10 +1086,10 @@
                 "label_name": null,
                 "last_modified": "2021-04-15T06:46:41Z",
                 "license": "all-rights-reserved",
-                "likes_count": 3330,
+                "likes_count": 3336,
                 "permalink": "i-thought-the-club-closed-prod-by-boz",
                 "permalink_url": "https://soundcloud.com/idontknowjeffery/i-thought-the-club-closed-prod-by-boz",
-                "playback_count": 180735,
+                "playback_count": 182723,
                 "public": true,
                 "publisher_metadata": {
                     "id": 891349951,
@@ -1156,17 +1156,17 @@
                 },
                 "station_urn": "soundcloud:system-playlists:track-stations:891349951",
                 "station_permalink": "track-stations:891349951",
-                "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6ImI1NmI2YjIwLTBlNzItNDc1Zi05NTg2LTQ2MDEyMzI5YzM2OCIsImlhdCI6MTY4MDU0MDkzOX0.NZ6GvVN0jT16LyxKwcVkcu98aq1nj77kfhNDnjUJFlY",
+                "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjJkMGFkOTg1LTMwYjktNGM0Ny1iODUwLTZmMTU5MGI0YWEzYiIsImlhdCI6MTY4NTU3Mzc3MH0.8RrkGXl_QKLVrZXeqQvAE7rXr8rSbdMIOk8Qdu_4hY8",
                 "monetization_model": "NOT_APPLICABLE",
                 "policy": "ALLOW",
                 "user": {
-                    "avatar_url": "https://i1.sndcdn.com/avatars-iA7mrCdEur1ufUyl-IrA8cg-large.jpg",
+                    "avatar_url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg",
                     "first_name": "Jeffrey",
-                    "followers_count": 77310,
+                    "followers_count": 77826,
                     "full_name": "Jeffrey Harper",
                     "id": 55254934,
                     "kind": "user",
-                    "last_modified": "2023-04-03T11:20:59Z",
+                    "last_modified": "2023-05-25T10:58:22Z",
                     "last_name": "Harper",
                     "permalink": "idontknowjeffery",
                     "permalink_url": "https://soundcloud.com/idontknowjeffery",
@@ -1204,10 +1204,10 @@
                 "label_name": null,
                 "last_modified": "2021-03-13T12:09:18Z",
                 "license": "all-rights-reserved",
-                "likes_count": 938,
+                "likes_count": 936,
                 "permalink": "analyze",
                 "permalink_url": "https://soundcloud.com/idontknowjeffery/analyze",
-                "playback_count": 89979,
+                "playback_count": 90811,
                 "public": true,
                 "publisher_metadata": {
                     "id": 983222065,
@@ -1221,7 +1221,7 @@
                 "purchase_title": null,
                 "purchase_url": null,
                 "release_date": null,
-                "reposts_count": 46,
+                "reposts_count": 47,
                 "secret_token": null,
                 "sharing": "public",
                 "state": "finished",
@@ -1274,17 +1274,17 @@
                 },
                 "station_urn": "soundcloud:system-playlists:track-stations:983222065",
                 "station_permalink": "track-stations:983222065",
-                "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6ImU5MWFiM2JkLWM2OGItNDc2MC1hZWZjLTYwODVmYjhjMGM5YyIsImlhdCI6MTY4MDU0MDkzOX0._KvcfijTM7vlT9uuQ9HoMg-PWxebE30i3jUv046i5vc",
+                "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjViYTY0NTAyLWFiOGYtNDllZC05YjJjLWQ4ZmFlMDlkMjc0ZCIsImlhdCI6MTY4NTU3Mzc3MH0.mhZL_gdxXpZXFW3HyOU3EgICk6sw1fXUbGuWLoswibA",
                 "monetization_model": "NOT_APPLICABLE",
                 "policy": "ALLOW",
                 "user": {
-                    "avatar_url": "https://i1.sndcdn.com/avatars-iA7mrCdEur1ufUyl-IrA8cg-large.jpg",
+                    "avatar_url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg",
                     "first_name": "Jeffrey",
-                    "followers_count": 77310,
+                    "followers_count": 77826,
                     "full_name": "Jeffrey Harper",
                     "id": 55254934,
                     "kind": "user",
-                    "last_modified": "2023-04-03T11:20:59Z",
+                    "last_modified": "2023-05-25T10:58:22Z",
                     "last_name": "Harper",
                     "permalink": "idontknowjeffery",
                     "permalink_url": "https://soundcloud.com/idontknowjeffery",
@@ -1322,10 +1322,10 @@
                 "label_name": null,
                 "last_modified": "2021-08-16T03:49:39Z",
                 "license": "all-rights-reserved",
-                "likes_count": 2875,
+                "likes_count": 2901,
                 "permalink": "still-looking-for-the-juice",
                 "permalink_url": "https://soundcloud.com/idontknowjeffery/still-looking-for-the-juice",
-                "playback_count": 145678,
+                "playback_count": 148655,
                 "public": true,
                 "publisher_metadata": {
                     "id": 983211670,
@@ -1338,7 +1338,7 @@
                 "purchase_title": null,
                 "purchase_url": null,
                 "release_date": null,
-                "reposts_count": 158,
+                "reposts_count": 160,
                 "secret_token": null,
                 "sharing": "public",
                 "state": "finished",
@@ -1391,17 +1391,17 @@
                 },
                 "station_urn": "soundcloud:system-playlists:track-stations:983211670",
                 "station_permalink": "track-stations:983211670",
-                "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6ImFkY2RmNDJmLWY4MDUtNGZlNC05MDJmLWIwYjE3YTZiM2FlMCIsImlhdCI6MTY4MDU0MDkzOX0.U0B2__zg1RHoKlaXWJ58HgEalDonox_fMo6PkuEzW3o",
+                "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjM4NTVmMjFiLWI5OTUtNDBmZC1iMmVkLWYxMDZiM2I3M2FjNCIsImlhdCI6MTY4NTU3Mzc3MH0.GO-bkxUZRY8v-jX0n9LSZvwOb9LIqDDxaKhl9OKF9Fg",
                 "monetization_model": "NOT_APPLICABLE",
                 "policy": "ALLOW",
                 "user": {
-                    "avatar_url": "https://i1.sndcdn.com/avatars-iA7mrCdEur1ufUyl-IrA8cg-large.jpg",
+                    "avatar_url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg",
                     "first_name": "Jeffrey",
-                    "followers_count": 77310,
+                    "followers_count": 77826,
                     "full_name": "Jeffrey Harper",
                     "id": 55254934,
                     "kind": "user",
-                    "last_modified": "2023-04-03T11:20:59Z",
+                    "last_modified": "2023-05-25T10:58:22Z",
                     "last_name": "Harper",
                     "permalink": "idontknowjeffery",
                     "permalink_url": "https://soundcloud.com/idontknowjeffery",
@@ -1424,7 +1424,7 @@
                 "artwork_url": "https://i1.sndcdn.com/artworks-FCAyzXS08gNYlLOX-vlGTuQ-large.jpg",
                 "caption": null,
                 "commentable": true,
-                "comment_count": 361,
+                "comment_count": 364,
                 "created_at": "2021-02-11T05:34:46Z",
                 "description": "",
                 "downloadable": false,
@@ -1439,10 +1439,10 @@
                 "label_name": null,
                 "last_modified": "2022-04-06T07:49:26Z",
                 "license": "all-rights-reserved",
-                "likes_count": 11986,
+                "likes_count": 12299,
                 "permalink": "you-can-kill-with-it",
                 "permalink_url": "https://soundcloud.com/idontknowjeffery/you-can-kill-with-it",
-                "playback_count": 561462,
+                "playback_count": 587721,
                 "public": true,
                 "publisher_metadata": {
                     "id": 983218084,
@@ -1456,7 +1456,7 @@
                 "purchase_title": "MERCH",
                 "purchase_url": "https://idontknowjeffery.bigcartel.com",
                 "release_date": null,
-                "reposts_count": 548,
+                "reposts_count": 561,
                 "secret_token": null,
                 "sharing": "public",
                 "state": "finished",
@@ -1509,17 +1509,17 @@
                 },
                 "station_urn": "soundcloud:system-playlists:track-stations:983218084",
                 "station_permalink": "track-stations:983218084",
-                "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjM1NTQ4MTM2LWI3MDItNDMyZC04MWUwLTIzNGQ1MGQyOTM4MCIsImlhdCI6MTY4MDU0MDkzOX0.eSJXtdzdvBLrVGsbaPdWqpMXhkS85mgWD13sGrlSs2o",
+                "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjMyODY2OTQ0LWM2NDEtNGQ2Zi04MDVlLTJmZGU2MjIxMGMyNCIsImlhdCI6MTY4NTU3Mzc3MH0.JipJQVBU2UPGBwgzl3FVHu8L3NiGK2pz7deiL8NTJjs",
                 "monetization_model": "NOT_APPLICABLE",
                 "policy": "ALLOW",
                 "user": {
-                    "avatar_url": "https://i1.sndcdn.com/avatars-iA7mrCdEur1ufUyl-IrA8cg-large.jpg",
+                    "avatar_url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg",
                     "first_name": "Jeffrey",
-                    "followers_count": 77310,
+                    "followers_count": 77826,
                     "full_name": "Jeffrey Harper",
                     "id": 55254934,
                     "kind": "user",
-                    "last_modified": "2023-04-03T11:20:59Z",
+                    "last_modified": "2023-05-25T10:58:22Z",
                     "last_name": "Harper",
                     "permalink": "idontknowjeffery",
                     "permalink_url": "https://soundcloud.com/idontknowjeffery",
@@ -1557,10 +1557,10 @@
                 "label_name": null,
                 "last_modified": "2021-11-08T11:25:48Z",
                 "license": "all-rights-reserved",
-                "likes_count": 3447,
+                "likes_count": 3460,
                 "permalink": "northridge",
                 "permalink_url": "https://soundcloud.com/idontknowjeffery/northridge",
-                "playback_count": 162652,
+                "playback_count": 165273,
                 "public": true,
                 "publisher_metadata": {
                     "id": 983214331,
@@ -1574,7 +1574,7 @@
                 "purchase_title": null,
                 "purchase_url": null,
                 "release_date": null,
-                "reposts_count": 177,
+                "reposts_count": 178,
                 "secret_token": null,
                 "sharing": "public",
                 "state": "finished",
@@ -1627,17 +1627,17 @@
                 },
                 "station_urn": "soundcloud:system-playlists:track-stations:983214331",
                 "station_permalink": "track-stations:983214331",
-                "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjU2M2IxYWU4LTdiZjctNDc5Yi1iZjhlLWI3ZGRmZjBlMzIxZSIsImlhdCI6MTY4MDU0MDkzOX0.wxvw2cnkbpGDMVoLhgtmkkYgQZ2oH7IjSGfwjEIWpcA",
+                "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjhhMzFhNDZiLTYxZjMtNGI0NC04NzZhLTQzMTllODM1OGMzYyIsImlhdCI6MTY4NTU3Mzc3MH0.KKLub5N6ZwemTiNVua6WN5lBaNhSp4XsQqR3AcPm6m8",
                 "monetization_model": "NOT_APPLICABLE",
                 "policy": "ALLOW",
                 "user": {
-                    "avatar_url": "https://i1.sndcdn.com/avatars-iA7mrCdEur1ufUyl-IrA8cg-large.jpg",
+                    "avatar_url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg",
                     "first_name": "Jeffrey",
-                    "followers_count": 77310,
+                    "followers_count": 77826,
                     "full_name": "Jeffrey Harper",
                     "id": 55254934,
                     "kind": "user",
-                    "last_modified": "2023-04-03T11:20:59Z",
+                    "last_modified": "2023-05-25T10:58:22Z",
                     "last_name": "Harper",
                     "permalink": "idontknowjeffery",
                     "permalink_url": "https://soundcloud.com/idontknowjeffery",
@@ -1660,7 +1660,7 @@
                 "artwork_url": "https://i1.sndcdn.com/artworks-FCAyzXS08gNYlLOX-vlGTuQ-large.jpg",
                 "caption": null,
                 "commentable": true,
-                "comment_count": 35,
+                "comment_count": 36,
                 "created_at": "2021-02-12T06:06:05Z",
                 "description": "",
                 "downloadable": false,
@@ -1675,10 +1675,10 @@
                 "label_name": null,
                 "last_modified": "2021-02-14T09:27:11Z",
                 "license": "all-rights-reserved",
-                "likes_count": 1209,
+                "likes_count": 1211,
                 "permalink": "johnny-bravo",
                 "permalink_url": "https://soundcloud.com/idontknowjeffery/johnny-bravo",
-                "playback_count": 73815,
+                "playback_count": 74715,
                 "public": true,
                 "publisher_metadata": {
                     "id": 983967331,
@@ -1692,7 +1692,7 @@
                 "purchase_title": null,
                 "purchase_url": null,
                 "release_date": null,
-                "reposts_count": 58,
+                "reposts_count": 59,
                 "secret_token": null,
                 "sharing": "public",
                 "state": "finished",
@@ -1745,17 +1745,17 @@
                 },
                 "station_urn": "soundcloud:system-playlists:track-stations:983967331",
                 "station_permalink": "track-stations:983967331",
-                "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjhkMmMxYzAyLTM2YjYtNDJkOS05ODBkLWU0MGQ1MjdiYTZjZiIsImlhdCI6MTY4MDU0MDkzOX0.5v1jwpSje4vBZoqbvY-yKMCDN8JQJD3ISi-m7wSnqdw",
+                "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6ImM4MGJmNWJkLWIwMTctNDZkYS04OGM0LTMzMGRmMTU1NjIxOSIsImlhdCI6MTY4NTU3Mzc3MH0.OTt5WswQe8YY306vSXP-t4hOuaGuB7foPPIUeRniyfY",
                 "monetization_model": "NOT_APPLICABLE",
                 "policy": "ALLOW",
                 "user": {
-                    "avatar_url": "https://i1.sndcdn.com/avatars-iA7mrCdEur1ufUyl-IrA8cg-large.jpg",
+                    "avatar_url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg",
                     "first_name": "Jeffrey",
-                    "followers_count": 77310,
+                    "followers_count": 77826,
                     "full_name": "Jeffrey Harper",
                     "id": 55254934,
                     "kind": "user",
-                    "last_modified": "2023-04-03T11:20:59Z",
+                    "last_modified": "2023-05-25T10:58:22Z",
                     "last_name": "Harper",
                     "permalink": "idontknowjeffery",
                     "permalink_url": "https://soundcloud.com/idontknowjeffery",
@@ -1783,7 +1783,7 @@
             "Connection",
             "close",
             "Date",
-            "Mon, 03 Apr 2023 16:55:39 GMT",
+            "Wed, 31 May 2023 22:56:10 GMT",
             "x-robots-tag",
             "noindex",
             "Cache-Control",
@@ -1803,16 +1803,16 @@
             "X-Cache",
             "Miss from cloudfront",
             "Via",
-            "1.1 3180232852f42d0e8ed2a6999ef03c92.cloudfront.net (CloudFront)",
+            "1.1 3108e2685e0e061c5abe75f40944947c.cloudfront.net (CloudFront)",
             "X-Amz-Cf-Pop",
             "ZAG50-C1",
             "X-Amz-Cf-Id",
-            "_Har2P3j6GtDieJ5j6FQZvp9AHt5xU8D0-xNxpjky127jjnJ0Lv7qA=="
+            "_lPR_YTMswAlpTKQQjfTIBOVS9dFda5yIAjFbwd3XNNL70iZCgyzbw=="
         ],
         "responseIsBinary": false
     },
     {
-        "scope": "http://127.0.0.1:54288",
+        "scope": "http://127.0.0.1:53326",
         "method": "POST",
         "path": "/api/playlist/soundcloud",
         "body": {
@@ -1841,11 +1841,11 @@
                         "name": "idontknowjeffery",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-iA7mrCdEur1ufUyl-IrA8cg-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg"
                             }
                         ]
                     },
-                    "views": 66584,
+                    "views": 67336,
                     "type": "video"
                 },
                 {
@@ -1868,11 +1868,11 @@
                         "name": "idontknowjeffery",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-iA7mrCdEur1ufUyl-IrA8cg-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg"
                             }
                         ]
                     },
-                    "views": 441,
+                    "views": 813,
                     "type": "video"
                 },
                 {
@@ -1895,11 +1895,11 @@
                         "name": "idontknowjeffery",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-iA7mrCdEur1ufUyl-IrA8cg-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg"
                             }
                         ]
                     },
-                    "views": 97331,
+                    "views": 98834,
                     "type": "video"
                 },
                 {
@@ -1922,11 +1922,11 @@
                         "name": "idontknowjeffery",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-iA7mrCdEur1ufUyl-IrA8cg-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg"
                             }
                         ]
                     },
-                    "views": 180735,
+                    "views": 182723,
                     "type": "video"
                 },
                 {
@@ -1949,11 +1949,11 @@
                         "name": "idontknowjeffery",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-iA7mrCdEur1ufUyl-IrA8cg-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg"
                             }
                         ]
                     },
-                    "views": 89979,
+                    "views": 90811,
                     "type": "video"
                 },
                 {
@@ -1976,11 +1976,11 @@
                         "name": "idontknowjeffery",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-iA7mrCdEur1ufUyl-IrA8cg-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg"
                             }
                         ]
                     },
-                    "views": 145678,
+                    "views": 148655,
                     "type": "video"
                 },
                 {
@@ -2003,11 +2003,11 @@
                         "name": "idontknowjeffery",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-iA7mrCdEur1ufUyl-IrA8cg-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg"
                             }
                         ]
                     },
-                    "views": 561462,
+                    "views": 587721,
                     "type": "video"
                 },
                 {
@@ -2030,11 +2030,11 @@
                         "name": "idontknowjeffery",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-iA7mrCdEur1ufUyl-IrA8cg-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg"
                             }
                         ]
                     },
-                    "views": 162652,
+                    "views": 165273,
                     "type": "video"
                 },
                 {
@@ -2057,11 +2057,11 @@
                         "name": "idontknowjeffery",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-iA7mrCdEur1ufUyl-IrA8cg-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg"
                             }
                         ]
                     },
-                    "views": 73815,
+                    "views": 74715,
                     "type": "video"
                 }
             ]
@@ -2070,15 +2070,15 @@
             "X-Powered-By",
             "Express",
             "Content-Security-Policy",
-            "default-src 'self';script-src 'self' example.com;img-src 'self' i.ytimg.com yt3.ggpht.com hips.hearstapps.com i1.sndcdn.com;media-src 'self' *.googlevideo.com *.sndcdn.com;font-src fonts.googleapis.com fonts.gstatic.com;style-src-elem 'self' fonts.googleapis.com fonts.gstatic.com",
+            "default-src 'self';script-src 'self' example.com;img-src 'self' i.ytimg.com yt3.ggpht.com yt3.googleusercontent.com hips.hearstapps.com i1.sndcdn.com;media-src 'self' *.googlevideo.com *.sndcdn.com;font-src fonts.googleapis.com fonts.gstatic.com;style-src-elem 'self' fonts.googleapis.com fonts.gstatic.com",
             "Content-Type",
             "application/json; charset=utf-8",
             "Content-Length",
             "5475",
             "ETag",
-            "W/\"1563-urUB5HvGrOmheRlWMTIoywr/D9Y\"",
+            "W/\"1563-pFpOc7okZ4S/0qDE/ffDv9ngrdg\"",
             "Date",
-            "Mon, 03 Apr 2023 16:55:39 GMT",
+            "Wed, 31 May 2023 22:56:10 GMT",
             "Connection",
             "close"
         ],
