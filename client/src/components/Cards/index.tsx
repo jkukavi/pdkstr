@@ -17,7 +17,7 @@ const detectBottomReached = (element: HTMLElement, callback: () => void) => {
   const handleScroll = () => {
     const { scrollHeight, scrollTop, clientHeight } = element;
 
-    const bottomReached = scrollTop + clientHeight >= scrollHeight;
+    const bottomReached = scrollTop + clientHeight >= scrollHeight - 10;
 
     if (bottomReached) {
       // User has scrolled to the bottom of the scrollableDiv, load more results
