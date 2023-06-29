@@ -35,14 +35,15 @@ router.get<any, { type: string }, any, any, { search: string; page: number }>(
   }
 );
 
-router.get<any, { type: string }, any, any, { search: string }>(
+router.get<any, { type: string }, any, any, { search: string; page: number }>(
   "/my/favourites/:type",
   async (req, res) => {
     try {
       const id = res.locals.userId;
       const type = req.params.type;
-      const search = req.query.search;
-      const favourites: any[] = await users.getMyFavourites(id, type, search);
+      const search = req.query.search || "";
+      const page = Number(req.query.page) || 0;
+      const favourites = await users.getMyFavourites(id, type, search, page);
       res.json(favourites);
     } catch (e) {
       res.status(404).send();

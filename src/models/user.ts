@@ -77,7 +77,12 @@ async function getMyHistory(
   });
 }
 
-async function getMyFavourites(id: string, type: string, search: string) {
+async function getMyFavourites(
+  id: string,
+  type: string,
+  search: string,
+  page = 0
+) {
   const itemType = itemTypeByType[type as "item" | "playlist" | "channel"];
   return useDatabase(async (db) => {
     const favourites: any = await db
@@ -88,6 +93,7 @@ async function getMyFavourites(id: string, type: string, search: string) {
         ...(search && { "data.title": { $regex: search, $options: "i" } }),
       })
       .sort({ _id: -1 })
+      .skip(0 + 20 * page)
       .limit(20)
       .toArray();
     return favourites.map((item: any) => item.data);

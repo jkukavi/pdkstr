@@ -52,6 +52,7 @@ export const getMyHistory = async (
   });
 
   const path = "/users/my/history/" + type + queryString;
+
   try {
     const response = await axios.get(path);
     const fetchedHistory = response.data.map(addRandomKey);
@@ -62,15 +63,26 @@ export const getMyHistory = async (
   }
 };
 
-export const getMyFavourites = async (type: ItemType, search: string) => {
-  const queryString = search ? `?search=${search}` : "";
+export const getMyFavourites = async (
+  type: ItemType,
+  search: string,
+  page = 0,
+  pageSize = 10
+) => {
+  const queryString = buildQueryString({
+    search,
+    page: page.toString(),
+    pageSize: pageSize.toString(),
+  });
+
   const path = "/users/my/favourites/" + type + queryString;
+
   try {
     const response = await axios.get(path);
     const fetchedFavourites = response.data.map(addRandomKey);
     return fetchedFavourites as AnyItem[];
   } catch (e) {
-    notify("Unable to load history.");
+    notify("Unable to load favourites.");
     return [];
   }
 };
