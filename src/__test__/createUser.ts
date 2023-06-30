@@ -3,6 +3,12 @@ import { ObjectId } from "mongodb";
 import { getRandomCode } from "utils";
 import users from "models/user";
 
+function getRandomType() {
+  const types = ["video", "playlist", "channel"];
+  const randomIndex = Math.floor(Math.random() * types.length);
+  return types[randomIndex];
+}
+
 export const createHistoryForUser = (userId: string) =>
   [
     "a",
@@ -138,7 +144,7 @@ export const createHistoryForUser = (userId: string) =>
   ]
     .map((item) => {
       return {
-        type: "video",
+        type: getRandomType(),
         title: "HIT ME FIRST - idontknowjeffery ( OFFICIAL VIDEO )",
         id: "IV0arm42PMM",
         url: "https://www.youtube.com/watch?v=IV0arm42PMM",
@@ -327,7 +333,7 @@ export const createFavouritesForUser = (userId: string) =>
     "a",
   ]
     .map((item) => ({
-      type: "video",
+      type: getRandomType(),
       title: "HIT ME FIRST - idontknowjeffery ( OFFICIAL VIDEO )",
       id: "IV0arm42PMM",
       url: "https://www.youtube.com/watch?v=IV0arm42PMM",

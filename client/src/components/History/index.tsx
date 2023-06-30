@@ -13,6 +13,11 @@ const History = () => {
   const [type, setType] = useState<ItemType>("item");
   const [page, setPage] = useState(0);
   const [queryString, setQueryString] = useState("");
+  const endReached = useRef(false);
+
+  const setEndReached = (isEndReached: boolean) => {
+    endReached.current = isEndReached;
+  };
 
   const loadFirstPage = async (
     type: ItemType = "item",
@@ -22,6 +27,10 @@ const History = () => {
     try {
       const fetchedHistory = await getMyHistory(type, queryString);
       setHistory(fetchedHistory);
+
+      if (fetchedHistory.length === 0) {
+        setEndReached(true);
+      }
     } catch (e) {
       notify("Unable to fetch history");
     } finally {
@@ -32,10 +41,18 @@ const History = () => {
   useEffect(() => {
     setPage(0);
     setHistory([]);
+    setEndReached(false);
     loadFirstPage(type, queryString);
   }, [queryString, type]);
 
+  useEffect(() => {
+    if (page !== 0) {
+      fetchMoreHistory();
+    }
+  }, [page]);
+
   const loadMoreHistory = () => {
+    if (endReached.current) return;
     setPage((page) => page + 1);
   };
 
@@ -44,18 +61,15 @@ const History = () => {
     try {
       const fetchedHistory = await getMyHistory(type, queryString, page);
       setHistory([...history, ...fetchedHistory]);
+      if (fetchedHistory.length === 0) {
+        setEndReached(true);
+      }
     } catch (e) {
       notify("Unable to fetch history");
     } finally {
       setLoading(false);
     }
   };
-
-  useEffect(() => {
-    if (page !== 0) {
-      fetchMoreHistory();
-    }
-  }, [page]);
 
   const debouncedSetQueryString = useCallback(debounce(setQueryString, 600), [
     setQueryString,
