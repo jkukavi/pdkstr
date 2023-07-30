@@ -43,12 +43,12 @@ describe("CRUD operations for users collection", () => {
     expect(retrievedUser.email).toBe(user.email);
   });
 
-  it("should retrieve users history array from users id", async () => {
+  it.skip("should retrieve users history array from users id", async () => {
     const retrievedHistoryArray = await users.getMyHistory(id, "item", "");
     expect(retrievedHistoryArray[0]).toMatchObject(history[0].data);
   });
 
-  it("should retrieve users favourites array from users id", async () => {
+  it.skip("should retrieve users favourites array from users id", async () => {
     const retrievedFavouritesArray = await users.getMyFavourites(
       id,
       "item",

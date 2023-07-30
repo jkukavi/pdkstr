@@ -12,7 +12,8 @@
     "heroku-postbuild": "yarn build && yarn build-client && yarn test",
     "dev": "NODE_ENV=development npx nodemon node_modules/.bin/ts-node --files -r dotenv/config ./src/index.ts",
     "startdb": "MONGOMS_DEBUG=1 MONGOMS_ARCH=x64 npx ts-node --transpile-only --project ./tsconfig.json ./mockDb/startDb.ts",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "patch-package"
   },
   "engines": {
     "node": "14.17.5",
@@ -45,7 +46,7 @@
     "youtube-sr": "^4.3.4",
     "ytdl-core": "4.9.1",
     "ytpl": "^2.3.0",
-    "ytsr": "^3.8.0"
+    "ytsr": "3.8.2"
   },
   "devDependencies": {
     "@shelf/jest-mongodb": "^2.1.1",
@@ -65,19 +66,20 @@
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-promise": "^6.0.0",
+    "husky": "^8.0.0",
     "jest": "27.4.5",
     "jest-circus": "^27.4.5",
     "mongodb-memory-server": "^8.0.4",
     "nock": "^13.2.1",
     "nodemon": "^2.0.15",
+    "patch-package": "^8.0.0",
     "prettier": "^2.8.7",
     "supertest": "^6.1.6",
     "ts-jest": "^27.1.2",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^3.12.0",
     "tslib": "^2.3.1",
-    "typescript": "^4.5.4",
-    "husky": "^8.0.0"
+    "typescript": "^4.5.4"
   },
   "config": {
     "mongodbMemoryServer": {
