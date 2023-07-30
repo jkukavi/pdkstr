@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
-    "start": "yarn postinstall && NODE_PATH=./dist node --enable-source-maps dist/index.js",
+    "start": "npx patch-package && NODE_PATH=./dist node --enable-source-maps dist/index.js",
     "lint": "npx tsc --noEmit && cd client && yarn lint",
     "test": "NODE_PATH=./src NODE_ENV=test jest",
     "build": "npx tsc --project ./tsconfig.json",
