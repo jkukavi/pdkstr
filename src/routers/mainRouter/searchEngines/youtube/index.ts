@@ -175,10 +175,15 @@ const channelVideosMapper = (item: ChannelInfo) => {
 
 const getChannelVideos = async (channelId: string) => {
   const result = await ytch.getChannelVideos(channelId, "newest", 1);
-  return result.items.map(channelVideosMapper);
+
+  if (result.isTopicChannel) {
+    return result.items.map(playlistMapper);
+  } else {
+    return result.items.map(channelVideosMapper);
+  }
 };
 
-interface ChannelPlaylist {
+export interface ChannelPlaylist {
   title: string;
   type: "playlist";
   playlistThumbnail: string;
