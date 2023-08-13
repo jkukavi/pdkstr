@@ -22,8 +22,12 @@ export const paths = {
     soundcloud: "/playlist/soundcloud",
   },
   trackInfo: {
-    youtube: "/info",
-    soundcloud: "soundcloud/info",
+    youtube: "info/youtube",
+    soundcloud: "info/soundcloud",
+  },
+  channelInfo: {
+    youtube: "/channel/youtube/info",
+    soundcloud: "/channel/soundcloud/info",
   },
   channelItems: {
     youtube: "/youtube/channel/items",

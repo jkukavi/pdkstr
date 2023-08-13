@@ -107,6 +107,25 @@ export const getPlaylistItems = async (playlist: Playlist): Promise<Item[]> => {
   }
 };
 
+export const fetchItemInfo = async (
+  id: string,
+  engine: Engine
+): Promise<Item> => {
+  try {
+    const path = paths.trackInfo[engine];
+
+    const response = await axios.post(path, {
+      id,
+    });
+
+    return response.data as Item;
+  } catch (e) {
+    notify("Unable to fetch track info");
+  }
+
+  return {} as Item;
+};
+
 export const fetchDirectUrl = async ({
   id,
   engine,
@@ -137,37 +156,23 @@ export const fetchItems = async (
   return searchResultsArray;
 };
 
-const getChannelIdFromItem = (item: any): string => {
-  return {
-    youtube: (type: AnyItem["type"]) =>
-      ({
-        channel: item.channelID,
-        playlist: item.channelID,
-        video: item.author?.channelID,
-      }[type]),
-    soundcloud: (type: AnyItem["type"]) =>
-      ({ playlist: item.id, video: item.author?.id, channel: item.id }[type]),
-  }[item.engine as Engine](item.type);
+export const getChannelInfo = async (channelId: string, engine: Engine) => {
+  const path = paths.channelInfo[engine];
+
+  const response = await axios.post(path, {
+    id: channelId,
+  });
+
+  const channelInfo = response.data;
+
+  return channelInfo;
 };
 
-const getChannelInfoFromItem = (item: any) => {
-  return {
-    youtube: (type: AnyItem["type"]) =>
-      ({
-        channel: item,
-        playlist: item,
-        video: item.author,
-      }[type]),
-    soundcloud: (type: AnyItem["type"]) =>
-      ({ playlist: item, video: item.author, channel: item }[type]),
-  }[item.engine as Engine](item.type);
-};
-
-export const getChannelPlaylists = async (item: AnyItem) => {
-  const path = paths.channelPlaylists[item.engine];
-
-  const channelId = getChannelIdFromItem(item);
-  const channelInfo = getChannelInfoFromItem(item);
+export const getChannelPlaylists = async (
+  channelId: string,
+  engine: Engine
+) => {
+  const path = paths.channelPlaylists[engine];
 
   const response = await axios.post(path, {
     channelId,
@@ -175,23 +180,7 @@ export const getChannelPlaylists = async (item: AnyItem) => {
 
   const searchResultsArray = response.data.searchResultsArray.map(addRandomKey);
 
-  return {
-    channelInfo: { ...channelInfo, engine: item.engine },
-    searchResultsArray,
-  };
-};
-
-const channelIdFromItem = (item: any): string => {
-  return {
-    youtube: (type: AnyItem["type"]) =>
-      ({
-        channel: item.channelID,
-        playlist: item.channelID,
-        video: item.author?.channelID,
-      }[type]),
-    soundcloud: (type: AnyItem["type"]) =>
-      ({ playlist: item.id, video: item.author?.id, channel: item.id }[type]),
-  }[item.engine as Engine](item.type);
+  return searchResultsArray;
 };
 
 const channelInfoFromItem = (item: any) => {
@@ -207,22 +196,15 @@ const channelInfoFromItem = (item: any) => {
   }[item.engine as Engine](item.type);
 };
 
-export const getChannelItems = async (item: AnyItem) => {
-  const path = paths.channelItems[item.engine];
-
-  const channelId = channelIdFromItem(item);
-  const channelInfo = channelInfoFromItem(item);
+export const getChannelItems = async (channelId: string, engine: Engine) => {
+  const path = paths.channelItems[engine];
 
   const response = await axios.post(path, {
     channelId,
   });
   const searchResultsArray = response.data.searchResultsArray.map(addRandomKey);
 
-  return {
-    channelId,
-    channelInfo: { ...channelInfo, engine: item.engine },
-    searchResultsArray,
-  };
+  return searchResultsArray;
 };
 
 export const getChannelItemsFromId = async (

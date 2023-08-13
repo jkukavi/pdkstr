@@ -37,7 +37,7 @@
                                     },
                                     {
                                         "key": "num_shelves",
-                                        "value": "1"
+                                        "value": "2"
                                     },
                                     {
                                         "key": "is_alc_surface",
@@ -57,7 +57,7 @@
                                     },
                                     {
                                         "key": "e",
-                                        "value": "23804281,23848212,23858057,23946420,23966208,23983296,23986033,23998056,24004644,24007246,24034168,24036948,24077241,24080738,24120820,24135310,24140247,24166867,24181174,24187377,24211178,24219713,24241378,24248956,24255165,24255543,24255545,24262346,24288664,24290971,24291857,24362103,24362618,24363513,24364775,24366065,24367580,24368314,24371398,24371637,24372101,24372110,24372541,24373977,24374313,24377910,24379039,24379063,24379127,24379354,24379529,24379544,24379960,24379971,24380264,24382551,24383024,24384902,24385612,24386592,24386796,24387152,24388704,24388710,24388716,24388735,24388750,24388759,24389130,24390675,24391689,24404640,24407191,24415864,24416290,24428788,24437577,24439361,24440132,24445497,24451319,24453989,24457384,24458317,24458324,24458329,24458839,24459435,24466371,24466835,24468724,24469818,24485421,24490423,24495060,24498300,24501183,24501975,24502747,24502854,24503257,24504122,24504571,24506625,24506784,24509207,24509569,24511564,24515366,24515423,24518452,24519102,24520975,24523472,24525414,24526574,24526646,24526770,24526787,24526792,24526801,24526808,24526815,24526827,24527467,24528357,24528463,24528468,24528473,24528484,24528495,24528548,24528557,24528577,24528584,24528642,24528649,24528661,24528666,24528734,24531222,24537200,24540320,24541661,24541826,24541863,24542149,24542452,24542640,24543709,24544546,24544701,24547902,24550285,24550458,24550951,24551130,24552123,24552606,24553434,24553549,24554040,24616985,24691334,24696752,24697011,24698453,24698880,24699598,24699899,39323988,39323995,39324045,39324156,39324224,39324314,39324321,39324334,39324344,39324379,39324479,39324496,39324560,51000316,51001092,51001393,51001792"
+                                        "value": "23804281,23880829,23880835,23885487,23946420,23966208,23983296,23986029,23998056,24004644,24007246,24034168,24036947,24077241,24080738,24120819,24135310,24140247,24166867,24181174,24187377,24211178,24219713,24241378,24255165,24255543,24255545,24262346,24288664,24290971,24291857,24361589,24362105,24363516,24367580,24368308,24371398,24371637,24372101,24372106,24373396,24374313,24376801,24377322,24377909,24379043,24379065,24379125,24379354,24379533,24379540,24379964,24379969,24380264,24382552,24383024,24385612,24388708,24388718,24388731,24388746,24388759,24389132,24390675,24404640,24407191,24415864,24428788,24430726,24437577,24439361,24440132,24451319,24453989,24457384,24457854,24458317,24458324,24458329,24458839,24459435,24466624,24468724,24469243,24469818,24485421,24495060,24498300,24499534,24503257,24506625,24506784,24507807,24509206,24509570,24509767,24509769,24509771,24515366,24515388,24515423,24517093,24518452,24519102,24520147,24520975,24523472,24524098,24526646,24526774,24526785,24526790,24526801,24526808,24526813,24526825,24528356,24528461,24528470,24528475,24528484,24528552,24528559,24528573,24528584,24528642,24528647,24528657,24528668,24529352,24529367,24531244,24537200,24540234,24542366,24542452,24543277,24543299,24543669,24546075,24547939,24548627,24548629,24548882,24549088,24549484,24549705,24550285,24550458,24550951,24551130,24552606,24553434,24554039,24559628,24560415,24561131,24561138,24561154,24561206,24562085,24562755,24563369,24563746,24563919,24564582,24567138,24650811,24690006,24691334,24692437,24694842,24698453,24698880,24699598,24699899,39324156,39324184,39324224,39324314,39324321,39324334,39324344,39324379,39324479,39324496,39324560,51000316,51001634,51003630"
                                     }
                                 ]
                             },
@@ -91,7 +91,7 @@
                                     },
                                     {
                                         "key": "GetChannelPage_rid",
-                                        "value": "0xcc24c89b633046e4"
+                                        "value": "0x8939494a6ecc6dfd"
                                     }
                                 ]
                             },
@@ -117,7 +117,7 @@
                                     },
                                     {
                                         "key": "client.fexp",
-                                        "value": "24528649,23966208,24390675,24528642,24262346,24368314,24255165,24528484,24362618,24537200,24544546,24379960,24526787,24372101,23946420,24523472,24525414,24290971,24379529,39324344,24387152,24550458,24453989,39324560,24407191,24528463,24553549,24388704,24187377,24697011,24007246,23983296,24501975,24383024,24504571,24550285,24553434,24371398,24696752,24379127,24428788,24519102,24379544,24528557,24140247,24385612,24698880,24364775,24458317,24036948,24367580,24255545,24120820,24379063,24445497,39324224,24380264,24388750,24552606,24004644,24466835,24459435,24372110,24077241,24541661,24504122,24528666,23998056,24542452,24372541,24166867,24528357,24389130,24542640,24526646,24382551,24526574,24506625,24699598,24388735,24509207,24506784,24616985,51001792,24541863,24490423,24255543,23986033,24457384,24495060,39324496,24384902,24386592,24440132,24386796,24547902,24511564,24528473,39324334,24518452,24388759,24550951,24502747,24379971,24551130,24691334,24528495,24698453,24552123,24699899,24388716,24543709,24503257,24458329,24544701,24468724,24526827,24527467,24439361,23858057,24528661,24458839,24374313,24415864,24526770,39323988,39323995,24541826,39324045,24248956,24135310,24080738,24542149,24379354,24526792,24469818,24363513,24241378,24451319,39324156,24485421,51000316,24034168,24458324,39324379,24466371,24515423,24509569,39324314,24498300,24528734,24437577,24291857,24528468,24515366,24366065,24540320,24404640,39324321,24288664,51001092,24520975,39324479,24219713,24416290,24377910,24362103,24379039,24181174,24526815,24371637,24373977,24502854,23804281,24526808,24528584,24501183,51001393,23848212,24211178,24528548,24528577,24391689,24388710,24531222,24526801,24554040"
+                                        "value": "24549705,24550285,24515366,24379964,24404640,24457854,24372106,24562755,24520975,24388718,24528668,24379540,24219713,24458329,23983296,24515388,24509769,24379533,24374313,24564582,24415864,24385612,24559628,24458839,24428788,24080738,24526813,24528475,24140247,24379354,24561131,24376801,24561138,24550458,24377909,24255165,24526785,24507807,24290971,24388746,24515423,24498300,23966208,24528647,39324334,51003630,24520147,24368308,24529352,24699899,39324184,24509206,24542366,24363516,24451319,23880829,24523472,39324321,39324479,24509767,24690006,24379125,24528461,24547939,24561154,24531244,24529367,24388731,24506625,24548629,24361589,24526808,24388708,24458317,24528484,24563369,24528642,24548882,24526801,24241378,24255545,39324314,24485421,24543669,24692437,39324156,24506784,24518452,39324379,24458324,24517093,24388759,24519102,24543299,24459435,24077241,24528584,39324344,24551130,24698453,24691334,24187377,24524098,24549088,39324560,24166867,24567138,23880835,24120819,24439361,24553434,24528657,24546075,24528470,24430726,24561206,24383024,24698880,24499534,24389132,24377322,24362105,39324496,23885487,24457384,24135310,24469243,24560415,24373396,24650811,24255543,24469818,51001634,24007246,24526774,24440132,24453989,24552606,24262346,24528356,24542452,23998056,24379969,24036947,24380264,24549484,24372101,24550951,24699598,24371637,24526825,24554039,24181174,24528573,23946420,24503257,24466624,24407191,24291857,24288664,24495060,24509771,24563746,24526646,23804281,24562085,24526790,24371398,24211178,24509570,51000316,24367580,24563919,24548627,24379043,24528552,24390675,24543277,24468724,24004644,24437577,24034168,24528559,24382552,24694842,39324224,24379065,24537200,24540234,23986029"
                                     }
                                 ]
                             }
@@ -125,11 +125,11 @@
                         "maxAgeSeconds": 300,
                         "mainAppWebResponseContext": {
                             "loggedOut": true,
-                            "trackingParam": "kx_fmPxhoPZR2SN0ENDZbRTTgJvrw3u84grdEjjGwGDzs-wRgkuswmIBwOcCE59TDtslLKPQ-SS"
+                            "trackingParam": "kx_fmPxhoPZR7NEFLi6m4dXy4jNKEPANgQw54_V7wzIPUBwRgkuswmIBwOcCE59TDtslLKPQ-SS"
                         },
                         "webResponseContextExtensionData": {
                             "ytConfigData": {
-                                "visitorData": "CgtPZnR6R0NFLVBUMCj9gpmmBg%3D%3D",
+                                "visitorData": "CgszS1lMdExpZXdCNCjhkt2mBjIGCgJIUhIA",
                                 "rootVisualElementType": 3611
                             },
                             "hasDecorated": true
@@ -141,7 +141,7 @@
                                 {
                                     "tabRenderer": {
                                         "endpoint": {
-                                            "clickTrackingParams": "CCQQ8JMBGAUiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                            "clickTrackingParams": "CCcQ8JMBGAUiEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                             "commandMetadata": {
                                                 "webCommandMetadata": {
                                                     "url": "/@IDONTKNOWJEFFERY/featured",
@@ -157,13 +157,13 @@
                                             }
                                         },
                                         "title": "Home",
-                                        "trackingParams": "CCQQ8JMBGAUiEwiOlLGmoraAAxXIRXoFHZ2CAk4="
+                                        "trackingParams": "CCcQ8JMBGAUiEwipxbWb4NaAAxUaxxEIHbp9B3c="
                                     }
                                 },
                                 {
                                     "tabRenderer": {
                                         "endpoint": {
-                                            "clickTrackingParams": "CCMQ8JMBGAYiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                            "clickTrackingParams": "CCYQ8JMBGAYiEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                             "commandMetadata": {
                                                 "webCommandMetadata": {
                                                     "url": "/@IDONTKNOWJEFFERY/videos",
@@ -179,13 +179,35 @@
                                             }
                                         },
                                         "title": "Videos",
-                                        "trackingParams": "CCMQ8JMBGAYiEwiOlLGmoraAAxXIRXoFHZ2CAk4="
+                                        "trackingParams": "CCYQ8JMBGAYiEwipxbWb4NaAAxUaxxEIHbp9B3c="
                                     }
                                 },
                                 {
                                     "tabRenderer": {
                                         "endpoint": {
-                                            "clickTrackingParams": "CCIQ8JMBGAciEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                            "clickTrackingParams": "CCUQ8JMBGAciEwipxbWb4NaAAxUaxxEIHbp9B3c=",
+                                            "commandMetadata": {
+                                                "webCommandMetadata": {
+                                                    "url": "/@IDONTKNOWJEFFERY/shorts",
+                                                    "webPageType": "WEB_PAGE_TYPE_CHANNEL",
+                                                    "rootVe": 3611,
+                                                    "apiUrl": "/youtubei/v1/browse"
+                                                }
+                                            },
+                                            "browseEndpoint": {
+                                                "browseId": "UCtPlB4OmowajcgVaL3jvGcA",
+                                                "params": "EgZzaG9ydHPyBgUKA5oBAA%3D%3D",
+                                                "canonicalBaseUrl": "/@IDONTKNOWJEFFERY"
+                                            }
+                                        },
+                                        "title": "Shorts",
+                                        "trackingParams": "CCUQ8JMBGAciEwipxbWb4NaAAxUaxxEIHbp9B3c="
+                                    }
+                                },
+                                {
+                                    "tabRenderer": {
+                                        "endpoint": {
+                                            "clickTrackingParams": "CCQQ8JMBGAgiEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                             "commandMetadata": {
                                                 "webCommandMetadata": {
                                                     "url": "/@IDONTKNOWJEFFERY/releases",
@@ -201,13 +223,13 @@
                                             }
                                         },
                                         "title": "Releases",
-                                        "trackingParams": "CCIQ8JMBGAciEwiOlLGmoraAAxXIRXoFHZ2CAk4="
+                                        "trackingParams": "CCQQ8JMBGAgiEwipxbWb4NaAAxUaxxEIHbp9B3c="
                                     }
                                 },
                                 {
                                     "tabRenderer": {
                                         "endpoint": {
-                                            "clickTrackingParams": "CBMQ8JMBGAgiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                            "clickTrackingParams": "CBMQ8JMBGAkiEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                             "commandMetadata": {
                                                 "webCommandMetadata": {
                                                     "url": "/@IDONTKNOWJEFFERY/playlists",
@@ -233,6 +255,236 @@
                                                                 {
                                                                     "gridRenderer": {
                                                                         "items": [
+                                                                            {
+                                                                                "gridPlaylistRenderer": {
+                                                                                    "playlistId": "PLYu-7OugCftYAspv_evC94CAODKPixyOM",
+                                                                                    "thumbnail": {
+                                                                                        "thumbnails": [
+                                                                                            {
+                                                                                                "url": "https://i.ytimg.com/vi/Y-3egbwXMKY/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCJEReZ0kpFvbqvtJI5CdlquzWFMg",
+                                                                                                "width": 480,
+                                                                                                "height": 270
+                                                                                            }
+                                                                                        ],
+                                                                                        "sampledThumbnailColor": {
+                                                                                            "red": 45,
+                                                                                            "green": 77,
+                                                                                            "blue": 101
+                                                                                        },
+                                                                                        "darkColorPalette": {
+                                                                                            "section2Color": 1517107,
+                                                                                            "iconInactiveColor": 7767955
+                                                                                        },
+                                                                                        "vibrantColorPalette": {
+                                                                                            "iconInactiveColor": 7046553
+                                                                                        }
+                                                                                    },
+                                                                                    "title": {
+                                                                                        "runs": [
+                                                                                            {
+                                                                                                "text": "💿 THE JEFFERY LP 💿",
+                                                                                                "navigationEndpoint": {
+                                                                                                    "clickTrackingParams": "CCIQljUYACITCKnFtZvg1oADFRrHEQgdun0HdzIGZy1oaWdoWhhVQ3RQbEI0T21vd2FqY2dWYUwzanZHY0GaAQUQ8jgYaA==",
+                                                                                                    "commandMetadata": {
+                                                                                                        "webCommandMetadata": {
+                                                                                                            "url": "/watch?v=Y-3egbwXMKY&list=PLYu-7OugCftYAspv_evC94CAODKPixyOM&pp=iAQB",
+                                                                                                            "webPageType": "WEB_PAGE_TYPE_WATCH",
+                                                                                                            "rootVe": 3832
+                                                                                                        }
+                                                                                                    },
+                                                                                                    "watchEndpoint": {
+                                                                                                        "videoId": "Y-3egbwXMKY",
+                                                                                                        "playlistId": "PLYu-7OugCftYAspv_evC94CAODKPixyOM",
+                                                                                                        "params": "OAI%3D",
+                                                                                                        "playerParams": "iAQB",
+                                                                                                        "loggingContext": {
+                                                                                                            "vssLoggingContext": {
+                                                                                                                "serializedContextData": "GiJQTFl1LTdPdWdDZnRZQXNwdl9ldkM5NENBT0RLUGl4eU9N"
+                                                                                                            }
+                                                                                                        },
+                                                                                                        "watchEndpointSupportedOnesieConfig": {
+                                                                                                            "html5PlaybackOnesieConfig": {
+                                                                                                                "commonConfig": {
+                                                                                                                    "url": "https://rr3---sn-uxaxh5ji-15be.googlevideo.com/initplayback?source=youtube&oeis=1&c=WEB&oad=3200&ovd=3200&oaad=11000&oavd=11000&ocs=700&oewis=1&oputc=1&ofpcc=1&msp=1&odepv=1&id=63edde81bc1730a6&ip=86.33.64.254&initcwndbps=732500&mt=1691830147&oweuc="
+                                                                                                                }
+                                                                                                            }
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        ]
+                                                                                    },
+                                                                                    "videoCountText": {
+                                                                                        "runs": [
+                                                                                            {
+                                                                                                "text": "11"
+                                                                                            },
+                                                                                            {
+                                                                                                "text": " videos"
+                                                                                            }
+                                                                                        ]
+                                                                                    },
+                                                                                    "navigationEndpoint": {
+                                                                                        "clickTrackingParams": "CCIQljUYACITCKnFtZvg1oADFRrHEQgdun0HdzIGZy1oaWdoWhhVQ3RQbEI0T21vd2FqY2dWYUwzanZHY0GaAQUQ8jgYaA==",
+                                                                                        "commandMetadata": {
+                                                                                            "webCommandMetadata": {
+                                                                                                "url": "/watch?v=Y-3egbwXMKY&list=PLYu-7OugCftYAspv_evC94CAODKPixyOM&pp=iAQB",
+                                                                                                "webPageType": "WEB_PAGE_TYPE_WATCH",
+                                                                                                "rootVe": 3832
+                                                                                            }
+                                                                                        },
+                                                                                        "watchEndpoint": {
+                                                                                            "videoId": "Y-3egbwXMKY",
+                                                                                            "playlistId": "PLYu-7OugCftYAspv_evC94CAODKPixyOM",
+                                                                                            "params": "OAI%3D",
+                                                                                            "playerParams": "iAQB",
+                                                                                            "loggingContext": {
+                                                                                                "vssLoggingContext": {
+                                                                                                    "serializedContextData": "GiJQTFl1LTdPdWdDZnRZQXNwdl9ldkM5NENBT0RLUGl4eU9N"
+                                                                                                }
+                                                                                            },
+                                                                                            "watchEndpointSupportedOnesieConfig": {
+                                                                                                "html5PlaybackOnesieConfig": {
+                                                                                                    "commonConfig": {
+                                                                                                        "url": "https://rr3---sn-uxaxh5ji-15be.googlevideo.com/initplayback?source=youtube&oeis=1&c=WEB&oad=3200&ovd=3200&oaad=11000&oavd=11000&ocs=700&oewis=1&oputc=1&ofpcc=1&msp=1&odepv=1&id=63edde81bc1730a6&ip=86.33.64.254&initcwndbps=732500&mt=1691830147&oweuc="
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    },
+                                                                                    "publishedTimeText": {
+                                                                                        "simpleText": "Updated 3 days ago"
+                                                                                    },
+                                                                                    "videoCountShortText": {
+                                                                                        "simpleText": "11"
+                                                                                    },
+                                                                                    "trackingParams": "CCIQljUYACITCKnFtZvg1oADFRrHEQgdun0Hdw==",
+                                                                                    "sidebarThumbnails": [
+                                                                                        {
+                                                                                            "thumbnails": [
+                                                                                                {
+                                                                                                    "url": "https://i.ytimg.com/vi/R9-GA_2WzGc/default.jpg",
+                                                                                                    "width": 43,
+                                                                                                    "height": 20
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        {
+                                                                                            "thumbnails": [
+                                                                                                {
+                                                                                                    "url": "https://i.ytimg.com/vi/kjiZjL9NUow/default.jpg",
+                                                                                                    "width": 43,
+                                                                                                    "height": 20
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        {
+                                                                                            "thumbnails": [
+                                                                                                {
+                                                                                                    "url": "https://i.ytimg.com/vi/BMyNU9u7sQU/default.jpg",
+                                                                                                    "width": 43,
+                                                                                                    "height": 20
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    ],
+                                                                                    "thumbnailText": {
+                                                                                        "runs": [
+                                                                                            {
+                                                                                                "text": "11",
+                                                                                                "bold": true
+                                                                                            },
+                                                                                            {
+                                                                                                "text": " videos"
+                                                                                            }
+                                                                                        ]
+                                                                                    },
+                                                                                    "thumbnailRenderer": {
+                                                                                        "playlistVideoThumbnailRenderer": {
+                                                                                            "thumbnail": {
+                                                                                                "thumbnails": [
+                                                                                                    {
+                                                                                                        "url": "https://i.ytimg.com/vi/Y-3egbwXMKY/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCJEReZ0kpFvbqvtJI5CdlquzWFMg",
+                                                                                                        "width": 480,
+                                                                                                        "height": 270
+                                                                                                    }
+                                                                                                ],
+                                                                                                "sampledThumbnailColor": {
+                                                                                                    "red": 45,
+                                                                                                    "green": 77,
+                                                                                                    "blue": 101
+                                                                                                },
+                                                                                                "darkColorPalette": {
+                                                                                                    "section2Color": 1517107,
+                                                                                                    "iconInactiveColor": 7767955
+                                                                                                },
+                                                                                                "vibrantColorPalette": {
+                                                                                                    "iconInactiveColor": 7046553
+                                                                                                }
+                                                                                            },
+                                                                                            "trackingParams": "CCMQy-wJIhMIqcW1m-DWgAMVGscRCB26fQd3"
+                                                                                        }
+                                                                                    },
+                                                                                    "thumbnailOverlays": [
+                                                                                        {
+                                                                                            "thumbnailOverlayBottomPanelRenderer": {
+                                                                                                "text": {
+                                                                                                    "simpleText": "11 videos"
+                                                                                                },
+                                                                                                "icon": {
+                                                                                                    "iconType": "PLAYLISTS"
+                                                                                                }
+                                                                                            }
+                                                                                        },
+                                                                                        {
+                                                                                            "thumbnailOverlayHoverTextRenderer": {
+                                                                                                "text": {
+                                                                                                    "runs": [
+                                                                                                        {
+                                                                                                            "text": "Play all"
+                                                                                                        }
+                                                                                                    ]
+                                                                                                },
+                                                                                                "icon": {
+                                                                                                    "iconType": "PLAY_ALL"
+                                                                                                }
+                                                                                            }
+                                                                                        },
+                                                                                        {
+                                                                                            "thumbnailOverlayNowPlayingRenderer": {
+                                                                                                "text": {
+                                                                                                    "runs": [
+                                                                                                        {
+                                                                                                            "text": "Now playing"
+                                                                                                        }
+                                                                                                    ]
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    ],
+                                                                                    "viewPlaylistText": {
+                                                                                        "runs": [
+                                                                                            {
+                                                                                                "text": "View full playlist",
+                                                                                                "navigationEndpoint": {
+                                                                                                    "clickTrackingParams": "CCIQljUYACITCKnFtZvg1oADFRrHEQgdun0HdzIGZy1oaWdo",
+                                                                                                    "commandMetadata": {
+                                                                                                        "webCommandMetadata": {
+                                                                                                            "url": "/playlist?list=PLYu-7OugCftYAspv_evC94CAODKPixyOM",
+                                                                                                            "webPageType": "WEB_PAGE_TYPE_PLAYLIST",
+                                                                                                            "rootVe": 5754,
+                                                                                                            "apiUrl": "/youtubei/v1/browse"
+                                                                                                        }
+                                                                                                    },
+                                                                                                    "browseEndpoint": {
+                                                                                                        "browseId": "VLPLYu-7OugCftYAspv_evC94CAODKPixyOM"
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                }
+                                                                            },
                                                                             {
                                                                                 "gridPlaylistRenderer": {
                                                                                     "playlistId": "PLYu-7OugCftarDXZT71MZqxan2oOYindc",
@@ -262,7 +514,7 @@
                                                                                             {
                                                                                                 "text": "#BLADE💃🏽🔪",
                                                                                                 "navigationEndpoint": {
-                                                                                                    "clickTrackingParams": "CCAQljUYACITCI6UsaaitoADFchFegUdnYICTjIGZy1oaWdoWhhVQ3RQbEI0T21vd2FqY2dWYUwzanZHY0GaAQUQ8jgYaA==",
+                                                                                                    "clickTrackingParams": "CCAQljUYASITCKnFtZvg1oADFRrHEQgdun0HdzIGZy1oaWdoWhhVQ3RQbEI0T21vd2FqY2dWYUwzanZHY0GaAQUQ8jgYaA==",
                                                                                                     "commandMetadata": {
                                                                                                         "webCommandMetadata": {
                                                                                                             "url": "/watch?v=kAYgogVSQCA&list=PLYu-7OugCftarDXZT71MZqxan2oOYindc&pp=iAQB",
@@ -283,7 +535,7 @@
                                                                                                         "watchEndpointSupportedOnesieConfig": {
                                                                                                             "html5PlaybackOnesieConfig": {
                                                                                                                 "commonConfig": {
-                                                                                                                    "url": "https://rr3---sn-uxaxh5ji-15be.googlevideo.com/initplayback?source=youtube&oeis=1&c=WEB&oad=3200&ovd=3200&oaad=11000&oavd=11000&ocs=700&oewis=1&oputc=1&ofpcc=1&beids=24350018&msp=1&odepv=1&id=900620a205524020&ip=86.33.81.247&initcwndbps=477500&mt=1690713938&oweuc="
+                                                                                                                    "url": "https://rr3---sn-uxaxh5ji-15be.googlevideo.com/initplayback?source=youtube&oeis=1&c=WEB&oad=3200&ovd=3200&oaad=11000&oavd=11000&ocs=700&oewis=1&oputc=1&ofpcc=1&msp=1&odepv=1&id=900620a205524020&ip=86.33.64.254&initcwndbps=732500&mt=1691830147&oweuc="
                                                                                                                 }
                                                                                                             }
                                                                                                         }
@@ -303,7 +555,7 @@
                                                                                         ]
                                                                                     },
                                                                                     "navigationEndpoint": {
-                                                                                        "clickTrackingParams": "CCAQljUYACITCI6UsaaitoADFchFegUdnYICTjIGZy1oaWdoWhhVQ3RQbEI0T21vd2FqY2dWYUwzanZHY0GaAQUQ8jgYaA==",
+                                                                                        "clickTrackingParams": "CCAQljUYASITCKnFtZvg1oADFRrHEQgdun0HdzIGZy1oaWdoWhhVQ3RQbEI0T21vd2FqY2dWYUwzanZHY0GaAQUQ8jgYaA==",
                                                                                         "commandMetadata": {
                                                                                             "webCommandMetadata": {
                                                                                                 "url": "/watch?v=kAYgogVSQCA&list=PLYu-7OugCftarDXZT71MZqxan2oOYindc&pp=iAQB",
@@ -324,7 +576,7 @@
                                                                                             "watchEndpointSupportedOnesieConfig": {
                                                                                                 "html5PlaybackOnesieConfig": {
                                                                                                     "commonConfig": {
-                                                                                                        "url": "https://rr3---sn-uxaxh5ji-15be.googlevideo.com/initplayback?source=youtube&oeis=1&c=WEB&oad=3200&ovd=3200&oaad=11000&oavd=11000&ocs=700&oewis=1&oputc=1&ofpcc=1&beids=24350018&msp=1&odepv=1&id=900620a205524020&ip=86.33.81.247&initcwndbps=477500&mt=1690713938&oweuc="
+                                                                                                        "url": "https://rr3---sn-uxaxh5ji-15be.googlevideo.com/initplayback?source=youtube&oeis=1&c=WEB&oad=3200&ovd=3200&oaad=11000&oavd=11000&ocs=700&oewis=1&oputc=1&ofpcc=1&msp=1&odepv=1&id=900620a205524020&ip=86.33.64.254&initcwndbps=732500&mt=1691830147&oweuc="
                                                                                                     }
                                                                                                 }
                                                                                             }
@@ -333,7 +585,7 @@
                                                                                     "videoCountShortText": {
                                                                                         "simpleText": "5"
                                                                                     },
-                                                                                    "trackingParams": "CCAQljUYACITCI6UsaaitoADFchFegUdnYICTg==",
+                                                                                    "trackingParams": "CCAQljUYASITCKnFtZvg1oADFRrHEQgdun0Hdw==",
                                                                                     "sidebarThumbnails": [
                                                                                         {
                                                                                             "thumbnails": [
@@ -397,7 +649,7 @@
                                                                                                     "iconInactiveColor": 10059883
                                                                                                 }
                                                                                             },
-                                                                                            "trackingParams": "CCEQy-wJIhMIjpSxpqK2gAMVyEV6BR2dggJO"
+                                                                                            "trackingParams": "CCEQy-wJIhMIqcW1m-DWgAMVGscRCB26fQd3"
                                                                                         }
                                                                                     },
                                                                                     "thumbnailOverlays": [
@@ -442,7 +694,7 @@
                                                                                             {
                                                                                                 "text": "View full playlist",
                                                                                                 "navigationEndpoint": {
-                                                                                                    "clickTrackingParams": "CCAQljUYACITCI6UsaaitoADFchFegUdnYICTjIGZy1oaWdo",
+                                                                                                    "clickTrackingParams": "CCAQljUYASITCKnFtZvg1oADFRrHEQgdun0HdzIGZy1oaWdo",
                                                                                                     "commandMetadata": {
                                                                                                         "webCommandMetadata": {
                                                                                                             "url": "/playlist?list=PLYu-7OugCftarDXZT71MZqxan2oOYindc",
@@ -489,7 +741,7 @@
                                                                                             {
                                                                                                 "text": "THE JEFFERY VLOG (SEASON 2)",
                                                                                                 "navigationEndpoint": {
-                                                                                                    "clickTrackingParams": "CB4QljUYASITCI6UsaaitoADFchFegUdnYICTjIGZy1oaWdoWhhVQ3RQbEI0T21vd2FqY2dWYUwzanZHY0GaAQUQ8jgYaA==",
+                                                                                                    "clickTrackingParams": "CB4QljUYAiITCKnFtZvg1oADFRrHEQgdun0HdzIGZy1oaWdoWhhVQ3RQbEI0T21vd2FqY2dWYUwzanZHY0GaAQUQ8jgYaA==",
                                                                                                     "commandMetadata": {
                                                                                                         "webCommandMetadata": {
                                                                                                             "url": "/watch?v=iMu8HsqFInw&list=PLYu-7OugCftY51i4nlH2TgevohqpwuRXJ&pp=iAQB",
@@ -510,7 +762,7 @@
                                                                                                         "watchEndpointSupportedOnesieConfig": {
                                                                                                             "html5PlaybackOnesieConfig": {
                                                                                                                 "commonConfig": {
-                                                                                                                    "url": "https://rr3---sn-uxaxh5ji-15be.googlevideo.com/initplayback?source=youtube&oeis=1&c=WEB&oad=3200&ovd=3200&oaad=11000&oavd=11000&ocs=700&oewis=1&oputc=1&ofpcc=1&beids=24350018&msp=1&odepv=1&id=88cbbc1eca85227c&ip=86.33.81.247&initcwndbps=477500&mt=1690713938&oweuc="
+                                                                                                                    "url": "https://rr3---sn-uxaxh5ji-15be.googlevideo.com/initplayback?source=youtube&oeis=1&c=WEB&oad=3200&ovd=3200&oaad=11000&oavd=11000&ocs=700&oewis=1&oputc=1&ofpcc=1&msp=1&odepv=1&id=88cbbc1eca85227c&ip=86.33.64.254&initcwndbps=732500&mt=1691830147&oweuc="
                                                                                                                 }
                                                                                                             }
                                                                                                         }
@@ -530,7 +782,7 @@
                                                                                         ]
                                                                                     },
                                                                                     "navigationEndpoint": {
-                                                                                        "clickTrackingParams": "CB4QljUYASITCI6UsaaitoADFchFegUdnYICTjIGZy1oaWdoWhhVQ3RQbEI0T21vd2FqY2dWYUwzanZHY0GaAQUQ8jgYaA==",
+                                                                                        "clickTrackingParams": "CB4QljUYAiITCKnFtZvg1oADFRrHEQgdun0HdzIGZy1oaWdoWhhVQ3RQbEI0T21vd2FqY2dWYUwzanZHY0GaAQUQ8jgYaA==",
                                                                                         "commandMetadata": {
                                                                                             "webCommandMetadata": {
                                                                                                 "url": "/watch?v=iMu8HsqFInw&list=PLYu-7OugCftY51i4nlH2TgevohqpwuRXJ&pp=iAQB",
@@ -551,7 +803,7 @@
                                                                                             "watchEndpointSupportedOnesieConfig": {
                                                                                                 "html5PlaybackOnesieConfig": {
                                                                                                     "commonConfig": {
-                                                                                                        "url": "https://rr3---sn-uxaxh5ji-15be.googlevideo.com/initplayback?source=youtube&oeis=1&c=WEB&oad=3200&ovd=3200&oaad=11000&oavd=11000&ocs=700&oewis=1&oputc=1&ofpcc=1&beids=24350018&msp=1&odepv=1&id=88cbbc1eca85227c&ip=86.33.81.247&initcwndbps=477500&mt=1690713938&oweuc="
+                                                                                                        "url": "https://rr3---sn-uxaxh5ji-15be.googlevideo.com/initplayback?source=youtube&oeis=1&c=WEB&oad=3200&ovd=3200&oaad=11000&oavd=11000&ocs=700&oewis=1&oputc=1&ofpcc=1&msp=1&odepv=1&id=88cbbc1eca85227c&ip=86.33.64.254&initcwndbps=732500&mt=1691830147&oweuc="
                                                                                                     }
                                                                                                 }
                                                                                             }
@@ -560,7 +812,7 @@
                                                                                     "videoCountShortText": {
                                                                                         "simpleText": "9"
                                                                                     },
-                                                                                    "trackingParams": "CB4QljUYASITCI6UsaaitoADFchFegUdnYICTg==",
+                                                                                    "trackingParams": "CB4QljUYAiITCKnFtZvg1oADFRrHEQgdun0Hdw==",
                                                                                     "sidebarThumbnails": [
                                                                                         {
                                                                                             "thumbnails": [
@@ -624,7 +876,7 @@
                                                                                                     "iconInactiveColor": 10066329
                                                                                                 }
                                                                                             },
-                                                                                            "trackingParams": "CB8Qy-wJIhMIjpSxpqK2gAMVyEV6BR2dggJO"
+                                                                                            "trackingParams": "CB8Qy-wJIhMIqcW1m-DWgAMVGscRCB26fQd3"
                                                                                         }
                                                                                     },
                                                                                     "thumbnailOverlays": [
@@ -669,7 +921,7 @@
                                                                                             {
                                                                                                 "text": "View full playlist",
                                                                                                 "navigationEndpoint": {
-                                                                                                    "clickTrackingParams": "CB4QljUYASITCI6UsaaitoADFchFegUdnYICTjIGZy1oaWdo",
+                                                                                                    "clickTrackingParams": "CB4QljUYAiITCKnFtZvg1oADFRrHEQgdun0HdzIGZy1oaWdo",
                                                                                                     "commandMetadata": {
                                                                                                         "webCommandMetadata": {
                                                                                                             "url": "/playlist?list=PLYu-7OugCftY51i4nlH2TgevohqpwuRXJ",
@@ -716,7 +968,7 @@
                                                                                             {
                                                                                                 "text": "THE JEFFERY VLOG (SEASON 1)",
                                                                                                 "navigationEndpoint": {
-                                                                                                    "clickTrackingParams": "CBwQljUYAiITCI6UsaaitoADFchFegUdnYICTjIGZy1oaWdoWhhVQ3RQbEI0T21vd2FqY2dWYUwzanZHY0GaAQUQ8jgYaA==",
+                                                                                                    "clickTrackingParams": "CBwQljUYAyITCKnFtZvg1oADFRrHEQgdun0HdzIGZy1oaWdoWhhVQ3RQbEI0T21vd2FqY2dWYUwzanZHY0GaAQUQ8jgYaA==",
                                                                                                     "commandMetadata": {
                                                                                                         "webCommandMetadata": {
                                                                                                             "url": "/watch?v=rynzDwrUUIM&list=PLYu-7OugCftYUKmIFfE1dXuurxzy7NfMG&pp=iAQB",
@@ -737,7 +989,7 @@
                                                                                                         "watchEndpointSupportedOnesieConfig": {
                                                                                                             "html5PlaybackOnesieConfig": {
                                                                                                                 "commonConfig": {
-                                                                                                                    "url": "https://rr2---sn-uxaxh5ji-15be.googlevideo.com/initplayback?source=youtube&oeis=1&c=WEB&oad=3200&ovd=3200&oaad=11000&oavd=11000&ocs=700&oewis=1&oputc=1&ofpcc=1&beids=24350018&msp=1&odepv=1&id=af29f30f0ad45083&ip=86.33.81.247&initcwndbps=477500&mt=1690713938&oweuc="
+                                                                                                                    "url": "https://rr2---sn-uxaxh5ji-15be.googlevideo.com/initplayback?source=youtube&oeis=1&c=WEB&oad=3200&ovd=3200&oaad=11000&oavd=11000&ocs=700&oewis=1&oputc=1&ofpcc=1&msp=1&odepv=1&id=af29f30f0ad45083&ip=86.33.64.254&initcwndbps=732500&mt=1691830147&oweuc="
                                                                                                                 }
                                                                                                             }
                                                                                                         }
@@ -757,7 +1009,7 @@
                                                                                         ]
                                                                                     },
                                                                                     "navigationEndpoint": {
-                                                                                        "clickTrackingParams": "CBwQljUYAiITCI6UsaaitoADFchFegUdnYICTjIGZy1oaWdoWhhVQ3RQbEI0T21vd2FqY2dWYUwzanZHY0GaAQUQ8jgYaA==",
+                                                                                        "clickTrackingParams": "CBwQljUYAyITCKnFtZvg1oADFRrHEQgdun0HdzIGZy1oaWdoWhhVQ3RQbEI0T21vd2FqY2dWYUwzanZHY0GaAQUQ8jgYaA==",
                                                                                         "commandMetadata": {
                                                                                             "webCommandMetadata": {
                                                                                                 "url": "/watch?v=rynzDwrUUIM&list=PLYu-7OugCftYUKmIFfE1dXuurxzy7NfMG&pp=iAQB",
@@ -778,7 +1030,7 @@
                                                                                             "watchEndpointSupportedOnesieConfig": {
                                                                                                 "html5PlaybackOnesieConfig": {
                                                                                                     "commonConfig": {
-                                                                                                        "url": "https://rr2---sn-uxaxh5ji-15be.googlevideo.com/initplayback?source=youtube&oeis=1&c=WEB&oad=3200&ovd=3200&oaad=11000&oavd=11000&ocs=700&oewis=1&oputc=1&ofpcc=1&beids=24350018&msp=1&odepv=1&id=af29f30f0ad45083&ip=86.33.81.247&initcwndbps=477500&mt=1690713938&oweuc="
+                                                                                                        "url": "https://rr2---sn-uxaxh5ji-15be.googlevideo.com/initplayback?source=youtube&oeis=1&c=WEB&oad=3200&ovd=3200&oaad=11000&oavd=11000&ocs=700&oewis=1&oputc=1&ofpcc=1&msp=1&odepv=1&id=af29f30f0ad45083&ip=86.33.64.254&initcwndbps=732500&mt=1691830147&oweuc="
                                                                                                     }
                                                                                                 }
                                                                                             }
@@ -787,7 +1039,7 @@
                                                                                     "videoCountShortText": {
                                                                                         "simpleText": "7"
                                                                                     },
-                                                                                    "trackingParams": "CBwQljUYAiITCI6UsaaitoADFchFegUdnYICTg==",
+                                                                                    "trackingParams": "CBwQljUYAyITCKnFtZvg1oADFRrHEQgdun0Hdw==",
                                                                                     "sidebarThumbnails": [
                                                                                         {
                                                                                             "thumbnails": [
@@ -851,7 +1103,7 @@
                                                                                                     "iconInactiveColor": 10066329
                                                                                                 }
                                                                                             },
-                                                                                            "trackingParams": "CB0Qy-wJIhMIjpSxpqK2gAMVyEV6BR2dggJO"
+                                                                                            "trackingParams": "CB0Qy-wJIhMIqcW1m-DWgAMVGscRCB26fQd3"
                                                                                         }
                                                                                     },
                                                                                     "thumbnailOverlays": [
@@ -896,7 +1148,7 @@
                                                                                             {
                                                                                                 "text": "View full playlist",
                                                                                                 "navigationEndpoint": {
-                                                                                                    "clickTrackingParams": "CBwQljUYAiITCI6UsaaitoADFchFegUdnYICTjIGZy1oaWdo",
+                                                                                                    "clickTrackingParams": "CBwQljUYAyITCKnFtZvg1oADFRrHEQgdun0HdzIGZy1oaWdo",
                                                                                                     "commandMetadata": {
                                                                                                         "webCommandMetadata": {
                                                                                                             "url": "/playlist?list=PLYu-7OugCftYUKmIFfE1dXuurxzy7NfMG",
@@ -920,22 +1172,22 @@
                                                                                     "thumbnail": {
                                                                                         "thumbnails": [
                                                                                             {
-                                                                                                "url": "https://i.ytimg.com/vi/ZysVyOkEVUE/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAgL4eHlGsImDjqXlMsdHSFuD-BYg",
+                                                                                                "url": "https://i.ytimg.com/vi/-F1EQmlNQlk/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAdktjOi22DYa2ujfmgFuEpS0YXJA",
                                                                                                 "width": 480,
                                                                                                 "height": 270
                                                                                             }
                                                                                         ],
                                                                                         "sampledThumbnailColor": {
                                                                                             "red": 101,
-                                                                                            "green": 68,
-                                                                                            "blue": 55
+                                                                                            "green": 75,
+                                                                                            "blue": 48
                                                                                         },
                                                                                         "darkColorPalette": {
-                                                                                            "section2Color": 3351067,
-                                                                                            "iconInactiveColor": 9666166
+                                                                                            "section2Color": 3351832,
+                                                                                            "iconInactiveColor": 9667958
                                                                                         },
                                                                                         "vibrantColorPalette": {
-                                                                                            "iconInactiveColor": 10057579
+                                                                                            "iconInactiveColor": 10060395
                                                                                         }
                                                                                     },
                                                                                     "title": {
@@ -943,16 +1195,16 @@
                                                                                             {
                                                                                                 "text": "idontknowjeffery",
                                                                                                 "navigationEndpoint": {
-                                                                                                    "clickTrackingParams": "CBoQljUYAyITCI6UsaaitoADFchFegUdnYICTjIGZy1oaWdoWhhVQ3RQbEI0T21vd2FqY2dWYUwzanZHY0GaAQUQ8jgYaA==",
+                                                                                                    "clickTrackingParams": "CBoQljUYBCITCKnFtZvg1oADFRrHEQgdun0HdzIGZy1oaWdoWhhVQ3RQbEI0T21vd2FqY2dWYUwzanZHY0GaAQUQ8jgYaA==",
                                                                                                     "commandMetadata": {
                                                                                                         "webCommandMetadata": {
-                                                                                                            "url": "/watch?v=ZysVyOkEVUE&list=PLYu-7OugCftYtea2fwdEP43-PZBAUtNuJ&pp=iAQB",
+                                                                                                            "url": "/watch?v=-F1EQmlNQlk&list=PLYu-7OugCftYtea2fwdEP43-PZBAUtNuJ&pp=iAQB",
                                                                                                             "webPageType": "WEB_PAGE_TYPE_WATCH",
                                                                                                             "rootVe": 3832
                                                                                                         }
                                                                                                     },
                                                                                                     "watchEndpoint": {
-                                                                                                        "videoId": "ZysVyOkEVUE",
+                                                                                                        "videoId": "-F1EQmlNQlk",
                                                                                                         "playlistId": "PLYu-7OugCftYtea2fwdEP43-PZBAUtNuJ",
                                                                                                         "params": "OAI%3D",
                                                                                                         "playerParams": "iAQB",
@@ -964,7 +1216,7 @@
                                                                                                         "watchEndpointSupportedOnesieConfig": {
                                                                                                             "html5PlaybackOnesieConfig": {
                                                                                                                 "commonConfig": {
-                                                                                                                    "url": "https://rr1---sn-uxaxh5ji-15be.googlevideo.com/initplayback?source=youtube&oeis=1&c=WEB&oad=3200&ovd=3200&oaad=11000&oavd=11000&ocs=700&oewis=1&oputc=1&ofpcc=1&beids=24350018&msp=1&odepv=1&id=672b15c8e9045541&ip=86.33.81.247&initcwndbps=477500&mt=1690713938&oweuc="
+                                                                                                                    "url": "https://rr1---sn-uxaxh5ji-15be.googlevideo.com/initplayback?source=youtube&oeis=1&c=WEB&oad=3200&ovd=3200&oaad=11000&oavd=11000&ocs=700&oewis=1&oputc=1&ofpcc=1&msp=1&odepv=1&id=f85d4442694d4259&ip=86.33.64.254&initcwndbps=732500&mt=1691830147&oweuc="
                                                                                                                 }
                                                                                                             }
                                                                                                         }
@@ -976,7 +1228,7 @@
                                                                                     "videoCountText": {
                                                                                         "runs": [
                                                                                             {
-                                                                                                "text": "75"
+                                                                                                "text": "74"
                                                                                             },
                                                                                             {
                                                                                                 "text": " videos"
@@ -984,16 +1236,16 @@
                                                                                         ]
                                                                                     },
                                                                                     "navigationEndpoint": {
-                                                                                        "clickTrackingParams": "CBoQljUYAyITCI6UsaaitoADFchFegUdnYICTjIGZy1oaWdoWhhVQ3RQbEI0T21vd2FqY2dWYUwzanZHY0GaAQUQ8jgYaA==",
+                                                                                        "clickTrackingParams": "CBoQljUYBCITCKnFtZvg1oADFRrHEQgdun0HdzIGZy1oaWdoWhhVQ3RQbEI0T21vd2FqY2dWYUwzanZHY0GaAQUQ8jgYaA==",
                                                                                         "commandMetadata": {
                                                                                             "webCommandMetadata": {
-                                                                                                "url": "/watch?v=ZysVyOkEVUE&list=PLYu-7OugCftYtea2fwdEP43-PZBAUtNuJ&pp=iAQB",
+                                                                                                "url": "/watch?v=-F1EQmlNQlk&list=PLYu-7OugCftYtea2fwdEP43-PZBAUtNuJ&pp=iAQB",
                                                                                                 "webPageType": "WEB_PAGE_TYPE_WATCH",
                                                                                                 "rootVe": 3832
                                                                                             }
                                                                                         },
                                                                                         "watchEndpoint": {
-                                                                                            "videoId": "ZysVyOkEVUE",
+                                                                                            "videoId": "-F1EQmlNQlk",
                                                                                             "playlistId": "PLYu-7OugCftYtea2fwdEP43-PZBAUtNuJ",
                                                                                             "params": "OAI%3D",
                                                                                             "playerParams": "iAQB",
@@ -1005,33 +1257,24 @@
                                                                                             "watchEndpointSupportedOnesieConfig": {
                                                                                                 "html5PlaybackOnesieConfig": {
                                                                                                     "commonConfig": {
-                                                                                                        "url": "https://rr1---sn-uxaxh5ji-15be.googlevideo.com/initplayback?source=youtube&oeis=1&c=WEB&oad=3200&ovd=3200&oaad=11000&oavd=11000&ocs=700&oewis=1&oputc=1&ofpcc=1&beids=24350018&msp=1&odepv=1&id=672b15c8e9045541&ip=86.33.81.247&initcwndbps=477500&mt=1690713938&oweuc="
+                                                                                                        "url": "https://rr1---sn-uxaxh5ji-15be.googlevideo.com/initplayback?source=youtube&oeis=1&c=WEB&oad=3200&ovd=3200&oaad=11000&oavd=11000&ocs=700&oewis=1&oputc=1&ofpcc=1&msp=1&odepv=1&id=f85d4442694d4259&ip=86.33.64.254&initcwndbps=732500&mt=1691830147&oweuc="
                                                                                                     }
                                                                                                 }
                                                                                             }
                                                                                         }
                                                                                     },
                                                                                     "publishedTimeText": {
-                                                                                        "simpleText": "Updated 5 days ago"
+                                                                                        "simpleText": "Updated yesterday"
                                                                                     },
                                                                                     "videoCountShortText": {
-                                                                                        "simpleText": "75"
+                                                                                        "simpleText": "74"
                                                                                     },
-                                                                                    "trackingParams": "CBoQljUYAyITCI6UsaaitoADFchFegUdnYICTg==",
+                                                                                    "trackingParams": "CBoQljUYBCITCKnFtZvg1oADFRrHEQgdun0Hdw==",
                                                                                     "sidebarThumbnails": [
                                                                                         {
                                                                                             "thumbnails": [
                                                                                                 {
-                                                                                                    "url": "https://i.ytimg.com/vi/OVPe6dXj_aQ/default.jpg",
-                                                                                                    "width": 43,
-                                                                                                    "height": 20
-                                                                                                }
-                                                                                            ]
-                                                                                        },
-                                                                                        {
-                                                                                            "thumbnails": [
-                                                                                                {
-                                                                                                    "url": "https://i.ytimg.com/vi/L9nwreouXQ8/default.jpg",
+                                                                                                    "url": "https://i.ytimg.com/vi/8ca--BzlAqM/default.jpg",
                                                                                                     "width": 43,
                                                                                                     "height": 20
                                                                                                 }
@@ -1045,12 +1288,21 @@
                                                                                                     "height": 20
                                                                                                 }
                                                                                             ]
+                                                                                        },
+                                                                                        {
+                                                                                            "thumbnails": [
+                                                                                                {
+                                                                                                    "url": "https://i.ytimg.com/vi/_Q3xpYrGuHA/default.jpg",
+                                                                                                    "width": 43,
+                                                                                                    "height": 20
+                                                                                                }
+                                                                                            ]
                                                                                         }
                                                                                     ],
                                                                                     "thumbnailText": {
                                                                                         "runs": [
                                                                                             {
-                                                                                                "text": "75",
+                                                                                                "text": "74",
                                                                                                 "bold": true
                                                                                             },
                                                                                             {
@@ -1063,32 +1315,32 @@
                                                                                             "thumbnail": {
                                                                                                 "thumbnails": [
                                                                                                     {
-                                                                                                        "url": "https://i.ytimg.com/vi/ZysVyOkEVUE/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAgL4eHlGsImDjqXlMsdHSFuD-BYg",
+                                                                                                        "url": "https://i.ytimg.com/vi/-F1EQmlNQlk/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAdktjOi22DYa2ujfmgFuEpS0YXJA",
                                                                                                         "width": 480,
                                                                                                         "height": 270
                                                                                                     }
                                                                                                 ],
                                                                                                 "sampledThumbnailColor": {
                                                                                                     "red": 101,
-                                                                                                    "green": 68,
-                                                                                                    "blue": 55
+                                                                                                    "green": 75,
+                                                                                                    "blue": 48
                                                                                                 },
                                                                                                 "darkColorPalette": {
-                                                                                                    "section2Color": 3351067,
-                                                                                                    "iconInactiveColor": 9666166
+                                                                                                    "section2Color": 3351832,
+                                                                                                    "iconInactiveColor": 9667958
                                                                                                 },
                                                                                                 "vibrantColorPalette": {
-                                                                                                    "iconInactiveColor": 10057579
+                                                                                                    "iconInactiveColor": 10060395
                                                                                                 }
                                                                                             },
-                                                                                            "trackingParams": "CBsQy-wJIhMIjpSxpqK2gAMVyEV6BR2dggJO"
+                                                                                            "trackingParams": "CBsQy-wJIhMIqcW1m-DWgAMVGscRCB26fQd3"
                                                                                         }
                                                                                     },
                                                                                     "thumbnailOverlays": [
                                                                                         {
                                                                                             "thumbnailOverlayBottomPanelRenderer": {
                                                                                                 "text": {
-                                                                                                    "simpleText": "75 videos"
+                                                                                                    "simpleText": "74 videos"
                                                                                                 },
                                                                                                 "icon": {
                                                                                                     "iconType": "PLAYLISTS"
@@ -1126,7 +1378,7 @@
                                                                                             {
                                                                                                 "text": "View full playlist",
                                                                                                 "navigationEndpoint": {
-                                                                                                    "clickTrackingParams": "CBoQljUYAyITCI6UsaaitoADFchFegUdnYICTjIGZy1oaWdo",
+                                                                                                    "clickTrackingParams": "CBoQljUYBCITCKnFtZvg1oADFRrHEQgdun0HdzIGZy1oaWdo",
                                                                                                     "commandMetadata": {
                                                                                                         "webCommandMetadata": {
                                                                                                             "url": "/playlist?list=PLYu-7OugCftYtea2fwdEP43-PZBAUtNuJ",
@@ -1145,22 +1397,22 @@
                                                                                 }
                                                                             }
                                                                         ],
-                                                                        "trackingParams": "CBkQ6IsCGAAiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                                                        "trackingParams": "CBkQ6IsCGAAiEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                                                         "targetId": "browse-feedUCtPlB4OmowajcgVaL3jvGcAplaylists104"
                                                                     }
                                                                 }
                                                             ],
-                                                            "trackingParams": "CBgQuy8YACITCI6UsaaitoADFchFegUdnYICTg=="
+                                                            "trackingParams": "CBgQuy8YACITCKnFtZvg1oADFRrHEQgdun0Hdw=="
                                                         }
                                                     }
                                                 ],
-                                                "trackingParams": "CBQQui8iEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                                "trackingParams": "CBQQui8iEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                                 "subMenu": {
                                                     "channelSubMenuRenderer": {
                                                         "contentTypeSubMenuItems": [
                                                             {
                                                                 "endpoint": {
-                                                                    "clickTrackingParams": "CBQQui8iEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                                                    "clickTrackingParams": "CBQQui8iEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                                                     "commandMetadata": {
                                                                         "webCommandMetadata": {
                                                                             "url": "/@IDONTKNOWJEFFERY/playlists?view=1",
@@ -1186,7 +1438,7 @@
                                                                         "title": "Date added (newest)",
                                                                         "selected": true,
                                                                         "navigationEndpoint": {
-                                                                            "clickTrackingParams": "CBcQ48AHGAAiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                                                            "clickTrackingParams": "CBcQ48AHGAAiEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                                                             "commandMetadata": {
                                                                                 "webCommandMetadata": {
                                                                                     "url": "/@IDONTKNOWJEFFERY/playlists?view=1&sort=dd&flow=grid",
@@ -1201,13 +1453,13 @@
                                                                                 "canonicalBaseUrl": "/@IDONTKNOWJEFFERY"
                                                                             }
                                                                         },
-                                                                        "trackingParams": "CBcQ48AHGAAiEwiOlLGmoraAAxXIRXoFHZ2CAk4="
+                                                                        "trackingParams": "CBcQ48AHGAAiEwipxbWb4NaAAxUaxxEIHbp9B3c="
                                                                     },
                                                                     {
                                                                         "title": "Last video added",
                                                                         "selected": false,
                                                                         "navigationEndpoint": {
-                                                                            "clickTrackingParams": "CBYQ48AHGAEiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                                                            "clickTrackingParams": "CBYQ48AHGAEiEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                                                             "commandMetadata": {
                                                                                 "webCommandMetadata": {
                                                                                     "url": "/@IDONTKNOWJEFFERY/playlists?view=1&sort=lad&flow=grid",
@@ -1222,7 +1474,7 @@
                                                                                 "canonicalBaseUrl": "/@IDONTKNOWJEFFERY"
                                                                             }
                                                                         },
-                                                                        "trackingParams": "CBYQ48AHGAEiEwiOlLGmoraAAxXIRXoFHZ2CAk4="
+                                                                        "trackingParams": "CBYQ48AHGAEiEwipxbWb4NaAAxUaxxEIHbp9B3c="
                                                                     }
                                                                 ],
                                                                 "title": "Sort by",
@@ -1234,7 +1486,7 @@
                                                                         "label": "Sort by"
                                                                     }
                                                                 },
-                                                                "trackingParams": "CBUQgdoEIhMIjpSxpqK2gAMVyEV6BR2dggJO"
+                                                                "trackingParams": "CBUQgdoEIhMIqcW1m-DWgAMVGscRCB26fQd3"
                                                             }
                                                         }
                                                     }
@@ -1243,13 +1495,13 @@
                                                 "disablePullToRefresh": true
                                             }
                                         },
-                                        "trackingParams": "CBMQ8JMBGAgiEwiOlLGmoraAAxXIRXoFHZ2CAk4="
+                                        "trackingParams": "CBMQ8JMBGAkiEwipxbWb4NaAAxUaxxEIHbp9B3c="
                                     }
                                 },
                                 {
                                     "tabRenderer": {
                                         "endpoint": {
-                                            "clickTrackingParams": "CBIQ8JMBGAkiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                            "clickTrackingParams": "CBIQ8JMBGAoiEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                             "commandMetadata": {
                                                 "webCommandMetadata": {
                                                     "url": "/@IDONTKNOWJEFFERY/community",
@@ -1265,13 +1517,13 @@
                                             }
                                         },
                                         "title": "Community",
-                                        "trackingParams": "CBIQ8JMBGAkiEwiOlLGmoraAAxXIRXoFHZ2CAk4="
+                                        "trackingParams": "CBIQ8JMBGAoiEwipxbWb4NaAAxUaxxEIHbp9B3c="
                                     }
                                 },
                                 {
                                     "tabRenderer": {
                                         "endpoint": {
-                                            "clickTrackingParams": "CBEQ8JMBGAoiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                            "clickTrackingParams": "CBEQ8JMBGAsiEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                             "commandMetadata": {
                                                 "webCommandMetadata": {
                                                     "url": "/@IDONTKNOWJEFFERY/channels",
@@ -1287,13 +1539,13 @@
                                             }
                                         },
                                         "title": "Channels",
-                                        "trackingParams": "CBEQ8JMBGAoiEwiOlLGmoraAAxXIRXoFHZ2CAk4="
+                                        "trackingParams": "CBEQ8JMBGAsiEwipxbWb4NaAAxUaxxEIHbp9B3c="
                                     }
                                 },
                                 {
                                     "tabRenderer": {
                                         "endpoint": {
-                                            "clickTrackingParams": "CBAQ8JMBGAsiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                            "clickTrackingParams": "CBAQ8JMBGAwiEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                             "commandMetadata": {
                                                 "webCommandMetadata": {
                                                     "url": "/@IDONTKNOWJEFFERY/about",
@@ -1309,13 +1561,13 @@
                                             }
                                         },
                                         "title": "About",
-                                        "trackingParams": "CBAQ8JMBGAsiEwiOlLGmoraAAxXIRXoFHZ2CAk4="
+                                        "trackingParams": "CBAQ8JMBGAwiEwipxbWb4NaAAxUaxxEIHbp9B3c="
                                     }
                                 },
                                 {
                                     "expandableTabRenderer": {
                                         "endpoint": {
-                                            "clickTrackingParams": "CAAQhGciEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                            "clickTrackingParams": "CAAQhGciEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                             "commandMetadata": {
                                                 "webCommandMetadata": {
                                                     "url": "/@IDONTKNOWJEFFERY/search",
@@ -1342,7 +1594,7 @@
                             "channelId": "UCtPlB4OmowajcgVaL3jvGcA",
                             "title": "idontknowjeffery",
                             "navigationEndpoint": {
-                                "clickTrackingParams": "CA0Q8DsiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                "clickTrackingParams": "CA0Q8DsiEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                 "commandMetadata": {
                                     "webCommandMetadata": {
                                         "url": "/@IDONTKNOWJEFFERY",
@@ -1359,17 +1611,17 @@
                             "avatar": {
                                 "thumbnails": [
                                     {
-                                        "url": "https://yt3.googleusercontent.com/_APHHZzn8yZPIfW0aI0bTXgf-hocf5q1KHEOts2eV3OckewnlekOE0YzbujqBwp78DOe3JmKYg=s48-c-k-c0x00ffffff-no-rj",
+                                        "url": "https://yt3.googleusercontent.com/yZPYHj3bRHO66GAqQ1x3MwKirWgeXkAJZJhIa1sPcivbXrPmLtYjqlr_huoLC7hMbc5I4_DFOA=s48-c-k-c0x00ffffff-no-rj",
                                         "width": 48,
                                         "height": 48
                                     },
                                     {
-                                        "url": "https://yt3.googleusercontent.com/_APHHZzn8yZPIfW0aI0bTXgf-hocf5q1KHEOts2eV3OckewnlekOE0YzbujqBwp78DOe3JmKYg=s88-c-k-c0x00ffffff-no-rj",
+                                        "url": "https://yt3.googleusercontent.com/yZPYHj3bRHO66GAqQ1x3MwKirWgeXkAJZJhIa1sPcivbXrPmLtYjqlr_huoLC7hMbc5I4_DFOA=s88-c-k-c0x00ffffff-no-rj",
                                         "width": 88,
                                         "height": 88
                                     },
                                     {
-                                        "url": "https://yt3.googleusercontent.com/_APHHZzn8yZPIfW0aI0bTXgf-hocf5q1KHEOts2eV3OckewnlekOE0YzbujqBwp78DOe3JmKYg=s176-c-k-c0x00ffffff-no-rj",
+                                        "url": "https://yt3.googleusercontent.com/yZPYHj3bRHO66GAqQ1x3MwKirWgeXkAJZJhIa1sPcivbXrPmLtYjqlr_huoLC7hMbc5I4_DFOA=s176-c-k-c0x00ffffff-no-rj",
                                         "width": 176,
                                         "height": 176
                                     }
@@ -1378,32 +1630,32 @@
                             "banner": {
                                 "thumbnails": [
                                     {
-                                        "url": "https://yt3.googleusercontent.com/I6Is-fHYUHFWrnbDmEOL9w5_doEOzqpABh_1aBvpWANZlAnQ27HBqqjpLlBP09ZpDiDBzn_2=w1060-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+                                        "url": "https://yt3.googleusercontent.com/gxD8HEIKpXikYZ_Z5_16qDjCwSpFqqbRIBKTQ0XZLd2-png_Lxnn8pRXP0pWRLZbuZ4ZNNcDqC4=w1060-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
                                         "width": 1060,
                                         "height": 175
                                     },
                                     {
-                                        "url": "https://yt3.googleusercontent.com/I6Is-fHYUHFWrnbDmEOL9w5_doEOzqpABh_1aBvpWANZlAnQ27HBqqjpLlBP09ZpDiDBzn_2=w1138-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+                                        "url": "https://yt3.googleusercontent.com/gxD8HEIKpXikYZ_Z5_16qDjCwSpFqqbRIBKTQ0XZLd2-png_Lxnn8pRXP0pWRLZbuZ4ZNNcDqC4=w1138-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
                                         "width": 1138,
                                         "height": 188
                                     },
                                     {
-                                        "url": "https://yt3.googleusercontent.com/I6Is-fHYUHFWrnbDmEOL9w5_doEOzqpABh_1aBvpWANZlAnQ27HBqqjpLlBP09ZpDiDBzn_2=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+                                        "url": "https://yt3.googleusercontent.com/gxD8HEIKpXikYZ_Z5_16qDjCwSpFqqbRIBKTQ0XZLd2-png_Lxnn8pRXP0pWRLZbuZ4ZNNcDqC4=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
                                         "width": 1707,
                                         "height": 283
                                     },
                                     {
-                                        "url": "https://yt3.googleusercontent.com/I6Is-fHYUHFWrnbDmEOL9w5_doEOzqpABh_1aBvpWANZlAnQ27HBqqjpLlBP09ZpDiDBzn_2=w2120-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+                                        "url": "https://yt3.googleusercontent.com/gxD8HEIKpXikYZ_Z5_16qDjCwSpFqqbRIBKTQ0XZLd2-png_Lxnn8pRXP0pWRLZbuZ4ZNNcDqC4=w2120-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
                                         "width": 2120,
                                         "height": 351
                                     },
                                     {
-                                        "url": "https://yt3.googleusercontent.com/I6Is-fHYUHFWrnbDmEOL9w5_doEOzqpABh_1aBvpWANZlAnQ27HBqqjpLlBP09ZpDiDBzn_2=w2276-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+                                        "url": "https://yt3.googleusercontent.com/gxD8HEIKpXikYZ_Z5_16qDjCwSpFqqbRIBKTQ0XZLd2-png_Lxnn8pRXP0pWRLZbuZ4ZNNcDqC4=w2276-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
                                         "width": 2276,
                                         "height": 377
                                     },
                                     {
-                                        "url": "https://yt3.googleusercontent.com/I6Is-fHYUHFWrnbDmEOL9w5_doEOzqpABh_1aBvpWANZlAnQ27HBqqjpLlBP09ZpDiDBzn_2=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
+                                        "url": "https://yt3.googleusercontent.com/gxD8HEIKpXikYZ_Z5_16qDjCwSpFqqbRIBKTQ0XZLd2-png_Lxnn8pRXP0pWRLZbuZ4ZNNcDqC4=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj",
                                         "width": 2560,
                                         "height": 424
                                     }
@@ -1417,102 +1669,13 @@
                                         },
                                         "style": "BADGE_STYLE_TYPE_VERIFIED_ARTIST",
                                         "tooltip": "Official Artist Channel",
-                                        "trackingParams": "CA0Q8DsiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                        "trackingParams": "CA0Q8DsiEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                         "accessibilityData": {
                                             "label": "Official Artist Channel"
                                         }
                                     }
                                 }
                             ],
-                            "headerLinks": {
-                                "channelHeaderLinksRenderer": {
-                                    "primaryLinks": [
-                                        {
-                                            "navigationEndpoint": {
-                                                "clickTrackingParams": "CA0Q8DsiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
-                                                "commandMetadata": {
-                                                    "webCommandMetadata": {
-                                                        "url": "https://www.youtube.com/redirect?event=channel_banner&redir_token=QUFFLUhqa0hmanNMUDBiTkxiUkktV3FWTG9BZUc4aE1qd3xBQ3Jtc0tsdmxlVjZ3VzM1UkEwa0lkNXF4MlZ2SnJMcWJlYS1OQUpoa3lCQjFmOW9kVE1LdzdWbmNfQzhqNG45eFVMMG00aTlkTVVCcEhwUmtOeER0UmlzTHc3TE5EemdwejE2NkhMbUJYY3pwV2JEVUZ0QzV1Zw&q=https%3A%2F%2Fwww.instagram.com%2Fdontrustjeffery",
-                                                        "webPageType": "WEB_PAGE_TYPE_UNKNOWN",
-                                                        "rootVe": 83769
-                                                    }
-                                                },
-                                                "urlEndpoint": {
-                                                    "url": "https://www.youtube.com/redirect?event=channel_banner&redir_token=QUFFLUhqa0hmanNMUDBiTkxiUkktV3FWTG9BZUc4aE1qd3xBQ3Jtc0tsdmxlVjZ3VzM1UkEwa0lkNXF4MlZ2SnJMcWJlYS1OQUpoa3lCQjFmOW9kVE1LdzdWbmNfQzhqNG45eFVMMG00aTlkTVVCcEhwUmtOeER0UmlzTHc3TE5EemdwejE2NkhMbUJYY3pwV2JEVUZ0QzV1Zw&q=https%3A%2F%2Fwww.instagram.com%2Fdontrustjeffery",
-                                                    "target": "TARGET_NEW_WINDOW",
-                                                    "nofollow": true
-                                                }
-                                            },
-                                            "icon": {
-                                                "thumbnails": [
-                                                    {
-                                                        "url": "https://encrypted-tbn3.gstatic.com/favicon-tbn?q=tbn:ANd9GcSfLSwm05yS0BK4Kb28e-NTcQAsNLQfDCkRW2BwGzQ_4QLgT3HvRwy5O9kLRnUU-QhzvJantOSGhq8NOQp7EHd_WEvUNR6WW1Pp0THXuSRzNiJgToeoCA"
-                                                    }
-                                                ]
-                                            },
-                                            "title": {
-                                                "simpleText": "INSTAGRAM"
-                                            }
-                                        }
-                                    ],
-                                    "secondaryLinks": [
-                                        {
-                                            "navigationEndpoint": {
-                                                "clickTrackingParams": "CA0Q8DsiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
-                                                "commandMetadata": {
-                                                    "webCommandMetadata": {
-                                                        "url": "https://www.youtube.com/redirect?event=channel_banner&redir_token=QUFFLUhqa25Ua2JyNGNqMklzbGM5cXpMM3p1UjlXT1Z1d3xBQ3Jtc0trSEJXM1g0WUk4Smx4eDlfU0c4ZnA3Szd3b2FYZFJEaUtlUng3a3A0ZW5BYW1aS25MLWFuQUczSlhWaV83dGpwQVNQRkRZLTBOZzZEQTJCU1l3VFNGU3MyTDRkN1hWb2VwMjhGZWhIY01jVEppT3N1TQ&q=https%3A%2F%2Ftwitter.com%2FabovethelawHQ",
-                                                        "webPageType": "WEB_PAGE_TYPE_UNKNOWN",
-                                                        "rootVe": 83769
-                                                    }
-                                                },
-                                                "urlEndpoint": {
-                                                    "url": "https://www.youtube.com/redirect?event=channel_banner&redir_token=QUFFLUhqa25Ua2JyNGNqMklzbGM5cXpMM3p1UjlXT1Z1d3xBQ3Jtc0trSEJXM1g0WUk4Smx4eDlfU0c4ZnA3Szd3b2FYZFJEaUtlUng3a3A0ZW5BYW1aS25MLWFuQUczSlhWaV83dGpwQVNQRkRZLTBOZzZEQTJCU1l3VFNGU3MyTDRkN1hWb2VwMjhGZWhIY01jVEppT3N1TQ&q=https%3A%2F%2Ftwitter.com%2FabovethelawHQ",
-                                                    "target": "TARGET_NEW_WINDOW",
-                                                    "nofollow": true
-                                                }
-                                            },
-                                            "icon": {
-                                                "thumbnails": [
-                                                    {
-                                                        "url": "https://encrypted-tbn0.gstatic.com/favicon-tbn?q=tbn:ANd9GcTCl87OfLKVJ9rK8xDL2fO43Nn-qwO3MZqhD6Va_y_Dj4NQN5vi_7wfFsqVPVk5OJarybTLaqbvqdn3Oj1nmlMBa_srPR9cF0lTX47Loj-ftw"
-                                                    }
-                                                ]
-                                            },
-                                            "title": {
-                                                "simpleText": "TWITTER"
-                                            }
-                                        },
-                                        {
-                                            "navigationEndpoint": {
-                                                "clickTrackingParams": "CA0Q8DsiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
-                                                "commandMetadata": {
-                                                    "webCommandMetadata": {
-                                                        "url": "https://www.youtube.com/redirect?event=channel_banner&redir_token=QUFFLUhqazJXWnI2MTNGN1AxTzJOY0RGY01od0draHNhUXxBQ3Jtc0ttRVg3SGdhQTVkN3R6NldQTHN1dDAtbTVhM1lLSGJhcTVnRlExYjk0TnJmeWV3NUgxWjRhaFVKRlFaUXo4SnpJNE1Ta2MyS1Z2TDJ2d2JEcDU4cnQ3NHJvNnZRZFJDT2dWcTRmRnZ2cnZEc0xNeGJ3bw&q=https%3A%2F%2Fopen.spotify.com%2Fartist%2F7Fx7ZCiOsh5eVpFuK25VD6%3Fsi%3DL3fLxvJtR5OYy5gnioPtWQ",
-                                                        "webPageType": "WEB_PAGE_TYPE_UNKNOWN",
-                                                        "rootVe": 83769
-                                                    }
-                                                },
-                                                "urlEndpoint": {
-                                                    "url": "https://www.youtube.com/redirect?event=channel_banner&redir_token=QUFFLUhqazJXWnI2MTNGN1AxTzJOY0RGY01od0draHNhUXxBQ3Jtc0ttRVg3SGdhQTVkN3R6NldQTHN1dDAtbTVhM1lLSGJhcTVnRlExYjk0TnJmeWV3NUgxWjRhaFVKRlFaUXo4SnpJNE1Ta2MyS1Z2TDJ2d2JEcDU4cnQ3NHJvNnZRZFJDT2dWcTRmRnZ2cnZEc0xNeGJ3bw&q=https%3A%2F%2Fopen.spotify.com%2Fartist%2F7Fx7ZCiOsh5eVpFuK25VD6%3Fsi%3DL3fLxvJtR5OYy5gnioPtWQ",
-                                                    "target": "TARGET_NEW_WINDOW",
-                                                    "nofollow": true
-                                                }
-                                            },
-                                            "icon": {
-                                                "thumbnails": [
-                                                    {
-                                                        "url": "https://encrypted-tbn2.gstatic.com/favicon-tbn?q=tbn:ANd9GcRkg5ej2Nhm5HWkVYYIxIzysv9gFuaHvk-ZXTcX12abSusd4VWmcTdPsGpAOcCFyn-YaSO3YtSHyKqkErVBdRnFbQV9l3gFcW9ahAM66P6xoZXi9A_U"
-                                                    }
-                                                ]
-                                            },
-                                            "title": {
-                                                "simpleText": "SPOTIFY"
-                                            }
-                                        }
-                                    ]
-                                }
-                            },
                             "subscribeButton": {
                                 "buttonRenderer": {
                                     "style": "STYLE_DESTRUCTIVE",
@@ -1526,7 +1689,7 @@
                                         ]
                                     },
                                     "navigationEndpoint": {
-                                        "clickTrackingParams": "CA4Q8FsiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                        "clickTrackingParams": "CA4Q8FsiEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                         "commandMetadata": {
                                             "webCommandMetadata": {
                                                 "ignoreNavigation": true
@@ -1550,17 +1713,17 @@
                                                                 "simpleText": "Sign in"
                                                             },
                                                             "navigationEndpoint": {
-                                                                "clickTrackingParams": "CA8Q_YYEIhMIjpSxpqK2gAMVyEV6BR2dggJOMglzdWJzY3JpYmU=",
+                                                                "clickTrackingParams": "CA8Q_YYEIhMIqcW1m-DWgAMVGscRCB26fQd3MglzdWJzY3JpYmU=",
                                                                 "commandMetadata": {
                                                                     "webCommandMetadata": {
-                                                                        "url": "https://accounts.google.com/ServiceLogin?service=youtube&uilel=3&passive=true&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26hl%3Den%26next%3D%252F%2540IDONTKNOWJEFFERY%252Fplaylists%26continue_action%3DQUFFLUhqbHNHYlRFLUJ4bWxleC1icG4wbjZlaV9WWHZmQXxBQ3Jtc0tuVVdjbzNlZ0dkb3lsNWd0QWR2dkpoa25vYklnRFlSNlRfTk10aF9wWmJ2ZEpXUHBicUJPYk9HNjAtWW1Kekxzdm54QUtZci1VbGg4bnhmM2N0dkkzS3hHOUlIcTBfTkNDYkU1bVpRTkpJbXkyTTlXVlFOOS1uV1dkdzRHSzVMSEIyczlBM3cwS3ZCYVR1cnFKQVhDeERPMlZGN2RWN1ljemJwWXBQNzltRUxTZ3dhQ29EU0l4aldiVmtpTm9ldTVna2lVUi0&hl=en&ec=66429",
+                                                                        "url": "https://accounts.google.com/ServiceLogin?service=youtube&uilel=3&passive=true&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26hl%3Den%26next%3D%252F%2540IDONTKNOWJEFFERY%252Fplaylists%26continue_action%3DQUFFLUhqbGZpZ2J1Q1c1dG91cXVYaFBKbHBxYzJ4ek96UXxBQ3Jtc0tueHdLeGI1Y24tS3hQN3ZrcGF4cnhRQXZBZTNwbFZPcV9qWFNLLWRubFAweDZ4REZuR2RfM19Mb2l5WU5ReE9fb3BId2VvM1BkdFNmc2ZyZWdadFlTVnUxNmw3d216ajhjajJpWVlrRVhBWFFjTUdELXl4QUpJVEJDUDdUblpORXNRZTBYeENRdjZZLTR4ekZRSF9SV2hJeXh4ZFFwbHhFc2dOTmV2VVNHdlU1TFM5VTI4aWtGS1dhNXJ5WkI5M1JSZE1zQjM&hl=en&ec=66429",
                                                                         "webPageType": "WEB_PAGE_TYPE_UNKNOWN",
                                                                         "rootVe": 83769
                                                                     }
                                                                 },
                                                                 "signInEndpoint": {
                                                                     "nextEndpoint": {
-                                                                        "clickTrackingParams": "CA8Q_YYEIhMIjpSxpqK2gAMVyEV6BR2dggJO",
+                                                                        "clickTrackingParams": "CA8Q_YYEIhMIqcW1m-DWgAMVGscRCB26fQd3",
                                                                         "commandMetadata": {
                                                                             "webCommandMetadata": {
                                                                                 "url": "/@IDONTKNOWJEFFERY/playlists",
@@ -1575,52 +1738,52 @@
                                                                             "canonicalBaseUrl": "/@IDONTKNOWJEFFERY"
                                                                         }
                                                                     },
-                                                                    "continueAction": "QUFFLUhqbHNHYlRFLUJ4bWxleC1icG4wbjZlaV9WWHZmQXxBQ3Jtc0tuVVdjbzNlZ0dkb3lsNWd0QWR2dkpoa25vYklnRFlSNlRfTk10aF9wWmJ2ZEpXUHBicUJPYk9HNjAtWW1Kekxzdm54QUtZci1VbGg4bnhmM2N0dkkzS3hHOUlIcTBfTkNDYkU1bVpRTkpJbXkyTTlXVlFOOS1uV1dkdzRHSzVMSEIyczlBM3cwS3ZCYVR1cnFKQVhDeERPMlZGN2RWN1ljemJwWXBQNzltRUxTZ3dhQ29EU0l4aldiVmtpTm9ldTVna2lVUi0",
+                                                                    "continueAction": "QUFFLUhqbGZpZ2J1Q1c1dG91cXVYaFBKbHBxYzJ4ek96UXxBQ3Jtc0tueHdLeGI1Y24tS3hQN3ZrcGF4cnhRQXZBZTNwbFZPcV9qWFNLLWRubFAweDZ4REZuR2RfM19Mb2l5WU5ReE9fb3BId2VvM1BkdFNmc2ZyZWdadFlTVnUxNmw3d216ajhjajJpWVlrRVhBWFFjTUdELXl4QUpJVEJDUDdUblpORXNRZTBYeENRdjZZLTR4ekZRSF9SV2hJeXh4ZFFwbHhFc2dOTmV2VVNHdlU1TFM5VTI4aWtGS1dhNXJ5WkI5M1JSZE1zQjM",
                                                                     "idamTag": "66429"
                                                                 }
                                                             },
-                                                            "trackingParams": "CA8Q_YYEIhMIjpSxpqK2gAMVyEV6BR2dggJO"
+                                                            "trackingParams": "CA8Q_YYEIhMIqcW1m-DWgAMVGscRCB26fQd3"
                                                         }
                                                     }
                                                 }
                                             }
                                         }
                                     },
-                                    "trackingParams": "CA4Q8FsiEwiOlLGmoraAAxXIRXoFHZ2CAk4="
+                                    "trackingParams": "CA4Q8FsiEwipxbWb4NaAAxUaxxEIHbp9B3c="
                                 }
                             },
                             "subscriberCountText": {
                                 "accessibility": {
                                     "accessibilityData": {
-                                        "label": "58.8K subscribers"
+                                        "label": "59K subscribers"
                                     }
                                 },
-                                "simpleText": "58.8K subscribers"
+                                "simpleText": "59K subscribers"
                             },
                             "tvBanner": {
                                 "thumbnails": [
                                     {
-                                        "url": "https://yt3.googleusercontent.com/I6Is-fHYUHFWrnbDmEOL9w5_doEOzqpABh_1aBvpWANZlAnQ27HBqqjpLlBP09ZpDiDBzn_2=w320-fcrop64=1,00000000ffffffff-k-c0xffffffff-no-nd-rj",
+                                        "url": "https://yt3.googleusercontent.com/gxD8HEIKpXikYZ_Z5_16qDjCwSpFqqbRIBKTQ0XZLd2-png_Lxnn8pRXP0pWRLZbuZ4ZNNcDqC4=w320-fcrop64=1,00000000ffffffff-k-c0xffffffff-no-nd-rj",
                                         "width": 320,
                                         "height": 180
                                     },
                                     {
-                                        "url": "https://yt3.googleusercontent.com/I6Is-fHYUHFWrnbDmEOL9w5_doEOzqpABh_1aBvpWANZlAnQ27HBqqjpLlBP09ZpDiDBzn_2=w854-fcrop64=1,00000000ffffffff-k-c0xffffffff-no-nd-rj",
+                                        "url": "https://yt3.googleusercontent.com/gxD8HEIKpXikYZ_Z5_16qDjCwSpFqqbRIBKTQ0XZLd2-png_Lxnn8pRXP0pWRLZbuZ4ZNNcDqC4=w854-fcrop64=1,00000000ffffffff-k-c0xffffffff-no-nd-rj",
                                         "width": 854,
                                         "height": 480
                                     },
                                     {
-                                        "url": "https://yt3.googleusercontent.com/I6Is-fHYUHFWrnbDmEOL9w5_doEOzqpABh_1aBvpWANZlAnQ27HBqqjpLlBP09ZpDiDBzn_2=w1280-fcrop64=1,00000000ffffffff-k-c0xffffffff-no-nd-rj",
+                                        "url": "https://yt3.googleusercontent.com/gxD8HEIKpXikYZ_Z5_16qDjCwSpFqqbRIBKTQ0XZLd2-png_Lxnn8pRXP0pWRLZbuZ4ZNNcDqC4=w1280-fcrop64=1,00000000ffffffff-k-c0xffffffff-no-nd-rj",
                                         "width": 1280,
                                         "height": 720
                                     },
                                     {
-                                        "url": "https://yt3.googleusercontent.com/I6Is-fHYUHFWrnbDmEOL9w5_doEOzqpABh_1aBvpWANZlAnQ27HBqqjpLlBP09ZpDiDBzn_2=w1920-fcrop64=1,00000000ffffffff-k-c0xffffffff-no-nd-rj",
+                                        "url": "https://yt3.googleusercontent.com/gxD8HEIKpXikYZ_Z5_16qDjCwSpFqqbRIBKTQ0XZLd2-png_Lxnn8pRXP0pWRLZbuZ4ZNNcDqC4=w1920-fcrop64=1,00000000ffffffff-k-c0xffffffff-no-nd-rj",
                                         "width": 1920,
                                         "height": 1080
                                     },
                                     {
-                                        "url": "https://yt3.googleusercontent.com/I6Is-fHYUHFWrnbDmEOL9w5_doEOzqpABh_1aBvpWANZlAnQ27HBqqjpLlBP09ZpDiDBzn_2=w2120-fcrop64=1,00000000ffffffff-k-c0xffffffff-no-nd-rj",
+                                        "url": "https://yt3.googleusercontent.com/gxD8HEIKpXikYZ_Z5_16qDjCwSpFqqbRIBKTQ0XZLd2-png_Lxnn8pRXP0pWRLZbuZ4ZNNcDqC4=w2120-fcrop64=1,00000000ffffffff-k-c0xffffffff-no-nd-rj",
                                         "width": 2120,
                                         "height": 1192
                                     }
@@ -1629,33 +1792,33 @@
                             "mobileBanner": {
                                 "thumbnails": [
                                     {
-                                        "url": "https://yt3.googleusercontent.com/I6Is-fHYUHFWrnbDmEOL9w5_doEOzqpABh_1aBvpWANZlAnQ27HBqqjpLlBP09ZpDiDBzn_2=w320-fcrop64=1,32b75a57cd48a5a8-k-c0xffffffff-no-nd-rj",
+                                        "url": "https://yt3.googleusercontent.com/gxD8HEIKpXikYZ_Z5_16qDjCwSpFqqbRIBKTQ0XZLd2-png_Lxnn8pRXP0pWRLZbuZ4ZNNcDqC4=w320-fcrop64=1,32b75a57cd48a5a8-k-c0xffffffff-no-nd-rj",
                                         "width": 320,
                                         "height": 88
                                     },
                                     {
-                                        "url": "https://yt3.googleusercontent.com/I6Is-fHYUHFWrnbDmEOL9w5_doEOzqpABh_1aBvpWANZlAnQ27HBqqjpLlBP09ZpDiDBzn_2=w640-fcrop64=1,32b75a57cd48a5a8-k-c0xffffffff-no-nd-rj",
+                                        "url": "https://yt3.googleusercontent.com/gxD8HEIKpXikYZ_Z5_16qDjCwSpFqqbRIBKTQ0XZLd2-png_Lxnn8pRXP0pWRLZbuZ4ZNNcDqC4=w640-fcrop64=1,32b75a57cd48a5a8-k-c0xffffffff-no-nd-rj",
                                         "width": 640,
                                         "height": 175
                                     },
                                     {
-                                        "url": "https://yt3.googleusercontent.com/I6Is-fHYUHFWrnbDmEOL9w5_doEOzqpABh_1aBvpWANZlAnQ27HBqqjpLlBP09ZpDiDBzn_2=w960-fcrop64=1,32b75a57cd48a5a8-k-c0xffffffff-no-nd-rj",
+                                        "url": "https://yt3.googleusercontent.com/gxD8HEIKpXikYZ_Z5_16qDjCwSpFqqbRIBKTQ0XZLd2-png_Lxnn8pRXP0pWRLZbuZ4ZNNcDqC4=w960-fcrop64=1,32b75a57cd48a5a8-k-c0xffffffff-no-nd-rj",
                                         "width": 960,
                                         "height": 263
                                     },
                                     {
-                                        "url": "https://yt3.googleusercontent.com/I6Is-fHYUHFWrnbDmEOL9w5_doEOzqpABh_1aBvpWANZlAnQ27HBqqjpLlBP09ZpDiDBzn_2=w1280-fcrop64=1,32b75a57cd48a5a8-k-c0xffffffff-no-nd-rj",
+                                        "url": "https://yt3.googleusercontent.com/gxD8HEIKpXikYZ_Z5_16qDjCwSpFqqbRIBKTQ0XZLd2-png_Lxnn8pRXP0pWRLZbuZ4ZNNcDqC4=w1280-fcrop64=1,32b75a57cd48a5a8-k-c0xffffffff-no-nd-rj",
                                         "width": 1280,
                                         "height": 351
                                     },
                                     {
-                                        "url": "https://yt3.googleusercontent.com/I6Is-fHYUHFWrnbDmEOL9w5_doEOzqpABh_1aBvpWANZlAnQ27HBqqjpLlBP09ZpDiDBzn_2=w1440-fcrop64=1,32b75a57cd48a5a8-k-c0xffffffff-no-nd-rj",
+                                        "url": "https://yt3.googleusercontent.com/gxD8HEIKpXikYZ_Z5_16qDjCwSpFqqbRIBKTQ0XZLd2-png_Lxnn8pRXP0pWRLZbuZ4ZNNcDqC4=w1440-fcrop64=1,32b75a57cd48a5a8-k-c0xffffffff-no-nd-rj",
                                         "width": 1440,
                                         "height": 395
                                     }
                                 ]
                             },
-                            "trackingParams": "CA0Q8DsiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                            "trackingParams": "CA0Q8DsiEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                             "channelHandleText": {
                                 "runs": [
                                     {
@@ -1667,7 +1830,7 @@
                             "videosCountText": {
                                 "runs": [
                                     {
-                                        "text": "267"
+                                        "text": "279"
                                     },
                                     {
                                         "text": " videos"
@@ -1676,11 +1839,11 @@
                             },
                             "tagline": {
                                 "channelTaglineRenderer": {
-                                    "content": "Asylum Records + Above The Law Records",
+                                    "content": "Above The Law Records",
                                     "maxLines": 1,
                                     "moreLabel": "... more",
                                     "moreEndpoint": {
-                                        "clickTrackingParams": "CA0Q8DsiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                        "clickTrackingParams": "CA0Q8DsiEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                         "commandMetadata": {
                                             "webCommandMetadata": {
                                                 "url": "/@IDONTKNOWJEFFERY/about",
@@ -1705,7 +1868,7 @@
                     "metadata": {
                         "channelMetadataRenderer": {
                             "title": "idontknowjeffery",
-                            "description": "Asylum Records + Above The Law Records\n\n\n",
+                            "description": "Above The Law Records\n\n\n",
                             "rssUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCtPlB4OmowajcgVaL3jvGcA",
                             "externalId": "UCtPlB4OmowajcgVaL3jvGcA",
                             "keywords": "",
@@ -1715,7 +1878,7 @@
                             "avatar": {
                                 "thumbnails": [
                                     {
-                                        "url": "https://yt3.googleusercontent.com/_APHHZzn8yZPIfW0aI0bTXgf-hocf5q1KHEOts2eV3OckewnlekOE0YzbujqBwp78DOe3JmKYg=s900-c-k-c0x00ffffff-no-rj",
+                                        "url": "https://yt3.googleusercontent.com/yZPYHj3bRHO66GAqQ1x3MwKirWgeXkAJZJhIa1sPcivbXrPmLtYjqlr_huoLC7hMbc5I4_DFOA=s900-c-k-c0x00ffffff-no-rj",
                                         "width": 900,
                                         "height": 900
                                     }
@@ -1724,255 +1887,255 @@
                             "channelUrl": "https://www.youtube.com/channel/UCtPlB4OmowajcgVaL3jvGcA",
                             "isFamilySafe": true,
                             "availableCountryCodes": [
-                                "JE",
-                                "TD",
-                                "VG",
-                                "GM",
-                                "KE",
-                                "CA",
-                                "MN",
-                                "CI",
-                                "GG",
-                                "AX",
-                                "TR",
-                                "WF",
-                                "SC",
-                                "MF",
-                                "BS",
-                                "SD",
-                                "OM",
-                                "GR",
-                                "HR",
-                                "RU",
-                                "BR",
-                                "DE",
-                                "JP",
-                                "GQ",
-                                "MZ",
-                                "KY",
-                                "NO",
-                                "TK",
-                                "PL",
-                                "LI",
-                                "BV",
-                                "JM",
-                                "MY",
-                                "PT",
-                                "SB",
-                                "MH",
-                                "AL",
-                                "TJ",
-                                "DK",
-                                "MC",
-                                "PA",
-                                "SM",
-                                "PH",
-                                "MX",
-                                "ME",
-                                "AM",
-                                "GF",
-                                "GS",
-                                "NG",
-                                "IM",
-                                "GB",
-                                "SY",
-                                "BN",
-                                "AT",
-                                "JO",
-                                "SG",
-                                "NC",
-                                "UA",
-                                "SL",
-                                "TN",
                                 "KZ",
-                                "CW",
-                                "AE",
-                                "MR",
-                                "UG",
-                                "WS",
-                                "IQ",
-                                "FI",
-                                "ML",
-                                "BF",
-                                "GA",
-                                "ES",
-                                "MK",
-                                "AO",
-                                "PN",
-                                "TC",
-                                "AW",
-                                "PY",
-                                "YT",
-                                "AS",
-                                "NZ",
-                                "BD",
-                                "AG",
-                                "RE",
-                                "QA",
-                                "CF",
-                                "CY",
-                                "KR",
-                                "HK",
-                                "KN",
-                                "SJ",
-                                "UZ",
-                                "CR",
-                                "GT",
-                                "AR",
-                                "AQ",
-                                "GL",
-                                "KI",
-                                "TM",
-                                "MO",
-                                "SO",
-                                "UY",
-                                "DJ",
-                                "EH",
-                                "FK",
-                                "HM",
-                                "CC",
-                                "FM",
-                                "GE",
-                                "HT",
-                                "IR",
-                                "PW",
-                                "NL",
-                                "MA",
-                                "TL",
-                                "ST",
-                                "SX",
-                                "KM",
-                                "EE",
-                                "PF",
-                                "LT",
-                                "KH",
-                                "MG",
-                                "UM",
-                                "LC",
-                                "CU",
-                                "HU",
-                                "NP",
-                                "MQ",
-                                "BI",
-                                "DZ",
-                                "BT",
-                                "NU",
-                                "NR",
-                                "RS",
-                                "SI",
-                                "FR",
-                                "PE",
-                                "ET",
-                                "NA",
-                                "KW",
-                                "TH",
-                                "IE",
-                                "HN",
-                                "BJ",
-                                "CG",
-                                "LK",
-                                "CK",
-                                "SH",
-                                "RW",
-                                "AZ",
-                                "BQ",
-                                "BB",
-                                "EC",
-                                "NI",
-                                "GP",
-                                "MM",
-                                "KP",
-                                "AU",
-                                "LB",
-                                "IS",
-                                "PM",
-                                "GW",
-                                "SE",
-                                "GN",
-                                "BL",
-                                "SA",
-                                "ID",
-                                "LU",
-                                "GI",
-                                "SV",
-                                "LR",
-                                "CL",
-                                "US",
-                                "AI",
-                                "MW",
-                                "PG",
-                                "VC",
-                                "SZ",
-                                "ZW",
-                                "CD",
-                                "FO",
-                                "BZ",
-                                "PS",
-                                "LY",
-                                "MT",
-                                "MU",
-                                "TT",
-                                "BA",
-                                "BH",
-                                "CN",
-                                "BG",
-                                "LS",
-                                "AD",
-                                "VI",
-                                "SS",
-                                "MV",
-                                "TG",
-                                "CV",
-                                "DO",
-                                "RO",
-                                "MS",
-                                "ER",
-                                "VA",
-                                "CM",
-                                "BO",
-                                "NE",
-                                "GD",
-                                "ZA",
-                                "SK",
-                                "BE",
-                                "FJ",
-                                "TV",
-                                "GU",
-                                "TZ",
-                                "ZM",
-                                "CO",
-                                "TO",
-                                "YE",
-                                "VU",
-                                "BY",
+                                "JP",
                                 "VN",
-                                "PK",
-                                "BM",
-                                "VE",
-                                "IT",
-                                "DM",
-                                "IN",
-                                "CX",
-                                "MD",
-                                "NF",
-                                "LV",
-                                "GH",
-                                "TW",
-                                "GY",
-                                "BW",
-                                "IO",
+                                "CA",
+                                "GI",
+                                "PS",
+                                "SY",
+                                "GR",
+                                "TN",
+                                "BA",
+                                "HU",
                                 "SN",
-                                "AF",
-                                "PR",
-                                "MP",
-                                "LA",
-                                "CZ",
-                                "SR",
-                                "CH",
+                                "CR",
+                                "CD",
                                 "KG",
+                                "CY",
+                                "GS",
+                                "DM",
+                                "ME",
+                                "BB",
+                                "RO",
+                                "LT",
+                                "NZ",
+                                "MN",
+                                "NL",
+                                "VG",
+                                "MG",
+                                "AX",
+                                "SM",
+                                "PR",
+                                "VE",
+                                "AG",
+                                "DK",
+                                "KH",
+                                "CW",
+                                "LB",
+                                "DE",
+                                "SV",
+                                "AQ",
+                                "CH",
+                                "SC",
+                                "MR",
+                                "KR",
+                                "BD",
+                                "SZ",
+                                "MU",
+                                "TZ",
+                                "LK",
+                                "TF",
                                 "EG",
+                                "PK",
+                                "AO",
+                                "ZM",
+                                "GU",
+                                "AZ",
+                                "GY",
+                                "BM",
+                                "AR",
+                                "BF",
+                                "NF",
+                                "NE",
+                                "EE",
+                                "HM",
+                                "MT",
+                                "IS",
+                                "CV",
+                                "ES",
+                                "DO",
+                                "PA",
+                                "SD",
+                                "DJ",
+                                "CZ",
+                                "TM",
+                                "MH",
+                                "BY",
+                                "YT",
+                                "GW",
+                                "BQ",
+                                "PM",
+                                "BW",
+                                "LY",
+                                "GT",
+                                "KP",
+                                "NC",
+                                "MW",
+                                "CK",
+                                "LV",
+                                "SS",
+                                "CM",
+                                "TH",
+                                "SL",
+                                "GB",
+                                "VC",
+                                "SB",
+                                "IM",
+                                "BE",
+                                "BI",
+                                "GQ",
+                                "SX",
+                                "LU",
+                                "ET",
+                                "MM",
+                                "CL",
+                                "BJ",
+                                "AD",
+                                "HN",
+                                "IT",
+                                "SO",
+                                "ZA",
+                                "NG",
+                                "FM",
+                                "LR",
+                                "CO",
+                                "OM",
+                                "PH",
+                                "US",
+                                "MK",
+                                "MD",
+                                "TL",
+                                "FK",
+                                "MC",
+                                "UG",
+                                "GL",
+                                "TG",
+                                "MZ",
+                                "AT",
+                                "PW",
+                                "GH",
+                                "TT",
+                                "BH",
+                                "SH",
+                                "GA",
+                                "BR",
+                                "PG",
+                                "SA",
+                                "VI",
+                                "LS",
+                                "UZ",
+                                "IE",
+                                "HK",
+                                "DZ",
+                                "JE",
+                                "CU",
                                 "IL",
-                                "TF"
+                                "GN",
+                                "LC",
+                                "PF",
+                                "TK",
+                                "SJ",
+                                "AF",
+                                "MF",
+                                "RE",
+                                "ID",
+                                "SG",
+                                "ML",
+                                "FR",
+                                "SR",
+                                "UM",
+                                "FJ",
+                                "IR",
+                                "KE",
+                                "MO",
+                                "ST",
+                                "BZ",
+                                "NA",
+                                "TW",
+                                "AU",
+                                "TV",
+                                "AI",
+                                "CI",
+                                "BG",
+                                "MQ",
+                                "PL",
+                                "PT",
+                                "PE",
+                                "GP",
+                                "VU",
+                                "WF",
+                                "TJ",
+                                "MV",
+                                "VA",
+                                "CG",
+                                "BT",
+                                "TC",
+                                "MY",
+                                "FI",
+                                "NR",
+                                "NI",
+                                "MP",
+                                "MS",
+                                "CF",
+                                "LA",
+                                "TR",
+                                "KI",
+                                "MX",
+                                "SE",
+                                "EH",
+                                "UY",
+                                "YE",
+                                "EC",
+                                "LI",
+                                "IQ",
+                                "AE",
+                                "AM",
+                                "BS",
+                                "SK",
+                                "NP",
+                                "IO",
+                                "RS",
+                                "TD",
+                                "ZW",
+                                "GF",
+                                "SI",
+                                "GD",
+                                "AS",
+                                "UA",
+                                "BV",
+                                "AW",
+                                "RW",
+                                "WS",
+                                "BL",
+                                "ER",
+                                "TO",
+                                "FO",
+                                "CX",
+                                "KN",
+                                "GM",
+                                "CN",
+                                "PY",
+                                "JM",
+                                "QA",
+                                "GE",
+                                "JO",
+                                "KY",
+                                "CC",
+                                "BN",
+                                "NU",
+                                "AL",
+                                "GG",
+                                "NO",
+                                "HR",
+                                "PN",
+                                "KW",
+                                "HT",
+                                "BO",
+                                "IN",
+                                "MA",
+                                "KM",
+                                "RU"
                             ],
                             "androidDeepLink": "android-app://com.google.android.youtube/http/www.youtube.com/channel/UCtPlB4OmowajcgVaL3jvGcA",
                             "androidAppindexingLink": "android-app://com.google.android.youtube/http/www.youtube.com/channel/UCtPlB4OmowajcgVaL3jvGcA",
@@ -1980,7 +2143,7 @@
                             "vanityChannelUrl": "http://www.youtube.com/@IDONTKNOWJEFFERY"
                         }
                     },
-                    "trackingParams": "CAAQhGciEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                    "trackingParams": "CAAQhGciEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                     "topbar": {
                         "desktopTopbarRenderer": {
                             "logo": {
@@ -1996,7 +2159,7 @@
                                         ]
                                     },
                                     "endpoint": {
-                                        "clickTrackingParams": "CAwQsV4iEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                        "clickTrackingParams": "CAwQsV4iEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                         "commandMetadata": {
                                             "webCommandMetadata": {
                                                 "url": "/",
@@ -2009,7 +2172,7 @@
                                             "browseId": "FEwhat_to_watch"
                                         }
                                     },
-                                    "trackingParams": "CAwQsV4iEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                    "trackingParams": "CAwQsV4iEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                     "overrideEntityKey": "EgZ0b3BiYXIg9QEoAQ%3D%3D"
                                 }
                             },
@@ -2033,9 +2196,9 @@
                                             "focusSearchbox": true
                                         }
                                     },
-                                    "trackingParams": "CAoQ7VAiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                    "trackingParams": "CAoQ7VAiEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                     "searchEndpoint": {
-                                        "clickTrackingParams": "CAoQ7VAiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                        "clickTrackingParams": "CAoQ7VAiEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                         "commandMetadata": {
                                             "webCommandMetadata": {
                                                 "url": "/results?search_query=",
@@ -2055,7 +2218,7 @@
                                             "icon": {
                                                 "iconType": "CLOSE"
                                             },
-                                            "trackingParams": "CAsQ8FsiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                            "trackingParams": "CAsQ8FsiEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                             "accessibilityData": {
                                                 "accessibilityData": {
                                                     "label": "Clear search query"
@@ -2065,7 +2228,7 @@
                                     }
                                 }
                             },
-                            "trackingParams": "CAEQq6wBIhMIjpSxpqK2gAMVyEV6BR2dggJO",
+                            "trackingParams": "CAEQq6wBIhMIqcW1m-DWgAMVGscRCB26fQd3",
                             "countryCode": "HR",
                             "topbarButtons": [
                                 {
@@ -2074,7 +2237,7 @@
                                             "iconType": "MORE_VERT"
                                         },
                                         "menuRequest": {
-                                            "clickTrackingParams": "CAgQ_qsBGAAiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                            "clickTrackingParams": "CAgQ_qsBGAAiEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                             "commandMetadata": {
                                                 "webCommandMetadata": {
                                                     "sendPost": true,
@@ -2085,11 +2248,11 @@
                                                 "signal": "GET_ACCOUNT_MENU",
                                                 "actions": [
                                                     {
-                                                        "clickTrackingParams": "CAgQ_qsBGAAiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                                        "clickTrackingParams": "CAgQ_qsBGAAiEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                                         "openPopupAction": {
                                                             "popup": {
                                                                 "multiPageMenuRenderer": {
-                                                                    "trackingParams": "CAkQ_6sBIhMIjpSxpqK2gAMVyEV6BR2dggJO",
+                                                                    "trackingParams": "CAkQ_6sBIhMIqcW1m-DWgAMVGscRCB26fQd3",
                                                                     "style": "MULTI_PAGE_MENU_STYLE_TYPE_SYSTEM",
                                                                     "showLoadingSpinner": true
                                                                 }
@@ -2101,7 +2264,7 @@
                                                 ]
                                             }
                                         },
-                                        "trackingParams": "CAgQ_qsBGAAiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                        "trackingParams": "CAgQ_qsBGAAiEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                         "accessibility": {
                                             "accessibilityData": {
                                                 "label": "Settings"
@@ -2126,7 +2289,7 @@
                                             "iconType": "AVATAR_LOGGED_OUT"
                                         },
                                         "navigationEndpoint": {
-                                            "clickTrackingParams": "CAcQ1IAEGAEiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                            "clickTrackingParams": "CAcQ1IAEGAEiEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                             "commandMetadata": {
                                                 "webCommandMetadata": {
                                                     "url": "https://accounts.google.com/ServiceLogin?service=youtube&uilel=3&passive=true&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26hl%3Den%26next%3Dhttps%253A%252F%252Fwww.youtube.com%252Fchannel%252FUCtPlB4OmowajcgVaL3jvGcA%252Fplaylists%253Fview%253D1%2526sort%253Ddd%2526flow%253Dgrid&hl=en&ec=65620",
@@ -2138,7 +2301,7 @@
                                                 "idamTag": "65620"
                                             }
                                         },
-                                        "trackingParams": "CAcQ1IAEGAEiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                        "trackingParams": "CAcQ1IAEGAEiEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                         "targetId": "topbar-signin"
                                     }
                                 }
@@ -2589,17 +2752,17 @@
                                                     }
                                                 ]
                                             },
-                                            "trackingParams": "CAYQ8FsiEwiOlLGmoraAAxXIRXoFHZ2CAk4="
+                                            "trackingParams": "CAYQ8FsiEwipxbWb4NaAAxUaxxEIHbp9B3c="
                                         }
                                     },
-                                    "trackingParams": "CAUQteYDIhMIjpSxpqK2gAMVyEV6BR2dggJO"
+                                    "trackingParams": "CAUQteYDIhMIqcW1m-DWgAMVGscRCB26fQd3"
                                 }
                             },
                             "backButton": {
                                 "buttonRenderer": {
-                                    "trackingParams": "CAQQvIYDIhMIjpSxpqK2gAMVyEV6BR2dggJO",
+                                    "trackingParams": "CAQQvIYDIhMIqcW1m-DWgAMVGscRCB26fQd3",
                                     "command": {
-                                        "clickTrackingParams": "CAQQvIYDIhMIjpSxpqK2gAMVyEV6BR2dggJO",
+                                        "clickTrackingParams": "CAQQvIYDIhMIqcW1m-DWgAMVGscRCB26fQd3",
                                         "commandMetadata": {
                                             "webCommandMetadata": {
                                                 "sendPost": true
@@ -2609,7 +2772,7 @@
                                             "signal": "CLIENT_SIGNAL",
                                             "actions": [
                                                 {
-                                                    "clickTrackingParams": "CAQQvIYDIhMIjpSxpqK2gAMVyEV6BR2dggJO",
+                                                    "clickTrackingParams": "CAQQvIYDIhMIqcW1m-DWgAMVGscRCB26fQd3",
                                                     "signalAction": {
                                                         "signal": "HISTORY_BACK"
                                                     }
@@ -2621,9 +2784,9 @@
                             },
                             "forwardButton": {
                                 "buttonRenderer": {
-                                    "trackingParams": "CAMQvYYDIhMIjpSxpqK2gAMVyEV6BR2dggJO",
+                                    "trackingParams": "CAMQvYYDIhMIqcW1m-DWgAMVGscRCB26fQd3",
                                     "command": {
-                                        "clickTrackingParams": "CAMQvYYDIhMIjpSxpqK2gAMVyEV6BR2dggJO",
+                                        "clickTrackingParams": "CAMQvYYDIhMIqcW1m-DWgAMVGscRCB26fQd3",
                                         "commandMetadata": {
                                             "webCommandMetadata": {
                                                 "sendPost": true
@@ -2633,7 +2796,7 @@
                                             "signal": "CLIENT_SIGNAL",
                                             "actions": [
                                                 {
-                                                    "clickTrackingParams": "CAMQvYYDIhMIjpSxpqK2gAMVyEV6BR2dggJO",
+                                                    "clickTrackingParams": "CAMQvYYDIhMIqcW1m-DWgAMVGscRCB26fQd3",
                                                     "signalAction": {
                                                         "signal": "HISTORY_FORWARD"
                                                     }
@@ -2655,9 +2818,9 @@
                                             }
                                         ]
                                     },
-                                    "trackingParams": "CAIQ8FsiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                    "trackingParams": "CAIQ8FsiEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                     "command": {
-                                        "clickTrackingParams": "CAIQ8FsiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                        "clickTrackingParams": "CAIQ8FsiEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                         "commandMetadata": {
                                             "webCommandMetadata": {
                                                 "sendPost": true
@@ -2667,7 +2830,7 @@
                                             "signal": "CLIENT_SIGNAL",
                                             "actions": [
                                                 {
-                                                    "clickTrackingParams": "CAIQ8FsiEwiOlLGmoraAAxXIRXoFHZ2CAk4=",
+                                                    "clickTrackingParams": "CAIQ8FsiEwipxbWb4NaAAxUaxxEIHbp9B3c=",
                                                     "signalAction": {
                                                         "signal": "SKIP_NAVIGATION"
                                                     }
@@ -2683,11 +2846,11 @@
                         "microformatDataRenderer": {
                             "urlCanonical": "https://www.youtube.com/channel/UCtPlB4OmowajcgVaL3jvGcA",
                             "title": "idontknowjeffery",
-                            "description": "Asylum Records + Above The Law Records",
+                            "description": "Above The Law Records",
                             "thumbnail": {
                                 "thumbnails": [
                                     {
-                                        "url": "https://yt3.googleusercontent.com/_APHHZzn8yZPIfW0aI0bTXgf-hocf5q1KHEOts2eV3OckewnlekOE0YzbujqBwp78DOe3JmKYg=s200-c-k-c0x00ffffff-no-rj?days_since_epoch=19568",
+                                        "url": "https://yt3.googleusercontent.com/yZPYHj3bRHO66GAqQ1x3MwKirWgeXkAJZJhIa1sPcivbXrPmLtYjqlr_huoLC7hMbc5I4_DFOA=s200-c-k-c0x00ffffff-no-rj?days_since_epoch=19581",
                                         "width": 200,
                                         "height": 200
                                     }
@@ -2711,255 +2874,255 @@
                             "unlisted": false,
                             "familySafe": true,
                             "availableCountries": [
-                                "JE",
-                                "TD",
-                                "VG",
-                                "GM",
-                                "KE",
-                                "CA",
-                                "MN",
-                                "CI",
-                                "GG",
-                                "AX",
-                                "TR",
-                                "WF",
-                                "SC",
-                                "MF",
-                                "BS",
-                                "SD",
-                                "OM",
-                                "GR",
-                                "HR",
-                                "RU",
-                                "BR",
-                                "DE",
-                                "JP",
-                                "GQ",
-                                "MZ",
-                                "KY",
-                                "NO",
-                                "TK",
-                                "PL",
-                                "LI",
-                                "BV",
-                                "JM",
-                                "MY",
-                                "PT",
-                                "SB",
-                                "MH",
-                                "AL",
-                                "TJ",
-                                "DK",
-                                "MC",
-                                "PA",
-                                "SM",
-                                "PH",
-                                "MX",
-                                "ME",
-                                "AM",
-                                "GF",
-                                "GS",
-                                "NG",
-                                "IM",
-                                "GB",
-                                "SY",
-                                "BN",
-                                "AT",
-                                "JO",
-                                "SG",
-                                "NC",
-                                "UA",
-                                "SL",
-                                "TN",
                                 "KZ",
-                                "CW",
-                                "AE",
-                                "MR",
-                                "UG",
-                                "WS",
-                                "IQ",
-                                "FI",
-                                "ML",
-                                "BF",
-                                "GA",
-                                "ES",
-                                "MK",
-                                "AO",
-                                "PN",
-                                "TC",
-                                "AW",
-                                "PY",
-                                "YT",
-                                "AS",
-                                "NZ",
-                                "BD",
-                                "AG",
-                                "RE",
-                                "QA",
-                                "CF",
-                                "CY",
-                                "KR",
-                                "HK",
-                                "KN",
-                                "SJ",
-                                "UZ",
-                                "CR",
-                                "GT",
-                                "AR",
-                                "AQ",
-                                "GL",
-                                "KI",
-                                "TM",
-                                "MO",
-                                "SO",
-                                "UY",
-                                "DJ",
-                                "EH",
-                                "FK",
-                                "HM",
-                                "CC",
-                                "FM",
-                                "GE",
-                                "HT",
-                                "IR",
-                                "PW",
-                                "NL",
-                                "MA",
-                                "TL",
-                                "ST",
-                                "SX",
-                                "KM",
-                                "EE",
-                                "PF",
-                                "LT",
-                                "KH",
-                                "MG",
-                                "UM",
-                                "LC",
-                                "CU",
-                                "HU",
-                                "NP",
-                                "MQ",
-                                "BI",
-                                "DZ",
-                                "BT",
-                                "NU",
-                                "NR",
-                                "RS",
-                                "SI",
-                                "FR",
-                                "PE",
-                                "ET",
-                                "NA",
-                                "KW",
-                                "TH",
-                                "IE",
-                                "HN",
-                                "BJ",
-                                "CG",
-                                "LK",
-                                "CK",
-                                "SH",
-                                "RW",
-                                "AZ",
-                                "BQ",
-                                "BB",
-                                "EC",
-                                "NI",
-                                "GP",
-                                "MM",
-                                "KP",
-                                "AU",
-                                "LB",
-                                "IS",
-                                "PM",
-                                "GW",
-                                "SE",
-                                "GN",
-                                "BL",
-                                "SA",
-                                "ID",
-                                "LU",
-                                "GI",
-                                "SV",
-                                "LR",
-                                "CL",
-                                "US",
-                                "AI",
-                                "MW",
-                                "PG",
-                                "VC",
-                                "SZ",
-                                "ZW",
-                                "CD",
-                                "FO",
-                                "BZ",
-                                "PS",
-                                "LY",
-                                "MT",
-                                "MU",
-                                "TT",
-                                "BA",
-                                "BH",
-                                "CN",
-                                "BG",
-                                "LS",
-                                "AD",
-                                "VI",
-                                "SS",
-                                "MV",
-                                "TG",
-                                "CV",
-                                "DO",
-                                "RO",
-                                "MS",
-                                "ER",
-                                "VA",
-                                "CM",
-                                "BO",
-                                "NE",
-                                "GD",
-                                "ZA",
-                                "SK",
-                                "BE",
-                                "FJ",
-                                "TV",
-                                "GU",
-                                "TZ",
-                                "ZM",
-                                "CO",
-                                "TO",
-                                "YE",
-                                "VU",
-                                "BY",
+                                "JP",
                                 "VN",
-                                "PK",
-                                "BM",
-                                "VE",
-                                "IT",
-                                "DM",
-                                "IN",
-                                "CX",
-                                "MD",
-                                "NF",
-                                "LV",
-                                "GH",
-                                "TW",
-                                "GY",
-                                "BW",
-                                "IO",
+                                "CA",
+                                "GI",
+                                "PS",
+                                "SY",
+                                "GR",
+                                "TN",
+                                "BA",
+                                "HU",
                                 "SN",
-                                "AF",
-                                "PR",
-                                "MP",
-                                "LA",
-                                "CZ",
-                                "SR",
-                                "CH",
+                                "CR",
+                                "CD",
                                 "KG",
+                                "CY",
+                                "GS",
+                                "DM",
+                                "ME",
+                                "BB",
+                                "RO",
+                                "LT",
+                                "NZ",
+                                "MN",
+                                "NL",
+                                "VG",
+                                "MG",
+                                "AX",
+                                "SM",
+                                "PR",
+                                "VE",
+                                "AG",
+                                "DK",
+                                "KH",
+                                "CW",
+                                "LB",
+                                "DE",
+                                "SV",
+                                "AQ",
+                                "CH",
+                                "SC",
+                                "MR",
+                                "KR",
+                                "BD",
+                                "SZ",
+                                "MU",
+                                "TZ",
+                                "LK",
+                                "TF",
                                 "EG",
+                                "PK",
+                                "AO",
+                                "ZM",
+                                "GU",
+                                "AZ",
+                                "GY",
+                                "BM",
+                                "AR",
+                                "BF",
+                                "NF",
+                                "NE",
+                                "EE",
+                                "HM",
+                                "MT",
+                                "IS",
+                                "CV",
+                                "ES",
+                                "DO",
+                                "PA",
+                                "SD",
+                                "DJ",
+                                "CZ",
+                                "TM",
+                                "MH",
+                                "BY",
+                                "YT",
+                                "GW",
+                                "BQ",
+                                "PM",
+                                "BW",
+                                "LY",
+                                "GT",
+                                "KP",
+                                "NC",
+                                "MW",
+                                "CK",
+                                "LV",
+                                "SS",
+                                "CM",
+                                "TH",
+                                "SL",
+                                "GB",
+                                "VC",
+                                "SB",
+                                "IM",
+                                "BE",
+                                "BI",
+                                "GQ",
+                                "SX",
+                                "LU",
+                                "ET",
+                                "MM",
+                                "CL",
+                                "BJ",
+                                "AD",
+                                "HN",
+                                "IT",
+                                "SO",
+                                "ZA",
+                                "NG",
+                                "FM",
+                                "LR",
+                                "CO",
+                                "OM",
+                                "PH",
+                                "US",
+                                "MK",
+                                "MD",
+                                "TL",
+                                "FK",
+                                "MC",
+                                "UG",
+                                "GL",
+                                "TG",
+                                "MZ",
+                                "AT",
+                                "PW",
+                                "GH",
+                                "TT",
+                                "BH",
+                                "SH",
+                                "GA",
+                                "BR",
+                                "PG",
+                                "SA",
+                                "VI",
+                                "LS",
+                                "UZ",
+                                "IE",
+                                "HK",
+                                "DZ",
+                                "JE",
+                                "CU",
                                 "IL",
-                                "TF"
+                                "GN",
+                                "LC",
+                                "PF",
+                                "TK",
+                                "SJ",
+                                "AF",
+                                "MF",
+                                "RE",
+                                "ID",
+                                "SG",
+                                "ML",
+                                "FR",
+                                "SR",
+                                "UM",
+                                "FJ",
+                                "IR",
+                                "KE",
+                                "MO",
+                                "ST",
+                                "BZ",
+                                "NA",
+                                "TW",
+                                "AU",
+                                "TV",
+                                "AI",
+                                "CI",
+                                "BG",
+                                "MQ",
+                                "PL",
+                                "PT",
+                                "PE",
+                                "GP",
+                                "VU",
+                                "WF",
+                                "TJ",
+                                "MV",
+                                "VA",
+                                "CG",
+                                "BT",
+                                "TC",
+                                "MY",
+                                "FI",
+                                "NR",
+                                "NI",
+                                "MP",
+                                "MS",
+                                "CF",
+                                "LA",
+                                "TR",
+                                "KI",
+                                "MX",
+                                "SE",
+                                "EH",
+                                "UY",
+                                "YE",
+                                "EC",
+                                "LI",
+                                "IQ",
+                                "AE",
+                                "AM",
+                                "BS",
+                                "SK",
+                                "NP",
+                                "IO",
+                                "RS",
+                                "TD",
+                                "ZW",
+                                "GF",
+                                "SI",
+                                "GD",
+                                "AS",
+                                "UA",
+                                "BV",
+                                "AW",
+                                "RW",
+                                "WS",
+                                "BL",
+                                "ER",
+                                "TO",
+                                "FO",
+                                "CX",
+                                "KN",
+                                "GM",
+                                "CN",
+                                "PY",
+                                "JM",
+                                "QA",
+                                "GE",
+                                "JO",
+                                "KY",
+                                "CC",
+                                "BN",
+                                "NU",
+                                "AL",
+                                "GG",
+                                "NO",
+                                "HR",
+                                "PN",
+                                "KW",
+                                "HT",
+                                "BO",
+                                "IN",
+                                "MA",
+                                "KM",
+                                "RU"
                             ],
                             "linkAlternates": [
                                 {
@@ -2975,10 +3138,10 @@
                         }
                     }
                 },
-                "xsrf_token": "QUFFLUhqbXdGUFF2RDYxUjRzRWVkNUFIdmFZeXJaQlB3Z3xBQ3Jtc0trYjMtOXFmaFhtcXFIMlNaczduVDhfRFQteV9ldzRobHhGckFIMFg4Q2tweEs2Wm5uUi0yQ2dJRzJXY01JOWdtZjNZVlhqYWVOMWxtYmNzM19MX0dzcHphbU9mYnJUUFNjamZHbnYxa1U1YTBudHZLbw==",
+                "xsrf_token": "QUFFLUhqbG9kQVhyeGF3ZzMtcUVSLWlDbW02UUdHYWNiZ3xBQ3Jtc0trNFhTaXVUWmU3Mmpjd2hnaEp6UW5XUWpNWHZkTzM0RzFESzhlMVRjQTJicGY4TTdBZjNzbkJIZU5kXzl0VkNCOEstMTZONkFrYVhIX1IzM2g2OUU0MzJzSDdEdmFLaUJBU0lWMTd0Ym04V0wzQXJ1UQ==",
                 "url": "/channel/UCtPlB4OmowajcgVaL3jvGcA/playlists?view=1&sort=dd&flow=grid",
                 "endpoint": {
-                    "clickTrackingParams": "IhMI15ywpqK2gAMVyJlVCh3gQALOMghleHRlcm5hbA==",
+                    "clickTrackingParams": "IhMIpsq0m-DWgAMVyaJVCh22vw6mMghleHRlcm5hbA==",
                     "commandMetadata": {
                         "webCommandMetadata": {
                             "url": "/channel/UCtPlB4OmowajcgVaL3jvGcA/playlists?view=1&sort=dd",
@@ -3015,19 +3178,19 @@
             "Expires",
             "Mon, 01 Jan 1990 00:00:00 GMT",
             "Date",
-            "Sun, 30 Jul 2023 10:54:53 GMT",
+            "Sat, 12 Aug 2023 08:57:05 GMT",
             "X-Frame-Options",
             "SAMEORIGIN",
             "Strict-Transport-Security",
             "max-age=31536000",
-            "Cross-Origin-Opener-Policy-Report-Only",
-            "same-origin-allow-popups; report-to=\"youtube_main\"",
             "Origin-Trial",
             "AvC9UlR6RDk2crliDsFl66RWLnTbHrDbp+DiY6AYz/PNQ4G4tdUTjrHYr2sghbkhGQAVxb7jaPTHpEVBz0uzQwkAAAB4eyJvcmlnaW4iOiJodHRwczovL3lvdXR1YmUuY29tOjQ0MyIsImZlYXR1cmUiOiJXZWJWaWV3WFJlcXVlc3RlZFdpdGhEZXByZWNhdGlvbiIsImV4cGlyeSI6MTcxOTUzMjc5OSwiaXNTdWJkb21haW4iOnRydWV9",
-            "Permissions-Policy",
-            "ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factor=*, ch-ua-platform=*, ch-ua-platform-version=*",
             "Report-To",
             "{\"group\":\"youtube_main\",\"max_age\":2592000,\"endpoints\":[{\"url\":\"https://csp.withgoogle.com/csp/report-to/youtube_main\"}]}",
+            "Permissions-Policy",
+            "ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factor=*, ch-ua-platform=*, ch-ua-platform-version=*",
+            "Cross-Origin-Opener-Policy",
+            "same-origin-allow-popups; report-to=\"youtube_main\"",
             "P3P",
             "CP=\"This is not a P3P policy! See http://support.google.com/accounts/answer/151657?hl=en for more info.\"",
             "Server",
@@ -3035,13 +3198,15 @@
             "X-XSS-Protection",
             "0",
             "Set-Cookie",
-            "YSC=cZfbNRtqz0Y; Domain=.youtube.com; Path=/; Secure; HttpOnly; SameSite=none",
+            "YSC=6b0e0mVAgec; Domain=.youtube.com; Path=/; Secure; HttpOnly; SameSite=none",
             "Set-Cookie",
-            "__Secure-YEC=CgtPZnR6R0NFLVBUMCj9gpmmBg%3D%3D; Domain=.youtube.com; Expires=Wed, 28-Aug-2024 10:54:52 GMT; Path=/; Secure; HttpOnly; SameSite=lax",
+            "__Secure-YEC=CgszS1lMdExpZXdCNCjhkt2mBjIGCgJIUhIA; Domain=.youtube.com; Expires=Tue, 10-Sep-2024 08:57:04 GMT; Path=/; Secure; HttpOnly; SameSite=lax",
             "Set-Cookie",
-            "VISITOR_INFO1_LIVE=; Domain=.youtube.com; Expires=Mon, 02-Nov-2020 10:54:53 GMT; Path=/; Secure; HttpOnly; SameSite=none",
+            "VISITOR_PRIVACY_METADATA=CgJIUhIA; Domain=.youtube.com; Expires=Tue, 10-Sep-2024 08:57:05 GMT; Path=/; Secure; HttpOnly; SameSite=lax",
             "Set-Cookie",
-            "CONSENT=PENDING+435; expires=Tue, 29-Jul-2025 10:54:53 GMT; path=/; domain=.youtube.com; Secure",
+            "VISITOR_INFO1_LIVE=; Domain=.youtube.com; Expires=Sun, 15-Nov-2020 08:57:05 GMT; Path=/; Secure; HttpOnly; SameSite=none",
+            "Set-Cookie",
+            "CONSENT=PENDING+618; expires=Mon, 11-Aug-2025 08:57:05 GMT; path=/; domain=.youtube.com; Secure",
             "Alt-Svc",
             "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
             "Accept-Ranges",
@@ -3056,7 +3221,7 @@
         "responseIsBinary": false
     },
     {
-        "scope": "http://127.0.0.1:63564",
+        "scope": "http://127.0.0.1:58044",
         "method": "POST",
         "path": "/api/youtube/channel/playlists",
         "body": {
@@ -3064,7 +3229,93 @@
         },
         "status": 200,
         "response": {
-            "searchResultsArray": []
+            "searchResultsArray": [
+                {
+                    "engine": "youtube",
+                    "type": "playlist",
+                    "id": "PLYu-7OugCftYAspv_evC94CAODKPixyOM",
+                    "title": "💿 THE JEFFERY LP 💿",
+                    "thumbnails": [
+                        {
+                            "url": "https://i.ytimg.com/vi/Y-3egbwXMKY/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCJEReZ0kpFvbqvtJI5CdlquzWFMg"
+                        }
+                    ],
+                    "url": "https://www.youtube.com/channel/UCtPlB4OmowajcgVaL3jvGcA",
+                    "length": 11,
+                    "author": {
+                        "name": "idontknowjeffery",
+                        "channelId": "UCtPlB4OmowajcgVaL3jvGcA"
+                    }
+                },
+                {
+                    "engine": "youtube",
+                    "type": "playlist",
+                    "id": "PLYu-7OugCftarDXZT71MZqxan2oOYindc",
+                    "title": "#BLADE💃🏽🔪",
+                    "thumbnails": [
+                        {
+                            "url": "https://i.ytimg.com/vi/kAYgogVSQCA/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAMLmqC4dP6fHs1Sn5ridIAsDg0pg"
+                        }
+                    ],
+                    "url": "https://www.youtube.com/channel/UCtPlB4OmowajcgVaL3jvGcA",
+                    "length": 5,
+                    "author": {
+                        "name": "idontknowjeffery",
+                        "channelId": "UCtPlB4OmowajcgVaL3jvGcA"
+                    }
+                },
+                {
+                    "engine": "youtube",
+                    "type": "playlist",
+                    "id": "PLYu-7OugCftY51i4nlH2TgevohqpwuRXJ",
+                    "title": "THE JEFFERY VLOG (SEASON 2)",
+                    "thumbnails": [
+                        {
+                            "url": "https://i.ytimg.com/vi/iMu8HsqFInw/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLA3_UWAziUACJlC7IIucMQLUWz3jA"
+                        }
+                    ],
+                    "url": "https://www.youtube.com/channel/UCtPlB4OmowajcgVaL3jvGcA",
+                    "length": 9,
+                    "author": {
+                        "name": "idontknowjeffery",
+                        "channelId": "UCtPlB4OmowajcgVaL3jvGcA"
+                    }
+                },
+                {
+                    "engine": "youtube",
+                    "type": "playlist",
+                    "id": "PLYu-7OugCftYUKmIFfE1dXuurxzy7NfMG",
+                    "title": "THE JEFFERY VLOG (SEASON 1)",
+                    "thumbnails": [
+                        {
+                            "url": "https://i.ytimg.com/vi/rynzDwrUUIM/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBQVt3rRVbkUjdEc8jekC_TzGnV6Q"
+                        }
+                    ],
+                    "url": "https://www.youtube.com/channel/UCtPlB4OmowajcgVaL3jvGcA",
+                    "length": 7,
+                    "author": {
+                        "name": "idontknowjeffery",
+                        "channelId": "UCtPlB4OmowajcgVaL3jvGcA"
+                    }
+                },
+                {
+                    "engine": "youtube",
+                    "type": "playlist",
+                    "id": "PLYu-7OugCftYtea2fwdEP43-PZBAUtNuJ",
+                    "title": "idontknowjeffery",
+                    "thumbnails": [
+                        {
+                            "url": "https://i.ytimg.com/vi/-F1EQmlNQlk/hqdefault.jpg?sqp=-oaymwEXCOADEI4CSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAdktjOi22DYa2ujfmgFuEpS0YXJA"
+                        }
+                    ],
+                    "url": "https://www.youtube.com/channel/UCtPlB4OmowajcgVaL3jvGcA",
+                    "length": 74,
+                    "author": {
+                        "name": "idontknowjeffery",
+                        "channelId": "UCtPlB4OmowajcgVaL3jvGcA"
+                    }
+                }
+            ]
         },
         "rawHeaders": [
             "X-Powered-By",
@@ -3074,11 +3325,11 @@
             "Content-Type",
             "application/json; charset=utf-8",
             "Content-Length",
-            "25",
+            "2143",
             "ETag",
-            "W/\"19-5rSNWkfl8meUJVfuMrEFAs9mI7o\"",
+            "W/\"85f-zxn46OrFbK3K2KdqZlaAhaAJc6Y\"",
             "Date",
-            "Sun, 30 Jul 2023 10:54:53 GMT",
+            "Sat, 12 Aug 2023 08:57:05 GMT",
             "Connection",
             "close"
         ],

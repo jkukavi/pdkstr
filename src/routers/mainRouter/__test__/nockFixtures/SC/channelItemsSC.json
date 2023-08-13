@@ -2,68 +2,74 @@
     {
         "scope": "https://api-v2.soundcloud.com:443",
         "method": "GET",
-        "path": "/users/55254934/tracks?limit=10&client_id=vvWDsm284DNe9CDlRlfb3wuseloIl1RS",
+        "path": "/users/55254934/tracks?limit=10&client_id=MK6Otkm10RJQcH3Cju78UhH6NXw40V47",
         "body": "",
         "status": 200,
         "response": {
             "collection": [
                 {
-                    "artwork_url": "https://i1.sndcdn.com/artworks-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg",
-                    "caption": "follow my new ig https://www.instagram.com/dontrustjeffery",
+                    "artwork_url": "https://i1.sndcdn.com/artworks-Y5swYgD0e35k-0-large.jpg",
+                    "caption": null,
                     "commentable": true,
-                    "comment_count": 31,
-                    "created_at": "2023-05-04T22:57:29Z",
-                    "description": "THE JEFFERY LP COMING SOON\nhttps://www.instagram.com/dontrustjeffery",
+                    "comment_count": 4,
+                    "created_at": "2023-07-07T21:06:06Z",
+                    "description": null,
                     "downloadable": false,
                     "download_count": 0,
-                    "duration": 219820,
-                    "full_duration": 219820,
+                    "duration": 30000,
+                    "full_duration": 187193,
                     "embeddable_by": "all",
-                    "genre": "",
+                    "genre": "Rap/Hip Hop",
                     "has_downloads_left": false,
-                    "id": 1506674083,
+                    "id": 1558756750,
                     "kind": "track",
-                    "label_name": null,
-                    "last_modified": "2023-05-26T05:50:14Z",
+                    "label_name": "Asylum Worldwide LLC",
+                    "last_modified": "2023-08-11T02:05:43Z",
                     "license": "all-rights-reserved",
-                    "likes_count": 674,
-                    "permalink": "worst-she-ever-had-unreleased",
-                    "permalink_url": "https://soundcloud.com/idontknowjeffery/worst-she-ever-had-unreleased",
-                    "playback_count": 14308,
+                    "likes_count": 68,
+                    "permalink": "this-is-not-a-competition",
+                    "permalink_url": "https://soundcloud.com/idontknowjeffery/this-is-not-a-competition",
+                    "playback_count": 803,
                     "public": true,
                     "publisher_metadata": {
-                        "id": 1506674083,
-                        "urn": "soundcloud:tracks:1506674083",
+                        "id": 1558756750,
+                        "urn": "soundcloud:tracks:1558756750",
                         "artist": "idontknowjeffery",
+                        "album_title": "The Jeffery LP",
                         "contains_music": true,
-                        "publisher": "Jeffrey T Harper",
-                        "isrc": "QZTH92377452",
-                        "explicit": true
+                        "upc_or_ean": "075597901993",
+                        "isrc": "US39N2308466",
+                        "explicit": true,
+                        "p_line": "℗ 2023 Asylum Records",
+                        "p_line_for_display": "℗ 2023 Asylum Records",
+                        "c_line": "© 2023 Asylum Records",
+                        "c_line_for_display": "© 2023 Asylum Records",
+                        "release_title": "This is Not a Competition"
                     },
-                    "purchase_title": "music video",
-                    "purchase_url": "https://youtu.be/reix7e5ABXU",
-                    "release_date": null,
-                    "reposts_count": 37,
+                    "purchase_title": null,
+                    "purchase_url": null,
+                    "release_date": "2023-08-10T00:00:00Z",
+                    "reposts_count": 1,
                     "secret_token": null,
                     "sharing": "public",
                     "state": "finished",
                     "streamable": true,
-                    "tag_list": "R&B Reggae Soul Dub rap",
-                    "title": "Worst She Ever Had (Prod. By Tperccc)",
+                    "tag_list": "",
+                    "title": "This is Not a Competition",
                     "track_format": "single-track",
-                    "uri": "https://api.soundcloud.com/tracks/1506674083",
-                    "urn": "soundcloud:tracks:1506674083",
+                    "uri": "https://api.soundcloud.com/tracks/1558756750",
+                    "urn": "soundcloud:tracks:1558756750",
                     "user_id": 55254934,
                     "visuals": null,
-                    "waveform_url": "https://wave.sndcdn.com/jJxsLdpj1iBm_m.json",
-                    "display_date": "2023-05-04T22:57:29Z",
+                    "waveform_url": "https://wave.sndcdn.com/NFgyjUymQUtu_m.json",
+                    "display_date": "2023-08-10T00:00:00Z",
                     "media": {
                         "transcodings": [
                             {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1506674083/2dc43d8b-51ed-4dd5-b51b-536f3715a541/stream/hls",
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1558756750/d84a753d-0157-4cba-9bd2-00eb20f659be/preview/hls",
                                 "preset": "mp3_1_0",
-                                "duration": 219820,
-                                "snipped": false,
+                                "duration": 30000,
+                                "snipped": true,
                                 "format": {
                                     "protocol": "hls",
                                     "mime_type": "audio/mpeg"
@@ -71,42 +77,31 @@
                                 "quality": "sq"
                             },
                             {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1506674083/2dc43d8b-51ed-4dd5-b51b-536f3715a541/stream/progressive",
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1558756750/d84a753d-0157-4cba-9bd2-00eb20f659be/preview/progressive",
                                 "preset": "mp3_1_0",
-                                "duration": 219820,
-                                "snipped": false,
+                                "duration": 30000,
+                                "snipped": true,
                                 "format": {
                                     "protocol": "progressive",
                                     "mime_type": "audio/mpeg"
                                 },
                                 "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1506674083/712bb454-ec3c-4296-b01d-eda846f646d1/stream/hls",
-                                "preset": "opus_0_0",
-                                "duration": 219799,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/ogg; codecs=\"opus\""
-                                },
-                                "quality": "sq"
                             }
                         ]
                     },
-                    "station_urn": "soundcloud:system-playlists:track-stations:1506674083",
-                    "station_permalink": "track-stations:1506674083",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjkxNGI4M2I1LTZlMjgtNGJiMC1iMGEyLTNiMzM2NzhiYzJhOSIsImlhdCI6MTY4NTU3Mzc3MH0.dbw6ntoMBb54Q2zvbUIBIB5IglFmAazNtuGx545VXPs",
+                    "station_urn": "soundcloud:system-playlists:track-stations:1558756750",
+                    "station_permalink": "track-stations:1558756750",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjgwY2UyZDE4LTI4NDYtNDE4Yi1hMDYzLTM3OGI5YzY3M2NjNSIsImlhdCI6MTY5MTgzMDY5MX0.3lo8WjUNYDI8WOTM_UFH0ZI3lwbayYeyJJ1PUY0YFLI",
                     "monetization_model": "NOT_APPLICABLE",
-                    "policy": "ALLOW",
+                    "policy": "SNIP",
                     "user": {
-                        "avatar_url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg",
+                        "avatar_url": "https://i1.sndcdn.com/avatars-ugeXzJo0QfE04yoF-ltEtMg-large.jpg",
                         "first_name": "Jeffrey",
-                        "followers_count": 77826,
+                        "followers_count": 78495,
                         "full_name": "Jeffrey Harper",
                         "id": 55254934,
                         "kind": "user",
-                        "last_modified": "2023-05-25T10:58:22Z",
+                        "last_modified": "2023-08-12T05:52:05Z",
                         "last_name": "Harper",
                         "permalink": "idontknowjeffery",
                         "permalink_url": "https://soundcloud.com/idontknowjeffery",
@@ -126,301 +121,520 @@
                     }
                 },
                 {
-                    "artwork_url": "https://i1.sndcdn.com/artworks-XHHUTWaZ47thc5mL-o4UbvA-large.jpg",
+                    "artwork_url": "https://i1.sndcdn.com/artworks-OB7N2flZcaPj-0-large.jpg",
+                    "caption": null,
+                    "commentable": true,
+                    "comment_count": 6,
+                    "created_at": "2023-06-22T02:24:21Z",
+                    "description": null,
+                    "downloadable": false,
+                    "download_count": 0,
+                    "duration": 30000,
+                    "full_duration": 218488,
+                    "embeddable_by": "all",
+                    "genre": "Rap/Hip Hop",
+                    "has_downloads_left": false,
+                    "id": 1546633144,
+                    "kind": "track",
+                    "label_name": "Asylum Worldwide LLC",
+                    "last_modified": "2023-08-11T02:06:42Z",
+                    "license": "all-rights-reserved",
+                    "likes_count": 82,
+                    "permalink": "transform",
+                    "permalink_url": "https://soundcloud.com/idontknowjeffery/transform",
+                    "playback_count": 1521,
+                    "public": true,
+                    "publisher_metadata": {
+                        "id": 1546633144,
+                        "urn": "soundcloud:tracks:1546633144",
+                        "artist": "idontknowjeffery",
+                        "album_title": "Transform",
+                        "contains_music": true,
+                        "upc_or_ean": "075597901870",
+                        "isrc": "US39N2306680",
+                        "explicit": true,
+                        "p_line": "℗ 2023 Asylum Records",
+                        "p_line_for_display": "℗ 2023 Asylum Records",
+                        "c_line": "© 2023 Asylum Records",
+                        "c_line_for_display": "© 2023 Asylum Records",
+                        "release_title": "Transform"
+                    },
+                    "purchase_title": null,
+                    "purchase_url": null,
+                    "release_date": "2023-08-03T00:00:00Z",
+                    "reposts_count": 3,
+                    "secret_token": null,
+                    "sharing": "public",
+                    "state": "finished",
+                    "streamable": true,
+                    "tag_list": "",
+                    "title": "Transform",
+                    "track_format": "single-track",
+                    "uri": "https://api.soundcloud.com/tracks/1546633144",
+                    "urn": "soundcloud:tracks:1546633144",
+                    "user_id": 55254934,
+                    "visuals": null,
+                    "waveform_url": "https://wave.sndcdn.com/0RWUB2FqebO7_m.json",
+                    "display_date": "2023-08-03T00:00:00Z",
+                    "media": {
+                        "transcodings": [
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1546633144/1ee55f64-6a12-4d67-9522-73fc7ff5efc7/preview/hls",
+                                "preset": "mp3_1_0",
+                                "duration": 30000,
+                                "snipped": true,
+                                "format": {
+                                    "protocol": "hls",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            },
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1546633144/1ee55f64-6a12-4d67-9522-73fc7ff5efc7/preview/progressive",
+                                "preset": "mp3_1_0",
+                                "duration": 30000,
+                                "snipped": true,
+                                "format": {
+                                    "protocol": "progressive",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            }
+                        ]
+                    },
+                    "station_urn": "soundcloud:system-playlists:track-stations:1546633144",
+                    "station_permalink": "track-stations:1546633144",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjU5MWNlZDA5LWY2OTQtNGY3ZS05NzdjLTZmMzEzZWM5YTYyNyIsImlhdCI6MTY5MTgzMDY5MX0.WUr-yvRpuNalphy9MHuAr-mkc_GvSOZ6tLIkLAosqGA",
+                    "monetization_model": "NOT_APPLICABLE",
+                    "policy": "SNIP",
+                    "user": {
+                        "avatar_url": "https://i1.sndcdn.com/avatars-ugeXzJo0QfE04yoF-ltEtMg-large.jpg",
+                        "first_name": "Jeffrey",
+                        "followers_count": 78495,
+                        "full_name": "Jeffrey Harper",
+                        "id": 55254934,
+                        "kind": "user",
+                        "last_modified": "2023-08-12T05:52:05Z",
+                        "last_name": "Harper",
+                        "permalink": "idontknowjeffery",
+                        "permalink_url": "https://soundcloud.com/idontknowjeffery",
+                        "uri": "https://api.soundcloud.com/users/55254934",
+                        "urn": "soundcloud:users:55254934",
+                        "username": "idontknowjeffery",
+                        "verified": true,
+                        "city": "Memphis",
+                        "country_code": "US",
+                        "badges": {
+                            "pro": false,
+                            "pro_unlimited": true,
+                            "verified": true
+                        },
+                        "station_urn": "soundcloud:system-playlists:artist-stations:55254934",
+                        "station_permalink": "artist-stations:55254934"
+                    }
+                },
+                {
+                    "artwork_url": "https://i1.sndcdn.com/artworks-vl1gtIvXOmsU-0-large.jpg",
+                    "caption": null,
+                    "commentable": true,
+                    "comment_count": 5,
+                    "created_at": "2023-06-22T02:25:03Z",
+                    "description": null,
+                    "downloadable": false,
+                    "download_count": 0,
+                    "duration": 30000,
+                    "full_duration": 127451,
+                    "embeddable_by": "all",
+                    "genre": "Rap/Hip Hop",
+                    "has_downloads_left": false,
+                    "id": 1546634071,
+                    "kind": "track",
+                    "label_name": "Asylum Worldwide LLC",
+                    "last_modified": "2023-08-11T02:07:01Z",
+                    "license": "all-rights-reserved",
+                    "likes_count": 99,
+                    "permalink": "m-n-e-i-g-feat-duke-deuce",
+                    "permalink_url": "https://soundcloud.com/idontknowjeffery/m-n-e-i-g-feat-duke-deuce",
+                    "playback_count": 1730,
+                    "public": true,
+                    "publisher_metadata": {
+                        "id": 1546634071,
+                        "urn": "soundcloud:tracks:1546634071",
+                        "artist": "idontknowjeffery",
+                        "album_title": "M.N.E.I.G (feat. Duke Deuce, Marcus901)",
+                        "contains_music": true,
+                        "upc_or_ean": "075597901900",
+                        "isrc": "US39N2306678",
+                        "explicit": true,
+                        "p_line": "℗ 2023 Asylum Records",
+                        "p_line_for_display": "℗ 2023 Asylum Records",
+                        "c_line": "© 2023 Asylum Records",
+                        "c_line_for_display": "© 2023 Asylum Records",
+                        "release_title": "M.N.E.I.G (feat. Duke Deuce, Marcus.901)"
+                    },
+                    "purchase_title": null,
+                    "purchase_url": null,
+                    "release_date": "2023-07-27T00:00:00Z",
+                    "reposts_count": 7,
+                    "secret_token": null,
+                    "sharing": "public",
+                    "state": "finished",
+                    "streamable": true,
+                    "tag_list": "",
+                    "title": "M.N.E.I.G (feat. Duke Deuce, Marcus.901)",
+                    "track_format": "single-track",
+                    "uri": "https://api.soundcloud.com/tracks/1546634071",
+                    "urn": "soundcloud:tracks:1546634071",
+                    "user_id": 55254934,
+                    "visuals": null,
+                    "waveform_url": "https://wave.sndcdn.com/xNuCPoJWDCsG_m.json",
+                    "display_date": "2023-07-27T00:00:00Z",
+                    "media": {
+                        "transcodings": [
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1546634071/363f4414-2ba2-46f8-a38b-a49cbc11a0b6/preview/hls",
+                                "preset": "mp3_1_0",
+                                "duration": 30000,
+                                "snipped": true,
+                                "format": {
+                                    "protocol": "hls",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            },
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1546634071/363f4414-2ba2-46f8-a38b-a49cbc11a0b6/preview/progressive",
+                                "preset": "mp3_1_0",
+                                "duration": 30000,
+                                "snipped": true,
+                                "format": {
+                                    "protocol": "progressive",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            }
+                        ]
+                    },
+                    "station_urn": "soundcloud:system-playlists:track-stations:1546634071",
+                    "station_permalink": "track-stations:1546634071",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjMwN2M0Nzg0LWIzMzQtNDRmZi1iOWE4LWIwOWJlMTFmZTA3ZSIsImlhdCI6MTY5MTgzMDY5MX0.ffL4KxL2L0Xye1Ej3NOnT9M_nYMY05cthW2vaoqXuNY",
+                    "monetization_model": "NOT_APPLICABLE",
+                    "policy": "SNIP",
+                    "user": {
+                        "avatar_url": "https://i1.sndcdn.com/avatars-ugeXzJo0QfE04yoF-ltEtMg-large.jpg",
+                        "first_name": "Jeffrey",
+                        "followers_count": 78495,
+                        "full_name": "Jeffrey Harper",
+                        "id": 55254934,
+                        "kind": "user",
+                        "last_modified": "2023-08-12T05:52:05Z",
+                        "last_name": "Harper",
+                        "permalink": "idontknowjeffery",
+                        "permalink_url": "https://soundcloud.com/idontknowjeffery",
+                        "uri": "https://api.soundcloud.com/users/55254934",
+                        "urn": "soundcloud:users:55254934",
+                        "username": "idontknowjeffery",
+                        "verified": true,
+                        "city": "Memphis",
+                        "country_code": "US",
+                        "badges": {
+                            "pro": false,
+                            "pro_unlimited": true,
+                            "verified": true
+                        },
+                        "station_urn": "soundcloud:system-playlists:artist-stations:55254934",
+                        "station_permalink": "artist-stations:55254934"
+                    }
+                },
+                {
+                    "artwork_url": "https://i1.sndcdn.com/artworks-MuqLM3AkGWfk-0-large.jpg",
+                    "caption": null,
+                    "commentable": true,
+                    "comment_count": 4,
+                    "created_at": "2023-06-22T02:25:23Z",
+                    "description": null,
+                    "downloadable": false,
+                    "download_count": 0,
+                    "duration": 30000,
+                    "full_duration": 152712,
+                    "embeddable_by": "all",
+                    "genre": "Rap/Hip Hop",
+                    "has_downloads_left": false,
+                    "id": 1546634572,
+                    "kind": "track",
+                    "label_name": "Asylum Worldwide LLC",
+                    "last_modified": "2023-08-11T02:07:22Z",
+                    "license": "all-rights-reserved",
+                    "likes_count": 125,
+                    "permalink": "life-is-great",
+                    "permalink_url": "https://soundcloud.com/idontknowjeffery/life-is-great",
+                    "playback_count": 2442,
+                    "public": true,
+                    "publisher_metadata": {
+                        "id": 1546634572,
+                        "urn": "soundcloud:tracks:1546634572",
+                        "artist": "idontknowjeffery",
+                        "album_title": "Life is Great",
+                        "contains_music": true,
+                        "upc_or_ean": "075597901962",
+                        "isrc": "US39N2306671",
+                        "explicit": true,
+                        "p_line": "℗ 2023 Asylum Records",
+                        "p_line_for_display": "℗ 2023 Asylum Records",
+                        "c_line": "© 2023 Asylum Records",
+                        "c_line_for_display": "© 2023 Asylum Records",
+                        "release_title": "Life is Great"
+                    },
+                    "purchase_title": null,
+                    "purchase_url": null,
+                    "release_date": "2023-07-20T00:00:00Z",
+                    "reposts_count": 5,
+                    "secret_token": null,
+                    "sharing": "public",
+                    "state": "finished",
+                    "streamable": true,
+                    "tag_list": "",
+                    "title": "Life is Great",
+                    "track_format": "single-track",
+                    "uri": "https://api.soundcloud.com/tracks/1546634572",
+                    "urn": "soundcloud:tracks:1546634572",
+                    "user_id": 55254934,
+                    "visuals": null,
+                    "waveform_url": "https://wave.sndcdn.com/DO6vLv5auQhc_m.json",
+                    "display_date": "2023-07-20T00:00:00Z",
+                    "media": {
+                        "transcodings": [
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1546634572/842da7d9-450f-4ec9-aab7-5957bbf9b60d/preview/hls",
+                                "preset": "mp3_1_0",
+                                "duration": 30000,
+                                "snipped": true,
+                                "format": {
+                                    "protocol": "hls",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            },
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1546634572/842da7d9-450f-4ec9-aab7-5957bbf9b60d/preview/progressive",
+                                "preset": "mp3_1_0",
+                                "duration": 30000,
+                                "snipped": true,
+                                "format": {
+                                    "protocol": "progressive",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            }
+                        ]
+                    },
+                    "station_urn": "soundcloud:system-playlists:track-stations:1546634572",
+                    "station_permalink": "track-stations:1546634572",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6ImI2Y2Q4ZjAzLTM3MDktNDY2Yy1hMTc4LTk1YjNiNDc2OTk1NSIsImlhdCI6MTY5MTgzMDY5MX0.jgaToOfVq5d5XIcHbTm4Ag5LMmQVLl70hBjA7wGy518",
+                    "monetization_model": "NOT_APPLICABLE",
+                    "policy": "SNIP",
+                    "user": {
+                        "avatar_url": "https://i1.sndcdn.com/avatars-ugeXzJo0QfE04yoF-ltEtMg-large.jpg",
+                        "first_name": "Jeffrey",
+                        "followers_count": 78495,
+                        "full_name": "Jeffrey Harper",
+                        "id": 55254934,
+                        "kind": "user",
+                        "last_modified": "2023-08-12T05:52:05Z",
+                        "last_name": "Harper",
+                        "permalink": "idontknowjeffery",
+                        "permalink_url": "https://soundcloud.com/idontknowjeffery",
+                        "uri": "https://api.soundcloud.com/users/55254934",
+                        "urn": "soundcloud:users:55254934",
+                        "username": "idontknowjeffery",
+                        "verified": true,
+                        "city": "Memphis",
+                        "country_code": "US",
+                        "badges": {
+                            "pro": false,
+                            "pro_unlimited": true,
+                            "verified": true
+                        },
+                        "station_urn": "soundcloud:system-playlists:artist-stations:55254934",
+                        "station_permalink": "artist-stations:55254934"
+                    }
+                },
+                {
+                    "artwork_url": "https://i1.sndcdn.com/artworks-L1r2WnxuZ3J7-0-large.jpg",
+                    "caption": null,
+                    "commentable": true,
+                    "comment_count": 27,
+                    "created_at": "2023-06-20T18:21:09Z",
+                    "description": null,
+                    "downloadable": false,
+                    "download_count": 0,
+                    "duration": 30000,
+                    "full_duration": 137300,
+                    "embeddable_by": "all",
+                    "genre": "Rap/Hip Hop",
+                    "has_downloads_left": false,
+                    "id": 1545610279,
+                    "kind": "track",
+                    "label_name": "Asylum Worldwide LLC",
+                    "last_modified": "2023-08-10T20:53:51Z",
+                    "license": "all-rights-reserved",
+                    "likes_count": 977,
+                    "permalink": "gravesite-feat-xavier-wulf",
+                    "permalink_url": "https://soundcloud.com/idontknowjeffery/gravesite-feat-xavier-wulf",
+                    "playback_count": 17554,
+                    "public": true,
+                    "publisher_metadata": {
+                        "id": 1545610279,
+                        "urn": "soundcloud:tracks:1545610279",
+                        "artist": "idontknowjeffery",
+                        "album_title": "Gravesite (feat. Xavier Wulf)",
+                        "contains_music": true,
+                        "upc_or_ean": "075597902099",
+                        "isrc": "US39N2306436",
+                        "explicit": true,
+                        "p_line": "℗ 2023 Asylum Records",
+                        "p_line_for_display": "℗ 2023 Asylum Records",
+                        "c_line": "© 2023 Asylum Records",
+                        "c_line_for_display": "© 2023 Asylum Records",
+                        "release_title": "Gravesite (feat. Xavier Wulf)"
+                    },
+                    "purchase_title": null,
+                    "purchase_url": null,
+                    "release_date": "2023-07-14T00:00:00Z",
+                    "reposts_count": 58,
+                    "secret_token": null,
+                    "sharing": "public",
+                    "state": "finished",
+                    "streamable": true,
+                    "tag_list": "",
+                    "title": "Gravesite (feat. Xavier Wulf)",
+                    "track_format": "single-track",
+                    "uri": "https://api.soundcloud.com/tracks/1545610279",
+                    "urn": "soundcloud:tracks:1545610279",
+                    "user_id": 55254934,
+                    "visuals": null,
+                    "waveform_url": "https://wave.sndcdn.com/EllBz5TM13ZP_m.json",
+                    "display_date": "2023-07-14T00:00:00Z",
+                    "media": {
+                        "transcodings": [
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1545610279/66927d07-a2bf-4abb-9df1-4572532b5ff6/preview/hls",
+                                "preset": "mp3_1_0",
+                                "duration": 30000,
+                                "snipped": true,
+                                "format": {
+                                    "protocol": "hls",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            },
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1545610279/66927d07-a2bf-4abb-9df1-4572532b5ff6/preview/progressive",
+                                "preset": "mp3_1_0",
+                                "duration": 30000,
+                                "snipped": true,
+                                "format": {
+                                    "protocol": "progressive",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            }
+                        ]
+                    },
+                    "station_urn": "soundcloud:system-playlists:track-stations:1545610279",
+                    "station_permalink": "track-stations:1545610279",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjQwNzZmNWVmLTU5ZDAtNGY1Mi04YjhhLWNmNzdhZDllY2I1NyIsImlhdCI6MTY5MTgzMDY5MX0.4LOgmuD9Xs3cON2y1I-zv8Fy7lvSSk0PzyiUNW0OQVU",
+                    "monetization_model": "NOT_APPLICABLE",
+                    "policy": "SNIP",
+                    "user": {
+                        "avatar_url": "https://i1.sndcdn.com/avatars-ugeXzJo0QfE04yoF-ltEtMg-large.jpg",
+                        "first_name": "Jeffrey",
+                        "followers_count": 78495,
+                        "full_name": "Jeffrey Harper",
+                        "id": 55254934,
+                        "kind": "user",
+                        "last_modified": "2023-08-12T05:52:05Z",
+                        "last_name": "Harper",
+                        "permalink": "idontknowjeffery",
+                        "permalink_url": "https://soundcloud.com/idontknowjeffery",
+                        "uri": "https://api.soundcloud.com/users/55254934",
+                        "urn": "soundcloud:users:55254934",
+                        "username": "idontknowjeffery",
+                        "verified": true,
+                        "city": "Memphis",
+                        "country_code": "US",
+                        "badges": {
+                            "pro": false,
+                            "pro_unlimited": true,
+                            "verified": true
+                        },
+                        "station_urn": "soundcloud:system-playlists:artist-stations:55254934",
+                        "station_permalink": "artist-stations:55254934"
+                    }
+                },
+                {
+                    "artwork_url": "https://i1.sndcdn.com/artworks-J1beMMb4CAXx-0-large.jpg",
                     "caption": null,
                     "commentable": true,
                     "comment_count": 14,
-                    "created_at": "2023-03-02T15:32:12Z",
-                    "description": "#BLADE💃🏽🔪",
+                    "created_at": "2023-06-20T18:18:38Z",
+                    "description": null,
                     "downloadable": false,
                     "download_count": 0,
-                    "duration": 162560,
-                    "full_duration": 162560,
+                    "duration": 30000,
+                    "full_duration": 167027,
                     "embeddable_by": "all",
-                    "genre": "",
+                    "genre": "Rap/Hip Hop",
                     "has_downloads_left": false,
-                    "id": 1459709263,
+                    "id": 1545607807,
                     "kind": "track",
-                    "label_name": null,
-                    "last_modified": "2023-03-09T07:03:16Z",
+                    "label_name": "Asylum Worldwide LLC",
+                    "last_modified": "2023-08-10T20:54:01Z",
                     "license": "all-rights-reserved",
-                    "likes_count": 467,
-                    "permalink": "cold-turkey",
-                    "permalink_url": "https://soundcloud.com/idontknowjeffery/cold-turkey",
-                    "playback_count": 14668,
+                    "likes_count": 311,
+                    "permalink": "grand-rising",
+                    "permalink_url": "https://soundcloud.com/idontknowjeffery/grand-rising",
+                    "playback_count": 6086,
                     "public": true,
                     "publisher_metadata": {
-                        "id": 1459709263,
-                        "urn": "soundcloud:tracks:1459709263",
+                        "id": 1545607807,
+                        "urn": "soundcloud:tracks:1545607807",
                         "artist": "idontknowjeffery",
+                        "album_title": "Grand Rising",
                         "contains_music": true,
-                        "publisher": "jeffrey t harper",
-                        "isrc": "QZS632385329",
+                        "upc_or_ean": "075597902051",
+                        "isrc": "US39N2306438",
                         "explicit": true,
-                        "writer_composer": "Jeffrey Harper"
+                        "p_line": "℗ 2023 Asylum Records",
+                        "p_line_for_display": "℗ 2023 Asylum Records",
+                        "c_line": "© 2023 Asylum Records",
+                        "c_line_for_display": "© 2023 Asylum Records",
+                        "release_title": "Grand Rising"
                     },
-                    "purchase_title": "Stream",
-                    "purchase_url": "https://distrokid.com/hyperfollow/idontknowjeffery/blade",
-                    "release_date": "2023-03-08T00:00:00Z",
-                    "reposts_count": 19,
-                    "secret_token": null,
-                    "sharing": "public",
-                    "state": "finished",
-                    "streamable": true,
-                    "tag_list": "\"Hip Hop\" Trap",
-                    "title": "cold turkey (prod. by plure6)",
-                    "track_format": "single-track",
-                    "uri": "https://api.soundcloud.com/tracks/1459709263",
-                    "urn": "soundcloud:tracks:1459709263",
-                    "user_id": 55254934,
-                    "visuals": null,
-                    "waveform_url": "https://wave.sndcdn.com/8EwvAxepjNoe_m.json",
-                    "display_date": "2023-03-09T07:02:14Z",
-                    "media": {
-                        "transcodings": [
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1459709263/31015377-a4a1-45de-8a9b-3f3c9899457f/stream/hls",
-                                "preset": "mp3_1_0",
-                                "duration": 162560,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/mpeg"
-                                },
-                                "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1459709263/31015377-a4a1-45de-8a9b-3f3c9899457f/stream/progressive",
-                                "preset": "mp3_1_0",
-                                "duration": 162560,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "progressive",
-                                    "mime_type": "audio/mpeg"
-                                },
-                                "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1459709263/785d148b-dd9e-4304-acab-54fe2ce3d07d/stream/hls",
-                                "preset": "opus_0_0",
-                                "duration": 162540,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/ogg; codecs=\"opus\""
-                                },
-                                "quality": "sq"
-                            }
-                        ]
-                    },
-                    "station_urn": "soundcloud:system-playlists:track-stations:1459709263",
-                    "station_permalink": "track-stations:1459709263",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6Ijk2ZmVlZmNmLTlmOGEtNDUxNC1iNDEyLTc0MzhiYjZlMDJlZCIsImlhdCI6MTY4NTU3Mzc3MH0.BVkGSmfHmkfQ9vbldG-u-nxGTziFnhM-d8yYZeD1o1Y",
-                    "monetization_model": "NOT_APPLICABLE",
-                    "policy": "ALLOW",
-                    "user": {
-                        "avatar_url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg",
-                        "first_name": "Jeffrey",
-                        "followers_count": 77826,
-                        "full_name": "Jeffrey Harper",
-                        "id": 55254934,
-                        "kind": "user",
-                        "last_modified": "2023-05-25T10:58:22Z",
-                        "last_name": "Harper",
-                        "permalink": "idontknowjeffery",
-                        "permalink_url": "https://soundcloud.com/idontknowjeffery",
-                        "uri": "https://api.soundcloud.com/users/55254934",
-                        "urn": "soundcloud:users:55254934",
-                        "username": "idontknowjeffery",
-                        "verified": true,
-                        "city": "Memphis",
-                        "country_code": "US",
-                        "badges": {
-                            "pro": false,
-                            "pro_unlimited": true,
-                            "verified": true
-                        },
-                        "station_urn": "soundcloud:system-playlists:artist-stations:55254934",
-                        "station_permalink": "artist-stations:55254934"
-                    }
-                },
-                {
-                    "artwork_url": "https://i1.sndcdn.com/artworks-8bTeK669P13gPoBL-HkhYIQ-large.jpg",
-                    "caption": "#BLADE💃🏽🔪 https://youtu.be/OCDrynUYKEg",
-                    "commentable": true,
-                    "comment_count": 24,
-                    "created_at": "2023-03-02T15:32:40Z",
-                    "description": "(Prod. By DENARO LOVE)\n\n#BLADE💃🏽🔪\n\ninstagram: https://instagram.com/idontknowjefferyTV\n\n💔",
-                    "downloadable": false,
-                    "download_count": 0,
-                    "duration": 165590,
-                    "full_duration": 165590,
-                    "embeddable_by": "all",
-                    "genre": "Hip-hop & Rap",
-                    "has_downloads_left": false,
-                    "id": 1459709506,
-                    "kind": "track",
-                    "label_name": "Above The Law Records",
-                    "last_modified": "2023-03-06T07:41:44Z",
-                    "license": "all-rights-reserved",
-                    "likes_count": 403,
-                    "permalink": "fuck-love",
-                    "permalink_url": "https://soundcloud.com/idontknowjeffery/fuck-love",
-                    "playback_count": 11329,
-                    "public": true,
-                    "publisher_metadata": {
-                        "id": 1459709506,
-                        "urn": "soundcloud:tracks:1459709506",
-                        "artist": "idontknowjeffery",
-                        "album_title": "BLADE",
-                        "contains_music": true,
-                        "publisher": "Jeffrey T Harper",
-                        "isrc": "QZMHL2329530",
-                        "explicit": true,
-                        "writer_composer": "Jeffrey Harper"
-                    },
-                    "purchase_title": "MUSIC VIDEO",
-                    "purchase_url": "https://youtu.be/OCDrynUYKEg",
-                    "release_date": "2023-03-04T00:00:00Z",
-                    "reposts_count": 24,
-                    "secret_token": null,
-                    "sharing": "public",
-                    "state": "finished",
-                    "streamable": true,
-                    "tag_list": "\"Hip Hop\"",
-                    "title": "fuck love (prod. by denaro love)",
-                    "track_format": "single-track",
-                    "uri": "https://api.soundcloud.com/tracks/1459709506",
-                    "urn": "soundcloud:tracks:1459709506",
-                    "user_id": 55254934,
-                    "visuals": null,
-                    "waveform_url": "https://wave.sndcdn.com/cItDTsdVWju1_m.json",
-                    "display_date": "2023-03-02T15:32:40Z",
-                    "media": {
-                        "transcodings": [
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1459709506/f07c767e-6ebb-4f4c-896f-eec1758118b1/stream/hls",
-                                "preset": "mp3_1_0",
-                                "duration": 165590,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/mpeg"
-                                },
-                                "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1459709506/f07c767e-6ebb-4f4c-896f-eec1758118b1/stream/progressive",
-                                "preset": "mp3_1_0",
-                                "duration": 165590,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "progressive",
-                                    "mime_type": "audio/mpeg"
-                                },
-                                "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1459709506/d2509100-2d96-456f-a5d0-d1ad982f7bbb/stream/hls",
-                                "preset": "opus_0_0",
-                                "duration": 165571,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/ogg; codecs=\"opus\""
-                                },
-                                "quality": "sq"
-                            }
-                        ]
-                    },
-                    "station_urn": "soundcloud:system-playlists:track-stations:1459709506",
-                    "station_permalink": "track-stations:1459709506",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6ImZmM2ZiYmYxLThhZDMtNDA1OC1iMDMwLTQyNTQ5ZWU0N2ZlZiIsImlhdCI6MTY4NTU3Mzc3MH0.VrSY5jBeGhpKia_H75LpnKO9txBVtnv357oDFqM29cg",
-                    "monetization_model": "NOT_APPLICABLE",
-                    "policy": "ALLOW",
-                    "user": {
-                        "avatar_url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg",
-                        "first_name": "Jeffrey",
-                        "followers_count": 77826,
-                        "full_name": "Jeffrey Harper",
-                        "id": 55254934,
-                        "kind": "user",
-                        "last_modified": "2023-05-25T10:58:22Z",
-                        "last_name": "Harper",
-                        "permalink": "idontknowjeffery",
-                        "permalink_url": "https://soundcloud.com/idontknowjeffery",
-                        "uri": "https://api.soundcloud.com/users/55254934",
-                        "urn": "soundcloud:users:55254934",
-                        "username": "idontknowjeffery",
-                        "verified": true,
-                        "city": "Memphis",
-                        "country_code": "US",
-                        "badges": {
-                            "pro": false,
-                            "pro_unlimited": true,
-                            "verified": true
-                        },
-                        "station_urn": "soundcloud:system-playlists:artist-stations:55254934",
-                        "station_permalink": "artist-stations:55254934"
-                    }
-                },
-                {
-                    "artwork_url": "https://i1.sndcdn.com/artworks-SuvDcsGx1iRiNQcL-HfMMuw-large.jpg",
-                    "caption": null,
-                    "commentable": true,
-                    "comment_count": 8,
-                    "created_at": "2023-03-02T15:31:14Z",
-                    "description": "#BLADE💃🏽🔪",
-                    "downloadable": false,
-                    "download_count": 0,
-                    "duration": 186384,
-                    "full_duration": 186384,
-                    "embeddable_by": "all",
-                    "genre": "Hip-hop & Rap",
-                    "has_downloads_left": false,
-                    "id": 1459708705,
-                    "kind": "track",
-                    "label_name": null,
-                    "last_modified": "2023-03-19T11:25:53Z",
-                    "license": "all-rights-reserved",
-                    "likes_count": 367,
-                    "permalink": "hard-on-a-hoe",
-                    "permalink_url": "https://soundcloud.com/idontknowjeffery/hard-on-a-hoe",
-                    "playback_count": 11875,
-                    "public": true,
-                    "publisher_metadata": {
-                        "id": 1459708705,
-                        "urn": "soundcloud:tracks:1459708705",
-                        "artist": "idontknowjeffery",
-                        "contains_music": true,
-                        "publisher": "Jeffrey T Harper",
-                        "isrc": "QZKDK2393557",
-                        "explicit": true
-                    },
-                    "purchase_title": "Stream",
-                    "purchase_url": "https://distrokid.com/hyperfollow/idontknowjeffery/blade",
-                    "release_date": null,
-                    "reposts_count": 18,
+                    "purchase_title": null,
+                    "purchase_url": null,
+                    "release_date": "2023-07-14T00:00:00Z",
+                    "reposts_count": 16,
                     "secret_token": null,
                     "sharing": "public",
                     "state": "finished",
                     "streamable": true,
                     "tag_list": "",
-                    "title": "hard on a 304 (prod. by. tperc)",
+                    "title": "Grand Rising",
                     "track_format": "single-track",
-                    "uri": "https://api.soundcloud.com/tracks/1459708705",
-                    "urn": "soundcloud:tracks:1459708705",
+                    "uri": "https://api.soundcloud.com/tracks/1545607807",
+                    "urn": "soundcloud:tracks:1545607807",
                     "user_id": 55254934,
                     "visuals": null,
-                    "waveform_url": "https://wave.sndcdn.com/uNjGKbus3zU6_m.json",
-                    "display_date": "2023-03-02T15:31:14Z",
+                    "waveform_url": "https://wave.sndcdn.com/OjCfDZ6TeLyw_m.json",
+                    "display_date": "2023-07-14T00:00:00Z",
                     "media": {
                         "transcodings": [
                             {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1459708705/ef3a71dc-6a09-478b-a6a0-495d3ba57cfa/stream/hls",
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1545607807/466f5b21-1203-4db7-815b-a08577cb8103/preview/hls",
                                 "preset": "mp3_1_0",
-                                "duration": 186384,
-                                "snipped": false,
+                                "duration": 30000,
+                                "snipped": true,
                                 "format": {
                                     "protocol": "hls",
                                     "mime_type": "audio/mpeg"
@@ -428,42 +642,31 @@
                                 "quality": "sq"
                             },
                             {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1459708705/ef3a71dc-6a09-478b-a6a0-495d3ba57cfa/stream/progressive",
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1545607807/466f5b21-1203-4db7-815b-a08577cb8103/preview/progressive",
                                 "preset": "mp3_1_0",
-                                "duration": 186384,
-                                "snipped": false,
+                                "duration": 30000,
+                                "snipped": true,
                                 "format": {
                                     "protocol": "progressive",
                                     "mime_type": "audio/mpeg"
                                 },
                                 "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1459708705/1a9d6a68-b128-4553-9e0e-94c370970637/stream/hls",
-                                "preset": "opus_0_0",
-                                "duration": 186364,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/ogg; codecs=\"opus\""
-                                },
-                                "quality": "sq"
                             }
                         ]
                     },
-                    "station_urn": "soundcloud:system-playlists:track-stations:1459708705",
-                    "station_permalink": "track-stations:1459708705",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjA1Mzk2NzJjLTAzOGYtNDFiMy04ODNmLWI2MjIwNGMzOGM5ZCIsImlhdCI6MTY4NTU3Mzc3MH0.qT2S1w1vgIgFVCDPx3uwQQmpOhjMtIbC57En8q2L-cY",
+                    "station_urn": "soundcloud:system-playlists:track-stations:1545607807",
+                    "station_permalink": "track-stations:1545607807",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6ImQwZWI0Njg0LWJhMzUtNGM0OS04YmFhLWQzNmVhNzgxNWI5ZiIsImlhdCI6MTY5MTgzMDY5MX0.If74sTOIBxjqn4GS6Bn2yHfNT2vOrpBagKYkt8hKYAw",
                     "monetization_model": "NOT_APPLICABLE",
-                    "policy": "ALLOW",
+                    "policy": "SNIP",
                     "user": {
-                        "avatar_url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg",
+                        "avatar_url": "https://i1.sndcdn.com/avatars-ugeXzJo0QfE04yoF-ltEtMg-large.jpg",
                         "first_name": "Jeffrey",
-                        "followers_count": 77826,
+                        "followers_count": 78495,
                         "full_name": "Jeffrey Harper",
                         "id": 55254934,
                         "kind": "user",
-                        "last_modified": "2023-05-25T10:58:22Z",
+                        "last_modified": "2023-08-12T05:52:05Z",
                         "last_name": "Harper",
                         "permalink": "idontknowjeffery",
                         "permalink_url": "https://soundcloud.com/idontknowjeffery",
@@ -483,182 +686,68 @@
                     }
                 },
                 {
-                    "artwork_url": "https://i1.sndcdn.com/artworks-eYezxs1ozaboeqbq-2Y4mJw-large.jpg",
+                    "artwork_url": "https://i1.sndcdn.com/artworks-wz8P907Qjvzv-0-large.jpg",
                     "caption": null,
                     "commentable": true,
-                    "comment_count": 58,
-                    "created_at": "2023-02-28T14:57:15Z",
-                    "description": "#BLADE💃🏽🔪\n\n3/9/23",
+                    "comment_count": 14,
+                    "created_at": "2023-06-20T18:18:28Z",
+                    "description": null,
                     "downloadable": false,
                     "download_count": 0,
-                    "duration": 213473,
-                    "full_duration": 213473,
+                    "duration": 30000,
+                    "full_duration": 171729,
                     "embeddable_by": "all",
-                    "genre": "",
+                    "genre": "Rap/Hip Hop",
                     "has_downloads_left": false,
-                    "id": 1457983795,
+                    "id": 1545607549,
                     "kind": "track",
-                    "label_name": null,
-                    "last_modified": "2023-03-06T10:44:54Z",
+                    "label_name": "Asylum Worldwide LLC",
+                    "last_modified": "2023-08-10T20:54:36Z",
                     "license": "all-rights-reserved",
-                    "likes_count": 873,
-                    "permalink": "dirty-diana-unreleased",
-                    "permalink_url": "https://soundcloud.com/idontknowjeffery/dirty-diana-unreleased",
-                    "playback_count": 26534,
+                    "likes_count": 248,
+                    "permalink": "lamborghini-boyz",
+                    "permalink_url": "https://soundcloud.com/idontknowjeffery/lamborghini-boyz",
+                    "playback_count": 6117,
                     "public": true,
                     "publisher_metadata": {
-                        "id": 1457983795,
-                        "urn": "soundcloud:tracks:1457983795",
+                        "id": 1545607549,
+                        "urn": "soundcloud:tracks:1545607549",
                         "artist": "idontknowjeffery",
+                        "album_title": "Lamborghini Boyz",
                         "contains_music": true,
-                        "publisher": "Jeffrey T Harper",
-                        "isrc": "QM42K2390510",
-                        "explicit": false,
-                        "writer_composer": "Jeffrey Harper"
-                    },
-                    "purchase_title": "stream",
-                    "purchase_url": "https://distrokid.com/hyperfollow/idontknowjeffery/blade",
-                    "release_date": null,
-                    "reposts_count": 32,
-                    "secret_token": null,
-                    "sharing": "public",
-                    "state": "finished",
-                    "streamable": true,
-                    "tag_list": "\"Hip Hop\"",
-                    "title": "dirty diana (prod. by tperc)",
-                    "track_format": "single-track",
-                    "uri": "https://api.soundcloud.com/tracks/1457983795",
-                    "urn": "soundcloud:tracks:1457983795",
-                    "user_id": 55254934,
-                    "visuals": null,
-                    "waveform_url": "https://wave.sndcdn.com/X3Z5VIta6cci_m.json",
-                    "display_date": "2023-03-01T07:53:30Z",
-                    "media": {
-                        "transcodings": [
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1457983795/998d7c8b-435c-4d47-ab1d-c5d83f6d2976/stream/hls",
-                                "preset": "mp3_1_0",
-                                "duration": 213473,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/mpeg"
-                                },
-                                "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1457983795/998d7c8b-435c-4d47-ab1d-c5d83f6d2976/stream/progressive",
-                                "preset": "mp3_1_0",
-                                "duration": 213473,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "progressive",
-                                    "mime_type": "audio/mpeg"
-                                },
-                                "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1457983795/83c39f1a-f18e-4c3c-bac9-db8a1407c65a/stream/hls",
-                                "preset": "opus_0_0",
-                                "duration": 213453,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/ogg; codecs=\"opus\""
-                                },
-                                "quality": "sq"
-                            }
-                        ]
-                    },
-                    "station_urn": "soundcloud:system-playlists:track-stations:1457983795",
-                    "station_permalink": "track-stations:1457983795",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6ImIzYTRkNmNkLWM5ZGMtNGMzOC05NzNhLTNiODVhZjA0M2IxMiIsImlhdCI6MTY4NTU3Mzc3MH0.ak1gTXuFx1bG_OzqyoRQKxTL9767HdhnjK__vy95_3A",
-                    "monetization_model": "NOT_APPLICABLE",
-                    "policy": "ALLOW",
-                    "user": {
-                        "avatar_url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg",
-                        "first_name": "Jeffrey",
-                        "followers_count": 77826,
-                        "full_name": "Jeffrey Harper",
-                        "id": 55254934,
-                        "kind": "user",
-                        "last_modified": "2023-05-25T10:58:22Z",
-                        "last_name": "Harper",
-                        "permalink": "idontknowjeffery",
-                        "permalink_url": "https://soundcloud.com/idontknowjeffery",
-                        "uri": "https://api.soundcloud.com/users/55254934",
-                        "urn": "soundcloud:users:55254934",
-                        "username": "idontknowjeffery",
-                        "verified": true,
-                        "city": "Memphis",
-                        "country_code": "US",
-                        "badges": {
-                            "pro": false,
-                            "pro_unlimited": true,
-                            "verified": true
-                        },
-                        "station_urn": "soundcloud:system-playlists:artist-stations:55254934",
-                        "station_permalink": "artist-stations:55254934"
-                    }
-                },
-                {
-                    "artwork_url": "https://i1.sndcdn.com/artworks-TsTxAn2PURprdPdx-nMU8XQ-large.jpg",
-                    "caption": "hey now!",
-                    "commentable": true,
-                    "comment_count": 39,
-                    "created_at": "2023-02-19T09:39:37Z",
-                    "description": "#BLADE💃🏽🔪",
-                    "downloadable": false,
-                    "download_count": 0,
-                    "duration": 208039,
-                    "full_duration": 208039,
-                    "embeddable_by": "all",
-                    "genre": "Hip-hop & Rap",
-                    "has_downloads_left": false,
-                    "id": 1450483711,
-                    "kind": "track",
-                    "label_name": null,
-                    "last_modified": "2023-03-06T10:46:35Z",
-                    "license": "all-rights-reserved",
-                    "likes_count": 914,
-                    "permalink": "onebitchaintenough",
-                    "permalink_url": "https://soundcloud.com/idontknowjeffery/onebitchaintenough",
-                    "playback_count": 30378,
-                    "public": true,
-                    "publisher_metadata": {
-                        "id": 1450483711,
-                        "urn": "soundcloud:tracks:1450483711",
-                        "artist": "idontknowjeffery",
-                        "contains_music": true,
-                        "publisher": "Jeffrey T Harper",
-                        "isrc": "QZMHN2371247",
+                        "upc_or_ean": "075597902075",
+                        "isrc": "US39N2306437",
                         "explicit": true,
-                        "writer_composer": "Jeffrey Harper"
+                        "p_line": "℗ 2023 Asylum Records",
+                        "p_line_for_display": "℗ 2023 Asylum Records",
+                        "c_line": "© 2023 Asylum Records",
+                        "c_line_for_display": "© 2023 Asylum Records",
+                        "release_title": "Lamborghini Boyz"
                     },
-                    "purchase_title": "Music Video",
-                    "purchase_url": "https://youtu.be/U5tcyroWz9A",
-                    "release_date": null,
-                    "reposts_count": 40,
+                    "purchase_title": null,
+                    "purchase_url": null,
+                    "release_date": "2023-07-14T00:00:00Z",
+                    "reposts_count": 11,
                     "secret_token": null,
                     "sharing": "public",
                     "state": "finished",
                     "streamable": true,
                     "tag_list": "",
-                    "title": "one bitch aint enough (prod. by tperc)",
+                    "title": "Lamborghini Boyz",
                     "track_format": "single-track",
-                    "uri": "https://api.soundcloud.com/tracks/1450483711",
-                    "urn": "soundcloud:tracks:1450483711",
+                    "uri": "https://api.soundcloud.com/tracks/1545607549",
+                    "urn": "soundcloud:tracks:1545607549",
                     "user_id": 55254934,
                     "visuals": null,
-                    "waveform_url": "https://wave.sndcdn.com/gpAM5TktxsH9_m.json",
-                    "display_date": "2023-02-19T09:43:58Z",
+                    "waveform_url": "https://wave.sndcdn.com/TNS2E5aJwTNv_m.json",
+                    "display_date": "2023-07-14T00:00:00Z",
                     "media": {
                         "transcodings": [
                             {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1450483711/c9c12bf9-c7ed-426f-a148-4dacb8c65535/stream/hls",
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1545607549/07d5392b-19ca-4430-9e62-bc89d20690b7/preview/hls",
                                 "preset": "mp3_1_0",
-                                "duration": 208039,
-                                "snipped": false,
+                                "duration": 30000,
+                                "snipped": true,
                                 "format": {
                                     "protocol": "hls",
                                     "mime_type": "audio/mpeg"
@@ -666,42 +755,144 @@
                                 "quality": "sq"
                             },
                             {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1450483711/c9c12bf9-c7ed-426f-a148-4dacb8c65535/stream/progressive",
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1545607549/07d5392b-19ca-4430-9e62-bc89d20690b7/preview/progressive",
                                 "preset": "mp3_1_0",
-                                "duration": 208039,
-                                "snipped": false,
+                                "duration": 30000,
+                                "snipped": true,
                                 "format": {
                                     "protocol": "progressive",
                                     "mime_type": "audio/mpeg"
                                 },
                                 "quality": "sq"
-                            },
+                            }
+                        ]
+                    },
+                    "station_urn": "soundcloud:system-playlists:track-stations:1545607549",
+                    "station_permalink": "track-stations:1545607549",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6ImFkYzUxZGYxLTQ5NmQtNDRlNS1iMmI3LTg2NjUzODQ2OTJjZiIsImlhdCI6MTY5MTgzMDY5MX0.vnEgUkTW5ypIQHMnRVTK3Zi2clt65gnkDR2GDXlwCMk",
+                    "monetization_model": "NOT_APPLICABLE",
+                    "policy": "SNIP",
+                    "user": {
+                        "avatar_url": "https://i1.sndcdn.com/avatars-ugeXzJo0QfE04yoF-ltEtMg-large.jpg",
+                        "first_name": "Jeffrey",
+                        "followers_count": 78495,
+                        "full_name": "Jeffrey Harper",
+                        "id": 55254934,
+                        "kind": "user",
+                        "last_modified": "2023-08-12T05:52:05Z",
+                        "last_name": "Harper",
+                        "permalink": "idontknowjeffery",
+                        "permalink_url": "https://soundcloud.com/idontknowjeffery",
+                        "uri": "https://api.soundcloud.com/users/55254934",
+                        "urn": "soundcloud:users:55254934",
+                        "username": "idontknowjeffery",
+                        "verified": true,
+                        "city": "Memphis",
+                        "country_code": "US",
+                        "badges": {
+                            "pro": false,
+                            "pro_unlimited": true,
+                            "verified": true
+                        },
+                        "station_urn": "soundcloud:system-playlists:artist-stations:55254934",
+                        "station_permalink": "artist-stations:55254934"
+                    }
+                },
+                {
+                    "artwork_url": "https://i1.sndcdn.com/artworks-sPNDBDeoj06M-0-large.jpg",
+                    "caption": null,
+                    "commentable": true,
+                    "comment_count": 5,
+                    "created_at": "2023-06-20T18:17:22Z",
+                    "description": null,
+                    "downloadable": false,
+                    "download_count": 0,
+                    "duration": 30000,
+                    "full_duration": 137169,
+                    "embeddable_by": "all",
+                    "genre": "Rap/Hip Hop",
+                    "has_downloads_left": false,
+                    "id": 1545605737,
+                    "kind": "track",
+                    "label_name": "Asylum Worldwide LLC",
+                    "last_modified": "2023-08-11T02:10:04Z",
+                    "license": "all-rights-reserved",
+                    "likes_count": 144,
+                    "permalink": "dont-trust-jeffery-2",
+                    "permalink_url": "https://soundcloud.com/idontknowjeffery/dont-trust-jeffery-2",
+                    "playback_count": 2478,
+                    "public": true,
+                    "publisher_metadata": {
+                        "id": 1545605737,
+                        "urn": "soundcloud:tracks:1545605737",
+                        "artist": "idontknowjeffery",
+                        "album_title": "Don’t Trust Jeffery 2",
+                        "contains_music": true,
+                        "upc_or_ean": "075597902136",
+                        "isrc": "US39N2306427",
+                        "explicit": true,
+                        "p_line": "℗ 2023 Asylum Records",
+                        "p_line_for_display": "℗ 2023 Asylum Records",
+                        "c_line": "© 2023 Asylum Records",
+                        "c_line_for_display": "© 2023 Asylum Records",
+                        "release_title": "Don’t Trust Jeffery 2"
+                    },
+                    "purchase_title": null,
+                    "purchase_url": null,
+                    "release_date": "2023-07-14T00:00:00Z",
+                    "reposts_count": 7,
+                    "secret_token": null,
+                    "sharing": "public",
+                    "state": "finished",
+                    "streamable": true,
+                    "tag_list": "",
+                    "title": "Don’t Trust Jeffery 2",
+                    "track_format": "single-track",
+                    "uri": "https://api.soundcloud.com/tracks/1545605737",
+                    "urn": "soundcloud:tracks:1545605737",
+                    "user_id": 55254934,
+                    "visuals": null,
+                    "waveform_url": "https://wave.sndcdn.com/YLA2xDmQKdlQ_m.json",
+                    "display_date": "2023-07-14T00:00:00Z",
+                    "media": {
+                        "transcodings": [
                             {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1450483711/60b5bd98-92b3-45c0-80b6-e364d539b9f3/stream/hls",
-                                "preset": "opus_0_0",
-                                "duration": 208017,
-                                "snipped": false,
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1545605737/388442ed-072c-4447-bedd-61c8848539fb/preview/hls",
+                                "preset": "mp3_1_0",
+                                "duration": 30000,
+                                "snipped": true,
                                 "format": {
                                     "protocol": "hls",
-                                    "mime_type": "audio/ogg; codecs=\"opus\""
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            },
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1545605737/388442ed-072c-4447-bedd-61c8848539fb/preview/progressive",
+                                "preset": "mp3_1_0",
+                                "duration": 30000,
+                                "snipped": true,
+                                "format": {
+                                    "protocol": "progressive",
+                                    "mime_type": "audio/mpeg"
                                 },
                                 "quality": "sq"
                             }
                         ]
                     },
-                    "station_urn": "soundcloud:system-playlists:track-stations:1450483711",
-                    "station_permalink": "track-stations:1450483711",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjAyMzZmYzIyLWQ3OGUtNGFmMC1iZjUwLTRmNzI3N2MwZmE3YyIsImlhdCI6MTY4NTU3Mzc3MH0.NmAoomMzkEW0xBpE-F-d-SPdQiWX6otqHE5sC6BGWoo",
+                    "station_urn": "soundcloud:system-playlists:track-stations:1545605737",
+                    "station_permalink": "track-stations:1545605737",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjgwZDZiMWFkLWU0MmMtNDgyMy1hNWM4LWIyOWI4YTgzZjgwZSIsImlhdCI6MTY5MTgzMDY5MX0.zJ_H1Kux1RIeiK4GfMT9eVokMNxLbySlRgGNCHGk6XU",
                     "monetization_model": "NOT_APPLICABLE",
-                    "policy": "ALLOW",
+                    "policy": "SNIP",
                     "user": {
-                        "avatar_url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg",
+                        "avatar_url": "https://i1.sndcdn.com/avatars-ugeXzJo0QfE04yoF-ltEtMg-large.jpg",
                         "first_name": "Jeffrey",
-                        "followers_count": 77826,
+                        "followers_count": 78495,
                         "full_name": "Jeffrey Harper",
                         "id": 55254934,
                         "kind": "user",
-                        "last_modified": "2023-05-25T10:58:22Z",
+                        "last_modified": "2023-08-12T05:52:05Z",
                         "last_name": "Harper",
                         "permalink": "idontknowjeffery",
                         "permalink_url": "https://soundcloud.com/idontknowjeffery",
@@ -721,18 +912,18 @@
                     }
                 }
             ],
-            "next_href": "https://api-v2.soundcloud.com/users/55254934/tracks?offset=2023-02-05T08%3A41%3A54.000Z%2Ctracks%2C01440135346&limit=10",
+            "next_href": "https://api-v2.soundcloud.com/users/55254934/tracks?offset=2023-07-14T00%3A00%3A00.000Z%2Ctracks%2C01545605737&limit=10",
             "query_urn": null
         },
         "rawHeaders": [
             "Content-Type",
             "application/json; charset=utf-8",
             "Content-Length",
-            "19977",
+            "25287",
             "Connection",
             "close",
             "Date",
-            "Wed, 31 May 2023 22:56:10 GMT",
+            "Sat, 12 Aug 2023 08:58:11 GMT",
             "x-robots-tag",
             "noindex",
             "Cache-Control",
@@ -752,16 +943,16 @@
             "X-Cache",
             "Miss from cloudfront",
             "Via",
-            "1.1 6e67f1ea42d4e5ff9c87cf2624025a28.cloudfront.net (CloudFront)",
+            "1.1 e9ebe38de33a70557cf9d9c1d7e5d11e.cloudfront.net (CloudFront)",
             "X-Amz-Cf-Pop",
             "ZAG50-C1",
             "X-Amz-Cf-Id",
-            "sc5twMr0985HRzNa6jTpI5DToGKgmY2b4SAKeio4tBuutV2mfn-sKw=="
+            "OzYtPqdNbsyJlHBImfEmIODx8XjYd8Elo5QypRJzohgSOa9wi7V0Zw=="
         ],
         "responseIsBinary": false
     },
     {
-        "scope": "http://127.0.0.1:53332",
+        "scope": "http://127.0.0.1:58085",
         "method": "POST",
         "path": "/api/soundcloud/channel/items",
         "body": {
@@ -771,17 +962,17 @@
         "response": {
             "searchResultsArray": [
                 {
-                    "id": 1506674083,
+                    "id": 1558756750,
                     "engine": "soundcloud",
-                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1506674083/2dc43d8b-51ed-4dd5-b51b-536f3715a541/stream/progressive",
-                    "title": "Worst She Ever Had (Prod. By Tperccc)",
+                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1558756750/d84a753d-0157-4cba-9bd2-00eb20f659be/preview/progressive",
+                    "title": "This is Not a Competition",
                     "thumbnails": [
                         {
-                            "url": "https://i1.sndcdn.com/artworks-CLRyiM6rbz9eJ3nl-qVDdVQ-t200x200.jpg"
+                            "url": "https://i1.sndcdn.com/artworks-Y5swYgD0e35k-0-t200x200.jpg"
                         }
                     ],
-                    "duration": "3:39",
-                    "uploadedAt": "2023-05-04",
+                    "duration": "30",
+                    "uploadedAt": "2023-07-07",
                     "author": {
                         "engine": "soundcloud",
                         "type": "channel",
@@ -790,25 +981,25 @@
                         "name": "idontknowjeffery",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-ugeXzJo0QfE04yoF-ltEtMg-large.jpg"
                             }
                         ]
                     },
-                    "views": 14308,
+                    "views": 803,
                     "type": "video"
                 },
                 {
-                    "id": 1459709263,
+                    "id": 1546633144,
                     "engine": "soundcloud",
-                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1459709263/31015377-a4a1-45de-8a9b-3f3c9899457f/stream/progressive",
-                    "title": "cold turkey (prod. by plure6)",
+                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1546633144/1ee55f64-6a12-4d67-9522-73fc7ff5efc7/preview/progressive",
+                    "title": "Transform",
                     "thumbnails": [
                         {
-                            "url": "https://i1.sndcdn.com/artworks-XHHUTWaZ47thc5mL-o4UbvA-t200x200.jpg"
+                            "url": "https://i1.sndcdn.com/artworks-OB7N2flZcaPj-0-t200x200.jpg"
                         }
                     ],
-                    "duration": "2:42",
-                    "uploadedAt": "2023-03-02",
+                    "duration": "30",
+                    "uploadedAt": "2023-06-22",
                     "author": {
                         "engine": "soundcloud",
                         "type": "channel",
@@ -817,25 +1008,25 @@
                         "name": "idontknowjeffery",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-ugeXzJo0QfE04yoF-ltEtMg-large.jpg"
                             }
                         ]
                     },
-                    "views": 14668,
+                    "views": 1521,
                     "type": "video"
                 },
                 {
-                    "id": 1459709506,
+                    "id": 1546634071,
                     "engine": "soundcloud",
-                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1459709506/f07c767e-6ebb-4f4c-896f-eec1758118b1/stream/progressive",
-                    "title": "fuck love (prod. by denaro love)",
+                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1546634071/363f4414-2ba2-46f8-a38b-a49cbc11a0b6/preview/progressive",
+                    "title": "M.N.E.I.G (feat. Duke Deuce, Marcus.901)",
                     "thumbnails": [
                         {
-                            "url": "https://i1.sndcdn.com/artworks-8bTeK669P13gPoBL-HkhYIQ-t200x200.jpg"
+                            "url": "https://i1.sndcdn.com/artworks-vl1gtIvXOmsU-0-t200x200.jpg"
                         }
                     ],
-                    "duration": "2:45",
-                    "uploadedAt": "2023-03-02",
+                    "duration": "30",
+                    "uploadedAt": "2023-06-22",
                     "author": {
                         "engine": "soundcloud",
                         "type": "channel",
@@ -844,25 +1035,25 @@
                         "name": "idontknowjeffery",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-ugeXzJo0QfE04yoF-ltEtMg-large.jpg"
                             }
                         ]
                     },
-                    "views": 11329,
+                    "views": 1730,
                     "type": "video"
                 },
                 {
-                    "id": 1459708705,
+                    "id": 1546634572,
                     "engine": "soundcloud",
-                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1459708705/ef3a71dc-6a09-478b-a6a0-495d3ba57cfa/stream/progressive",
-                    "title": "hard on a 304 (prod. by. tperc)",
+                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1546634572/842da7d9-450f-4ec9-aab7-5957bbf9b60d/preview/progressive",
+                    "title": "Life is Great",
                     "thumbnails": [
                         {
-                            "url": "https://i1.sndcdn.com/artworks-SuvDcsGx1iRiNQcL-HfMMuw-t200x200.jpg"
+                            "url": "https://i1.sndcdn.com/artworks-MuqLM3AkGWfk-0-t200x200.jpg"
                         }
                     ],
-                    "duration": "3:06",
-                    "uploadedAt": "2023-03-02",
+                    "duration": "30",
+                    "uploadedAt": "2023-06-22",
                     "author": {
                         "engine": "soundcloud",
                         "type": "channel",
@@ -871,25 +1062,25 @@
                         "name": "idontknowjeffery",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-ugeXzJo0QfE04yoF-ltEtMg-large.jpg"
                             }
                         ]
                     },
-                    "views": 11875,
+                    "views": 2442,
                     "type": "video"
                 },
                 {
-                    "id": 1457983795,
+                    "id": 1545610279,
                     "engine": "soundcloud",
-                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1457983795/998d7c8b-435c-4d47-ab1d-c5d83f6d2976/stream/progressive",
-                    "title": "dirty diana (prod. by tperc)",
+                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1545610279/66927d07-a2bf-4abb-9df1-4572532b5ff6/preview/progressive",
+                    "title": "Gravesite (feat. Xavier Wulf)",
                     "thumbnails": [
                         {
-                            "url": "https://i1.sndcdn.com/artworks-eYezxs1ozaboeqbq-2Y4mJw-t200x200.jpg"
+                            "url": "https://i1.sndcdn.com/artworks-L1r2WnxuZ3J7-0-t200x200.jpg"
                         }
                     ],
-                    "duration": "3:33",
-                    "uploadedAt": "2023-02-28",
+                    "duration": "30",
+                    "uploadedAt": "2023-06-20",
                     "author": {
                         "engine": "soundcloud",
                         "type": "channel",
@@ -898,25 +1089,25 @@
                         "name": "idontknowjeffery",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-ugeXzJo0QfE04yoF-ltEtMg-large.jpg"
                             }
                         ]
                     },
-                    "views": 26534,
+                    "views": 17554,
                     "type": "video"
                 },
                 {
-                    "id": 1450483711,
+                    "id": 1545607807,
                     "engine": "soundcloud",
-                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1450483711/c9c12bf9-c7ed-426f-a148-4dacb8c65535/stream/progressive",
-                    "title": "one bitch aint enough (prod. by tperc)",
+                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1545607807/466f5b21-1203-4db7-815b-a08577cb8103/preview/progressive",
+                    "title": "Grand Rising",
                     "thumbnails": [
                         {
-                            "url": "https://i1.sndcdn.com/artworks-TsTxAn2PURprdPdx-nMU8XQ-t200x200.jpg"
+                            "url": "https://i1.sndcdn.com/artworks-J1beMMb4CAXx-0-t200x200.jpg"
                         }
                     ],
-                    "duration": "3:28",
-                    "uploadedAt": "2023-02-19",
+                    "duration": "30",
+                    "uploadedAt": "2023-06-20",
                     "author": {
                         "engine": "soundcloud",
                         "type": "channel",
@@ -925,11 +1116,65 @@
                         "name": "idontknowjeffery",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-CLRyiM6rbz9eJ3nl-qVDdVQ-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-ugeXzJo0QfE04yoF-ltEtMg-large.jpg"
                             }
                         ]
                     },
-                    "views": 30378,
+                    "views": 6086,
+                    "type": "video"
+                },
+                {
+                    "id": 1545607549,
+                    "engine": "soundcloud",
+                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1545607549/07d5392b-19ca-4430-9e62-bc89d20690b7/preview/progressive",
+                    "title": "Lamborghini Boyz",
+                    "thumbnails": [
+                        {
+                            "url": "https://i1.sndcdn.com/artworks-wz8P907Qjvzv-0-t200x200.jpg"
+                        }
+                    ],
+                    "duration": "30",
+                    "uploadedAt": "2023-06-20",
+                    "author": {
+                        "engine": "soundcloud",
+                        "type": "channel",
+                        "url": "https://soundcloud.com/idontknowjeffery",
+                        "id": 55254934,
+                        "name": "idontknowjeffery",
+                        "avatars": [
+                            {
+                                "url": "https://i1.sndcdn.com/avatars-ugeXzJo0QfE04yoF-ltEtMg-large.jpg"
+                            }
+                        ]
+                    },
+                    "views": 6117,
+                    "type": "video"
+                },
+                {
+                    "id": 1545605737,
+                    "engine": "soundcloud",
+                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1545605737/388442ed-072c-4447-bedd-61c8848539fb/preview/progressive",
+                    "title": "Don’t Trust Jeffery 2",
+                    "thumbnails": [
+                        {
+                            "url": "https://i1.sndcdn.com/artworks-sPNDBDeoj06M-0-t200x200.jpg"
+                        }
+                    ],
+                    "duration": "30",
+                    "uploadedAt": "2023-06-20",
+                    "author": {
+                        "engine": "soundcloud",
+                        "type": "channel",
+                        "url": "https://soundcloud.com/idontknowjeffery",
+                        "id": 55254934,
+                        "name": "idontknowjeffery",
+                        "avatars": [
+                            {
+                                "url": "https://i1.sndcdn.com/avatars-ugeXzJo0QfE04yoF-ltEtMg-large.jpg"
+                            }
+                        ]
+                    },
+                    "views": 2478,
                     "type": "video"
                 }
             ]
@@ -942,11 +1187,11 @@
             "Content-Type",
             "application/json; charset=utf-8",
             "Content-Length",
-            "3639",
+            "4663",
             "ETag",
-            "W/\"e37-PZhHUEObJi4mvNOTORHuNFcxd5g\"",
+            "W/\"1237-jZNeIos4LeSf3eM/1m5gEE79yio\"",
             "Date",
-            "Wed, 31 May 2023 22:56:10 GMT",
+            "Sat, 12 Aug 2023 08:58:11 GMT",
             "Connection",
             "close"
         ],

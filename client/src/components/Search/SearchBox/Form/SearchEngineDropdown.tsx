@@ -4,7 +4,11 @@ import youtube from "icons/youtube.svg";
 import soundcloud from "icons/soundcloud.svg";
 import DropDown from "components/Dropdown";
 
-export const SearchEngineDropdown: { selected: Engine } = {
+export const SearchEngineDropdown: {
+  selectEngine: (newEngine: Engine) => void;
+  selected: Engine;
+} = {
+  selectEngine: () => {},
   selected: "youtube",
 };
 
@@ -14,6 +18,7 @@ const SearchEngineDropdownComponent = () => {
   );
 
   SearchEngineDropdown.selected = searchEngine;
+  SearchEngineDropdown.selectEngine = setSearchEngine;
 
   return (
     <>

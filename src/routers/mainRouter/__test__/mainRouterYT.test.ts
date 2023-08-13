@@ -77,6 +77,23 @@ describe("Testing youtube endpoints", () => {
     });
   });
 
+  it("should return item info when given id", (done) => {
+    nock.back("itemInfoYT.json").then(({ nockDone }) => {
+      nock.enableNetConnect(isLocalHost);
+      agent
+        .post("/api/info/youtube")
+        .send({
+          id: youtubeDummyData.itemId,
+        })
+        .expect(200, (err, res) => {
+          const itemInfo = res.body as Item;
+          expect(typeof itemInfo.title === "string").toBe(true);
+          done();
+          nockDone();
+        });
+    });
+  });
+
   it("should return array of string suggestions when given string", (done) => {
     nock.back("suggestionsYT.json", (nockDone) => {
       nock.enableNetConnect(isLocalHost);

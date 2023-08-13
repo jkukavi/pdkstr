@@ -24,24 +24,23 @@ app.post<string, { engine: Engine }>("/url/:engine", async (req, res) => {
   }
 });
 
-//unused for now...
-// app.post("/info/:engine", async (req: Request, res: Response) => {
-//   const { engine } = req.params;
-//   const { id } = req.body;
+app.post<string, { engine: Engine }>("/info/:engine", async (req, res) => {
+  const { engine } = req.params;
+  const { id } = req.body;
 
-//   if (!(engine in engines)) {
-//     throw new Error("Bad request");
-//   }
+  if (!(engine in engines)) {
+    throw new Error("Bad request");
+  }
 
-//   const getItemInfo = engines[engine];
+  const { getItemInfo } = engines[engine];
 
-//   try {
-//     const itemInfo = await getItemInfo(id);
-//     res.status(200).json(itemInfo);
-//   } catch (error) {
-//     res.status(400).json({ message: "Somethin went wrong" });
-//   }
-// });
+  try {
+    const itemInfo = await getItemInfo(id);
+    res.status(200).json(itemInfo);
+  } catch (error) {
+    res.status(400).json({ message: "Somethin went wrong" });
+  }
+});
 
 app.post<string, { engine: Engine }, any, { searchString: string }>(
   "/suggestions/:engine",
@@ -100,6 +99,27 @@ app.post<string, { engine: Engine }, any, { id: string }>(
       res.status(200).json({ playlistItems });
     } else {
       res.status(400).json({ message: "No results" });
+    }
+  }
+);
+
+app.post<string, { engine: Engine }, any, { id: string }>(
+  "/channel/:engine/info",
+  async (req, res) => {
+    const { engine } = req.params;
+    const { id } = req.body;
+
+    if (!(engine in engines)) {
+      throw new Error("Bad request");
+    }
+
+    const { getChannelInfo } = engines[engine];
+
+    try {
+      const channelInfo = await getChannelInfo(id);
+      res.status(200).json(channelInfo);
+    } catch (e) {
+      res.status(400).json({ message: "Error fetching channel info" });
     }
   }
 );

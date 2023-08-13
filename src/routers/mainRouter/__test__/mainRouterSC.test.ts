@@ -111,6 +111,23 @@ describe("Testing soundcloud endpoints", () => {
     });
   });
 
+  it("should return item info when given id", (done) => {
+    nock.back("itemInfoSC.json").then(({ nockDone }) => {
+      nock.enableNetConnect(isLocalHost);
+      agent
+        .post("/api/info/soundcloud")
+        .send({
+          id: soundcloudDummyData.itemId,
+        })
+        .expect(200, (err, res) => {
+          const itemInfo = res.body as Item;
+          expect(typeof itemInfo.title === "string").toBe(true);
+          done();
+          nockDone();
+        });
+    });
+  });
+
   it("should return playlist items when given soundcloud playlist Id", (done) => {
     nock.back("playlistItemsSC.json").then(({ nockDone }) => {
       nock.enableNetConnect(isLocalHost);

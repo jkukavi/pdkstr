@@ -10,18 +10,22 @@ export const suggestionMapper = (suggestion: Suggestion) => {
   return suggestionString;
 };
 
-const getUrlFromTrack = (item: Track | UsersTrack): string | undefined => {
+const getUrlFromTrack = (item: Track | UsersTrack): string => {
   const url = item.media.transcodings.find(
     (item) => item.format.protocol === "progressive"
   )?.url;
 
-  return url;
+  return url || "";
 };
 
-export const trackMapper = (item: Track | UsersTrack) => {
+export const trackMapper = (item: Track | UsersTrack): Item => {
   return {
-    // original_url: item.permalink_url,
-    id: item.id,
+    key: String(item.id),
+    bestThumbnail: {
+      url:
+        item.artwork_url?.replace("large", "t200x200") ?? item.user.avatar_url,
+    },
+    id: String(item.id),
     engine: "soundcloud",
     url: getUrlFromTrack(item),
     title: item.title,
@@ -35,10 +39,9 @@ export const trackMapper = (item: Track | UsersTrack) => {
     duration: intoHHMMSS(item.duration),
     uploadedAt: item.created_at.substring(0, 10),
     author: {
-      engine: "soundcloud",
-      type: "channel",
+      bestAvatar: { url: item.user.avatar_url },
+      channelID: String(item.user_id),
       url: item.user.permalink_url,
-      id: item.user.id,
       name: item.user.username,
       avatars: [{ url: item.user.avatar_url }],
     },
@@ -47,12 +50,15 @@ export const trackMapper = (item: Track | UsersTrack) => {
   };
 };
 
-export const playlistMapper = (item: UsersPlaylist) => {
+export const playlistMapper = (item: UsersPlaylist): Playlist => {
   return {
     // original_url: item.permalink_url,
     engine: "soundcloud",
+    playlistID: String(item.id),
+    playlistLength: item.track_count,
     url: item.permalink_url,
     title: item.title,
+    key: String(item.id),
     thumbnails: [
       {
         url:
@@ -60,17 +66,12 @@ export const playlistMapper = (item: UsersPlaylist) => {
           item.user.avatar_url,
       },
     ],
-    duration: intoHHMMSS(item.duration),
-    uploadedAt: item.created_at.substring(0, 10),
-    author: {
-      engine: "soundcloud",
-      type: "channel",
+    owner: {
       url: item.user.permalink_url,
-      id: item.user.id,
+      channelID: String(item.user.id),
       name: item.user.username,
-      avatars: [{ url: item.user.avatar_url }],
     },
-    id: item.id,
+    id: String(item.id),
     length: item.tracks.length,
     type: "playlist",
   };
@@ -102,6 +103,18 @@ const mappAfterSingleItemFetch = <S extends any[], T, Z>(
   };
 };
 
+const getChannelInfo = async (channelId: string): Promise<ChannelInfo> => {
+  const result = await scScrappy.getChannelItems(channelId);
+
+  const item = result[0];
+
+  return {
+    name: item.user.permalink,
+    avatar: item.user.avatar_url,
+    subscribers: item.user.followers_count?.toString(),
+  };
+};
+
 const {
   ping,
   search,
@@ -118,6 +131,7 @@ export default {
   search: mapAfterFetch(search, trackMapper),
   getItemInfo: mappAfterSingleItemFetch(getTrackInfo, trackMapper),
   getPlaylistItems: mapAfterFetch(getPlaylistItems, trackMapper),
+  getChannelInfo,
   getChannelItems: mapAfterFetch(getChannelItems, trackMapper),
   getChannelPlaylists: mapAfterFetch(getChannelPlaylists, playlistMapper),
   getSuggestions: mapAfterFetch(getSuggestions, suggestionMapper),

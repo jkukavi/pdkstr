@@ -2,32 +2,23 @@
     {
         "scope": "https://api-v2.soundcloud.com:443",
         "method": "GET",
-        "path": "/search/queries?q=idkjeffery&limit=10&client_id=vvWDsm284DNe9CDlRlfb3wuseloIl1RS",
+        "path": "/search/queries?q=idkjeffery&limit=10&client_id=MK6Otkm10RJQcH3Cju78UhH6NXw40V47",
         "body": "",
         "status": 200,
         "response": {
-            "collection": [
-                {
-                    "output": "idkjeffery rape rape",
-                    "query": "idkjeffery rape rape"
-                },
-                {
-                    "output": "idk jeffery",
-                    "query": "idk jeffery"
-                }
-            ],
+            "collection": [],
             "next_href": null,
-            "query_urn": "soundcloud:search-autocomplete:f441cc7347ca4c9b9eed14332e500365"
+            "query_urn": "soundcloud:search-autocomplete:c27e5d7fe11240e6aadea4691bd8786f"
         },
         "rawHeaders": [
             "Content-Type",
             "application/json; charset=utf-8",
             "Content-Length",
-            "223",
+            "112",
             "Connection",
             "close",
             "Date",
-            "Wed, 31 May 2023 22:56:09 GMT",
+            "Sat, 12 Aug 2023 08:58:10 GMT",
             "x-robots-tag",
             "noindex",
             "Cache-Control",
@@ -47,16 +38,16 @@
             "X-Cache",
             "Miss from cloudfront",
             "Via",
-            "1.1 e9ebe38de33a70557cf9d9c1d7e5d11e.cloudfront.net (CloudFront)",
+            "1.1 e7ac510e4ba21d85d8aee7d252b283a8.cloudfront.net (CloudFront)",
             "X-Amz-Cf-Pop",
             "ZAG50-C1",
             "X-Amz-Cf-Id",
-            "fbAI-KP8i0JuN5chdAd53QuB1SUilBB6QVGpVJflsenJDz9ZLxTNvw=="
+            "s_hSyLTJMJ_o_B4T4xlbepUflGr4XoUH0oqJNZWitaWibXCTFKIXpw=="
         ],
         "responseIsBinary": false
     },
     {
-        "scope": "http://127.0.0.1:53315",
+        "scope": "http://127.0.0.1:58071",
         "method": "POST",
         "path": "/api/suggestions/soundcloud",
         "body": {
@@ -64,10 +55,7 @@
         },
         "status": 200,
         "response": {
-            "suggestionsArray": [
-                "idkjeffery rape rape",
-                "idk jeffery"
-            ]
+            "suggestionsArray": []
         },
         "rawHeaders": [
             "X-Powered-By",
@@ -77,11 +65,11 @@
             "Content-Type",
             "application/json; charset=utf-8",
             "Content-Length",
-            "59",
+            "23",
             "ETag",
-            "W/\"3b-1Sr+sWzVGlAjwpbW/5eZw72fAaY\"",
+            "W/\"17-kJz0fUXU7mU8fdBJIEYUYD0UPxk\"",
             "Date",
-            "Wed, 31 May 2023 22:56:09 GMT",
+            "Sat, 12 Aug 2023 08:58:10 GMT",
             "Connection",
             "close"
         ],

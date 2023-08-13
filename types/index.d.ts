@@ -16,6 +16,7 @@ interface EngineMethods {
   getDirectUrls: any;
   search: any;
   getPlaylistItems: any;
+  getChannelInfo: any;
   getChannelItems: any;
   getChannelPlaylists: any;
   getItemInfo: any;

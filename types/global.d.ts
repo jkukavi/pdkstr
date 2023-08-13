@@ -23,6 +23,12 @@ interface Item {
   uploadedAt: string;
 }
 
+interface ChannelInfo {
+  name: string;
+  avatar: string;
+  subscribers: string;
+}
+
 interface Channel {
   engine: Engine;
   type: "channel";
@@ -48,15 +54,6 @@ interface Playlist {
   playlistLength: number;
   url: string;
   thumbnails: Thumbnail[];
-  firstVideo: {
-    id: string;
-    shortURL: string;
-    url: string;
-    title: string;
-    length: string;
-    thumbnails: Thumbnail[];
-    bestThumbnail: Thumbnail;
-  };
   owner: {
     name: string;
     channelID: string;

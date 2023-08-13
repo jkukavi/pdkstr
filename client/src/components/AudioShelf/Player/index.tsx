@@ -12,8 +12,10 @@ import MiniLoader from "components/Loaders/MiniLoader";
 import { ExpandButton } from "../ExpandableContainer";
 
 import { PlayingQueue } from "../PlayingQueue";
+import { pushListeningItemToParams } from "helpers/pushToParams";
 
 const initialState: InitialState = {
+  time: null,
   directUrl: null,
   audioLoading: false,
   listeningTo: null,
@@ -26,6 +28,7 @@ type DirectUrl = {
 };
 
 interface InitialState {
+  time: number | null;
   directUrl: null | string;
   audioLoading: boolean;
   listeningTo: Item | null;
@@ -34,7 +37,7 @@ interface InitialState {
 
 interface PlayerInterface extends InitialState {
   updateState: VoidFunction;
-  playItem: (item: Item) => Promise<void>;
+  playItem: (item: Item, time?: number | null) => Promise<void>;
   notifySubscribers: VoidFunction;
   subscribe: (fn: VoidFunction) => string;
   unsubscribe: (id: string) => void;
@@ -55,7 +58,7 @@ const probablyCouldBePlayed = (media: DirectUrl): boolean => {
 export const Player: PlayerInterface = {
   ...initialState,
   updateState: () => null,
-  playItem: async function (item: Item) {
+  playItem: async function (item: Item, time?: number | null) {
     const { id, engine, url } = item;
     this.updateState({ directUrl: null, audioLoading: true });
     notify("Trying to fetch audio.");
@@ -63,10 +66,12 @@ export const Player: PlayerInterface = {
       const directUrls = await fetchDirectUrl({ id, engine, url });
       const playableMedia = directUrls.filter(probablyCouldBePlayed);
       this.updateState({
+        time,
         directUrl: playableMedia[0].url,
         audioLoading: false,
         listeningTo: item,
       });
+      pushListeningItemToParams(item);
       addToHistory(item);
       notify(`Listening to: ${item.title}`);
     } catch (e) {
@@ -116,6 +121,15 @@ const PlayerComponent = () => {
     PlayingQueue.playNext();
   };
 
+  const onLoadedMetadata: React.ReactEventHandler<HTMLAudioElement> = (e) => {
+    const time = audioPlayerState.time;
+
+    if (time) {
+      const player = e.currentTarget;
+      player.currentTime = time;
+    }
+  };
+
   const playerInactive = !(directUrl || audioLoading);
 
   if (playerInactive) return null;
@@ -124,6 +138,7 @@ const PlayerComponent = () => {
     <AudioElement
       onEnded={onAudioEnded}
       onError={onAudioError}
+      onLoadedMetadata={onLoadedMetadata}
       autoPlay
       controls
       currentlyPlaying={

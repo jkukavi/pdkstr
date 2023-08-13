@@ -12,9 +12,9 @@ import browseList from "icons/browseList.svg";
 import downloadPng from "icons/download.png";
 
 import { Player as AudioPlayer } from "components/AudioShelf/Player";
-import { SearchBox } from "components/Search/SearchBox";
 import { PlayingQueue } from "components/AudioShelf/PlayingQueue";
 import { PlaylistSidebar } from "components/PlaylistSidebar";
+import { useHistory } from "react-router-dom";
 
 const AddToFavouritesButton = ({
   item,
@@ -41,6 +41,15 @@ export const SingleItem = ({
   item: Item;
 }) => {
   const { title, thumbnails, duration, uploadedAt, author, views, key } = item;
+  const history = useHistory();
+
+  const goToChannel = () => {
+    history.push(
+      `/channel/${item.engine}/${
+        item.author.channelID || (item.author as any).id
+      }`
+    );
+  };
   return (
     <div className="card" key={key}>
       <div
@@ -85,13 +94,13 @@ export const SingleItem = ({
                 <div
                   className="authorThumbnail"
                   onClick={() => {
-                    SearchBox.loadChannelItems(item);
+                    goToChannel();
                   }}
                   style={{
                     backgroundImage: `url(${
-                      author?.avatars
+                      author?.avatars.length !== 0
                         ? author.avatars[author.avatars.length - 1]?.url
-                        : defaultPuppyImg
+                        : author.bestAvatar.url
                     })`,
                   }}
                 />
@@ -138,12 +147,17 @@ export const SingleItem = ({
 
 export const Channel = ({
   item,
-  channelClickAction,
 }: {
   item: Channel;
   channelClickAction: VoidFunction;
 }) => {
   const { bestAvatar, name, subscribers, key } = item;
+
+  const history = useHistory();
+
+  const goToChannel = () => {
+    history.push(`/channel/${item.engine}/${item.channelID}`);
+  };
   return (
     <div className="card channel" key={key}>
       <p style={{ height: "0.4rem" }} className="desc title">
@@ -152,12 +166,11 @@ export const Channel = ({
       <div
         className="thumbnail"
         onClick={() => {
-          SearchBox.loadChannelItems(item);
-          if (channelClickAction) channelClickAction();
+          goToChannel();
         }}
       >
         <img
-          src={bestAvatar.url || defaultPuppyImg}
+          src={bestAvatar?.url || defaultPuppyImg}
           className="thumbnail"
           alt="thumbnail"
         />

@@ -6,13 +6,13 @@ export const youtubeDummyData = {
   playlistId: "PLhkF-IG09XgBkFiy4ftTmQIsUOiKBYjfM",
   channelId: "UCtPlB4OmowajcgVaL3jvGcA",
   suggestionQuery: "doggo",
-};
+} as const;
 
 export const soundcloudDummyData = {
   itemId: "430754811",
   playlistId: "1211028727",
   channelId: "55254934",
-};
+} as const;
 
 const blankUserInfo = {
   username: "userRouterName",

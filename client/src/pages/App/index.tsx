@@ -6,18 +6,20 @@ import BottomMenu from "components/BottomMenu";
 import AudioPlayerShelf from "components/AudioShelf";
 import PlaylistSidebar from "components/PlaylistSidebar";
 import Notifications from "components/Notifications";
+import { useLoadAppStateFromSearchQuery } from "hooks/useLoadStateFromQuery";
 
-import Views from "./Views";
+import Screens from "./Views";
 
 import "./App.css";
 
 function App() {
+  useLoadAppStateFromSearchQuery();
   return (
     <div className="container">
       <UserDataProvider>
         <ScrollingDownProvider>
           <Notifications />
-          <Views />
+          <Screens />
           <AudioPlayerShelf />
           <PlaylistSidebar />
           <BottomMenu />

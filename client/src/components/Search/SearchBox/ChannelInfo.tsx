@@ -1,42 +1,98 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { buttonTextBySearchEngine, defaultPuppyImg } from "consts";
 import star from "icons/star.svg";
 
-import { addToFavourites } from "apiCalls";
+import {
+  addToFavourites,
+  getChannelInfo,
+  getChannelItems,
+  getChannelPlaylists,
+} from "apiCalls";
 import { SearchBox } from ".";
+import { useRouteMatch } from "react-router-dom";
+import { notify } from "components/Notifications";
+import MicroLoader from "components/Loaders/MicroLoader";
 
-const ChannelInfo = ({ channelInfo }: { channelInfo: Channel }) => {
+const ChannelInfo = ({
+  setSearchArray,
+  setArrayLoading,
+}: {
+  setSearchArray: React.Dispatch<React.SetStateAction<AnyItem[]>>;
+  setArrayLoading: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const [active, setActive] = useState("items");
+  const [channelInfo, setChannelInfo] = useState({} as ChannelInfo);
+  const [loading, setLoading] = useState(false);
 
-  const buttonTexts = buttonTextBySearchEngine[channelInfo.engine];
+  const { channelId, engine } = useRouteMatch<{
+    channelId: string;
+    engine: Engine;
+  }>().params;
+
+  const fetchChannelInfo = async () => {
+    setLoading(true);
+    try {
+      const channelInfo = await getChannelInfo(channelId, engine);
+      setChannelInfo(channelInfo);
+      setLoading(false);
+    } catch (e) {
+      setLoading(false);
+      notify("Something went wrong with fetching channelinfo");
+    }
+  };
+
+  const fetchChannelItemsOrPlaylists = async () => {
+    setArrayLoading(true);
+    setSearchArray([]);
+    try {
+      const fetchCall =
+        active === "items" ? getChannelItems : getChannelPlaylists;
+      const result = await fetchCall(channelId, engine);
+      setSearchArray(result);
+    } catch (e) {
+      notify("Something wrong with fetching items/playlists.");
+    } finally {
+      setArrayLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchChannelItemsOrPlaylists();
+  }, [active]);
+
+  useEffect(() => {
+    fetchChannelInfo();
+  }, [channelId]);
+
+  const buttonTexts = buttonTextBySearchEngine["youtube"];
   return (
     <>
       <div style={{ width: "100%", borderTop: "1px solid #7d7d7d" }}></div>
       <div className="channelInfoContainer">
-        <div className="channelInfo">
-          <img
-            src={
-              channelInfo.avatars?.[channelInfo.avatars.length - 1].url ||
-              defaultPuppyImg
-            }
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = defaultPuppyImg;
-            }}
-            alt="alt"
-          ></img>
-          <p>
-            {channelInfo.name}
-            <br />
-            <span style={{ fontSize: "13px", color: "#989898" }}>
-              {channelInfo.subscribers}
-            </span>
-          </p>
-        </div>
+        {loading ? (
+          <MicroLoader />
+        ) : (
+          <div className="channelInfo">
+            <img
+              src={channelInfo.avatar || defaultPuppyImg}
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = defaultPuppyImg;
+              }}
+              alt="alt"
+            ></img>
+            <p>
+              {channelInfo.name}
+              <br />
+              <span style={{ fontSize: "13px", color: "#989898" }}>
+                {channelInfo.subscribers}
+              </span>
+            </p>
+          </div>
+        )}
         <div
           onClick={() => {
             setActive("items");
-            SearchBox.loadChannelItems(channelInfo);
           }}
           className={`button ${active === "items" ? "active" : ""}`}
         >
@@ -45,16 +101,15 @@ const ChannelInfo = ({ channelInfo }: { channelInfo: Channel }) => {
         <div
           onClick={() => {
             setActive("playlists");
-            SearchBox.loadChannelPlaylists(channelInfo);
           }}
           className={`button ${active === "playlists" ? "active" : ""}`}
         >
           {buttonTexts.playlists}
         </div>
         <div
-          onClick={() => {
-            addToFavourites(channelInfo);
-          }}
+          // onClick={() => {
+          //   addToFavourites(channelInfo);
+          // }}
           className={`button icon`}
         >
           <img src={star} alt="alt"></img>

@@ -5,6 +5,7 @@ import { allowedCardTypes } from "consts";
 import { SearchBox } from "components/Search/SearchBox";
 import cardTypes from "./cardTypes";
 import Loader from "components/Loaders/Loader";
+import { Route, Switch } from "react-router-dom";
 
 interface CardProps {
   searchArray: (Item | Playlist | Channel)[];
@@ -68,14 +69,21 @@ const Cards = ({
   }, []);
 
   return (
-    <div
-      id="cardContainer"
-      className={`cardContainer ${viewingChannel ? "expanded" : ""}`}
-      ref={scrollableDivRef}
-    >
-      {searchArray && cards}
-      {loading && <Loader />}
-    </div>
+    <>
+      <Switch>
+        <Route path={"/channel"}>
+          <div style={{ height: 44 }} />
+        </Route>
+      </Switch>
+      <div
+        id="cardContainer"
+        className={`cardContainer ${viewingChannel ? "expanded" : ""}`}
+        ref={scrollableDivRef}
+      >
+        {searchArray && cards}
+        {loading && <Loader />}
+      </div>
+    </>
   );
 };
 

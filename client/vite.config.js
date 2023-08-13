@@ -12,7 +12,7 @@ const loggingConfig = {};
 export default defineConfig({
   server: {
     proxy: {
-      "^/api|/rt|/login": {
+      "^/api|/rt|/login|/logout": {
         target: "http://localhost:8080",
         changeOrigin: true,
         secure: false,

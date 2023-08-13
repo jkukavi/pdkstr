@@ -149,74 +149,48 @@
             "X-Cache",
             "Miss from cloudfront",
             "Via",
-            "1.1 6fdf2ccc380f11286f9756c9578f26c6.cloudfront.net (CloudFront)",
+            "1.1 3b241d28b74f1afdcb7ac9fb7109cff0.cloudfront.net (CloudFront)",
             "X-Amz-Cf-Pop",
             "ZAG50-C1",
             "X-Amz-Cf-Id",
-            "l1vsB0JkI2uSoHRm0AhhAtpVPTQ0mOmoPzBSoQAW-q27qKVs_zZ-zQ=="
+            "1bmc9ch_ecz4q3bvmWc-fo1Cm7boI4q9c0AAlZCp6T4zmZpC0uFwIA=="
         ],
         "responseIsBinary": false
     },
     {
-        "scope": "https://api-v2.soundcloud.com:443",
-        "method": "GET",
-        "path": "/media/soundcloud:tracks:430754811/a11f3daa-02a9-4098-85bd-9c93e60c13fe/stream/progressive?client_id=MK6Otkm10RJQcH3Cju78UhH6NXw40V47",
-        "body": "",
-        "status": 200,
-        "response": {
-            "url": "https://cf-media.sndcdn.com/PMRFQgKUwpB0.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vUE1SRlFnS1V3cEIwLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjkxODMxMDQ2fX19XX0_&Signature=fLaBSGOILmG8y97TZ6uHfTFZ~5kEi8Pbgkb8zwEs9H~kN0eVjTwH4IL6OKTm2wygQJQHT9dUAAI4KBVUhn9t6ZBN96RopqJaKjuwBpP15hhFS153Zb2cH1tYawvm4hRJc1fQJnnrXWDkfIdPq-y4QsVduG-fpUB3XzPabch9fIHPD1GxlJm3xLjP2VRRj28dI6mHmOwHKQvp-ET4gWbvtawz9xLv7K~Qnh8xCGen9IE8dl1rexU76BBaUdwOOTWEtPcw18o9vFUKAQjbZa2BDAknp3qt5sebxQKNRPlvI59Vgrt~YBUdCnofopwlFjrXZX3HFdzniLi2ZOtf~hceZw__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ"
-        },
-        "rawHeaders": [
-            "Content-Type",
-            "application/json; charset=utf-8",
-            "Content-Length",
-            "634",
-            "Connection",
-            "close",
-            "Date",
-            "Sat, 12 Aug 2023 08:58:10 GMT",
-            "x-robots-tag",
-            "noindex",
-            "Cache-Control",
-            "private, max-age=0",
-            "referrer-policy",
-            "no-referrer",
-            "x-frame-options",
-            "DENY",
-            "x-content-type-options",
-            "nosniff",
-            "strict-transport-security",
-            "max-age=63072000",
-            "Server",
-            "am/2",
-            "Vary",
-            "Origin",
-            "X-Cache",
-            "Miss from cloudfront",
-            "Via",
-            "1.1 3180232852f42d0e8ed2a6999ef03c92.cloudfront.net (CloudFront)",
-            "X-Amz-Cf-Pop",
-            "ZAG50-C1",
-            "X-Amz-Cf-Id",
-            "JxRT2RaNo_tnK3RQ2jCHZjp0YjIEhB_TM9kj1ejblUiZpAOhzXrNoA=="
-        ],
-        "responseIsBinary": false
-    },
-    {
-        "scope": "http://127.0.0.1:58074",
+        "scope": "http://127.0.0.1:58078",
         "method": "POST",
-        "path": "/api/url/soundcloud",
+        "path": "/api/info/soundcloud",
         "body": {
             "id": "430754811"
         },
         "status": 200,
         "response": {
-            "directUrl": [
+            "id": 430754811,
+            "engine": "soundcloud",
+            "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:430754811/a11f3daa-02a9-4098-85bd-9c93e60c13fe/stream/progressive",
+            "title": "EastMemphisBoyz - Who Run It Remix (Chris Travis, Ta Double $$, Jeffery, Xavier Wulf)",
+            "thumbnails": [
                 {
-                    "url": "https://cf-media.sndcdn.com/PMRFQgKUwpB0.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vUE1SRlFnS1V3cEIwLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjkxODMxMDQ2fX19XX0_&Signature=fLaBSGOILmG8y97TZ6uHfTFZ~5kEi8Pbgkb8zwEs9H~kN0eVjTwH4IL6OKTm2wygQJQHT9dUAAI4KBVUhn9t6ZBN96RopqJaKjuwBpP15hhFS153Zb2cH1tYawvm4hRJc1fQJnnrXWDkfIdPq-y4QsVduG-fpUB3XzPabch9fIHPD1GxlJm3xLjP2VRRj28dI6mHmOwHKQvp-ET4gWbvtawz9xLv7K~Qnh8xCGen9IE8dl1rexU76BBaUdwOOTWEtPcw18o9vFUKAQjbZa2BDAknp3qt5sebxQKNRPlvI59Vgrt~YBUdCnofopwlFjrXZX3HFdzniLi2ZOtf~hceZw__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ",
-                    "mimeType": "audio/mpeg"
+                    "url": "https://i1.sndcdn.com/artworks-000336105762-joygtm-t200x200.jpg"
                 }
-            ]
+            ],
+            "duration": "3:55",
+            "uploadedAt": "2018-04-16",
+            "author": {
+                "engine": "soundcloud",
+                "type": "channel",
+                "url": "https://soundcloud.com/christravis",
+                "id": 14845235,
+                "name": "ChrisTravis",
+                "avatars": [
+                    {
+                        "url": "https://i1.sndcdn.com/avatars-14GYz0VGbWR4HNPN-PuJdmg-large.jpg"
+                    }
+                ]
+            },
+            "views": 920556,
+            "type": "video"
         },
         "rawHeaders": [
             "X-Powered-By",
@@ -226,9 +200,9 @@
             "Content-Type",
             "application/json; charset=utf-8",
             "Content-Length",
-            "674",
+            "639",
             "ETag",
-            "W/\"2a2-6ny7RMlbWu78D8v4YBnexkqaEnY\"",
+            "W/\"27f-wYvzZ+Lf5sIUI2D/P9yOo2fPQnk\"",
             "Date",
             "Sat, 12 Aug 2023 08:58:10 GMT",
             "Connection",

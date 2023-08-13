@@ -1,7 +1,7 @@
 import { default as youtubesr } from "youtube-sr";
 import ytdl, { MoreVideoDetails } from "ytdl-core";
 import ytpl from "ytpl";
-import ytsr, { Video, Channel, Playlist, Item } from "ytsr";
+import ytsr, { Video, Channel, Playlist, Item as FetchedItem } from "ytsr";
 import ytch from "./youtube-channel-info";
 
 import { youtubeDummyData as dummyData } from "../../__test__/dummyData";
@@ -48,7 +48,7 @@ const searchMappers = {
   }),
 };
 
-const searchMapper = (item: Item) => {
+const searchMapper = (item: FetchedItem) => {
   let mappedItem = item;
 
   if (
@@ -139,25 +139,51 @@ const getPlaylistVideos = async (playlistId: string) => {
   }));
 };
 
-interface ChannelInfo {
-  type: "video";
-  title: string;
-  videoId: string;
-  author: string;
-  authorId: string;
-  videoThumbnails: string;
-  viewCountText: string;
-  viewCount: string;
-  publishedText: string;
-  durationText: string;
-  lengthSeconds: string;
-  liveNow: string;
-  premiere: string;
-  premium: string;
-}
+type UnmappedChannelInfo = typeof itemExample;
 
-const channelVideosMapper = (item: ChannelInfo) => {
+const itemExample = {
+  type: "video",
+  title: "Transform",
+  videoId: "81G55izMUNs",
+  author: "idontknowjeffery",
+  authorId: "UCtPlB4OmowajcgVaL3jvGcA",
+  videoThumbnails: [
+    {
+      url: "https://i.ytimg.com/vi/81G55izMUNs/hqdefault.jpg?sqp=-oaymwEiCKgBEF5IWvKriqkDFQgBFQAAAAAYASUAAMhCPQCAokN4AQ==&rs=AOn4CLAyHn5sTGVIWLPobNbkEpOxsncwtQ",
+      width: 168,
+      height: 94,
+    },
+    {
+      url: "https://i.ytimg.com/vi/81G55izMUNs/hqdefault.jpg?sqp=-oaymwEiCMQBEG5IWvKriqkDFQgBFQAAAAAYASUAAMhCPQCAokN4AQ==&rs=AOn4CLA5jIJ92VCQKHILzE6sg4AOc96bSw",
+      width: 196,
+      height: 110,
+    },
+    {
+      url: "https://i.ytimg.com/vi/81G55izMUNs/hqdefault.jpg?sqp=-oaymwEjCPYBEIoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCMuxvcuV2t6BPJ7C4-4dMQEbHKmA",
+      width: 246,
+      height: 138,
+    },
+    {
+      url: "https://i.ytimg.com/vi/81G55izMUNs/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDZ3BlgDZMqJfSyYgX0FEcEK1v2NQ",
+      width: 336,
+      height: 188,
+    },
+  ],
+  viewCountText: "1,410 views",
+  viewCount: 1410,
+  publishedText: "4 days ago",
+  durationText: "3:39",
+  lengthSeconds: 219,
+  liveNow: false,
+  premiere: false,
+  premium: false,
+};
+
+const channelVideosMapper = (item: UnmappedChannelInfo): Item => {
   return {
+    key: item.videoId,
+    url: "",
+    bestThumbnail: { url: item.videoThumbnails[0].url },
     type: "video",
     engine: "youtube",
     id: item.videoId,
@@ -165,12 +191,44 @@ const channelVideosMapper = (item: ChannelInfo) => {
     thumbnails: item.videoThumbnails,
     duration: item.durationText,
     author: {
+      avatars: [],
+      url: "",
       name: item.author,
-      channelId: item.authorId,
+      channelID: item.authorId,
+      bestAvatar: { url: item.videoThumbnails[0].url },
     },
     uploadedAt: item.publishedText,
     views: item.viewCount,
   };
+};
+
+type ChannelType = {
+  author: string;
+  authorId: string;
+  authorUrl: string;
+  authorBanners: string;
+  authorThumbnails: { url: string }[];
+  subscriberText: string;
+  subscriberCount: string;
+  description: string;
+  isFamilyFriendly: string;
+  allowedRegions: string;
+  isVerified: string;
+  channelIdType: string;
+};
+
+const getChannelInfo = async (channelId: string): Promise<any> => {
+  try {
+    const result = (await ytch.getChannelInfo(channelId, "1")) as ChannelType;
+
+    return {
+      name: result.author,
+      avatar: result.authorThumbnails?.[0]?.url,
+      subscribers: result.subscriberText,
+    };
+  } catch (e) {
+    2;
+  }
 };
 
 const getChannelVideos = async (channelId: string) => {
@@ -220,6 +278,7 @@ export default {
   getDirectUrls,
   search,
   getPlaylistItems: getPlaylistVideos,
+  getChannelInfo,
   getChannelItems: getChannelVideos,
   getChannelPlaylists,
   getItemInfo,

@@ -6,7 +6,7 @@ import Favourites from "components/Favourites";
 import Search from "components/Search";
 import Settings from "components/Settings";
 
-const Views = () => {
+const Screens = () => {
   return (
     <Switch>
       <Route path="/history">
@@ -18,7 +18,7 @@ const Views = () => {
       <Route path="/settings">
         <Settings />
       </Route>
-      <Route exact path="/">
+      <Route path="/">
         <Search />
       </Route>
       <Route path="/">
@@ -28,4 +28,4 @@ const Views = () => {
   );
 };
 
-export default Views;
+export default Screens;
