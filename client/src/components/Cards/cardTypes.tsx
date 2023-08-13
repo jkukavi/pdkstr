@@ -33,6 +33,19 @@ const AddToFavouritesButton = ({
   );
 };
 
+const resolveUrl = (item: Item) => {
+  const { author } = item;
+  try {
+    return author.avatars[author.avatars.length - 1]?.url;
+  } catch (e) {
+    try {
+      return author.bestAvatar.url;
+    } catch {
+      return defaultPuppyImg;
+    }
+  }
+};
+
 export const SingleItem = ({
   viewingChannel,
   item,
@@ -97,11 +110,7 @@ export const SingleItem = ({
                     goToChannel();
                   }}
                   style={{
-                    backgroundImage: `url(${
-                      author?.avatars.length !== 0
-                        ? author.avatars[author.avatars.length - 1]?.url
-                        : author.bestAvatar.url
-                    })`,
+                    backgroundImage: `url(${resolveUrl(item)})`,
                   }}
                 />
                 <div className="desc channelName">
