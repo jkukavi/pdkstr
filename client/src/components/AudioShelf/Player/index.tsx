@@ -150,7 +150,9 @@ const PlayerComponent = () => {
       additionalButtons={<ExpandButton />}
     >
       <source src={directUrl} />
-      <source src={`proxy/${encodeURIComponent(directUrl)}`} />
+      <source
+        src={`${location.origin}/proxy/${encodeURIComponent(directUrl)}`}
+      />
     </AudioElement>
   );
 };
