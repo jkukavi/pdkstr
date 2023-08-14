@@ -165,7 +165,9 @@ export const Channel = ({
   const history = useHistory();
 
   const goToChannel = () => {
-    history.push(`/channel/${item.engine}/${item.channelID}`);
+    history.push(
+      `/channel/${item.engine}/${item.channelID}${history.location.search}`
+    );
   };
   return (
     <div className="card channel" key={key}>
