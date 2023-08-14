@@ -9,15 +9,17 @@ import { notify } from "components/Notifications";
 import Table from "components/Table";
 
 import { Player } from "./Player";
+import { pushListeningItemToParams } from "helpers/pushToParams";
 
 const noOp = () => {};
 
 interface VoidFunction {
-  (args?: any): void;
+  (...args: any[]): void;
 }
 
 interface PlayingQueueInterface {
   playlist: Item[];
+  loadPlaylist: VoidFunction;
   playPlaylist: VoidFunction;
   playNext: VoidFunction;
   addToQueue: VoidFunction;
@@ -26,6 +28,7 @@ interface PlayingQueueInterface {
 
 export const PlayingQueue: PlayingQueueInterface = {
   playlist: [],
+  loadPlaylist: noOp,
   playPlaylist: noOp,
   playNext: noOp,
   addToQueue: noOp,
@@ -46,12 +49,27 @@ const PlayingQueueComponent = () => {
     setState((prevState) => ({ ...prevState, ...newState }));
   };
 
-  const playPlaylist = async (playlist: Playlist) => {
+  const loadPlaylist = async (playlistId: string, engine: Engine) => {
     try {
-      const playlistItems = await getPlaylistItems(playlist);
+      const playlistItems = await getPlaylistItems(playlistId, engine);
       updateState({
         playlist: playlistItems.map(addRandomKey) as Item[],
       });
+    } catch (e) {
+      notify("Something went wrong with trying to play this playlist.");
+    }
+  };
+
+  const playPlaylist = async (playlist: Playlist) => {
+    try {
+      const playlistItems = await getPlaylistItems(
+        playlist.id,
+        playlist.engine
+      );
+      updateState({
+        playlist: playlistItems.map(addRandomKey) as Item[],
+      });
+      pushListeningItemToParams(playlist);
       Player.playItem(playlistItems[0]);
     } catch (e) {
       notify("Something went wrong with trying to play this playlist.");
@@ -96,6 +114,7 @@ const PlayingQueueComponent = () => {
 
   PlayingQueue.addToQueue = addToQueue;
   PlayingQueue.playNext = playNext;
+  PlayingQueue.loadPlaylist = loadPlaylist;
   PlayingQueue.playPlaylist = playPlaylist;
   PlayingQueue.playlist = playlist;
 

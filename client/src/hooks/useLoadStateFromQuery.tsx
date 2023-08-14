@@ -7,6 +7,7 @@ import {
   getQueryParams,
   getTimeOfPreviouslyPlayedItem,
 } from "helpers/pushToParams";
+import { PlayingQueue } from "components/AudioShelf/PlayingQueue";
 
 const engineShorthands: {
   [key: string]: Engine;
@@ -33,7 +34,7 @@ export const useLoadAppStateFromSearchQuery = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const { search, lto } = getQueryParams();
+    const { search, lto, pt } = getQueryParams();
     const time = getTimeOfPreviouslyPlayedItem();
 
     if (search) {
@@ -46,6 +47,14 @@ export const useLoadAppStateFromSearchQuery = () => {
       const engine = engineShorthands[engineShorthand];
 
       tryPlayingItem(id, engine, time);
+    }
+
+    if (pt) {
+      const [engineShorthand, id] = (pt as string).split(".");
+
+      const engine = engineShorthands[engineShorthand];
+
+      PlayingQueue.loadPlaylist(id, engine);
     }
   }, []);
 };

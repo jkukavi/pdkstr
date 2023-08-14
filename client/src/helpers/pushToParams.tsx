@@ -22,19 +22,26 @@ export const getTimeOfPreviouslyPlayedItem = () => {
   return time;
 };
 
-export const pushListeningItemToParams = (item: Item) => {
+export const pushListeningItemToParams = (item: Item | Playlist) => {
   const engineShorthand = engineShorthands[item.engine];
 
   const listeningToParam = `${engineShorthand}.${item.id}`;
 
-  pushToParams({
-    lto: listeningToParam,
-  });
+  if (item.type === "video") {
+    pushToParams({
+      lto: listeningToParam,
+    });
+  } else if (item.type === "playlist") {
+    pushToParams({
+      pt: listeningToParam,
+    });
+  }
 };
 
 export const pushToParams = (queryParams: {
   search?: string;
   lto?: string;
+  pt?: string;
   t?: number;
 }) => {
   const currentQueryParams = queryString.parse(location.search);
@@ -52,6 +59,7 @@ export const pushToParams = (queryParams: {
 export const getQueryParams = () => {
   return queryString.parse(location.search) as {
     search: string;
+    pt: string;
     lto: string;
   };
 };

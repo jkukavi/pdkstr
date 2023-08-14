@@ -87,10 +87,11 @@ export const getMyFavourites = async (
   }
 };
 
-export const getPlaylistItems = async (playlist: Playlist): Promise<Item[]> => {
-  const path = paths.playlistItems[playlist.engine];
-
-  const id = playlist.id;
+export const getPlaylistItems = async (
+  id: string,
+  engine: Engine
+): Promise<Item[]> => {
+  const path = paths.playlistItems[engine];
 
   let fetchedPlaylistItems: Item[] = [];
 

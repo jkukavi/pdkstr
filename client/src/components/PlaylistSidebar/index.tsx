@@ -16,7 +16,10 @@ export const PlaylistSidebar = {
   browsePlaylist: async function (playlist: Playlist) {
     try {
       notify("Loading playlist...");
-      const playlistItems = await getPlaylistItems(playlist);
+      const playlistItems = await getPlaylistItems(
+        playlist.id,
+        playlist.engine
+      );
       if (!playlistItems) {
         throw new Error();
       }
