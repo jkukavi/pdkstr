@@ -5,6 +5,8 @@ import SmallScreenForm from "./SmallScreenForm";
 import WideScreenForm from "./WideScreenForm";
 import { SearchBox } from "../";
 import { useHistory } from "react-router-dom";
+import { getQueryParams } from "helpers/pushToParams";
+import queryString from "query-string";
 
 const Form = () => {
   const smallScreen = useScreenSize();
@@ -13,7 +15,10 @@ const Form = () => {
   const history = useHistory();
 
   const goToSearch = (keyword: string) => {
-    history.push(`/?search=${keyword}`);
+    const params = getQueryParams();
+    const newParams = { ...params, search: keyword };
+    const newQueryParams = queryString.stringify(newParams);
+    history.push(`?${newQueryParams}`);
   };
 
   return (

@@ -57,7 +57,7 @@ export const pushToParams = (queryParams: {
 };
 
 export const getQueryParams = () => {
-  return queryString.parse(location.search) as {
+  return queryString.parse(window.location.search) as {
     search: string;
     pt: string;
     lto: string;
