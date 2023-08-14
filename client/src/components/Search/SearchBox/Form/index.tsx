@@ -18,7 +18,7 @@ const Form = () => {
     const params = getQueryParams();
     const newParams = { ...params, search: keyword };
     const newQueryParams = queryString.stringify(newParams);
-    history.push(`?${newQueryParams}`);
+    history.push(`/?${newQueryParams}`);
   };
 
   return (
