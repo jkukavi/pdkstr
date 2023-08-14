@@ -44,9 +44,9 @@
     "request": "^2.88.2",
     "uuid": "^8.3.2",
     "youtube-sr": "^4.3.4",
-    "ytdl-core": "4.9.1",
+    "ytdl-core": "^4.11.5",
     "ytpl": "^2.3.0",
-    "ytsr": "3.8.2"
+    "ytsr": "3.8.4"
   },
   "devDependencies": {
     "@shelf/jest-mongodb": "^2.1.1",
