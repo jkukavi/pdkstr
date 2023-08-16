@@ -1096,15 +1096,32 @@ button:active.small {
   border-radius: 7px;
 }
 
-.card.small {
+.card.csmall {
   height: 8.5rem;
+  display: flex;
 }
 
-.card.small .thumbnail {
-  width: 6rem;
-  height: 4rem;
-  right: 10px;
-  position: absolute;
+.card.csmall .thumbnail {
+  height: 100%;
+}
+
+.card.csmall .descContainer{
+  width: 55%;
+  padding: 0 0 0 5px;
+}
+
+.card.csmall .title{
+  margin: 2px 0;
+  height: 1.8rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+}
+
+.card.csmall .channelDescAndPlaylist{
+  flex-direction: column;
+  gap: 2px
 }
 
 .card:hover {

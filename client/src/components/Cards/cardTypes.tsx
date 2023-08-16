@@ -300,7 +300,7 @@ export const SmallSingleItem = ({
     );
   };
   return (
-    <div className="card small" key={key}>
+    <div className="card csmall" key={key}>
       <div
         onClick={() => {
           AudioPlayer.playItem(item);
@@ -337,22 +337,6 @@ export const SmallSingleItem = ({
 
         <>
           <div className="channelDescAndPlaylist">
-            {!viewingChannel && (
-              <div className="channelDesc">
-                <div
-                  className="authorThumbnail"
-                  onClick={() => {
-                    goToChannel();
-                  }}
-                  style={{
-                    backgroundImage: `url(${resolveUrl(item)})`,
-                  }}
-                />
-                <div className="desc channelName">
-                  <p>{author?.name || "Name not found"}</p>
-                </div>
-              </div>
-            )}
             <div style={{ display: "flex" }}>
               <div
                 className="addToPlaylistIcon"
@@ -371,6 +355,21 @@ export const SmallSingleItem = ({
               >
                 <img src={downloadPng} alt="loading"></img>
               </a>
+            </div>
+
+            <div className="channelDesc">
+              <div
+                className="authorThumbnail"
+                onClick={() => {
+                  goToChannel();
+                }}
+                style={{
+                  backgroundImage: `url(${resolveUrl(item)})`,
+                }}
+              />
+              <div className="desc channelName">
+                <p>{author?.name || "Name not found"}</p>
+              </div>
             </div>
           </div>
 
