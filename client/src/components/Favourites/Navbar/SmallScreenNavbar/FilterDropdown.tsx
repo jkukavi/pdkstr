@@ -7,6 +7,7 @@ import {
 
 import DropDown from "components/Dropdown";
 import { INavbar } from "components/Favourites/Navbar";
+import Text from "components/Text";
 
 const FilterDropdown = ({
   filter,
@@ -33,9 +34,3 @@ const FilterDropdown = ({
 };
 
 export default FilterDropdown;
-
-const Text = ({ children }: { children: string }) => {
-  return (
-    <span style={{ fontSize: "12px", color: "whitesmoke" }}>{children}</span>
-  );
-};

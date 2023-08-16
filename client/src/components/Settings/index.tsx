@@ -8,6 +8,8 @@ import MicroLoader from "components/Loaders/MicroLoader";
 
 import chevron from "icons/chevron.svg";
 import "./index.css";
+import DropDown from "components/Dropdown";
+import Text from "components/Text";
 
 const engineArray: Engine[] = ["youtube", "soundcloud"];
 
@@ -24,10 +26,7 @@ const Settings = () => {
         ></img>
         <span>Return</span>
       </button>
-      <div style={{ color: "#c9c9c9" }}>
-        No settings yet to be shown here, but expect to see them here as soon as
-        they are developed.
-      </div>
+      <CardSizeDropdown />
       <div style={{ marginTop: "1rem" }}>
         <h2>Health checks of services:</h2>
         {healthExpanded ? (
@@ -52,6 +51,30 @@ const Settings = () => {
         }
       </div>
     </div>
+  );
+};
+
+const CardSizeDropdown = () => {
+  const [size, _setCardSize] = useState(
+    localStorage.getItem("cSize") || "large"
+  );
+
+  const setCardSize = (size: "small" | "large") => {
+    _setCardSize(size);
+    localStorage.setItem("cSize", size);
+  };
+
+  const sizes = ["small", "large"] as const;
+
+  const dropdownItems = sizes.map((item) => ({
+    component: <Text>{item}</Text>,
+    onClick: () => {
+      setCardSize(item);
+    },
+  }));
+
+  return (
+    <DropDown dropdownItems={dropdownItems} frontItem={<Text>{size}</Text>} />
   );
 };
 
@@ -81,7 +104,7 @@ const HealthOf = ({ engine }: { engine: Engine }) => {
 
   useEffect(() => {
     checkHealth();
-  });
+  }, []);
 
   return (
     <div

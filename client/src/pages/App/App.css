@@ -721,6 +721,7 @@ audio {
   width: fit-content;
   height: 2rem;
   margin-right: 0.3rem;
+  background-color: #343434;
 }
 
 .dropDown {
@@ -1093,6 +1094,17 @@ button:active.small {
   transition: transform 0.3s, box-shadow 0.1s;
   /* transform: scale(1) rotate(0.02deg); */
   border-radius: 7px;
+}
+
+.card.small {
+  height: 8.5rem;
+}
+
+.card.small .thumbnail {
+  width: 6rem;
+  height: 4rem;
+  right: 10px;
+  position: absolute;
 }
 
 .card:hover {

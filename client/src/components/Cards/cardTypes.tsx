@@ -46,7 +46,7 @@ const resolveUrl = (item: Item) => {
   }
 };
 
-export const SingleItem = ({
+export const LargeSingleItem = ({
   viewingChannel,
   item,
 }: {
@@ -154,7 +154,7 @@ export const SingleItem = ({
   );
 };
 
-export const Channel = ({
+export const LargeChannel = ({
   item,
 }: {
   item: Channel;
@@ -201,7 +201,7 @@ export const Channel = ({
   );
 };
 
-export const Playlist = ({ item }: { item: Playlist }) => {
+export const LargePlaylist = ({ item }: { item: Playlist }) => {
   const { title, thumbnails, key } = item;
   return (
     <div className="card playlist" key={key}>
@@ -282,10 +282,137 @@ export const Playlist = ({ item }: { item: Playlist }) => {
   );
 };
 
-const cardTypes = {
-  video: SingleItem,
-  playlist: Playlist,
-  channel: Channel,
+export const SmallSingleItem = ({
+  viewingChannel,
+  item,
+}: {
+  viewingChannel: any;
+  item: Item;
+}) => {
+  const { title, thumbnails, duration, uploadedAt, author, views, key } = item;
+  const history = useHistory();
+
+  const goToChannel = () => {
+    history.push(
+      `/channel/${item.engine}/${
+        item.author.channelID || (item.author as any).id
+      }`
+    );
+  };
+  return (
+    <div className="card small" key={key}>
+      <div
+        onClick={() => {
+          AudioPlayer.playItem(item);
+        }}
+        className="thumbnail"
+      >
+        <div className="overlay">
+          <div
+            style={{
+              position: "absolute",
+              zIndex: 3,
+              right: "5px",
+              bottom: "5px",
+            }}
+          >
+            <SearchEngineIcon engine={item.engine} size={"m"} />
+          </div>
+          <img
+            className="image"
+            src={
+              thumbnails
+                ? thumbnails[thumbnails.length - 1]?.url
+                : defaultPuppyImg
+            }
+            alt="alt"
+          />
+        </div>
+        <img src={playButtonThumbnail} className="playButton" alt="alt" />
+      </div>
+      <div className="descContainer">
+        <p className="desc title">
+          {`${title?.substring(0, 45)}${title?.length > 45 ? "..." : ""}`}
+        </p>
+
+        <>
+          <div className="channelDescAndPlaylist">
+            {!viewingChannel && (
+              <div className="channelDesc">
+                <div
+                  className="authorThumbnail"
+                  onClick={() => {
+                    goToChannel();
+                  }}
+                  style={{
+                    backgroundImage: `url(${resolveUrl(item)})`,
+                  }}
+                />
+                <div className="desc channelName">
+                  <p>{author?.name || "Name not found"}</p>
+                </div>
+              </div>
+            )}
+            <div style={{ display: "flex" }}>
+              <div
+                className="addToPlaylistIcon"
+                onClick={() => {
+                  PlayingQueue.addToQueue(item);
+                }}
+              >
+                <img src={addToPlayingQueue} alt="loading"></img>
+              </div>
+              <AddToFavouritesButton item={item} />
+              <a
+                href={`/proxy/dl/${item.engine}/${item.id}`}
+                target="_blank"
+                rel="noreferrer"
+                className="addToPlaylistIcon"
+              >
+                <img src={downloadPng} alt="loading"></img>
+              </a>
+            </div>
+          </div>
+
+          <div className="metadata">
+            <p className="desc">
+              {views ? `${getViewsString(views)} views` : "Views not available"}
+            </p>
+            •<p className="desc">{duration || "Duration not available"}</p>•
+            <p className="desc">
+              {uploadedAt || "Uploaded date not available"}
+            </p>
+          </div>
+        </>
+      </div>
+    </div>
+  );
 };
 
-export default cardTypes;
+const cardTypes = {
+  large: {
+    video: LargeSingleItem,
+    playlist: LargePlaylist,
+    channel: LargeChannel,
+  },
+  small: {
+    video: SmallSingleItem,
+    playlist: LargePlaylist,
+    channel: LargeChannel,
+  },
+};
+
+const getCardSize = () => {
+  const sizes = ["small", "large"] as const;
+  const size = localStorage.getItem("cSize") as "large" | "small";
+
+  if (sizes.includes(size)) {
+    return size;
+  } else {
+    return "large";
+  }
+};
+
+const cardSize = getCardSize();
+
+export default cardTypes[cardSize];
