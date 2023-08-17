@@ -1098,11 +1098,27 @@ button:active.small {
 
 .card.csmall {
   height: 8.5rem;
-  display: flex;
+  margin-bottom: 8px;
 }
 
-.card.csmall .thumbnail {
+.card.csmall.playlist {
+  text-align: left;
+}
+
+.card.csmall .thumbnailAndDesc {
+  display: flex;
+  height: 75%;
+}
+
+.card.csmall .thumbnailAndDesc .thumbnail {
   height: 100%;
+}
+
+.card.csmall.channel .thumbnail {
+  border-radius: 50%;
+  width: 5.9rem;
+  height: 5.9rem;
+  margin: 0;
 }
 
 .card.csmall .descContainer{
@@ -1111,18 +1127,35 @@ button:active.small {
 }
 
 .card.csmall .title{
-  margin: 2px 0;
+  margin: 0px;
   height: 1.8rem;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-
 }
 
 .card.csmall .channelDescAndPlaylist{
   flex-direction: column;
   gap: 2px
 }
+
+.card.csmall.channel .thumbnailAndDesc{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.card.csmall.channel p.desc{
+  margin: 0;
+}
+
+.card.csmall.channel .descContainer{
+  margin: 0;
+  font-size: 16px;
+  align-self: flex-start;
+
+}
+
+
 
 .card:hover {
   transform: scale(1.01) rotate(0.02deg);

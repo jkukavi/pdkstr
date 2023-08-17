@@ -301,88 +301,203 @@ export const SmallSingleItem = ({
   };
   return (
     <div className="card csmall" key={key}>
-      <div
-        onClick={() => {
-          AudioPlayer.playItem(item);
-        }}
-        className="thumbnail"
-      >
-        <div className="overlay">
-          <div
-            style={{
-              position: "absolute",
-              zIndex: 3,
-              right: "5px",
-              bottom: "5px",
-            }}
-          >
-            <SearchEngineIcon engine={item.engine} size={"m"} />
+      <p className="desc title">
+        {`${title?.substring(0, 45)}${title?.length > 45 ? "..." : ""}`}
+      </p>
+      <div className="thumbnailAndDesc">
+        <div
+          onClick={() => {
+            AudioPlayer.playItem(item);
+          }}
+          className="thumbnail"
+        >
+          <div className="overlay">
+            <div
+              style={{
+                position: "absolute",
+                zIndex: 3,
+                right: "5px",
+                bottom: "5px",
+              }}
+            >
+              <SearchEngineIcon engine={item.engine} size={"m"} />
+            </div>
+            <img
+              className="image"
+              src={
+                thumbnails
+                  ? thumbnails[thumbnails.length - 1]?.url
+                  : defaultPuppyImg
+              }
+              alt="alt"
+            />
           </div>
+          <img src={playButtonThumbnail} className="playButton" alt="alt" />
+        </div>
+        <div className="descContainer">
+          <>
+            <div className="channelDescAndPlaylist">
+              <div style={{ display: "flex" }}>
+                <div
+                  className="addToPlaylistIcon"
+                  onClick={() => {
+                    PlayingQueue.addToQueue(item);
+                  }}
+                >
+                  <img src={addToPlayingQueue} alt="loading"></img>
+                </div>
+                <AddToFavouritesButton item={item} />
+                <a
+                  href={`/proxy/dl/${item.engine}/${item.id}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="addToPlaylistIcon"
+                >
+                  <img src={downloadPng} alt="loading"></img>
+                </a>
+              </div>
+
+              <div className="channelDesc">
+                <div
+                  className="authorThumbnail"
+                  onClick={() => {
+                    goToChannel();
+                  }}
+                  style={{
+                    backgroundImage: `url(${resolveUrl(item)})`,
+                  }}
+                />
+                <div className="desc channelName">
+                  <p>{author?.name || "Name not found"}</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="metadata">
+              <p className="desc">
+                {views
+                  ? `${getViewsString(views)} views`
+                  : "Views not available"}
+              </p>
+              •<p className="desc">{duration || "Duration not available"}</p>•
+              <p className="desc">
+                {uploadedAt || "Uploaded date not available"}
+              </p>
+            </div>
+          </>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const SmallChannel = ({
+  item,
+}: {
+  item: Channel;
+  channelClickAction: VoidFunction;
+}) => {
+  const { bestAvatar, name, subscribers, key } = item;
+
+  const history = useHistory();
+
+  const goToChannel = () => {
+    history.push(
+      `/channel/${item.engine}/${item.channelID}${history.location.search}`
+    );
+  };
+
+  return (
+    <div className="card csmall channel" key={key}>
+      <p className="desc title">{name}</p>
+      <div className="thumbnailAndDesc">
+        <div
+          className="thumbnail"
+          onClick={() => {
+            goToChannel();
+          }}
+        >
           <img
-            className="image"
-            src={
-              thumbnails
-                ? thumbnails[thumbnails.length - 1]?.url
-                : defaultPuppyImg
-            }
-            alt="alt"
+            src={bestAvatar?.url || defaultPuppyImg}
+            className="thumbnail"
+            alt="thumbnail"
           />
         </div>
-        <img src={playButtonThumbnail} className="playButton" alt="alt" />
+        <div className="descContainer">
+          <p className="desc">{`uploads: ${item.videos}`}</p>
+          <AddToFavouritesButton item={item} />
+        </div>
       </div>
-      <div className="descContainer">
-        <p className="desc title">
-          {`${title?.substring(0, 45)}${title?.length > 45 ? "..." : ""}`}
-        </p>
+    </div>
+  );
+};
 
-        <>
-          <div className="channelDescAndPlaylist">
-            <div style={{ display: "flex" }}>
-              <div
-                className="addToPlaylistIcon"
-                onClick={() => {
-                  PlayingQueue.addToQueue(item);
-                }}
-              >
-                <img src={addToPlayingQueue} alt="loading"></img>
-              </div>
-              <AddToFavouritesButton item={item} />
-              <a
-                href={`/proxy/dl/${item.engine}/${item.id}`}
-                target="_blank"
-                rel="noreferrer"
-                className="addToPlaylistIcon"
-              >
-                <img src={downloadPng} alt="loading"></img>
-              </a>
+export const SmallPlaylist = ({
+  item,
+}: {
+  item: Playlist;
+  channelClickAction: VoidFunction;
+}) => {
+  const thumbnail = item.thumbnails[0].url || defaultPuppyImg;
+
+  return (
+    <div className="card csmall playlist" key={item.key}>
+      <p className="desc title">{item.title}</p>
+      <div className="thumbnailAndDesc">
+        <div
+          onClick={() => {
+            PlayingQueue.playPlaylist(item);
+          }}
+          className="thumbnail"
+          style={{
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+          }}
+        >
+          <div className="overlay">
+            <div
+              style={{
+                position: "absolute",
+                zIndex: 3,
+                right: "5px",
+                bottom: "5px",
+              }}
+            >
+              <SearchEngineIcon engine={item.engine} size={"m"} />
             </div>
-
-            <div className="channelDesc">
-              <div
-                className="authorThumbnail"
-                onClick={() => {
-                  goToChannel();
-                }}
-                style={{
-                  backgroundImage: `url(${resolveUrl(item)})`,
-                }}
-              />
-              <div className="desc channelName">
-                <p>{author?.name || "Name not found"}</p>
-              </div>
+            <img className="image" src={thumbnail} alt="alt"></img>
+          </div>
+          <div
+            style={{
+              filter: "drop-shadow(2px 4px 3px black",
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              zIndex: 3,
+            }}
+          >
+            <img
+              src={playingQueue}
+              style={{ filter: "invert(1)" }}
+              className="playButton"
+              alt="alt"
+            />
+          </div>
+        </div>
+        <div className="descContainer">
+          <p className="desc">{`number of tracks: ${item.playlistLength}`}</p>
+          <div style={{ display: "flex", width: "20rem" }}>
+            <div
+              className="addToPlaylistIcon playlist"
+              onClick={() => {
+                PlaylistSidebar.browsePlaylist(item);
+              }}
+            >
+              <img src={browseList} alt="loading"></img>
             </div>
+            <AddToFavouritesButton item={item} />
           </div>
-
-          <div className="metadata">
-            <p className="desc">
-              {views ? `${getViewsString(views)} views` : "Views not available"}
-            </p>
-            •<p className="desc">{duration || "Duration not available"}</p>•
-            <p className="desc">
-              {uploadedAt || "Uploaded date not available"}
-            </p>
-          </div>
-        </>
+        </div>
       </div>
     </div>
   );
@@ -396,8 +511,8 @@ const cardTypes = {
   },
   small: {
     video: SmallSingleItem,
-    playlist: LargePlaylist,
-    channel: LargeChannel,
+    playlist: SmallPlaylist,
+    channel: SmallChannel,
   },
 };
 
