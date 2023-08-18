@@ -503,7 +503,7 @@ export const SmallPlaylist = ({
   );
 };
 
-const cardTypes = {
+const cardTypesBySize = {
   large: {
     video: LargeSingleItem,
     playlist: LargePlaylist,
@@ -514,19 +514,6 @@ const cardTypes = {
     playlist: SmallPlaylist,
     channel: SmallChannel,
   },
-};
+} as const;
 
-const getCardSize = () => {
-  const sizes = ["small", "large"] as const;
-  const size = localStorage.getItem("cSize") as "large" | "small";
-
-  if (sizes.includes(size)) {
-    return size;
-  } else {
-    return "large";
-  }
-};
-
-const cardSize = getCardSize();
-
-export default cardTypes[cardSize];
+export default cardTypesBySize;

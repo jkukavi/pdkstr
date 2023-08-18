@@ -3,9 +3,10 @@ import React, { useEffect, useRef } from "react";
 import { allowedCardTypes } from "consts";
 
 import { SearchBox } from "components/Search/SearchBox";
-import cardTypes from "./cardTypes";
+import cardTypesBySize from "./cardTypesBySize";
 import Loader from "components/Loaders/Loader";
 import { Route, Switch } from "react-router-dom";
+import useLocalStorage from "hooks/useLocalStorage";
 
 interface CardProps {
   searchArray: (Item | Playlist | Channel)[];
@@ -41,6 +42,10 @@ const Cards = ({
   onBottomReached,
 }: CardProps) => {
   const { viewingChannel } = SearchBox;
+
+  const cardSize = useLocalStorage("cSize") as "large" | "small";
+
+  const cardTypes = cardTypesBySize[cardSize || "large"];
 
   const cards = searchArray
     .filter(({ type }) => allowedCardTypes.includes(type))
