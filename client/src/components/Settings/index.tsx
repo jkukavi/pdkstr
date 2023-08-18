@@ -26,6 +26,7 @@ const Settings = () => {
         ></img>
         <span>Return</span>
       </button>
+      <ProxySettings />
       <CardSizeDropdown />
       <div style={{ marginTop: "1rem" }}>
         <h2>Health checks of services:</h2>
@@ -74,7 +75,40 @@ const CardSizeDropdown = () => {
   }));
 
   return (
-    <DropDown dropdownItems={dropdownItems} frontItem={<Text>{size}</Text>} />
+    <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
+      <Text size="M">{"Card sizes:"}</Text>
+      <DropDown dropdownItems={dropdownItems} frontItem={<Text>{size}</Text>} />
+    </div>
+  );
+};
+
+const ProxySettings = () => {
+  const [proxySetting, _setProxySetting] = useState(
+    localStorage.getItem("onlyProxy") || "false"
+  );
+
+  const setProxySetting = (size: "true" | "false") => {
+    _setProxySetting(size);
+    localStorage.setItem("onlyProxy", size);
+  };
+
+  const proxyOptions = ["true", "false"] as const;
+
+  const dropdownItems = proxyOptions.map((item) => ({
+    component: <Text>{item}</Text>,
+    onClick: () => {
+      setProxySetting(item);
+    },
+  }));
+
+  return (
+    <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
+      <Text size="M">{"Should only proxy audio:"}</Text>
+      <DropDown
+        dropdownItems={dropdownItems}
+        frontItem={<Text>{proxySetting}</Text>}
+      />
+    </div>
   );
 };
 

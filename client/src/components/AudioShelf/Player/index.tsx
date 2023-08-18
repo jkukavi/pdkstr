@@ -132,6 +132,10 @@ const PlayerComponent = () => {
 
   const playerInactive = !(directUrl || audioLoading);
 
+  const shouldOnlyProxySetting = localStorage.getItem("onlyProxy");
+  const shouldOnlyProxy = shouldOnlyProxySetting === "true";
+  const shouldTryDirectly = !shouldOnlyProxy;
+
   if (playerInactive) return null;
   if (audioLoading || !directUrl || !listeningTo) return <MiniLoader />;
   return (
@@ -149,7 +153,7 @@ const PlayerComponent = () => {
       }
       additionalButtons={<ExpandButton />}
     >
-      <source src={directUrl} />
+      {shouldTryDirectly && <source src={directUrl} />}
       <source
         src={`${location.origin}/proxy/${encodeURIComponent(directUrl)}`}
       />
