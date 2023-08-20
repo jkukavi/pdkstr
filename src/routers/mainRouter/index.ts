@@ -155,8 +155,8 @@ app.get<string, { engine: Engine }>("/ping/:engine", async (req, res) => {
   const { engine } = req.params;
 
   try {
-    await engines[engine].ping();
-    res.status(200).send();
+    const result = await engines[engine].ping();
+    res.status(200).json(result);
   } catch (e) {
     res.status(400).send();
   }

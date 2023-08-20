@@ -229,5 +229,7 @@ export const getChannelItemsFromId = async (
 export const ping = async (engine: Engine): Promise<void> => {
   const path = paths.ping[engine];
 
-  await axios.get(path);
+  const result = await axios.get(path);
+
+  return result.data;
 };

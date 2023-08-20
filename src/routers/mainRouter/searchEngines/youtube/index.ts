@@ -16,22 +16,48 @@ const COOKIE = process.env.YT_COOKIE;
 
 type Mapper = (Item: Video | Channel | Playlist) => any;
 
+export const createPing = async (func: () => Promise<any>) => {
+  try {
+    await func();
+    return true;
+  } catch (e) {
+    return false;
+  }
+};
+
 const ping = async () => {
-  await ytdl.getInfo("TrVGymR-jFU", {
-    requestOptions: {
-      headers: {
-        cookie: COOKIE,
-      },
-    },
-  });
+  const [
+    searchForItems,
+    directUrls,
+    suggestions,
+    playlistsContents,
+    channelVideos,
+    channelPlaylists,
+  ] = await Promise.all([
+    createPing(() => search("idkjeffery")),
+    createPing(() =>
+      ytdl.getInfo("TrVGymR-jFU", {
+        requestOptions: {
+          headers: {
+            cookie: COOKIE,
+          },
+        },
+      })
+    ),
+    createPing(() => youtubesr.getSuggestions(dummyData.suggestionQuery)),
+    createPing(() => ytpl(dummyData.playlistId, { limit: 10 })),
+    createPing(() => ytch.getChannelVideos(dummyData.channelId, "newest", 1)),
+    createPing(() => getChannelPlaylists(dummyData.channelId)),
+  ]);
 
-  await youtubesr.getSuggestions(dummyData.suggestionQuery);
-
-  await ytpl(dummyData.playlistId, { limit: 10 });
-
-  await ytch.getChannelVideos(dummyData.channelId, "newest", 1);
-
-  return true;
+  return {
+    searchForItems,
+    suggestions,
+    directUrls,
+    playlistsContents,
+    channelVideos,
+    channelPlaylists,
+  };
 };
 
 const searchMappers = {

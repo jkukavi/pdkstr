@@ -122,17 +122,24 @@ const ServicesHealthCheck = () => (
 
 export default Settings;
 
-type Health = "checking" | "healthy" | "unhealthy";
+type Health = "healthy" | "unhealthy";
 
 const HealthOf = ({ engine }: { engine: Engine }) => {
-  const [health, setHealth] = useState<Health>("checking");
+  const [healthResult, setHealthResult] = useState<
+    boolean | { [key: string]: boolean } | null
+  >(null);
+  const [loading, setLoading] = useState(false);
 
   const checkHealth = async () => {
     try {
-      await ping(engine);
-      setHealth("healthy");
+      setLoading(true);
+      const pingResult = await ping(engine);
+
+      setHealthResult(pingResult as any);
+
+      setLoading(false);
     } catch (e) {
-      setHealth("unhealthy");
+      setLoading(false);
     }
   };
 
@@ -140,28 +147,72 @@ const HealthOf = ({ engine }: { engine: Engine }) => {
     checkHealth();
   }, []);
 
+  const getResultComponent = () => {
+    if (typeof healthResult === "boolean") {
+      return (
+        <HealthIcon health={healthResult === true ? "healthy" : "unhealthy"} />
+      );
+    }
+
+    if (typeof healthResult === "object" && healthResult !== null) {
+      const resultRows = Object.keys(healthResult).map((key) => (
+        <div style={{ display: "flex" }}>
+          <Text>{key}</Text>
+          <HealthIcon
+            health={healthResult[key] === true ? "healthy" : "unhealthy"}
+          />
+        </div>
+      ));
+
+      return (
+        <>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              filter: "drop-shadow(black 1px 1px 1px)",
+            }}
+          >
+            {resultRows}
+          </div>
+        </>
+      );
+    }
+
+    return <></>;
+  };
+
+  if (loading || typeof healthResult === "boolean")
+    return (
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          width: "5rem",
+          filter: "drop-shadow(black 1px 1px 1px)",
+          justifyContent: "space-between",
+        }}
+      >
+        <SearchEngineIcon engine={engine} size="m" />
+        {loading ? (
+          <MicroLoader />
+        ) : (
+          <HealthIcon
+            health={healthResult === true ? "healthy" : "unhealthy"}
+          />
+        )}
+      </div>
+    );
+
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        height: "3rem",
-        width: "5rem",
-        filter: "drop-shadow(black 1px 1px 1px)",
-        justifyContent: "space-between",
-      }}
-    >
+    <>
       <SearchEngineIcon engine={engine} size="m" />
-      <HealthIcon health={health} />
-    </div>
+      {getResultComponent()}
+    </>
   );
 };
 
 const HealthIcon = ({ health }: { health: Health }) => {
-  if (health === "checking") {
-    return <MicroLoader />;
-  }
-
   const backgroundColorsByHealth = {
     healthy: "green",
     unhealthy: "red",
@@ -172,8 +223,8 @@ const HealthIcon = ({ health }: { health: Health }) => {
       style={{
         marginLeft: "1rem",
         borderRadius: "50%",
-        height: "1.5rem",
-        width: "1.5rem",
+        height: "1rem",
+        width: "1rem",
         backgroundColor: backgroundColorsByHealth[health],
       }}
     />

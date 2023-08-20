@@ -108,7 +108,7 @@ const ChannelInfo = ({
         </div>
         <div
           // onClick={() => {
-          //   addToFavourites(channelInfo);
+          //   addToFavourites({});
           // }}
           className={`button icon`}
         >
