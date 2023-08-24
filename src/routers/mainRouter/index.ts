@@ -17,9 +17,11 @@ app.post<string, { engine: Engine }>("/url/:engine", async (req, res) => {
     if (directUrl) {
       res.status(200).json({ directUrl });
     } else {
+      console.log(directUrl);
       res.status(400).json({ message: "Direct url not found" });
     }
   } catch (error) {
+    console.log(error);
     res.status(400).json({ message: "Direct url not found" });
   }
 });
