@@ -140,13 +140,7 @@ const getSuggestions = async (searchString: string) => {
 };
 
 const getDirectUrls = async (id: string) => {
-  const info = await ytdl.getInfo(id, {
-    requestOptions: {
-      headers: {
-        cookie: COOKIE,
-      },
-    },
-  });
+  const info = await ytdl.getInfo(id);
   const formats = ytdl.filterFormats(info.formats, "audioonly");
 
   const mappedFormats = formats.reverse().map((format) => ({
