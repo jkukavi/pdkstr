@@ -35,15 +35,7 @@ const ping = async () => {
     channelPlaylists,
   ] = await Promise.all([
     createPing(() => search("idkjeffery")),
-    createPing(() =>
-      ytdl.getInfo("TrVGymR-jFU", {
-        requestOptions: {
-          headers: {
-            cookie: COOKIE,
-          },
-        },
-      })
-    ),
+    createPing(() => ytdl.getInfo("TrVGymR-jFU")),
     createPing(() => youtubesr.getSuggestions(dummyData.suggestionQuery)),
     createPing(() => ytpl(dummyData.playlistId, { limit: 10 })),
     createPing(() => ytch.getChannelVideos(dummyData.channelId, "newest", 1)),
