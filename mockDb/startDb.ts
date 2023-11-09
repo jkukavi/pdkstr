@@ -4,6 +4,9 @@ import {
   createFavouritesForUser,
   createHistoryForUser,
 } from "__test__/createUser";
+import {
+  hashPasswordIn
+} from "models/helpers.ts";
 
 const mongoConfig = {
   instance: {
@@ -32,12 +35,14 @@ const startLocalDatabase = async () => {
 
   const usersFavourites = createFavouritesForUser(userId.toString());
 
-  await users.insertOne({
+  const userWithHashedPassword = await hashPasswordIn({
     _id: userId,
     username: "dasd",
-    password: "$2b$14$hV/a3tLwxkBJqkzrrAg/memEUlFcTChgx8esTyDoVDgXI.vdb.lOC",
+    password: "žaba",
     email: "mikivela1111@gmail.com",
-  });
+  })
+
+  await users.insertOne(userWithHashedPassword);
 
   await db.collection("history").insertMany(usersHistory);
   await db.collection("favourites").insertMany(usersFavourites);
