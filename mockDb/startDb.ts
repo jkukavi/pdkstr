@@ -17,7 +17,7 @@ const mongoConfig = {
   },
   binary: {
     downloadDir: "./node_modules/mongodb-memory-server/",
-    version: "5.0.3",
+    version: "6.0.6",
   },
 } as any;
 

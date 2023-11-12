@@ -88,7 +88,7 @@
       "debug": false,
       "md5Check": true,
       "version": "6.0.6",
-      "architecture": "x64",
+      "architecture": "arm64",
       "os": "osx"
     }
   }
