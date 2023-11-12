@@ -105,13 +105,7 @@ const getBasicInfoMapper = (item: MoreVideoDetails) => {
 
 const getItemInfo = async (id: string) => {
   try {
-    const videoInfo = await ytdl.getBasicInfo(id, {
-      requestOptions: {
-        headers: {
-          cookie: COOKIE,
-        },
-      },
-    });
+    const videoInfo = await ytdl.getBasicInfo(id);
 
     const returnVal = getBasicInfoMapper(videoInfo.videoDetails);
 

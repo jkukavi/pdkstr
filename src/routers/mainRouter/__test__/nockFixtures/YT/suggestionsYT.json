@@ -8,19 +8,23 @@
         "response": [
             "1f",
             "8b",
-            "08000000000002ff2bcfcc4bc92fd74bcfcf4fcf49d54b4cd6cbd08856ca4cc9ce4a4d4b4b2daa54d2898ed5a956ca56b232d4512a54b252f24a4ec935c8d1f5f1f5762ff54bf6cf2f0f704a8f72333032743451aa8dd504007a53d18d4f000000"
+            "08",
+            "00",
+            "00",
+            "00",
+            "000002ff758ec14ac43010407f65c849a194ee8a087bd3e39e048fb5c8b49d34d364134d26b655fc77c583ac4a8e99f766f216f66358ea2984c9518d436d2e5ac5a39d496b8a9baadadfcfa66aaf77fbaeabcec720db33414f28dfc255f3978fc13fe6a6d9df0848cc49e0fcde7f7dc557a6084b76ba6008ad980a0cb57c2d9b9063c9302c7022d01c53a9b877385848a71c4b0926c4c8bda352a1416f4b019a3dfa81d101f2587016839200c181635bfa257898d04f053ae421fca0ae7a57561d76957a510735c7ed2d3cccee6ec9bd264494e353b3decf24b7eaa3bbfc04d7fa71a917020000"
         ],
         "rawHeaders": [
             "Date",
-            "Sat, 12 Aug 2023 08:57:02 GMT",
+            "Sun, 12 Nov 2023 21:42:13 GMT",
             "Expires",
-            "Sat, 12 Aug 2023 08:57:02 GMT",
+            "Sun, 12 Nov 2023 21:42:13 GMT",
             "Cache-Control",
             "private, max-age=3600",
             "Content-Type",
             "text/javascript; charset=UTF-8",
             "Content-Security-Policy",
-            "object-src 'none';base-uri 'self';script-src 'nonce-MvfdSMv9iAhJIfoVbwiqoA' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other",
+            "object-src 'none';base-uri 'self';script-src 'nonce-mnGoCLuiREtXuVio34Z32w' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other",
             "Cross-Origin-Opener-Policy",
             "same-origin-allow-popups; report-to=\"gws\"",
             "Report-To",
@@ -36,7 +40,7 @@
             "X-Frame-Options",
             "SAMEORIGIN",
             "Set-Cookie",
-            "CONSENT=PENDING+892; expires=Mon, 11-Aug-2025 08:57:02 GMT; path=/; domain=.youtube.com; Secure",
+            "CONSENT=PENDING+883; expires=Tue, 11-Nov-2025 21:42:13 GMT; path=/; domain=.youtube.com; Secure",
             "P3P",
             "CP=\"This is not a P3P policy! See g.co/p3phelp for more info.\"",
             "Alt-Svc",
@@ -49,7 +53,7 @@
         "responseIsBinary": false
     },
     {
-        "scope": "http://127.0.0.1:58031",
+        "scope": "http://127.0.0.1:50548",
         "method": "POST",
         "path": "/api/suggestions/youtube",
         "body": {
@@ -57,7 +61,22 @@
         },
         "status": 200,
         "response": {
-            "suggestionsArray": []
+            "suggestionsArray": [
+                "idkjeffery",
+                "idkjeffery type beat",
+                "idkjeffery don't trust jeffery",
+                "idkjeffery xavier wulf",
+                "idkjeffery texas",
+                "idkjeffery after hours",
+                "idkjeffery hit me first",
+                "idkjeffery black smurf",
+                "idkjeffery horrible",
+                "idkjeffery thanks",
+                "idkjeffery financial aid",
+                "idkjeffery whats a l like",
+                "idkjeffery on gang",
+                "idkjeffery cuco"
+            ]
         },
         "rawHeaders": [
             "X-Powered-By",
@@ -67,11 +86,11 @@
             "Content-Type",
             "application/json; charset=utf-8",
             "Content-Length",
-            "23",
+            "347",
             "ETag",
-            "W/\"17-kJz0fUXU7mU8fdBJIEYUYD0UPxk\"",
+            "W/\"15b-JL4oc2KJ5uxe8ema9DgQNZC1kIU\"",
             "Date",
-            "Sat, 12 Aug 2023 08:57:02 GMT",
+            "Sun, 12 Nov 2023 21:42:13 GMT",
             "Connection",
             "close"
         ],

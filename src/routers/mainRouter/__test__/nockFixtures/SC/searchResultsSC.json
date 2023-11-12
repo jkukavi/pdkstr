@@ -2,155 +2,11 @@
     {
         "scope": "https://api-v2.soundcloud.com:443",
         "method": "GET",
-        "path": "/search/tracks?q=idkjeffery&limit=10&client_id=MK6Otkm10RJQcH3Cju78UhH6NXw40V47",
+        "path": "/search/tracks?q=idkjeffery&limit=10&client_id=XlMFimLMnOsgUUQTvzl7p9mD52JnBQBm",
         "body": "",
         "status": 200,
         "response": {
             "collection": [
-                {
-                    "artwork_url": "https://i1.sndcdn.com/artworks-000139266154-uy5bid-large.jpg",
-                    "caption": null,
-                    "commentable": true,
-                    "comment_count": 49,
-                    "created_at": "2015-12-12T02:21:21Z",
-                    "description": "",
-                    "downloadable": false,
-                    "download_count": 0,
-                    "duration": 232746,
-                    "full_duration": 232746,
-                    "embeddable_by": "all",
-                    "genre": "Session",
-                    "has_downloads_left": false,
-                    "id": 237178664,
-                    "kind": "track",
-                    "label_name": null,
-                    "last_modified": "2021-06-02T07:53:16Z",
-                    "license": "all-rights-reserved",
-                    "likes_count": 5049,
-                    "permalink": "masterchiefer-x-tadoubledolla-x-idkjeffery",
-                    "permalink_url": "https://soundcloud.com/jetwiley/masterchiefer-x-tadoubledolla-x-idkjeffery",
-                    "playback_count": 347478,
-                    "public": true,
-                    "publisher_metadata": null,
-                    "purchase_title": null,
-                    "purchase_url": null,
-                    "release_date": null,
-                    "reposts_count": 393,
-                    "secret_token": null,
-                    "sharing": "public",
-                    "state": "finished",
-                    "streamable": true,
-                    "tag_list": "2C0LD 2C0LDHOE UHHUH BANDZ",
-                    "title": "MasterChiefer x TADOUBLEDOLLA x IDKJEFFERY (Prod.DomoArygoto)",
-                    "track_format": "single-track",
-                    "uri": "https://api.soundcloud.com/tracks/237178664",
-                    "urn": "soundcloud:tracks:237178664",
-                    "user_id": 30694728,
-                    "visuals": null,
-                    "waveform_url": "https://wave.sndcdn.com/yc993VvYAEkB_m.json",
-                    "display_date": "2015-12-12T02:21:21Z",
-                    "media": {
-                        "transcodings": [
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:237178664/aa608dee-54c5-40a1-901d-e7606bbacdaf/stream/hls",
-                                "preset": "mp3_0_0",
-                                "duration": 232746,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/mpeg"
-                                },
-                                "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:237178664/aa608dee-54c5-40a1-901d-e7606bbacdaf/stream/progressive",
-                                "preset": "mp3_0_0",
-                                "duration": 232746,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "progressive",
-                                    "mime_type": "audio/mpeg"
-                                },
-                                "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:237178664/ab6cbca9-b8e9-4a88-83a4-26ddb58b2756/stream/hls",
-                                "preset": "opus_0_0",
-                                "duration": 232746,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/ogg; codecs=\"opus\""
-                                },
-                                "quality": "sq"
-                            }
-                        ]
-                    },
-                    "station_urn": "soundcloud:system-playlists:track-stations:237178664",
-                    "station_permalink": "track-stations:237178664",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjY0NjQ3MGRmLWZhZDUtNGU3NC1iM2M2LTc5ODA2YzRlY2UxOSIsImlhdCI6MTY5MTgzMDY5MH0.AigDfRpXL0PeIpeUAg0vD1T4KASMza5e8Bat7vhWep8",
-                    "monetization_model": "NOT_APPLICABLE",
-                    "policy": "ALLOW",
-                    "user": {
-                        "avatar_url": "https://i1.sndcdn.com/avatars-000353641226-72aw88-large.jpg",
-                        "city": "Houston",
-                        "comments_count": 0,
-                        "country_code": "US",
-                        "created_at": "2012-12-17T22:46:35Z",
-                        "creator_subscriptions": [
-                            {
-                                "product": {
-                                    "id": "free"
-                                }
-                            }
-                        ],
-                        "creator_subscription": {
-                            "product": {
-                                "id": "free"
-                            }
-                        },
-                        "description": "2C0LDHOE is ALL you need to kno!",
-                        "followers_count": 560,
-                        "followings_count": 86,
-                        "first_name": "Ryan",
-                        "full_name": "Ryan Wiley",
-                        "groups_count": 0,
-                        "id": 30694728,
-                        "kind": "user",
-                        "last_modified": "2019-07-30T19:04:47Z",
-                        "last_name": "Wiley",
-                        "likes_count": 656,
-                        "playlist_likes_count": 13,
-                        "permalink": "jetwiley",
-                        "permalink_url": "https://soundcloud.com/jetwiley",
-                        "playlist_count": 3,
-                        "reposts_count": null,
-                        "track_count": 35,
-                        "uri": "https://api.soundcloud.com/users/30694728",
-                        "urn": "soundcloud:users:30694728",
-                        "username": "Jet Wiley",
-                        "verified": false,
-                        "visuals": {
-                            "urn": "soundcloud:users:30694728",
-                            "enabled": true,
-                            "visuals": [
-                                {
-                                    "urn": "soundcloud:visuals:38103763",
-                                    "entry_time": 0,
-                                    "visual_url": "https://i1.sndcdn.com/visuals-000030694728-hk4HWF-original.jpg"
-                                }
-                            ],
-                            "tracking": null
-                        },
-                        "badges": {
-                            "pro": false,
-                            "pro_unlimited": false,
-                            "verified": false
-                        },
-                        "station_urn": "soundcloud:system-playlists:artist-stations:30694728",
-                        "station_permalink": "artist-stations:30694728"
-                    }
-                },
                 {
                     "artwork_url": "https://i1.sndcdn.com/artworks-000107615323-6pl5zx-large.jpg",
                     "caption": null,
@@ -170,10 +26,10 @@
                     "label_name": null,
                     "last_modified": "2022-12-13T00:38:10Z",
                     "license": "all-rights-reserved",
-                    "likes_count": 1786,
+                    "likes_count": 1795,
                     "permalink": "its-jeffery-mastered",
                     "permalink_url": "https://soundcloud.com/idontknowjeffery/its-jeffery-mastered",
-                    "playback_count": 123572,
+                    "playback_count": 124619,
                     "public": true,
                     "publisher_metadata": {
                         "id": 192398944,
@@ -187,7 +43,7 @@
                     "purchase_title": null,
                     "purchase_url": null,
                     "release_date": null,
-                    "reposts_count": 127,
+                    "reposts_count": 128,
                     "secret_token": null,
                     "sharing": "public",
                     "state": "finished",
@@ -240,11 +96,11 @@
                     },
                     "station_urn": "soundcloud:system-playlists:track-stations:192398944",
                     "station_permalink": "track-stations:192398944",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjE3MWJmZjI1LWM5YjktNDYzMi1iM2RkLWExMTVlZjFiZmNhYiIsImlhdCI6MTY5MTgzMDY5MH0.oTgpnmPQB8k-n9QHj9Gk2LwKhh5fxYOi5c7boHeZRSE",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjE3MWJmZjI1LWM5YjktNDYzMi1iM2RkLWExMTVlZjFiZmNhYiIsImlhdCI6MTY5OTgyNTMzMH0.lMWuU9nQVgXJnAEGxtKJRnbrtBSq62oAf_cR952xEW0",
                     "monetization_model": "NOT_APPLICABLE",
                     "policy": "ALLOW",
                     "user": {
-                        "avatar_url": "https://i1.sndcdn.com/avatars-ugeXzJo0QfE04yoF-ltEtMg-large.jpg",
+                        "avatar_url": "https://i1.sndcdn.com/avatars-2wv5kwyXXENyrw5a-9oVRBw-large.jpg",
                         "city": "Memphis",
                         "comments_count": 0,
                         "country_code": "US",
@@ -261,23 +117,23 @@
                                 "id": "creator-pro-unlimited"
                             }
                         },
-                        "description": "💿 THE JEFFERY LP 💿",
-                        "followers_count": 78495,
+                        "description": "https://5150TOUR.COM",
+                        "followers_count": 79267,
                         "followings_count": 12,
                         "first_name": "Jeffrey",
                         "full_name": "Jeffrey Harper",
                         "groups_count": 0,
                         "id": 55254934,
                         "kind": "user",
-                        "last_modified": "2023-08-12T05:52:05Z",
+                        "last_modified": "2023-10-02T16:59:27Z",
                         "last_name": "Harper",
-                        "likes_count": 384,
-                        "playlist_likes_count": 20,
+                        "likes_count": 396,
+                        "playlist_likes_count": 21,
                         "permalink": "idontknowjeffery",
                         "permalink_url": "https://soundcloud.com/idontknowjeffery",
                         "playlist_count": 40,
                         "reposts_count": null,
-                        "track_count": 385,
+                        "track_count": 386,
                         "uri": "https://api.soundcloud.com/users/55254934",
                         "urn": "soundcloud:users:55254934",
                         "username": "idontknowjeffery",
@@ -287,9 +143,9 @@
                             "enabled": true,
                             "visuals": [
                                 {
-                                    "urn": "soundcloud:visuals:198538575",
+                                    "urn": "soundcloud:visuals:200943609",
                                     "entry_time": 0,
-                                    "visual_url": "https://i1.sndcdn.com/visuals-0EIaeGTqdDfHl6Br-6yI0zQ-original.jpg"
+                                    "visual_url": "https://i1.sndcdn.com/visuals-000055254934-m2XUoU-original.jpg"
                                 }
                             ],
                             "tracking": null
@@ -307,7 +163,7 @@
                     "artwork_url": "https://i1.sndcdn.com/artworks-000336105762-joygtm-large.jpg",
                     "caption": null,
                     "commentable": true,
-                    "comment_count": 216,
+                    "comment_count": 217,
                     "created_at": "2018-04-16T23:44:40Z",
                     "description": "",
                     "downloadable": false,
@@ -322,10 +178,10 @@
                     "label_name": null,
                     "last_modified": "2022-04-11T14:02:35Z",
                     "license": "all-rights-reserved",
-                    "likes_count": 19128,
+                    "likes_count": 19165,
                     "permalink": "eastmemphisboyz-who-run-it-remix-chris-travis-ta-double-idkjeffery-xavier-wulf",
                     "permalink_url": "https://soundcloud.com/christravis/eastmemphisboyz-who-run-it-remix-chris-travis-ta-double-idkjeffery-xavier-wulf",
-                    "playback_count": 920556,
+                    "playback_count": 926609,
                     "public": true,
                     "publisher_metadata": {
                         "id": 430754811,
@@ -337,7 +193,7 @@
                     "purchase_title": null,
                     "purchase_url": null,
                     "release_date": null,
-                    "reposts_count": 2156,
+                    "reposts_count": 2153,
                     "secret_token": null,
                     "sharing": "public",
                     "state": "finished",
@@ -390,7 +246,7 @@
                     },
                     "station_urn": "soundcloud:system-playlists:track-stations:430754811",
                     "station_permalink": "track-stations:430754811",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjFkNmYwZTBmLTU5YTMtNDg0ZS05NTZlLTA2MTBmNDM1ZDRkOSIsImlhdCI6MTY5MTgzMDY5MH0.spxyxuSKV2YcuqJyrl3SmKKfRX-hpFmuKCNNBmKKYCU",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjFkNmYwZTBmLTU5YTMtNDg0ZS05NTZlLTA2MTBmNDM1ZDRkOSIsImlhdCI6MTY5OTgyNTMzMH0.JroFYEtcTlPXSo7TwCUbrvW6UY_pk8B8kWRtECh0IH0",
                     "monetization_model": "NOT_APPLICABLE",
                     "policy": "ALLOW",
                     "user": {
@@ -412,7 +268,7 @@
                             }
                         },
                         "description": "Water Boyz Ent. 💧\nStream The 1 & Only - https://christravis.lnk.to/The1AndOnly\nInquiries/Booking : BOOKCHRISTRAVIS@GMAIL.COM",
-                        "followers_count": 302281,
+                        "followers_count": 304574,
                         "followings_count": 0,
                         "first_name": "Chris",
                         "full_name": "Chris Travis",
@@ -421,13 +277,13 @@
                         "kind": "user",
                         "last_modified": "2023-08-05T01:51:48Z",
                         "last_name": "Travis",
-                        "likes_count": 111,
+                        "likes_count": 113,
                         "playlist_likes_count": 12,
                         "permalink": "christravis",
                         "permalink_url": "https://soundcloud.com/christravis",
                         "playlist_count": 47,
                         "reposts_count": null,
-                        "track_count": 431,
+                        "track_count": 432,
                         "uri": "https://api.soundcloud.com/users/14845235",
                         "urn": "soundcloud:users:14845235",
                         "username": "ChrisTravis",
@@ -454,10 +310,301 @@
                     }
                 },
                 {
+                    "artwork_url": "https://i1.sndcdn.com/artworks-000139266154-uy5bid-large.jpg",
+                    "caption": null,
+                    "commentable": true,
+                    "comment_count": 52,
+                    "created_at": "2015-12-12T02:21:21Z",
+                    "description": "",
+                    "downloadable": false,
+                    "download_count": 0,
+                    "duration": 232746,
+                    "full_duration": 232746,
+                    "embeddable_by": "all",
+                    "genre": "Session",
+                    "has_downloads_left": false,
+                    "id": 237178664,
+                    "kind": "track",
+                    "label_name": null,
+                    "last_modified": "2021-06-02T07:53:16Z",
+                    "license": "all-rights-reserved",
+                    "likes_count": 5084,
+                    "permalink": "masterchiefer-x-tadoubledolla-x-idkjeffery",
+                    "permalink_url": "https://soundcloud.com/jetwiley/masterchiefer-x-tadoubledolla-x-idkjeffery",
+                    "playback_count": 351503,
+                    "public": true,
+                    "publisher_metadata": null,
+                    "purchase_title": null,
+                    "purchase_url": null,
+                    "release_date": null,
+                    "reposts_count": 395,
+                    "secret_token": null,
+                    "sharing": "public",
+                    "state": "finished",
+                    "streamable": true,
+                    "tag_list": "2C0LD 2C0LDHOE UHHUH BANDZ",
+                    "title": "MasterChiefer x TADOUBLEDOLLA x IDKJEFFERY (Prod.DomoArygoto)",
+                    "track_format": "single-track",
+                    "uri": "https://api.soundcloud.com/tracks/237178664",
+                    "urn": "soundcloud:tracks:237178664",
+                    "user_id": 30694728,
+                    "visuals": null,
+                    "waveform_url": "https://wave.sndcdn.com/yc993VvYAEkB_m.json",
+                    "display_date": "2015-12-12T02:21:21Z",
+                    "media": {
+                        "transcodings": [
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:237178664/aa608dee-54c5-40a1-901d-e7606bbacdaf/stream/hls",
+                                "preset": "mp3_0_0",
+                                "duration": 232746,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "hls",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            },
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:237178664/aa608dee-54c5-40a1-901d-e7606bbacdaf/stream/progressive",
+                                "preset": "mp3_0_0",
+                                "duration": 232746,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "progressive",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            },
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:237178664/ab6cbca9-b8e9-4a88-83a4-26ddb58b2756/stream/hls",
+                                "preset": "opus_0_0",
+                                "duration": 232746,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "hls",
+                                    "mime_type": "audio/ogg; codecs=\"opus\""
+                                },
+                                "quality": "sq"
+                            }
+                        ]
+                    },
+                    "station_urn": "soundcloud:system-playlists:track-stations:237178664",
+                    "station_permalink": "track-stations:237178664",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjY0NjQ3MGRmLWZhZDUtNGU3NC1iM2M2LTc5ODA2YzRlY2UxOSIsImlhdCI6MTY5OTgyNTMzMH0.Mch-SoB8nfYBWujdtcb0krg8ylYZ6nPJkJopqUq9c88",
+                    "monetization_model": "NOT_APPLICABLE",
+                    "policy": "ALLOW",
+                    "user": {
+                        "avatar_url": "https://i1.sndcdn.com/avatars-000353641226-72aw88-large.jpg",
+                        "city": "Houston",
+                        "comments_count": 0,
+                        "country_code": "US",
+                        "created_at": "2012-12-17T22:46:35Z",
+                        "creator_subscriptions": [
+                            {
+                                "product": {
+                                    "id": "free"
+                                }
+                            }
+                        ],
+                        "creator_subscription": {
+                            "product": {
+                                "id": "free"
+                            }
+                        },
+                        "description": "2C0LDHOE is ALL you need to kno!",
+                        "followers_count": 562,
+                        "followings_count": 86,
+                        "first_name": "Ryan",
+                        "full_name": "Ryan Wiley",
+                        "groups_count": 0,
+                        "id": 30694728,
+                        "kind": "user",
+                        "last_modified": "2019-07-30T19:04:47Z",
+                        "last_name": "Wiley",
+                        "likes_count": 656,
+                        "playlist_likes_count": 13,
+                        "permalink": "jetwiley",
+                        "permalink_url": "https://soundcloud.com/jetwiley",
+                        "playlist_count": 3,
+                        "reposts_count": null,
+                        "track_count": 35,
+                        "uri": "https://api.soundcloud.com/users/30694728",
+                        "urn": "soundcloud:users:30694728",
+                        "username": "Jet Wiley",
+                        "verified": false,
+                        "visuals": {
+                            "urn": "soundcloud:users:30694728",
+                            "enabled": true,
+                            "visuals": [
+                                {
+                                    "urn": "soundcloud:visuals:38103763",
+                                    "entry_time": 0,
+                                    "visual_url": "https://i1.sndcdn.com/visuals-000030694728-hk4HWF-original.jpg"
+                                }
+                            ],
+                            "tracking": null
+                        },
+                        "badges": {
+                            "pro": false,
+                            "pro_unlimited": false,
+                            "verified": false
+                        },
+                        "station_urn": "soundcloud:system-playlists:artist-stations:30694728",
+                        "station_permalink": "artist-stations:30694728"
+                    }
+                },
+                {
+                    "artwork_url": "https://i1.sndcdn.com/artworks-vy7w9WaVy5MyyJMC-6t786w-large.jpg",
+                    "caption": null,
+                    "commentable": true,
+                    "comment_count": 26,
+                    "created_at": "2016-09-05T19:51:56Z",
+                    "description": "social medias @realtreydub",
+                    "downloadable": false,
+                    "download_count": 0,
+                    "duration": 133131,
+                    "full_duration": 133131,
+                    "embeddable_by": "all",
+                    "genre": "",
+                    "has_downloads_left": false,
+                    "id": 281525558,
+                    "kind": "track",
+                    "label_name": null,
+                    "last_modified": "2022-01-06T18:13:58Z",
+                    "license": "all-rights-reserved",
+                    "likes_count": 4177,
+                    "permalink": "titty-fuck-ft-idkjeffery-prod-skinny-play",
+                    "permalink_url": "https://soundcloud.com/realtreydub/titty-fuck-ft-idkjeffery-prod-skinny-play",
+                    "playback_count": 219789,
+                    "public": true,
+                    "publisher_metadata": {
+                        "id": 281525558,
+                        "urn": "soundcloud:tracks:281525558"
+                    },
+                    "purchase_title": null,
+                    "purchase_url": null,
+                    "release_date": null,
+                    "reposts_count": 414,
+                    "secret_token": null,
+                    "sharing": "public",
+                    "state": "finished",
+                    "streamable": true,
+                    "tag_list": "",
+                    "title": "Titty Fuck ft. IDKJEFFERY prod. SKINNY PLAY",
+                    "track_format": "single-track",
+                    "uri": "https://api.soundcloud.com/tracks/281525558",
+                    "urn": "soundcloud:tracks:281525558",
+                    "user_id": 85659154,
+                    "visuals": null,
+                    "waveform_url": "https://wave.sndcdn.com/ucojBJXfKmug_m.json",
+                    "display_date": "2016-09-05T19:51:56Z",
+                    "media": {
+                        "transcodings": [
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:281525558/28ce7cc9-3fe5-422c-aa22-a343e8ae402a/stream/hls",
+                                "preset": "mp3_0_0",
+                                "duration": 133131,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "hls",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            },
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:281525558/28ce7cc9-3fe5-422c-aa22-a343e8ae402a/stream/progressive",
+                                "preset": "mp3_0_0",
+                                "duration": 133131,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "progressive",
+                                    "mime_type": "audio/mpeg"
+                                },
+                                "quality": "sq"
+                            },
+                            {
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:281525558/18053b7c-4a51-4d86-a14c-b939d171f0f5/stream/hls",
+                                "preset": "opus_0_0",
+                                "duration": 133131,
+                                "snipped": false,
+                                "format": {
+                                    "protocol": "hls",
+                                    "mime_type": "audio/ogg; codecs=\"opus\""
+                                },
+                                "quality": "sq"
+                            }
+                        ]
+                    },
+                    "station_urn": "soundcloud:system-playlists:track-stations:281525558",
+                    "station_permalink": "track-stations:281525558",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjM3YmRkMTAxLTljMmUtNGE5YS04NWE0LWY4MTc4YzI5YmFkMyIsImlhdCI6MTY5OTgyNTMzMH0.xBaBBRCvFKGzz--DwXS2oFazw1bnyAFs59ftPZpruIY",
+                    "monetization_model": "NOT_APPLICABLE",
+                    "policy": "ALLOW",
+                    "user": {
+                        "avatar_url": "https://i1.sndcdn.com/avatars-000402017076-liz99y-large.jpg",
+                        "city": "Houston",
+                        "comments_count": 0,
+                        "country_code": null,
+                        "created_at": "2014-03-21T15:48:10Z",
+                        "creator_subscriptions": [
+                            {
+                                "product": {
+                                    "id": "free"
+                                }
+                            }
+                        ],
+                        "creator_subscription": {
+                            "product": {
+                                "id": "free"
+                            }
+                        },
+                        "description": "insta @liltreydub\nTwitter @RealTreyDub\nPaypal Kentceaser7@yahoo.com\nBusiness email kentceaser2@gmail.com",
+                        "followers_count": 2928,
+                        "followings_count": 207,
+                        "first_name": "Trey",
+                        "full_name": "Trey Dub",
+                        "groups_count": 0,
+                        "id": 85659154,
+                        "kind": "user",
+                        "last_modified": "2020-03-18T03:11:05Z",
+                        "last_name": "Dub",
+                        "likes_count": 1244,
+                        "playlist_likes_count": 55,
+                        "permalink": "realtreydub",
+                        "permalink_url": "https://soundcloud.com/realtreydub",
+                        "playlist_count": 2,
+                        "reposts_count": null,
+                        "track_count": 36,
+                        "uri": "https://api.soundcloud.com/users/85659154",
+                        "urn": "soundcloud:users:85659154",
+                        "username": "Lil TreyDub",
+                        "verified": false,
+                        "visuals": {
+                            "urn": "soundcloud:users:85659154",
+                            "enabled": true,
+                            "visuals": [
+                                {
+                                    "urn": "soundcloud:visuals:14910248",
+                                    "entry_time": 0,
+                                    "visual_url": "https://i1.sndcdn.com/visuals-000085659154-exuM6l-original.jpg"
+                                }
+                            ],
+                            "tracking": null
+                        },
+                        "badges": {
+                            "pro": false,
+                            "pro_unlimited": false,
+                            "verified": false
+                        },
+                        "station_urn": "soundcloud:system-playlists:artist-stations:85659154",
+                        "station_permalink": "artist-stations:85659154"
+                    }
+                },
+                {
                     "artwork_url": "https://i1.sndcdn.com/artworks-000646347709-z425px-large.jpg",
                     "caption": null,
                     "commentable": true,
-                    "comment_count": 2,
+                    "comment_count": 3,
                     "created_at": "2019-12-03T00:51:54Z",
                     "description": "",
                     "downloadable": false,
@@ -472,10 +619,10 @@
                     "label_name": null,
                     "last_modified": "2019-12-03T00:51:55Z",
                     "license": "all-rights-reserved",
-                    "likes_count": 73,
+                    "likes_count": 90,
                     "permalink": "financial-aid-idkjeffery",
                     "permalink_url": "https://soundcloud.com/pacxans/financial-aid-idkjeffery",
-                    "playback_count": 2811,
+                    "playback_count": 3315,
                     "public": true,
                     "publisher_metadata": {
                         "id": 721899616,
@@ -538,7 +685,7 @@
                     },
                     "station_urn": "soundcloud:system-playlists:track-stations:721899616",
                     "station_permalink": "track-stations:721899616",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjE0YWFkZWEyLWZjZTktNGI0Mi1iODIxLTJjMjdhYmM0MTZiOSIsImlhdCI6MTY5MTgzMDY5MH0.gOUdiP140WH7HVQ5EMQloMX1sUK9z_GpVMLyU3M1HsY",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjE0YWFkZWEyLWZjZTktNGI0Mi1iODIxLTJjMjdhYmM0MTZiOSIsImlhdCI6MTY5OTgyNTMzMH0.HrnavxKU_TiyBphTZCLzk-0Pc3CBugwvtdgK74B7sZM",
                     "monetization_model": "NOT_APPLICABLE",
                     "policy": "ALLOW",
                     "user": {
@@ -560,7 +707,7 @@
                             }
                         },
                         "description": "",
-                        "followers_count": 63,
+                        "followers_count": 66,
                         "followings_count": 2,
                         "first_name": "eternal !!",
                         "full_name": "eternal !!",
@@ -569,7 +716,7 @@
                         "kind": "user",
                         "last_modified": "2022-11-19T22:40:53Z",
                         "last_name": "",
-                        "likes_count": 82,
+                        "likes_count": 86,
                         "playlist_likes_count": 2,
                         "permalink": "pacxans",
                         "permalink_url": "https://soundcloud.com/pacxans",
@@ -620,10 +767,10 @@
                     "label_name": null,
                     "last_modified": "2018-04-30T22:42:37Z",
                     "license": "all-rights-reserved",
-                    "likes_count": 249,
+                    "likes_count": 255,
                     "permalink": "idkjeffery-after-hours-prod-big-lo",
                     "permalink_url": "https://soundcloud.com/user-659342849/idkjeffery-after-hours-prod-big-lo",
-                    "playback_count": 12373,
+                    "playback_count": 12838,
                     "public": true,
                     "publisher_metadata": {
                         "id": 437510367,
@@ -685,7 +832,7 @@
                     },
                     "station_urn": "soundcloud:system-playlists:track-stations:437510367",
                     "station_permalink": "track-stations:437510367",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjAwZTg2YTkzLTMwY2EtNGQ4Ni04ODkzLTgwNzQ3M2VjN2Q3YiIsImlhdCI6MTY5MTgzMDY5MH0.mcfV05wPnnG29dx69Z1MAUyWjW9x75HPyu-Hef5Myjs",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjAwZTg2YTkzLTMwY2EtNGQ4Ni04ODkzLTgwNzQ3M2VjN2Q3YiIsImlhdCI6MTY5OTgyNTMzMH0.dyPMxZreOHc2wxBSD4CcT43jRHFwTjRnFXJglKybt8s",
                     "monetization_model": "NOT_APPLICABLE",
                     "policy": "ALLOW",
                     "user": {
@@ -707,7 +854,7 @@
                             }
                         },
                         "description": null,
-                        "followers_count": 403,
+                        "followers_count": 407,
                         "followings_count": 0,
                         "first_name": "",
                         "full_name": "",
@@ -749,150 +896,6 @@
                     }
                 },
                 {
-                    "artwork_url": "https://i1.sndcdn.com/artworks-000137271582-7gc0xb-large.jpg",
-                    "caption": null,
-                    "commentable": true,
-                    "comment_count": 6,
-                    "created_at": "2015-11-25T01:03:34Z",
-                    "description": "COKE COKE COKE COKE COKE COKAINE IN DA BLUNT S/O TO IDKJEFFERY",
-                    "downloadable": false,
-                    "download_count": 0,
-                    "duration": 146951,
-                    "full_duration": 146951,
-                    "embeddable_by": "all",
-                    "genre": "idkjeffery",
-                    "has_downloads_left": false,
-                    "id": 234588964,
-                    "kind": "track",
-                    "label_name": null,
-                    "last_modified": "2020-12-17T21:45:20Z",
-                    "license": "all-rights-reserved",
-                    "likes_count": 724,
-                    "permalink": "numby-chopped-screwed-idkjeffery",
-                    "permalink_url": "https://soundcloud.com/mattgretzky/numby-chopped-screwed-idkjeffery",
-                    "playback_count": 62544,
-                    "public": true,
-                    "publisher_metadata": null,
-                    "purchase_title": null,
-                    "purchase_url": null,
-                    "release_date": null,
-                    "reposts_count": 92,
-                    "secret_token": null,
-                    "sharing": "public",
-                    "state": "finished",
-                    "streamable": true,
-                    "tag_list": "rap chopped",
-                    "title": "Numby Chopped & Screwed (idontknowjeffery)",
-                    "track_format": "single-track",
-                    "uri": "https://api.soundcloud.com/tracks/234588964",
-                    "urn": "soundcloud:tracks:234588964",
-                    "user_id": 4391609,
-                    "visuals": null,
-                    "waveform_url": "https://wave.sndcdn.com/bpng09RmG7ic_m.json",
-                    "display_date": "2015-11-25T01:03:34Z",
-                    "media": {
-                        "transcodings": [
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:234588964/ddbdf47b-71db-487c-942f-d0e05deb3de0/stream/hls",
-                                "preset": "mp3_0_0",
-                                "duration": 146951,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/mpeg"
-                                },
-                                "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:234588964/ddbdf47b-71db-487c-942f-d0e05deb3de0/stream/progressive",
-                                "preset": "mp3_0_0",
-                                "duration": 146951,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "progressive",
-                                    "mime_type": "audio/mpeg"
-                                },
-                                "quality": "sq"
-                            },
-                            {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:234588964/5599fb49-d41e-4b70-9ffa-14579ed837bb/stream/hls",
-                                "preset": "opus_0_0",
-                                "duration": 146951,
-                                "snipped": false,
-                                "format": {
-                                    "protocol": "hls",
-                                    "mime_type": "audio/ogg; codecs=\"opus\""
-                                },
-                                "quality": "sq"
-                            }
-                        ]
-                    },
-                    "station_urn": "soundcloud:system-playlists:track-stations:234588964",
-                    "station_permalink": "track-stations:234588964",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IiIsImlhdCI6MTY5MTgzMDY5MH0.kvMhBprV-LpKGgttfFDVsGDpg8dtpNdIqOvNsMksYgk",
-                    "monetization_model": "NOT_APPLICABLE",
-                    "policy": "ALLOW",
-                    "user": {
-                        "avatar_url": "https://i1.sndcdn.com/avatars-BqTvu9jQadEG914a-mRv5wA-large.jpg",
-                        "city": "EAST MEMPHIS 901",
-                        "comments_count": 0,
-                        "country_code": "US",
-                        "created_at": "2011-04-26T23:49:02Z",
-                        "creator_subscriptions": [
-                            {
-                                "product": {
-                                    "id": "free"
-                                }
-                            }
-                        ],
-                        "creator_subscription": {
-                            "product": {
-                                "id": "free"
-                            }
-                        },
-                        "description": "IG & TWITTER: MATTGRETZKY FOLLOW ME ON ALL SITES TO GET NEW MUSIC FROM ME",
-                        "followers_count": 615,
-                        "followings_count": 80,
-                        "first_name": "",
-                        "full_name": "",
-                        "groups_count": 0,
-                        "id": 4391609,
-                        "kind": "user",
-                        "last_modified": "2022-09-16T19:45:01Z",
-                        "last_name": "",
-                        "likes_count": 211,
-                        "playlist_likes_count": 46,
-                        "permalink": "mattgretzky",
-                        "permalink_url": "https://soundcloud.com/mattgretzky",
-                        "playlist_count": 3,
-                        "reposts_count": null,
-                        "track_count": 44,
-                        "uri": "https://api.soundcloud.com/users/4391609",
-                        "urn": "soundcloud:users:4391609",
-                        "username": "Matt Gretzky",
-                        "verified": false,
-                        "visuals": {
-                            "urn": "soundcloud:users:4391609",
-                            "enabled": true,
-                            "visuals": [
-                                {
-                                    "urn": "soundcloud:visuals:138909645",
-                                    "entry_time": 0,
-                                    "visual_url": "https://i1.sndcdn.com/visuals-000004391609-sYNKfU-original.jpg"
-                                }
-                            ],
-                            "tracking": null
-                        },
-                        "badges": {
-                            "pro": false,
-                            "pro_unlimited": false,
-                            "verified": false
-                        },
-                        "station_urn": "soundcloud:system-playlists:artist-stations:4391609",
-                        "station_permalink": "artist-stations:4391609"
-                    }
-                },
-                {
                     "artwork_url": "https://i1.sndcdn.com/artworks-000586407284-ksqwjz-large.jpg",
                     "caption": null,
                     "commentable": true,
@@ -911,10 +914,10 @@
                     "label_name": null,
                     "last_modified": "2022-02-19T12:27:02Z",
                     "license": "all-rights-reserved",
-                    "likes_count": 134,
+                    "likes_count": 142,
                     "permalink": "rape-rape-idkjeffery-remastered-and-slowed",
                     "permalink_url": "https://soundcloud.com/injury-dictionary/rape-rape-idkjeffery-remastered-and-slowed",
-                    "playback_count": 7989,
+                    "playback_count": 8454,
                     "public": true,
                     "publisher_metadata": {
                         "id": 669732089,
@@ -977,7 +980,7 @@
                     },
                     "station_urn": "soundcloud:system-playlists:track-stations:669732089",
                     "station_permalink": "track-stations:669732089",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6ImFjMmM1OGM2LTNhZjctNDA5OC1iODZmLWNlODVhYzg0ZDBjNCIsImlhdCI6MTY5MTgzMDY5MH0.oA1gZnBABQ2JxydxvAVO5v_hE_ZGSySQZgGhXtT-0-o",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6ImFjMmM1OGM2LTNhZjctNDA5OC1iODZmLWNlODVhYzg0ZDBjNCIsImlhdCI6MTY5OTgyNTMzMH0.clwo9H0ZmBRtZhLyNvx2GmsH-LKVDOcaSl-ApKGQZGo",
                     "monetization_model": "NOT_APPLICABLE",
                     "policy": "ALLOW",
                     "user": {
@@ -1044,11 +1047,11 @@
                     "artwork_url": "https://i1.sndcdn.com/artworks-voW93ukCRmQVaWdz-Jw1FcA-large.jpg",
                     "caption": null,
                     "commentable": true,
-                    "comment_count": 41,
+                    "comment_count": 40,
                     "created_at": "2020-03-01T00:31:51Z",
                     "description": "MATTBORGHINI EXCLUSIVES VOL.1 NEW IDONTKNOWJEFFERY HARDEST RAPPER OUTTA MEMPHIS EXCLUSIVE LEAK BY MATT GRETZKY. DOWNLOAD AVAILABLE",
                     "downloadable": true,
-                    "download_count": 67,
+                    "download_count": 85,
                     "duration": 138292,
                     "full_duration": 138292,
                     "embeddable_by": "all",
@@ -1059,10 +1062,10 @@
                     "label_name": null,
                     "last_modified": "2022-02-09T04:38:34Z",
                     "license": "all-rights-reserved",
-                    "likes_count": 4561,
+                    "likes_count": 4637,
                     "permalink": "1-goodnight-idontknowjeffery",
                     "permalink_url": "https://soundcloud.com/mattgretzky/1-goodnight-idontknowjeffery",
-                    "playback_count": 285255,
+                    "playback_count": 293922,
                     "public": true,
                     "publisher_metadata": {
                         "id": 768750781,
@@ -1127,7 +1130,7 @@
                     },
                     "station_urn": "soundcloud:system-playlists:track-stations:768750781",
                     "station_permalink": "track-stations:768750781",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IiIsImlhdCI6MTY5MTgzMDY5MH0.kvMhBprV-LpKGgttfFDVsGDpg8dtpNdIqOvNsMksYgk",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IiIsImlhdCI6MTY5OTgyNTMzMH0.-DiAeubTxQhz_MOr0WJb_Sb3itpDKr7Vuo78Y55QAOQ",
                     "monetization_model": "NOT_APPLICABLE",
                     "policy": "ALLOW",
                     "user": {
@@ -1149,7 +1152,7 @@
                             }
                         },
                         "description": "IG & TWITTER: MATTGRETZKY FOLLOW ME ON ALL SITES TO GET NEW MUSIC FROM ME",
-                        "followers_count": 615,
+                        "followers_count": 619,
                         "followings_count": 80,
                         "first_name": "",
                         "full_name": "",
@@ -1209,10 +1212,10 @@
                     "label_name": null,
                     "last_modified": "2022-02-09T04:58:57Z",
                     "license": "all-rights-reserved",
-                    "likes_count": 3158,
+                    "likes_count": 3187,
                     "permalink": "idontknowjeffery-disappear-feat-black-smurf-prod-dexter-dukarus",
                     "permalink_url": "https://soundcloud.com/djklitoris/idontknowjeffery-disappear-feat-black-smurf-prod-dexter-dukarus",
-                    "playback_count": 193806,
+                    "playback_count": 199049,
                     "public": true,
                     "publisher_metadata": {
                         "id": 306502347,
@@ -1221,7 +1224,7 @@
                     "purchase_title": null,
                     "purchase_url": null,
                     "release_date": null,
-                    "reposts_count": 100,
+                    "reposts_count": 102,
                     "secret_token": null,
                     "sharing": "public",
                     "state": "finished",
@@ -1274,7 +1277,7 @@
                     },
                     "station_urn": "soundcloud:system-playlists:track-stations:306502347",
                     "station_permalink": "track-stations:306502347",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjY5MzFkNDIwLTMyNzEtNGY1Yi1iZTY1LWI5NTEzYjU3OWMxNiIsImlhdCI6MTY5MTgzMDY5MH0.iCj8jz7c8zIlUuiRS-HAEF47DEyHZa51VnS0WU0Df2Y",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjY5MzFkNDIwLTMyNzEtNGY1Yi1iZTY1LWI5NTEzYjU3OWMxNiIsImlhdCI6MTY5OTgyNTMzMH0.M1bnsSi_eayl4yafAlwQ7s-h3yI76fmVrza3Xdj_KvA",
                     "monetization_model": "NOT_APPLICABLE",
                     "policy": "ALLOW",
                     "user": {
@@ -1296,8 +1299,8 @@
                             }
                         },
                         "description": "reclusive",
-                        "followers_count": 480,
-                        "followings_count": 241,
+                        "followers_count": 510,
+                        "followings_count": 242,
                         "first_name": "dj lunatone",
                         "full_name": "dj lunatone",
                         "groups_count": 0,
@@ -1305,7 +1308,7 @@
                         "kind": "user",
                         "last_modified": "2018-05-05T12:46:59Z",
                         "last_name": "",
-                        "likes_count": 3998,
+                        "likes_count": 4021,
                         "playlist_likes_count": 26,
                         "permalink": "djklitoris",
                         "permalink_url": "https://soundcloud.com/djklitoris",
@@ -1327,57 +1330,53 @@
                     }
                 },
                 {
-                    "artwork_url": "https://i1.sndcdn.com/artworks-umIOBsw8RznW8O30-37HTNA-large.jpg",
+                    "artwork_url": "https://i1.sndcdn.com/artworks-000137265078-vvfkfe-large.jpg",
                     "caption": null,
                     "commentable": true,
-                    "comment_count": 0,
-                    "created_at": "2023-08-06T17:24:36Z",
+                    "comment_count": 7,
+                    "created_at": "2015-11-24T23:51:15Z",
                     "description": "",
                     "downloadable": false,
                     "download_count": 0,
-                    "duration": 184660,
-                    "full_duration": 184660,
+                    "duration": 194603,
+                    "full_duration": 194603,
                     "embeddable_by": "all",
-                    "genre": "Hip-hop & Rap",
+                    "genre": "2C0LDHOE",
                     "has_downloads_left": false,
-                    "id": 1585022191,
+                    "id": 234580352,
                     "kind": "track",
                     "label_name": null,
-                    "last_modified": "2023-08-06T17:24:37Z",
+                    "last_modified": "2017-12-22T08:16:06Z",
                     "license": "all-rights-reserved",
-                    "likes_count": 8,
-                    "permalink": "hoe-horror",
-                    "permalink_url": "https://soundcloud.com/sirsicko/hoe-horror",
-                    "playback_count": 469,
+                    "likes_count": 528,
+                    "permalink": "mygang-ft-p2thegoldmak-x-idkjeffery-prod-domoarygoto",
+                    "permalink_url": "https://soundcloud.com/jetwiley/mygang-ft-p2thegoldmak-x-idkjeffery-prod-domoarygoto",
+                    "playback_count": 30439,
                     "public": true,
-                    "publisher_metadata": {
-                        "id": 1585022191,
-                        "urn": "soundcloud:tracks:1585022191",
-                        "contains_music": true
-                    },
+                    "publisher_metadata": null,
                     "purchase_title": null,
                     "purchase_url": null,
                     "release_date": null,
-                    "reposts_count": 2,
+                    "reposts_count": 49,
                     "secret_token": null,
                     "sharing": "public",
                     "state": "finished",
                     "streamable": true,
-                    "tag_list": "doomshop playamaderecords pmr sixset doomset poopset idkjeffery",
-                    "title": "HOE HORROR",
+                    "tag_list": "2C0LD 2CP PMG IDK 2016",
+                    "title": "MyGang ft. P2THEGOLDMA$K x IDKJEFFERY (Prod. DomoArygoto)",
                     "track_format": "single-track",
-                    "uri": "https://api.soundcloud.com/tracks/1585022191",
-                    "urn": "soundcloud:tracks:1585022191",
-                    "user_id": 18833758,
+                    "uri": "https://api.soundcloud.com/tracks/234580352",
+                    "urn": "soundcloud:tracks:234580352",
+                    "user_id": 30694728,
                     "visuals": null,
-                    "waveform_url": "https://wave.sndcdn.com/HC4Pt6xJc75s_m.json",
-                    "display_date": "2023-08-06T17:24:36Z",
+                    "waveform_url": "https://wave.sndcdn.com/B1VRKWG6uVpc_m.json",
+                    "display_date": "2015-11-24T23:51:15Z",
                     "media": {
                         "transcodings": [
                             {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1585022191/e20e60e0-a850-4c70-9bc5-242e3ccdf278/stream/hls",
-                                "preset": "mp3_1_0",
-                                "duration": 184660,
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:234580352/67fe8f08-ab7b-4ca6-8e4e-f84bbb119428/stream/hls",
+                                "preset": "mp3_0_0",
+                                "duration": 194603,
                                 "snipped": false,
                                 "format": {
                                     "protocol": "hls",
@@ -1386,9 +1385,9 @@
                                 "quality": "sq"
                             },
                             {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1585022191/e20e60e0-a850-4c70-9bc5-242e3ccdf278/stream/progressive",
-                                "preset": "mp3_1_0",
-                                "duration": 184660,
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:234580352/67fe8f08-ab7b-4ca6-8e4e-f84bbb119428/stream/progressive",
+                                "preset": "mp3_0_0",
+                                "duration": 194603,
                                 "snipped": false,
                                 "format": {
                                     "protocol": "progressive",
@@ -1397,9 +1396,9 @@
                                 "quality": "sq"
                             },
                             {
-                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1585022191/bdeff428-f7b7-41c9-ac59-13722590e35f/stream/hls",
+                                "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:234580352/9afd9351-b70a-4042-9d53-f036995dd64c/stream/hls",
                                 "preset": "opus_0_0",
-                                "duration": 184640,
+                                "duration": 194603,
                                 "snipped": false,
                                 "format": {
                                     "protocol": "hls",
@@ -1409,85 +1408,85 @@
                             }
                         ]
                     },
-                    "station_urn": "soundcloud:system-playlists:track-stations:1585022191",
-                    "station_permalink": "track-stations:1585022191",
-                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IiIsImlhdCI6MTY5MTgzMDY5MH0.kvMhBprV-LpKGgttfFDVsGDpg8dtpNdIqOvNsMksYgk",
+                    "station_urn": "soundcloud:system-playlists:track-stations:234580352",
+                    "station_permalink": "track-stations:234580352",
+                    "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjE3Y2MyYWI1LTM5MGEtNDdkMC1hYWQ4LWE0ZGYyMGQxY2NjZSIsImlhdCI6MTY5OTgyNTMzMH0.wiKj2e-UhGXZ38f4hFcSCEvymSXT_ql9FWNbOvtIkgg",
                     "monetization_model": "NOT_APPLICABLE",
                     "policy": "ALLOW",
                     "user": {
-                        "avatar_url": "https://i1.sndcdn.com/avatars-qVcIdybU8gg4obPd-DQUv0g-large.jpg",
-                        "city": "03",
+                        "avatar_url": "https://i1.sndcdn.com/avatars-000353641226-72aw88-large.jpg",
+                        "city": "Houston",
                         "comments_count": 0,
-                        "country_code": null,
-                        "created_at": "2012-06-17T11:28:35Z",
+                        "country_code": "US",
+                        "created_at": "2012-12-17T22:46:35Z",
                         "creator_subscriptions": [
                             {
                                 "product": {
-                                    "id": "creator-pro-unlimited"
+                                    "id": "free"
                                 }
                             }
                         ],
                         "creator_subscription": {
                             "product": {
-                                "id": "creator-pro-unlimited"
+                                "id": "free"
                             }
                         },
-                        "description": "STAY TUNED FOR NEW CASSETTES\n\n243tapes.bigcartel.com\n\nsirproductions4life\n243 ©️",
-                        "followers_count": 2992,
-                        "followings_count": 1,
-                        "first_name": "Tha Only One",
-                        "full_name": "Tha Only One",
+                        "description": "2C0LDHOE is ALL you need to kno!",
+                        "followers_count": 562,
+                        "followings_count": 86,
+                        "first_name": "Ryan",
+                        "full_name": "Ryan Wiley",
                         "groups_count": 0,
-                        "id": 18833758,
+                        "id": 30694728,
                         "kind": "user",
-                        "last_modified": "2023-08-10T09:16:31Z",
-                        "last_name": "",
-                        "likes_count": 882,
-                        "playlist_likes_count": 62,
-                        "permalink": "sirsicko",
-                        "permalink_url": "https://soundcloud.com/sirsicko",
-                        "playlist_count": 8,
+                        "last_modified": "2019-07-30T19:04:47Z",
+                        "last_name": "Wiley",
+                        "likes_count": 656,
+                        "playlist_likes_count": 13,
+                        "permalink": "jetwiley",
+                        "permalink_url": "https://soundcloud.com/jetwiley",
+                        "playlist_count": 3,
                         "reposts_count": null,
-                        "track_count": 183,
-                        "uri": "https://api.soundcloud.com/users/18833758",
-                        "urn": "soundcloud:users:18833758",
-                        "username": "PROD. SICK ONE",
+                        "track_count": 35,
+                        "uri": "https://api.soundcloud.com/users/30694728",
+                        "urn": "soundcloud:users:30694728",
+                        "username": "Jet Wiley",
                         "verified": false,
                         "visuals": {
-                            "urn": "soundcloud:users:18833758",
+                            "urn": "soundcloud:users:30694728",
                             "enabled": true,
                             "visuals": [
                                 {
-                                    "urn": "soundcloud:visuals:197986395",
+                                    "urn": "soundcloud:visuals:38103763",
                                     "entry_time": 0,
-                                    "visual_url": "https://i1.sndcdn.com/visuals-000018833758-RZibHx-original.jpg"
+                                    "visual_url": "https://i1.sndcdn.com/visuals-000030694728-hk4HWF-original.jpg"
                                 }
                             ],
                             "tracking": null
                         },
                         "badges": {
                             "pro": false,
-                            "pro_unlimited": true,
+                            "pro_unlimited": false,
                             "verified": false
                         },
-                        "station_urn": "soundcloud:system-playlists:artist-stations:18833758",
-                        "station_permalink": "artist-stations:18833758"
+                        "station_urn": "soundcloud:system-playlists:artist-stations:30694728",
+                        "station_permalink": "artist-stations:30694728"
                     }
                 }
             ],
-            "total_results": 164,
-            "next_href": "https://api-v2.soundcloud.com/search/tracks?query_urn=soundcloud%3Asearch%3A21244a42d4524cf8a60365990a60a7c4&limit=10&offset=10&q=idkjeffery",
-            "query_urn": "soundcloud:search:21244a42d4524cf8a60365990a60a7c4"
+            "total_results": 161,
+            "next_href": "https://api-v2.soundcloud.com/search/tracks?query_urn=soundcloud%3Asearch%3A6d998d9fd3d8436797527fd75e4bd0e3&limit=10&offset=10&q=idkjeffery",
+            "query_urn": "soundcloud:search:6d998d9fd3d8436797527fd75e4bd0e3"
         },
         "rawHeaders": [
             "Content-Type",
             "application/json; charset=utf-8",
             "Content-Length",
-            "37026",
+            "37082",
             "Connection",
             "close",
             "Date",
-            "Sat, 12 Aug 2023 08:58:10 GMT",
+            "Sun, 12 Nov 2023 21:42:10 GMT",
             "x-robots-tag",
             "noindex",
             "Cache-Control",
@@ -1507,16 +1506,16 @@
             "X-Cache",
             "Miss from cloudfront",
             "Via",
-            "1.1 a208b778c983eefafa95a32c5d34e8bc.cloudfront.net (CloudFront)",
+            "1.1 e9ebe38de33a70557cf9d9c1d7e5d11e.cloudfront.net (CloudFront)",
             "X-Amz-Cf-Pop",
             "ZAG50-C1",
             "X-Amz-Cf-Id",
-            "D-1xXtwIEqeC367ER3HRM9qbFurCVLL6vHiZty8l2tOnk37jMvHEgA=="
+            "Bs_tY7sCcbNbgwovPeHd9wCscMvzQyZaL1er43XYJkhM8nBCocsgog=="
         ],
         "responseIsBinary": false
     },
     {
-        "scope": "http://127.0.0.1:58068",
+        "scope": "http://127.0.0.1:50491",
         "method": "POST",
         "path": "/api/search/soundcloud",
         "body": {
@@ -1526,34 +1525,11 @@
         "response": {
             "searchResultsArray": [
                 {
-                    "id": 237178664,
-                    "engine": "soundcloud",
-                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:237178664/aa608dee-54c5-40a1-901d-e7606bbacdaf/stream/progressive",
-                    "title": "MasterChiefer x TADOUBLEDOLLA x IDKJEFFERY (Prod.DomoArygoto)",
-                    "thumbnails": [
-                        {
-                            "url": "https://i1.sndcdn.com/artworks-000139266154-uy5bid-t200x200.jpg"
-                        }
-                    ],
-                    "duration": "3:52",
-                    "uploadedAt": "2015-12-12",
-                    "author": {
-                        "engine": "soundcloud",
-                        "type": "channel",
-                        "url": "https://soundcloud.com/jetwiley",
-                        "id": 30694728,
-                        "name": "Jet Wiley",
-                        "avatars": [
-                            {
-                                "url": "https://i1.sndcdn.com/avatars-000353641226-72aw88-large.jpg"
-                            }
-                        ]
+                    "key": "192398944",
+                    "bestThumbnail": {
+                        "url": "https://i1.sndcdn.com/artworks-000107615323-6pl5zx-t200x200.jpg"
                     },
-                    "views": 347478,
-                    "type": "video"
-                },
-                {
-                    "id": 192398944,
+                    "id": "192398944",
                     "engine": "soundcloud",
                     "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:192398944/7a97e5bd-30bd-4b7d-9573-6eaea241aa9c/stream/progressive",
                     "title": "Idk Jeffery",
@@ -1565,22 +1541,27 @@
                     "duration": "1:44",
                     "uploadedAt": "2015-02-22",
                     "author": {
-                        "engine": "soundcloud",
-                        "type": "channel",
+                        "bestAvatar": {
+                            "url": "https://i1.sndcdn.com/avatars-2wv5kwyXXENyrw5a-9oVRBw-large.jpg"
+                        },
+                        "channelID": "55254934",
                         "url": "https://soundcloud.com/idontknowjeffery",
-                        "id": 55254934,
                         "name": "idontknowjeffery",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-ugeXzJo0QfE04yoF-ltEtMg-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-2wv5kwyXXENyrw5a-9oVRBw-large.jpg"
                             }
                         ]
                     },
-                    "views": 123572,
+                    "views": 124619,
                     "type": "video"
                 },
                 {
-                    "id": 430754811,
+                    "key": "430754811",
+                    "bestThumbnail": {
+                        "url": "https://i1.sndcdn.com/artworks-000336105762-joygtm-t200x200.jpg"
+                    },
+                    "id": "430754811",
                     "engine": "soundcloud",
                     "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:430754811/a11f3daa-02a9-4098-85bd-9c93e60c13fe/stream/progressive",
                     "title": "EastMemphisBoyz - Who Run It Remix (Chris Travis, Ta Double $$, Jeffery, Xavier Wulf)",
@@ -1592,10 +1573,11 @@
                     "duration": "3:55",
                     "uploadedAt": "2018-04-16",
                     "author": {
-                        "engine": "soundcloud",
-                        "type": "channel",
+                        "bestAvatar": {
+                            "url": "https://i1.sndcdn.com/avatars-14GYz0VGbWR4HNPN-PuJdmg-large.jpg"
+                        },
+                        "channelID": "14845235",
                         "url": "https://soundcloud.com/christravis",
-                        "id": 14845235,
                         "name": "ChrisTravis",
                         "avatars": [
                             {
@@ -1603,11 +1585,79 @@
                             }
                         ]
                     },
-                    "views": 920556,
+                    "views": 926609,
                     "type": "video"
                 },
                 {
-                    "id": 721899616,
+                    "key": "237178664",
+                    "bestThumbnail": {
+                        "url": "https://i1.sndcdn.com/artworks-000139266154-uy5bid-t200x200.jpg"
+                    },
+                    "id": "237178664",
+                    "engine": "soundcloud",
+                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:237178664/aa608dee-54c5-40a1-901d-e7606bbacdaf/stream/progressive",
+                    "title": "MasterChiefer x TADOUBLEDOLLA x IDKJEFFERY (Prod.DomoArygoto)",
+                    "thumbnails": [
+                        {
+                            "url": "https://i1.sndcdn.com/artworks-000139266154-uy5bid-t200x200.jpg"
+                        }
+                    ],
+                    "duration": "3:52",
+                    "uploadedAt": "2015-12-12",
+                    "author": {
+                        "bestAvatar": {
+                            "url": "https://i1.sndcdn.com/avatars-000353641226-72aw88-large.jpg"
+                        },
+                        "channelID": "30694728",
+                        "url": "https://soundcloud.com/jetwiley",
+                        "name": "Jet Wiley",
+                        "avatars": [
+                            {
+                                "url": "https://i1.sndcdn.com/avatars-000353641226-72aw88-large.jpg"
+                            }
+                        ]
+                    },
+                    "views": 351503,
+                    "type": "video"
+                },
+                {
+                    "key": "281525558",
+                    "bestThumbnail": {
+                        "url": "https://i1.sndcdn.com/artworks-vy7w9WaVy5MyyJMC-6t786w-t200x200.jpg"
+                    },
+                    "id": "281525558",
+                    "engine": "soundcloud",
+                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:281525558/28ce7cc9-3fe5-422c-aa22-a343e8ae402a/stream/progressive",
+                    "title": "Titty Fuck ft. IDKJEFFERY prod. SKINNY PLAY",
+                    "thumbnails": [
+                        {
+                            "url": "https://i1.sndcdn.com/artworks-vy7w9WaVy5MyyJMC-6t786w-t200x200.jpg"
+                        }
+                    ],
+                    "duration": "2:13",
+                    "uploadedAt": "2016-09-05",
+                    "author": {
+                        "bestAvatar": {
+                            "url": "https://i1.sndcdn.com/avatars-000402017076-liz99y-large.jpg"
+                        },
+                        "channelID": "85659154",
+                        "url": "https://soundcloud.com/realtreydub",
+                        "name": "Lil TreyDub",
+                        "avatars": [
+                            {
+                                "url": "https://i1.sndcdn.com/avatars-000402017076-liz99y-large.jpg"
+                            }
+                        ]
+                    },
+                    "views": 219789,
+                    "type": "video"
+                },
+                {
+                    "key": "721899616",
+                    "bestThumbnail": {
+                        "url": "https://i1.sndcdn.com/artworks-000646347709-z425px-t200x200.jpg"
+                    },
+                    "id": "721899616",
                     "engine": "soundcloud",
                     "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:721899616/16ccb6d4-1185-4cf2-9fc8-da7e0c6d723e/stream/progressive",
                     "title": "Financial Aid - IDKJeffery",
@@ -1619,10 +1669,11 @@
                     "duration": "2:04",
                     "uploadedAt": "2019-12-03",
                     "author": {
-                        "engine": "soundcloud",
-                        "type": "channel",
+                        "bestAvatar": {
+                            "url": "https://i1.sndcdn.com/avatars-ruZyf07U2mNefsJn-ni7wrA-large.jpg"
+                        },
+                        "channelID": "545730384",
                         "url": "https://soundcloud.com/pacxans",
-                        "id": 545730384,
                         "name": "mama pac",
                         "avatars": [
                             {
@@ -1630,11 +1681,15 @@
                             }
                         ]
                     },
-                    "views": 2811,
+                    "views": 3315,
                     "type": "video"
                 },
                 {
-                    "id": 437510367,
+                    "key": "437510367",
+                    "bestThumbnail": {
+                        "url": "https://i1.sndcdn.com/artworks-000342596316-4rd7ce-t200x200.jpg"
+                    },
+                    "id": "437510367",
                     "engine": "soundcloud",
                     "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:437510367/a8c99bd9-1abf-4b9e-a71e-a3d4c10c4f54/stream/progressive",
                     "title": "IDKJEFFERY After Hours (Prod. Big Lo$)",
@@ -1646,10 +1701,11 @@
                     "duration": "1:52",
                     "uploadedAt": "2018-04-30",
                     "author": {
-                        "engine": "soundcloud",
-                        "type": "channel",
+                        "bestAvatar": {
+                            "url": "https://i1.sndcdn.com/avatars-000321160810-9xc0zv-large.jpg"
+                        },
+                        "channelID": "316503379",
                         "url": "https://soundcloud.com/user-659342849",
-                        "id": 316503379,
                         "name": "COZY WORLD",
                         "avatars": [
                             {
@@ -1657,38 +1713,15 @@
                             }
                         ]
                     },
-                    "views": 12373,
+                    "views": 12838,
                     "type": "video"
                 },
                 {
-                    "id": 234588964,
-                    "engine": "soundcloud",
-                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:234588964/ddbdf47b-71db-487c-942f-d0e05deb3de0/stream/progressive",
-                    "title": "Numby Chopped & Screwed (idontknowjeffery)",
-                    "thumbnails": [
-                        {
-                            "url": "https://i1.sndcdn.com/artworks-000137271582-7gc0xb-t200x200.jpg"
-                        }
-                    ],
-                    "duration": "2:26",
-                    "uploadedAt": "2015-11-25",
-                    "author": {
-                        "engine": "soundcloud",
-                        "type": "channel",
-                        "url": "https://soundcloud.com/mattgretzky",
-                        "id": 4391609,
-                        "name": "Matt Gretzky",
-                        "avatars": [
-                            {
-                                "url": "https://i1.sndcdn.com/avatars-BqTvu9jQadEG914a-mRv5wA-large.jpg"
-                            }
-                        ]
+                    "key": "669732089",
+                    "bestThumbnail": {
+                        "url": "https://i1.sndcdn.com/artworks-000586407284-ksqwjz-t200x200.jpg"
                     },
-                    "views": 62544,
-                    "type": "video"
-                },
-                {
-                    "id": 669732089,
+                    "id": "669732089",
                     "engine": "soundcloud",
                     "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:669732089/b0e72a54-8bb5-4f62-b08e-e279c740e9d9/stream/progressive",
                     "title": "Rape Rape-IDKJeffery remastered and slowed",
@@ -1700,10 +1733,11 @@
                     "duration": "2:58",
                     "uploadedAt": "2019-08-23",
                     "author": {
-                        "engine": "soundcloud",
-                        "type": "channel",
+                        "bestAvatar": {
+                            "url": "https://i1.sndcdn.com/avatars-000678119012-bj75su-large.jpg"
+                        },
+                        "channelID": "612419424",
                         "url": "https://soundcloud.com/injury-dictionary",
-                        "id": 612419424,
                         "name": "injury dictionary",
                         "avatars": [
                             {
@@ -1711,11 +1745,15 @@
                             }
                         ]
                     },
-                    "views": 7989,
+                    "views": 8454,
                     "type": "video"
                 },
                 {
-                    "id": 768750781,
+                    "key": "768750781",
+                    "bestThumbnail": {
+                        "url": "https://i1.sndcdn.com/artworks-voW93ukCRmQVaWdz-Jw1FcA-t200x200.jpg"
+                    },
+                    "id": "768750781",
                     "engine": "soundcloud",
                     "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:768750781/07d152fd-c5b5-4942-af7b-bed8470c0e6c/stream/progressive",
                     "title": "Goodnight - idontknowjeffery *Mattborghini Exclusive* OUT NOW ON ALL PLATFORMS!",
@@ -1727,10 +1765,11 @@
                     "duration": "2:18",
                     "uploadedAt": "2020-03-01",
                     "author": {
-                        "engine": "soundcloud",
-                        "type": "channel",
+                        "bestAvatar": {
+                            "url": "https://i1.sndcdn.com/avatars-BqTvu9jQadEG914a-mRv5wA-large.jpg"
+                        },
+                        "channelID": "4391609",
                         "url": "https://soundcloud.com/mattgretzky",
-                        "id": 4391609,
                         "name": "Matt Gretzky",
                         "avatars": [
                             {
@@ -1738,11 +1777,15 @@
                             }
                         ]
                     },
-                    "views": 285255,
+                    "views": 293922,
                     "type": "video"
                 },
                 {
-                    "id": 306502347,
+                    "key": "306502347",
+                    "bestThumbnail": {
+                        "url": "https://i1.sndcdn.com/artworks-000206582098-e2r3hj-t200x200.jpg"
+                    },
+                    "id": "306502347",
                     "engine": "soundcloud",
                     "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:306502347/9c666729-8451-44d0-acc3-2a6b138a0bc5/stream/progressive",
                     "title": "idontknowjeffery - Disappear feat. Black Smurf (prod. Dexter Dukarus)",
@@ -1754,10 +1797,11 @@
                     "duration": "2:13",
                     "uploadedAt": "2017-02-07",
                     "author": {
-                        "engine": "soundcloud",
-                        "type": "channel",
+                        "bestAvatar": {
+                            "url": "https://i1.sndcdn.com/avatars-000142487777-1lqgh9-large.jpg"
+                        },
+                        "channelID": "118924960",
                         "url": "https://soundcloud.com/djklitoris",
-                        "id": 118924960,
                         "name": "dj klitoris",
                         "avatars": [
                             {
@@ -1765,34 +1809,39 @@
                             }
                         ]
                     },
-                    "views": 193806,
+                    "views": 199049,
                     "type": "video"
                 },
                 {
-                    "id": 1585022191,
+                    "key": "234580352",
+                    "bestThumbnail": {
+                        "url": "https://i1.sndcdn.com/artworks-000137265078-vvfkfe-t200x200.jpg"
+                    },
+                    "id": "234580352",
                     "engine": "soundcloud",
-                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:1585022191/e20e60e0-a850-4c70-9bc5-242e3ccdf278/stream/progressive",
-                    "title": "HOE HORROR",
+                    "url": "https://api-v2.soundcloud.com/media/soundcloud:tracks:234580352/67fe8f08-ab7b-4ca6-8e4e-f84bbb119428/stream/progressive",
+                    "title": "MyGang ft. P2THEGOLDMA$K x IDKJEFFERY (Prod. DomoArygoto)",
                     "thumbnails": [
                         {
-                            "url": "https://i1.sndcdn.com/artworks-umIOBsw8RznW8O30-37HTNA-t200x200.jpg"
+                            "url": "https://i1.sndcdn.com/artworks-000137265078-vvfkfe-t200x200.jpg"
                         }
                     ],
-                    "duration": "3:04",
-                    "uploadedAt": "2023-08-06",
+                    "duration": "3:14",
+                    "uploadedAt": "2015-11-24",
                     "author": {
-                        "engine": "soundcloud",
-                        "type": "channel",
-                        "url": "https://soundcloud.com/sirsicko",
-                        "id": 18833758,
-                        "name": "PROD. SICK ONE",
+                        "bestAvatar": {
+                            "url": "https://i1.sndcdn.com/avatars-000353641226-72aw88-large.jpg"
+                        },
+                        "channelID": "30694728",
+                        "url": "https://soundcloud.com/jetwiley",
+                        "name": "Jet Wiley",
                         "avatars": [
                             {
-                                "url": "https://i1.sndcdn.com/avatars-qVcIdybU8gg4obPd-DQUv0g-large.jpg"
+                                "url": "https://i1.sndcdn.com/avatars-000353641226-72aw88-large.jpg"
                             }
                         ]
                     },
-                    "views": 469,
+                    "views": 30439,
                     "type": "video"
                 }
             ]
@@ -1805,11 +1854,11 @@
             "Content-Type",
             "application/json; charset=utf-8",
             "Content-Length",
-            "6037",
+            "7727",
             "ETag",
-            "W/\"1795-R/Px63994L9bSbidXBkSVw/gLxg\"",
+            "W/\"1e2f-J5T7sEsCy2QiwdAcr3B6pMD45hw\"",
             "Date",
-            "Sat, 12 Aug 2023 08:58:10 GMT",
+            "Sun, 12 Nov 2023 21:42:10 GMT",
             "Connection",
             "close"
         ],
