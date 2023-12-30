@@ -43,18 +43,42 @@ describe("CRUD operations for users collection", () => {
     expect(retrievedUser.email).toBe(user.email);
   });
 
-  it.skip("should retrieve users history array from users id", async () => {
+  it("should retrieve users history array from users id", async () => {
     const retrievedHistoryArray = await users.getMyHistory(id, "item", "");
     expect(retrievedHistoryArray[0]).toMatchObject(history[0].data);
   });
 
-  it.skip("should retrieve users favourites array from users id", async () => {
-    const retrievedFavouritesArray = await users.getMyFavourites(
-      id,
-      "item",
-      ""
-    );
-    expect(retrievedFavouritesArray[0]).toMatchObject(favourites[0].data);
+  const itemTypeByType = {
+    item: "video",
+    playlist: "playlist",
+    channel: "channel",
+  };
+
+  it("should retrieve users favourites array from users id", async () => {
+    const itemTypes = ["item", "playlist", "channel"] as const;
+
+    for (let itemType of itemTypes) {
+      const trueType = itemTypeByType[itemType];
+
+      const favouritesArray = favourites.map((item: any) => item.data);
+
+      const lastInsertedFavouriteOfASpecificType = favouritesArray.find(
+        (item: any) => item.type == trueType
+      );
+
+      const retrievedFavouritesOfSpecificType = await users.getMyFavourites(
+        id,
+        itemType,
+        ""
+      );
+
+      const lastRetrievedFavouriteOfSpecificType =
+        retrievedFavouritesOfSpecificType[0];
+
+      expect(lastRetrievedFavouriteOfSpecificType).toMatchObject(
+        lastInsertedFavouriteOfASpecificType
+      );
+    }
   });
 
   it("should add item to users history", async () => {

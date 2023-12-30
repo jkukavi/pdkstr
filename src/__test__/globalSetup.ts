@@ -11,7 +11,7 @@ export = async function globalSetup() {
   process.env.LOCAL_MONGODB_URL = uri;
   console.log(
     chalk.green(
-      "\n\nThis test is using an in-memory mongoDb instance from mongodb-memory-server.\n(see file: globalSetup.ts)"
+      "\n\nThis test is using an in-memory mongoDb instance from mongodb-memory-server.\n(see file: globalSetup.ts)\n"
     )
   );
 };

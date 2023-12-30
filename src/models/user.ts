@@ -120,23 +120,12 @@ async function addItemToFavourites(id: string, item: any) {
   });
 }
 
-async function populateHistoryAndFavourites(
-  id: string,
-  history: any,
-  favourites: any
-) {
+async function populateHistoryAndFavourites(history: any, favourites: any) {
   return useDatabase(async (db) => {
     await db.collection("history").insertMany(history);
     await db.collection("favourites").insertMany(favourites);
   });
 }
-
-// async function removeHistoryAndFavourites(id: string) {
-//   return useDatabase(async (db) => {
-//     await db.collection("history").deleteMany({ user_id: new ObjectId(id) });
-//     await db.collection("favourites").deleteMany({ user_id: new ObjectId(id) });
-//   });
-// }
 
 export default {
   save,
