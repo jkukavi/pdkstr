@@ -2,7 +2,7 @@
     {
         "scope": "https://api-v2.soundcloud.com:443",
         "method": "GET",
-        "path": "/tracks/430754811?client_id=XlMFimLMnOsgUUQTvzl7p9mD52JnBQBm",
+        "path": "/tracks/430754811?client_id=LmmVZwefK62ND2LQUPTngSkRFEqOsG2X",
         "body": "",
         "status": 200,
         "response": {
@@ -24,10 +24,10 @@
             "label_name": null,
             "last_modified": "2022-04-11T14:02:35Z",
             "license": "all-rights-reserved",
-            "likes_count": 19165,
+            "likes_count": 19185,
             "permalink": "eastmemphisboyz-who-run-it-remix-chris-travis-ta-double-idkjeffery-xavier-wulf",
             "permalink_url": "https://soundcloud.com/christravis/eastmemphisboyz-who-run-it-remix-chris-travis-ta-double-idkjeffery-xavier-wulf",
-            "playback_count": 926609,
+            "playback_count": 929377,
             "public": true,
             "publisher_metadata": {
                 "id": 430754811,
@@ -39,7 +39,7 @@
             "purchase_title": null,
             "purchase_url": null,
             "release_date": null,
-            "reposts_count": 2153,
+            "reposts_count": 2152,
             "secret_token": null,
             "sharing": "public",
             "state": "finished",
@@ -92,17 +92,17 @@
             },
             "station_urn": "soundcloud:system-playlists:track-stations:430754811",
             "station_permalink": "track-stations:430754811",
-            "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjFkNmYwZTBmLTU5YTMtNDg0ZS05NTZlLTA2MTBmNDM1ZDRkOSIsImlhdCI6MTY5OTgyNTMzMn0.kn2pAPwBRLtajrvGYHTPIGgWY_0wwqqVWuNAGhnFIl0",
+            "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjFkNmYwZTBmLTU5YTMtNDg0ZS05NTZlLTA2MTBmNDM1ZDRkOSIsImlhdCI6MTcwNDA1NDYzNH0.A_p78KVSqxGt36IWZSGBOBcKD5APpeJ5r54fNZGwZuo",
             "monetization_model": "NOT_APPLICABLE",
             "policy": "ALLOW",
             "user": {
                 "avatar_url": "https://i1.sndcdn.com/avatars-14GYz0VGbWR4HNPN-PuJdmg-large.jpg",
                 "first_name": "Chris",
-                "followers_count": 304574,
+                "followers_count": 305792,
                 "full_name": "Chris Travis",
                 "id": 14845235,
                 "kind": "user",
-                "last_modified": "2023-08-05T01:51:48Z",
+                "last_modified": "2023-12-22T04:02:09Z",
                 "last_name": "Travis",
                 "permalink": "christravis",
                 "permalink_url": "https://soundcloud.com/christravis",
@@ -129,7 +129,7 @@
             "Connection",
             "close",
             "Date",
-            "Sun, 12 Nov 2023 21:42:12 GMT",
+            "Sun, 31 Dec 2023 20:30:34 GMT",
             "x-robots-tag",
             "noindex",
             "Cache-Control",
@@ -149,16 +149,16 @@
             "X-Cache",
             "Miss from cloudfront",
             "Via",
-            "1.1 2285d262a6b5edcf46f904cd07877cdc.cloudfront.net (CloudFront)",
+            "1.1 c25bc16c1238c23c74267a81302a62f8.cloudfront.net (CloudFront)",
             "X-Amz-Cf-Pop",
             "ZAG50-C1",
             "X-Amz-Cf-Id",
-            "0wVXSvm0iDDcHeAtZK5Z2W2va99s_veEW3tU6me-qYRkw-VPFsMKXw=="
+            "oCL8TPoViXLs4rPcwCCZk_NGdsWVQjgTJ87qYpx67ProatprvGp7PA=="
         ],
         "responseIsBinary": false
     },
     {
-        "scope": "http://127.0.0.1:50532",
+        "scope": "http://127.0.0.1:49237",
         "method": "POST",
         "path": "/api/info/soundcloud",
         "body": {
@@ -166,6 +166,7 @@
         },
         "status": 200,
         "response": {
+            "type": "item",
             "key": "430754811",
             "bestThumbnail": {
                 "url": "https://i1.sndcdn.com/artworks-000336105762-joygtm-t200x200.jpg"
@@ -194,8 +195,7 @@
                     }
                 ]
             },
-            "views": 926609,
-            "type": "video"
+            "views": 929377
         },
         "rawHeaders": [
             "X-Powered-By",
@@ -205,11 +205,11 @@
             "Content-Type",
             "application/json; charset=utf-8",
             "Content-Length",
-            "806",
+            "805",
             "ETag",
-            "W/\"326-3EPdSGVULYXPc2iRbHWd6goAGTo\"",
+            "W/\"325-PthINP1+9ew36ruxKXjIDzZ4Nks\"",
             "Date",
-            "Sun, 12 Nov 2023 21:42:12 GMT",
+            "Sun, 31 Dec 2023 20:30:34 GMT",
             "Connection",
             "close"
         ],

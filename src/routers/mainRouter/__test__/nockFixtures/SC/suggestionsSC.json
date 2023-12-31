@@ -2,13 +2,13 @@
     {
         "scope": "https://api-v2.soundcloud.com:443",
         "method": "GET",
-        "path": "/search/queries?q=idkjeffery&limit=10&client_id=XlMFimLMnOsgUUQTvzl7p9mD52JnBQBm",
+        "path": "/search/queries?q=idkjeffery&limit=10&client_id=LmmVZwefK62ND2LQUPTngSkRFEqOsG2X",
         "body": "",
         "status": 200,
         "response": {
             "collection": [],
             "next_href": null,
-            "query_urn": "soundcloud:search-autocomplete:ad6dc89088864e87a5854f6079815f6f"
+            "query_urn": "soundcloud:search-autocomplete:7facae8fa72b4515938ad362afa2d2f7"
         },
         "rawHeaders": [
             "Content-Type",
@@ -18,7 +18,7 @@
             "Connection",
             "close",
             "Date",
-            "Sun, 12 Nov 2023 21:06:44 GMT",
+            "Sun, 31 Dec 2023 20:30:33 GMT",
             "x-robots-tag",
             "noindex",
             "Cache-Control",
@@ -36,20 +36,18 @@
             "Vary",
             "Origin",
             "X-Cache",
-            "Hit from cloudfront",
+            "Miss from cloudfront",
             "Via",
-            "1.1 404ac5621836af31e2d3d32ecae91e78.cloudfront.net (CloudFront)",
+            "1.1 32e17fe5a1e4cb77ad8ac75ddb0c4584.cloudfront.net (CloudFront)",
             "X-Amz-Cf-Pop",
             "ZAG50-C1",
             "X-Amz-Cf-Id",
-            "4m3l4nAjazLsLg9QIgInP_bZqVMUJ76wxb1IhCjCilrHMVztontkcw==",
-            "Age",
-            "2127"
+            "sVvG0iM8mIkQpefmZImOGEfqipiO_OL3LjamrYiGH2dbtXokT_G3OQ=="
         ],
         "responseIsBinary": false
     },
     {
-        "scope": "http://127.0.0.1:50514",
+        "scope": "http://127.0.0.1:49227",
         "method": "POST",
         "path": "/api/suggestions/soundcloud",
         "body": {
@@ -71,7 +69,7 @@
             "ETag",
             "W/\"17-kJz0fUXU7mU8fdBJIEYUYD0UPxk\"",
             "Date",
-            "Sun, 12 Nov 2023 21:42:11 GMT",
+            "Sun, 31 Dec 2023 20:30:33 GMT",
             "Connection",
             "close"
         ],

@@ -12,19 +12,24 @@
             "00",
             "00",
             "00",
-            "000002ff758ec14ac43010407f65c849a194ee8a087bd3e39e048fb5c8b49d34d364134d26b655fc77c583ac4a8e99f766f216f66358ea2984c9518d436d2e5ac5a39d496b8a9baadadfcfa66aaf77fbaeabcec720db33414f28dfc255f3978fc13fe6a6d9df0848cc49e0fcde7f7dc557a6084b76ba6008ad980a0cb57c2d9b9063c9302c7022d01c53a9b877385848a71c4b0926c4c8bda352a1416f4b019a3dfa81d101f2587016839200c181635bfa257898d04f053ae421fca0ae7a57561d76957a510735c7ed2d3cccee6ec9bd264494e353b3decf24b7eaa3bbfc04d7fa71a917020000"
+            "00",
+            "00",
+            "02",
+            "ff",
+            "758fcb4ec33010457f65e415954294b620a0bb76532141d7482142133fe2c1ae0d7e340d887f07b1a180bc9c3967aeee8ce4841febc1fbc1ca1a79adcf5a46c23c4ba5649858d5fe1e9baabd9c2fbaae3a5d439a5e24f412d3b7b06cfe72e1dd636e9ac5558214724c709af75f3fe2816480315b5530923c622c3054e9eb58fb1c4a466f911b88fb1c4af99a12ec25280ab1f493f621506f65a9a146674a051439749cd002922838dec1806e28509eb92fa051638a8060c192f9a9d755efccb0d5bc62af6cc56e6ec5e1fe1aa7ed7223f2dd797e7b78daad69b7d6db0bf6d1cd3e01ac",
+            "23943d17020000"
         ],
         "rawHeaders": [
             "Date",
-            "Sun, 12 Nov 2023 21:42:13 GMT",
+            "Sun, 31 Dec 2023 20:30:34 GMT",
             "Expires",
-            "Sun, 12 Nov 2023 21:42:13 GMT",
+            "Sun, 31 Dec 2023 20:30:34 GMT",
             "Cache-Control",
             "private, max-age=3600",
             "Content-Type",
             "text/javascript; charset=UTF-8",
             "Content-Security-Policy",
-            "object-src 'none';base-uri 'self';script-src 'nonce-mnGoCLuiREtXuVio34Z32w' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other",
+            "object-src 'none';base-uri 'self';script-src 'nonce--z7-dBaSMfNm6g6Wv_8i3w' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other",
             "Cross-Origin-Opener-Policy",
             "same-origin-allow-popups; report-to=\"gws\"",
             "Report-To",
@@ -40,7 +45,7 @@
             "X-Frame-Options",
             "SAMEORIGIN",
             "Set-Cookie",
-            "CONSENT=PENDING+883; expires=Tue, 11-Nov-2025 21:42:13 GMT; path=/; domain=.youtube.com; Secure",
+            "CONSENT=PENDING+666; expires=Tue, 30-Dec-2025 20:30:34 GMT; path=/; domain=.youtube.com; Secure",
             "P3P",
             "CP=\"This is not a P3P policy! See g.co/p3phelp for more info.\"",
             "Alt-Svc",
@@ -53,7 +58,7 @@
         "responseIsBinary": false
     },
     {
-        "scope": "http://127.0.0.1:50548",
+        "scope": "http://127.0.0.1:49246",
         "method": "POST",
         "path": "/api/suggestions/youtube",
         "body": {
@@ -68,14 +73,14 @@
                 "idkjeffery xavier wulf",
                 "idkjeffery texas",
                 "idkjeffery after hours",
-                "idkjeffery hit me first",
                 "idkjeffery black smurf",
+                "idkjeffery hit me first",
                 "idkjeffery horrible",
                 "idkjeffery thanks",
                 "idkjeffery financial aid",
-                "idkjeffery whats a l like",
                 "idkjeffery on gang",
-                "idkjeffery cuco"
+                "idkjeffery cuco",
+                "idkjeffery whats a l like"
             ]
         },
         "rawHeaders": [
@@ -88,9 +93,9 @@
             "Content-Length",
             "347",
             "ETag",
-            "W/\"15b-JL4oc2KJ5uxe8ema9DgQNZC1kIU\"",
+            "W/\"15b-NhOzx69I7iO4OT1IcmO4FzwyLMw\"",
             "Date",
-            "Sun, 12 Nov 2023 21:42:13 GMT",
+            "Sun, 31 Dec 2023 20:30:34 GMT",
             "Connection",
             "close"
         ],
