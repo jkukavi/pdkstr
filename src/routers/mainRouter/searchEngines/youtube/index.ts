@@ -1,7 +1,7 @@
 import { default as youtubesr } from "youtube-sr";
 import ytdl, { MoreVideoDetails } from "ytdl-core";
 import ytpl from "ytpl";
-import ytsr, { Video, Channel, Playlist, Item as FetchedItem } from "ytsr";
+import ytsr from "ytsr";
 import ytch from "./youtube-channel-info";
 
 import { youtubeDummyData as dummyData } from "../../__test__/dummyData";
@@ -12,9 +12,9 @@ if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test") {
   globalThis.fetch = fetch as unknown as typeof globalThis.fetch;
 }
 
-const COOKIE = process.env.YT_COOKIE;
+type FetchedAnyItem = ytsr.Video | ytsr.Channel | ytsr.Playlist;
 
-type Mapper = (Item: Video | Channel | Playlist) => any;
+// const COOKIE = process.env.YT_COOKIE;
 
 export const createPing = async (func: () => Promise<any>) => {
   try {
@@ -53,38 +53,40 @@ const ping = async () => {
 };
 
 const searchMappers = {
-  video: (item: Video) => ({
+  video: (item: ytsr.Video) => ({
     ...item,
-    author: { ...item.author, type: "channel" },
+    engine: "youtube",
+    type: "item" as const,
+    author: { ...item.author, type: "channel" as const },
   }),
-  channel: (item: Channel) => item,
-  playlist: (item: Playlist) => ({
+  channel: (item: ytsr.Channel) => ({ ...item, engine: "youtube" }),
+  playlist: (item: ytsr.Playlist) => ({
     ...item,
+    engine: "youtube",
     id: item.playlistID,
     thumbnails: item.firstVideo?.thumbnails,
     playlistLength: item.length,
   }),
+} as const;
+
+type Mapper = (item: FetchedAnyItem) => AnyItem;
+
+const searchMapper = (item: FetchedAnyItem): AnyItem => {
+  const mapper = searchMappers[item.type] as Mapper;
+  const mappedItem = mapper(item);
+
+  return { ...mappedItem, engine: "youtube" as const };
 };
 
-const searchMapper = (item: FetchedItem) => {
-  let mappedItem = item;
-
-  if (
-    item.type === "video" ||
-    item.type === "channel" ||
-    item.type === "playlist"
-  ) {
-    const mapper = searchMappers[item.type] as Mapper;
-    mappedItem = mapper(item);
-  }
-
-  return { ...mappedItem, engine: "youtube" };
-};
-
-const search = async (searchString: string) => {
+const search = async (searchString: string): Promise<AnyItem[]> => {
   const searchResults = await ytsr(searchString, { limit: 20 });
 
-  const mappedItems = searchResults.items.map(searchMapper);
+  const filteredItems = searchResults.items.filter((item) =>
+    ["video", "playlist", "channel"].includes(item.type)
+  ) as unknown as FetchedAnyItem[];
+
+  const mappedItems = filteredItems.map(searchMapper);
+
   return mappedItems;
 };
 
@@ -98,7 +100,7 @@ const getBasicInfoMapper = (item: MoreVideoDetails) => {
     uploadedAt: item.uploadDate,
     author: item.author,
     views: item.viewCount,
-    type: "video",
+    type: "item",
     engine: "youtube",
   };
 };
@@ -140,7 +142,7 @@ const getPlaylistVideos = async (playlistId: string) => {
   const result = await ytpl(playlistId, { limit: 20 });
   return result.items.map((item) => ({
     ...item,
-    type: "video",
+    type: "item",
     engine: "youtube",
   }));
 };
@@ -148,7 +150,7 @@ const getPlaylistVideos = async (playlistId: string) => {
 type UnmappedChannelInfo = typeof itemExample;
 
 const itemExample = {
-  type: "video",
+  type: "item",
   title: "Transform",
   videoId: "81G55izMUNs",
   author: "idontknowjeffery",
@@ -190,7 +192,7 @@ const channelVideosMapper = (item: UnmappedChannelInfo): Item => {
     key: item.videoId,
     url: "",
     bestThumbnail: { url: item.videoThumbnails[0].url },
-    type: "video",
+    type: "item",
     engine: "youtube",
     id: item.videoId,
     title: item.title,

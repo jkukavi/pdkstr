@@ -505,12 +505,12 @@ export const SmallPlaylist = ({
 
 const cardTypesBySize = {
   large: {
-    video: LargeSingleItem,
+    item: LargeSingleItem,
     playlist: LargePlaylist,
     channel: LargeChannel,
   },
   small: {
-    video: SmallSingleItem,
+    item: SmallSingleItem,
     playlist: SmallPlaylist,
     channel: SmallChannel,
   },

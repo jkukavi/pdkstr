@@ -6,7 +6,26 @@ describe("CRUD operations for users collection", () => {
   let user: UserInfo;
   let history: any = [];
   let favourites: any = [];
-  const dummyItem = { name: "bla", author: "bla", type: "video" };
+  const dummyItem: AnyItem = {
+    engine: "youtube",
+    bestThumbnail: { url: "hello" },
+    duration: "22",
+    id: "22",
+    thumbnails: [],
+    title: "hello",
+    uploadedAt: "22",
+    url: "hello",
+    views: 22,
+    key: "hello",
+    type: "item",
+    author: {
+      avatars: [],
+      bestAvatar: { url: "hello" },
+      channelID: "",
+      name: "hello",
+      url: "hello",
+    },
+  };
 
   let id: string;
 
@@ -48,22 +67,14 @@ describe("CRUD operations for users collection", () => {
     expect(retrievedHistoryArray[0]).toMatchObject(history[0].data);
   });
 
-  const itemTypeByType = {
-    item: "video",
-    playlist: "playlist",
-    channel: "channel",
-  };
-
   it("should retrieve users favourites array from users id", async () => {
     const itemTypes = ["item", "playlist", "channel"] as const;
 
     for (let itemType of itemTypes) {
-      const trueType = itemTypeByType[itemType];
-
       const favouritesArray = favourites.map((item: any) => item.data);
 
       const lastInsertedFavouriteOfASpecificType = favouritesArray.find(
-        (item: any) => item.type == trueType
+        (item: any) => item.type == itemType
       );
 
       const retrievedFavouritesOfSpecificType = await users.getMyFavourites(

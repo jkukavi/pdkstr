@@ -9,6 +9,8 @@ interface PendingAccount {
   activationCode: string;
 }
 
+type ItemType = "item" | "playlist" | "channel";
+
 type Engine = "youtube" | "soundcloud";
 
 interface EngineMethods {

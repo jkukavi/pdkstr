@@ -19,7 +19,7 @@ router.get(
   }
 );
 
-router.get<any, { type: string }, any, any, { search: string; page: number }>(
+router.get<any, { type: ItemType }, any, any, { search: string; page: number }>(
   "/my/history/:type",
   async (req, res) => {
     try {
@@ -35,7 +35,7 @@ router.get<any, { type: string }, any, any, { search: string; page: number }>(
   }
 );
 
-router.get<any, { type: string }, any, any, { search: string; page: number }>(
+router.get<any, { type: ItemType }, any, any, { search: string; page: number }>(
   "/my/favourites/:type",
   async (req, res) => {
     try {

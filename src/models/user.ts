@@ -48,19 +48,12 @@ async function findByCredentials({
   });
 }
 
-const itemTypeByType = {
-  item: "video",
-  playlist: "playlist",
-  channel: "channel",
-};
-
 async function getMyHistory(
   id: string,
-  type: string,
+  itemType: ItemType,
   search: string,
   page = 0
 ) {
-  const itemType = itemTypeByType[type as "item" | "playlist" | "channel"];
   return useDatabase(async (db) => {
     const history: any = await db
       .collection("history")
@@ -79,11 +72,10 @@ async function getMyHistory(
 
 async function getMyFavourites(
   id: string,
-  type: string,
+  itemType: ItemType,
   search: string,
   page = 0
 ) {
-  const itemType = itemTypeByType[type as "item" | "playlist" | "channel"];
   return useDatabase(async (db) => {
     const favourites: any = await db
       .collection("favourites")

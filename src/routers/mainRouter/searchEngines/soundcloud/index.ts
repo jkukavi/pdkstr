@@ -20,6 +20,7 @@ const getUrlFromTrack = (item: Track | UsersTrack): string => {
 
 export const trackMapper = (item: Track | UsersTrack): Item => {
   return {
+    type: "item",
     key: String(item.id),
     bestThumbnail: {
       url:
@@ -46,7 +47,6 @@ export const trackMapper = (item: Track | UsersTrack): Item => {
       avatars: [{ url: item.user.avatar_url }],
     },
     views: item.playback_count,
-    type: "video",
   };
 };
 

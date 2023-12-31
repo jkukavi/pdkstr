@@ -3,9 +3,9 @@ interface Thumbnail {
 }
 
 interface Item {
-  key: string;
+  key?: string;
   engine: Engine;
-  type: "video";
+  type: "item";
   title: string;
   id: string;
   url: string;
@@ -40,11 +40,11 @@ interface Channel {
   verified: boolean;
   subscribers: string;
   videos: number;
-  key: string;
+  key?: string;
 }
 
 interface Playlist {
-  key: string;
+  key?: string;
   type: "playlist";
   engine: Engine;
   title: string;

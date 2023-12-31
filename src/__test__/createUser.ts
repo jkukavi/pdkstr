@@ -4,7 +4,7 @@ import { getRandomCode } from "utils";
 import users from "models/user";
 
 function getRandomItemType() {
-  const types = ["video", "playlist", "channel"];
+  const types = ["item", "playlist", "channel"];
   const randomIndex = Math.floor(Math.random() * types.length);
   return types[randomIndex];
 }
@@ -18,7 +18,7 @@ export const createHistoryForUser = (userId: string) =>
   createArray(100)
     .map(() => {
       return {
-        type: "video",
+        type: "item",
         title: "HIT ME FIRST - idontknowjeffery ( OFFICIAL VIDEO )",
         id: "IV0arm42PMM",
         url: "https://www.youtube.com/watch?v=IV0arm42PMM",

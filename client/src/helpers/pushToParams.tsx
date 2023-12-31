@@ -27,7 +27,7 @@ export const pushListeningItemToParams = (item: Item | Playlist) => {
 
   const listeningToParam = `${engineShorthand}.${item.id}`;
 
-  if (item.type === "video") {
+  if (item.type === "item") {
     pushToParams({
       lto: listeningToParam,
     });
