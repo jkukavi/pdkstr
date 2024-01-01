@@ -87,7 +87,7 @@
       "downloadDir": "./node_modules/mongodb-memory-server/",
       "debug": true,
       "md5Check": true,
-      "version": "6.0.6",
+      "version": "6.0.9",
       "architecture": "arm64",
       "os": "osx"
     }
