@@ -84,9 +84,10 @@
   "config": {
     "mongodbMemoryServer": {
       "preferGlobalPath": false,
-      "downloadUrl": "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu2204-6.0.12.tgz",
+      "downloadDir": "./node_modules/mongodb-memory-server/",
       "debug": false,
-      "md5Check": true
+      "md5Check": true,
+      "version": "6.0.12"
     }
   }
 }
