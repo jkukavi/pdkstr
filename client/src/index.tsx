@@ -14,7 +14,7 @@ ReactDOM.render(
     <AuthContextProvider>
       <Router>
         <Switch>
-          <Route path="/login">
+          <Route path="/login-page">
             <Login />
           </Route>
           <Route path="/">

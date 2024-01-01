@@ -42,8 +42,8 @@ export const paths = {
     soundcloud: "/dl/soundcloud",
   },
   ping: {
-    youtube: "/ping/youtube",
-    soundcloud: "/ping/soundcloud",
+    youtube: "/health/youtube",
+    soundcloud: "/health/soundcloud",
   },
 } as const;
 

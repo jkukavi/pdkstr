@@ -1,12 +1,13 @@
 import { MongoMemoryServer } from "mongodb-memory-server";
 import { MongoClient, ObjectId } from "mongodb";
+
 import {
   createFavouritesForUser,
   createHistoryForUser,
+  // @ts-ignore
 } from "__test__/createUser";
-import {
-  hashPasswordIn
-} from "models/helpers.ts";
+// @ts-ignore
+import { hashPasswordIn } from "models/helpers.ts";
 
 const mongoConfig = {
   instance: {
@@ -40,7 +41,7 @@ const startLocalDatabase = async () => {
     username: "dasd",
     password: "žaba",
     email: "mikivela1111@gmail.com",
-  })
+  });
 
   await users.insertOne(userWithHashedPassword);
 

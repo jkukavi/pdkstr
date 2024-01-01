@@ -16,7 +16,7 @@ type FetchedAnyItem = ytsr.Video | ytsr.Channel | ytsr.Playlist;
 
 // const COOKIE = process.env.YT_COOKIE;
 
-export const createPing = async (func: () => Promise<any>) => {
+export const tryPinging = async (func: () => Promise<any>) => {
   try {
     await func();
     return true;
@@ -34,12 +34,12 @@ const ping = async () => {
     channelVideos,
     channelPlaylists,
   ] = await Promise.all([
-    createPing(() => search("idkjeffery")),
-    createPing(() => ytdl.getInfo("TrVGymR-jFU")),
-    createPing(() => youtubesr.getSuggestions(dummyData.suggestionQuery)),
-    createPing(() => ytpl(dummyData.playlistId, { limit: 10 })),
-    createPing(() => ytch.getChannelVideos(dummyData.channelId, "newest", 1)),
-    createPing(() => getChannelPlaylists(dummyData.channelId)),
+    tryPinging(() => search("idkjeffery")),
+    tryPinging(() => ytdl.getInfo("TrVGymR-jFU")),
+    tryPinging(() => youtubesr.getSuggestions(dummyData.suggestionQuery)),
+    tryPinging(() => ytpl(dummyData.playlistId, { limit: 10 })),
+    tryPinging(() => ytch.getChannelVideos(dummyData.channelId, "newest", 1)),
+    tryPinging(() => getChannelPlaylists(dummyData.channelId)),
   ]);
 
   return {

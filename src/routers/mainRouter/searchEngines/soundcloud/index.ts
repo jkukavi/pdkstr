@@ -4,6 +4,8 @@ import scScrappy, {
   UsersPlaylist,
   Track,
 } from "@mikivela/sc-scrappy";
+import { tryPinging } from "../youtube";
+import { soundcloudDummyData } from "routers/mainRouter/__test__/dummyData";
 
 export const suggestionMapper = (suggestion: Suggestion) => {
   const suggestionString = suggestion.output;
@@ -116,7 +118,6 @@ const getChannelInfo = async (channelId: string): Promise<ChannelInfo> => {
 };
 
 const {
-  ping,
   search,
   getTrackInfo,
   getPlaylistItems,
@@ -125,6 +126,36 @@ const {
   getSuggestions,
   getDirectUrls,
 } = scScrappy;
+
+const ping = async () => {
+  const [
+    ping,
+    searchForItems,
+    directUrls,
+    suggestions,
+    playlistsContents,
+    channelTracks,
+    channelPlaylists,
+  ] = await Promise.all([
+    tryPinging(() => scScrappy.ping()),
+    tryPinging(() => search("idkjeffery")),
+    tryPinging(() => getDirectUrls(soundcloudDummyData.itemId, "")),
+    tryPinging(() => getSuggestions("idkJeffery")),
+    tryPinging(() => getPlaylistItems(soundcloudDummyData.playlistId)),
+    tryPinging(() => getChannelItems(soundcloudDummyData.channelId)),
+    tryPinging(() => getChannelPlaylists(soundcloudDummyData.channelId)),
+  ]);
+
+  return {
+    ping,
+    searchForItems,
+    directUrls,
+    suggestions,
+    playlistsContents,
+    channelTracks,
+    channelPlaylists,
+  };
+};
 
 export default {
   ping,

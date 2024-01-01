@@ -56,7 +56,7 @@ const LoginPage = () => {
           <Route path="/login/register">
             <Register />
           </Route>
-          <Route path="/login">
+          <Route path="/login-page">
             <LoginForm goBack={goBack} />
           </Route>
           <Route path="/reload">

@@ -69,7 +69,7 @@ const Register = () => {
           )}
         </button>
       </div>
-      <Link to={"/login"}>Back to login</Link>
+      <Link to={"/login-page"}>Back to login</Link>
     </form>
   );
 };

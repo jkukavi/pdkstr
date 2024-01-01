@@ -8,7 +8,9 @@ const Authorization = ({ children }: { children: any }) => {
   const location = useLocation();
 
   if (!user) {
-    return <Redirect to={{ pathname: "/login", state: { from: location } }} />;
+    return (
+      <Redirect to={{ pathname: "/login-page", state: { from: location } }} />
+    );
   } else {
     return children;
   }

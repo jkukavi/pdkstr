@@ -96,11 +96,15 @@ app.post<string, { engine: Engine }, any, { id: string }>(
 
     const { getPlaylistItems } = engines[engine];
 
-    const playlistItems = await getPlaylistItems(id);
-    if (playlistItems) {
-      res.status(200).json({ playlistItems });
-    } else {
-      res.status(400).json({ message: "No results" });
+    try {
+      const playlistItems = await getPlaylistItems(id);
+      if (playlistItems) {
+        res.status(200).json({ playlistItems });
+      } else {
+        res.status(400).json({ message: "No results" });
+      }
+    } catch (e) {
+      res.status(400).json({ message: "Error fetching playlist items" });
     }
   }
 );
@@ -153,14 +157,14 @@ app.post<
   }
 });
 
-app.get<string, { engine: Engine }>("/ping/:engine", async (req, res) => {
+app.get<string, { engine: Engine }>("/health/:engine", async (req, res) => {
   const { engine } = req.params;
 
   try {
     const result = await engines[engine].ping();
     res.status(200).json(result);
   } catch (e) {
-    res.status(400).send();
+    res.status(200).send(false);
   }
 });
 

@@ -122,12 +122,26 @@ const ServicesHealthCheck = () => (
 
 export default Settings;
 
-type Health = "healthy" | "unhealthy";
+const Flex = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        width: "5rem",
+        filter: "drop-shadow(black 1px 1px 1px)",
+        justifyContent: "space-between",
+      }}
+    >
+      {children}
+    </div>
+  );
+};
 
 const HealthOf = ({ engine }: { engine: Engine }) => {
   const [healthResult, setHealthResult] = useState<
-    boolean | { [key: string]: boolean } | null
-  >(null);
+    boolean | { [key: string]: boolean }
+  >({});
   const [loading, setLoading] = useState(false);
 
   const checkHealth = async () => {
@@ -147,86 +161,74 @@ const HealthOf = ({ engine }: { engine: Engine }) => {
     checkHealth();
   }, []);
 
-  const getResultComponent = () => {
-    if (typeof healthResult === "boolean") {
-      return (
-        <HealthIcon health={healthResult === true ? "healthy" : "unhealthy"} />
-      );
-    }
-
-    if (typeof healthResult === "object" && healthResult !== null) {
-      const resultRows = Object.keys(healthResult).map((key) => (
-        <div style={{ display: "flex" }}>
-          <Text>{key}</Text>
-          <HealthIcon
-            health={healthResult[key] === true ? "healthy" : "unhealthy"}
-          />
-        </div>
-      ));
-
-      return (
-        <>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              filter: "drop-shadow(black 1px 1px 1px)",
-            }}
-          >
-            {resultRows}
-          </div>
-        </>
-      );
-    }
-
-    return <></>;
-  };
-
-  if (loading || typeof healthResult === "boolean")
+  if (loading)
     return (
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          width: "5rem",
-          filter: "drop-shadow(black 1px 1px 1px)",
-          justifyContent: "space-between",
-        }}
-      >
+      <Flex>
         <SearchEngineIcon engine={engine} size="m" />
-        {loading ? (
-          <MicroLoader />
-        ) : (
-          <HealthIcon
-            health={healthResult === true ? "healthy" : "unhealthy"}
-          />
-        )}
-      </div>
+        <MicroLoader />
+      </Flex>
     );
+
+  if (typeof healthResult === "boolean") {
+    return (
+      <Flex>
+        <SearchEngineIcon engine={engine} size="m" />
+        <HealthStatus healthResult={healthResult} />
+      </Flex>
+    );
+  }
 
   return (
     <>
       <SearchEngineIcon engine={engine} size="m" />
-      {getResultComponent()}
+      <HealthStatus healthResult={healthResult} />
     </>
   );
 };
 
-const HealthIcon = ({ health }: { health: Health }) => {
-  const backgroundColorsByHealth = {
-    healthy: "green",
-    unhealthy: "red",
-  };
-
+const HealthIcon = ({ healthy }: { healthy: boolean }) => {
   return (
     <div
       style={{
         marginLeft: "1rem",
         borderRadius: "50%",
-        height: "1rem",
-        width: "1rem",
-        backgroundColor: backgroundColorsByHealth[health],
+        height: "0.7rem",
+        width: "0.7rem",
+        backgroundColor: healthy ? "green" : "#e61b1b",
       }}
     />
   );
+};
+
+const HealthStatus = ({
+  healthResult,
+}: {
+  healthResult: boolean | Record<string, boolean>;
+}) => {
+  if (typeof healthResult === "boolean") {
+    return <HealthIcon healthy={healthResult} />;
+  }
+
+  if (typeof healthResult === "object") {
+    const resultRows = Object.keys(healthResult).map((key) => (
+      <div style={{ display: "flex" }}>
+        <Text>{key}</Text>
+        <HealthIcon healthy={healthResult[key]} />
+      </div>
+    ));
+
+    return (
+      <>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            filter: "drop-shadow(black 1px 1px 1px)",
+          }}
+        >
+          {resultRows}
+        </div>
+      </>
+    );
+  } else return <></>;
 };
