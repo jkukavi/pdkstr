@@ -85,7 +85,7 @@
     "mongodbMemoryServer": {
       "preferGlobalPath": false,
       "downloadDir": "./node_modules/mongodb-memory-server/",
-      "debug": true,
+      "debug": false,
       "md5Check": true,
       "version": "6.0.6",
       "architecture": "arm64",
