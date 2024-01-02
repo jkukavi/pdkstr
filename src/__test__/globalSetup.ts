@@ -1,4 +1,4 @@
-import { MongoMemoryServer } from "mongodb-memory-server";
+import { MongoMemoryServer } from "mongodb-memory-server-core";
 import dotenv from "dotenv";
 import chalk from "chalk";
 

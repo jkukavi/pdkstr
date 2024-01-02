@@ -11,7 +11,7 @@
     "build-client": "cd client && yarn && yarn build",
     "heroku-postbuild": "yarn build && yarn build-client && yarn test",
     "dev": "NODE_ENV=development npx nodemon node_modules/.bin/ts-node --files -r dotenv/config ./src/index.ts",
-    "startdb": "MONGOMS_DEBUG=1 MONGOMS_ARCH=x64 npx ts-node --transpile-only --project ./tsconfig.json ./database/start.ts",
+    "startdb": "MONGOMS_DEBUG=1 npx ts-node --transpile-only --project ./tsconfig.json ./database/start.ts",
     "prepare": "husky install",
     "postinstall": "patch-package --error-on-fail"
   },
@@ -69,7 +69,7 @@
     "husky": "^8.0.0",
     "jest": "27.4.5",
     "jest-circus": "^27.4.5",
-    "mongodb-memory-server": "^8.0.4",
+    "mongodb-memory-server-core": "^9.1.3",
     "nock": "^13.2.1",
     "nodemon": "^2.0.15",
     "patch-package": "^8.0.0",
@@ -84,10 +84,9 @@
   "config": {
     "mongodbMemoryServer": {
       "preferGlobalPath": false,
-      "downloadDir": "./node_modules/mongodb-memory-server/",
+      "downloadDir": "./node_modules/mongodb-memory-server-core/",
       "debug": false,
-      "md5Check": true,
-      "version": "6.0.12"
+      "md5Check": true
     }
   }
 }

@@ -1,4 +1,4 @@
-import { MongoMemoryServer } from "mongodb-memory-server";
+import { MongoMemoryServer } from "mongodb-memory-server-core";
 import { MongoClient, ObjectId } from "mongodb";
 
 import {
@@ -9,18 +9,16 @@ import {
 // @ts-ignore
 import { hashPasswordIn } from "models/helpers.ts";
 
-const mongoConfig = {
+type MongoMemoryServerOpts = ConstructorParameters<typeof MongoMemoryServer>[0];
+
+const mongoConfig: MongoMemoryServerOpts = {
   instance: {
     port: 27017, // by default choose any free port
     ip: "0.0.0.0",
     dbName: "podkaster", // by default '' (empty string),
     storageEngine: "wiredTiger",
   },
-  binary: {
-    downloadDir: "./node_modules/mongodb-memory-server/",
-    version: "6.0.6",
-  },
-} as any;
+};
 
 const startLocalDatabase = async () => {
   const mongod = new MongoMemoryServer(mongoConfig);
