@@ -12,7 +12,8 @@
     "heroku-postbuild": "yarn build && yarn build-client && yarn test",
     "dev": "NODE_ENV=development npx nodemon node_modules/.bin/ts-node --files -r dotenv/config ./src/index.ts",
     "startdb": "npx ts-node --transpile-only ./database/start.ts",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "dumpProd": "./database/dumpProd.sh"
   },
   "engines": {
     "node": "16.20.2",

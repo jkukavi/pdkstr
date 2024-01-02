@@ -28,13 +28,13 @@ echo -e "\n${green}Restoring database from local folder into local database.${no
 # Restore the dump locally, and --drop to drop any existing items inside known collections
 mongorestore --uri="$LOCAL_URI" $DUMP_DIR --drop -v
 
-echo -e "\n${green}Restoration successful.${no_color}\n" 
+echo -e "\n${green}Restoration successful.${no_color}" 
 
-echo -e "\n${green}Deleting dump.${no_color}\n"
+echo -e "${green}Deleting dump.${no_color}"
 
 # Clean up the dump directory (optional)
 rm -rf $DUMP_DIR
 
-echo -e "\n${green}Deleted dump.${no_color}\n"
+echo -e "${green}Deleted dump.${no_color}"
 
-echo -e "\n${green}Success dumping prod to local.${no_color}\n" 
+echo -e "${green}Success dumping prod to local.${no_color}\n" 

@@ -15,7 +15,6 @@ type MongoMemoryServerOpts = ConstructorParameters<typeof MongoMemoryServer>[0];
 const mongoConfig: MongoMemoryServerOpts = {
   instance: {
     port: 27017, // by default choose any free port
-    ip: "0.0.0.0",
     dbName: "podkaster", // by default '' (empty string),
   },
 };
@@ -44,7 +43,6 @@ const startLocalDatabase = async () => {
 
   const connection = await MongoClient.connect("mongodb://localhost:27017");
 
-  connection;
   const db = connection.db("podkaster");
 
   const users = db.collection("users");
