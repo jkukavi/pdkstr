@@ -1,5 +1,6 @@
-import { MongoMemoryServer } from "mongodb-memory-server-core";
+import { MongoMemoryServer, MongoBinary } from "mongodb-memory-server-core";
 import { MongoClient, ObjectId } from "mongodb";
+import chalk from "chalk";
 
 import {
   createFavouritesForUser,
@@ -16,14 +17,39 @@ const mongoConfig: MongoMemoryServerOpts = {
     port: 27017, // by default choose any free port
     ip: "0.0.0.0",
     dbName: "podkaster", // by default '' (empty string),
-    storageEngine: "wiredTiger",
   },
+};
+
+const log = (binaryPath: string, instanceOptions: string, uri: string) => {
+  console.log(`
+Using mongod binary: ${binaryPath}.
+  
+Instance options: 
+${instanceOptions}
+
+Uri: ${uri}
+
+${chalk.green("Successfuly started the mongodb database.")}
+`);
 };
 
 const startLocalDatabase = async () => {
   const mongod = new MongoMemoryServer(mongoConfig);
   await mongod.start();
+
+  const binaryPath = await MongoBinary.getPath(mongoConfig.binary);
+  const instanceOptions = JSON.stringify(
+    mongod.instanceInfo?.instance.instanceOpts,
+    null,
+    2
+  );
+  const uri = mongod.getUri();
+
+  log(binaryPath, instanceOptions, uri);
+
   const connection = await MongoClient.connect("mongodb://localhost:27017");
+
+  connection;
   const db = connection.db("podkaster");
 
   const users = db.collection("users");
