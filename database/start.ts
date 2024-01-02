@@ -20,16 +20,10 @@ const mongoConfig: MongoMemoryServerOpts = {
   },
 };
 
-const log = (binaryPath: string, instanceOptions: string, uri: string) => {
+const log = (instanceOptions: string) => {
   console.log(`
-Using mongod binary: ${binaryPath}.
-  
-Instance options: 
-${instanceOptions}
-
-Uri: ${uri}
-
-${chalk.green("Successfuly started the mongodb database.")}
+Instance options: ${chalk.yellow(instanceOptions)}
+${chalk.green("Successfuly started the in-memory mongodb database.")}
 `);
 };
 
@@ -38,14 +32,15 @@ const startLocalDatabase = async () => {
   await mongod.start();
 
   const binaryPath = await MongoBinary.getPath(mongoConfig.binary);
-  const instanceOptions = JSON.stringify(
-    mongod.instanceInfo?.instance.instanceOpts,
-    null,
-    2
-  );
   const uri = mongod.getUri();
 
-  log(binaryPath, instanceOptions, uri);
+  const instanceOptions = JSON.stringify(
+    { ...mongod.instanceInfo?.instance.instanceOpts, binaryPath, uri },
+    null,
+    1
+  ).replace(/"|\{|\}/g, "");
+
+  log(instanceOptions);
 
   const connection = await MongoClient.connect("mongodb://localhost:27017");
 
