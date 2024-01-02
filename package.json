@@ -78,5 +78,10 @@
     "tsconfig-paths": "^3.12.0",
     "tslib": "^2.3.1",
     "typescript": "^4.5.4"
+  },
+  "config": {
+    "mongodbMemoryServer": {
+      "useArchiveNameForBinaryName": true
+    }
   }
 }
