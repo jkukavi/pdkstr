@@ -5,7 +5,8 @@ client2
 yarn-error.log
 .DS_Store
 
+
 node_modules
 
 TODO.txt
-dump
+database/scripts/dump

@@ -13,7 +13,8 @@
     "dev": "NODE_ENV=development npx nodemon node_modules/.bin/ts-node --files -r dotenv/config ./src/index.ts",
     "startdb": "npx ts-node --transpile-only ./database/start.ts",
     "prepare": "husky install",
-    "dumpProd": "./database/dumpProd.sh"
+    "dumpProd": "./database/scripts/restoreDump.sh",
+    "restoreProd": "./database/scripts/restoreDump.sh"
   },
   "engines": {
     "node": "16.20.2",
