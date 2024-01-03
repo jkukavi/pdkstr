@@ -1,11 +1,13 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 import magnifier from "icons/magnifier.svg";
 import history from "icons/history.svg";
 import library from "icons/library.svg";
+import { useQueryStringWasUpdated } from "helpers/pushToParams";
 
 const NavLinkWithSearch = (props: React.ComponentProps<typeof NavLink>) => {
+  useQueryStringWasUpdated();
   return (
     <NavLink {...props} to={props.to + location.search}>
       {props.children}

@@ -11,19 +11,22 @@ import { useLoadAppStateFromSearchQuery } from "hooks/useLoadStateFromQuery";
 import Screens from "./Views";
 
 import "./App.css";
+import { QueryStringHasChangedProvider } from "helpers/pushToParams";
 
 function App() {
   useLoadAppStateFromSearchQuery();
   return (
     <div className="container">
       <UserDataProvider>
-        <ScrollingDownProvider>
-          <Notifications />
-          <Screens />
-          <AudioPlayerShelf />
-          <PlaylistSidebar />
-          <BottomMenu />
-        </ScrollingDownProvider>
+        <QueryStringHasChangedProvider>
+          <ScrollingDownProvider>
+            <Notifications />
+            <Screens />
+            <AudioPlayerShelf />
+            <PlaylistSidebar />
+            <BottomMenu />
+          </ScrollingDownProvider>
+        </QueryStringHasChangedProvider>
       </UserDataProvider>
     </div>
   );

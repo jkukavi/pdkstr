@@ -1,4 +1,5 @@
 import queryString from "query-string";
+import React, { useState } from "react";
 
 const engineShorthands: {
   [key in Engine]: string;
@@ -38,6 +39,38 @@ export const pushListeningItemToParams = (item: Item | Playlist) => {
   }
 };
 
+const notifyThatQueryStringWasUpdated = {
+  current: () => {},
+};
+
+export const QueryStringContext = React.createContext({});
+
+export const QueryStringHasChangedProvider = ({
+  children,
+}: {
+  children: any;
+}) => {
+  const [uniqueState, setState] = useState({});
+
+  const refresh = () => {
+    setState({});
+  };
+
+  notifyThatQueryStringWasUpdated.current = () => {
+    setTimeout(refresh);
+  };
+
+  return (
+    <QueryStringContext.Provider value={uniqueState}>
+      {children}
+    </QueryStringContext.Provider>
+  );
+};
+
+export const useQueryStringWasUpdated = () => {
+  React.useContext(QueryStringContext);
+};
+
 export const pushToParams = (queryParams: {
   search?: string;
   lto?: string;
@@ -54,6 +87,8 @@ export const pushToParams = (queryParams: {
   });
 
   history.pushState(null, "", "?" + newQueryString);
+
+  notifyThatQueryStringWasUpdated.current();
 };
 
 export const getQueryParams = () => {
