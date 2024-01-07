@@ -24,10 +24,10 @@
             "label_name": null,
             "last_modified": "2022-04-11T14:02:35Z",
             "license": "all-rights-reserved",
-            "likes_count": 19185,
+            "likes_count": 19182,
             "permalink": "eastmemphisboyz-who-run-it-remix-chris-travis-ta-double-idkjeffery-xavier-wulf",
             "permalink_url": "https://soundcloud.com/christravis/eastmemphisboyz-who-run-it-remix-chris-travis-ta-double-idkjeffery-xavier-wulf",
-            "playback_count": 929377,
+            "playback_count": 929765,
             "public": true,
             "publisher_metadata": {
                 "id": 430754811,
@@ -92,13 +92,13 @@
             },
             "station_urn": "soundcloud:system-playlists:track-stations:430754811",
             "station_permalink": "track-stations:430754811",
-            "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjFkNmYwZTBmLTU5YTMtNDg0ZS05NTZlLTA2MTBmNDM1ZDRkOSIsImlhdCI6MTcwNDA1NDYzM30.9qHXpE8ok59VFa8S4BZtVGEg7IJSFIqOkFDq-yvt6mY",
+            "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjFkNmYwZTBmLTU5YTMtNDg0ZS05NTZlLTA2MTBmNDM1ZDRkOSIsImlhdCI6MTcwNDY0NTYyMX0.AlRLSScSbPCxNOxsJ6GIMUXyNGuMScs7VqpCrMlDprI",
             "monetization_model": "NOT_APPLICABLE",
             "policy": "ALLOW",
             "user": {
                 "avatar_url": "https://i1.sndcdn.com/avatars-14GYz0VGbWR4HNPN-PuJdmg-large.jpg",
                 "first_name": "Chris",
-                "followers_count": 305792,
+                "followers_count": 305983,
                 "full_name": "Chris Travis",
                 "id": 14845235,
                 "kind": "user",
@@ -129,7 +129,7 @@
             "Connection",
             "close",
             "Date",
-            "Sun, 31 Dec 2023 20:30:33 GMT",
+            "Sun, 07 Jan 2024 16:40:21 GMT",
             "x-robots-tag",
             "noindex",
             "Cache-Control",
@@ -149,11 +149,11 @@
             "X-Cache",
             "Miss from cloudfront",
             "Via",
-            "1.1 9569de78dc2ca85c5ba29cb17f0eb7ce.cloudfront.net (CloudFront)",
+            "1.1 b63f332297d95bccb0f4e41c4aef0ab0.cloudfront.net (CloudFront)",
             "X-Amz-Cf-Pop",
             "ZAG50-C1",
             "X-Amz-Cf-Id",
-            "CNt4CB2EDD2C5RoJ4D5yrY6d_E2InxqOypVZuWDBehVN0UaY2OZgUQ=="
+            "jGffrZWv5ZoMkfFMxp3pGgSMxwsX7gmQr0dOj6KepTTd85jSQ8PUQQ=="
         ],
         "responseIsBinary": false
     },
@@ -164,7 +164,7 @@
         "body": "",
         "status": 200,
         "response": {
-            "url": "https://cf-media.sndcdn.com/PMRFQgKUwpB0.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vUE1SRlFnS1V3cEIwLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzA0MDU0OTg5fX19XX0_&Signature=IYmMBxrUCPH9ADig~qYNRMGQHQmCcPxHECG79FacGjxwbJMcxkhsHbKg-2iR-VjQGGsJ603r36Mn5~PcI5reRnuHkN~o2NqDWOJZ4aaeD-TLLSpaUFPv1V133AjIEyV6BNU8u8kYkOUR273HonF40NN~8UbZeWeIMXgywgjWJe28-AjILxoLfW4G1r7Bm61SkJcOE3irem6xgaggV9WHdWFlvzuU-7l3cVZ1ou5LcppP99uifS3cpRTRvlIgzKAfrUgbuYEKaMSNKC9zcY3ta3pRuFzNkP5ilforYigfgLrR4k0zoJ7O6CMSw8P2lNDtnX7Q23D2E79mbSGwmg1Izw__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ"
+            "url": "https://cf-media.sndcdn.com/PMRFQgKUwpB0.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vUE1SRlFnS1V3cEIwLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzA0NjQ1OTc3fX19XX0_&Signature=aDoGpk9tUfZTveLokllyvLIuiaDNLqxokCh1BSq5oQVnoHSxi2DZ2-Mbzb00d2fZ6DhpDbKRb9JmBeXRoVYqiumKY2Eww5PrGbIebvO1xgCEPf5aKUh4x92jGWWwLKuztVqw947da~0VNmorIcC2U6ok9DhYWSV9vnqcF1wog1WcWxQtkkAiAWsPd9CYVQ0kMyt2qUHpqKFjpGhwkrZNB7DohVMswpICuvRf2vPyGBvqN79kCOWTR3DwJ2zAXCAVf7~xDYDZVTg81gGLxzw1PTepZk8MDgerrHc~jopTJMvkyS7hsX8ydYLUjpre3PkDY4ISdYWdaMix3ANRIw1flw__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ"
         },
         "rawHeaders": [
             "Content-Type",
@@ -174,7 +174,7 @@
             "Connection",
             "close",
             "Date",
-            "Sun, 31 Dec 2023 20:30:33 GMT",
+            "Sun, 07 Jan 2024 16:40:21 GMT",
             "x-robots-tag",
             "noindex",
             "Cache-Control",
@@ -194,16 +194,16 @@
             "X-Cache",
             "Miss from cloudfront",
             "Via",
-            "1.1 2646a167841368615f96564f373f8d20.cloudfront.net (CloudFront)",
+            "1.1 0921eae154c93e666b192fa267ea4bfa.cloudfront.net (CloudFront)",
             "X-Amz-Cf-Pop",
             "ZAG50-C1",
             "X-Amz-Cf-Id",
-            "BRUXX5iYFcDA6YZyXtoTqESSG8yXkdOCPc1l5tq8cjeZjYu2OA48EA=="
+            "ZrUxx3tX1XmetdgmrLntS0Eqy8l4bhJF48yk-b0gpiWx45cvuZtJ2A=="
         ],
         "responseIsBinary": false
     },
     {
-        "scope": "http://127.0.0.1:49233",
+        "scope": "http://127.0.0.1:49740",
         "method": "POST",
         "path": "/api/url/soundcloud",
         "body": {
@@ -213,7 +213,7 @@
         "response": {
             "directUrl": [
                 {
-                    "url": "https://cf-media.sndcdn.com/PMRFQgKUwpB0.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vUE1SRlFnS1V3cEIwLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzA0MDU0OTg5fX19XX0_&Signature=IYmMBxrUCPH9ADig~qYNRMGQHQmCcPxHECG79FacGjxwbJMcxkhsHbKg-2iR-VjQGGsJ603r36Mn5~PcI5reRnuHkN~o2NqDWOJZ4aaeD-TLLSpaUFPv1V133AjIEyV6BNU8u8kYkOUR273HonF40NN~8UbZeWeIMXgywgjWJe28-AjILxoLfW4G1r7Bm61SkJcOE3irem6xgaggV9WHdWFlvzuU-7l3cVZ1ou5LcppP99uifS3cpRTRvlIgzKAfrUgbuYEKaMSNKC9zcY3ta3pRuFzNkP5ilforYigfgLrR4k0zoJ7O6CMSw8P2lNDtnX7Q23D2E79mbSGwmg1Izw__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ",
+                    "url": "https://cf-media.sndcdn.com/PMRFQgKUwpB0.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vUE1SRlFnS1V3cEIwLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzA0NjQ1OTc3fX19XX0_&Signature=aDoGpk9tUfZTveLokllyvLIuiaDNLqxokCh1BSq5oQVnoHSxi2DZ2-Mbzb00d2fZ6DhpDbKRb9JmBeXRoVYqiumKY2Eww5PrGbIebvO1xgCEPf5aKUh4x92jGWWwLKuztVqw947da~0VNmorIcC2U6ok9DhYWSV9vnqcF1wog1WcWxQtkkAiAWsPd9CYVQ0kMyt2qUHpqKFjpGhwkrZNB7DohVMswpICuvRf2vPyGBvqN79kCOWTR3DwJ2zAXCAVf7~xDYDZVTg81gGLxzw1PTepZk8MDgerrHc~jopTJMvkyS7hsX8ydYLUjpre3PkDY4ISdYWdaMix3ANRIw1flw__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ",
                     "mimeType": "audio/mpeg"
                 }
             ]
@@ -228,9 +228,9 @@
             "Content-Length",
             "674",
             "ETag",
-            "W/\"2a2-hn38Gk63MgCltZHTTOwXS/rEM88\"",
+            "W/\"2a2-SIXQrB2gsNNZzGKQZITVuCNCZew\"",
             "Date",
-            "Sun, 31 Dec 2023 20:30:33 GMT",
+            "Sun, 07 Jan 2024 16:40:21 GMT",
             "Connection",
             "close"
         ],

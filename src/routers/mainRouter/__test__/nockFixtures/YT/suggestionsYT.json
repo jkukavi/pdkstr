@@ -11,25 +11,19 @@
             "08",
             "00",
             "00",
-            "00",
-            "00",
-            "00",
-            "02",
-            "ff",
-            "758fcb4ec33010457f65e415954294b620a0bb76532141d7482142133fe2c1ae0d7e340d887f07b1a180bc9c3967aeee8ce4841febc1fbc1ca1a79adcf5a46c23c4ba5649858d5fe1e9baabd9c2fbaae3a5d439a5e24f412d3b7b06cfe72e1dd636e9ac5558214724c709af75f3fe2816480315b5530923c622c3054e9eb58fb1c4a466f911b88fb1c4af99a12ec25280ab1f493f621506f65a9a146674a051439749cd002922838dec1806e28509eb92fa051638a8060c192f9a9d755efccb0d5bc62af6cc56e6ec5e1fe1aa7ed7223f2dd797e7b78daad69b7d6db0bf6d1cd3e01ac",
-            "23943d17020000"
+            "00000002ff758fbb4e033110457f65e48a48d66a936889c807d0a4a04bb3acd0acdfb163073ff046887f07d110402e67ce99ab3bd5781e6aa742504e74c83a7d3712c3ed494829e295d0f1f7d8d371586fa689deae215f2f026681f95bd8f67f390ffeb9f4fd669721c79232dce6fdd7177c3322422d4e368c2c164c0d86327f1deb5062cb981d320be95c622b5f9b0c6701d2c4d4fa498718cdec44aba1466f5b05a4f1e89941076878c3091e147ad5a0acb0d04055634e80e0c019fb536fa2efc492fd9a9257b2270f4ff7bbb8758f475b8e5c2b95fcf07258ea7060957c4cab4f4bce2b8917020000"
         ],
         "rawHeaders": [
             "Date",
-            "Sun, 31 Dec 2023 20:30:34 GMT",
+            "Sun, 07 Jan 2024 16:40:22 GMT",
             "Expires",
-            "Sun, 31 Dec 2023 20:30:34 GMT",
+            "Sun, 07 Jan 2024 16:40:22 GMT",
             "Cache-Control",
             "private, max-age=3600",
             "Content-Type",
             "text/javascript; charset=UTF-8",
             "Content-Security-Policy",
-            "object-src 'none';base-uri 'self';script-src 'nonce--z7-dBaSMfNm6g6Wv_8i3w' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other",
+            "object-src 'none';base-uri 'self';script-src 'nonce-lsTSLgILnA5xm8PM7cf2rA' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other",
             "Cross-Origin-Opener-Policy",
             "same-origin-allow-popups; report-to=\"gws\"",
             "Report-To",
@@ -45,7 +39,7 @@
             "X-Frame-Options",
             "SAMEORIGIN",
             "Set-Cookie",
-            "CONSENT=PENDING+666; expires=Tue, 30-Dec-2025 20:30:34 GMT; path=/; domain=.youtube.com; Secure",
+            "CONSENT=PENDING+836; expires=Tue, 06-Jan-2026 16:40:22 GMT; path=/; domain=.youtube.com; Secure",
             "P3P",
             "CP=\"This is not a P3P policy! See g.co/p3phelp for more info.\"",
             "Alt-Svc",
@@ -58,7 +52,7 @@
         "responseIsBinary": false
     },
     {
-        "scope": "http://127.0.0.1:49246",
+        "scope": "http://127.0.0.1:49762",
         "method": "POST",
         "path": "/api/suggestions/youtube",
         "body": {
@@ -95,7 +89,7 @@
             "ETag",
             "W/\"15b-NhOzx69I7iO4OT1IcmO4FzwyLMw\"",
             "Date",
-            "Sun, 31 Dec 2023 20:30:34 GMT",
+            "Sun, 07 Jan 2024 16:40:22 GMT",
             "Connection",
             "close"
         ],

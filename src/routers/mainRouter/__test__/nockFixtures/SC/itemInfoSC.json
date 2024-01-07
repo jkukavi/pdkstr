@@ -24,10 +24,10 @@
             "label_name": null,
             "last_modified": "2022-04-11T14:02:35Z",
             "license": "all-rights-reserved",
-            "likes_count": 19185,
+            "likes_count": 19182,
             "permalink": "eastmemphisboyz-who-run-it-remix-chris-travis-ta-double-idkjeffery-xavier-wulf",
             "permalink_url": "https://soundcloud.com/christravis/eastmemphisboyz-who-run-it-remix-chris-travis-ta-double-idkjeffery-xavier-wulf",
-            "playback_count": 929377,
+            "playback_count": 929765,
             "public": true,
             "publisher_metadata": {
                 "id": 430754811,
@@ -92,13 +92,13 @@
             },
             "station_urn": "soundcloud:system-playlists:track-stations:430754811",
             "station_permalink": "track-stations:430754811",
-            "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjFkNmYwZTBmLTU5YTMtNDg0ZS05NTZlLTA2MTBmNDM1ZDRkOSIsImlhdCI6MTcwNDA1NDYzNH0.A_p78KVSqxGt36IWZSGBOBcKD5APpeJ5r54fNZGwZuo",
+            "track_authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnZW8iOiJIUiIsInN1YiI6IiIsInJpZCI6IjFkNmYwZTBmLTU5YTMtNDg0ZS05NTZlLTA2MTBmNDM1ZDRkOSIsImlhdCI6MTcwNDY0NTYyMX0.AlRLSScSbPCxNOxsJ6GIMUXyNGuMScs7VqpCrMlDprI",
             "monetization_model": "NOT_APPLICABLE",
             "policy": "ALLOW",
             "user": {
                 "avatar_url": "https://i1.sndcdn.com/avatars-14GYz0VGbWR4HNPN-PuJdmg-large.jpg",
                 "first_name": "Chris",
-                "followers_count": 305792,
+                "followers_count": 305983,
                 "full_name": "Chris Travis",
                 "id": 14845235,
                 "kind": "user",
@@ -129,7 +129,7 @@
             "Connection",
             "close",
             "Date",
-            "Sun, 31 Dec 2023 20:30:34 GMT",
+            "Sun, 07 Jan 2024 16:40:21 GMT",
             "x-robots-tag",
             "noindex",
             "Cache-Control",
@@ -149,16 +149,16 @@
             "X-Cache",
             "Miss from cloudfront",
             "Via",
-            "1.1 c25bc16c1238c23c74267a81302a62f8.cloudfront.net (CloudFront)",
+            "1.1 cd58d60f2b52ca321822f27453e5f098.cloudfront.net (CloudFront)",
             "X-Amz-Cf-Pop",
             "ZAG50-C1",
             "X-Amz-Cf-Id",
-            "oCL8TPoViXLs4rPcwCCZk_NGdsWVQjgTJ87qYpx67ProatprvGp7PA=="
+            "ILCD3NEFRlkhI4qzNIJxoXqGIovdT4YHbWAnCSKlzZoVbmah79zvUg=="
         ],
         "responseIsBinary": false
     },
     {
-        "scope": "http://127.0.0.1:49237",
+        "scope": "http://127.0.0.1:49744",
         "method": "POST",
         "path": "/api/info/soundcloud",
         "body": {
@@ -195,7 +195,7 @@
                     }
                 ]
             },
-            "views": 929377
+            "views": 929765
         },
         "rawHeaders": [
             "X-Powered-By",
@@ -207,9 +207,9 @@
             "Content-Length",
             "805",
             "ETag",
-            "W/\"325-PthINP1+9ew36ruxKXjIDzZ4Nks\"",
+            "W/\"325-/Zpzfbo8V5ZbwkRpbfBJkfWreq8\"",
             "Date",
-            "Sun, 31 Dec 2023 20:30:34 GMT",
+            "Sun, 07 Jan 2024 16:40:21 GMT",
             "Connection",
             "close"
         ],
