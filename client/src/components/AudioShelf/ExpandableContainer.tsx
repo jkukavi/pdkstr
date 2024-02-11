@@ -5,7 +5,7 @@ import chevron from "icons/chevron.svg";
 
 import { useScrollingDownContext } from "contexts/ScrollingDown";
 import { PlayingQueue } from "./PlayingQueue";
-import { Player } from "./Player";
+import { Player, useObservePlayer } from "./Player";
 
 const Container: {
   expanded: boolean;
@@ -17,7 +17,6 @@ const Container: {
 
 const ExpandableContainer = ({ children }: { children: any }) => {
   const scrollingDown = useScrollingDownContext("cardContainer");
-  const [isPlayerActive, setIsPlayerActive] = useState(false);
   const [expanded, setExpanded] = useState(false);
 
   const toggleExpanded = () => {
@@ -31,13 +30,8 @@ const ExpandableContainer = ({ children }: { children: any }) => {
     Container.toggleExpanded = toggleExpanded;
   }, [setExpanded]);
 
-  useEffect(() => {
-    const id = Player.subscribe(() => {
-      setIsPlayerActive(Player.audioLoading || !!Player.listeningTo);
-    });
-
-    return () => Player.unsubscribe(id);
-  }, []);
+  const { audioLoading, listeningTo } = useObservePlayer();
+  const isPlayerActive = Player.audioLoading || !!Player.listeningTo;
 
   const isShown = isPlayerActive && !scrollingDown;
   const isExpanded = expanded && isShown;

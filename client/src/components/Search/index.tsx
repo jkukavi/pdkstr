@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Cards from "components/Cards";
 
 import SearchBox from "./SearchBox";
+import { ListeningToDetails } from "components/AudioShelf/ListeningToDetails";
 
 const Search = () => {
   const [searchArray, setSearchArray] = useState<AnyItem[]>([]);

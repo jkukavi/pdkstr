@@ -32,14 +32,14 @@ interface InitialState {
   directUrl: null | string;
   audioLoading: boolean;
   listeningTo: Item | null;
-  subscribers: { id: string; fn: VoidFunction }[];
+  subscribers: { id: string; fn: PlayerUpdatorFunction }[];
 }
 
 interface PlayerInterface extends InitialState {
   updateState: VoidFunction;
   playItem: (item: Item, time?: number | null) => Promise<void>;
   notifySubscribers: VoidFunction;
-  subscribe: (fn: VoidFunction) => string;
+  subscribe: (fn: PlayerUpdatorFunction) => string;
   unsubscribe: (id: string) => void;
 }
 
@@ -48,11 +48,38 @@ interface VoidFunction {
   (args?: any): void;
 }
 
+type UpdatorArguments = {
+  listeningTo: Item | null;
+  audioLoading: boolean;
+};
+
+type PlayerUpdatorFunction = ({
+  listeningTo,
+  audioLoading,
+}: UpdatorArguments) => void;
+
 const audioTestElement = new Audio();
 
 const probablyCouldBePlayed = (media: DirectUrl): boolean => {
   const couldBePlayed = audioTestElement.canPlayType(media.mimeType);
   return !!couldBePlayed;
+};
+
+export const useObservePlayer = () => {
+  const [playerState, setPlayerState] = useState<UpdatorArguments>({
+    audioLoading: false,
+    listeningTo: null,
+  });
+
+  useEffect(() => {
+    const id = Player.subscribe((updatorArgs) => {
+      setPlayerState(updatorArgs);
+    });
+
+    return () => Player.unsubscribe(id);
+  }, []);
+
+  return playerState;
 };
 
 export const Player: PlayerInterface = {
