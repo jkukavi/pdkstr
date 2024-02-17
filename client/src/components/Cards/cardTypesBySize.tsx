@@ -283,11 +283,11 @@ export const LargePlaylist = ({ item }: { item: Playlist }) => {
 };
 
 export const SmallSingleItem = ({
-  viewingChannel,
   item,
+  translucent = false,
 }: {
-  viewingChannel: any;
   item: Item;
+  translucent?: boolean;
 }) => {
   const { title, thumbnails, duration, uploadedAt, author, views, key } = item;
   const history = useHistory();
@@ -300,7 +300,7 @@ export const SmallSingleItem = ({
     );
   };
   return (
-    <div className="card csmall" key={key}>
+    <div className={"card csmall" + (translucent ? " overview" : "")} key={key}>
       <p className="desc title">
         {`${title?.substring(0, 45)}${title?.length > 45 ? "..." : ""}`}
       </p>

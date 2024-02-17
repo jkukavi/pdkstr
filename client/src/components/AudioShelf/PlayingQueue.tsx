@@ -10,6 +10,7 @@ import Table from "components/Table";
 
 import { Player } from "./Player";
 import { pushListeningItemToParams } from "helpers/pushToParams";
+import { v4 as uuid } from "uuid";
 
 const noOp = () => {};
 
@@ -24,7 +25,24 @@ interface PlayingQueueInterface {
   playNext: VoidFunction;
   addToQueue: VoidFunction;
   notify: VoidFunction;
+  subscribe: (fn: (isPlaying: boolean) => void) => string;
+  unsubscribe: (id: string) => void;
+  subscribers: { id: string; fn: (isPlaying: boolean) => void }[];
 }
+
+export const useObservePlayingQueue = () => {
+  const [isPlaylistPlaying, setPlaylistPlaying] = useState<boolean>(false);
+
+  useEffect(() => {
+    const id = PlayingQueue.subscribe((isPlaylistPlaying) => {
+      setPlaylistPlaying(isPlaylistPlaying);
+    });
+
+    return () => Player.unsubscribe(id);
+  }, []);
+
+  return isPlaylistPlaying;
+};
 
 export const PlayingQueue: PlayingQueueInterface = {
   playlist: [],
@@ -32,7 +50,22 @@ export const PlayingQueue: PlayingQueueInterface = {
   playPlaylist: noOp,
   playNext: noOp,
   addToQueue: noOp,
-  notify: noOp,
+  notify: () => {
+    const { playlist } = PlayingQueue;
+    for (const subscriber of PlayingQueue.subscribers) {
+      subscriber.fn(!!playlist.length);
+    }
+  },
+  unsubscribe: (id: string) => {
+    const index = PlayingQueue.subscribers.findIndex((item) => item.id === id);
+    if (index) PlayingQueue.subscribers.splice(index, 1);
+  },
+  subscribe: (fn: VoidFunction) => {
+    const id = uuid();
+    PlayingQueue.subscribers.push({ fn, id: id });
+    return id;
+  },
+  subscribers: [],
 };
 
 const PlayingQueueComponent = () => {
@@ -40,9 +73,7 @@ const PlayingQueueComponent = () => {
   const playlist = state.playlist;
 
   useEffect(() => {
-    if (PlayingQueue.notify) {
-      PlayingQueue.notify(!!state.playlist.length);
-    }
+    PlayingQueue.notify();
   }, [state]);
 
   const updateState = (newState: typeof state) => {

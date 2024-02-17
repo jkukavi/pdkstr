@@ -823,7 +823,7 @@ button:active.small {
   bottom: -100%;
   z-index: 2;
   background: linear-gradient(90deg, #3f3dc4, #5e3dc4 66%, #3f3dc4 101%);
-  transform: translateY(-10.2rem);
+  transform: translateY(-9.8rem);
   box-shadow: 0px 2px 9px 0px rgb(27 27 27);
   transition: transform 0.5s;
 }
@@ -1110,6 +1110,20 @@ button:active.small {
   height: 75%;
 }
 
+.card.csmall.overview {
+  background-color: transparent;
+  box-shadow: none;
+  width: 100%;
+}
+
+.card.csmall.overview .thumbnail {
+  width: 30%;
+}
+
+.card.csmall.overview .descContainer {
+  width: 70%;
+}
+
 .card.csmall .thumbnailAndDesc .thumbnail {
   height: 100%;
 }
@@ -1121,12 +1135,12 @@ button:active.small {
   margin: 0;
 }
 
-.card.csmall .descContainer{
+.card.csmall .descContainer {
   width: 55%;
   padding: 0 0 0 5px;
 }
 
-.card.csmall .title{
+.card.csmall .title {
   margin: 0px;
   height: 1.8rem;
   overflow: hidden;
@@ -1134,28 +1148,25 @@ button:active.small {
   text-overflow: ellipsis;
 }
 
-.card.csmall .channelDescAndPlaylist{
+.card.csmall .channelDescAndPlaylist {
   flex-direction: column;
-  gap: 2px
+  gap: 2px;
 }
 
-.card.csmall.channel .thumbnailAndDesc{
+.card.csmall.channel .thumbnailAndDesc {
   display: flex;
   justify-content: flex-start;
 }
 
-.card.csmall.channel p.desc{
+.card.csmall.channel p.desc {
   margin: 0;
 }
 
-.card.csmall.channel .descContainer{
+.card.csmall.channel .descContainer {
   margin: 0;
   font-size: 16px;
   align-self: flex-start;
-
 }
-
-
 
 .card:hover {
   transform: scale(1.01) rotate(0.02deg);

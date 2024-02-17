@@ -1,4 +1,5 @@
 {
   "watch": ["src"],
-  "ext": "js, ts, json, tsx"
+  "ext": "js, ts, json, tsx",
+  "exec": "npx tsc --noEmit && echo 'No tsc errors found in client'"
 }

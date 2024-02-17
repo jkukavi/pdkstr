@@ -4,7 +4,7 @@ import playingQueue from "icons/playingQueue.svg";
 import chevron from "icons/chevron.svg";
 
 import { useScrollingDownContext } from "contexts/ScrollingDown";
-import { PlayingQueue } from "./PlayingQueue";
+import { PlayingQueue, useObservePlayingQueue } from "./PlayingQueue";
 import { Player, useObservePlayer } from "./Player";
 
 const Container: {
@@ -50,21 +50,16 @@ const ExpandableContainer = ({ children }: { children: any }) => {
 export default ExpandableContainer;
 
 export const ExpandButton = () => {
-  const [show, setShow] = useState(!!PlayingQueue.playlist.length);
   const [localExpanded, setLocalExpanded] = useState(Container.expanded);
 
-  useEffect(() => {
-    PlayingQueue.notify = () => {
-      setShow(!!PlayingQueue.playlist.length);
-    };
-  }, [setShow]);
+  const isPlaylistPlaying = useObservePlayingQueue();
 
   const toggleExpanded = () => {
     setLocalExpanded((e) => !e);
     Container.toggleExpanded();
   };
 
-  if (!show) return null;
+  // if (!isPlaylistPlaying) return null;
 
   return (
     <>
