@@ -1114,6 +1114,7 @@ button:active.small {
   background-color: transparent;
   box-shadow: none;
   width: 100%;
+  max-width: 350px;
 }
 
 .card.csmall.overview .thumbnail {

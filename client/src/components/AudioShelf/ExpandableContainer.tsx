@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import playingQueue from "icons/playingQueue.svg";
 import chevron from "icons/chevron.svg";
+import infoIcon from "icons/info.svg";
 
 import { useScrollingDownContext } from "contexts/ScrollingDown";
 import { PlayingQueue, useObservePlayingQueue } from "./PlayingQueue";
@@ -59,7 +60,7 @@ export const ExpandButton = () => {
     Container.toggleExpanded();
   };
 
-  // if (!isPlaylistPlaying) return null;
+  const icon = isPlaylistPlaying ? playingQueue : infoIcon;
 
   return (
     <>
@@ -68,7 +69,7 @@ export const ExpandButton = () => {
         className={`audioButton close ${localExpanded ? "expanded" : ""}`}
         onClick={toggleExpanded}
       >
-        <img src={localExpanded ? chevron : playingQueue} alt="loading" />
+        <img src={localExpanded ? chevron : icon} alt="loading" />
       </div>
     </>
   );
