@@ -337,6 +337,20 @@ export const SmallSingleItem = ({
         <div className="descContainer">
           <>
             <div className="channelDescAndPlaylist">
+              <div className="channelDesc">
+                <div
+                  className="authorThumbnail"
+                  onClick={() => {
+                    goToChannel();
+                  }}
+                  style={{
+                    backgroundImage: `url(${resolveUrl(item)})`,
+                  }}
+                />
+                <div className="desc channelName">
+                  <p>{author?.name || "Name not found"}</p>
+                </div>
+              </div>
               <div style={{ display: "flex" }}>
                 <div
                   className="addToPlaylistIcon"
@@ -356,36 +370,16 @@ export const SmallSingleItem = ({
                   <img src={downloadPng} alt="loading"></img>
                 </a>
               </div>
-
-              <div className="channelDesc">
-                <div
-                  className="authorThumbnail"
-                  onClick={() => {
-                    goToChannel();
-                  }}
-                  style={{
-                    backgroundImage: `url(${resolveUrl(item)})`,
-                  }}
-                />
-                <div className="desc channelName">
-                  <p>{author?.name || "Name not found"}</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="metadata">
-              <p className="desc">
-                {views
-                  ? `${getViewsString(views)} views`
-                  : "Views not available"}
-              </p>
-              •<p className="desc">{duration || "Duration not available"}</p>•
-              <p className="desc">
-                {uploadedAt || "Uploaded date not available"}
-              </p>
             </div>
           </>
         </div>
+      </div>
+      <div className="metadata">
+        <p className="desc">
+          {views ? `${getViewsString(views)} views` : "Views not available"}
+        </p>
+        •<p className="desc">{duration || "Duration not available"}</p>•
+        <p className="desc">{uploadedAt || "Uploaded date not available"}</p>
       </div>
     </div>
   );

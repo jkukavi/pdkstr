@@ -1107,7 +1107,15 @@ button:active.small {
 
 .card.csmall .thumbnailAndDesc {
   display: flex;
-  height: 75%;
+  height: 58%;
+}
+
+.card.csmall .metadata {
+  display: flex;
+  width: 30%;
+  min-width: 15.5rem;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .card.csmall.overview {
@@ -1126,6 +1134,7 @@ button:active.small {
 }
 
 .card.csmall .thumbnailAndDesc .thumbnail {
+  width: 40%;
   height: 100%;
 }
 
@@ -1139,6 +1148,9 @@ button:active.small {
 .card.csmall .descContainer {
   width: 55%;
   padding: 0 0 0 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .card.csmall .title {
