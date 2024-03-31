@@ -52,7 +52,7 @@ class PlaylistFetcher {
 
   static async parseChannelPlaylistResponse(response, channelIdType) {
     const channelMetaData =
-      response.data[1].response.metadata.channelMetadataRenderer;
+      response.data.response.metadata.channelMetadataRenderer;
     const channelName = channelMetaData.title;
     const channelId = channelMetaData.externalId;
 
@@ -64,12 +64,12 @@ class PlaylistFetcher {
 
     const resolvers = [
       (response: PlaylistResponse) =>
-        response.data[1].response.contents.twoColumnBrowseResultsRenderer
-          .tabs[4].tabRenderer.content.sectionListRenderer.contents[0]
+        response.data.response.contents.twoColumnBrowseResultsRenderer.tabs[3]
+          .tabRenderer.content.sectionListRenderer.contents[0]
           .itemSectionRenderer.contents[0].gridRenderer,
       (response: any) =>
-        response.data[1].response.contents.twoColumnBrowseResultsRenderer
-          .tabs[2].tabRenderer.content.sectionListRenderer.contents[0]
+        response.data.response.contents.twoColumnBrowseResultsRenderer.tabs[2]
+          .tabRenderer.content.sectionListRenderer.contents[0]
           .itemSectionRenderer.contents[0].gridRenderer,
     ];
 

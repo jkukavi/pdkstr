@@ -57,11 +57,11 @@ class YoutubeGrabberHelper {
 
   async parseChannelVideoResponse(response, channelId, channelIdType) {
     const channelMetaData =
-      response.data[1].response.metadata.channelMetadataRenderer;
+      response.data.response.metadata.channelMetadataRenderer;
     const channelName = channelMetaData.title;
 
     const first =
-      response.data[1].response.contents.twoColumnBrowseResultsRenderer.tabs[1];
+      response.data.response.contents.twoColumnBrowseResultsRenderer.tabs[1];
 
     const second = first.tabRenderer.content.richGridRenderer.contents;
     const channelVideoData = second.map(
