@@ -43,10 +43,13 @@ router.get<string, { engine: Engine; id: string }, null>(
   async (req, res) => {
     const { engine, id } = req.params;
 
-    const { getDirectUrls } = engines[engine];
+    const { getDirectUrls, getItemInfo } = engines[engine];
 
     try {
+      const itemInfo = await getItemInfo(id);
       const urls = await getDirectUrls(id);
+
+      const itemName = `${itemInfo?.author?.name} - ${itemInfo.title}`;
 
       const urlInfo = urls[0];
 
@@ -61,7 +64,7 @@ router.get<string, { engine: Engine; id: string }, null>(
           (resp) => {
             res.setHeader(
               "Content-disposition",
-              `attachment; filename="song.mp3"`
+              `attachment; filename="${itemName}"`
             );
             res.setHeader("Content-type", "audio/mp3");
 
