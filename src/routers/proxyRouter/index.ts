@@ -38,7 +38,8 @@ router.get("/:url", (req: Request, res: Response) => {
   }
 });
 
-const sanitizeHeaderContent = (input) => input.replace(/[\0\n\r\v\f]/g, "_");
+const sanitizeHeaderContent = (input: string) =>
+  input.replace(/[\0\n\r\v\f]/g, "_");
 
 router.get<string, { engine: Engine; id: string }, null>(
   "/dl/:engine/:id",
@@ -54,6 +55,8 @@ router.get<string, { engine: Engine; id: string }, null>(
       const itemNameUnsanitized = `${itemInfo?.author?.name} - ${itemInfo.title}`;
 
       const itemName = sanitizeHeaderContent(itemNameUnsanitized);
+
+      console.log();
 
       const urlInfo = urls[0];
 
