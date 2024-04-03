@@ -38,6 +38,8 @@ router.get("/:url", (req: Request, res: Response) => {
   }
 });
 
+const sanitizeHeaderContent = (input) => input.replace(/[\0\n\r\v\f]/g, "_");
+
 router.get<string, { engine: Engine; id: string }, null>(
   "/dl/:engine/:id",
   async (req, res) => {
@@ -49,7 +51,9 @@ router.get<string, { engine: Engine; id: string }, null>(
       const itemInfo = await getItemInfo(id);
       const urls = await getDirectUrls(id);
 
-      const itemName = `${itemInfo?.author?.name} - ${itemInfo.title}`;
+      const itemNameUnsanitized = `${itemInfo?.author?.name} - ${itemInfo.title}`;
+
+      const itemName = sanitizeHeaderContent(itemNameUnsanitized);
 
       const urlInfo = urls[0];
 
