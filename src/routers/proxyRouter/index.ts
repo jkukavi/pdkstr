@@ -56,7 +56,7 @@ router.get<string, { engine: Engine; id: string }, null>(
 
       const itemName = sanitizeHeaderContent(itemNameUnsanitized);
 
-      console.log();
+      console.log(itemName);
 
       const urlInfo = urls[0];
 
