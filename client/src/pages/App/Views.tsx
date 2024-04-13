@@ -5,6 +5,7 @@ import History from "components/History";
 import Favourites from "components/Favourites";
 import Search from "components/Search";
 import Settings from "components/Settings";
+import Recommendations from "components/Recommendations";
 
 const Screens = () => {
   return (
@@ -17,6 +18,9 @@ const Screens = () => {
       </Route>
       <Route path="/settings">
         <Settings />
+      </Route>
+      <Route path="/recommendation">
+        <Recommendations />
       </Route>
       <Route path="/">
         <Search />

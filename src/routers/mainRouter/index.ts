@@ -1,5 +1,7 @@
 import express from "express";
 import engines from "./searchEngines";
+import { getRecommendations } from "./recommendations";
+import users from "models/user";
 
 const app = express.Router();
 
@@ -54,6 +56,31 @@ app.post<string, { engine: Engine }, any, { searchString: string }>(
     try {
       const suggestionsArray = await getSuggestions(searchString);
       res.status(200).json({ suggestionsArray });
+    } catch (error) {
+      res.status(400).json({ message: "summin fked" });
+    }
+  }
+);
+
+app.get<string, { engine: Engine }, any, { searchString: string }>(
+  "/recommendations",
+  async (req, res) => {
+    const id = res.locals.userId;
+    const history = await users.getMyRecentHistory(id, "item", "", 0);
+
+    try {
+      const recommendations = await getRecommendations(history);
+      let results = [];
+
+      for (const item of recommendations) {
+        const searchResults = await engines.youtube.search(item);
+        const firstFoundSearchResult = searchResults[0];
+        if (firstFoundSearchResult) {
+          results.push(firstFoundSearchResult);
+        }
+      }
+
+      res.status(200).json({ recommendations: results });
     } catch (error) {
       res.status(400).json({ message: "summin fked" });
     }

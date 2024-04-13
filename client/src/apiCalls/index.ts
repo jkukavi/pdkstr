@@ -195,6 +195,17 @@ export const getChannelItems = async (channelId: string, engine: Engine) => {
   return searchResultsArray;
 };
 
+export const getRecommendations = async () => {
+  const path = paths.recommendations;
+  try {
+    const response = await axios.get(path);
+
+    return response.data.recommendations as Item[];
+  } catch (e) {
+    notify("Unable to fetch recommendations.");
+  }
+};
+
 export const ping = async (engine: Engine): Promise<void> => {
   const path = paths.ping[engine];
 

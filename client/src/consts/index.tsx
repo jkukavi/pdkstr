@@ -45,6 +45,7 @@ export const paths = {
     youtube: "/health/youtube",
     soundcloud: "/health/soundcloud",
   },
+  recommendations: "/recommendations",
 } as const;
 
 export const buttonTextBySearchEngine: {

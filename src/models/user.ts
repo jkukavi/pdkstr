@@ -48,6 +48,27 @@ async function findByCredentials({
   });
 }
 
+async function getMyRecentHistory(
+  id: string,
+  itemType: ItemType,
+  search: string,
+  page = 0
+) {
+  return useDatabase(async (db) => {
+    const history: any = await db
+      .collection("history")
+      .find({
+        user_id: new ObjectId(id),
+        ...(itemType && { "data.type": itemType }),
+        ...(search && { "data.title": { $regex: search, $options: "i" } }),
+      })
+      .sort({ _id: -1 })
+      .limit(100)
+      .toArray();
+    return history.map((item: any) => item.data);
+  });
+}
+
 async function getMyHistory(
   id: string,
   itemType: ItemType,
@@ -125,6 +146,7 @@ export default {
   removeById,
   findByCredentials,
   getMyHistory,
+  getMyRecentHistory,
   getMyFavourites,
   addItemToHistory,
   addItemToFavourites,

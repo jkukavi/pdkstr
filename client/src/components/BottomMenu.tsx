@@ -4,6 +4,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import magnifier from "icons/magnifier.svg";
 import history from "icons/history.svg";
 import library from "icons/library.svg";
+import settings from "icons/settings.svg";
 import { useQueryStringWasUpdated } from "helpers/pushToParams";
 
 const NavLinkWithSearch = (props: React.ComponentProps<typeof NavLink>) => {
@@ -28,9 +29,15 @@ const BottomMenu = () => {
           <img src={magnifier} alt="alt"></img>
         </div>
       </NavLinkWithSearch>
+
       <NavLinkWithSearch to="/favourites" activeClassName="active">
         <div className="icon">
           <img src={library} alt="alt"></img>
+        </div>
+      </NavLinkWithSearch>
+      <NavLinkWithSearch exact to="/recommendation" activeClassName="active">
+        <div className="icon">
+          <img src={settings} alt="alt"></img>
         </div>
       </NavLinkWithSearch>
     </div>
