@@ -26,6 +26,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.556.0",
+    "@aws-sdk/lib-storage": "^3.556.0",
     "@mikivela/sc-scrappy": "^0.2.2",
     "@sendgrid/mail": "^7.6.0",
     "@types/fluent-ffmpeg": "^2.1.20",
@@ -43,7 +45,7 @@
     "heroku-client": "^3.1.0",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.2.2",
-    "node-fetch": "^2.6.7",
+    "node-fetch": "2",
     "request": "^2.88.2",
     "uuid": "^8.3.2",
     "youtube-sr": "^4.3.4",

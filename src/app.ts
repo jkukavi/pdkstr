@@ -40,7 +40,7 @@ app.use("/api/users/", auth, usersRouter);
 app.use("/api/service/", auth, serviceRouter);
 app.use("/api", auth, mainRouter);
 
-app.use("/proxy", proxyAuth, proxyRouter);
+app.use("/proxy", proxyRouter);
 
 //redirect to client
 app.use("*", (req, res) => {

@@ -1,7 +1,7 @@
 import app from "./app";
 import { connect } from "./db";
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8081;
 
 const initServer = async () => {
   await connect();

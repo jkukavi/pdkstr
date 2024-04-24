@@ -2,8 +2,58 @@ import express from "express";
 import engines from "./searchEngines";
 import { getRecommendations } from "./recommendations";
 import users from "models/user";
+import axios from "axios";
+
+const engineShorthands: {
+  [key in Engine]: string;
+} = {
+  youtube: "yt",
+  soundcloud: "sc",
+};
 
 const app = express.Router();
+
+const cacheItem = async ({ engine, id }: { engine: Engine; id: string }) => {
+  if (!process.env.STORAGE_SERVICE_URL) {
+    return null;
+  }
+
+  const getDirectUrls = {
+    soundcloud: async (id: string) => {
+      const directUrls = await engines.soundcloud.getDirectUrls(id);
+
+      return directUrls[0].url;
+    },
+    youtube: async () => `${process.env.PODKASTER_URL}/proxy/dl/cached/${id}`,
+  }[engine];
+
+  const directUrl = await getDirectUrls(id);
+
+  axios.post(`${process.env.STORAGE_SERVICE_URL}/api/mp3`, {
+    sourceKey: `${engineShorthands[engine]}.${id}`,
+    url: directUrl,
+  });
+};
+
+const getCachedUrl = async (sourceId: string) => {
+  let response = null;
+
+  if (!process.env.STORAGE_SERVICE_URL) {
+    return null;
+  }
+
+  try {
+    const rawResponse = await axios.get(
+      `${process.env.STORAGE_SERVICE_URL}/api/presigned/${sourceId}`
+    );
+
+    response = rawResponse.data;
+  } catch (e) {
+    response = null;
+  }
+
+  return response;
+};
 
 app.post<string, { engine: Engine }>("/url/:engine", async (req, res) => {
   const { engine } = req.params;
@@ -13,6 +63,24 @@ app.post<string, { engine: Engine }>("/url/:engine", async (req, res) => {
 
   const { id, fromUrl } = req.body;
   const { getDirectUrls } = engines[engine];
+
+  const cachedUrl = await getCachedUrl(`${engineShorthands[engine]}.${id}`);
+
+  if (cachedUrl) {
+    return res.status(200).json({
+      directUrl: [
+        {
+          url: cachedUrl,
+          mimeType: 'audio/webm; codecs="opus"',
+        },
+      ],
+    });
+  } else {
+    cacheItem({
+      engine,
+      id,
+    });
+  }
 
   try {
     const directUrl = await getDirectUrls(id, fromUrl);
@@ -25,6 +93,7 @@ app.post<string, { engine: Engine }>("/url/:engine", async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(400).json({ message: "Direct url not found" });
+  } finally {
   }
 });
 

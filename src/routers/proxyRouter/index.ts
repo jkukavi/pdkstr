@@ -4,8 +4,44 @@ import { https } from "follow-redirects";
 import ffmpeg from "fluent-ffmpeg";
 import { urlToHttpOptions, getDomainFromUrlString } from "utils";
 import engines from "routers/mainRouter/searchEngines";
+import ytdl from "ytdl-core";
 
 const router = express.Router();
+
+router.get("/dl/cached/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    // Create the stream from YouTube
+    const info = await ytdl.getInfo(id);
+    const format = ytdl.chooseFormat(info.formats, { quality: "lowestaudio" });
+
+    if (format && format.contentLength) {
+      res.setHeader("Content-Length", format.contentLength);
+    } else {
+      // If content length is not available, you might want to consider other options
+      console.log("Content length not available.");
+    }
+
+    // Set headers to inform the client about the type of content
+    res.setHeader("Content-Type", "audio/mpeg"); // Adjust according to the actual content type
+    res.setHeader("Content-Disposition", "inline;"); // This allows playing without downloading
+
+    const stream = ytdl.downloadFromInfo(info, { quality: "lowestaudio" });
+    stream.pipe(res);
+
+    // Handle stream events
+    stream.on("error", (err) => {
+      console.error("Stream error:", err);
+      res.status(404).send("Video not found or error streaming the video");
+    });
+  } catch (error) {
+    console.error("Error fetching video info:", error);
+    res.status(500).send("Failed to fetch video information");
+  }
+
+  // It's not necessary to manually send a response because piping handles this process
+});
 
 router.get("/:url", (req: Request, res: Response) => {
   const { url: encodedUrl } = req.params;
@@ -14,12 +50,11 @@ router.get("/:url", (req: Request, res: Response) => {
   const urlMeetsProxyCriteria =
     req.headers.range && getDomainFromUrlString(url) === "googlevideo";
 
-  if (urlMeetsProxyCriteria) {
+  if (true) {
     https
       .get(
         {
           ...httpsOptions,
-          headers: { range: req.headers.range },
         },
         (proxiedRes) => {
           res.writeHead(

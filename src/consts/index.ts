@@ -12,7 +12,12 @@ export const CSPPolicies = {
       "hips.hearstapps.com",
       "i1.sndcdn.com",
     ],
-    "media-src": ["'self'", "*.googlevideo.com", "*.sndcdn.com"],
+    "media-src": [
+      "'self'",
+      "*.googlevideo.com",
+      "*.sndcdn.com",
+      "*.backblazeb2.com",
+    ],
     "font-src": ["fonts.googleapis.com", "fonts.gstatic.com"],
     "style-src-elem": ["'self'", "fonts.googleapis.com", "fonts.gstatic.com"],
   },
