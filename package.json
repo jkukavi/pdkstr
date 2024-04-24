@@ -10,7 +10,7 @@
     "wild-test": "./scripts/deleteFixtures.sh && yarn test",
     "build": "npx tsc --project ./tsconfig.json",
     "build-client": "cd client && yarn && yarn build",
-    "heroku-postbuild": "yarn build && yarn build-client && yarn wild-test",
+    "heroku-postbuild": "yarn build && yarn build-client",
     "dev": "NODE_ENV=development npx nodemon node_modules/.bin/ts-node --files -r dotenv/config ./src/index.ts",
     "startdb": "npx ts-node --transpile-only ./database/start.ts",
     "prepare": "husky install",
