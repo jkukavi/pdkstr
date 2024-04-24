@@ -51,7 +51,8 @@ const getCachedUrl = async (sourceId: string) => {
 
   try {
     const rawResponse = await axios.get(
-      `${process.env.STORAGE_SERVICE_URL}/api/presigned/${sourceId}`
+      `${process.env.STORAGE_SERVICE_URL}/api/presigned/${sourceId}`,
+      { timeout: 2000 }
     );
 
     response = rawResponse.data;
