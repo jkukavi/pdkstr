@@ -31,12 +31,16 @@ const cacheItem = async ({ engine, id }: { engine: Engine; id: string }) => {
     youtube: async () => `${process.env.PODKASTER_URL}/proxy/dl/cached/${id}`,
   }[engine];
 
-  const directUrl = await getDirectUrls(id);
+  try {
+    const directUrl = await getDirectUrls(id);
 
-  axios.post(`${process.env.STORAGE_SERVICE_URL}/api/mp3`, {
-    sourceKey: `${engineShorthands[engine]}.${id}`,
-    url: directUrl,
-  });
+    axios.post(`${process.env.STORAGE_SERVICE_URL}/api/mp3`, {
+      sourceKey: `${engineShorthands[engine]}.${id}`,
+      url: directUrl,
+    });
+  } catch (e) {
+    console.log("unable to start caching on storage-service");
+  }
 };
 
 const getCachedUrl = async (sourceId: string) => {
