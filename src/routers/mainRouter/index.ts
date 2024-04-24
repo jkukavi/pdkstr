@@ -18,6 +18,10 @@ const cacheItem = async ({ engine, id }: { engine: Engine; id: string }) => {
     return null;
   }
 
+  const url = `${process.env.PODKASTER_URL}/proxy/dl/cached/${id}`;
+
+  console.log(url);
+
   const getDirectUrls = {
     soundcloud: async (id: string) => {
       const directUrls = await engines.soundcloud.getDirectUrls(id);
