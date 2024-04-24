@@ -17,21 +17,20 @@ const cacheItem = async ({ engine, id }: { engine: Engine; id: string }) => {
   if (!process.env.STORAGE_SERVICE_URL) {
     return null;
   }
-
-  const url = `${process.env.PODKASTER_URL}/proxy/dl/cached/${id}`;
-
-  console.log(url);
-
-  const getDirectUrls = {
-    soundcloud: async (id: string) => {
-      const directUrls = await engines.soundcloud.getDirectUrls(id);
-
-      return directUrls[0].url;
-    },
-    youtube: async () => `${process.env.PODKASTER_URL}/proxy/dl/cached/${id}`,
-  }[engine];
-
   try {
+    const url = `${process.env.PODKASTER_URL}/proxy/dl/cached/${id}`;
+
+    console.log(url);
+
+    const getDirectUrls = {
+      soundcloud: async (id: string) => {
+        const directUrls = await engines.soundcloud.getDirectUrls(id);
+
+        return directUrls[0].url;
+      },
+      youtube: async () => `${process.env.PODKASTER_URL}/proxy/dl/cached/${id}`,
+    }[engine];
+
     const directUrl = await getDirectUrls(id);
 
     axios.post(`${process.env.STORAGE_SERVICE_URL}/api/mp3`, {
