@@ -2,11 +2,6 @@
   "name": "clientts",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "16.20.2",
-    "yarn": "1.22.22",
-    "npm": "8.19.4"
-  },
   "dependencies": {
     "@mikivela/plyr": "^0.2.6",
     "@originjs/vite-plugin-commonjs": "^1.0.3",
