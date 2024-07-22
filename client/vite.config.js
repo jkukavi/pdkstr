@@ -13,7 +13,7 @@ export default defineConfig({
   server: {
     proxy: {
       "^/api|/rt|/login|/logout|/proxy": {
-        target: "http://localhost:8080",
+        target: "https://podkaster.herokuapp.com/",
         changeOrigin: true,
         secure: false,
         ws: true,
