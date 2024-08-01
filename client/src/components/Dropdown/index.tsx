@@ -1,6 +1,61 @@
 import React, { useRef, useState } from "react";
-
 import chevron from "icons/chevron.svg";
+import styled from "styled-components";
+
+const DropDownContainer = styled.div`
+  position: relative;
+  width: fit-content;
+  height: 2rem;
+  margin-right: 0.3rem;
+  background-color: #34343;
+`;
+
+const DropDownShelf = styled.div`
+  border: 1px solid #525252;
+  box-shadow: 0px 1px 3px 0px #03030363;
+  border-top: none;
+  background-color: #343434;
+  border-radius: 0 0 6px 6px;
+  overflow: hidden;
+`;
+
+const DropDownIcon = styled.div`
+  cursor: pointer;
+  padding: 0 0.5rem;
+  height: 2rem;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:focus {
+    outline: none;
+  }
+  & img {
+    height: 100%;
+  }
+  & .chevron {
+    width: 0.8rem;
+    height: 0.8rem;
+    margin-left: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+`;
+
+const DropDownIconActiveStyle = styled(DropDownIcon)`
+  border-radius: 2px 2px 0 0;
+  border: 1px solid #525252;
+  & > *:first-child {
+    filter: drop-shadow(0px 0px 1px #131313);
+  }
+  & img:last-child {
+    filter: contrast(0.2);
+  }
+  &:not(.active):hover {
+    background-color: #6e6e6e;
+  }
+`;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ReactComponent = (props: any) => JSX.Element;
@@ -43,41 +98,46 @@ const DropDown = ({
   };
 
   return (
-    <div className={"dropDownContainer"}>
-      <div className={"dropDownIcon active"} tabIndex={0} onClick={handleClick}>
-        {frontItem}
-
-        <img className="chevron" src={chevron} alt="alt" />
-      </div>
-      {dropdown && (
-        <div
-          //tabIndex="-1" so it can catch focus, and therefore trigger onblur
+    <>
+      <DropDownContainer>
+        <DropDownIconActiveStyle
+          // className={"dropDownIcon active"}
           tabIndex={0}
-          onBlur={() => {
-            setDropdown(false);
-            blurHappened.current = true;
-            setTimeout(() => {
-              blurHappened.current = false;
-            }, 500);
-          }}
-          ref={dropDownElement}
-          className="dropDown"
+          onClick={handleClick}
         >
-          {dropdownItems.map(({ component, onClick }, i) => (
-            <div
-              className="dropDownIcon"
-              key={i}
-              onClick={() => {
-                setDropdown(false);
-                onClick();
-              }}
-            >
-              {component}
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
+          {frontItem}
+
+          <img className="chevron" src={chevron} alt="alt" />
+        </DropDownIconActiveStyle>
+        {dropdown && (
+          <DropDownShelf
+            //tabIndex="-1" so it can catch focus, and therefore trigger onblur
+            tabIndex={0}
+            onBlur={() => {
+              setDropdown(false);
+              blurHappened.current = true;
+              setTimeout(() => {
+                blurHappened.current = false;
+              }, 500);
+            }}
+            ref={dropDownElement}
+          >
+            {dropdownItems.map(({ component, onClick }, i) => (
+              <DropDownIcon
+                className="dropDownIcon"
+                key={i}
+                onClick={() => {
+                  setDropdown(false);
+                  onClick();
+                }}
+              >
+                {component}
+              </DropDownIcon>
+            ))}
+          </DropDownShelf>
+        )}
+      </DropDownContainer>
+    </>
   );
 };
 
