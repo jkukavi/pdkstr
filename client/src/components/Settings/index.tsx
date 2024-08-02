@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { theme } from "consts/theme";
+import styled from "styled-components";
 
 import { SearchEngineIcon } from "consts";
 import { ping, tryRestartingService } from "apiCalls";
@@ -14,43 +15,167 @@ import SpinningLoader from "components/Loaders";
 
 const engineArray: Engine[] = ["youtube", "soundcloud"];
 
+// styled.css
+// .randomClassName:hover span {
+//   width: 5rem;
+// }
+
+// .randomClassName:hover {
+//   box-shadow: 2px 1px 5px black;
+// }
+
+//.randomClassName
+
+const Button = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 2rem;
+  will-change: transform;
+  border: none;
+  text-decoration: none;
+  outline: none;
+  background-color: ${theme.button.backgroundColor};
+  font-weight: 500;
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px black;
+  transition: box-shadow 0.2s;
+  margin-bottom: 1rem;
+
+  &:hover {
+    box-shadow: 2px 1px 5px black;
+  }
+`;
+
+const BackButton = styled(Button)`
+  & span {
+    width: 0;
+    transition: width 0.3s;
+  }
+
+  &:hover span {
+    width: 5rem;
+  }
+`;
+
 const Settings = () => {
   const [healthExpanded, setHealthExpanded] = useState<boolean>(false);
   const history = useHistory();
   return (
-    <div className="settings">
-      <button onClick={() => history.goBack()}>
+    <div
+      className="settings"
+      style={{
+        paddingLeft: " 1rem",
+        paddingTop: "1rem",
+        height: " 100%",
+        background: " #c7c7c7",
+      }}
+    >
+      <BackButton onClick={() => history.goBack()}>
         <img
           src={chevron}
           style={{ transform: "rotate(90deg)" }}
           alt="alt"
         ></img>
-        <span>Return</span>
-      </button>
-      <ProxySettings />
-      <CardSizeDropdown />
-      <div style={{ marginTop: "1rem" }}>
-        <h2>Health checks of services:</h2>
-        {healthExpanded ? (
-          <ServicesHealthCheck />
-        ) : (
-          <button
-            onClick={() => {
-              setHealthExpanded(true);
+        <span
+          style={{
+            position: "relative",
+            top: "-3px",
+            fontSize: "1.2rem",
+            lineHeight: "1.2rem",
+            overflow: "hidden",
+            whiteSpace: "nowrap",
+          }}
+        >
+          Return
+        </span>
+      </BackButton>
+      {/*added div*/}
+      {/*added a headline*/}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          rowGap: "1rem",
+          border: "1px solid red",
+        }}
+      >
+        <h2
+          style={{
+            fontSize: "24px",
+            fontWeight: "500",
+            textTransform: "uppercase",
+            color: " #202220",
+          }}
+        >
+          Settings
+        </h2>
+        <ProxySettings />
+        <CardSizeDropdown />
+        <div style={{ marginTop: "1rem" }}>
+          <h2
+            style={{
+              fontWeight: "500",
+              fontSize: "21px",
+              textTransform: "uppercase",
+              color: "#202220",
             }}
           >
-            Health check
-          </button>
-        )}
-        {
-          <button
-            onClick={() => {
-              tryRestartingService();
-            }}
-          >
-            Restart Service
-          </button>
-        }
+            Health checks of services:
+          </h2>
+          {healthExpanded ? (
+            <ServicesHealthCheck />
+          ) : (
+            <button
+              onClick={() => {
+                setHealthExpanded(true);
+              }}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: " flex-start",
+                height: "2rem",
+                willChange: "transform",
+                border: "none",
+                textDecoration: " none",
+                outline: "none",
+                backgroundColor: "#393838",
+                fontWeight: "500",
+                borderRadius: "3px",
+                boxShadow: " 1px 1px 2px black",
+                transition: "box-shadow 0.2s",
+                marginBottom: " 1rem",
+              }}
+            >
+              Health check
+            </button>
+          )}
+          {
+            <button
+              onClick={() => {
+                tryRestartingService();
+              }}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: " flex-start",
+                height: "2rem",
+                willChange: "transform",
+                border: "none",
+                textDecoration: " none",
+                outline: "none",
+                backgroundColor: "#393838",
+                fontWeight: "500",
+                borderRadius: "3px",
+                boxShadow: " 1px 1px 2px black",
+                transition: "box-shadow 0.2s",
+                marginBottom: " 1rem",
+              }}
+            >
+              Restart Service
+            </button>
+          }
+        </div>
       </div>
     </div>
   );
@@ -237,3 +362,25 @@ const HealthStatus = ({
     );
   } else return <></>;
 };
+
+{
+  /* Settings styles
+
+const SettingsContainer = styled.div`
+  padding-left: 1rem;
+  comment out margin-top, added padding-top
+  margin-top: 1rem;
+  padding-top: 1rem;
+  change on height
+  height: 100%;
+  background: #c7c7c7;
+`;
+
+const SettingsInnerContainer = styled.div`
+  display: "flex";
+  flex-direction: "column";
+  row-gap: "1rem";
+  border: "1px solid red";
+`;
+*/
+}
