@@ -7,14 +7,14 @@ const DropDownContainer = styled.div`
   width: fit-content;
   height: 2rem;
   margin-right: 0.3rem;
-  background-color: #34343;
+  background-color: ${theme.DropDownContainer.backgroundColor};
 `;
 
 const DropDownShelf = styled.div`
-  border: 1px solid #525252;
-  box-shadow: 0px 1px 3px 0px #03030363;
+  border: 1px solid ${theme.DropDownShelf.border};
+  box-shadow: 0px 1px 3px 0px ${theme.DropDownShelf.boxShadow};
   border-top: none;
-  background-color: #343434;
+  background-color: ${theme.DropDownShelf.backgroundColor};
   border-radius: 0 0 6px 6px;
   overflow: hidden;
 `;
@@ -45,15 +45,15 @@ const DropDownIcon = styled.div`
 
 const DropDownIconActiveStyle = styled(DropDownIcon)`
   border-radius: 2px 2px 0 0;
-  border: 1px solid #525252;
+  border: 1px solid ${theme.DropDownIconActiveStyle.border};
   & > *:first-child {
-    filter: drop-shadow(0px 0px 1px #131313);
+    filter: drop-shadow(0px 0px 1px ${theme.DropDownIconActiveStyle.filter});
   }
   & img:last-child {
     filter: contrast(0.2);
   }
   &:not(.active):hover {
-    background-color: #6e6e6e;
+    background-color: ${theme.DropDownIconActiveStyle.backgroundColor};
   }
 `;
 
