@@ -15,17 +15,6 @@ import SpinningLoader from "components/Loaders";
 
 const engineArray: Engine[] = ["youtube", "soundcloud"];
 
-// styled.css
-// .randomClassName:hover span {
-//   width: 5rem;
-// }
-
-// .randomClassName:hover {
-//   box-shadow: 2px 1px 5px black;
-// }
-
-//.randomClassName
-
 const Button = styled.button`
   display: flex;
   align-items: center;
@@ -35,7 +24,7 @@ const Button = styled.button`
   border: none;
   text-decoration: none;
   outline: none;
-  background-color: ${theme.button.backgroundColor};
+  background-color: #393838;
   font-weight: 500;
   border-radius: 3px;
   box-shadow: 1px 1px 2px black;
@@ -63,7 +52,7 @@ const Settings = () => {
   const history = useHistory();
   return (
     <div
-      className="settings"
+      //className="settings"
       style={{
         paddingLeft: " 1rem",
         paddingTop: "1rem",
@@ -97,7 +86,6 @@ const Settings = () => {
           display: "flex",
           flexDirection: "column",
           rowGap: "1rem",
-          border: "1px solid red",
         }}
       >
         <h2
@@ -105,7 +93,6 @@ const Settings = () => {
             fontSize: "24px",
             fontWeight: "500",
             textTransform: "uppercase",
-            color: " #202220",
           }}
         >
           Settings
@@ -118,7 +105,6 @@ const Settings = () => {
               fontWeight: "500",
               fontSize: "21px",
               textTransform: "uppercase",
-              color: "#202220",
             }}
           >
             Health checks of services:
@@ -126,54 +112,22 @@ const Settings = () => {
           {healthExpanded ? (
             <ServicesHealthCheck />
           ) : (
-            <button
+            <Button
               onClick={() => {
                 setHealthExpanded(true);
               }}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: " flex-start",
-                height: "2rem",
-                willChange: "transform",
-                border: "none",
-                textDecoration: " none",
-                outline: "none",
-                backgroundColor: "#393838",
-                fontWeight: "500",
-                borderRadius: "3px",
-                boxShadow: " 1px 1px 2px black",
-                transition: "box-shadow 0.2s",
-                marginBottom: " 1rem",
-              }}
             >
               Health check
-            </button>
+            </Button>
           )}
           {
-            <button
+            <Button
               onClick={() => {
                 tryRestartingService();
               }}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: " flex-start",
-                height: "2rem",
-                willChange: "transform",
-                border: "none",
-                textDecoration: " none",
-                outline: "none",
-                backgroundColor: "#393838",
-                fontWeight: "500",
-                borderRadius: "3px",
-                boxShadow: " 1px 1px 2px black",
-                transition: "box-shadow 0.2s",
-                marginBottom: " 1rem",
-              }}
             >
               Restart Service
-            </button>
+            </Button>
           }
         </div>
       </div>
