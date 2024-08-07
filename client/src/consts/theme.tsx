@@ -6,6 +6,8 @@ const colors = {
   gray75: " #4b4b4b",
   gray85: "#525252",
   gray90: "#3d3d3d",
+  gray60: " #6b6b6b",
+  gray80: " #343434",
   gray100: "#393838",
   gray210: "#343434",
   darkGray95: " #292929",
@@ -66,6 +68,10 @@ export const theme = {
   loaders: {
     otherBorderColor: colors.orange50,
     tinyBorderColor: colors.purple50,
+  },
+  menu: {
+    backgroundColor: colors.gray80,
+    borders: colors.gray60,
   },
 } as const;
 
