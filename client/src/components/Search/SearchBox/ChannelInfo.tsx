@@ -13,8 +13,8 @@ import {
 import { SearchBox } from ".";
 import { useRouteMatch } from "react-router-dom";
 import { notify } from "components/Notifications";
-import MicroLoader from "components/Loaders/MicroLoader";
 import { isTemplateSpan } from "typescript";
+import Loaders from "components/Loaders";
 
 const ChannelInfoContainer = styled.div`
   margin-top: 0rem;
@@ -157,7 +157,7 @@ const ChannelInfo = ({
       <div style={{ width: "100%", borderTop: "1px solid #7d7d7d" }}></div>
       <ChannelInfoContainer>
         {loading ? (
-          <MicroLoader />
+          <Loaders.micro />
         ) : (
           <ChannelInfoSubcontainer>
             <img

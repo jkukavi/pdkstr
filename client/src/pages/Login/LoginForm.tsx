@@ -4,6 +4,7 @@ import { Link, Route, useRouteMatch } from "react-router-dom";
 import { useAuthContext } from "contexts/Auth";
 
 import { notify } from "components/Notifications";
+import Loaders from "components/Loaders";
 
 const LoginForm = ({ goBack }: { goBack: VoidFunction }) => {
   const [loading, setLoading] = useState(false);
@@ -56,13 +57,7 @@ const LoginForm = ({ goBack }: { goBack: VoidFunction }) => {
         </div>
       </Route>
       <div className="item">
-        <button>
-          {loading ? (
-            <div style={{ margin: "auto" }} className="tinyloader" />
-          ) : (
-            "Log in"
-          )}
-        </button>
+        <button>{loading ? <Loaders.tiny /> : "Log in"}</button>
 
         <Link to={`${url}/guest-code`}>You have a guest code?</Link>
 

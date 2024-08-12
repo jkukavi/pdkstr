@@ -908,27 +908,30 @@ button:active.small {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-
+/*
 .loading {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 3rem;
 }
-
+  */
+/*
 .loading.array {
   margin: 6rem;
   display: flex;
   align-items: flex-start;
 }
-
+  */
+/*
 .loading.audio {
   display: flex;
   align-items: flex-start;
   position: relative;
   top: -0.5rem;
 }
-
+  */
+/*
 .loader {
   border: 14px solid transparent;
   border-radius: 50%;
@@ -968,6 +971,7 @@ button:active.small {
   animation: spin 1.4s linear infinite;
   filter: drop-shadow(1px 1px 0.8px #000000);
 }
+*/
 
 /* Safari */
 @-webkit-keyframes spin {

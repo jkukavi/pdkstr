@@ -1,28 +1,36 @@
 import React from "react";
 import styled from "styled-components";
 
-//function Loaders() {}
+const basic = () => {
+  /* const Loading = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    margin: 6rem;
+    //&.array {
+    //align-items: flex-start;
+    // }
+  `;
+  */
 
-function Loader() {
   return (
     <div
-      className="loading array"
+      /*className="loading array"*/
       //untill height 3rem for loading class,after that for array
       style={{
         display: "flex",
-        justifyContent: " center",
-        alignItems: " center",
-        height: " 3rem",
-        //
-        margin: "6rem",
-        //display: 'flex',
-        //alignItems: 'flex-start',
+        justifyContent: "center",
+        alignItems: "center",
+        height: "3rem",
+        margin: "auto",
+        //alignItems: "flex-start",
       }}
     >
       <div
         //className="loader"
         style={{
-          border: " 14px solid transparent",
+          border: "14px solid transparent",
           borderRadius: "50%",
           borderTop: "14px solid #db9134",
           width: "300px",
@@ -33,12 +41,12 @@ function Loader() {
       />
     </div>
   );
-}
+};
 
-function MiniLoader() {
+const mini = () => {
   return (
     <div
-      className="audioLoaderContainer"
+      //className="audioLoaderContainer"
       style={{
         display: "flex",
         justifyContent: "center",
@@ -60,9 +68,9 @@ function MiniLoader() {
       />
     </div>
   );
-}
+};
 
-function MicroLoader() {
+const micro = () => {
   return (
     <div
       //className="microloader"
@@ -77,9 +85,9 @@ function MicroLoader() {
       }}
     />
   );
-}
+};
 
-function TinyLoader() {
+const tiny = () => {
   return (
     <div
       //className="tinyloader"
@@ -95,6 +103,6 @@ function TinyLoader() {
       }}
     />
   );
-}
+};
 
-export default { /*Loaders,*/ Loader, MiniLoader, MicroLoader, TinyLoader };
+export default { basic, mini, micro, tiny };

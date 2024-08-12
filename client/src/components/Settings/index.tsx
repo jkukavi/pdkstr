@@ -4,7 +4,8 @@ import { useHistory } from "react-router-dom";
 
 import { SearchEngineIcon } from "consts";
 import { ping, tryRestartingService } from "apiCalls";
-import MicroLoader from "components/Loaders/MicroLoader";
+//import MicroLoader from "components/Loaders/MicroLoader";
+import Loaders from "components/Loaders";
 
 import chevron from "icons/chevron.svg";
 import "./index.css";
@@ -165,7 +166,7 @@ const HealthOf = ({ engine }: { engine: Engine }) => {
     return (
       <Flex>
         <SearchEngineIcon engine={engine} size="m" />
-        <MicroLoader />
+        <Loaders.micro />
       </Flex>
     );
 

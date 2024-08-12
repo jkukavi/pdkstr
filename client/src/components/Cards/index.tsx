@@ -4,7 +4,8 @@ import { allowedCardTypes } from "consts";
 
 import { SearchBox } from "components/Search/SearchBox";
 import cardTypesBySize from "./cardTypesBySize";
-import Loader from "components/Loaders/Loader";
+//import Loader from "components/Loaders/Loader";
+import Loaders from "components/Loaders";
 import { Route, Switch } from "react-router-dom";
 import useLocalStorage from "hooks/useLocalStorage";
 
@@ -86,7 +87,7 @@ const Cards = ({
         ref={scrollableDivRef}
       >
         {searchArray && cards}
-        {loading && <Loader />}
+        {loading && <Loaders.basic />}
       </div>
     </>
   );

@@ -4,6 +4,7 @@ import { Route, Switch, useLocation, useHistory } from "react-router-dom";
 import { useAuthContext } from "contexts/Auth";
 
 import Notifications from "components/Notifications";
+import Loaders from "components/Loaders";
 
 import Register from "./Register";
 import LoginForm from "./LoginForm";
@@ -41,9 +42,11 @@ const LoginPage = () => {
   if (loading && user === null) {
     return (
       <div className="loginPageContainer">
-        <div className="loading array">
+        <Loaders.basic />
+        {/*<div className="loading array">
           <div className="loader" />
         </div>
+          */}
       </div>
     );
   }

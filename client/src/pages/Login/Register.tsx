@@ -4,6 +4,7 @@ import axios from "axios";
 
 import parseFormData from "helpers/parseFormData";
 import { notify } from "components/Notifications";
+import Loaders from "components/Loaders";
 
 const Register = () => {
   const [state, setState] = useState({ loading: false, success: false });
@@ -62,11 +63,7 @@ const Register = () => {
       </div>
       <div className="item">
         <button style={{ width: "10rem" }}>
-          {state.loading ? (
-            <div style={{ margin: "auto" }} className="tinyloader" />
-          ) : (
-            "Register"
-          )}
+          {state.loading ? <Loaders.tiny /> : "Register"}
         </button>
       </div>
       <Link to={"/login-page"}>Back to login</Link>

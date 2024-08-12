@@ -8,7 +8,8 @@ import useConnectPropsToObserver from "hooks/useConnectPropsToObserver";
 import { Audio as AudioElement } from "@mikivela/plyr/dist";
 import "@mikivela/plyr/dist/index.css";
 import { notify } from "components/Notifications";
-import MiniLoader from "components/Loaders/MiniLoader";
+//import MiniLoader from "components/Loaders/MiniLoader";
+import Loaders from "components/Loaders";
 import { ExpandButton } from "../ExpandableContainer";
 
 import { PlayingQueue } from "../PlayingQueue";
@@ -164,7 +165,7 @@ const PlayerComponent = () => {
   const shouldTryDirectly = !shouldOnlyProxy;
 
   if (playerInactive) return null;
-  if (audioLoading || !directUrl || !listeningTo) return <MiniLoader />;
+  if (audioLoading || !directUrl || !listeningTo) return <Loaders.mini />;
   return (
     <AudioElement
       onEnded={onAudioEnded}
