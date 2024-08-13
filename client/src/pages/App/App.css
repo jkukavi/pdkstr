@@ -287,7 +287,7 @@ audio {
   align-items: center;
   justify-content: center;
 }
-
+/*
 .searchBoxFixedContainer {
   position: fixed;
   height: 0;
@@ -309,7 +309,7 @@ audio {
   transition: transform 1s;
   transform: translate(0, -2.7rem);
 }
-
+*/
 .searchBoxContainer.collapsed2x {
   transition: transform 1s;
   transform: translate(0, -5.5rem);
@@ -630,7 +630,7 @@ audio {
 .suggestion:hover {
   background-color: #4b4b4b;
 }
-
+/*
 .searchBox {
   position: relative;
   display: flex;
@@ -643,7 +643,8 @@ audio {
 
   z-index: 1;
 }
-
+  */
+/*
 .inputHolder {
   width: 40vw;
   height: 2rem;
@@ -667,16 +668,18 @@ audio {
 .input:focus {
   border: 1px solid salmon;
 }
+*/
 
 @media screen and (max-width: 600px) {
   /* .input:focus {
     width: calc(100vw - 67px);
   } */
-
+  /*
   .inputHolder {
     flex-grow: 1;
     position: static;
   }
+    */
 
   .searchBox {
     flex-wrap: nowrap;
@@ -695,6 +698,7 @@ audio {
   align-items: center;
 }
 
+/*From here*/
 .button.search {
   height: 2rem;
 }
@@ -715,6 +719,7 @@ audio {
   background-color: unset;
   cursor: pointer;
 }
+/*until here*/
 
 .dropDownContainer {
   position: relative;

@@ -11,6 +11,11 @@ export const theme = {
   notifications: {
     backgroundColor: colors.gray210,
   },
+  searchbox: {
+    icon: {
+      boxShadowColor: colors.gray100,
+    },
+  },
 } as const;
 
 export type Theme = typeof theme;

@@ -7,6 +7,19 @@ import { SearchBox } from "../";
 import { useHistory } from "react-router-dom";
 import { getQueryParams } from "helpers/pushToParams";
 import queryString from "query-string";
+import styled from "styled-components";
+
+const SearchBoxForm = styled.form`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0.3rem 0 0.3rem;
+  padding-left: calc(100vw - 100%);
+  row-gap: 0.3rem;
+  min-height: 2rem;
+  z-index: 1;
+`;
 
 const Form = () => {
   const smallScreen = useScreenSize();
@@ -22,8 +35,8 @@ const Form = () => {
   };
 
   return (
-    <form
-      className="searchBox"
+    <SearchBoxForm
+      /*className="searchBox"*/
       id="searchForm"
       autoComplete="off"
       onSubmit={(e: any) => {
@@ -34,7 +47,7 @@ const Form = () => {
       }}
     >
       <FormContent />
-    </form>
+    </SearchBoxForm>
   );
 };
 

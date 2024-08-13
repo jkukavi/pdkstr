@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { styled, css } from "styled-components";
 
 import { addRandomKey, debounce } from "helpers";
 
@@ -14,6 +15,54 @@ type Suggestion = {
   string: string;
   key: string;
 };
+
+const InputHolder = styled.div`
+  width: 40vw;
+  height: 2rem;
+  position: relative;
+
+  @media screen and (max-width: 600px) {
+    flex-grow: 1;
+    position: static;
+  }
+
+  & input {
+    width: 100%;
+    height: 100%;
+    font-size: 1.1rem;
+    color: #c7c7c7;
+    padding-left: 12px;
+    outline: none;
+    border: none;
+    background-color: #222222;
+    border-radius: 2px 0 0 2px;
+    border: 1px solid rgb(82, 82, 82);
+    transition: width 0.5s;
+  }
+
+  & input:focus {
+    border: 1px solid salmon;
+  }
+`;
+
+const SuggestionsContainer = styled.div`
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  background-color: #292929;
+  box-shadow: 1px 2px 3px #000000c2;
+  bottom: 0;
+  left: 0;
+  transform: translate(0, 100%);
+  padding: 0.4rem 0;
+
+  & p {
+  }
+`;
+
+//suggestion className on line 147.
 
 const InputWithSuggestions = () => {
   const [suggestions, setSuggestions] = useState<{
@@ -97,9 +146,9 @@ const InputWithSuggestions = () => {
   };
 
   return (
-    <div className="inputHolder">
+    <InputHolder /*className="inputHolder"*/>
       <input
-        className="input"
+        /* className="input"*/
         name="searchString"
         id="searchInput"
         placeholder={"Search"}
@@ -115,20 +164,20 @@ const InputWithSuggestions = () => {
         }}
       />
       {suggestions.show && !!suggestions.array.length && (
-        <div className="suggestionsContainer">
+        <SuggestionsContainer /*className="suggestionsContainer"*/>
           {suggestions.array.map((suggestion) => (
             <p
               key={suggestion.key}
-              className="suggestion"
+              className="suggestion" /*suggestion*/
               onMouseDown={onMouseDownSuggestion}
               onMouseUp={submitSuggestion}
             >
               {suggestion.string}
             </p>
           ))}
-        </div>
+        </SuggestionsContainer>
       )}
-    </div>
+    </InputHolder>
   );
 };
 
