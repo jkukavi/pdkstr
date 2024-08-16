@@ -19,6 +19,11 @@ const SearchBoxForm = styled.form`
   row-gap: 0.3rem;
   min-height: 2rem;
   z-index: 1;
+
+  @media screen and (max-width: 600px) {
+    flex-wrap: nowrap;
+    padding-left: 0.2rem;
+  }
 `;
 
 const Form = () => {

@@ -681,11 +681,12 @@ audio {
     position: static;
   }
     */
-
+  /*
   .searchBox {
     flex-wrap: nowrap;
     padding-left: 0.2rem;
   }
+    */
 }
 
 .searchBox .button {
@@ -1003,7 +1004,7 @@ button:active.small {
   border-radius: 50%;
   cursor: pointer;
 }
-
+/*
 .channelInfoContainer {
   margin-top: 0rem;
   height: 2.7rem;
@@ -1012,18 +1013,21 @@ button:active.small {
   align-items: center;
   margin-right: 0.1rem;
 }
-
+  */
+/*
 .channelInfo {
   font-size: 13px;
   display: flex;
   align-items: center;
   flex: 0 1 fit-content;
-  /* important if we want the text to collapse */
-  min-width: 0;
+  */
+/* important if we want the text to collapse */
+/* min-width: 0;/*
   /* or */
-  /* overflow: hidden;, but min-width makes more sense to me */
-}
+/* overflow: hidden;, but min-width makes more sense to me */
+/*}*/
 
+/*
 .channelInfo p {
   line-height: 0.9rem;
   color: #d0d0d0;
@@ -1031,14 +1035,15 @@ button:active.small {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
+*/
+/*
 .channelInfo img {
   border-radius: 50%;
   margin-right: 0.5rem;
   height: 2.3rem;
   width: 2.3rem;
 }
-
+*/
 .channelInfoContainer > .button.icon::after {
   content: none !important;
 }

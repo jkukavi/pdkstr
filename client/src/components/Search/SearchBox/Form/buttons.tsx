@@ -78,7 +78,7 @@ export const VoiceSearchButton = () => (
 
 export const ShowInputButton = ({ onClick }: { onClick: VoidFunction }) => (
   <MicrophoneButton
-    /*className="button microphone"*/ type="button"
+    /*className="button microphone"*/ /*type="button"*/
     onClick={onClick}
   >
     <img src={magnifier} alt="alt" />
