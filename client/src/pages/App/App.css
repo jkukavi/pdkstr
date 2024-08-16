@@ -605,7 +605,7 @@ audio {
   transform: translate(0, 100%);
   padding: 0.4rem 0;
 }
-
+/*
 @media screen and (max-height: 350px) {
   .suggestionsContainer {
     max-height: 100vh;
@@ -630,6 +630,7 @@ audio {
 .suggestion:hover {
   background-color: #4b4b4b;
 }
+  */
 /*
 .searchBox {
   position: relative;

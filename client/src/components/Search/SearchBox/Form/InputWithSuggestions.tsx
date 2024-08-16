@@ -58,11 +58,31 @@ const SuggestionsContainer = styled.div`
   transform: translate(0, 100%);
   padding: 0.4rem 0;
 
+  @media screen and (max-height: 350px) {
+    max-height: 100vh;
+    z-index: 10;
+  }
+
   & p {
+    cursor: pointer;
+    will-change: transform;
+    font-size: 1.1rem;
+    padding: 0.5rem 0.5rem;
+    overflow: hidden;
+    color: #c7c7c7;
+
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    transform: translate(0);
+  }
+
+  &p:hover {
+    background-color: #4b4b4b;
   }
 `;
 
-//suggestion className on line 147.
+//suggestion className on line 191.
 
 const InputWithSuggestions = () => {
   const [suggestions, setSuggestions] = useState<{
@@ -168,7 +188,7 @@ const InputWithSuggestions = () => {
           {suggestions.array.map((suggestion) => (
             <p
               key={suggestion.key}
-              className="suggestion" /*suggestion*/
+              // className="suggestion" /*suggestion*/
               onMouseDown={onMouseDownSuggestion}
               onMouseUp={submitSuggestion}
             >
