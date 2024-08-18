@@ -22,6 +22,13 @@ const ChannelInfoContainer = styled.div`
   display: flex;
   align-items: center;
   margin-right: 0.1rem;
+
+  & img {
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    height: 2.3rem;
+    width: 2.3rem;
+  }
 `;
 
 const ChannelInfoSubcontainer = styled.div`
@@ -39,12 +46,6 @@ const ChannelInfoSubcontainer = styled.div`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-  &img {
-    border-radius: 50%;
-    margin-right: 0.5rem;
-    height: 2.3rem;
-    width: 2.3rem;
   }
 `;
 
@@ -121,7 +122,7 @@ const ChannelInfo = ({
   return (
     <div>
       <div style={{ width: "100%", borderTop: "1px solid #7d7d7d" }}></div>
-      <ChannelInfoContainer /*className="channelInfoContainer"*/>
+      <div className="channelInfoContainer">
         {loading ? (
           <MicroLoader />
         ) : (
@@ -132,6 +133,12 @@ const ChannelInfo = ({
                 (e.target as HTMLImageElement).src = defaultPuppyImg;
               }}
               alt="alt"
+              style={{
+                borderRadius: "50%",
+                marginRight: "0.5rem",
+                height: "2.3rem",
+                width: " 2.3rem",
+              }}
             ></img>
             <p>
               {channelInfo.name}
@@ -166,7 +173,7 @@ const ChannelInfo = ({
         >
           <img src={star} alt="alt"></img>
         </div>
-      </ChannelInfoContainer>
+      </div>
     </div>
   );
 };
