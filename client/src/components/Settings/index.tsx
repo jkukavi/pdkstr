@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { theme } from "consts/theme";
+import { useTheme } from "styled-components";
 import styled from "styled-components";
 
 import { SearchEngineIcon } from "consts";
@@ -51,6 +51,9 @@ const BackButton = styled(Button)`
 const Settings = () => {
   const [healthExpanded, setHealthExpanded] = useState<boolean>(false);
   const history = useHistory();
+
+  const theme = useTheme();
+
   return (
     <div
       //className="settings"
@@ -58,7 +61,8 @@ const Settings = () => {
         paddingLeft: " 1rem",
         paddingTop: "1rem",
         height: " 100%",
-        background: " #c7c7c7",
+        //  background: " #c7c7c7",
+        background: theme.settingsPage.backgroundColor,
       }}
     >
       <BackButton onClick={() => history.goBack()}>
