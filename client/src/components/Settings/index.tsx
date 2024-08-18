@@ -8,7 +8,8 @@ import { SearchEngineIcon } from "consts";
 import { ping, tryRestartingService } from "apiCalls";
 
 import chevron from "icons/chevron.svg";
-import "./index.css";
+//import "./index.css";
+import { theme } from "consts/theme";
 import DropDown from "components/Dropdown";
 import Text from "components/Text";
 import SpinningLoader from "components/Loaders";
@@ -24,7 +25,7 @@ const Button = styled.button`
   border: none;
   text-decoration: none;
   outline: none;
-  background-color: #393838;
+  background-color: ${({ theme }) => theme.button.backgroundColor};
   font-weight: 500;
   border-radius: 3px;
   box-shadow: 1px 1px 2px black;
@@ -316,25 +317,3 @@ const HealthStatus = ({
     );
   } else return <></>;
 };
-
-{
-  /* Settings styles
-
-const SettingsContainer = styled.div`
-  padding-left: 1rem;
-  comment out margin-top, added padding-top
-  margin-top: 1rem;
-  padding-top: 1rem;
-  change on height
-  height: 100%;
-  background: #c7c7c7;
-`;
-
-const SettingsInnerContainer = styled.div`
-  display: "flex";
-  flex-direction: "column";
-  row-gap: "1rem";
-  border: "1px solid red";
-`;
-*/
-}
