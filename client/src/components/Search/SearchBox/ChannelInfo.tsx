@@ -15,6 +15,8 @@ import { useRouteMatch } from "react-router-dom";
 import { notify } from "components/Notifications";
 import { isTemplateSpan } from "typescript";
 import Loaders from "components/Loaders";
+import SpinningLoader from "components/Loaders";
+import { theme } from "consts/theme";
 
 const ChannelInfoContainer = styled.div`
   margin-top: 0rem;
@@ -157,7 +159,10 @@ const ChannelInfo = ({
       <div style={{ width: "100%", borderTop: "1px solid #7d7d7d" }}></div>
       <ChannelInfoContainer>
         {loading ? (
-          <Loaders.micro />
+          <SpinningLoader
+            sizeInPx={32}
+            color={theme.loaders.otherBorderColor}
+          />
         ) : (
           <ChannelInfoSubcontainer>
             <img

@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch, useLocation, useHistory } from "react-router-dom";
+import { theme } from "consts/theme";
 
 import { useAuthContext } from "contexts/Auth";
 
 import Notifications from "components/Notifications";
-import Loaders from "components/Loaders";
+//import Loaders from "components/Loaders";
 
 import Register from "./Register";
 import LoginForm from "./LoginForm";
+import SpinningLoader from "components/Loaders";
 
 const LoginPage = () => {
   const { user, reestablishSession } = useAuthContext();
@@ -42,11 +44,20 @@ const LoginPage = () => {
   if (loading && user === null) {
     return (
       <div className="loginPageContainer">
-        <Loaders.basic />
-        {/*<div className="loading array">
-          <div className="loader" />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "3rem",
+            margin: "auto",
+          }}
+        >
+          <SpinningLoader
+            sizeInPx={300}
+            color={theme.loaders.otherBorderColor}
+          />
         </div>
-          */}
       </div>
     );
   }

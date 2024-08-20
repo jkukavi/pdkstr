@@ -11,6 +11,8 @@ import chevron from "icons/chevron.svg";
 import "./index.css";
 import DropDown from "components/Dropdown";
 import Text from "components/Text";
+import SpinningLoader from "components/Loaders";
+import { theme } from "consts/theme";
 
 const engineArray: Engine[] = ["youtube", "soundcloud"];
 
@@ -166,7 +168,11 @@ const HealthOf = ({ engine }: { engine: Engine }) => {
     return (
       <Flex>
         <SearchEngineIcon engine={engine} size="m" />
-        <Loaders.micro />
+        <SpinningLoader
+          sizeInPx={32}
+          color={theme.loaders.otherBorderColor}
+          style={{ margin: "auto" }}
+        />
       </Flex>
     );
 

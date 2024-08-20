@@ -1,6 +1,46 @@
 import React from "react";
 import styled from "styled-components";
 
+const SpinningLoader = styled.div<{ sizeInPx: number; color: string }>`
+  border-radius: 50%;
+  border: ${({ sizeInPx }) => Math.ceil(sizeInPx * 0.05)}px solid transparent;
+  border-top: ${({ sizeInPx }) => Math.ceil(sizeInPx * 0.05)}px solid
+    ${({ color }) => color};
+  width: ${({ sizeInPx }) => sizeInPx}px;
+  height: ${({ sizeInPx }) => sizeInPx}px;
+  //margin: auto;
+  animation: spin 1.4s linear infinite;
+  filter: drop-shadow(1px 1px 0.8px #000000);
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+`;
+
+//
+//This then allows us to replace the initial
+
+/*```tsx
+      <div
+        //className="loader"
+        style={{
+          border: "14px solid transparent",
+          borderRadius: "50%",
+          borderTop: "14px solid #db9134",
+          width: "300px",
+          height: "300px",
+          animation: "spin 1.4s linear infinite",
+          filter: "drop-shadow(1px 1px 1px black)",
+        }}
+      />
+
+      */
+/*
 const basic = () => {
   /* const Loading = styled.div`
     display: flex;
@@ -14,21 +54,23 @@ const basic = () => {
   `;
   */
 
-  return (
-    <div
-      /*className="loading array"*/
-      //untill height 3rem for loading class,after that for array
-      style={{
+// return (
+// <div
+/*className="loading array"*/
+//untill height 3rem for loading class,after that for array
+/* style={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         height: "3rem",
-        margin: "auto",
-        //alignItems: "flex-start",
-      }}
-    >
-      <div
-        //className="loader"
+        margin: "auto",*/
+//alignItems: "flex-start",
+//  }}
+// >
+
+// <div
+//className="loader"
+/*
         style={{
           border: "14px solid transparent",
           borderRadius: "50%",
@@ -41,8 +83,9 @@ const basic = () => {
       />
     </div>
   );
-};
+};*/
 
+/*
 const mini = () => {
   return (
     <div
@@ -69,7 +112,9 @@ const mini = () => {
     </div>
   );
 };
+*/
 
+/*
 const micro = () => {
   return (
     <div
@@ -86,7 +131,8 @@ const micro = () => {
     />
   );
 };
-
+*/
+/*
 const tiny = () => {
   return (
     <div
@@ -104,5 +150,5 @@ const tiny = () => {
     />
   );
 };
-
-export default { basic, mini, micro, tiny };
+*/
+export default /*{ basic, mini, micro, tiny };*/ SpinningLoader;

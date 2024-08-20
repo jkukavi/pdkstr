@@ -4,7 +4,9 @@ import { Link, Route, useRouteMatch } from "react-router-dom";
 import { useAuthContext } from "contexts/Auth";
 
 import { notify } from "components/Notifications";
-import Loaders from "components/Loaders";
+//import Loaders from "components/Loaders";
+import SpinningLoader from "components/Loaders";
+import { theme } from "consts/theme";
 
 const LoginForm = ({ goBack }: { goBack: VoidFunction }) => {
   const [loading, setLoading] = useState(false);
@@ -57,7 +59,17 @@ const LoginForm = ({ goBack }: { goBack: VoidFunction }) => {
         </div>
       </Route>
       <div className="item">
-        <button>{loading ? <Loaders.tiny /> : "Log in"}</button>
+        <button>
+          {loading ? (
+            <SpinningLoader
+              sizeInPx={32}
+              color={theme.loaders.tinyBorderColor}
+              style={{ margin: "auto" }}
+            />
+          ) : (
+            "Log in"
+          )}
+        </button>
 
         <Link to={`${url}/guest-code`}>You have a guest code?</Link>
 
