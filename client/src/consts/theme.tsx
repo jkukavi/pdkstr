@@ -7,6 +7,7 @@ const colors = {
   gray85: "#525252",
   gray90: "#3d3d3d",
   gray60: " #6b6b6b",
+  gray70: " #454545",
   gray80: " #343434",
   gray100: "#393838",
   gray210: "#343434",
@@ -71,7 +72,8 @@ export const theme = {
   },
   menu: {
     backgroundColor: colors.gray80,
-    borders: colors.gray60,
+    borderColor: colors.gray60,
+    linkBackgroundColor: colors.gray70,
   },
 } as const;
 

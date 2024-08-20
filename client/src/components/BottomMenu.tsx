@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import { theme } from "consts/theme";
 
 import magnifier from "icons/magnifier.svg";
 import history from "icons/history.svg";
@@ -25,8 +26,8 @@ const Menu = styled.div`
   left: 0;
   right: 0;
   height: 2.5rem;
-  background-color: #343434;
-  border-top: 1px solid #6b6b6b;
+  background-color: ${({ theme }) => theme.menu.backgroundColor};
+  border-top: 1px solid ${({ theme }) => theme.menu.borderColor};
   box-shadow: 0px -1px 3px 0px #000000;
   display: flex;
 
@@ -35,12 +36,12 @@ const Menu = styled.div`
   }
 
   & a:nth-child(even) {
-    border-left: 1px solid #6b6b6b;
-    border-right: 1px solid #6b6b6b;
+    border-left: 1px solid ${({ theme }) => theme.menu.borderColor};
+    border-right: 1px solid ${({ theme }) => theme.menu.borderColor};
   }
 
   & a.active {
-    background-color: #454545;
+    background-color: ${({ theme }) => theme.menu.linkBackgroundColor};
   }
 `;
 
