@@ -43,23 +43,15 @@ const ChannelInfoSubcontainer = styled.div`
   /* overflow: hidden;, but min-width makes more sense to me */
   & p {
     line-height: 0.9rem;
-    color: #d0d0d0;
+    color: ${({ theme }) => theme.channelInfo.textColor};
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    // margin-top: 0.5rem;
-    //margin-bottom: 0.5rem;
   }
 `;
 
-/* <div className={`searchBoxContainer ${scrollingDown ? "collapsed" : ""}`}>*/
-/* ${({ collapsed }) => collapsed && collapsedProps}*/
-//className={`button ${active === "items" ? "active" : ""}`}
-// className={`button ${active === "playlists" ? "active" : ""}`}
-/*${({ active }) => active && activeProps}*/
-
 const activeProps = css`
-  color: white;
+  color: ${({ theme }) => theme.channelInfo.activeColor};
   text-decoration: underline;
   text-underline-offset: 3px;
 `;
@@ -67,7 +59,7 @@ const activeProps = css`
 const Button = styled.div`
   padding: 0 0.5rem 0;
   cursor: pointer;
-  color: #c7c7c7;
+  color: ${({ theme }) => theme.channelInfo.buttonTextColor};
   transition: color 0.2s;
   margin-left: 0.5rem;
   display: flex;
@@ -77,7 +69,26 @@ const Button = styled.div`
   position: relative;
 
   &:hover {
-    color: white;
+    color: ${({ theme }) => theme.channelInfo.hoverColor};
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: transparent;
+    transition: background-color 0.2s;
+    bottom: 0;
+  }
+
+  &:hover::after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: ${({ theme }) => theme.channelInfo.hoverColor};
+    position: absolute;
+    bottom: 0;
   }
 
   & img {
@@ -146,7 +157,7 @@ const ChannelInfo = ({
   return (
     <div>
       <div style={{ width: "100%", borderTop: "1px solid #7d7d7d" }}></div>
-      <div className="channelInfoContainer">
+      <ChannelInfoContainer>
         {/*<div className='channelInfoContainer'*/}
         {loading ? (
           <MicroLoader />
@@ -201,7 +212,7 @@ const ChannelInfo = ({
         >
           <img src={star} alt="alt"></img>
         </Button>
-      </div>
+      </ChannelInfoContainer>
     </div>
   );
 };

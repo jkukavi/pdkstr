@@ -1062,11 +1062,11 @@ button:active.small {
 }
 
 .channelInfoContainer .button:hover {
-  color: white;
+  color: #ffffff;
 }
 
 .channelInfoContainer .button.active {
-  color: white;
+  color: #ffffff;
 }
 
 .channelInfoContainer .button::after {

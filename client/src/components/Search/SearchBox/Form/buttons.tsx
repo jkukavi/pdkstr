@@ -8,10 +8,10 @@ import microphone from "icons/microphone.svg";
 import recognizeAndStartSearch from "helpers/speechRecognition";
 
 const Button = styled.button`
-  background-color: #3d3d3d;
+  background-color: ${({ theme }) => theme.searchbox.button.backgroundColor};
   height: 100%;
   padding: 0 1rem 0;
-  border: 1px solid rgb(82, 82, 82);
+  border: 1px solid ${({ theme }) => theme.searchbox.button.borderColor};
   border-left: none;
   border-radius: 0 2px 2px 0;
   display: inline-flex;

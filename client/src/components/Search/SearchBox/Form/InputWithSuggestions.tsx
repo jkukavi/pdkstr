@@ -30,13 +30,13 @@ const InputHolder = styled.div`
     width: 100%;
     height: 100%;
     font-size: 1.1rem;
-    color: #c7c7c7;
+    color: ${({ theme }) => theme.suggestions.input.color};
     padding-left: 12px;
     outline: none;
     border: none;
-    background-color: #222222;
+    background-color: ${({ theme }) => theme.suggestions.input.backgroundColor};
     border-radius: 2px 0 0 2px;
-    border: 1px solid rgb(82, 82, 82);
+    border: 1px solid ${({ theme }) => theme.suggestions.input.borderColor};
     transition: width 0.5s;
   }
 
@@ -51,8 +51,10 @@ const SuggestionsContainer = styled.div`
   width: 100%;
   max-height: 80vh;
   overflow-y: auto;
-  background-color: #292929;
-  box-shadow: 1px 2px 3px #000000c2;
+  background-color: ${({ theme }) =>
+    theme.suggestions.container.backgroundColor};
+  box-shadow: 1px 2px 3px
+    ${({ theme }) => theme.suggestions.container.boxShadowColor};
   bottom: 0;
   left: 0;
   transform: translate(0, 100%);
@@ -69,7 +71,7 @@ const SuggestionsContainer = styled.div`
     font-size: 1.1rem;
     padding: 0.5rem 0.5rem;
     overflow: hidden;
-    color: #c7c7c7;
+    color: ${({ theme }) => theme.suggestions.container.textColor};
 
     z-index: 1;
     display: flex;
@@ -78,7 +80,8 @@ const SuggestionsContainer = styled.div`
   }
 
   &p:hover {
-    background-color: #4b4b4b;
+    background-color: ${({ theme }) =>
+      theme.suggestions.container.hoveredTextColor};
   }
 `;
 

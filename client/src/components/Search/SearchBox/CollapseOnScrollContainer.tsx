@@ -9,9 +9,10 @@ const collapsedProps = css`
 
 const SearchBoxContainer = styled.div<{ collapsed: boolean }>`
   position: relative;
-  background-color: #343434;
-  border-bottom: 1px solid #6b6b6b;
-  box-shadow: 0px 1px 3px 0px #000000;
+  background-color: ${({ theme }) => theme.searchbox.container.backgroundColor};
+  border-bottom: 1px solid ${({ theme }) => theme.searchbox.borderBottomColor};
+  box-shadow: 0px 1px 3px 0px
+    ${({ theme }) => theme.searchbox.container.boxShadowColor};
   transition: transform 0.5s;
   ${({ collapsed }) => collapsed && collapsedProps}
 `;
