@@ -1004,7 +1004,7 @@ button:active.small {
   border-radius: 50%;
   cursor: pointer;
 }
-
+/*
 .channelInfoContainer {
   margin-top: 0rem;
   height: 2.7rem;
@@ -1013,7 +1013,7 @@ button:active.small {
   align-items: center;
   margin-right: 0.1rem;
 }
-
+*/
 /*
 .channelInfo {
   font-size: 13px;
@@ -1044,6 +1044,7 @@ button:active.small {
   width: 2.3rem;
 }
 */
+/*
 .channelInfoContainer > .button.icon::after {
   content: none !important;
 }
@@ -1092,7 +1093,7 @@ button:active.small {
   height: 2px;
   background-color: white;
 }
-
+*/
 .card {
   will-change: transform;
   backface-visibility: none;
