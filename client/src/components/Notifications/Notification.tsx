@@ -2,11 +2,11 @@ import { theme } from "consts/theme";
 import React, { useEffect, useState } from "react";
 import styled, { StyledComponent } from "styled-components";
 
-const Notifications = styled.div`
+const NotificationComponent = styled.div`
   will-change: transform;
   font-size: 1rem;
   overflow: hidden;
-  background-color: ${theme.notifications.backgroundColor};
+  background-color: ${({ theme }) => theme.notifications.backgroundColor};
   color: #c9c9c9;
   padding: 0.4rem;
   margin: 0.5rem 0;
@@ -34,7 +34,7 @@ const Notifications = styled.div`
     }
   }
 `;
-const NotificationsContainer = styled.div`
+const NotificationContainer = styled.div`
   position: absolute;
   top: 3rem;
   left: 0;
@@ -49,11 +49,11 @@ const Notification = ({ notification }: { notification: string }) => {
   }, []);
 
   return show ? (
-    <NotificationsContainer>
-      <Notifications>
+    <NotificationContainer>
+      <NotificationComponent>
         <p style={{ fontStyle: "italic" }}> {notification}</p>
-      </Notifications>
-    </NotificationsContainer>
+      </NotificationComponent>
+    </NotificationContainer>
   ) : (
     <></>
   );
