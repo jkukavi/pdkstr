@@ -78,7 +78,7 @@ const Components = () => {
           <Switch>
             {componentsArray.map((componentInfo) => (
               <Route path={`/${componentInfo.name}`}>
-                <MockedNotification />
+                <componentInfo.component />
               </Route>
             ))}
           </Switch>
