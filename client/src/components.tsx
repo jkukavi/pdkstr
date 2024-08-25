@@ -4,11 +4,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import "./pages/App/App.css";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 import MockedNotification from "components/Notifications/mocked";
 import SmallChannelCard from "components/Cards/mocked/SmallChannelCard";
 import MockedDropdown from "components/Dropdown/mocked";
+import { theme } from "consts/theme";
 
 const MenuItem = styled.div`
   width: 150px;
@@ -62,26 +63,28 @@ const componentPaths = componentsArray.map((item) => item.name);
 
 const Components = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-        position: "relative",
-      }}
-    >
-      <BrowserRouter>
-        <NavBar paths={componentPaths} />
-        <Switch>
-          {componentsArray.map((componentInfo) => (
-            <Route path={`/${componentInfo.name}`}>
-              <componentInfo.component />
-            </Route>
-          ))}
-        </Switch>
-      </BrowserRouter>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+          position: "relative",
+        }}
+      >
+        <BrowserRouter>
+          <NavBar paths={componentPaths} />
+          <Switch>
+            {componentsArray.map((componentInfo) => (
+              <Route path={`/${componentInfo.name}`}>
+                <MockedNotification />
+              </Route>
+            ))}
+          </Switch>
+        </BrowserRouter>
+      </div>
+    </ThemeProvider>
   );
 };
 
