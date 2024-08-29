@@ -12,6 +12,7 @@ import { SearchEngineDropdown } from "./Form/SearchEngineDropdown";
 import ChannelInfo from "./ChannelInfo";
 import { pushToParams } from "helpers/pushToParams";
 import { Route, Switch } from "react-router-dom";
+import styled from "styled-components";
 
 const updateSearchInputValue = (value: string) => {
   const element = document.getElementById("searchInput");
@@ -25,6 +26,15 @@ interface SearchBoxInterface {
   searchForItems: (event: any, newSearchString?: any) => Promise<void>;
   searchFromVoiceInput: (recognizedInput: string) => void;
 }
+
+const SearchBoxFixedContainer = styled.div`
+  position: fixed;
+  height: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+`;
 
 export const SearchBox: SearchBoxInterface = {
   viewingChannel: null,
@@ -65,7 +75,7 @@ const Component = (props: {
   useConnectPropsToObserver(props, SearchBox);
 
   return (
-    <div className="searchBoxFixedContainer">
+    <SearchBoxFixedContainer>
       <CollapseOnScrollContainer>
         <Form />
         <Switch>
@@ -74,7 +84,7 @@ const Component = (props: {
           </Route>
         </Switch>
       </CollapseOnScrollContainer>
-    </div>
+    </SearchBoxFixedContainer>
   );
 };
 
