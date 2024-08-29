@@ -85,8 +85,6 @@ const SuggestionsContainer = styled.div`
   }
 `;
 
-//suggestion className on line 191.
-
 const InputWithSuggestions = () => {
   const [suggestions, setSuggestions] = useState<{
     show: boolean;
