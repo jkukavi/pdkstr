@@ -26,7 +26,6 @@ const MicrophoneButton = styled(Button)`
 
   & img {
     filter: invert(0.7);
-
     height: 24px;
     width: 24px;
   }
@@ -40,7 +39,6 @@ const SearchButton = styled(Button)`
 
   & img {
     filter: invert(0.7);
-
     height: 24px;
     width: 24px;
   }

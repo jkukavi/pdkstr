@@ -37,10 +37,8 @@ const ChannelInfoSubcontainer = styled.div`
   display: flex;
   align-items: center;
   flex: 0 1 fit-content;
-  /* important if we want the text to collapse */
   min-width: 0;
-  /* or */
-  /* overflow: hidden;, but min-width makes more sense to me */
+
   & p {
     line-height: 0.9rem;
     color: ${({ theme }) => theme.channelInfo.textColor};
