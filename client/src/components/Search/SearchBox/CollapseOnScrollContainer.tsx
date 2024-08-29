@@ -1,6 +1,6 @@
 import React from "react";
 import { useScrollingDownContext } from "contexts/ScrollingDown";
-import styled, { css, useTheme } from "styled-components";
+import styled, { css } from "styled-components";
 
 const collapsedProps = css`
   transition: transform 1s;
@@ -19,10 +19,6 @@ const SearchBoxContainer = styled.div<{ collapsed: boolean }>`
 
 const CollapseOnScrollContainer = ({ children }: { children: any }) => {
   const scrollingDown = useScrollingDownContext("cardContainer");
-
-  const theme = useTheme();
-
-  theme.button.backgroundColor;
 
   return (
     <>

@@ -166,12 +166,6 @@ const ChannelInfo = ({
                 (e.target as HTMLImageElement).src = defaultPuppyImg;
               }}
               alt="alt"
-              style={{
-                borderRadius: "50%",
-                marginRight: "0.5rem",
-                height: "2.3rem",
-                width: " 2.3rem",
-              }}
             ></img>
             <p>
               {channelInfo.name}

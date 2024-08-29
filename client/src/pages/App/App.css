@@ -310,11 +310,12 @@ audio {
   transform: translate(0, -2.7rem);
 }
 */
+/*
 .searchBoxContainer.collapsed2x {
   transition: transform 1s;
   transform: translate(0, -5.5rem);
 }
-
+*/
 .playlistSidebarContainer {
   max-height: 100vh;
   overflow-y: auto;
@@ -688,7 +689,7 @@ audio {
   }
     */
 }
-
+/*
 .searchBox .button {
   background-color: #3d3d3d;
   height: 100%;
@@ -699,8 +700,9 @@ audio {
   display: inline-flex;
   align-items: center;
 }
+*/
 
-/*From here*/
+/*
 .button.search {
   height: 2rem;
 }
@@ -721,7 +723,7 @@ audio {
   background-color: unset;
   cursor: pointer;
 }
-/*until here*/
+  */
 
 .dropDownContainer {
   position: relative;
