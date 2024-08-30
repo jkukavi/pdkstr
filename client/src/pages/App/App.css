@@ -549,6 +549,7 @@ audio {
   background-color: white;
 }
 
+/*
 .bottomMenu {
   margin-right: calc(100% - 100vw);
   position: fixed;
@@ -567,7 +568,9 @@ audio {
 .bottomMenu a {
   flex-grow: 1;
 }
+*/
 
+/*
 .bottomMenu .icon {
   display: inline-flex;
   width: 100%;
@@ -582,16 +585,21 @@ audio {
   border-left: 1px solid #6b6b6b;
   border-right: 1px solid #6b6b6b;
 }
-
+*/
+/*
 .bottomMenu .active .icon {
   background-color: #454545;
 }
+  */
 
+/*
 .bottomMenu .icon img {
   width: 25px;
   height: 25px;
 }
 /*
+*/
+
 .suggestionsContainer {
   position: absolute;
   z-index: 1;
@@ -606,7 +614,7 @@ audio {
   transform: translate(0, 100%);
   padding: 0.4rem 0;
 }
-  */
+*/
 /*
 @media screen and (max-height: 350px) {
   .suggestionsContainer {
@@ -673,23 +681,23 @@ audio {
 }
 */
 
+/*
 @media screen and (max-width: 600px) {
-  /* .input:focus {
+  .input:focus {
     width: calc(100vw - 67px);
-  } */
-  /*
+  }
   .inputHolder {
     flex-grow: 1;
     position: static;
   }
-    */
-  /*
+
   .searchBox {
     flex-wrap: nowrap;
     padding-left: 0.2rem;
   }
-    */
 }
+*/
+
 /*
 .searchBox .button {
   background-color: #3d3d3d;
