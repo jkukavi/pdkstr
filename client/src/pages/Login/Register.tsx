@@ -5,7 +5,6 @@ import { theme } from "consts/theme";
 
 import parseFormData from "helpers/parseFormData";
 import { notify } from "components/Notifications";
-//import Loaders from "components/Loaders";
 import SpinningLoader from "components/Loaders";
 
 const Register = () => {

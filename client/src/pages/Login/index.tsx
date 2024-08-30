@@ -5,7 +5,6 @@ import { theme } from "consts/theme";
 import { useAuthContext } from "contexts/Auth";
 
 import Notifications from "components/Notifications";
-//import Loaders from "components/Loaders";
 
 import Register from "./Register";
 import LoginForm from "./LoginForm";

@@ -1,18 +1,16 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { theme } from "consts/theme";
 
 import { SearchEngineIcon } from "consts";
 import { ping, tryRestartingService } from "apiCalls";
-//import MicroLoader from "components/Loaders/MicroLoader";
-import Loaders from "components/Loaders";
 
 import chevron from "icons/chevron.svg";
 import "./index.css";
 import DropDown from "components/Dropdown";
 import Text from "components/Text";
 import SpinningLoader from "components/Loaders";
-import { theme } from "consts/theme";
 
 const engineArray: Engine[] = ["youtube", "soundcloud"];
 

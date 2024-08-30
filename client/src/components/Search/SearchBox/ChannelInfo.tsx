@@ -14,7 +14,6 @@ import { SearchBox } from ".";
 import { useRouteMatch } from "react-router-dom";
 import { notify } from "components/Notifications";
 import { isTemplateSpan } from "typescript";
-import Loaders from "components/Loaders";
 import SpinningLoader from "components/Loaders";
 import { theme } from "consts/theme";
 

@@ -61,10 +61,11 @@ export const theme = {
     buttonTextColor: colors.gray35,
     hoverColor: colors.white,
     activeColor: colors.white,
-    loaders: {
-      otherBorderColor: colors.orange50,
-      tinyBorderColor: colors.purple50,
-    },
+  },
+
+  loaders: {
+    otherBorderColor: colors.orange50,
+    tinyBorderColor: colors.purple50,
   },
 } as const;
 

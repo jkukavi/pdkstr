@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { Link, Route, useRouteMatch } from "react-router-dom";
+import { theme } from "consts/theme";
 
 import { useAuthContext } from "contexts/Auth";
 
 import { notify } from "components/Notifications";
-//import Loaders from "components/Loaders";
 import SpinningLoader from "components/Loaders";
-import { theme } from "consts/theme";
 
 const LoginForm = ({ goBack }: { goBack: VoidFunction }) => {
   const [loading, setLoading] = useState(false);
