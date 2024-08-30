@@ -8,7 +8,6 @@ import { SearchEngineIcon } from "consts";
 import { ping, tryRestartingService } from "apiCalls";
 
 import chevron from "icons/chevron.svg";
-//import "./index.css";
 import { theme } from "consts/theme";
 import DropDown from "components/Dropdown";
 import Text from "components/Text";
@@ -56,12 +55,10 @@ const Settings = () => {
 
   return (
     <div
-      //className="settings"
       style={{
         paddingLeft: " 1rem",
         paddingTop: "1rem",
         height: " 100%",
-        //  background: " #c7c7c7",
         background: theme.settingsPage.backgroundColor,
       }}
     >
@@ -84,8 +81,6 @@ const Settings = () => {
           Return
         </span>
       </BackButton>
-      {/*added div*/}
-      {/*added a headline*/}
       <div
         style={{
           display: "flex",

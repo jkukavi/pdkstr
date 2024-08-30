@@ -681,8 +681,9 @@ audio {
 }
 */
 
-/*
+
 @media screen and (max-width: 600px) {
+  /*
   .input:focus {
     width: calc(100vw - 67px);
   }
@@ -695,8 +696,8 @@ audio {
     flex-wrap: nowrap;
     padding-left: 0.2rem;
   }
+    */
 }
-*/
 
 /*
 .searchBox .button {
