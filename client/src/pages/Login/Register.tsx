@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { theme } from "consts/theme";
 
 import parseFormData from "helpers/parseFormData";
 import { notify } from "components/Notifications";
+import SpinningLoader from "components/Loaders";
 
 const Register = () => {
   const [state, setState] = useState({ loading: false, success: false });
@@ -63,7 +65,10 @@ const Register = () => {
       <div className="item">
         <button style={{ width: "10rem" }}>
           {state.loading ? (
-            <div style={{ margin: "auto" }} className="tinyloader" />
+            <SpinningLoader
+              sizeInPx={32}
+              color={theme.loaders.tinyBorderColor}
+            />
           ) : (
             "Register"
           )}

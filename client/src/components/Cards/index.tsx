@@ -1,12 +1,13 @@
 import React, { useEffect, useRef } from "react";
+import { theme } from "consts/theme";
 
 import { allowedCardTypes } from "consts";
 
 import { SearchBox } from "components/Search/SearchBox";
 import cardTypesBySize from "./cardTypesBySize";
-import Loader from "components/Loaders/Loader";
 import { Route, Switch } from "react-router-dom";
 import useLocalStorage from "hooks/useLocalStorage";
+import SpinningLoader from "components/Loaders";
 
 interface CardProps {
   searchArray: (Item | Playlist | Channel)[];
@@ -86,7 +87,22 @@ const Cards = ({
         ref={scrollableDivRef}
       >
         {searchArray && cards}
-        {loading && <Loader />}
+        {loading && (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "3rem",
+              margin: "auto",
+            }}
+          >
+            <SpinningLoader
+              sizeInPx={300}
+              color={theme.loaders.otherBorderColor}
+            />
+          </div>
+        )}
       </div>
     </>
   );

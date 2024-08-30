@@ -1,15 +1,16 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { theme } from "consts/theme";
 
 import { SearchEngineIcon } from "consts";
 import { ping, tryRestartingService } from "apiCalls";
-import MicroLoader from "components/Loaders/MicroLoader";
 
 import chevron from "icons/chevron.svg";
 import "./index.css";
 import DropDown from "components/Dropdown";
 import Text from "components/Text";
+import SpinningLoader from "components/Loaders";
 
 const engineArray: Engine[] = ["youtube", "soundcloud"];
 
@@ -165,7 +166,11 @@ const HealthOf = ({ engine }: { engine: Engine }) => {
     return (
       <Flex>
         <SearchEngineIcon engine={engine} size="m" />
-        <MicroLoader />
+        <SpinningLoader
+          sizeInPx={32}
+          color={theme.loaders.otherBorderColor}
+          style={{ margin: "auto" }}
+        />
       </Flex>
     );
 

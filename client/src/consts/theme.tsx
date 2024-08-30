@@ -12,6 +12,8 @@ const colors = {
   darkGray97: " #222222",
   darkGray99: "#000000c2",
   black: "#000000",
+  orange50: "#db9134",
+  purple50: "#5536d0",
 } as const;
 
 export const theme = {
@@ -59,6 +61,11 @@ export const theme = {
     buttonTextColor: colors.gray35,
     hoverColor: colors.white,
     activeColor: colors.white,
+  },
+
+  loaders: {
+    otherBorderColor: colors.orange50,
+    tinyBorderColor: colors.purple50,
   },
 } as const;
 

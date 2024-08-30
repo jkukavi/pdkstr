@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Link, Route, useRouteMatch } from "react-router-dom";
+import { theme } from "consts/theme";
 
 import { useAuthContext } from "contexts/Auth";
 
 import { notify } from "components/Notifications";
+import SpinningLoader from "components/Loaders";
 
 const LoginForm = ({ goBack }: { goBack: VoidFunction }) => {
   const [loading, setLoading] = useState(false);
@@ -58,7 +60,11 @@ const LoginForm = ({ goBack }: { goBack: VoidFunction }) => {
       <div className="item">
         <button>
           {loading ? (
-            <div style={{ margin: "auto" }} className="tinyloader" />
+            <SpinningLoader
+              sizeInPx={32}
+              color={theme.loaders.tinyBorderColor}
+              style={{ margin: "auto" }}
+            />
           ) : (
             "Log in"
           )}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuid } from "uuid";
+import { theme } from "consts/theme";
 
 import { fetchDirectUrl, addToHistory } from "apiCalls";
 import { SearchEngineIcon } from "consts";
@@ -8,7 +9,7 @@ import useConnectPropsToObserver from "hooks/useConnectPropsToObserver";
 import { Audio as AudioElement } from "@mikivela/plyr/dist";
 import "@mikivela/plyr/dist/index.css";
 import { notify } from "components/Notifications";
-import MiniLoader from "components/Loaders/MiniLoader";
+import SpinningLoader from "components/Loaders";
 import { ExpandButton } from "../ExpandableContainer";
 
 import { PlayingQueue } from "../PlayingQueue";
@@ -164,7 +165,19 @@ const PlayerComponent = () => {
   const shouldTryDirectly = !shouldOnlyProxy;
 
   if (playerInactive) return null;
-  if (audioLoading || !directUrl || !listeningTo) return <MiniLoader />;
+  if (audioLoading || !directUrl || !listeningTo)
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "7.7rem",
+        }}
+      >
+        <SpinningLoader sizeInPx={64} color={theme.loaders.otherBorderColor} />
+      </div>
+    );
   return (
     <AudioElement
       onEnded={onAudioEnded}

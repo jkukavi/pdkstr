@@ -1,4 +1,5 @@
 import React from "react";
+import Loaders from "./Loaders";
 
 const ShareAlert = ({ info, alert, playItem }: any) => {
   return (
@@ -11,8 +12,29 @@ const ShareAlert = ({ info, alert, playItem }: any) => {
             <p className="alertMessage">{info.title}</p>
           </>
         ) : (
-          <div className="loading audio">
-            <div className="miniloader" />
+          <div
+            /*className="loading audio"*/
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              position: "relative",
+              top: " -0.5rem",
+              height: "3rem",
+            }}
+          >
+            <div
+              /*className="miniloader"*/
+              style={{
+                border: "6px solid transparent",
+                borderRadius: " 50%",
+                borderTop: " 6px solid #db9134",
+                width: "4rem",
+                height: "4rem",
+                animation: "spin 2s linear infinite",
+                filter: "drop-shadow(1px 1px 1px black)",
+              }}
+            />
           </div>
         )}
       </div>
