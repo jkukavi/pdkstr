@@ -23,6 +23,9 @@ export const theme = {
   button: {
     backgroundColor: colors.gray100,
   },
+  settingsPage: {
+    backgroundColor: colors.gray35,
+  },
 
   notifications: {
     backgroundColor: colors.gray210,
