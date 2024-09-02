@@ -1,3 +1,5 @@
+import DropDown from "components/Dropdown";
+
 const colors = {
   white: "#ffffff",
   gray30: "#d0d0d0",
@@ -10,7 +12,10 @@ const colors = {
   gray80: " #343434",
   gray90: "#3d3d3d",
   gray100: "#393838",
-  gray210: "#343434",
+  gray220: "#525252",
+  gray230: "#6e6e6e",
+  black100: "#03030363",
+  black110: "#131313",
   darkGray95: " #292929",
   darkGray97: " #222222",
   darkGray99: "#000000c2",
@@ -23,12 +28,27 @@ export const theme = {
   button: {
     backgroundColor: colors.gray100,
   },
+  dropDown: {
+    container: {
+      backgroundColor: colors.gray80,
+    },
+    style: {
+      border: colors.gray220,
+      boxshadowColor: colors.black100,
+      backgroundColor: colors.gray80,
+    },
+    icon: {
+      borderColor: colors.gray220,
+      dropShadowColor: colors.black110,
+      hoverbackgroundColor: colors.gray230,
+    },
+  },
   settingsPage: {
     backgroundColor: colors.gray35,
   },
 
   notifications: {
-    backgroundColor: colors.gray210,
+    backgroundColor: colors.gray80,
   },
   searchbox: {
     borderBottomColor: colors.gray65,
