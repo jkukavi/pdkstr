@@ -1,6 +1,61 @@
 import React, { useRef, useState } from "react";
-
+import styled, { css } from "styled-components";
 import chevron from "icons/chevron.svg";
+import { theme } from "consts/theme";
+
+const DropDownContainer = styled.div`
+  position: relative;
+  width: fit-content;
+  height: 2rem;
+  margin-right: 0.3rem;
+  background-color: ${({ theme }) => theme.dropDown.container.backgroundColor};
+`;
+
+const DropDownStyle = styled.div`
+  border: 1px solid ${({ theme }) => theme.dropDown.style.border};
+  box-shadow: 0px 1px 3px 0px
+    ${({ theme }) => theme.dropDown.style.boxshadowColor};
+  border-top: none;
+  background-color: ${({ theme }) => theme.dropDown.style.backgroundColor};
+  border-radius: 0 0 6px 6px;
+  overflow: hidden;
+  :focus {
+    outline: none;
+  }
+`;
+const DropDownActiveStyles = css`
+  & {
+    border-radius: 2px 2px 0 0;
+    border: 1px solid ${({ theme }) => theme.dropDown.icon.borderColor};
+  }
+  & > *:first-child {
+    filter: drop-shadow(
+      0px 0px 1px ${({ theme }) => theme.dropDown.icon.dropShadowColor}
+    );
+  }
+`;
+const DropDownIcon = styled.div<{ active?: boolean }>`
+  cursor: pointer;
+  padding: 0 0.5rem;
+  height: 2rem;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    height: 100%;
+  }
+  ${({ active }) => active && DropDownActiveStyles}
+`;
+const Chevron = styled.img`
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-left: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: contrast(0.2);
+`;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ReactComponent = (props: any) => JSX.Element;
@@ -43,14 +98,13 @@ const DropDown = ({
   };
 
   return (
-    <div className={"dropDownContainer"}>
-      <div className={"dropDownIcon active"} tabIndex={0} onClick={handleClick}>
+    <DropDownContainer>
+      <DropDownIcon active={true} tabIndex={0} onClick={handleClick}>
         {frontItem}
-
-        <img className="chevron" src={chevron} alt="alt" />
-      </div>
+        <Chevron src={chevron} alt="alt" />
+      </DropDownIcon>
       {dropdown && (
-        <div
+        <DropDownStyle
           //tabIndex="-1" so it can catch focus, and therefore trigger onblur
           tabIndex={0}
           onBlur={() => {
@@ -61,11 +115,9 @@ const DropDown = ({
             }, 500);
           }}
           ref={dropDownElement}
-          className="dropDown"
         >
           {dropdownItems.map(({ component, onClick }, i) => (
-            <div
-              className="dropDownIcon"
+            <DropDownIcon
               key={i}
               onClick={() => {
                 setDropdown(false);
@@ -73,11 +125,11 @@ const DropDown = ({
               }}
             >
               {component}
-            </div>
+            </DropDownIcon>
           ))}
-        </div>
+        </DropDownStyle>
       )}
-    </div>
+    </DropDownContainer>
   );
 };
 
