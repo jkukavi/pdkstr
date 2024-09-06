@@ -15,6 +15,44 @@ import { Player as AudioPlayer } from "components/AudioShelf/Player";
 import { PlayingQueue } from "components/AudioShelf/PlayingQueue";
 import { PlaylistSidebar } from "components/PlaylistSidebar";
 import { useHistory } from "react-router-dom";
+import styled, { css } from "styled-components";
+
+const Card = styled.div`
+  will-change: transform;
+  backface-visibility: none;
+  width: 16.6rem;
+  height: 20.6rem;
+  margin: 0 0.3rem 1rem;
+  padding: 0.3rem;
+  background-color: rgb(199, 61, 61);
+  box-shadow: 1px 2px 2px 1px rgb(27 27 27);
+  transition: transform 0.3s, box-shadow 0.1s;
+  /* transform: scale(1) rotate(0.02deg); */
+  border-radius: 7px;
+
+  &:hover {
+    transform: scale(1.01) rotate(0.02deg);
+    box-shadow: 1px 2px 4px 1px rgb(27 27 27 / 78%);
+  }
+`;
+
+const ChannelCard = styled(Card)`
+  display: block;
+  background-color: #f1a12b;
+  align-items: center;
+`;
+
+const PlaylistCard = styled(ChannelCard)`
+  text-align: center;
+`;
+
+const CardThumbnail = styled.div`
+  cursor: pointer;
+  height: 12rem;
+  width: 16rem;
+  border-radius: 5px;
+  position: relative;
+`;
 
 const AddToFavouritesButton = ({
   item,

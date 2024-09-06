@@ -1110,6 +1110,25 @@ button:active.small {
   background-color: white;
 }
 */
+/* CARD CONTAINER */
+
+.cardContainer {
+  overscroll-behavior: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100vh;
+  width: 100vw;
+  padding: 3.8rem 0.3rem 6.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cardContainer.expanded {
+  padding: 6.5rem 0.3rem 12.6rem;
+}
+
+/* CARD */
 .card {
   will-change: transform;
   backface-visibility: none;
@@ -1123,6 +1142,197 @@ button:active.small {
   /* transform: scale(1) rotate(0.02deg); */
   border-radius: 7px;
 }
+
+.card:hover {
+  transform: scale(1.01) rotate(0.02deg);
+  box-shadow: 1px 2px 4px 1px rgb(27 27 27 / 78%);
+}
+
+/* CARD THUMBNAIL */
+
+.card .thumbnail {
+  cursor: pointer;
+  height: 12rem;
+  width: 16rem;
+  border-radius: 5px;
+  position: relative;
+}
+
+.card .thumbnail .image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  object-fit: cover;
+}
+
+.card .thumbnail .playButton {
+  filter: invert(1);
+  width: 65px;
+  height: 65px;
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.2s;
+  filter: drop-shadow(2px 4px 3px black);
+}
+
+.card .thumbnail:hover .playButton {
+  z-index: 3;
+  opacity: 1;
+}
+
+.card .thumbnail .overlay {
+  transition: filter 0.2s;
+  filter: brightness(1);
+  width: 100%;
+  height: 100%;
+}
+
+.card .thumbnail:hover .overlay {
+  filter: brightness(0.6);
+}
+
+/* AUTHOR THUMBNAIL */
+
+.authorThumbnail {
+  cursor: pointer;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  background-position: center;
+  background-size: contain;
+  margin-right: 0.5rem;
+  box-shadow: 2px 2px 2px black;
+  transition: box-shadow 0.2s, border 0.5s;
+}
+
+.authorThumbnail:hover {
+  box-shadow: 1px 1px 1px black;
+}
+
+/* DESC */
+
+.descContainer {
+  padding: 0 0.6rem 0;
+}
+
+.desc.title {
+  font-weight: 600;
+  height: 3rem;
+}
+
+.desc.channelName {
+  max-width: 90px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.channelDescAndPlaylist {
+  display: inline-flex;
+  width: 105%;
+  justify-content: space-between;
+}
+
+.channelDesc {
+  margin-right: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-around;
+}
+
+.channelDesc p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* DESC, METADATA*/
+
+.descContainer .metadata {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.metadata p {
+  font-size: 0.8rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 33%;
+}
+
+/* ADD TO PLAYLIST */
+
+.addToPlaylistIcon {
+  margin-right: 3px;
+  transition: background-color 0.2s;
+  border-radius: 3px;
+  cursor: pointer;
+  width: 33px;
+  height: 33px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addToPlaylistIcon img {
+  height: 80%;
+  width: 80%;
+}
+
+.addToPlaylistIcon:hover {
+  background-color: #f1a12b;
+  box-shadow: 1px 1px 2px black;
+}
+
+.addToPlaylistIcon.playlist:hover {
+  background-color: rgb(199, 61, 61);
+  box-shadow: 1px 1px 2px black;
+}
+
+/* LARGE CARDS */
+
+.card.channel {
+  display: block;
+  background-color: #f1a12b;
+  align-items: center;
+}
+
+.card.playlist {
+  display: block;
+  background-color: #f1a12b;
+  align-items: center;
+  text-align: center;
+}
+
+.card.channel .thumbnail {
+  width: 14rem;
+  height: 14rem;
+  border-radius: 50%;
+  margin: 0.5rem auto 0;
+}
+
+.card.channel .descContainer {
+  margin-top: 1.8rem;
+}
+
+.card.channel p {
+  width: fit-content;
+  max-width: 14rem;
+  margin: auto;
+}
+
+/* SMALL CARDS */
 
 .card.csmall {
   height: 8.5rem;
@@ -1208,200 +1418,7 @@ button:active.small {
   font-size: 16px;
   align-self: flex-start;
 }
-
-.card:hover {
-  transform: scale(1.01) rotate(0.02deg);
-  box-shadow: 1px 2px 4px 1px rgb(27 27 27 / 78%);
-}
-
-.card.channel {
-  display: block;
-  background-color: #f1a12b;
-  align-items: center;
-}
-
-.card.playlist {
-  display: block;
-  background-color: #f1a12b;
-  align-items: center;
-  text-align: center;
-}
-
-.card.channel .thumbnail {
-  width: 14rem;
-  height: 14rem;
-  border-radius: 50%;
-  margin: 0.5rem auto 0;
-}
-
-.card.channel .descContainer {
-  margin-top: 1.8rem;
-}
-
-.card.channel p {
-  width: fit-content;
-  max-width: 14rem;
-  margin: auto;
-}
-
-.cardContainer {
-  overscroll-behavior: auto;
-  overflow-x: hidden;
-  overflow-y: auto;
-  height: 100vh;
-  width: 100vw;
-  padding: 3.8rem 0.3rem 6.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.cardContainer.expanded {
-  padding: 6.5rem 0.3rem 12.6rem;
-}
-
-.card .thumbnail {
-  cursor: pointer;
-  height: 12rem;
-  width: 16rem;
-  border-radius: 5px;
-  position: relative;
-}
-
-.card .thumbnail .image {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  object-fit: cover;
-}
-
-.card .thumbnail .playButton {
-  filter: invert(1);
-  width: 65px;
-  height: 65px;
-  opacity: 0;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.2s;
-  filter: drop-shadow(2px 4px 3px black);
-}
-
-.card .thumbnail:hover .playButton {
-  z-index: 3;
-  opacity: 1;
-}
-
-.card .thumbnail .overlay {
-  transition: filter 0.2s;
-  filter: brightness(1);
-  width: 100%;
-  height: 100%;
-}
-
-.card .thumbnail:hover .overlay {
-  filter: brightness(0.6);
-}
-
-.descContainer {
-  padding: 0 0.6rem 0;
-}
-
-.desc.title {
-  font-weight: 600;
-  height: 3rem;
-}
-
-.desc.channelName {
-  max-width: 90px;
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-
-.channelDescAndPlaylist {
-  display: inline-flex;
-  width: 105%;
-  justify-content: space-between;
-}
-
-.channelDesc {
-  margin-right: 0.5rem;
-  display: flex;
-  align-items: center;
-}
-
-.flex {
-  display: flex;
-  justify-content: space-around;
-}
-
-.channelDesc p {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.addToPlaylistIcon {
-  margin-right: 3px;
-  transition: background-color 0.2s;
-  border-radius: 3px;
-  cursor: pointer;
-  width: 33px;
-  height: 33px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.addToPlaylistIcon img {
-  height: 80%;
-  width: 80%;
-}
-
-.addToPlaylistIcon:hover {
-  background-color: #f1a12b;
-  box-shadow: 1px 1px 2px black;
-}
-
-.addToPlaylistIcon.playlist:hover {
-  background-color: rgb(199, 61, 61);
-  box-shadow: 1px 1px 2px black;
-}
-
-.descContainer .metadata {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.metadata p {
-  font-size: 0.8rem;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  max-width: 33%;
-}
-
-.authorThumbnail {
-  cursor: pointer;
-  height: 2rem;
-  width: 2rem;
-  border-radius: 50%;
-  background-position: center;
-  background-size: contain;
-  margin-right: 0.5rem;
-  box-shadow: 2px 2px 2px black;
-  transition: box-shadow 0.2s, border 0.5s;
-}
-
-.authorThumbnail:hover {
-  box-shadow: 1px 1px 1px black;
-}
-
+/* for cards this is the last row */
 .tablePageContainer {
   height: calc(100vh - 2.5rem);
   overflow: hidden auto;
