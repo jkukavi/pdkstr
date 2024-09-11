@@ -17,6 +17,8 @@ import { PlaylistSidebar } from "components/PlaylistSidebar";
 import { useHistory } from "react-router-dom";
 import styled, { css } from "styled-components";
 
+/* Sve dobro provjeri jos jednom */
+
 const Card = styled.div`
   will-change: transform;
   backface-visibility: none;
@@ -52,6 +54,258 @@ const CardThumbnail = styled.div`
   width: 16rem;
   border-radius: 5px;
   position: relative;
+`;
+
+const CardOverlay = styled.div`
+  transition: filter 0.2s;
+  filter: brightness(1);
+  width: 100%;
+  height: 100%;
+  &:hover {
+    filter: brightness(0.6);
+  }
+`;
+
+const CardThumbnailImage = styled.img`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  object-fit: cover;
+`;
+
+const CardThumbanilPlaybutton = styled.img`
+  filter: invert(1);
+  width: 65px;
+  height: 65px;
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.2s;
+  filter: drop-shadow(2px 4px 3px black);
+  &:hover {
+    /* upitno, provjeri ide li tu */
+    z-index: 3;
+    opacity: 1;
+  }
+`;
+
+const DescContainer = styled.div`
+  padding: 0 0.6rem 0;
+`;
+
+const DescTitle = styled.p`
+  font-weight: 600;
+  height: 3rem;
+  /* Provjeri funkcionira li ovo ispod tako, ili moze i bez pa se vuce iz .css filea */
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+const ChannelDescAndPlaylist = styled.div`
+  display: inline-flex;
+  width: 105%;
+  justify-content: space-between;
+`;
+
+const ChannelDesc = styled.div`
+  margin-right: 0.5rem;
+  display: flex;
+  align-items: center;
+`;
+
+const AuthorThumbnail = styled.div`
+  cursor: pointer;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  background-position: center;
+  background-size: contain;
+  margin-right: 0.5rem;
+  box-shadow: 2px 2px 2px black;
+  transition: box-shadow 0.2s, border 0.5s;
+`;
+
+const ChannelDescName = styled.div`
+  max-width: 90px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  &p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+`;
+
+const AddToPlaylistIcon = styled.div`
+  /* provjeri kako od ovog napraviti da je styled.a sa istim stilovima i istim stilovima za sliku */
+  margin-right: 3px;
+  transition: background-color 0.2s;
+  border-radius: 3px;
+  cursor: pointer;
+  width: 33px;
+  height: 33px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &img {
+    height: 80%;
+    width: 80%;
+  }
+`;
+
+const DescContainerMetadata = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  &p {
+    font-size: 0.8rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 33%;
+  }
+`;
+
+const SingleLineText = styled(DescTitle)`
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+`;
+
+/* CHANNEL CARD */
+
+const ChannelCardLabel = styled(DescTitle)`
+  width: fit-content;
+  max-width: 14rem;
+  margin: auto;
+`;
+
+const ChannelCardThumbanail = styled(CardThumbnail)`
+  /* provjeri kako ces rijesiti sliku s istim classom */
+  width: 14rem;
+  height: 14rem;
+  border-radius: 50%;
+  margin: 0.5rem auto 0;
+`;
+
+const ChannelDescContainer = styled(DescContainer)`
+  margin-top: 1.8rem;
+`;
+
+const FlexContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+`;
+
+/* SMALL CARDS */
+
+const SmallCard = styled(Card)`
+  height: 8.5rem;
+  margin-bottom: 8px;
+`;
+
+const SmallCardTitle = styled(DescTitle)`
+  margin: 0px;
+  height: 1.8rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+`;
+
+const SmallThumbnailContainer = styled.div`
+  display: flex;
+  height: 58%;
+`;
+
+const SmallThumbnail = styled(CardThumbnail)`
+  width: 40%;
+  height: 100%;
+`;
+
+const SmallDescContainer = styled(DescContainer)`
+  width: 55%;
+  padding: 0 0 0 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+`;
+
+const SmallChannelDescAndPlaylist = styled(ChannelDescAndPlaylist)`
+  flex-direction: column;
+  gap: 2px;
+`;
+
+const SmallCardMetadata = styled.div`
+  display: flex;
+  width: 30%;
+  min-width: 15.5rem;
+  justify-content: space-around;
+  align-items: center;
+
+  &p {
+    font-size: 0.8rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 33%;
+  }
+`;
+/* SMALL CARD PLAYLIST */
+
+const SmallPlaylistCard = styled(PlaylistCard)`
+  /* Provjeri kako se izradi komponenta, ali od dvije komponente*/
+  height: 8.5rem;
+  margin-bottom: 8px;
+  text-align: left;
+`;
+
+/* SMALL CARD CHANNEL */
+
+const SmallCardChannel = styled(ChannelCard)`
+  /* Provjeri kako se izradi komponenta, ali od dvije komponente*/
+  height: 8.5rem;
+  margin-bottom: 8px;
+`;
+
+const SmallChannelTitle = styled(SmallCardTitle)`
+  /* Dobro provjeri */
+  margin: 0;
+  width: fit-content;
+  max-width: 14rem;
+`;
+
+const SmallThumbanilAndDescChan = styled(SmallThumbnailContainer)`
+  justify-content: flex-start;
+`;
+
+const SmallChannelThumbanil = styled(CardThumbnail)`
+  border-radius: 50%;
+  width: 5.9rem;
+  height: 5.9rem;
+  margin: 0;
+  /* Provjeri za img sa istim classom */
+`;
+
+const ChannelSmallDescContainer = styled(SmallDescContainer)`
+  margin: 0;
+  font-size: 16px;
+  align-self: flex-start;
+  &p {
+    margin: 0;
+    width: fit-content;
+    max-width: 14rem;
+  }
 `;
 
 const AddToFavouritesButton = ({
