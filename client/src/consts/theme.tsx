@@ -2,6 +2,7 @@ import DropDown from "components/Dropdown";
 
 const colors = {
   white: "#ffffff",
+  gray20: "#a7a6a6",
   gray30: "#d0d0d0",
   gray35: "#c7c7c7",
   gray60: "#6b6b6b",
@@ -11,7 +12,9 @@ const colors = {
   gray80: " #343434",
   gray90: "#3d3d3d",
   gray100: "#393838",
+  gray110: "#4e4e4e",
   gray230: "#6e6e6e",
+  gray240: "#2d2d3c",
   black100: "#03030363",
   black110: "#131313",
   darkGray95: " #292929",
@@ -88,6 +91,14 @@ export const theme = {
     backgroundColor: colors.gray80,
     borderColor: colors.gray60,
     linkBackgroundColor: colors.gray70,
+  },
+  table: {
+    container: {
+      backgroundColor: colors.gray240,
+      color: colors.gray20,
+      boxShadow: colors.black,
+    },
+    td_th: { border: colors.gray110 },
   },
 } as const;
 

@@ -6,6 +6,77 @@ import { SearchEngineIcon } from "consts";
 import playButton from "icons/play.svg";
 
 import { Player as AudioPlayer } from "components/AudioShelf/Player";
+import styled from "styled-components";
+
+const TableMain = styled.table`
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100vw;
+  background: ${({ theme }) => theme.table.container.backgroundColor};
+  box-shadow: 2px 2px 1px 0px ${({ theme }) => theme.table.container.boxShadow};
+  color: ${({ theme }) => theme.table.container.color};
+
+  td,
+  th {
+    border: 1px solid ${({ theme }) => theme.table.td_th.border};
+    padding: 8px;
+    position: relative;
+  }
+
+  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+  }
+
+  p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 0;
+  }
+  tbody tr {
+    cursor: pointer;
+    transition: background-color 0.1s;
+  }
+`;
+
+const IndexStyle = styled.span`
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+`;
+
+const IndexContainer = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+`;
+
+const PlayButton = styled.div`
+  opacity: 0;
+  position: relative;
+  height: 20px;
+  width: 20px;
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+`;
+
+const TableRowInfo = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 76vw;
+`;
 
 const Table = ({
   tableTitle,
@@ -33,28 +104,28 @@ const Table = ({
   }, [setListeningTo]);
 
   return (
-    <table id="customers">
+    <TableMain>
       <thead>
         {controls && (
           <tr>
             <th colSpan={2}>
-              <div className="indexContainer">{controls}</div>
+              <IndexContainer>{controls}</IndexContainer>
             </th>
           </tr>
         )}
 
         <tr>
           <th colSpan={2}>
-            <div className="indexContainer">
+            <IndexContainer>
               <span>{tableTitle}</span>
-            </div>
+            </IndexContainer>
           </th>
         </tr>
         <tr>
           <th>
-            <div className="indexContainer">
+            <IndexContainer>
               <span>{"#"}</span>
-            </div>
+            </IndexContainer>
           </th>
           <th>
             <p>{"Title & metadata"}</p>
@@ -71,17 +142,17 @@ const Table = ({
             }}
           >
             <td>
-              <div className="indexContainer">
-                <span className="index">{index}</span>
-                <div className="playButton">
+              <IndexContainer>
+                <IndexStyle>{index}</IndexStyle>
+                <PlayButton>
                   <span>
                     <img src={playButton} alt="X" />
                   </span>
-                </div>
-              </div>
+                </PlayButton>
+              </IndexContainer>
             </td>
             <td>
-              <div className="tableRowInfo">
+              <TableRowInfo>
                 <div className={"playlist title"}>
                   <p>
                     <SearchEngineIcon engine={video.engine} />
@@ -93,12 +164,12 @@ const Table = ({
                   <p>{getViewsString?.(video.views) || "N/A"}</p>•
                   <p>{video.duration}</p>•<p>{video.uploadedAt}</p>
                 </div>
-              </div>
+              </TableRowInfo>
             </td>
           </tr>
         ))}
       </tbody>
-    </table>
+    </TableMain>
   );
 };
 
