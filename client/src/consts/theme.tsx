@@ -1,5 +1,3 @@
-import DropDown from "components/Dropdown";
-
 const colors = {
   white: "#ffffff",
   gray20: "#a7a6a6",
