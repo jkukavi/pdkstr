@@ -1407,42 +1407,42 @@ button:active.small {
   overflow: hidden auto;
 }
 
-#customers {
+/* #customers {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100vw;
   background: #2d2d3c;
   box-shadow: 2px 2px 1px 0px black;
   color: #a7a6a6;
-}
+} */
 
-#customers td,
+/* #customers td,
 #customers th {
   border: 1px solid #4e4e4e;
   padding: 8px;
   position: relative;
-}
+} */
 
-#customers p {
+/* #customers p {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   margin: 0;
-}
+} */
 
-#customers .index {
+/* #customers .index {
   text-align: center;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-}
+} */
 
-#customers .indexContainer {
+/* #customers .indexContainer {
   position: relative;
   display: flex;
   justify-content: center;
-}
+} */
 
 #customers tr.active .playButton {
   opacity: 1;
@@ -1460,25 +1460,25 @@ button:active.small {
   filter: drop-shadow(1px 1px 1px black);
 }
 
-#customers .playButton img {
+/* #customers .playButton img {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-}
+} */
 
-#customers .playButton {
+/* #customers .playButton {
   opacity: 0;
   position: relative;
   height: 20px;
   width: 20px;
-}
+} */
 
-#customers tbody tr {
+/* #customers tbody tr {
   cursor: pointer;
   transition: background-color 0.1s;
-}
+} */
 
 #customers tbody tr.active {
   background-color: #94641b;
@@ -1498,19 +1498,19 @@ button:active.small {
   opacity: 1;
 }
 
-#customers th {
+/* #customers th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-}
+} */
 
-#customers .tableRowInfo {
+/* #customers .tableRowInfo {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   width: 76vw;
-}
+} */
 
 .playlist.title {
   margin-right: 1rem;
