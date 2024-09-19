@@ -1,7 +1,6 @@
-import DropDown from "components/Dropdown";
-
 const colors = {
   white: "#ffffff",
+  gray20: "#858585",
   gray30: "#d0d0d0",
   gray35: "#c7c7c7",
   gray60: " #6b6b6b",
@@ -14,6 +13,8 @@ const colors = {
   gray100: "#393838",
   gray220: "#525252",
   gray230: "#6e6e6e",
+  gray240: "#555555",
+  gray250: "#383838",
   black100: "#03030363",
   black110: "#131313",
   darkGray95: " #292929",
@@ -22,9 +23,24 @@ const colors = {
   black: "#000000",
   orange50: "#db9134",
   purple50: "#5536d0",
+  purple60: "#4b36d0",
+  purple70: "#5c2bf1",
 } as const;
 
 export const theme = {
+  global: {
+    background: {
+      background1: colors.purple60,
+      background2: colors.purple50,
+      background3: colors.purple70,
+    },
+    scrollbar: {
+      color1: colors.gray240,
+      color2: colors.gray250,
+      track: colors.gray250,
+      thumb: { color: colors.gray20, colorHover: colors.gray240 },
+    },
+  },
   button: {
     backgroundColor: colors.gray100,
   },
