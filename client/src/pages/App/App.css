@@ -6,6 +6,10 @@ body {
   position: relative;
 }
 
+h1, h2, h3, p {
+  margin: 0;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
